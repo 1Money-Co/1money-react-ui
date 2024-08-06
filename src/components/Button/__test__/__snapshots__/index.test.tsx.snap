@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="prefix-button p-button p-component"
+    data-pc-name="button"
+    data-pc-section="root"
+  >
+    <span
+      class="p-button-label p-c"
+      data-pc-section="label"
+    >
+       
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
