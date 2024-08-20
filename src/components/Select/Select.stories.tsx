@@ -1,12 +1,11 @@
-import * as React from 'react';
 import { fn } from '@storybook/test';
-import { Radio } from './index';
+import { Select } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Radio> = {
-  title: 'Components/Radio',
-  component: Radio,
+const meta: Meta<typeof Select> = {
+  title: 'Components/Select',
+  component: Select,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
     className: { control: 'text' },
@@ -21,11 +20,11 @@ const meta: Meta<typeof Radio> = {
  
 export default meta;
 
-type Story = StoryObj<typeof Radio>;
+type Story = StoryObj<typeof Select>;
  
 export const Primary: Story = {
   args: {
-    prefixCls: 'radio',
-    children: 'Hello Radio'
+    prefixCls: 'select',
+    children: 'Hello Select'
   },
 };

@@ -1,31 +1,28 @@
 import { memo } from 'react';
-import { Button as PrimeButton } from 'primereact/button';
 import propTypes from 'prop-types';
+import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { ButtonProps } from './interface';
+import type { CalendarProps } from './interface';
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
-  const { children, className, onClick, prefixCls = 'button' } = props;
+export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
+  const { children, className, prefixCls = 'calendar' } = props;
   const classes = classnames(prefixCls);
 
   return (
-    <PrimeButton
+    <PrimeCalendar
       className={classes(void 0, className)}
-      onClick={onClick}
-    >
-      { children }
-    </PrimeButton>
+    />
   );
 };
 
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
-Button.propTypes = {
+Calendar.propTypes = {
   className: propTypes.string,
   prefixCls: propTypes.string
 };
 
-export default memo(Button);
+export default memo(Calendar);

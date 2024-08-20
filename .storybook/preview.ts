@@ -1,4 +1,18 @@
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/react';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
+import 'primereact/resources/themes/lara-light-cyan/theme.css';
+import './tailwind.css';
+
+export const decorators = [
+  withThemeByDataAttribute({
+    themes: {
+      light: 'light',
+      dark: 'dark',
+    },
+    defaultTheme: 'light',
+    attributeName: 'data-mode',
+  }),
+];
 
 const preview: Preview = {
   parameters: {

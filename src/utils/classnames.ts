@@ -15,4 +15,4 @@ export const classnames = (_prefix_: string) => (_prefix?: string) => (
   );
 };
 
-export default classnames('1money-react-ui');
+export default classnames('usd1-react-ui');

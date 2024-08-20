@@ -4,27 +4,28 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'
   ],
   addons: [
-    "@storybook/addon-actions",
-    "@storybook/addon-console",
-    "@storybook/addon-docs",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-knobs",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
-    "@storybook/addon-viewport"
+    '@storybook/addon-actions',
+    '@storybook/addon-console',
+    '@storybook/addon-docs',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-knobs',
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-themes',
+    '@chromatic-com/storybook',
+    '@storybook/addon-interactions',
+    '@storybook/addon-viewport'
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: '@storybook/react-vite',
     options: {}
   },
   docs: {
-    defaultName: "Overview",
+    defaultName: 'Overview',
   },
   staticDirs: ['../public'],
   managerHead: (head) => `

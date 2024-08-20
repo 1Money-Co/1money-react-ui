@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { InputText } from 'primereact/inputtext';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';

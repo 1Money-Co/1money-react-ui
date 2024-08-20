@@ -1,10 +1,8 @@
-import * as React from 'react';
 import { fn } from '@storybook/test';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './index';
 
-import "primereact/resources/themes/lara-light-cyan/theme.css";
 import './style';
 
 const meta: Meta<typeof Button> = {

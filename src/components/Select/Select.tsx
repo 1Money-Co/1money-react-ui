@@ -1,31 +1,30 @@
 import { memo } from 'react';
-import { Button as PrimeButton } from 'primereact/button';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { ButtonProps } from './interface';
+import type { SelectProps } from './interface';
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
-  const { children, className, onClick, prefixCls = 'button' } = props;
+export const Select: FC<PropsWithChildren<SelectProps>> = props => {
+  const { children, className, onClick, prefixCls = 'select' } = props;
   const classes = classnames(prefixCls);
 
   return (
-    <PrimeButton
+    <div
       className={classes(void 0, className)}
       onClick={onClick}
     >
       { children }
-    </PrimeButton>
+    </div>
   );
 };
 
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
-Button.propTypes = {
+Select.propTypes = {
   className: propTypes.string,
   prefixCls: propTypes.string
 };
 
-export default memo(Button);
+export default memo(Select);

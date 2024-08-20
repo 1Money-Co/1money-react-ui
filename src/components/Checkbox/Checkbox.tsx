@@ -1,31 +1,30 @@
-import React, { memo } from 'react';
-import { RadioButton } from 'primereact/radiobutton';
+import { memo } from 'react';
+import { Checkbox as PrimeCheckbox } from 'primereact/checkbox';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { RadioProps } from './interface';
+import type { CheckboxProps } from './interface';
 
-export const Radio: FC<PropsWithChildren<RadioProps>> = props => {
-  const { children, className, onClick, prefixCls = 'radio' } = props;
+export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
+  const { children, className, onClick, prefixCls = 'checkbox' } = props;
   const classes = classnames(prefixCls);
 
   return (
-    <RadioButton
+    <PrimeCheckbox
+      checked={true}
       className={classes(void 0, className)}
       onClick={onClick}
-    >
-      { children }
-    </RadioButton>
+    />
   );
 };
 
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
-Radio.propTypes = {
+Checkbox.propTypes = {
   className: propTypes.string,
   prefixCls: propTypes.string
 };
 
-export default memo(Radio);
+export default memo(Checkbox);
