@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input renders correctly 1`] = `
+exports[`Select renders correctly 1`] = `
 LoadedCheerio {
-  "0": <input
-    class="usd1-react-ui-input p-inputtext p-component"
-    data-pc-name="inputtext"
-    data-pc-section="root"
+  "0": <div
+    class="usd1-react-ui-select"
   />,
   "_root": LoadedCheerio {
     "0": Document {

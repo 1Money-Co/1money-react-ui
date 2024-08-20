@@ -3,7 +3,7 @@
 exports[`Button renders correctly 1`] = `
 LoadedCheerio {
   "0": <button
-    class="prefix-button p-button p-component"
+    class="usd1-react-ui-button p-button p-component"
     data-pc-name="button"
     data-pc-section="root"
   >

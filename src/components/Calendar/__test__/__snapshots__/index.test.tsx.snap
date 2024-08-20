@@ -1,12 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input renders correctly 1`] = `
+exports[`Calendar renders correctly 1`] = `
 LoadedCheerio {
-  "0": <input
-    class="usd1-react-ui-input p-inputtext p-component"
-    data-pc-name="inputtext"
+  "0": <span
+    class="usd1-react-ui-calendar p-calendar p-component p-inputwrapper"
+    data-pc-name="calendar"
     data-pc-section="root"
-  />,
+  >
+    <input
+      aria-autocomplete="none"
+      aria-controls="null_panel"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      autocomplete="off"
+      class="p-inputtext p-component p-inputtext p-component"
+      data-pc-name="inputtext"
+      data-pc-section="root"
+      inputmode="none"
+      role="combobox"
+      type="text"
+    />
+  </span>,
   "_root": LoadedCheerio {
     "0": Document {
       "children": [

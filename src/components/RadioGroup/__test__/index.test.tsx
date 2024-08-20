@@ -8,7 +8,12 @@ configure({ adapter: new Adapter() });
 describe('RadioGroup', () => {
   it('renders correctly', () => {
     const wrapper = render(
-      <RadioGroup />
+      <RadioGroup items={[
+        { name: 'US', key: 'USA', label: 'USA' },
+        { name: 'CA', key: 'Canada', label: 'Canada', autoFocus: true },
+        { name: 'MX', key: 'Mexico', label: 'Mexico' },
+        { name: 'BR', key: 'Brazil', label: 'Brazil' },
+      ]} />
     );
     expect(wrapper).toMatchSnapshot();
   });
