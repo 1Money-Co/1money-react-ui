@@ -1,6 +1,0 @@
-import{j as l}from"./jsx-runtime-DEdD30eg.js";import{r as d}from"./index-RYns6xqu.js";import{I as u}from"./inputtext.esm--l4iG12P.js";import{P as e}from"./index-rNTiGNI1.js";import{c as f}from"./classnames-JHuVH38I.js";import"./tooltip.esm--Muwy-gU.js";import"./index-D16Yfzz8.js";const r=p=>{const{children:a,className:i,prefixCls:m="input"}=p,c=f(m);return l.jsx(u,{className:c(void 0,i),children:a})};r.propTypes={className:e.string,prefixCls:e.string};d.memo(r);r.__docgenInfo={description:"",methods:[],displayName:"Input",props:{className:{required:!1,tsType:{name:"string"},description:"",type:{name:"string"}},prefixCls:{required:!1,tsType:{name:"string"},description:"",type:{name:"string"}}}};const h={title:"Components/Input",component:r,argTypes:{className:{control:"text"},prefixCls:{control:"text"}},args:{prefixCls:"button"},tags:["autodocs"]},s={args:{prefixCls:"input",children:"Hello Input"}};var t,o,n;s.parameters={...s.parameters,docs:{...(t=s.parameters)==null?void 0:t.docs,source:{originalSource:`{
-  args: {
-    prefixCls: 'input',
-    children: 'Hello Input'
-  }
-}`,...(n=(o=s.parameters)==null?void 0:o.docs)==null?void 0:n.source}}};const P=["Primary"];export{s as Primary,P as __namedExportsOrder,h as default};
