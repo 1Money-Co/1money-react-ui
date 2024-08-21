@@ -1,6 +1,5 @@
+import type { ButtonProps as PrimeButtonProps } from 'primereact/button';
 
-export interface ButtonProps {
-  className?: string;
+export interface ButtonProps extends Omit<PrimeButtonProps, 'label'> {
   prefixCls?: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
 }

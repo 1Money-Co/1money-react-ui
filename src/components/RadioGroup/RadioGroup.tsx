@@ -7,7 +7,7 @@ import type { FC, PropsWithChildren } from 'react';
 import type { RadioGroupProps } from './interface';
 
 export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
-  const { items, wrapperCls, innerCls, radioCls, prefixCls = 'radiogroup' } = props;
+  const { items = [], onChange, wrapperCls, innerCls, radioCls, prefixCls = 'radiogroup' } = props;
   const classes = classnames(prefixCls);
   const defaultSelected = useMemo(() => items.find(item => !!item.autoFocus), [items]);
   const [selected, setSelected] = useState<(typeof items)[number] | undefined>(defaultSelected);
@@ -22,7 +22,10 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
             inputId={key}
             value={item}
             className={classes('inner-radio', radioCls)}
-            onChange={e => setSelected(e.value)}
+            onChange={e => {
+              onChange?.(e.value);
+              setSelected(e.value);
+            }}
             checked={selected?.key === key}
           />
           {item?.label && <label htmlFor={key}>{label}</label>} 

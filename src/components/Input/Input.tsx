@@ -1,5 +1,9 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { InputText } from 'primereact/inputtext';
+import { InputNumber } from 'primereact/inputnumber';
+import { InputMask } from 'primereact/inputmask';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { InputOtp } from 'primereact/inputotp';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
@@ -7,15 +11,31 @@ import type { FC, PropsWithChildren } from 'react';
 import type { InputProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
-  const { children, className, prefixCls = 'input' } = props;
+  const { type, className, prefixCls = 'input', ...rest } = props;
   const classes = classnames(prefixCls);
 
+  const InputComponent = useMemo(() => {
+    switch (type) {
+      case 'text':
+        return InputText;
+      case 'number':
+        return InputNumber as new () => InputNumber;
+      case 'mask':
+        return InputMask as new () => InputMask;
+      case 'textarea':
+        return InputTextarea;
+      case 'otp':
+        return InputOtp;
+      default:
+        return InputText;
+    }
+  }, [type]);
+
   return (
-    <InputText
+    <InputComponent
+      {...rest as any}
       className={classes(void 0, className)}
-    >
-      { children }
-    </InputText>
+    />
   );
 };
 

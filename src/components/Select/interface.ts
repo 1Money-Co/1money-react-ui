@@ -1,6 +1,16 @@
+import { DropdownProps } from 'primereact/dropdown';
+import { MultiSelectProps as PrimeMultiSelectProps } from 'primereact/multiselect';
 
-export interface SelectProps {
-  className?: string;
+interface BaseProps {
   prefixCls?: string;
-  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => any;
 }
+
+export interface SingleSelectProps extends Omit<DropdownProps, 'value'>, BaseProps {
+  multiple?: false;
+}
+
+export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value'>, BaseProps {
+  multiple: true;
+}
+
+export type SelectProps = SingleSelectProps | MultiSelectProps;

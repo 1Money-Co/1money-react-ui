@@ -8,7 +8,13 @@ configure({ adapter: new Adapter() });
 describe('Select', () => {
   it('renders correctly', () => {
     const wrapper = render(
-      <Select />
+      <Select options={[
+        { label: 'New York', value: 'NY' },
+        { label: 'Rome', value: 'RM' },
+        { label: 'London', value: 'LDN' },
+        { label: 'Istanbul', value: 'IST' },
+        { label: 'Paris', value: 'PRS' }
+      ]} />
     );
     expect(wrapper).toMatchSnapshot();
   });

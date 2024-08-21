@@ -27,6 +27,34 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     prefixCls: 'button',
-    children: 'Hello Button'
+    children: 'Primary'
+  },
+  tags: ['!autodocs', 'dev']
+};
+
+export const Rounded: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Rounded',
+    severity: 'success',
+    rounded: true
+  },
+};
+
+export const Text: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Text',
+    severity: 'info',
+    text: true
+  },
+};
+
+export const Outlined: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Outlined',
+    severity: 'warning',
+    outlined: true
   },
 };

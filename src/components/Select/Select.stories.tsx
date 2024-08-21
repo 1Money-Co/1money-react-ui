@@ -9,7 +9,7 @@ const meta: Meta<typeof Select> = {
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
     className: { control: 'text' },
-    prefixCls: { control: 'text' },
+    prefixCls: { control: 'text' }
   },
   args: {
     prefixCls: 'button',
@@ -21,10 +21,30 @@ const meta: Meta<typeof Select> = {
 export default meta;
 
 type Story = StoryObj<typeof Select>;
- 
-export const Primary: Story = {
+
+const cities = [
+  { label: 'New York', value: 'NY' },
+  { label: 'Rome', value: 'RM' },
+  { label: 'London', value: 'LDN' },
+  { label: 'Istanbul', value: 'IST' },
+  { label: 'Paris', value: 'PRS' }
+];
+
+export const Single: Story = {
   args: {
     prefixCls: 'select',
-    children: 'Hello Select'
+    placeholder: 'Select City',
+    options: cities
+  },
+  tags: ['!autodocs', 'dev'],
+};
+
+export const Multiple: Story = {
+  args: {
+    prefixCls: 'select',
+    placeholder: 'Select Cities',
+    multiple: true,
+    options: cities,
+    display: 'chip'
   },
 };

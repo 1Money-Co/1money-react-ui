@@ -8,7 +8,12 @@ configure({ adapter: new Adapter() });
 describe('Checkbox', () => {
   it('renders correctly', () => {
     const wrapper = render(
-      <Checkbox />
+      <Checkbox items={[
+        { name: 'C', key: 'Cheese', label: 'Cheese' },
+        { name: 'M', key: 'Mushroom', label: 'Mushroom', autoFocus: true },
+        { name: 'P', key: 'Pepper', label: 'Pepper' },
+        { name: 'O', key: 'Onion', label: 'Onion' },
+      ]} />
     );
     expect(wrapper).toMatchSnapshot();
   });

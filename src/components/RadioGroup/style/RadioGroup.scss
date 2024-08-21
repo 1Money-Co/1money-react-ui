@@ -9,9 +9,14 @@
     align-items: center;
     margin-right: 12px;
 
+    &-checkbox {
+      align-self: flex-start;
+    }
+
     label {
       margin-left: 8px;
       cursor: pointer;
+      user-select: none;
     }
   }
 }

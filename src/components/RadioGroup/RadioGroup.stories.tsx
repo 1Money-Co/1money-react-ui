@@ -15,6 +15,7 @@ const meta: Meta<typeof RadioGroup> = {
   },
   args: {
     prefixCls: 'radiogroup',
+    onChange: fn(),
   },
   tags: ['autodocs'],
 };
@@ -23,7 +24,7 @@ export default meta;
 
 type Story = StoryObj<typeof RadioGroup>;
  
-export const Primary: Story = {
+export const Group: Story = {
   args: {
     items: [
       { name: 'US', key: 'USA', label: 'USA' },
