@@ -4,6 +4,8 @@ import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { InputOtp } from 'primereact/inputotp';
+import { Password } from 'primereact/password';
+import { AutoComplete } from 'primereact/autocomplete';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
@@ -26,6 +28,10 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         return InputTextarea;
       case 'otp':
         return InputOtp;
+      case 'password':
+        return Password as new () => Password;
+      case 'autocomplete':
+        return AutoComplete as new () => AutoComplete;
       default:
         return InputText;
     }
@@ -43,7 +49,6 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 Input.propTypes = {
-  className: propTypes.string,
   prefixCls: propTypes.string
 };
 

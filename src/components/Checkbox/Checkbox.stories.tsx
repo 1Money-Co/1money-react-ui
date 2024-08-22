@@ -16,7 +16,7 @@ const meta: Meta<typeof Checkbox> = {
   },
   args: {
     prefixCls: 'checkbox',
-    onChange: fn(),
+    onChange: fn() as any
   },
   tags: ['autodocs'],
 };
@@ -39,6 +39,16 @@ export const Single: Story = {
   tags: ['!autodocs', 'dev'],
 };
 
+export const SingleTristate: Story = {
+  args: {
+    tristate: true,
+    items: [
+      { name: 'State', key: 'Status', label: 'Change State' },
+    ],
+    prefixCls: 'checkbox',
+  }
+};
+
 export const Multiple: Story = {
   args: {
     items: [
@@ -47,6 +57,22 @@ export const Multiple: Story = {
       { name: 'P', key: 'Pepper', label: 'Pepper' },
       { name: 'O', key: 'Onion', label: 'Onion' },
     ],
+    prefixCls: 'checkbox',
+  },
+};
+
+export const MultipleTristate: Story = {
+  args: {
+    tristate: true,
+    items: [
+      { name: 'A', key: 'Audi', label: 'Audi' },
+      { name: 'B', key: 'BWM', label: 'BWM' },
+      { name: 'B', key: 'Benz', label: 'Mercedes-Benz', defaultValue: true },
+      { name: 'L', key: 'Lexus', label: 'Lexus' },
+    ],
+    onChange(itemsState) {
+      console.info('itemsState', itemsState);
+    },
     prefixCls: 'checkbox',
   },
 };

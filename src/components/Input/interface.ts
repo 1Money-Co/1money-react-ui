@@ -3,6 +3,8 @@ import type { InputNumberProps as PrimeInputNumberProps } from 'primereact/input
 import type { InputMaskProps as PrimeInputMaskProps } from 'primereact/inputmask';
 import type { InputTextareaProps as PrimeInputTextareaProps } from 'primereact/inputtextarea';
 import type { InputOtpProps as PrimeInputOtpProps } from 'primereact/inputotp';
+import type { PasswordProps } from 'primereact/password';
+import type { AutoCompleteProps } from 'primereact/autocomplete';
 
 interface InputBaseProps {
   prefixCls?: string;
@@ -28,4 +30,12 @@ interface InputOtpProps extends PrimeInputOtpProps, InputBaseProps{
   type: 'otp';
 }
 
-export type InputProps = InputTextProps | InputNumberProps | InputMaskProps | InputTextareaProps | InputOtpProps;
+interface InputPwdProps extends PasswordProps, InputBaseProps{
+  type: 'password';
+}
+
+interface InputAutoCompleteProps extends AutoCompleteProps, InputBaseProps{
+  type: 'autocomplete';
+}
+
+export type InputProps = InputTextProps | InputNumberProps | InputMaskProps | InputTextareaProps | InputOtpProps | InputPwdProps | InputAutoCompleteProps;

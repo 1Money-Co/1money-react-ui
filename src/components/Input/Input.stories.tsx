@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Input } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -36,6 +37,32 @@ export const Number: Story = {
     type: 'number',
     prefixCls: 'input',
     variant: 'outlined',
+  },
+};
+
+export const Password: Story = {
+  args: {
+    type: 'password',
+    prefixCls: 'input',
+    variant: 'outlined'
+  },
+};
+
+export const AutoComplete: Story = {
+  args: {
+    type: 'autocomplete',
+    prefixCls: 'input',
+    variant: 'outlined',
+  },
+  render: function Render(args) {
+    const [value, setValue] = useState('');
+    const [advices, setAdvices] = useState<string[]>([]);
+
+    const search = (event) => {
+      setAdvices([...Array(10).keys()].map(item => event.query + '-' + item));
+    }
+ 
+    return <Input {...args as any} type='autocomplete' value={value} suggestions={advices} completeMethod={search} onChange={(e) => setValue(e.value)} />;
   },
 };
 
