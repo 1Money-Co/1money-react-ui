@@ -37,3 +37,97 @@ LoadedCheerio {
   },
 }
 `;
+
+exports[`Input renders correctly 2`] = `ShallowWrapper {}`;
+
+exports[`Input renders correctly 3`] = `ReactWrapper {}`;
+
+exports[`Input renders correctly 4`] = `
+LoadedCheerio {
+  "0": <span
+    class="usd1-react-ui-input p-inputnumber p-component p-inputwrapper"
+    data-pc-name="inputnumber"
+    data-pc-section="root"
+  >
+    <input
+      class="p-inputnumber-input p-inputtext p-component"
+      data-pc-name="inputtext"
+      data-pc-section="root"
+      inputmode="numeric"
+      role="spinbutton"
+      type="text"
+      value=""
+    />
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Input renders correctly 5`] = `ShallowWrapper {}`;
+
+exports[`Input renders correctly 6`] = `ReactWrapper {}`;
+
+exports[`Input renders correctly 7`] = `
+LoadedCheerio {
+  "0": <textarea
+    class="usd1-react-ui-input p-inputtextarea p-inputtext p-component usd1-react-ui-input"
+    data-pc-name="inputtextarea"
+    data-pc-section="root"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

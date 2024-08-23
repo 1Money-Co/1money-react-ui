@@ -1,28 +1,30 @@
 import { memo } from 'react';
 import propTypes from 'prop-types';
-import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { CalendarProps } from './interface';
+import type { MessageProps } from './interface';
 
-export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
-  const { className, prefixCls = 'calendar' } = props;
+export const Message: FC<PropsWithChildren<MessageProps>> = props => {
+  const { children, className, onClick, prefixCls = 'message' } = props;
   const classes = classnames(prefixCls);
 
   return (
-    <PrimeCalendar
+    <div
       className={classes(void 0, className)}
-    />
+      onClick={onClick}
+    >
+      { children }
+    </div>
   );
 };
 
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
-Calendar.propTypes = {
+Message.propTypes = {
   className: propTypes.string,
   prefixCls: propTypes.string
 };
 
-export default memo(Calendar);
+export default memo(Message);

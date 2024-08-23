@@ -7,9 +7,13 @@ configure({ adapter: new Adapter() });
 
 describe('Switch', () => {
   it('renders correctly', () => {
-    const wrapper = render(
+    const NormalSwitch = render(
       <Switch />
     );
-    expect(wrapper).toMatchSnapshot();
+    const ButtonSwitch = render(
+      <Switch type='button' />
+    );
+    expect(NormalSwitch).toMatchSnapshot();
+    expect(ButtonSwitch).toMatchSnapshot();
   });
 });

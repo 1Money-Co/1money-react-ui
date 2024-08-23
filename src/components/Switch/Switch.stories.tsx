@@ -22,9 +22,18 @@ export default meta;
 
 type Story = StoryObj<typeof Switch>;
  
-export const Primary: Story = {
+export const NormalSwitch: Story = {
+  args: {
+    prefixCls: 'switch'
+  },
+  tags: ['!autodocs'],
+};
+
+export const ButtonSwitch: Story = {
   args: {
     prefixCls: 'switch',
-    children: 'Hello Switch'
+    type: 'button',
+    defaultChecked: true,
   },
 };
+

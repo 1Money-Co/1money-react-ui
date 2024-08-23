@@ -39,7 +39,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
         if (!tristate) return;
         setTrivalue(curr => curr === null ? true : curr === true ? false : null);
       }, [tristate]);
-      return <div className={classes('inner', innerCls)}>
+      return <div key={key} className={classes('inner', innerCls)}>
         <CheckBoxComponent
           {...rest as any}
           id={tristate ? key : void 0}

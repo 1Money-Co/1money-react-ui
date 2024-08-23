@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch renders correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    aria-checked="false"
+    class="usd1-react-ui-switch p-inputswitch p-component"
+    data-p-disabled="false"
+    data-p-highlight="false"
+    data-pc-name="inputswitch"
+    data-pc-section="root"
+    role="checkbox"
+  >
+    <input
+      aria-checked="false"
+      class="p-inputswitch-input"
+      data-pc-section="input"
+      role="switch"
+      type="checkbox"
+    />
+    <span
+      class="p-inputswitch-slider"
+      data-pc-section="slider"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Switch renders correctly 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="usd1-react-ui-switch p-togglebutton p-component"
+    data-p-highlight="false"
+    data-pc-name="togglebutton"
+    data-pc-section="root"
+  >
+    <input
+      aria-invalid="false"
+      aria-pressed="false"
+      class="p-togglebutton-input"
+      data-pc-section="input"
+      role="switch"
+      tabindex="0"
+      type="checkbox"
+      value="false"
+    />
+    <div
+      class="p-button p-component"
+      data-pc-section="box"
+    >
+      <span
+        class="p-button-label"
+        data-pc-section="label"
+      >
+        No
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

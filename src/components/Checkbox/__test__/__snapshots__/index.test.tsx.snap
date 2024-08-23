@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox renders correctly 1`] = `
+exports[`Checkbox renders correctly 1`] = `ReactWrapper {}`;
+
+exports[`Checkbox renders correctly 2`] = `
 LoadedCheerio {
   "0": <div
     class="usd1-react-ui-checkbox-wrapper"
@@ -177,3 +179,7 @@ LoadedCheerio {
   },
 }
 `;
+
+exports[`Checkbox renders correctly 3`] = `ReactWrapper {}`;
+
+exports[`Checkbox renders correctly 4`] = `ShallowWrapper {}`;

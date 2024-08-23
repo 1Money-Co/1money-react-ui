@@ -7,7 +7,7 @@ configure({ adapter: new Adapter() });
 
 describe('Select', () => {
   it('renders correctly', () => {
-    const wrapper = render(
+    const single = render(
       <Select options={[
         { label: 'New York', value: 'NY' },
         { label: 'Rome', value: 'RM' },
@@ -16,6 +16,16 @@ describe('Select', () => {
         { label: 'Paris', value: 'PRS' }
       ]} />
     );
-    expect(wrapper).toMatchSnapshot();
+    const multiple = render(
+      <Select options={[
+        { label: 'New York', value: 'NY' },
+        { label: 'Rome', value: 'RM' },
+        { label: 'London', value: 'LDN' },
+        { label: 'Istanbul', value: 'IST' },
+        { label: 'Paris', value: 'PRS' }
+      ]} multiple />
+    );
+    expect(single).toMatchSnapshot();
+    expect(multiple).toMatchSnapshot();
   });
 });
