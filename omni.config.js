@@ -53,7 +53,7 @@ module.exports = {
     autoTag: false,
 
     // 发布的git仓库地址 (project git repo url)
-    git: 'git@github.com:1Money-Co/1money-react-ui.git',
+    git: 'https://github.com/1Money-Co/1money-react-ui.git',
 
     // 发布的npm仓库地址 (npm depository url)
     npm: '',
