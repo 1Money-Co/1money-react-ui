@@ -1,4 +1,4 @@
-import{f as N}from"./index-CERzeK2C.js";import{j as S}from"./jsx-runtime-DEdD30eg.js";import{r}from"./index-RYns6xqu.js";import{C as E,u as b,P as _,a as L,c as R}from"./componentbase.esm-ze5MHZT3.js";import{P as g}from"./index-rNTiGNI1.js";import{c as T}from"./classnames-JHuVH38I.js";import"./index-DZLKizrv.js";var w={root:"p-progress-spinner",spinner:"p-progress-spinner-svg",circle:"p-progress-spinner-circle"},B=`
+import{f as N}from"./index-CERzeK2C.js";import{j as S}from"./jsx-runtime-DEdD30eg.js";import{r}from"./index-RYns6xqu.js";import{C as E,u as b,P as _,h as L,g as R}from"./componentbase.esm-DzE_mzHH.js";import{P as g}from"./index-rNTiGNI1.js";import{c as T}from"./classnames-JHuVH38I.js";import"./index-DZLKizrv.js";var w={root:"p-progress-spinner",spinner:"p-progress-spinner-svg",circle:"p-progress-spinner-circle"},B=`
 @layer primereact {
     .p-progress-spinner {
         position: relative;
