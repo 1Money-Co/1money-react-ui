@@ -1,5 +1,7 @@
+import React, { useRef } from 'react';
 import { fn } from '@storybook/test';
-import { Toast } from './index';
+import { Button } from '../Button';
+import { Toast, ToastClass } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -25,6 +27,17 @@ type Story = StoryObj<typeof Toast>;
 export const Primary: Story = {
   args: {
     prefixCls: 'toast',
-    children: 'Hello Toast'
+  },
+  render: function Render(args) {
+    const toast = useRef<ToastClass>(null);
+ 
+    return <>
+      <Button
+        onClick={() => toast.current?.show({ severity: 'success', summary: 'Success Message', detail: 'Order submitted' })}
+      >
+        Show Toast
+      </Button>
+      <Toast {...args as any} ref={toast} />
+    </>;
   },
 };

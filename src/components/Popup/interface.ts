@@ -1,6 +1,9 @@
+import type { ConfirmPopupProps } from 'primereact/confirmpopup';
 
-export interface PopupProps {
-  className?: string;
+export interface PopupHandlers {
+  show: (params: ConfirmPopupProps) => any;
+}
+
+export interface PopupProps extends ConfirmPopupProps {
   prefixCls?: string;
-  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => any;
 }

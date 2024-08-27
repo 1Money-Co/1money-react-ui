@@ -28,12 +28,4 @@ describe('Popup', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('simulate events', () => {
-    const onClick = sinon.spy(); 
-    const wrapper = mount(
-      <Popup onClick={onClick} />
-    );
-    wrapper.find('div').simulate('click');
-    expect(onClick.called).toBe(true);
-  });
 });

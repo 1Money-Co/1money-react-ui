@@ -24,14 +24,14 @@ console.error = (message, ...optionalParams) => {
 describe('Message', () => {
   it('renders correctly', () => {
     const wrapper = render(
-      <Message />
+      <Message severity="success" />
     );
     expect(wrapper).toMatchSnapshot();
   });
   it('simulate events', () => {
     const onClick = sinon.spy(); 
     const wrapper = mount(
-      <Message onClick={onClick} />
+      <Message severity="error" onClick={onClick} />
     );
     wrapper.find('div').simulate('click');
     expect(onClick.called).toBe(true);

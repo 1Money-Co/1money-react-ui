@@ -1,6 +1,6 @@
 
-export interface MessageProps {
-  className?: string;
+import type { MessageProps as PrimeMessageProps } from 'primereact/message';
+
+export interface MessageProps extends PrimeMessageProps {
   prefixCls?: string;
-  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => any;
 }

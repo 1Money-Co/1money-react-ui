@@ -22,9 +22,35 @@ export default meta;
 
 type Story = StoryObj<typeof Message>;
  
-export const Primary: Story = {
+export const Success: Story = {
   args: {
     prefixCls: 'message',
-    children: 'Hello Message'
+    severity: 'success',
+    text: 'Success Message',
+  },
+  tags: ['!autodocs'],
+};
+
+export const Warn: Story = {
+  args: {
+    prefixCls: 'message',
+    severity: 'warn',
+    text: 'Warning Message',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    prefixCls: 'message',
+    severity: 'error',
+    text: 'Error Message',
+  },
+};
+
+export const Info: Story = {
+  args: {
+    prefixCls: 'message',
+    severity: 'info',
+    text: 'Info Message',
   },
 };

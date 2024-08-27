@@ -1,23 +1,25 @@
-import { memo } from 'react';
+import { memo, forwardRef, useImperativeHandle } from 'react';
+import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
-import type { PopupProps } from './interface';
+import type { PopupProps, PopupHandlers } from './interface';
 
-export const Popup: FC<PropsWithChildren<PopupProps>> = props => {
-  const { children, className, onClick, prefixCls = 'popup' } = props;
+export const Popup = forwardRef<PopupHandlers, PopupProps>((props, ref) => {
+  const { className, prefixCls = 'popup', ...rest } = props;
   const classes = classnames(prefixCls);
 
+  useImperativeHandle(ref, () => ({
+    show: (params) => confirmPopup(params)
+  }), []);
+
   return (
-    <div
+    <ConfirmPopup
+      {...rest}
       className={classes(void 0, className)}
-      onClick={onClick}
-    >
-      { children }
-    </div>
+    />
   );
-};
+});
 
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
