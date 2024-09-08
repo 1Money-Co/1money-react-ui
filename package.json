@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -10,20 +10,74 @@
       "require": "./lib/index.js",
       "types": "./es/index.d.ts"
     },
+    "./index.css": {
+      "import": "./es/index.css",
+      "require": "./lib/index.css"
+    },
     "./Button": {
       "import": "./es/components/Button/index.js",
       "require": "./lib/components/Button/index.js",
       "types": "./es/components/Button/index.d.ts"
+    },
+    "./Calendar": {
+      "import": "./es/components/Calendar/index.js",
+      "require": "./lib/components/Calendar/index.js",
+      "types": "./es/components/Calendar/index.d.ts"
+    },
+    "./Checkbox": {
+      "import": "./es/components/Checkbox/index.js",
+      "require": "./lib/components/Checkbox/index.js",
+      "types": "./es/components/Checkbox/index.d.ts"
+    },
+    "./Collapse": {
+      "import": "./es/components/Collapse/index.js",
+      "require": "./lib/components/Collapse/index.js",
+      "types": "./es/components/Collapse/index.d.ts"
     },
     "./Input": {
       "import": "./es/components/Input/index.js",
       "require": "./lib/components/Input/index.js",
       "types": "./es/components/Input/index.d.ts"
     },
-    "./Radio": {
-      "import": "./es/components/Radio/index.js",
-      "require": "./lib/components/Radio/index.js",
-      "types": "./es/components/Radio/index.d.ts"
+    "./Loading": {
+      "import": "./es/components/Loading/index.js",
+      "require": "./lib/components/Loading/index.js",
+      "types": "./es/components/Loading/index.d.ts"
+    },
+    "./Message": {
+      "import": "./es/components/Message/index.js",
+      "require": "./lib/components/Message/index.js",
+      "types": "./es/components/Message/index.d.ts"
+    },
+    "./Modal": {
+      "import": "./es/components/Modal/index.js",
+      "require": "./lib/components/Modal/index.js",
+      "types": "./es/components/Modal/index.d.ts"
+    },
+    "./Popup": {
+      "import": "./es/components/Popup/index.js",
+      "require": "./lib/components/Popup/index.js",
+      "types": "./es/components/Popup/index.d.ts"
+    },
+    "./RadioGroup": {
+      "import": "./es/components/RadioGroup/index.js",
+      "require": "./lib/components/RadioGroup/index.js",
+      "types": "./es/components/RadioGroup/index.d.ts"
+    },
+    "./Select": {
+      "import": "./es/components/Select/index.js",
+      "require": "./lib/components/Select/index.js",
+      "types": "./es/components/Select/index.d.ts"
+    },
+    "./Switch": {
+      "import": "./es/components/Switch/index.js",
+      "require": "./lib/components/Switch/index.js",
+      "types": "./es/components/Switch/index.d.ts"
+    },
+    "./Toast": {
+      "import": "./es/components/Toast/index.js",
+      "require": "./lib/components/Toast/index.js",
+      "types": "./es/components/Toast/index.d.ts"
     }
   },
   "scripts": {
