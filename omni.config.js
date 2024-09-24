@@ -47,7 +47,7 @@ module.exports = {
 
   release: {
     // 发布之前是否自动构建项目 (auto build project before release process)
-    autoBuild: false,
+    autoBuild: true,
 
     // 发布到npm仓库时，根据当前版本号自动设置 tag (auto set tag according to the current version)
     autoTag: false,
@@ -56,7 +56,7 @@ module.exports = {
     git: 'https://github.com/1Money-Co/1money-react-ui.git',
 
     // 发布的npm仓库地址 (npm depository url)
-    npm: '',
+    npm: 'https://registry.npmjs.org/',
 
     preflight: {
       test: true, // 发布前是否进行单元测试 (whether or not process unit-test)

@@ -1,58 +1,73 @@
 .usd1-react-ui-collapse {
-  &-wrapper {
-    background-color: #FFF;
+  font-family: inherit;
+  background-color: #FFF;
 
-    >.p-accordion-tab {
-      margin-bottom: 0 !important;
-    }
+  >.p-accordion-tab {
+    margin-bottom: 0 !important;
   }
 
-  .p-accordion-tab-active>&-inner {
-    a {
-      font-weight: 600;
-    }
-  }
+  &-item:not(.usd1-react-ui-collapse-item-content) {
+    border-bottom: 0.5px solid #E0E2EE;
+    cursor: pointer;
 
-  &-inner {
-    a {
+    &:hover {
+      background-color: #FAFAFC;
+    }
+
+    .p-accordion-tab-active>& {
+      >a {
+        font-weight: 600;
+      }
+    }
+
+    >a {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
       padding: 30px 40px;
       font-weight: 300;
       font-size: 24px;
       font-style: normal;
       line-height: 30px;
-      background-color: #FFF;
+      background-color: inherit;
       border: none;
-      border-bottom: 0.5px solid #E0E2EE;
-
-      &:hover {
-        background-color: #FAFAFC;
-      }
 
       span {
         margin-left: 40px;
       }
     }
+  }
 
-    &-content {
-      padding: 20px 40px 30px 108px;
-      font-weight: 300;
-      font-size: 20px;
-      font-style: normal;
-      line-height: 32px;
+  &-item-content {
+    padding: 20px 40px 30px 108px;
+    font-weight: 300;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 32px;
 
-      >.p-accordion-content {
-        padding: 0;
-        border: none;
+    >.p-accordion-content {
+      padding: 0;
+      border: none;
 
-        p {
-          margin: 0;
-        }
+      p {
+        margin: 0;
       }
     }
   }
 
   &-icon {
+    display: inline-block;
     width: 24px;
     height: 24px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .usd1-react-ui-collapse {
+    &-item:not(.usd1-react-ui-collapse-item-content) {
+      >a {
+        padding: 20px 0;
+      }
+    }
   }
 }

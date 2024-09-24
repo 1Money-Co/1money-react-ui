@@ -7,13 +7,14 @@ import type { FC, PropsWithChildren } from 'react';
 import type { ButtonProps } from './interface';
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
-  const { children, className, prefixCls = 'button', ...rest } = props;
+  const { children, className = '', prefixCls = 'button', severity, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
     <PrimeButton
       {...rest}
-      className={classes(void 0, className)}
+      severity={severity}
+      className={classes(void 0, [classes(`${severity ? severity : 'primary'}`), className].join(' '))}
     >
       { children }
     </PrimeButton>

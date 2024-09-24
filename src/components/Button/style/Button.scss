@@ -1,3 +1,34 @@
 .usd1-react-ui-button {
   display: inline-flex;
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  box-shadow: none;
+
+  &-primary {
+    color: #FFF;
+    background-color: #142D66;
+    border: none;
+
+    &:hover {
+      background-color: #183699;
+    }
+  }
+
+  &-secondary {
+    color: #000;
+    background-color: #E5EFFF;
+    border: none;
+
+    &:hover {
+      background-color: #cdf;
+    }
+  }
+
+  &.p-disabled {
+    color: #808080;
+    background-color: #E0E2EE;
+    cursor: not-allowed;
+  }
 }

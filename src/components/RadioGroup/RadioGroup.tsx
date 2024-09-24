@@ -14,11 +14,12 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
 
   return <div className={classes('wrapper', [wrapperCls, 'tw-flex'].join(''))}>
     {items.map(item => {
-      const { key, label, ...rest } = item;
+      const { key, label, required, ...rest } = item;
       return (
         <div key={key} className={classes('inner', innerCls)}>
           <RadioButton
             {...rest}
+            required={required}
             inputId={key}
             value={item}
             className={classes('inner-radio', radioCls)}

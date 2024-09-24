@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
@@ -8,29 +8,30 @@ import type { FC, PropsWithChildren } from 'react';
 import type { CollapseProps } from './interface';
 
 export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
-  const { items = [], wrapperCls, prefixCls = 'collapse', ...rest } = props;
+  const { items, wrapperCls, itemCls, contentCls, prefixCls = 'collapse', ...rest } = props;
   const classes = classnames(prefixCls);
+
+  const getCollapseItem = useCallback(() => items.map(({ children, key, ...rest }, ind) => <AccordionTab
+    {...rest}
+    key={key || ind}
+    className={classes('item', itemCls)}
+    contentClassName={classes('item-content', contentCls)}
+  >
+    { children }
+  </AccordionTab>), [items]);
 
   return (
     <Accordion
       {...rest}
-      className={classes('wrapper', wrapperCls)}
+      className={classes(void 0, wrapperCls)}
       expandIcon={<i className={classes('icon')}><ExpandIcon /></i>}
       collapseIcon={<i className={classes('icon')}><CollapseIcon /></i>}
+      transitionOptions={{ 
+        timeout: 0,
+        disabled: true
+      }}
     >
-      {
-        items.map((item) => {
-          const { key, children, ...itemRest } = item;
-          return <AccordionTab
-            {...itemRest}
-            key={key}
-            className={classes('inner')}
-            contentClassName={classes('inner-content')}
-          >
-            { children }
-          </AccordionTab>;
-        })
-      }
+      { getCollapseItem() }
     </Accordion>
   );
 };
@@ -39,9 +40,9 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 Collapse.propTypes = {
-  items: propTypes.array.isRequired,
   wrapperCls: propTypes.string,
-  innerCls: propTypes.string,
+  itemCls: propTypes.string,
+  contentCls: propTypes.string,
   prefixCls: propTypes.string
 };
 

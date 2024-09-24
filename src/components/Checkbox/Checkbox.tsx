@@ -33,7 +33,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
 
   return <div className={classes('wrapper', wrapperCls)}>
     {items.map(item => {
-      const { key, defaultValue = null, label, onChange, ...rest } = item;
+      const { key, required, defaultValue = null, label, onChange, ...rest } = item;
       const [trivalue, setTrivalue] = useState(defaultValue);
       const handleLabelClick = useCallback(() => {
         if (!tristate) return;
@@ -45,6 +45,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
           id={tristate ? key : void 0}
           inputId={key}
           value={tristate ? trivalue : key}
+          required={required}
           checked={tristate ? void 0 : checkedItems.includes(key)}
           className={classes('inner-checkbox', checkboxCls)}
           onChange={e => {

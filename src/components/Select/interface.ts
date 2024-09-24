@@ -3,6 +3,9 @@ import { MultiSelectProps as PrimeMultiSelectProps } from 'primereact/multiselec
 
 interface BaseProps {
   prefixCls?: string;
+  wrapperCls?: string;
+  label?: string;
+  required?: boolean;
 }
 
 export interface SingleSelectProps extends Omit<DropdownProps, 'value'>, BaseProps {

@@ -7,6 +7,11 @@ module.exports = {
   ],
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
+    screens: {
+      md: '481px',
+      lg: '769px',
+      xl: '1280px',
+    },
     spacing: {
       1: 'var(--space-1, 4px)',
       2: 'var(--space-2, 8px)',
@@ -66,7 +71,34 @@ module.exports = {
         300: '#9c184c'
       },
     },
-    extend: {},
+    borderRadius: {
+      none: '0',
+      xxs: '1px',
+      xs: '2px',
+      s: '4px',
+      sm: '6px',
+      m: '10px',
+      ml: '16px',
+      lg: '24px',
+      xl: '32px',
+      round: '50%',
+    },
+    extend: {
+      spacing: {
+        'base': '16px',
+        'xxs': '2px',
+        'xs': '4px',
+        's': '8px',
+        'sm': '10px',
+        'm': '14px',
+        'ml': '24px',
+        'l': '28px',
+        'xl': '40px',
+        '2xl': '100px',
+        '3xl': '140px',
+        '4xl': '240px',
+      }
+    },
   },
   plugins: [],
 }

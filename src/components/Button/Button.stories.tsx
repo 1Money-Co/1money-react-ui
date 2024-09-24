@@ -32,6 +32,22 @@ export const Primary: Story = {
   tags: ['!autodocs', 'dev']
 };
 
+export const Secondary: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Secondary',
+    severity: 'secondary'
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Disabled',
+    disabled: true
+  }
+};
+
 export const Rounded: Story = {
   args: {
     prefixCls: 'button',

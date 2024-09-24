@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useCallback } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
@@ -10,10 +10,10 @@ import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { InputProps } from './interface';
+import type { InputProps, InputOtpProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
-  const { type, className, prefixCls = 'input', ...rest } = props;
+  const { label, required, type = 'text', className = '', prefixCls = 'input', wrapperCls, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const InputComponent = useMemo(() => {
@@ -27,7 +27,14 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       case 'textarea':
         return InputTextarea;
       case 'otp':
-        return InputOtp;
+        // eslint-disable-next-line no-case-declarations
+        const CustomInputOpt = useCallback((_props: InputOtpProps) => {
+          const { className: _className, ..._rest } = _props;
+          return <div className={_className}>
+            <InputOtp{..._rest as any}/>
+          </div>;
+        }, []);
+        return CustomInputOpt;
       case 'password':
         return Password as new () => Password;
       case 'autocomplete':
@@ -38,10 +45,14 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
   }, [type]);
 
   return (
-    <InputComponent
-      {...rest as any}
-      className={classes(void 0, className)}
-    />
+    <div className={classes('wrapper', wrapperCls)}>
+      {label && <span className={classes('label', required ? classes('label-required') : '')}>{label}</span>}
+      <InputComponent
+        {...rest as any}
+        required={required}
+        className={classes(void 0, [`usd1-react-ui-input-${type}`, className].join(' '))}
+      />
+    </div>
   );
 };
 
@@ -49,7 +60,10 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 Input.propTypes = {
-  prefixCls: propTypes.string
+  label: propTypes.string,
+  required: propTypes.bool,
+  prefixCls: propTypes.string,
+  wrapperCls: propTypes.string
 };
 
 export default memo(Input);

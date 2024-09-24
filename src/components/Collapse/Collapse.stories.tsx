@@ -10,7 +10,7 @@ const meta: Meta<typeof Collapse> = {
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
     wrapperCls: { control: 'text' },
-    innerCls: { control: 'text' },
+    itemCls: { control: 'text' },
     prefixCls: { control: 'text' },
   },
   args: {
