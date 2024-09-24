@@ -1,4 +1,58 @@
-.prefix-collapse {
-  display: block;
-  color: blue;
+.usd1-react-ui-collapse {
+  &-wrapper {
+    background-color: #FFF;
+
+    >.p-accordion-tab {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .p-accordion-tab-active>&-inner {
+    a {
+      font-weight: 600;
+    }
+  }
+
+  &-inner {
+    a {
+      padding: 30px 40px;
+      font-weight: 300;
+      font-size: 24px;
+      font-style: normal;
+      line-height: 30px;
+      background-color: #FFF;
+      border: none;
+      border-bottom: 0.5px solid #E0E2EE;
+
+      &:hover {
+        background-color: #FAFAFC;
+      }
+
+      span {
+        margin-left: 40px;
+      }
+    }
+
+    &-content {
+      padding: 20px 40px 30px 108px;
+      font-weight: 300;
+      font-size: 20px;
+      font-style: normal;
+      line-height: 32px;
+
+      >.p-accordion-content {
+        padding: 0;
+        border: none;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &-icon {
+    width: 24px;
+    height: 24px;
+  }
 }

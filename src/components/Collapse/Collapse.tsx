@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
+import { ExpandIcon, CollapseIcon } from './Icons';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { CollapseProps } from './interface';
@@ -14,6 +15,8 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
     <Accordion
       {...rest}
       className={classes('wrapper', wrapperCls)}
+      expandIcon={<i className={classes('icon')}><ExpandIcon /></i>}
+      collapseIcon={<i className={classes('icon')}><CollapseIcon /></i>}
     >
       {
         items.map((item) => {
@@ -22,6 +25,7 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
             {...itemRest}
             key={key}
             className={classes('inner')}
+            contentClassName={classes('inner-content')}
           >
             { children }
           </AccordionTab>;

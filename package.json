@@ -142,7 +142,7 @@
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@chromatic-com/storybook": "^1.6.1",
     "@commitlint/cli": "8.3.5",
-    "@omni-door/cli": "^2.9.13",
+    "@omni-door/cli": "^2.9.15",
     "@storybook/addon-actions": "^8.2.9",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.2.9",
