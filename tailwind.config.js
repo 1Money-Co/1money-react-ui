@@ -3,7 +3,8 @@
 module.exports = {
   prefix: 'tw-',
   content: [
-    './src/**/*.{html,js,jsx,ts,tsx}'
+    './src/**/*.{html,js,jsx,ts,tsx}',
+    "./node_modules/primereact/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {

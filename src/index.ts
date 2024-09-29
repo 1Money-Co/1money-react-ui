@@ -4,6 +4,7 @@ import { Checkbox } from './components/Checkbox';
 import { Collapse } from './components/Collapse';
 import { Input } from './components/Input';
 import { Loading } from './components/Loading';
+import { Menu } from './components/Menu';
 import { Message } from './components/Message';
 import { Modal } from './components/Modal';
 import { Popup } from './components/Popup';
@@ -18,6 +19,7 @@ export { Checkbox } from './components/Checkbox';
 export { Collapse } from './components/Collapse';
 export { Input } from './components/Input';
 export { Loading } from './components/Loading';
+export { Menu } from './components/Menu';
 export { Message } from './components/Message';
 export { Modal } from './components/Modal';
 export { Popup } from './components/Popup';
@@ -33,6 +35,7 @@ export default {
   Collapse,
   Input,
   Loading,
+  Menu,
   Message,
   Modal,
   Popup,
