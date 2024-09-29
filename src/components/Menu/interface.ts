@@ -1,6 +1,7 @@
 
-import type { MenuProps as PrimeMenuProps } from 'primereact/menu';
+import type { MenuProps as PrimeMenuProps, Menu } from 'primereact/menu';
 
+export type { Menu as MenuClass };
 export interface MenuProps extends PrimeMenuProps {
   className?: string;
   prefixCls?: string;
