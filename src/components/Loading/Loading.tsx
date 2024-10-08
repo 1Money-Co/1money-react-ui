@@ -15,13 +15,15 @@ export const Loading: FC<LoadingProps> = props => {
 
   useEffect(() => {
     if (!container.current) return;
-    lottie.loadAnimation({
+    const instance =lottie.loadAnimation({
       container: container.current,
       renderer: 'svg',
       loop: true,
       autoplay: true,
       animationData: lottieJson
     });
+
+    return () => instance.destroy();
   }, []);
 
   return <div ref={container} className={classes(void 0, className)} />;
