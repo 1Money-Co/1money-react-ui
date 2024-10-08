@@ -1,6 +1,6 @@
 import Loading from './Loading';
 
-export { Loading, Spinner } from './Loading';
+export { Loading } from './Loading';
 
 export default Loading;
 
