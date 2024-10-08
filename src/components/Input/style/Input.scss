@@ -34,9 +34,15 @@
     box-shadow: none;
   }
 
-  >input {
+  >input,
+  &-password input {
     padding: 12px 24px;
     background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+  &-password .p-icon-field {
     border: inherit;
     border-radius: inherit;
   }

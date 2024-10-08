@@ -49,6 +49,7 @@ export const Password: Story = {
     variant: 'outlined',
     label: 'password',
     required: true,
+    toggleMask: true,
   },
 };
 

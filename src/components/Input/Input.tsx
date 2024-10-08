@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { memo, useMemo, useCallback } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
@@ -9,8 +10,8 @@ import { AutoComplete } from 'primereact/autocomplete';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
-import type { InputProps, InputOtpProps } from './interface';
+import type { FC, PropsWithChildren, FormEvent } from 'react';
+import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
   const { label, required, type = 'text', className = '', prefixCls = 'input', wrapperCls, ...rest } = props;
@@ -27,16 +28,17 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       case 'textarea':
         return InputTextarea;
       case 'otp':
-        // eslint-disable-next-line no-case-declarations
-        const CustomInputOpt = useCallback((_props: InputOtpProps) => {
+        return (_props: InputOtpProps) => {
           const { className: _className, ..._rest } = _props;
           return <div className={_className}>
             <InputOtp{..._rest as any}/>
           </div>;
-        }, []);
-        return CustomInputOpt;
+        };
       case 'password':
-        return Password as new () => Password;
+        return (_props: InputPwdProps) => <Password
+          feedback={false}
+          {..._props}
+        />;
       case 'autocomplete':
         return AutoComplete as new () => AutoComplete;
       default:

@@ -1,13 +1,36 @@
-import { memo } from 'react';
+'use client';
+import { memo, useEffect, useRef } from 'react';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import propTypes from 'prop-types';
+import lottie from 'lottie-web';
 import classnames from '@/utils/classnames';
+import lottieJson from './lottie.json';
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
-import type { LoadingProps } from './interface';
+import type { FC } from 'react';
+import type { LoadingProps, SpinnerProps } from './interface';
 
-export const Loading: FC<PropsWithChildren<LoadingProps>> = props => {
-  const { className, prefixCls = 'loading', ...rest } = props;
+export const Loading: FC<LoadingProps> = props => {
+  const { className, prefixCls = 'loading' } = props;
+  const container = useRef<HTMLDivElement>(null);
+  const classes = classnames(prefixCls);
+
+  useEffect(() => {
+    if (!container.current) return;
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: lottieJson
+    });
+  }, []);
+
+  return <div ref={container} className={classes(void 0, className)} />;
+  
+};
+
+export const Spinner: FC<SpinnerProps> = props => {
+  const { className, prefixCls = 'spinner', ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -21,6 +44,11 @@ export const Loading: FC<PropsWithChildren<LoadingProps>> = props => {
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
+Spinner.propTypes = {
+  className: propTypes.string,
+  prefixCls: propTypes.string
+};
+
 Loading.propTypes = {
   className: propTypes.string,
   prefixCls: propTypes.string

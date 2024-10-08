@@ -1,5 +1,5 @@
-import { fn } from '@storybook/test';
-import { Loading } from './index';
+import React from 'react';
+import { Loading, Spinner } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -13,7 +13,6 @@ const meta: Meta<typeof Loading> = {
   },
   args: {
     prefixCls: 'loading',
-    onClick: fn(),
   },
   tags: ['autodocs'],
 };
@@ -22,9 +21,18 @@ export default meta;
 
 type Story = StoryObj<typeof Loading>;
  
-export const Primary: Story = {
+export const _Loading: Story = {
   args: {
-    prefixCls: 'loading',
-    children: 'Hello Loading'
+    prefixCls: 'loading'
+  },
+  tags: ['!autodocs'],
+};
+
+export const _Spinner: Story = {
+  args: {
+    prefixCls: 'spinner'
+  },
+  render: function Render(args) { 
+    return <Spinner {...args} />;
   },
 };
