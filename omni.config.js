@@ -33,7 +33,9 @@ module.exports = {
     configuration: gulpfile,
 
     reserve: {
-      assets: [] // 构建结果保留其他资源的路径 (reserve other asset paths)
+      assets: [
+        path.resolve('./src/components/Loading/lottie.json')
+      ] // 构建结果保留其他资源的路径 (reserve other asset paths)
     },
 
     preflight: {
