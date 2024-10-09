@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "0.1.0-beta.11",
+  "version": "0.1.0-beta.12",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -88,6 +88,11 @@
       "import": "./es/components/Toast/index.js",
       "require": "./lib/components/Toast/index.js",
       "types": "./es/components/Toast/index.d.ts"
+    },
+    "./Icons": {
+      "import": "./es/components/Icons/index.js",
+      "require": "./lib/components/Icons/index.js",
+      "types": "./es/components/Icons/index.d.ts"
     }
   },
   "scripts": {

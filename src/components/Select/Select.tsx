@@ -3,7 +3,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
-import { DropDownIcon } from '../Icons';
+import { Icons } from '../Icons';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { SelectProps } from './interface';
@@ -32,7 +32,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         }}
         onHide={() => setIsOpen(false)}
         onShow={() => setIsOpen(true)}
-        dropdownIcon={() => <DropDownIcon color='#808080' size={20} />}
+        dropdownIcon={() => <Icons name='dropDown' color='#808080' size={20} />}
       />
     </div>
   );

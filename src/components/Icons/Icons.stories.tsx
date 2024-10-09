@@ -1,26 +1,14 @@
 import React from 'react';
 import { 
   IconWrapper, 
-  MinusIcon, 
-  AddIcon,
-  BurgerIcon,
-  ReturnIcon,
-  CloseIcon,
-  ArrowIcon,
-  DropDownIcon,
-  EyeCloseIcon,
-  EyeOnIcon,
-  CircleIcon,
-  CheckIcon,
-  Logo,
-  LogoWithWords,
+  Icons,
  } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof MinusIcon> = {
+const meta: Meta<typeof Icons> = {
   title: 'Components/Icons',
-  component: IconWrapper,
+  component: Icons,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
     className: { control: 'text' },
@@ -36,7 +24,7 @@ const meta: Meta<typeof MinusIcon> = {
  
 export default meta;
 
-type Story = StoryObj<typeof IconWrapper>;
+type Story = StoryObj<typeof Icons>;
  
 export const Primary: Story = {
   args: {
@@ -47,22 +35,22 @@ export const Primary: Story = {
   render: function Render(args) {
     return <>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
-        <Logo {...args} />
-        <LogoWithWords {...args} />
+        <Icons {...args} name='logo'  />
+        <Icons {...args} name='logoWithWords' />
       </div>
       <br />
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
-        <MinusIcon {...args} />
-        <AddIcon {...args} />
-        <BurgerIcon {...args} />
-        <ReturnIcon {...args} />
-        <CloseIcon {...args} />
-        <DropDownIcon {...args} />
-        <ArrowIcon {...args} />
-        <EyeCloseIcon {...args} />
-        <EyeOnIcon {...args} />
-        <CircleIcon {...args} />
-        <CheckIcon {...args} />
+        <Icons {...args} name='minus'  />
+        <Icons {...args} name='add' />
+        <Icons {...args} name='burger' />
+        <Icons {...args} name='return' />
+        <Icons {...args} name='close' />
+        <Icons {...args} name='dropDown' />
+        <Icons {...args} name='arrow' />
+        <Icons {...args} name='eyeClose' />
+        <Icons {...args} name='eyeOn' />
+        <Icons {...args} name='circle' />
+        <Icons {...args} name='check' />
       </div>
     </>;
   },

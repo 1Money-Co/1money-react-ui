@@ -13,6 +13,7 @@ import { Select } from './components/Select';
 import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
 import { Toast } from './components/Toast';
+import { Icons, IconWrapper } from './components/Icons';
 
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
@@ -29,6 +30,7 @@ export { Select } from './components/Select';
 export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
 export { Toast } from './components/Toast';
+export { Icons, IconWrapper } from './components/Icons';
 
 export default {
   Button,
@@ -46,4 +48,6 @@ export default {
   Spinner,
   Switch,
   Toast,
+  Icons,
+  IconWrapper
 };

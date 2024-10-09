@@ -9,7 +9,7 @@ import { Password } from 'primereact/password';
 import { AutoComplete } from 'primereact/autocomplete';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
-import { EyeOnIcon, EyeCloseIcon } from '../Icons';
+import { Icons } from '../Icons';
 
 /* import types */
 import type { FC, PropsWithChildren, FormEvent } from 'react';
@@ -39,8 +39,8 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       case 'password':
         return (_props: InputPwdProps) => <Password
           feedback={false}
-          showIcon={({ iconProps }) => <EyeOnIcon onClick={iconProps.onClick} size={20} color='#808080' />}
-          hideIcon={({ iconProps }) => <EyeCloseIcon onClick={iconProps.onClick} size={20} color='#808080' />}
+          showIcon={({ iconProps }) => <Icons name='eyeOn' onClick={iconProps.onClick} size={20} color='#808080' />}
+          hideIcon={({ iconProps }) => <Icons name='eyeClose' onClick={iconProps.onClick} size={20} color='#808080' />}
           {..._props}
         />;
       case 'autocomplete':

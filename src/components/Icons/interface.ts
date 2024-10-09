@@ -1,3 +1,7 @@
+export interface IconsProps extends IconWrapperProps {
+  name: string;
+}
+
 export interface IconWrapperProps {
   className?: string;
   prefixCls?: string;
