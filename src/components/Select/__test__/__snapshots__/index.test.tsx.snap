@@ -55,16 +55,31 @@ LoadedCheerio {
         role="button"
       >
         <svg
-          fill="none"
+          class="usd1-react-ui-icons"
+          fill="#808080"
           height="20"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 24"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M6.175 7.15831L5 8.33331L10 13.3333L15 8.33331L13.825 7.15831L10 10.975L6.175 7.15831Z"
-            fill="#808080"
-          />
+          <g
+            clip-path="url(#clip0_164_21334)"
+          >
+            <path
+              d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="clip0_164_21334"
+            >
+              <rect
+                fill="white"
+                height="24"
+                width="24"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
     </div>
@@ -141,16 +156,31 @@ LoadedCheerio {
         data-pc-section="trigger"
       >
         <svg
-          fill="none"
+          class="usd1-react-ui-icons"
+          fill="#808080"
           height="20"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 24"
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M6.175 7.15831L5 8.33331L10 13.3333L15 8.33331L13.825 7.15831L10 10.975L6.175 7.15831Z"
-            fill="#808080"
-          />
+          <g
+            clip-path="url(#clip0_164_21334)"
+          >
+            <path
+              d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="clip0_164_21334"
+            >
+              <rect
+                fill="white"
+                height="24"
+                width="24"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
     </div>
