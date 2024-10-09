@@ -9,6 +9,8 @@ import { Password } from 'primereact/password';
 import { AutoComplete } from 'primereact/autocomplete';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
+import { PwdHideIcon, PwdShowIcon } from './Icons';
+
 /* import types */
 import type { FC, PropsWithChildren, FormEvent } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
@@ -37,6 +39,8 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       case 'password':
         return (_props: InputPwdProps) => <Password
           feedback={false}
+          showIcon={({ iconProps }) => <PwdShowIcon onClick={iconProps.onClick} />}
+          hideIcon={({ iconProps }) => <PwdHideIcon onClick={iconProps.onClick} />}
           {..._props}
         />;
       case 'autocomplete':
