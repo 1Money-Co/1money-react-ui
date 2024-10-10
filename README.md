@@ -7,7 +7,7 @@ The React Components Library for @1money co
 [![install size](https://packagephobia.now.sh/badge?p=%401money%2Freact-ui)](https://packagephobia.now.sh/result?p=%401money%2Freact-ui)
 [![license](http://img.shields.io/npm/l/%401money%2Freact-ui.svg)](https://github.com/1money/tpls/blob/master/packages/react-ui/LICENSE)
 
-[Online Preview](https://improved-bassoon-relkz41.pages.github.io/)
+[Online Preview](https://1money-co.github.io/1money-react-ui/)
 
 English | [简体中文](./README.zh-CN.md)
 
