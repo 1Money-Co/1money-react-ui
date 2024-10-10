@@ -33,12 +33,11 @@ export const Primary: Story = {
     size: 32
   },
   render: function Render(args) {
-    return <>
+    return <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='logo'  />
         <Icons {...args} name='logoWithWords' />
       </div>
-      <br />
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='minus'  />
         <Icons {...args} name='add' />
@@ -50,8 +49,12 @@ export const Primary: Story = {
         <Icons {...args} name='eyeClose' />
         <Icons {...args} name='eyeOn' />
         <Icons {...args} name='circle' />
-        <Icons {...args} name='check' />
+        <Icons {...args} name='doubleCheck' />
       </div>
-    </>;
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
+        <Icons {...args} name='check' />
+        <Icons {...args} name='times' />
+      </div>
+    </div>;
   },
 };

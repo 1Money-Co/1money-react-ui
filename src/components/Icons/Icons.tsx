@@ -1,6 +1,8 @@
 import { useCallback, memo } from 'react';
 import { IconWrapper } from './Wrapper';
 import {
+  Logo,
+  LogoWithWords,
   MinusIcon, 
   AddIcon,
   BurgerIcon,
@@ -12,8 +14,8 @@ import {
   EyeOnIcon,
   CircleIcon,
   CheckIcon,
-  Logo,
-  LogoWithWords,
+  TimesIcon,
+  DoubleCheckIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -25,6 +27,12 @@ export const Icons: FC<IconsProps> = ({ name, ...props }) => {
   const IconComponent = useCallback((props: IconWrapperProps) => {
     let Icon = null;
     switch (name) {
+      case 'logo':
+        Icon = Logo;
+        break;
+      case 'logoWithWords':
+        Icon = LogoWithWords;
+        break;
       case 'minus':
         Icon = MinusIcon;
         break;
@@ -58,11 +66,11 @@ export const Icons: FC<IconsProps> = ({ name, ...props }) => {
       case 'check':
         Icon = CheckIcon;
         break;
-      case 'logo':
-        Icon = Logo;
+      case 'times':
+        Icon = TimesIcon;
         break;
-      case 'logoWithWords':
-        Icon = LogoWithWords;
+      case 'doubleCheck':
+        Icon = DoubleCheckIcon;
         break;
     }
     return Icon ? <Icon {...props} /> : null;
