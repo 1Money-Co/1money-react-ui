@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/react';
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
-import 'primereact/resources/themes/lara-light-cyan/theme.css';
 import './tailwind.css';
 
 export const decorators = [

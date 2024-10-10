@@ -54,6 +54,8 @@ export const Primary: Story = {
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='check' />
         <Icons {...args} name='times' />
+        <Icons {...args} name='checkCircle' />
+        <Icons {...args} name='content' />
       </div>
     </div>;
   },

@@ -14,6 +14,7 @@ import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
 import { Toast } from './components/Toast';
 import { Icons, IconWrapper } from './components/Icons';
+import { Clipboard } from './components/Clipboard';
 
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
@@ -31,6 +32,7 @@ export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
 export { Toast } from './components/Toast';
 export { Icons, IconWrapper } from './components/Icons';
+export { Clipboard } from './components/Clipboard';
 
 export default {
   Button,
@@ -49,5 +51,6 @@ export default {
   Switch,
   Toast,
   Icons,
-  IconWrapper
+  IconWrapper,
+  Clipboard
 };
