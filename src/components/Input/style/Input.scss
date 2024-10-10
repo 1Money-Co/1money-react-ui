@@ -3,27 +3,36 @@
   color: #000;
   font-weight: 300;
   font-size: 14px;
+  font-family: inherit;
   font-style: normal;
   line-height: 20px;
-  background-color: #FAFAFC;
-  border: 0.5px solid #E0E2EE;
-  border-radius: 20px;
 
-  .p-inputtext {
-    width: 100%;
-    font-family: inherit;
-  }
-
+  >input,
   &-text,
-  &-mask {
+  &-mask,
+  &-textarea,
+  &-password input {
+    width: 100%;
     padding: 12px 24px;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 20px;
+    background-color: #FAFAFC;
+    border: 0.5px solid #E0E2EE;
+    border-radius: 20px;
+
+    &.p-invalid {
+      border-color: #CC1461;
+      box-shadow: none;
+    }
   }
 
   &-otp {
     background-color: inherit;
     border: none;
 
-    .p-inputtext:enabled:hover {
+    .p-inputtext:enabled:hover:not(.p-invalid) {
       border-color: #3d73f2;
     }
 
@@ -37,6 +46,11 @@
       background-color: #FAFAFC;
       border: 0.5px solid #E0E2EE;
       border-radius: 8px;
+
+      &.p-invalid {
+        border-color: #CC1461;
+        box-shadow: none;
+      }
     }
   }
 
@@ -49,16 +63,11 @@
   &.p-invalid {
     border-color: #CC1461;
     box-shadow: none;
-  }
 
-  >input,
-  &-password input {
-    padding: 12px 24px;
-    font-weight: inherit;
-    font-size: inherit;
-    background-color: inherit;
-    border: inherit;
-    border-radius: inherit;
+    input {
+      border-color: inherit !important;
+      box-shadow: inherit !important;
+    }
   }
 
   &-password {
@@ -66,10 +75,6 @@
       width: 100%;
       border: inherit;
       border-radius: inherit;
-
-      input {
-        border: none;
-      }
     }
 
     .p-input-icon {

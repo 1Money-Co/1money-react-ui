@@ -50,7 +50,7 @@ export const Password: Story = {
     label: 'password',
     required: true,
     toggleMask: true,
-    autoComplete: 'new-password'
+    autoComplete: 'new-password',
   },
 };
 
