@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "0.0.10",
+  "version": "0.1.0-beta.16",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -44,6 +44,11 @@
       "require": "./lib/components/Loading/index.js",
       "types": "./es/components/Loading/index.d.ts"
     },
+    "./Menu": {
+      "import": "./es/components/Menu/index.js",
+      "require": "./lib/components/Menu/index.js",
+      "types": "./es/components/Menu/index.d.ts"
+    },
     "./Message": {
       "import": "./es/components/Message/index.js",
       "require": "./lib/components/Message/index.js",
@@ -69,6 +74,11 @@
       "require": "./lib/components/Select/index.js",
       "types": "./es/components/Select/index.d.ts"
     },
+    "./Spinner": {
+      "import": "./es/components/Spinner/index.js",
+      "require": "./lib/components/Spinner/index.js",
+      "types": "./es/components/Spinner/index.d.ts"
+    },
     "./Switch": {
       "import": "./es/components/Switch/index.js",
       "require": "./lib/components/Switch/index.js",
@@ -78,6 +88,16 @@
       "import": "./es/components/Toast/index.js",
       "require": "./lib/components/Toast/index.js",
       "types": "./es/components/Toast/index.d.ts"
+    },
+    "./Icons": {
+      "import": "./es/components/Icons/index.js",
+      "require": "./lib/components/Icons/index.js",
+      "types": "./es/components/Icons/index.d.ts"
+    },
+    "./Clipboard": {
+      "import": "./es/components/Clipboard/index.js",
+      "require": "./lib/components/Clipboard/index.js",
+      "types": "./es/components/Clipboard/index.d.ts"
     }
   },
   "scripts": {
@@ -130,7 +150,8 @@
   },
   "license": "ISC",
   "dependencies": {
-    "classnames": "~2.2.6"
+    "classnames": "~2.2.6",
+    "lottie-web": "^5.12.2"
   },
   "devDependencies": {
     "@babel/core": "~7.24.9",
@@ -142,7 +163,7 @@
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@chromatic-com/storybook": "^1.6.1",
     "@commitlint/cli": "8.3.5",
-    "@omni-door/cli": "^2.9.13",
+    "@omni-door/cli": "^2.9.15",
     "@storybook/addon-actions": "^8.2.9",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.2.9",
@@ -199,6 +220,7 @@
     "husky": "9.1.4",
     "ip": "1.1.5",
     "jest": "~29.7.0",
+    "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
     "jest-transform-stub": "2.0.0",
     "jsdom": "^24.1.1",

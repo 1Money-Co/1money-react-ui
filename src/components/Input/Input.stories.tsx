@@ -12,6 +12,7 @@ const meta: Meta<typeof Input> = {
     prefixCls: { control: 'text' },
     type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp'] },
     variant: { control: 'select', options: ['filled', 'outlined'] },
+    invalid: { control: 'boolean' },
   },
   args: {
     prefixCls: 'input',
@@ -27,7 +28,8 @@ export const Normal: Story = {
   args: {
     type: 'text',
     prefixCls: 'input',
-    variant: 'outlined'
+    variant: 'outlined',
+    label: 'Email'
   },
   tags: ['!autodocs'],
 };
@@ -44,7 +46,11 @@ export const Password: Story = {
   args: {
     type: 'password',
     prefixCls: 'input',
-    variant: 'outlined'
+    variant: 'outlined',
+    label: 'password',
+    required: true,
+    toggleMask: true,
+    autoComplete: 'new-password',
   },
 };
 

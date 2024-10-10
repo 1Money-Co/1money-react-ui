@@ -34,7 +34,9 @@ export const Single: Story = {
   args: {
     prefixCls: 'select',
     placeholder: 'Select City',
-    options: cities
+    options: cities,
+    label: 'Cities',
+    required: true
   },
   tags: ['!autodocs', 'dev'],
 };
@@ -45,6 +47,7 @@ export const Multiple: Story = {
     placeholder: 'Select Cities',
     multiple: true,
     options: cities,
-    display: 'chip'
+    display: 'chip',
+    label: 'Multiple Cities',
   },
 };

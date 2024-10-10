@@ -1,0 +1,31 @@
+.usd1-react-ui-menu {
+  width: auto;
+  padding: 10px 0;
+  border: 1px solid #E0E2EE;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+
+  &.p-menu .p-submenu-header:empty {
+    display: none;
+  }
+
+  &.p-menu .p-menuitem {
+    background-color: #FFF;
+
+    &:hover {
+      background-color: #FAFAFC;
+    }
+  }
+
+  &.p-menu .p-menuitem>.p-menuitem-content .p-menuitem-link {
+    padding: 10px 20px;
+
+    .p-menuitem-text {
+      color: #000;
+      font-weight: 400;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 20px;
+    }
+  }
+}

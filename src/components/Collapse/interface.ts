@@ -7,6 +7,7 @@ interface ItemProps extends AccordionTabProps{
 export interface CollapseProps extends Omit<AccordionProps, 'className'> {
   items: ItemProps[];
   wrapperCls?: string;
-  innerCls?: string;
+  itemCls?: string;
+  contentCls?: string;
   prefixCls?: string;
 }

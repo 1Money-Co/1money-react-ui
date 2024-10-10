@@ -1,4 +1,73 @@
-.prefix-collapse {
-  display: block;
-  color: blue;
+.usd1-react-ui-collapse {
+  font-family: inherit;
+  background-color: #FFF;
+
+  >.p-accordion-tab {
+    margin-bottom: 0 !important;
+  }
+
+  &-item:not(.usd1-react-ui-collapse-item-content) {
+    border-bottom: 0.5px solid #E0E2EE;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #FAFAFC;
+    }
+
+    .p-accordion-tab-active>& {
+      >a {
+        font-weight: 600;
+      }
+    }
+
+    >a {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      padding: 30px 40px;
+      font-weight: 300;
+      font-size: 24px;
+      font-style: normal;
+      line-height: 30px;
+      background-color: inherit;
+      border: none;
+
+      span {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  &-item-content {
+    padding: 20px 40px 30px 108px;
+    font-weight: 300;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 32px;
+
+    >.p-accordion-content {
+      padding: 0;
+      border: none;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .usd1-react-ui-collapse {
+    &-item:not(.usd1-react-ui-collapse-item-content) {
+      >a {
+        padding: 20px 0;
+      }
+    }
+  }
 }

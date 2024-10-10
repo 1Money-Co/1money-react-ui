@@ -1,0 +1,38 @@
+.usd1-react-ui-clipboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &-label {
+    margin-left: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+    background-color: #FAFAFC;
+    border: 0.5px solid #E0E2EE;
+    border-radius: 20px;
+
+    &-text {
+      display: inline-block;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    &-icon {
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+  }
+}

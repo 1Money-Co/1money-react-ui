@@ -1,4 +1,3 @@
-import { fn } from '@storybook/test';
 import { Loading } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -13,7 +12,6 @@ const meta: Meta<typeof Loading> = {
   },
   args: {
     prefixCls: 'loading',
-    onClick: fn(),
   },
   tags: ['autodocs'],
 };
@@ -24,7 +22,6 @@ type Story = StoryObj<typeof Loading>;
  
 export const Primary: Story = {
   args: {
-    prefixCls: 'loading',
-    children: 'Hello Loading'
+    prefixCls: 'loading'
   },
 };

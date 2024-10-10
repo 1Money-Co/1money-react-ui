@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loading renders correctly 1`] = `
+exports[`Spinner renders correctly 1`] = `
 LoadedCheerio {
   "0": <div
     aria-busy="true"
-    class="usd1-react-ui-loading p-progress-spinner"
+    class="usd1-react-ui-spinner p-progress-spinner"
     data-pc-name="progressspinner"
     data-pc-section="root"
     role="progressbar"

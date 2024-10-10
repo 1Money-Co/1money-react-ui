@@ -11,10 +11,28 @@
 
     &-checkbox {
       align-self: flex-start;
+
+      >.p-checkbox-box {
+        border: 1px solid #E0E2EE;
+        border-radius: 2px;
+      }
+
+      >.p-checkbox-input {
+        border: none;
+        border-radius: 2px;
+      }
+
+      &.p-checkbox.p-highlight .p-checkbox-box {
+        background-color: #000;
+      }
     }
 
     label {
-      margin-left: 8px;
+      margin-left: 10px;
+      font-weight: 300;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 20px;
       cursor: pointer;
       user-select: none;
     }

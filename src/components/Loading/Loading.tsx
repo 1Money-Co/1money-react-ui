@@ -1,21 +1,33 @@
-import { memo } from 'react';
-import { ProgressSpinner } from 'primereact/progressspinner';
+'use client';
+import { memo, useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
+import lottie from 'lottie-web';
 import classnames from '@/utils/classnames';
+import lottieJson from './lottie.json';
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
+import type { FC } from 'react';
 import type { LoadingProps } from './interface';
 
-export const Loading: FC<PropsWithChildren<LoadingProps>> = props => {
-  const { className, prefixCls = 'loading', ...rest } = props;
+export const Loading: FC<LoadingProps> = props => {
+  const { className, prefixCls = 'loading' } = props;
+  const container = useRef<HTMLDivElement>(null);
   const classes = classnames(prefixCls);
 
-  return (
-    <ProgressSpinner
-      {...rest}
-      className={classes(void 0, className)}
-    />
-  );
+  useEffect(() => {
+    if (!container.current) return;
+    const instance =lottie.loadAnimation({
+      container: container.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: lottieJson
+    });
+
+    return () => instance.destroy();
+  }, []);
+
+  return <div ref={container} className={classes(void 0, className)} />;
+  
 };
 
 /**

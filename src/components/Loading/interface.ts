@@ -1,6 +1,4 @@
-
-import type { ProgressSpinnerProps } from 'primereact/progressspinner';
-
-export interface LoadingProps extends ProgressSpinnerProps {
+export interface LoadingProps {
+  className?: string;
   prefixCls?: string;
 }

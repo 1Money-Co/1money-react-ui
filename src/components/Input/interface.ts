@@ -6,35 +6,38 @@ import type { InputOtpProps as PrimeInputOtpProps } from 'primereact/inputotp';
 import type { PasswordProps } from 'primereact/password';
 import type { AutoCompleteProps } from 'primereact/autocomplete';
 
-interface InputBaseProps {
+export interface InputBaseProps {
   prefixCls?: string;
+  label?: string;
+  required?: boolean;
+  wrapperCls?: string;
 }
 
-interface InputTextProps extends PrimeInputTextProps, InputBaseProps{
+export interface InputTextProps extends PrimeInputTextProps, InputBaseProps{
   type?: 'text';
 }
 
-interface InputNumberProps extends PrimeInputNumberProps, InputBaseProps{
+export interface InputNumberProps extends PrimeInputNumberProps, InputBaseProps{
   type: 'number';
 }
 
-interface InputMaskProps extends PrimeInputMaskProps, InputBaseProps{
+export interface InputMaskProps extends PrimeInputMaskProps, InputBaseProps{
   type: 'mask';
 }
 
-interface InputTextareaProps extends PrimeInputTextareaProps, InputBaseProps{
+export interface InputTextareaProps extends PrimeInputTextareaProps, InputBaseProps{
   type: 'textarea';
 }
 
-interface InputOtpProps extends PrimeInputOtpProps, InputBaseProps{
+export interface InputOtpProps extends PrimeInputOtpProps, InputBaseProps{
   type: 'otp';
 }
 
-interface InputPwdProps extends PasswordProps, InputBaseProps{
+export interface InputPwdProps extends PasswordProps, InputBaseProps{
   type: 'password';
 }
 
-interface InputAutoCompleteProps extends AutoCompleteProps, InputBaseProps{
+export interface InputAutoCompleteProps extends AutoCompleteProps, InputBaseProps{
   type: 'autocomplete';
 }
 

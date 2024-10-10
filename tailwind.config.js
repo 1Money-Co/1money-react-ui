@@ -3,10 +3,17 @@
 module.exports = {
   prefix: 'tw-',
   content: [
-    './src/**/*.{html,js,jsx,ts,tsx}'
+    './src/**/*.{html,js,jsx,ts,tsx}',
+    './.storybook/**/*.{html,js,jsx,ts,tsx}',
+    "./node_modules/primereact/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
+    screens: {
+      md: '481px',
+      lg: '769px',
+      xl: '1280px',
+    },
     spacing: {
       1: 'var(--space-1, 4px)',
       2: 'var(--space-2, 8px)',
@@ -29,7 +36,71 @@ module.exports = {
       50: 'var(--space-19, 50%)',
       100: 'var(--space-20, 100%)',
     },
-    extend: {},
+    colors: {
+      white: '#ffffff',
+      black: '#000000',
+      primary: {
+        100: '#e5efff',
+        200: '#ccddff',
+        300: '#abc4ff',
+        400: '#6491fa',
+        500: '#3d73f2',
+        600: '#2e59e5',
+        700: '#1444cc',
+        800: '#183699',
+        900: '#142d66',
+        1000: '#1c2844'
+      },
+      neutrals: {
+        100: '#fafafc',
+        300: '#e0e2ee',
+        600: '#808080',
+        800: '#404040'
+      },
+      success: {
+        100: '#56dbb3',
+        200: '#07b898',
+        300: '#56dbb3',
+      },
+      warning: {
+        100: '#faaa48',
+        200: '#e58918',
+        300: '#c96b06'
+      },
+      error: {
+        100: '#e74878',
+        200: '#cc1461',
+        300: '#9c184c'
+      },
+    },
+    borderRadius: {
+      none: '0',
+      xxs: '1px',
+      xs: '2px',
+      s: '4px',
+      sm: '6px',
+      m: '10px',
+      ml: '16px',
+      lg: '24px',
+      xl: '32px',
+      round: '50%',
+    },
+    extend: {
+      spacing: {
+        'base': '16px',
+        'xxs': '2px',
+        'xs': '4px',
+        's': '8px',
+        'sm': '10px',
+        'm': '14px',
+        'ml': '24px',
+        'l': '28px',
+        'xl': '40px',
+        '2xl': '100px',
+        '3xl': '140px',
+        '4xl': '240px',
+      }
+    },
   },
   plugins: [],
 }

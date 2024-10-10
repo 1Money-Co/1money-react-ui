@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Clipboard renders correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="usd1-react-ui-clipboard"
+  >
+    <span
+      class="usd1-react-ui-clipboard-label"
+    />
+    <div
+      class="usd1-react-ui-clipboard-content"
+    >
+      <span
+        class="usd1-react-ui-clipboard-content-text"
+      >
+        复制 copy
+      </span>
+      <svg
+        class="usd1-react-ui-icons usd1-react-ui-clipboard-content-icon"
+        fill="#000"
+        height="20"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          clip-path="url(#clip0_85_7945)"
+        >
+          <path
+            d="M13.3327 0.833008H3.33268C2.41602 0.833008 1.66602 1.58301 1.66602 2.49967V14.1663H3.33268V2.49967H13.3327V0.833008ZM15.8327 4.16634H6.66602C5.74935 4.16634 4.99935 4.91634 4.99935 5.83301V17.4997C4.99935 18.4163 5.74935 19.1663 6.66602 19.1663H15.8327C16.7493 19.1663 17.4993 18.4163 17.4993 17.4997V5.83301C17.4993 4.91634 16.7493 4.16634 15.8327 4.16634ZM15.8327 17.4997H6.66602V5.83301H15.8327V17.4997Z"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="clip0_85_7945"
+          >
+            <rect
+              fill="white"
+              height="20"
+              width="20"
+            />
+          </clippath>
+        </defs>
+      </svg>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
