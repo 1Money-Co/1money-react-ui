@@ -39,7 +39,7 @@
 
   &-panel {
     border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10%);
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus,
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
@@ -47,7 +47,7 @@
       background-color: inherit;
     }
 
-    &.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+    &.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight, .p-disabled).p-focus {
       font-weight: 600;
       background-color: #FAFAFC;
     }

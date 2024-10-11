@@ -62,7 +62,7 @@
   }
 }
 
-@media (max-width: 1279px) {
+@media (width <= 1279px) {
   .usd1-react-ui-collapse {
     &-item:not(.usd1-react-ui-collapse-item-content) {
       >a {
