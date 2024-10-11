@@ -10,7 +10,7 @@ import type { FC } from 'react';
 import type { LoadingProps } from './interface';
 
 export const Loading: FC<LoadingProps> = props => {
-  const { className, prefixCls = 'loading', size = 'pure' } = props;
+  const { className, prefixCls = 'loading', type = 'pure' } = props;
   const container = useRef<HTMLDivElement>(null);
   const classes = classnames(prefixCls);
 
@@ -21,7 +21,7 @@ export const Loading: FC<LoadingProps> = props => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: size === 'pure' ? lottiePureJson : lottiePatternJson
+      animationData: type === 'pure' ? lottiePureJson : lottiePatternJson
     });
 
     return () => instance.destroy();
@@ -36,7 +36,8 @@ export const Loading: FC<LoadingProps> = props => {
  */
 Loading.propTypes = {
   className: propTypes.string,
-  prefixCls: propTypes.string
+  prefixCls: propTypes.string,
+  type: propTypes.oneOf(['pure', 'pattern'])
 };
 
 export default memo(Loading);

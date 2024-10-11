@@ -30,6 +30,6 @@ export const Pure: Story = {
 export const Pattern: Story = {
   args: {
     prefixCls: 'loading',
-    size: 'pattern'
+    type: 'pattern'
   },
 };
