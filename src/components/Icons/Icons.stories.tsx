@@ -55,6 +55,7 @@ export const Primary: Story = {
         <Icons {...args} name='check' />
         <Icons {...args} name='times' />
         <Icons {...args} name='checkCircle' />
+        <Icons {...args} name='timesCircle' />
         <Icons {...args} name='content' />
       </div>
     </div>;

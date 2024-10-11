@@ -33,4 +33,10 @@
     background-color: #E0E2EE;
     cursor: not-allowed;
   }
+
+  &.p-button-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

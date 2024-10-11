@@ -17,6 +17,7 @@ import {
   TimesIcon,
   DoubleCheckIcon,
   CheckCircleIcon,
+  TimesCircleIcon,
   ContentIcon,
 } from './SVGs';
 /* import types */
@@ -76,6 +77,9 @@ export const Icons: FC<IconsProps> = ({ name, ...props }) => {
         break;
       case 'checkCircle':
         Icon = CheckCircleIcon;
+        break;
+      case 'timesCircle':
+        Icon = TimesCircleIcon;
         break;
       case 'content':
         Icon = ContentIcon;
