@@ -34,7 +34,8 @@ module.exports = {
 
     reserve: {
       assets: [
-        path.resolve('./src/components/Loading/lottie.json')
+        path.resolve('./src/components/Loading/lottie-lg.json'),
+        path.resolve('./src/components/Loading/lottie-sm.json')
       ] // 构建结果保留其他资源的路径 (reserve other asset paths)
     },
 

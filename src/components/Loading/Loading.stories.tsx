@@ -20,8 +20,16 @@ export default meta;
 
 type Story = StoryObj<typeof Loading>;
  
-export const Primary: Story = {
+export const Pure: Story = {
   args: {
     prefixCls: 'loading'
+  },
+  tags: ['!autodocs'],
+};
+
+export const Pattern: Story = {
+  args: {
+    prefixCls: 'loading',
+    size: 'pattern'
   },
 };

@@ -3,13 +3,14 @@ import { memo, useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import lottie from 'lottie-web';
 import classnames from '@/utils/classnames';
-import lottieJson from './lottie.json';
+import lottiePureJson from './lottie-pure.json';
+import lottiePatternJson from './lottie-pattern.json';
 /* import types */
 import type { FC } from 'react';
 import type { LoadingProps } from './interface';
 
 export const Loading: FC<LoadingProps> = props => {
-  const { className, prefixCls = 'loading' } = props;
+  const { className, prefixCls = 'loading', size = 'pure' } = props;
   const container = useRef<HTMLDivElement>(null);
   const classes = classnames(prefixCls);
 
@@ -20,7 +21,7 @@ export const Loading: FC<LoadingProps> = props => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: lottieJson
+      animationData: size === 'pure' ? lottiePureJson : lottiePatternJson
     });
 
     return () => instance.destroy();
