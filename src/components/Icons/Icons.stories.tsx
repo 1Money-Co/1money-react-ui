@@ -58,6 +58,7 @@ export const Primary: Story = {
         <Icons {...args} name='timesCircle' />
         <Icons {...args} name='content' />
         <Icons {...args} name='locked' />
+        <Icons {...args} name='exclamation' />
       </div>
     </div>;
   },
