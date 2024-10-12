@@ -17,7 +17,10 @@ import {
   TimesIcon,
   DoubleCheckIcon,
   CheckCircleIcon,
+  TimesCircleIcon,
   ContentIcon,
+  LockedIcon,
+  ExclamationIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -77,8 +80,17 @@ export const Icons: FC<IconsProps> = ({ name, ...props }) => {
       case 'checkCircle':
         Icon = CheckCircleIcon;
         break;
+      case 'timesCircle':
+        Icon = TimesCircleIcon;
+        break;
       case 'content':
         Icon = ContentIcon;
+        break;
+      case 'locked':
+        Icon = LockedIcon;
+        break;
+      case 'exclamation':
+        Icon = ExclamationIcon;
         break;
     }
     return Icon ? <Icon {...props} /> : null;

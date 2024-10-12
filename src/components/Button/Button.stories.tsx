@@ -12,6 +12,8 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    size: { control: 'radio', options: ['small', 'large'] },
+    loading: { control: 'boolean' }
   },
   args: {
     prefixCls: 'button',

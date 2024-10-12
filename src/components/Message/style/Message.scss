@@ -1,3 +1,12 @@
 .usd1-react-ui-message {
-  display: block;
+  border-radius: 6px;
+
+  .p-inline-message-text {
+    font-weight: inherit;
+  }
+
+  &.p-inline-message-error {
+    color: #FF5757;
+    background-color: rgba(255, 231, 230, 70%);
+  }
 }
