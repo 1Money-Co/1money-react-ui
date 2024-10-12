@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Button as PrimeButton } from 'primereact/button';
 import propTypes from 'prop-types';
+import Loading from '@/components/Loading';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -14,6 +15,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
     <PrimeButton
       {...rest}
       severity={severity}
+      loadingIcon={<Loading type='pattern' className={classes('loading-icon')} />}
       className={classes(void 0, [classes(`${severity ? severity : 'primary'}`), className].join(' '))}
     >
       { children }
