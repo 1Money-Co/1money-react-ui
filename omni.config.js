@@ -59,7 +59,7 @@ module.exports = {
     git: 'https://github.com/1Money-Co/1money-react-ui.git',
 
     // 发布的npm仓库地址 (npm depository url)
-    npm: 'https://registry.npmjs.org/',
+    // npm: 'https://registry.npmjs.org/',
 
     preflight: {
       test: true, // 发布前是否进行单元测试 (whether or not process unit-test)
