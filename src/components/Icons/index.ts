@@ -5,4 +5,5 @@ export { IconWrapper } from './Wrapper';
 
 export default Icons;
 
+export type { IconName } from './Icons';
 export * from './interface';
