@@ -48,7 +48,8 @@ const IconList = {
   exclamation: ExclamationIcon,
 } as const;
 
-export const Icons: FC<IconsProps & { name: keyof typeof IconList }> = ({ name, ...props }) => {
+export type IconName = keyof typeof IconList;
+export const Icons: FC<IconsProps & { name: IconName }> = ({ name, ...props }) => {
   const IconComponent = useCallback((props: IconWrapperProps) => {
     const Icon = useMemo(() => IconList[name], [name]);
     return Icon ? <Icon {...props} /> : null;

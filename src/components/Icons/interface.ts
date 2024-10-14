@@ -1,6 +1,4 @@
-export interface IconsProps extends IconWrapperProps {
-  name: string;
-}
+export interface IconsProps extends IconWrapperProps {}
 
 export interface IconWrapperProps {
   className?: string;
