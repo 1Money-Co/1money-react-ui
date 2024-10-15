@@ -1,8 +1,16 @@
 .usd1-react-ui-message {
+  padding: 10px;
   border-radius: 6px;
 
+  .p-icon {
+    align-self: start;
+    width: 14px;
+    height: 14px;
+  }
+
   .p-inline-message-text {
-    font-weight: inherit;
+    font-weight: 400;
+    font-size: 14px;
   }
 
   &.p-inline-message-error {
