@@ -99,6 +99,13 @@ module.exports = {
         '2xl': '100px',
         '3xl': '140px',
         '4xl': '240px',
+      },
+      zIndex: {
+        'header': 100,
+        'footer': 100,
+        'tooltip': 101,
+        'toast': 102,
+        'mask': 999,
       }
     },
   },

@@ -13,6 +13,7 @@ const meta: Meta<typeof Input> = {
     type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp'] },
     variant: { control: 'select', options: ['filled', 'outlined'] },
     invalid: { control: 'boolean' },
+    errMsg: { control: 'text' },
   },
   args: {
     prefixCls: 'input',

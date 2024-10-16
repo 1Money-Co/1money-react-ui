@@ -11,6 +11,7 @@ export interface InputBaseProps {
   label?: string;
   required?: boolean;
   wrapperCls?: string;
+  errMsg?: string;
 }
 
 export interface InputTextProps extends PrimeInputTextProps, InputBaseProps{
