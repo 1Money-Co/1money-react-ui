@@ -5,13 +5,17 @@
     padding-bottom: 2px;
 
     .p-tabmenu-nav {
+      background-color: transparent;
+
       .p-tabmenuitem {
         .p-menuitem-link {
           color: #808080;
           font-size: 14px;
+          background-color: transparent;
           border-color: transparent;
 
           &:hover {
+            background-color: transparent;
             border-color: #e0e2ee;
           }
         }
@@ -20,6 +24,7 @@
       .p-tabmenuitem.p-highlight {
         .p-menuitem-link {
           color: #3D73F2;
+          background-color: transparent;
           border-color: #3D73F2;
         }
       }
