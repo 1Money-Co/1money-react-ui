@@ -1,0 +1,28 @@
+.usd1-react-ui-tab {
+  border-bottom: 2px solid #F2F2F2;
+
+  .p-tabmenu {
+    padding-bottom: 2px;
+
+    .p-tabmenu-nav {
+      .p-tabmenuitem {
+        .p-menuitem-link {
+          color: #808080;
+          font-size: 14px;
+          border-color: transparent;
+
+          &:hover {
+            border-color: #e0e2ee;
+          }
+        }
+      }
+
+      .p-tabmenuitem.p-highlight {
+        .p-menuitem-link {
+          color: #3D73F2;
+          border-color: #3D73F2;
+        }
+      }
+    }
+  }
+}

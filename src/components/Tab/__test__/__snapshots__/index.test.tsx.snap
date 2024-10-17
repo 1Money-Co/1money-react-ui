@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab renders correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="usd1-react-ui-tab"
+  >
+    <div
+      class="p-tabmenu p-component"
+      data-pc-name="tabmenu"
+      data-pc-section="root"
+    >
+      <ul
+        class="p-tabmenu-nav p-reset"
+        data-pc-section="menu"
+        role="menubar"
+      >
+        <li
+          class="p-tabmenuitem p-highlight"
+          data-p-disabled="false"
+          data-p-highlight="true"
+          data-pc-section="menuitem"
+          id="null_0"
+          role="presentation"
+        >
+          <a
+            aria-label="Password"
+            class="p-menuitem-link"
+            data-pc-section="action"
+            href="#"
+            role="menuitem"
+            tabindex="0"
+          >
+            <span
+              class="p-menuitem-text"
+              data-pc-section="label"
+            >
+              Password
+            </span>
+          </a>
+        </li>
+        <li
+          class="p-tabmenuitem"
+          data-p-disabled="false"
+          data-p-highlight="false"
+          data-pc-section="menuitem"
+          id="null_1"
+          role="presentation"
+        >
+          <a
+            aria-label="2FA settings"
+            class="p-menuitem-link"
+            data-pc-section="action"
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="p-menuitem-text"
+              data-pc-section="label"
+            >
+              2FA settings
+            </span>
+          </a>
+        </li>
+        <li
+          class="p-tabmenuitem"
+          data-p-disabled="false"
+          data-p-highlight="false"
+          data-pc-section="menuitem"
+          id="null_2"
+          role="presentation"
+        >
+          <a
+            aria-label="Limits"
+            class="p-menuitem-link"
+            data-pc-section="action"
+            href="#"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="p-menuitem-text"
+              data-pc-section="label"
+            >
+              Limits
+            </span>
+          </a>
+        </li>
+        <li
+          class="p-tabmenu-ink-bar"
+          data-pc-section="inkbar"
+          role="none"
+        />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
