@@ -15,6 +15,8 @@ import { Switch } from './components/Switch';
 import { Toast } from './components/Toast';
 import { Icons, IconWrapper } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
+import { Sidebar } from './components/Sidebar';
+import { Tab } from './components/Tab';
 
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
@@ -33,6 +35,8 @@ export { Switch } from './components/Switch';
 export { Toast } from './components/Toast';
 export { Icons, IconWrapper } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
+export { Sidebar } from './components/Sidebar';
+export { Tab } from './components/Tab';
 
 export default {
   Button,
@@ -52,5 +56,7 @@ export default {
   Toast,
   Icons,
   IconWrapper,
-  Clipboard
+  Clipboard,
+  Sidebar,
+  Tab,
 };
