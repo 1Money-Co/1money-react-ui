@@ -36,6 +36,7 @@ const meta: Meta<typeof Sidebar> = {
       {
         label: 'Account',
         icon: <i className="pi pi-user" style={{ fontSize: '16px' }} />,
+        defaultOpen: true,
         children: [
           {
             label: 'Profile',

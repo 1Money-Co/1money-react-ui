@@ -41,9 +41,9 @@ export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
       <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='dropDown' color='#808080' className={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
         {
           menus.map((menu) => {
-            const { label, icon, link, active, children } = menu;
+            const { label, icon, link, active, defaultOpen, children } = menu;
             if (children) {
-              return <ProSubMenu label={menu.label} icon={icon} component={link}>
+              return <ProSubMenu label={menu.label} icon={icon} component={link} defaultOpen={defaultOpen}>
                 {
                   menu.children?.map((child) => {
                     return <ProMenuItem

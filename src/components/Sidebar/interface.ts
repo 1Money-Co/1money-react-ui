@@ -3,6 +3,7 @@ export interface MenuItem {
   icon?: React.ReactNode;
   link?: string | React.ReactElement;
   active?: boolean;
+  defaultOpen?: boolean;
   children?: Omit<MenuItem, 'children'>[];
 }
 

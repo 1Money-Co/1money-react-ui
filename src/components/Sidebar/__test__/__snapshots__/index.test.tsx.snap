@@ -162,15 +162,15 @@ LoadedCheerio {
             </a>
           </li>
           <li
-            class="ps-menuitem-root ps-submenu-root css-16jesut"
+            class="ps-menuitem-root ps-submenu-root ps-open css-16jesut"
           >
             <a
-              class="ps-menu-button"
+              class="ps-menu-button ps-open"
               data-testid="ps-menu-button-test-id"
               tabindex="0"
             >
               <span
-                class="ps-menu-icon css-wx7wi4"
+                class="ps-menu-icon ps-open css-wx7wi4"
               >
                 <i
                   class="pi pi-user"
@@ -178,15 +178,15 @@ LoadedCheerio {
                 />
               </span>
               <span
-                class="ps-menu-label css-12w9als"
+                class="ps-menu-label ps-open css-12w9als"
               >
                 Account
               </span>
               <span
-                class="ps-submenu-expand-icon css-1cuxlhl"
+                class="ps-submenu-expand-icon ps-open css-1cuxlhl"
               >
                 <svg
-                  class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon "
+                  class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
                   fill="#808080"
                   height="24"
                   viewBox="0 0 24 24"
@@ -215,8 +215,9 @@ LoadedCheerio {
               </span>
             </a>
             <div
-              class="ps-submenu-content css-18unl23"
+              class="ps-submenu-content ps-open css-nx2aea"
               data-testid="ps-submenu-content-test-id"
+              open=""
             >
               <ul
                 class="css-ewdv3l"
