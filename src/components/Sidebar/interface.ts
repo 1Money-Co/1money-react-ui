@@ -9,6 +9,7 @@ export interface MenuItem {
 export interface SidebarProps {
   className?: string;
   prefixCls?: string;
+  collapsible?: boolean;
   onCollapse?: (collapsed: boolean) => any;
   onLogout?: () => any;
   menus: MenuItem[];

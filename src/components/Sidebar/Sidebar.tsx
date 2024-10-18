@@ -13,7 +13,7 @@ import type { FC, PropsWithChildren } from 'react';
 import type { SidebarProps } from './interface';
 
 export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
-  const { children, menus, className, prefixCls = 'sidebar', onCollapse, onLogout } = props;
+  const { children, collapsible, menus, className, prefixCls = 'sidebar', onCollapse, onLogout } = props;
   const [collapsed, setCollapsed] = useState(false);
   const classes = classnames(prefixCls);
 
@@ -32,11 +32,13 @@ export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
     >
       <div className={classes('header')}>
         <Icons name={collapsed ? 'logo' : 'logoWithWords'} color='#3D73F2' width={collapsed ? 18 :103} height={18} />
-        <span className={classes('collapse')} onClick={handleCollapse}>
-          <i className={['pi', collapsed ? 'pi-angle-double-right' : 'pi-angle-double-left', classes('collapse-icon')].join(' ')} style={{ fontSize: '16px', color: '#808080' }} />
-        </span>
+        {
+          collapsible && <span className={classes('collapse')} onClick={handleCollapse}>
+            <i className={['pi', collapsed ? 'pi-angle-double-right' : 'pi-angle-double-left', classes('collapse-icon')].join(' ')} style={{ fontSize: '16px', color: '#808080' }} />
+          </span>
+        }
       </div>
-      <ProMenu renderExpandIcon={({ open }) => <Icons name='dropDown' color='#808080' className={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
+      <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='dropDown' color='#808080' className={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
         {
           menus.map((menu) => {
             const { label, icon, link, active, children } = menu;

@@ -13,6 +13,7 @@ const meta: Meta<typeof Sidebar> = {
   },
   args: {
     prefixCls: 'sidebar',
+    collapsible: true,
     menus: [
       {
         label: 'Dashboard',

@@ -15,7 +15,7 @@
     background-color: transparent;
 
     .ps-menu-root {
-      ul {
+      >ul {
         display: flex;
         flex-direction: column;
         gap: 16px;
