@@ -29,7 +29,8 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     prefixCls: 'button',
-    children: 'Primary'
+    children: 'Primary',
+    rounded: true
   },
   tags: ['!autodocs', 'dev']
 };
@@ -38,7 +39,8 @@ export const Secondary: Story = {
   args: {
     prefixCls: 'button',
     children: 'Secondary',
-    severity: 'secondary'
+    severity: 'secondary',
+    rounded: true
   }
 };
 
@@ -46,16 +48,17 @@ export const Disabled: Story = {
   args: {
     prefixCls: 'button',
     children: 'Disabled',
-    disabled: true
+    disabled: true,
+    rounded: true
   }
 };
 
-export const Rounded: Story = {
+export const Flat: Story = {
   args: {
     prefixCls: 'button',
-    children: 'Rounded',
+    children: 'Flat',
     severity: 'success',
-    rounded: true
+    rounded: false
   },
 };
 
@@ -64,7 +67,8 @@ export const Text: Story = {
     prefixCls: 'button',
     children: 'Text',
     severity: 'info',
-    text: true
+    text: true,
+    rounded: true
   },
 };
 
@@ -73,6 +77,7 @@ export const Outlined: Story = {
     prefixCls: 'button',
     children: 'Outlined',
     severity: 'warning',
-    outlined: true
+    outlined: true,
+    rounded: true
   },
 };

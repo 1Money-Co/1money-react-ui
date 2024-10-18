@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import './tailwind.css';
+import 'primeicons/primeicons.css';
 
 export const decorators = [
   withThemeByDataAttribute({
