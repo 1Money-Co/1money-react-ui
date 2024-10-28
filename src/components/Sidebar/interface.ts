@@ -1,4 +1,5 @@
 export interface MenuItem {
+  key?: string | number;
   label: React.ReactNode;
   icon?: React.ReactNode;
   link?: string | React.ReactElement;
