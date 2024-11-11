@@ -78,6 +78,10 @@
     padding: 32px 0 32px 16px;
   }
 
+  &-logo {
+    cursor: pointer;
+  }
+
   &-collapse {
     display: inline-flex;
     align-items: center;

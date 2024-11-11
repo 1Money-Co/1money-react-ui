@@ -13,6 +13,7 @@ export interface SidebarProps {
   prefixCls?: string;
   collapsible?: boolean;
   onCollapse?: (collapsed: boolean) => any;
+  onLogoClick?: () => any;
   onLogout?: () => any;
   menus: MenuItem[];
 }

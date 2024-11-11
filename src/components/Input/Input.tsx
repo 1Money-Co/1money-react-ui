@@ -16,7 +16,7 @@ import type { FC, PropsWithChildren, FormEvent } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
-  const { label, required, invalid, errMsg, type = 'text', className = '', prefixCls = 'input', wrapperCls, ...rest } = props;
+  const { label, required, invalid, rounded = true, errMsg, type = 'text', className = '', prefixCls = 'input', wrapperCls, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const InputComponent = useMemo(() => {
@@ -57,7 +57,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         {...rest as any}
         invalid={invalid}
         required={required}
-        className={classes(void 0, [`usd1-react-ui-input-${type}`, className].join(' '))}
+        className={classes(void 0, [classes(type), rounded ? classes('rounded') : '', className].join(' '))}
       />
       {invalid && errMsg && <span className={classes('error')}>{errMsg}</span>}
     </div>

@@ -12,6 +12,7 @@ export interface InputBaseProps {
   required?: boolean;
   wrapperCls?: string;
   errMsg?: string;
+  rounded?: boolean;
 }
 
 export interface InputTextProps extends PrimeInputTextProps, InputBaseProps{
