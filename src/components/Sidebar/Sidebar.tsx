@@ -31,14 +31,17 @@ export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
       transitionDuration={150}
     >
       <div className={classes('header')}>
-        <Icons
+        <span
           className={classes('logo')}
-          name={collapsed ? 'logo' : 'logoWithWords'}
-          color='#3D73F2'
-          width={collapsed ? 18 : 103}
-          height={18}
           onClick={onLogoClick}
-        />
+        >
+          <Icons
+            name={collapsed ? 'logo' : 'logoWithWords'}
+            color='#3D73F2'
+            width={collapsed ? 18 : 103}
+            height={18}
+          />
+        </span>
         {
           collapsible && <span className={classes('collapse')} onClick={handleCollapse}>
             <i className={['pi', collapsed ? 'pi-angle-double-right' : 'pi-angle-double-left', classes('collapse-icon')].join(' ')} style={{ fontSize: '16px', color: '#808080' }} />
