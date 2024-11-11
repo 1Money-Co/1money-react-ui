@@ -15,7 +15,7 @@ LoadedCheerio {
         class="usd1-react-ui-sidebar-header"
       >
         <svg
-          class="usd1-react-ui-icons"
+          class="usd1-react-ui-icons usd1-react-ui-sidebar-logo"
           fill="#3D73F2"
           height="18"
           viewBox="0 0 138 24"
