@@ -1,28 +1,28 @@
 .usd1-react-ui-progress {
   &-ring {
     position: relative;
-    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    overflow: hidden;
     background: conic-gradient(var(--fill-color) 0 var(--progress), var(--trail-color) var(--progress) var(--last));
+    border-radius: 50%;
 
-    &>* {
+    * {
       position: relative;
       z-index: 1;
     }
 
     &::before {
-      content: '';
       position: absolute;
-      inset: var(--stroke);
-      background-color: var(--bg-color);
-      border-radius: 50%;
       width: calc(var(--size) - (var(--stroke) * 2));
       height: calc(var(--size) - (var(--stroke) * 2));
-      text-align: center;
       line-height: calc(var(--size) - (var(--stroke) * 2));
+      text-align: center;
+      background-color: var(--bg-color);
+      border-radius: 50%;
+      content: '';
+      inset: var(--stroke);
     }
   }
 

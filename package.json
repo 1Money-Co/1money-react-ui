@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "0.2.7-beta.0",
+  "version": "0.2.7",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -154,8 +154,8 @@
   "keywords": [],
   "author": "",
   "peerDependencies": {
-    "primereact": ">=10",
     "primeicons": ">=7",
+    "primereact": ">=10",
     "prop-types": ">=15.7.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
@@ -180,7 +180,7 @@
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@chromatic-com/storybook": "^1.6.1",
     "@commitlint/cli": "8.3.5",
-    "@omni-door/cli": "^2.9.16",
+    "@omni-door/cli": "^2.9.17",
     "@storybook/addon-actions": "^8.2.9",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.2.9",
