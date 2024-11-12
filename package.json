@@ -64,6 +64,11 @@
       "require": "./lib/components/Popup/index.js",
       "types": "./es/components/Popup/index.d.ts"
     },
+    "./Progress": {
+      "import": "./es/components/Progress/index.js",
+      "require": "./lib/components/Progress/index.js",
+      "types": "./es/components/Progress/index.d.ts"
+    },
     "./RadioGroup": {
       "import": "./es/components/RadioGroup/index.js",
       "require": "./lib/components/RadioGroup/index.js",

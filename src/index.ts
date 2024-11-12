@@ -8,6 +8,7 @@ import { Menu } from './components/Menu';
 import { Message } from './components/Message';
 import { Modal } from './components/Modal';
 import { Popup } from './components/Popup';
+import { Progress } from './components/Progress';
 import { RadioGroup } from './components/RadioGroup';
 import { Select } from './components/Select';
 import { Spinner } from './components/Spinner';
@@ -28,6 +29,7 @@ export { Menu } from './components/Menu';
 export { Message } from './components/Message';
 export { Modal } from './components/Modal';
 export { Popup } from './components/Popup';
+export { Progress } from './components/Progress';
 export { RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
 export { Spinner } from './components/Spinner';
@@ -49,6 +51,7 @@ export default {
   Message,
   Modal,
   Popup,
+  Progress,
   RadioGroup,
   Select,
   Spinner,
