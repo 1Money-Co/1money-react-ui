@@ -1,7 +1,7 @@
 .usd1-react-ui-select {
   display: inline-flex;
   min-height: 38px;
-  padding: 6px 12px;
+  padding: 10px 16px;
   background-color: #FAFAFC;
   border: 0.5px solid #E0E2EE;
   border-radius: 8px;
@@ -82,6 +82,17 @@
 
     .p-multiselect-item .p-multiselect-checkbox .p-checkbox.p-highlight .p-checkbox-box {
       background-color: #3D73F2;
+    }
+
+    .p-dropdown-filter.p-inputtext {
+      &:enabled:focus:not(.p-invalid) {
+        border-color: #3D73F2;
+        box-shadow: 0 0 0 2px #ABC4FF;
+      }
+
+      &:hover {
+        border-color: #3D73F2;
+      }
     }
   }
 

@@ -10,7 +10,8 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
-    rounded: { control: 'boolean' }
+    rounded: { control: 'boolean' },
+    filter: { control: 'boolean' }
   },
   args: {
     prefixCls: 'button',
