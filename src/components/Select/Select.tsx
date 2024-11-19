@@ -9,7 +9,7 @@ import type { FC, PropsWithChildren } from 'react';
 import type { SelectProps } from './interface';
 
 export const Select: FC<PropsWithChildren<SelectProps>> = props => {
-  const { label, required, multiple, options, name, className = '', panelClassName, onChange, prefixCls = 'select', wrapperCls, ...rest } = props;
+  const { label, required, rounded = false, multiple, options, name, className = '', panelClassName, onChange, prefixCls = 'select', wrapperCls, ...rest } = props;
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<typeof options[] | null>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,13 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         required={required}
         options={options}
         value={selected}
-        className={classes(void 0, [isOpen ? classes('show') : '', className].join(' '))}
+        className={
+          classes(void 0, [
+            isOpen ? classes('show') : '',
+            rounded ? classes('rounded') : '',
+            className
+          ].join(' '))
+        }
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           onChange?.(e as any);

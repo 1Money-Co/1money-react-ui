@@ -29,7 +29,7 @@
           font-weight: 700;
           font-size: 14px;
           line-height: 14px;
-          border-radius: 16px;
+          border-radius: 8px;
 
           &:hover {
             color: #3D73F2;
@@ -61,7 +61,7 @@
 
         .ps-submenu-content {
           background-color: #F9FAFB;
-          border-radius: 16px;
+          border-radius: 8px;
         }
 
         .ps-submenu-content.ps-open {
@@ -104,7 +104,7 @@
     align-items: center;
     margin-top: auto;
     padding: 16px;
-    border-radius: 16px;
+    border-radius: 8px;
     cursor: pointer;
 
     &-logout {

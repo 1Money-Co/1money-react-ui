@@ -7,12 +7,18 @@ import type { FC, PropsWithChildren } from 'react';
 import type { CalendarProps } from './interface';
 
 export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
-  const { className, prefixCls = 'calendar' } = props;
+  const { className, panelClassName, rounded = false, placeholder = 'MM/DD/YYYY', prefixCls = 'calendar', ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
     <PrimeCalendar
-      className={classes(void 0, className)}
+      {...rest}
+      className={classes(void 0, [
+        className,
+        rounded && classes('rounded')
+      ].join(' '))}
+      panelClassName={classes('panel', panelClassName)}
+      placeholder={placeholder}
     />
   );
 };

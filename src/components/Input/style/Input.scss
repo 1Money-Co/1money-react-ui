@@ -33,6 +33,12 @@
     border-radius: 20px;
   }
 
+  &-otp.usd1-react-ui-input-rounded {
+    input {
+      border-radius: 16px;
+    }
+  }
+
   &-otp {
     background-color: inherit;
     border: none;

@@ -30,7 +30,7 @@ export const Primary: Story = {
   args: {
     prefixCls: 'button',
     children: 'Primary',
-    rounded: true
+    rounded: false
   },
   tags: ['!autodocs', 'dev']
 };
@@ -40,7 +40,7 @@ export const Secondary: Story = {
     prefixCls: 'button',
     children: 'Secondary',
     severity: 'secondary',
-    rounded: true
+    rounded: false
   }
 };
 
@@ -49,16 +49,16 @@ export const Disabled: Story = {
     prefixCls: 'button',
     children: 'Disabled',
     disabled: true,
-    rounded: true
+    rounded: false
   }
 };
 
-export const Flat: Story = {
+export const Rounded: Story = {
   args: {
     prefixCls: 'button',
     children: 'Flat',
     severity: 'success',
-    rounded: false
+    rounded: true
   },
 };
 
@@ -68,7 +68,7 @@ export const Text: Story = {
     children: 'Text',
     severity: 'info',
     text: true,
-    rounded: true
+    rounded: false
   },
 };
 
@@ -78,6 +78,6 @@ export const Outlined: Story = {
     children: 'Outlined',
     severity: 'warning',
     outlined: true,
-    rounded: true
+    rounded: false
   },
 };

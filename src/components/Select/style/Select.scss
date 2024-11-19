@@ -1,9 +1,10 @@
 .usd1-react-ui-select {
   display: inline-flex;
-  padding: 0 24px;
+  padding: 6px 12px;
   background-color: #FAFAFC;
   border: 0.5px solid #E0E2EE;
-  border-radius: 20px;
+  border-radius: 8px;
+  min-height: 38px;
 
   &.p-multiselect:not(.p-disabled).p-focus,
   &.p-dropdown:not(.p-disabled).p-focus {
@@ -20,7 +21,23 @@
 
   .p-dropdown-label,
   .p-multiselect-label {
-    padding: 12px 12px 12px 0;
+    display: flex;
+    align-items: center;
+    padding: 0 6px 0 0;
+
+    .p-multiselect-token {
+      background-color: #E5EFFF;
+
+      .p-multiselect-token-label {
+        color: #404040;
+      }
+    }
+  }
+
+  .p-multiselect-label-container {
+    display: flex;
+    height: 28px;
+    align-items: center;
   }
 
   .p-multiselect-label,
@@ -29,7 +46,6 @@
     font-weight: 300;
     font-size: 14px;
     font-style: normal;
-    line-height: 20px;
   }
 
   .p-dropdown-trigger,
@@ -38,7 +54,7 @@
   }
 
   &-panel {
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10%);
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus,
@@ -63,6 +79,14 @@
 
   &-show svg {
     transform: rotate(180deg);
+  }
+
+  &-rounded {
+    border-radius: 20px;
+
+    &-panel {
+      border-radius: 20px;
+    }
   }
 }
 
@@ -89,5 +113,15 @@
       line-height: 120%;
       content: '*';
     }
+  }
+}
+
+.usd1-react-ui-select-panel {
+  &.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+    background-color: #E5EFFF;
+  }
+
+  .p-multiselect-item .p-multiselect-checkbox .p-checkbox.p-highlight .p-checkbox-box {
+    background-color: #3D73F2;
   }
 }

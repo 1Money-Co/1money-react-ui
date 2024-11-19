@@ -9,7 +9,8 @@ const meta: Meta<typeof Select> = {
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
     className: { control: 'text' },
-    prefixCls: { control: 'text' }
+    prefixCls: { control: 'text' },
+    rounded: { control: 'boolean' }
   },
   args: {
     prefixCls: 'button',

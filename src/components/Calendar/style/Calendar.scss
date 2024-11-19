@@ -1,3 +1,28 @@
 .usd1-react-ui-calendar {
-  display: block;
+  & input {
+    border-radius: 6px;
+
+    &:hover {
+      border-color: #3D73F2;
+    }
+  }
+
+  &-rounded {
+    & input {
+      border-radius: 20px;
+    }
+  }
+
+  &.p-calendar:not(.p-calendar-disabled).p-focus>.p-inputtext {
+    border-color: #3D73F2;
+    box-shadow: 0 0 0 2px #ABC4FF;
+  }
+}
+
+.usd1-react-ui-calendar-panel {
+  & .p-datepicker-buttonbar {
+    .p-button {
+      color: #3B82F6;
+    }
+  }
 }

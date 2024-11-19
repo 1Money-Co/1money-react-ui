@@ -6,6 +6,7 @@ interface BaseProps {
   wrapperCls?: string;
   label?: string;
   required?: boolean;
+  rounded?: boolean;
 }
 
 export interface SingleSelectProps extends Omit<DropdownProps, 'value'>, BaseProps {
