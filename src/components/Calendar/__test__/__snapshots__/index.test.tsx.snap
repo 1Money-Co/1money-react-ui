@@ -3,7 +3,7 @@
 exports[`Calendar renders correctly 1`] = `
 LoadedCheerio {
   "0": <span
-    class="usd1-react-ui-calendar p-calendar p-component p-inputwrapper"
+    class="usd1-react-ui-calendar  false p-calendar p-component p-inputwrapper"
     data-pc-name="calendar"
     data-pc-section="root"
   >
@@ -17,6 +17,7 @@ LoadedCheerio {
       data-pc-name="inputtext"
       data-pc-section="root"
       inputmode="none"
+      placeholder="MM/DD/YYYY"
       role="combobox"
       type="text"
     />

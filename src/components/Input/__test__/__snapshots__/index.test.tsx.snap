@@ -6,7 +6,7 @@ LoadedCheerio {
     class="usd1-react-ui-input-wrapper"
   >
     <input
-      class="usd1-react-ui-input usd1-react-ui-input-text usd1-react-ui-input-rounded  p-inputtext p-component"
+      class="usd1-react-ui-input usd1-react-ui-input-text   p-inputtext p-component"
       data-pc-name="inputtext"
       data-pc-section="root"
     />
@@ -52,7 +52,7 @@ LoadedCheerio {
     class="usd1-react-ui-input-wrapper"
   >
     <span
-      class="usd1-react-ui-input usd1-react-ui-input-number usd1-react-ui-input-rounded  p-inputnumber p-component p-inputwrapper"
+      class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
       data-pc-name="inputnumber"
       data-pc-section="root"
     >
@@ -108,7 +108,7 @@ LoadedCheerio {
     class="usd1-react-ui-input-wrapper"
   >
     <textarea
-      class="usd1-react-ui-input usd1-react-ui-input-textarea usd1-react-ui-input-rounded  p-inputtextarea p-inputtext p-component usd1-react-ui-input usd1-react-ui-input-textarea usd1-react-ui-input-rounded"
+      class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component usd1-react-ui-input usd1-react-ui-input-textarea"
       data-pc-name="inputtextarea"
       data-pc-section="root"
     />

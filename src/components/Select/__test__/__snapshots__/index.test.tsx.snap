@@ -6,7 +6,7 @@ LoadedCheerio {
     class="usd1-react-ui-select-wrapper"
   >
     <div
-      class="usd1-react-ui-select   p-dropdown p-component p-inputwrapper"
+      class="usd1-react-ui-select    p-dropdown p-component p-inputwrapper"
       data-p-disabled="false"
       data-p-focus="false"
       data-pc-name="dropdown"
@@ -121,7 +121,7 @@ LoadedCheerio {
     class="usd1-react-ui-select-wrapper"
   >
     <div
-      class="usd1-react-ui-select   p-multiselect p-component p-inputwrapper"
+      class="usd1-react-ui-select    p-multiselect p-component p-inputwrapper"
       data-pc-name="multiselect"
       data-pc-section="root"
     >

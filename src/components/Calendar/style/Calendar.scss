@@ -1,5 +1,5 @@
 .usd1-react-ui-calendar {
-  & input {
+  input {
     border-radius: 6px;
 
     &:hover {
@@ -8,7 +8,7 @@
   }
 
   &-rounded {
-    & input {
+    input {
       border-radius: 20px;
     }
   }
@@ -20,7 +20,7 @@
 }
 
 .usd1-react-ui-calendar-panel {
-  & .p-datepicker-buttonbar {
+  .p-datepicker-buttonbar {
     .p-button {
       color: #3B82F6;
     }
