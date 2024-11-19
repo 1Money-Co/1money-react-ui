@@ -9,7 +9,7 @@ import {
 import classnames from '@/utils/classnames';
 import Icons from '../Icons';
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
 export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
@@ -23,8 +23,9 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
   }, [collapsed, onCollapse]);
 
   useImperativeHandle(ref, () => ({
-    toggle: handleCollapse
-  }), []);
+    toggle: handleCollapse,
+    collapse: setCollapsed
+  }), [handleCollapse, setCollapsed]);
 
   return (
     <ProSidebar

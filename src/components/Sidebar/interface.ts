@@ -20,4 +20,5 @@ export interface SidebarProps {
 
 export interface SidebarHandlers {
   toggle: () => any;
+  collapse: (collapsed: boolean) => any;
 }
