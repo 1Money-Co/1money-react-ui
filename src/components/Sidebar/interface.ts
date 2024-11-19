@@ -17,3 +17,7 @@ export interface SidebarProps {
   onLogout?: () => any;
   menus: MenuItem[];
 }
+
+export interface SidebarHandlers {
+  toggle: () => any;
+}

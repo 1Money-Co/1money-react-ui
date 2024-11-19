@@ -1,4 +1,4 @@
-import { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
 import propTypes from 'prop-types';
 import {
   Sidebar as ProSidebar,
@@ -10,9 +10,9 @@ import classnames from '@/utils/classnames';
 import Icons from '../Icons';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { SidebarProps } from './interface';
+import type { SidebarProps, SidebarHandlers } from './interface';
 
-export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
+export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
   const { children, collapsible, menus, className, prefixCls = 'sidebar', onCollapse, onLogoClick, onLogout } = props;
   const [collapsed, setCollapsed] = useState(false);
   const classes = classnames(prefixCls);
@@ -21,6 +21,10 @@ export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
     setCollapsed(!collapsed);
     onCollapse?.(!collapsed);
   }, [collapsed, onCollapse]);
+
+  useImperativeHandle(ref, () => ({
+    toggle: handleCollapse
+  }), []);
 
   return (
     <ProSidebar
@@ -94,7 +98,7 @@ export const Sidebar: FC<PropsWithChildren<SidebarProps>> = props => {
       </div>
     </ProSidebar>
   );
-};
+});
 
 /**
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
