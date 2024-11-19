@@ -17,15 +17,15 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
   const [collapsed, setCollapsed] = useState(false);
   const classes = classnames(prefixCls);
 
-  const handleCollapse = useCallback(() => {
-    setCollapsed(!collapsed);
-    onCollapse?.(!collapsed);
-  }, [collapsed, onCollapse]);
+  const handleCollapse = useCallback((_collapsed: boolean) => {
+    setCollapsed(_collapsed);
+    onCollapse?.(_collapsed);
+  }, [onCollapse]);
 
   useImperativeHandle(ref, () => ({
-    toggle: handleCollapse,
-    collapse: setCollapsed
-  }), [handleCollapse, setCollapsed]);
+    toggle: () => handleCollapse(!collapsed),
+    collapse: handleCollapse
+  }), [collapsed, handleCollapse]);
 
   return (
     <ProSidebar
@@ -48,7 +48,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
           />
         </span>
         {
-          collapsible && <span className={classes('collapse')} onClick={handleCollapse}>
+          collapsible && <span className={classes('collapse')} onClick={() => handleCollapse(!collapsed)}>
             <i className={['pi', collapsed ? 'pi-angle-double-right' : 'pi-angle-double-left', classes('collapse-icon')].join(' ')} style={{ fontSize: '16px', color: '#808080' }} />
           </span>
         }
