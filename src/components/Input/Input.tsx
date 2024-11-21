@@ -16,7 +16,7 @@ import type { FC, PropsWithChildren, FormEvent } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
-  const { label, required, invalid, rounded = false, errMsg, type = 'text', className = '', prefixCls = 'input', wrapperCls, ...rest } = props;
+  const { addons, label, required, invalid, rounded = false, errMsg, type = 'text', className = '', prefixCls = 'input', wrapperCls, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const InputComponent = useMemo(() => {
@@ -53,12 +53,15 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
   return (
     <div className={classes('wrapper', wrapperCls)}>
       {label && <span className={classes('label', required ? classes('label-required') : '')}>{label}</span>}
-      <InputComponent
-        {...rest as any}
-        invalid={invalid}
-        required={required}
-        className={classes(void 0, [classes(type), rounded ? classes('rounded') : '', className].join(' '))}
-      />
+      <div className={classes('inner')}>
+        {addons && <div className={classes('addons')}>{addons}</div>}
+        <InputComponent
+          {...rest as any}
+          invalid={invalid}
+          required={required}
+          className={classes(void 0, [classes(type), rounded ? classes('rounded') : '', className].join(' '))}
+        />
+      </div>
       {invalid && errMsg && <span className={classes('error')}>{errMsg}</span>}
     </div>
   );

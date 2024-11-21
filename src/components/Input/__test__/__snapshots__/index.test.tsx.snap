@@ -5,11 +5,15 @@ LoadedCheerio {
   "0": <div
     class="usd1-react-ui-input-wrapper"
   >
-    <input
-      class="usd1-react-ui-input usd1-react-ui-input-text   p-inputtext p-component"
-      data-pc-name="inputtext"
-      data-pc-section="root"
-    />
+    <div
+      class="usd1-react-ui-input-inner"
+    >
+      <input
+        class="usd1-react-ui-input usd1-react-ui-input-text   p-inputtext p-component"
+        data-pc-name="inputtext"
+        data-pc-section="root"
+      />
+    </div>
   </div>,
   "_root": LoadedCheerio {
     "0": Document {
@@ -51,21 +55,25 @@ LoadedCheerio {
   "0": <div
     class="usd1-react-ui-input-wrapper"
   >
-    <span
-      class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
-      data-pc-name="inputnumber"
-      data-pc-section="root"
+    <div
+      class="usd1-react-ui-input-inner"
     >
-      <input
-        class="p-inputnumber-input p-inputtext p-component"
-        data-pc-name="inputtext"
+      <span
+        class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+        data-pc-name="inputnumber"
         data-pc-section="root"
-        inputmode="numeric"
-        role="spinbutton"
-        type="text"
-        value=""
-      />
-    </span>
+      >
+        <input
+          class="p-inputnumber-input p-inputtext p-component"
+          data-pc-name="inputtext"
+          data-pc-section="root"
+          inputmode="numeric"
+          role="spinbutton"
+          type="text"
+          value=""
+        />
+      </span>
+    </div>
   </div>,
   "_root": LoadedCheerio {
     "0": Document {
@@ -107,11 +115,15 @@ LoadedCheerio {
   "0": <div
     class="usd1-react-ui-input-wrapper"
   >
-    <textarea
-      class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component usd1-react-ui-input usd1-react-ui-input-textarea"
-      data-pc-name="inputtextarea"
-      data-pc-section="root"
-    />
+    <div
+      class="usd1-react-ui-input-inner"
+    >
+      <textarea
+        class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component usd1-react-ui-input usd1-react-ui-input-textarea"
+        data-pc-name="inputtextarea"
+        data-pc-section="root"
+      />
+    </div>
   </div>,
   "_root": LoadedCheerio {
     "0": Document {

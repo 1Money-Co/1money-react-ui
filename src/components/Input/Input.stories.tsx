@@ -31,7 +31,8 @@ export const Normal: Story = {
     type: 'text',
     prefixCls: 'input',
     variant: 'outlined',
-    label: 'Email'
+    label: 'Email',
+    addons: 'www'
   },
   tags: ['!autodocs'],
 };
