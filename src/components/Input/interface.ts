@@ -8,7 +8,7 @@ import type { AutoCompleteProps } from 'primereact/autocomplete';
 
 export interface InputBaseProps {
   prefixCls?: string;
-  label?: string;
+  label?: React.ReactNode;
   required?: boolean;
   wrapperCls?: string;
   errMsg?: string;

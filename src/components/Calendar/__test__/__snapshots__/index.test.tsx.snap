@@ -2,26 +2,30 @@
 
 exports[`Calendar renders correctly 1`] = `
 LoadedCheerio {
-  "0": <span
-    class="usd1-react-ui-calendar  false p-calendar p-component p-inputwrapper"
-    data-pc-name="calendar"
-    data-pc-section="root"
+  "0": <div
+    class="usd1-react-ui-calendar-wrapper"
   >
-    <input
-      aria-autocomplete="none"
-      aria-controls="null_panel"
-      aria-expanded="false"
-      aria-haspopup="dialog"
-      autocomplete="off"
-      class="p-inputtext p-component p-inputtext p-component"
-      data-pc-name="inputtext"
+    <span
+      class="usd1-react-ui-calendar  false p-calendar p-component p-inputwrapper"
+      data-pc-name="calendar"
       data-pc-section="root"
-      inputmode="none"
-      placeholder="MM/DD/YYYY"
-      role="combobox"
-      type="text"
-    />
-  </span>,
+    >
+      <input
+        aria-autocomplete="none"
+        aria-controls="null_panel"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        autocomplete="off"
+        class="p-inputtext p-component p-inputtext p-component"
+        data-pc-name="inputtext"
+        data-pc-section="root"
+        inputmode="none"
+        placeholder="MM/DD/YYYY"
+        role="combobox"
+        type="text"
+      />
+    </span>
+  </div>,
   "_root": LoadedCheerio {
     "0": Document {
       "children": [

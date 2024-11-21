@@ -26,5 +26,7 @@ type Story = StoryObj<typeof Calendar>;
 export const Primary: Story = {
   args: {
     prefixCls: 'calendar',
+    label: 'Date of Incorporation',
+    required: true,
   },
 };

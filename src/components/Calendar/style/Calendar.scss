@@ -26,3 +26,30 @@
     }
   }
 }
+
+.usd1-react-ui-calendar-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.usd1-react-ui-calendar-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+
+  &-required {
+    &::after {
+      color: #CC1461;
+      font-weight: 400;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 120%;
+      content: '*';
+    }
+  }
+}
