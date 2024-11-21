@@ -1,10 +1,18 @@
 .usd1-react-ui-calendar {
   input {
     padding: 10px 16px;
+    color: #000;
+    font-size: 14px;
     border-radius: 6px;
 
     &:hover {
       border-color: #3D73F2;
+    }
+
+    &::placeholder {
+      color: #6B7280;
+      font-weight: 400;
+      font-size: 14px;
     }
   }
 
