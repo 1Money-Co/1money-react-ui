@@ -1,3 +1,13 @@
 .usd1-react-ui-switch {
-  display: block;
+  display: inline-flex;
+
+  &.p-inputswitch.p-highlight .p-inputswitch-slider {
+    background-color: #142D66;
+    box-shadow: none;
+  }
+
+  &.p-togglebutton.p-highlight .p-button {
+    background-color: #142D66;
+    box-shadow: 0 0 0 2px #ABC4FF;
+  }
 }
