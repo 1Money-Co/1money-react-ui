@@ -4,6 +4,7 @@ import { MultiSelectProps as PrimeMultiSelectProps } from 'primereact/multiselec
 interface BaseProps {
   prefixCls?: string;
   wrapperCls?: string;
+  labelCls?: string;
   label?: string;
   required?: boolean;
   rounded?: boolean;

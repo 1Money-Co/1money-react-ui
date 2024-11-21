@@ -2,8 +2,9 @@ import type { Nullable } from 'primereact/ts-helpers';
 import type { CalendarProps as PrimeCalendarProps } from 'primereact/calendar';
 
 export type CalendarProps = PrimeCalendarProps & {
-  wrapperCls?: string;
   prefixCls?: string;
+  wrapperCls?: string;
+  labelCls?: string;
   label?: React.ReactNode;
   required?: boolean;
   rounded?: boolean;

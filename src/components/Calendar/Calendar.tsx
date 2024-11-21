@@ -9,14 +9,15 @@ import type { CalendarProps } from './interface';
 
 export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
   const {
+    prefixCls = 'calendar',
     wrapperCls,
+    labelCls,
     className,
     panelClassName,
     label,
     required,
     rounded = false,
     placeholder = 'MM/DD/YYYY',
-    prefixCls = 'calendar',
     defaultValue,
     value,
     onChange,
@@ -33,7 +34,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', required ? classes('label-required') : '')}>{label}</span>}
+      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
       <PrimeCalendar
         {...rest}
         value={date as any}

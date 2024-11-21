@@ -22,6 +22,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     onChange,
     prefixCls = 'select',
     wrapperCls,
+    labelCls,
     defaultValue,
     value,
     ...rest
@@ -39,7 +40,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', required ? classes('label-required') : '')}>{label}</span>}
+      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
       <SelectComponent
         {...rest as any}
         name={name}

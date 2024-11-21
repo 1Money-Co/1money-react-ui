@@ -12,6 +12,7 @@ export interface InputBaseProps {
   addons?: React.ReactNode;
   required?: boolean;
   wrapperCls?: string;
+  labelCls?: string;
   errMsg?: string;
   rounded?: boolean;
 }
