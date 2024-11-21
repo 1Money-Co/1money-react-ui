@@ -25,6 +25,8 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     labelCls,
     defaultValue,
     value,
+    onHide,
+    onShow,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
@@ -56,11 +58,19 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         }
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
-          onChange?.(e as any);
           setSelected(e.value);
+          onChange?.(e as any);
+          const event = new Event('change', { bubbles: true });
+          e.originalEvent?.target?.dispatchEvent(event);
         }}
-        onHide={() => setIsOpen(false)}
-        onShow={() => setIsOpen(true)}
+        onHide={() => {
+          setIsOpen(false);
+          onHide?.();
+        }}
+        onShow={() => {
+          setIsOpen(true);
+          onShow?.();
+        }}
         dropdownIcon={() => <Icons name='dropDown' color='#808080' size={20} />}
       />
     </div>

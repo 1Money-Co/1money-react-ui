@@ -41,6 +41,8 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
         onChange={(e: any) => {
           setDate(e.value);
           onChange?.(e);
+          const event = new Event('change', { bubbles: true });
+          e.originalEvent?.target?.dispatchEvent(event);
         }}
         className={classes(void 0, [
           className,
