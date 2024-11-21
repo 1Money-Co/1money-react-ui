@@ -1,5 +1,6 @@
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import propTypes from 'prop-types';
+import isEqual from 'lodash.isequal';
 import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import classnames from '@/utils/classnames';
 /* import types */
@@ -16,15 +17,30 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     rounded = false,
     placeholder = 'MM/DD/YYYY',
     prefixCls = 'calendar',
+    defaultValue,
+    value,
+    onChange,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
+  const [date, setDate] = useState<CalendarProps['value']>(value ?? defaultValue);
+
+  useEffect(() => {
+    if (value !== undefined && !isEqual(date, value)) {
+      setDate(value);
+    }
+  }, [value]);
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
       {label && <span className={classes('label', required ? classes('label-required') : '')}>{label}</span>}
       <PrimeCalendar
         {...rest}
+        value={date as any}
+        onChange={(e: any) => {
+          setDate(e.value);
+          onChange?.(e);
+        }}
         className={classes(void 0, [
           className,
           rounded && classes('rounded')
