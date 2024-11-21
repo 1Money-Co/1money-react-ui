@@ -1,4 +1,5 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo, useState, useEffect } from 'react';
+import isEqual from 'lodash.isequal';
 import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
 import propTypes from 'prop-types';
@@ -9,12 +10,33 @@ import type { FC, PropsWithChildren } from 'react';
 import type { SelectProps } from './interface';
 
 export const Select: FC<PropsWithChildren<SelectProps>> = props => {
-  const { label, required, rounded = false, multiple, options, name, className = '', panelClassName, onChange, prefixCls = 'select', wrapperCls, ...rest } = props;
+  const {
+    label,
+    required,
+    rounded = false,
+    multiple,
+    options,
+    name,
+    className = '',
+    panelClassName,
+    onChange,
+    prefixCls = 'select',
+    wrapperCls,
+    defaultValue,
+    value,
+    ...rest
+  } = props;
   const classes = classnames(prefixCls);
-  const [selected, setSelected] = useState<typeof options[] | null>(null);
+  const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ??defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
   const SelectComponent = useMemo(() => multiple ? MultiSelect as new() => MultiSelect : Dropdown as new() => Dropdown, [multiple]);
   
+  useEffect(() => {
+    if (value !== undefined && !isEqual(selected, value)) {
+      setSelected(value);
+    }
+  }, [value]);
+
   return (
     <div className={classes('wrapper', wrapperCls)}>
       {label && <span className={classes('label', required ? classes('label-required') : '')}>{label}</span>}

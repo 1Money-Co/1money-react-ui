@@ -36,6 +36,7 @@ export const Single: Story = {
   args: {
     prefixCls: 'select',
     placeholder: 'Select City',
+    defaultValue: 'IST',
     options: cities,
     label: 'Cities',
     required: true
