@@ -3,8 +3,12 @@
   min-height: 38px;
   padding: 10px 16px;
   background-color: #FAFAFC;
-  border: 0.5px solid #E0E2EE;
+  border: 1px solid #E0E2EE;
   border-radius: 8px;
+
+  &.p-multiselect {
+    padding: 6px 10.5px;
+  }
 
   &.p-multiselect:not(.p-disabled).p-focus,
   &.p-dropdown:not(.p-disabled).p-focus {

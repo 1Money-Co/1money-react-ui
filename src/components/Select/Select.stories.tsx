@@ -52,5 +52,6 @@ export const Multiple: Story = {
     options: cities,
     display: 'chip',
     label: 'Multiple Cities',
+    defaultValue: []
   },
 };

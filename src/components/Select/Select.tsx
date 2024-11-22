@@ -30,7 +30,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     ...rest
   } = props;
   const classes = classnames(prefixCls);
-  const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ??defaultValue ?? null);
+  const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
   const SelectComponent = useMemo(() => multiple ? MultiSelect as new() => MultiSelect : Dropdown as new() => Dropdown, [multiple]);
   
@@ -60,8 +60,6 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         onChange={(e) => {
           setSelected(e.value);
           onChange?.(e as any);
-          const event = new Event('change', { bubbles: true });
-          e.originalEvent?.target?.dispatchEvent(event);
         }}
         onHide={() => {
           setIsOpen(false);
