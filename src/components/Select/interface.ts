@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { DropdownProps } from 'primereact/dropdown';
 import { MultiSelectProps as PrimeMultiSelectProps } from 'primereact/multiselect';
 
@@ -5,7 +6,7 @@ interface BaseProps {
   prefixCls?: string;
   wrapperCls?: string;
   labelCls?: string;
-  label?: string;
+  label?: ReactNode;
   required?: boolean;
   rounded?: boolean;
   value?: any;

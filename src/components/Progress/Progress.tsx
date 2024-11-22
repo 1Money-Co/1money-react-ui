@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { ProgressBar } from 'primereact/progressbar';
 import classnames from '@/utils/classnames';
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren, CSSProperties } from 'react';
 import type { ProgressProps, ProgressRingProps, ProgressBarProps } from './interface';
 
 export const Progress: FC<PropsWithChildren<ProgressProps>> = props => {
@@ -37,7 +37,7 @@ export const Progress: FC<PropsWithChildren<ProgressProps>> = props => {
             '--bg-color': `${(rest as ProgressRingProps)?.bgColor ?? '#FAFAFC'}`,
             '--trail-color': `${trailColor ?? '#E0E2EE'}`,
             '--fill-color': `${fillColor ?? '#3D73F2'}`,
-          } as React.CSSProperties}
+          } as CSSProperties}
         >
           { children }
         </div>
@@ -50,7 +50,7 @@ export const Progress: FC<PropsWithChildren<ProgressProps>> = props => {
             '--trail-color': `${trailColor ?? '#E0E2EE'}`,
             '--fill-color': `${fillColor ?? '#3D73F2'}`,
             '--label-color': `${(rest as ProgressBarProps)?.labelColor ?? '#FFFFFF'}`,
-          } as React.CSSProperties}
+          } as CSSProperties}
           {...rest}
         >
           { children }

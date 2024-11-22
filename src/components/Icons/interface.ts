@@ -1,3 +1,5 @@
+import type { MouseEvent } from 'react';
+
 export interface IconsProps extends IconWrapperProps {}
 
 export interface IconWrapperProps {
@@ -8,5 +10,5 @@ export interface IconWrapperProps {
   height?: number | `${number}`;
   color?: string;
   viewBox?: string;
-  onClick?: (e: React.MouseEvent<SVGSVGElement>) => any;
+  onClick?: (e: MouseEvent<SVGSVGElement>) => any;
 }

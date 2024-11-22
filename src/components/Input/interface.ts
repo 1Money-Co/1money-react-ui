@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { InputTextProps as PrimeInputTextProps } from 'primereact/inputtext';
 import type { InputNumberProps as PrimeInputNumberProps } from 'primereact/inputnumber';
 import type { InputMaskProps as PrimeInputMaskProps } from 'primereact/inputmask';
@@ -8,8 +9,8 @@ import type { AutoCompleteProps } from 'primereact/autocomplete';
 
 export interface InputBaseProps {
   prefixCls?: string;
-  label?: React.ReactNode;
-  addons?: React.ReactNode;
+  label?: ReactNode;
+  addons?: ReactNode;
   required?: boolean;
   wrapperCls?: string;
   labelCls?: string;

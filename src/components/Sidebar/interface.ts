@@ -1,8 +1,10 @@
+import type { ReactNode, ReactElement } from 'react';
+
 export interface MenuItem {
   key?: string | number;
-  label: React.ReactNode;
-  icon?: React.ReactNode;
-  link?: string | React.ReactElement;
+  label: ReactNode;
+  icon?: ReactNode;
+  link?: string | ReactElement;
   active?: boolean;
   defaultOpen?: boolean;
   children?: Omit<MenuItem, 'children'>[];
