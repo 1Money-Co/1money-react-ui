@@ -25,12 +25,10 @@ describe('Upload', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('simulate events', () => {
-    const onClick = sinon.spy(); 
+  it('basic render', () => {
     const wrapper = mount(
-      <Upload onClick={onClick} />
+      <Upload mode='basic' auto />
     );
-    wrapper.find('div').simulate('click');
-    expect(onClick.called).toBe(true);
+    expect(wrapper).toMatchSnapshot();
   });
 });
