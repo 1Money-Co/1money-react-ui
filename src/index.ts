@@ -18,6 +18,7 @@ import { Icons, IconWrapper } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar } from './components/Sidebar';
 import { Tab } from './components/Tab';
+import { Upload } from './components/Upload';
 
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
@@ -39,6 +40,7 @@ export { Icons, IconWrapper } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar } from './components/Sidebar';
 export { Tab } from './components/Tab';
+export { Upload } from './components/Upload';
 
 export default {
   Button,
@@ -62,4 +64,5 @@ export default {
   Clipboard,
   Sidebar,
   Tab,
+  Upload,
 };

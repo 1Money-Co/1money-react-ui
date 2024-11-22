@@ -113,6 +113,11 @@
       "import": "./es/components/Tab/index.js",
       "require": "./lib/components/Tab/index.js",
       "types": "./es/components/Tab/index.d.ts"
+    },
+    "./Upload": {
+      "import": "./es/components/Upload/index.js",
+      "require": "./lib/components/Upload/index.js",
+      "types": "./es/components/Upload/index.d.ts"
     }
   },
   "scripts": {
