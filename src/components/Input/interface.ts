@@ -9,11 +9,11 @@ import type { AutoCompleteProps } from 'primereact/autocomplete';
 
 export interface InputBaseProps {
   prefixCls?: string;
+  wrapperCls?: string;
+  labelCls?: string;
   label?: ReactNode;
   addons?: ReactNode;
   required?: boolean;
-  wrapperCls?: string;
-  labelCls?: string;
   errMsg?: string;
   rounded?: boolean;
 }

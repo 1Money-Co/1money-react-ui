@@ -60,7 +60,12 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
  */
 Calendar.propTypes = {
   className: propTypes.string,
-  prefixCls: propTypes.string
+  prefixCls: propTypes.string,
+  wrapperCls: propTypes.string,
+  labelCls: propTypes.string,
+  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
+  required: propTypes.bool,
+  rounded: propTypes.bool,
 };
 
 export default memo(Calendar);

@@ -71,10 +71,14 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 Input.propTypes = {
-  label: propTypes.string,
+  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
+  addons: propTypes.oneOfType([propTypes.string, propTypes.node]),
   required: propTypes.bool,
   prefixCls: propTypes.string,
-  wrapperCls: propTypes.string
+  wrapperCls: propTypes.string,
+  labelCls: propTypes.string,
+  errMsg: propTypes.string,
+  rounded: propTypes.bool,
 };
 
 export default memo(Input);

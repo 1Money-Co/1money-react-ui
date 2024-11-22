@@ -79,11 +79,14 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
  * prop-types can make sure the type-check whatever the environment whether or not use typescript
  */
 Select.propTypes = {
-  label: propTypes.string,
+  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
   required: propTypes.bool,
   className: propTypes.string,
   prefixCls: propTypes.string,
-  wrapperCls: propTypes.string
+  wrapperCls: propTypes.string,
+  labelCls: propTypes.string,
+  rounded: propTypes.bool,
+  value: propTypes.any,
 };
 
 export default memo(Select);
