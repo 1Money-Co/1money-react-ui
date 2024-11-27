@@ -2,17 +2,18 @@
   .p-confirm-popup-footer {
     .p-confirm-popup-accept {
       color: #FFF;
-      background-color: #142D66;
+      background-color: #faaa48;
       border: none;
       box-shadow: none;
 
       &:hover {
-        background-color: #183699;
+        background-color: #e58918;
       }
     }
 
     .p-confirm-popup-reject {
-      color: #142D66;
+      color: #404040;
+      box-shadow: none;
 
       &:hover {
         background-color: transparent;
