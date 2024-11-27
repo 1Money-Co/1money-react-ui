@@ -1,4 +1,13 @@
 .usd1-react-ui-calendar {
+  &.p-invalid input {
+    border-color: #CC1461;
+    box-shadow: none;
+
+    &:hover {
+      border-color: #CC1461;
+    }
+  }
+
   input {
     padding: 10px 16px;
     color: #000;
@@ -22,7 +31,7 @@
     }
   }
 
-  &.p-calendar:not(.p-calendar-disabled).p-focus>.p-inputtext {
+  &.p-calendar:not(.p-calendar-disabled, .p-invalid).p-focus>.p-inputtext {
     border-color: #3D73F2;
     box-shadow: 0 0 0 2px #ABC4FF;
   }

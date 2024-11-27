@@ -6,18 +6,23 @@
   border: 1px solid #E0E2EE;
   border-radius: 8px;
 
+  &.p-invalid {
+    border-color: #CC1461;
+    box-shadow: none;
+  }
+
   &.p-multiselect {
     padding: 6px 10.5px;
   }
 
-  &.p-multiselect:not(.p-disabled).p-focus,
-  &.p-dropdown:not(.p-disabled).p-focus {
+  &.p-multiselect:not(.p-disabled, .p-invalid).p-focus,
+  &.p-dropdown:not(.p-disabled, .p-invalid).p-focus {
     border-color: #3D73F2;
     box-shadow: 0 0 0 2px #ABC4FF;
   }
 
-  &.p-multiselect:not(.p-disabled),
-  &.p-dropdown:not(.p-disabled) {
+  &.p-multiselect:not(.p-disabled, .p-invalid),
+  &.p-dropdown:not(.p-disabled, .p-invalid) {
     &:hover {
       border-color: #3D73F2;
     }

@@ -12,6 +12,7 @@ const meta: Meta<typeof Calendar> = {
     prefixCls: { control: 'text' },
     rounded: { control: 'boolean' },
     showButtonBar: { control: 'boolean' },
+    invalid: { control: 'boolean' },
   },
   args: {
     prefixCls: 'calendar',

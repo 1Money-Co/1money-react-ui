@@ -11,7 +11,8 @@ const meta: Meta<typeof Select> = {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
     rounded: { control: 'boolean' },
-    filter: { control: 'boolean' }
+    filter: { control: 'boolean' },
+    invalid: { control: 'boolean' },
   },
   args: {
     prefixCls: 'button',
