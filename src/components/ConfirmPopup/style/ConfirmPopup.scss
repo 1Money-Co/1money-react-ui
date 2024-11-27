@@ -1,0 +1,22 @@
+.usd1-react-ui-confirm-popup {
+  .p-confirm-popup-footer {
+    .p-confirm-popup-accept {
+      color: #FFF;
+      background-color: #142D66;
+      border: none;
+      box-shadow: none;
+
+      &:hover {
+        background-color: #183699;
+      }
+    }
+
+    .p-confirm-popup-reject {
+      color: #142D66;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
