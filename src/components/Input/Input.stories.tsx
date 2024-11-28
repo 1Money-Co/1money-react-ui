@@ -89,7 +89,7 @@ export const OtpCode: Story = {
     type: 'otp',
     prefixCls: 'input',
     variant: 'outlined',
-    integerOnly: true
+    integerOnly: true,
   },
 };
 
@@ -97,6 +97,6 @@ export const TextArea: Story = {
   args: {
     type: 'textarea',
     prefixCls: 'input',
-    variant: 'outlined'
+    variant: 'outlined',
   },
 };

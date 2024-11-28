@@ -10,6 +10,7 @@ const meta: Meta<typeof Upload> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
   args: {
     prefixCls: 'upload',

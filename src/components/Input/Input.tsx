@@ -16,7 +16,20 @@ import type { FC, PropsWithChildren, FormEvent } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
-  const { addons, label, required, invalid, rounded = false, errMsg, type = 'text', className = '', prefixCls = 'input', wrapperCls, labelCls, ...rest } = props;
+  const {
+    addons,
+    label,
+    required,
+    invalid,
+    rounded = false,
+    errMsg,
+    type = 'text',
+    className = '',
+    prefixCls = 'input',
+    wrapperCls,
+    labelCls,
+    ...rest
+  } = props;
   const classes = classnames(prefixCls);
 
   const InputComponent = useMemo(() => {
