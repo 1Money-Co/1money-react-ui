@@ -9,6 +9,7 @@ export interface IconWrapperProps {
   width?: number | `${number}`;
   height?: number | `${number}`;
   color?: string;
+  stroke?: boolean;
   viewBox?: string;
   onClick?: (e: MouseEvent<SVGSVGElement>) => any;
 }

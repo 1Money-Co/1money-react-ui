@@ -96,6 +96,9 @@
     }
 
     .p-dropdown-filter.p-inputtext {
+      padding: 10px 16px;
+      font-size: 14px;
+
       &:enabled:focus:not(.p-invalid) {
         border-color: #3D73F2;
         box-shadow: 0 0 0 2px #ABC4FF;
@@ -104,6 +107,10 @@
       &:hover {
         border-color: #3D73F2;
       }
+    }
+
+    .p-dropdown-filter-icon {
+      right: 1rem;
     }
   }
 
