@@ -20,6 +20,7 @@ LoadedCheerio {
         class="usd1-react-ui-icons usd1-react-ui-clipboard-content-icon"
         fill="#000"
         height="20"
+        stroke="none"
         viewBox="0 0 20 20"
         width="20"
         xmlns="http://www.w3.org/2000/svg"
