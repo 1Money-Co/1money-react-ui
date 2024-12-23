@@ -60,6 +60,9 @@ export const Primary: Story = {
         <Icons {...args} name='content' />
         <Icons {...args} name='locked' />
         <Icons {...args} name='exclamation' />
+        <Icons {...args} name='arrowUp' />
+        <Icons {...args} name='arrowLink' />
+        <Icons {...args} name='union' />
       </div>
     </div>;
   },
