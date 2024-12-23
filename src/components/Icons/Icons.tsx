@@ -1,6 +1,7 @@
 import { useCallback, useMemo, memo } from 'react';
 import {
   Logo,
+  LogoWord,
   LogoWithWords,
   MinusIcon, 
   AddIcon,
@@ -27,6 +28,7 @@ import type { IconsProps, IconWrapperProps } from './interface';
 
 const IconList = {
   logo: Logo,
+  logoWord: LogoWord,
   logoWithWords: LogoWithWords,
   minus: MinusIcon,
   add: AddIcon,
@@ -49,7 +51,12 @@ const IconList = {
 } as const;
 
 export type IconName = keyof typeof IconList;
-export const Icons: FC<IconsProps & { name: IconName }> = ({ name, ...props }) => {
+export interface LogoWithWordsProps extends IconsProps {
+  name: 'logoWithWords';
+  logoColor?: string;
+  wordColor?: string;
+}
+export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps> = ({ name, ...props }) => {
   const IconComponent = useCallback((props: IconWrapperProps) => {
     const Icon = useMemo(() => IconList[name], [name]);
     return Icon ? <Icon {...props} /> : null;

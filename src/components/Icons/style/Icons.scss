@@ -6,4 +6,15 @@
   *[stroke="none"] {
     stroke: currentcolor;
   }
+
+  &-logo-with-words {
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      &:nth-last-child(1) {
+        padding-left: 5%;
+      }
+    }
+  }
 }

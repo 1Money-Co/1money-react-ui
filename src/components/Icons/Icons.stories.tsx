@@ -36,7 +36,8 @@ export const Primary: Story = {
     return <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='logo'  />
-        <Icons {...args} name='logoWithWords' />
+        <Icons {...args} name='logoWord' width={150} height={30}/>
+        <Icons {...args} name='logoWithWords' width={180} height={36} logoColor='#073387' wordColor='#000000' />
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='minus'  />

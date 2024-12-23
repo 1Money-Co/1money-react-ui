@@ -14,6 +14,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
   return (
     <PrimeButton
       {...rest}
+      // @ts-ignore
       severity={severity}
       loadingIcon={<Loading type='pattern' className={classes('loading-icon')} />}
       className={classes(void 0, [classes(`${severity ? severity : 'primary'}`), className].join(' '))}

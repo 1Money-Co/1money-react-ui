@@ -35,6 +35,24 @@ export const Primary: Story = {
   tags: ['!autodocs', 'dev']
 };
 
+export const PrimaryLanding: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Primary Landing',
+    severity: 'primary-landing',
+    rounded: false
+  }
+};
+
+export const SecondaryLanding: Story = {
+  args: {
+    prefixCls: 'button',
+    children: 'Secondary Landing',
+    severity: 'secondary-landing',
+    rounded: false
+  }
+};
+
 export const Secondary: Story = {
   args: {
     prefixCls: 'button',

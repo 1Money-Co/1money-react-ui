@@ -1,6 +1,6 @@
 import type { ButtonProps as PrimeButtonProps } from 'primereact/button';
 
-export interface ButtonProps extends Omit<PrimeButtonProps, 'label'> {
+export interface ButtonProps extends Omit<PrimeButtonProps, 'label' | 'severity'> {
   prefixCls?: string;
-  // loading?: boolean;
+  severity?: PrimeButtonProps['severity'] | 'primary-landing' | 'secondary-landing';
 }
