@@ -64,6 +64,14 @@ export const Primary: Story = {
         <Icons {...args} name='arrowLink' />
         <Icons {...args} name='union' />
       </div>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
+        <Icons {...args} name='x' />
+        <Icons {...args} name='facebook' />
+        <Icons {...args} name='instagram' />
+        <Icons {...args} name='reddit' />
+        <Icons {...args} name='youtube' innerColor='#fff' />
+        <Icons {...args} name='tiktok' />
+      </div>
     </div>;
   },
 };

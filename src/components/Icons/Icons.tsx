@@ -24,6 +24,12 @@ import {
   ArrowUpIcon,
   ArrowLinkIcon,
   UnionIcon,
+  XIcon,
+  FacebookIcon,
+  InstagramIcon,
+  RedditIcon,
+  YoutubeIcon,
+  TiktokIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -54,6 +60,12 @@ const IconList = {
   arrowUp: ArrowUpIcon,
   arrowLink: ArrowLinkIcon,
   union: UnionIcon,
+  x: XIcon,
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  reddit: RedditIcon,
+  youtube: YoutubeIcon,
+  tiktok: TiktokIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;
