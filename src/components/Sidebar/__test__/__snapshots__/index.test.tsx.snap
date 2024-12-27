@@ -178,31 +178,19 @@ LoadedCheerio {
               >
                 <svg
                   class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
-                  fill="#808080"
+                  fill="none"
                   height="24"
-                  stroke="none"
+                  stroke="#808080"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g
-                    clip-path="url(#clip0_164_21334)"
-                  >
-                    <path
-                      d="M16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984L16.59 8.58984Z"
-                    />
-                  </g>
-                  <defs>
-                    <clippath
-                      id="clip0_164_21334"
-                    >
-                      <rect
-                        fill="white"
-                        height="24"
-                        width="24"
-                      />
-                    </clippath>
-                  </defs>
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
                 </svg>
               </span>
             </a>
