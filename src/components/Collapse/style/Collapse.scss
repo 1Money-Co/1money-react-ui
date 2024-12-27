@@ -4,50 +4,60 @@
 
   >.p-accordion-tab {
     margin-bottom: 0 !important;
+    border-bottom: 1px solid #000000;
+  }
+
+  >.p-accordion-tab-active {
+    padding-bottom: 28px;
   }
 
   &-item:not(.usd1-react-ui-collapse-item-content) {
-    border-bottom: 0.5px solid #E0E2EE;
     cursor: pointer;
 
-    &:hover {
-      background-color: #FAFAFC;
-    }
+    // &:hover {
+    //   background-color: #FAFAFC;
+    // }
 
     .p-accordion-tab-active>& {
       >a {
-        font-weight: 600;
+        padding: 28px 0 16px 0;
       }
     }
 
     >a {
       display: inline-flex;
       align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
       width: 100%;
-      padding: 30px 40px;
-      font-weight: 300;
-      font-size: 24px;
+      padding: 28px 0;
+      font-weight: 400;
+      font-size: 20px;
       font-style: normal;
-      line-height: 30px;
+      line-height: 28px;
       background-color: inherit;
+      color: #000000;
       border: none;
 
-      span {
-        margin-left: 40px;
+      .p-accordion-header-text {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
+        margin-left: 0 !important;
       }
     }
   }
 
   &-item-content {
-    padding: 20px 40px 30px 108px;
-    font-weight: 300;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 16px;
     font-style: normal;
-    line-height: 32px;
+    line-height: 28px;
 
     >.p-accordion-content {
       padding: 0;
       border: none;
+      color: #000000;
 
       p {
         margin: 0;
@@ -59,15 +69,20 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-  }
-}
+    transition: transform 0.1s ease-in-out;
 
-@media (width <= 1279px) {
-  .usd1-react-ui-collapse {
-    &-item:not(.usd1-react-ui-collapse-item-content) {
-      >a {
-        padding: 20px 0;
-      }
+    &-collapse {
+      transform: rotate(180deg);
     }
   }
 }
+
+// @media (width <=1279px) {
+//   .usd1-react-ui-collapse {
+//     &-item:not(.usd1-react-ui-collapse-item-content) {
+//       >a {
+//         padding: 20px 0;
+//       }
+//     }
+//   }
+// }

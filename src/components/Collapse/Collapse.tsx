@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
-import { ExpandIcon, CollapseIcon } from './Icons';
+import Icons from '@/components/Icons';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { CollapseProps } from './interface';
@@ -24,8 +24,8 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
     <Accordion
       {...rest}
       className={classes(void 0, wrapperCls)}
-      expandIcon={<i className={classes('icon')}><ExpandIcon /></i>}
-      collapseIcon={<i className={classes('icon')}><CollapseIcon /></i>}
+      expandIcon={<i className={[classes('icon'), classes('icon-expand')].join(' ')}><Icons name='dropDown' size={24} color='#000000' /></i>}
+      collapseIcon={<i className={[classes('icon'), classes('icon-collapse')].join(' ')}><Icons name='dropDown' size={24} color='#000000' /></i>}
       transitionOptions={{ 
         timeout: 0,
         disabled: true
