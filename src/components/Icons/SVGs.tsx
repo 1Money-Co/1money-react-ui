@@ -55,17 +55,8 @@ export const AddIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   </defs>
 </IconWrapper>;
 
-export const BurgerIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
-  <g clipPath="url(#clip0_77_13230)">
-    <path d="M23 13.5H13.5714H10.4286V10.5H13.5714H23V13.5Z" />
-    <path d="M23 7H13.5714H10.4286H1V4H10.4286H13.5714H23V7Z" />
-    <path d="M23 20H13.5714H10.4286H1V17H10.4286H13.5714H23V20Z" />
-  </g>
-  <defs>
-    <clipPath id="clip0_77_13230">
-      <rect width="24" height="24" fill="white" />
-    </clipPath>
-  </defs>
+export const BurgerIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox='0 0 18 14' {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M18 0H0V2H18V0ZM0 6H18V8H0V6ZM0 12H18V14H0V12Z" />
 </IconWrapper>;
 
 export const ReturnIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
