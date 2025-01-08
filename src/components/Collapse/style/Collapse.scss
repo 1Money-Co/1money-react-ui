@@ -4,7 +4,11 @@
 
   >.p-accordion-tab {
     margin-bottom: 0 !important;
-    border-bottom: 1px solid #000;
+    border-bottom: 0.5px solid #000;
+
+    &:nth-last-of-type(1) {
+      border-bottom: none;
+    }
   }
 
   >.p-accordion-tab-active {
