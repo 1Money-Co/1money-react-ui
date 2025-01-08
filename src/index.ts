@@ -3,6 +3,7 @@ import { Calendar } from './components/Calendar';
 import { Checkbox } from './components/Checkbox';
 import { Collapse } from './components/Collapse';
 import { ConfirmPopup } from './components/ConfirmPopup';
+import { Drawer } from './components/Drawer';
 import { Input } from './components/Input';
 import { Loading } from './components/Loading';
 import { Menu } from './components/Menu';
@@ -26,6 +27,7 @@ export { Calendar } from './components/Calendar';
 export { Checkbox } from './components/Checkbox';
 export { Collapse } from './components/Collapse';
 export { ConfirmPopup } from './components/ConfirmPopup';
+export { Drawer } from './components/Drawer';
 export { Input } from './components/Input';
 export { Loading } from './components/Loading';
 export { Menu } from './components/Menu';
@@ -50,6 +52,7 @@ export default {
   Checkbox,
   Collapse,
   ConfirmPopup,
+  Drawer,
   Input,
   Loading,
   Menu,

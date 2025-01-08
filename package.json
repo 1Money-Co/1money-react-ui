@@ -39,6 +39,11 @@
       "require": "./lib/components/ConfirmPopup/index.js",
       "types": "./es/components/ConfirmPopup/index.d.ts"
     },
+    "./Drawer": {
+      "import": "./es/components/Drawer/index.js",
+      "require": "./lib/components/Drawer/index.js",
+      "types": "./es/components/Drawer/index.d.ts"
+    },
     "./Input": {
       "import": "./es/components/Input/index.js",
       "require": "./lib/components/Input/index.js",
