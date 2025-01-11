@@ -9,6 +9,10 @@
     &:nth-last-of-type(1) {
       border-bottom: none;
     }
+
+    .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus-visible {
+      box-shadow: none;
+    }
   }
 
   >.p-accordion-tab-active {
