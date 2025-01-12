@@ -49,9 +49,9 @@
 
       .p-accordion-header-text {
         margin-left: 0 !important;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 28px;
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
       }
     }
   }
@@ -85,12 +85,17 @@
   }
 }
 
-// @media (width <=1279px) {
-//   .usd1-react-ui-collapse {
-//     &-item:not(.usd1-react-ui-collapse-item-content) {
-//       >a {
-//         padding: 20px 0;
-//       }
-//     }
-//   }
-// }
+@media (width < 1024px) {
+  .usd1-react-ui-collapse {
+    &-item:not(.usd1-react-ui-collapse-item-content) {
+      >a {
+        font-size: 16px;
+        padding: 24px 0;
+      }
+    }
+
+    &-item-content {
+      line-height: 24px;
+    }
+  }
+}
