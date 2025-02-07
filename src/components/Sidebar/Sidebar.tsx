@@ -1,3 +1,4 @@
+'use client';
 import { memo, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
 import propTypes from 'prop-types';
 import {
