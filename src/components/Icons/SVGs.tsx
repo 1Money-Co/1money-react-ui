@@ -12,21 +12,28 @@ export const LogoWord: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0
   <path fillRule="evenodd" clipRule="evenodd" d="M151.815 30.8501C151.815 40.1769 144.254 47.7377 134.928 47.7377C125.601 47.7377 118.04 40.1769 118.04 30.8501C118.04 21.5234 125.601 13.9625 134.928 13.9625C144.254 13.9625 151.815 21.5234 151.815 30.8501ZM164.95 30.8501C164.95 47.431 151.508 60.8725 134.928 60.8725C118.347 60.8725 104.905 47.431 104.905 30.8501C104.905 14.2692 118.347 0.827736 134.928 0.827736C151.508 0.827736 164.95 14.2692 164.95 30.8501ZM0.0761719 23.5364V14.3691C7.68648 13.2706 13.9933 8.1422 16.7637 1.21694H26.935V60.247H12.2618V23.5364H0.0761719ZM240.713 13.5289L269.738 13.5286V1.21662L226.04 1.21694V60.247H269.738V47.935H240.713V36.0447L263.046 36.0446V24.5759L240.713 24.576V13.5289ZM32.8951 60.247H47.5682V26.4312L60.4705 60.247H72.4452L85.3474 26.4312V60.247H100.021V1.21694H82.6489L66.4578 41.273L50.2668 1.21694H32.8951V60.247ZM221.078 1.21694V60.247H206.321L184.311 24.4916V60.247H169.638V1.21694H184.395L206.405 37.2253V1.21694H221.078ZM315.295 1.21694H332.076L309.729 40.8514V60.247H295.056V40.8514L272.624 1.21694H289.406L302.392 25.5879L315.295 1.21694Z" />
 </IconWrapper>;
 
-export const LogoWithWords: FC<IconWrapperProps & { logoColor?: string, wordColor?: string }> = (props) => {
-  const { logoColor, wordColor, color, width, height, size, ...rest } = props;
+export const LogoWithWords: FC<IconWrapperProps & {
+  logoColor?: string;
+  logoCls?: string;
+  wordColor?: string;
+  wordCls?: string;
+}> = (props) => {
+  const { logoColor, wordColor, logoCls, wordCls, color, className, width, height, size, ...rest } = props;
   const classes = classnames('icon');
 
-  return <i className={classes('logo-with-words')}>
+  return <i className={[classes('logo-with-words'), className].join(' ') }>
     <Logo
       color={logoColor || color}
       width={height || size}
       height={height || size}
+      className={logoCls}
       {...rest}
     />
     <LogoWord
       color={wordColor || color}
       width={width && height ? ((+width) - (+height)) : size}
       height={height || size}
+      className={wordCls}
       {...rest}
     />
   </i>;

@@ -62,13 +62,13 @@ export interface LogoWithWordsProps extends IconsProps {
   logoColor?: string;
   wordColor?: string;
 }
-export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps> = ({ name, ...props }) => {
+export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps> = ({ name, ...rest }) => {
   const IconComponent = useCallback((props: IconWrapperProps) => {
     const Icon = useMemo(() => IconList[name], [name]);
     return Icon ? <Icon {...props} /> : null;
   }, [name]);
 
-  return <IconComponent {...props} />;
+  return <IconComponent {...rest} />;
 };
 
 export default memo(Icons);
