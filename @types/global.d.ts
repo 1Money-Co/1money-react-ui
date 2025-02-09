@@ -20,3 +20,9 @@ declare module '*.md' {
   const content: string;
   export default content;
 }
+
+declare namespace JSX {
+  interface Element {
+    [elemName: string]: any;
+  }
+}

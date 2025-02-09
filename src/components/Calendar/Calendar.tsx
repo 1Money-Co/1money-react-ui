@@ -24,6 +24,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     ...rest
   } = props;
   const classes = classnames(prefixCls);
+  // @ts-ignore
   const [date, setDate] = useState<CalendarProps['value']>(value ?? defaultValue);
 
   useEffect(() => {
