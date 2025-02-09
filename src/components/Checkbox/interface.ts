@@ -14,7 +14,7 @@ interface CheckboxNormalProps extends CheckboxBaseProps {
   onChange?: (checkedList: string[]) => any;
   items: ({
     key: string;
-    label?: string | ReactNode | JSX.Element;
+    label?: ReactNode;
     checked?: boolean;
     onChange?: (checked: boolean) => any;
   } & Omit<PrimeCheckboxProps, 'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange'>)[];
@@ -25,7 +25,7 @@ interface CheckboxTriStateProps extends CheckboxBaseProps {
   onChange?: (itemsState: Record<string, boolean | null>) => any;
   items: ({
     key: string;
-    label?: string | ReactNode | JSX.Element;
+    label?: ReactNode;
     checked?: boolean;
     defaultValue?: boolean | null;
     onChange?: (state: boolean | null) => any;
