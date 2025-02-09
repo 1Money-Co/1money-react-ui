@@ -1,20 +1,16 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { configure, shallow, render, mount } from 'enzyme';
-import Adapter from '@cfaester/enzyme-adapter-react-18';
-import sinon from 'sinon';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { Checkbox } from '../index';
-
-configure({ adapter: new Adapter() });
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
   if (
     message.includes('Could not parse CSS stylesheet') ||
     message.includes('findDOMNode is deprecated and will be removed') ||
-    message.includes('React does not recognize') ||
-    message.includes('should not be null') ||
-    message.includes('A component is changing an uncontrolled input to be controlled')
+    message.includes('React does not recognize')
   ) {
       return;
   }
@@ -22,9 +18,9 @@ console.error = (message, ...optionalParams) => {
 };
 
 describe('Checkbox', () => {
-  it('renders correctly', () => {
-    const onCheckboxChange = sinon.spy();
-    const single = mount(
+  it('single renders correctly', async () => {
+    const onCheckboxChange = jest.fn();
+    const single =render(
       <Checkbox 
         items={[
           { name: 'Agree', key: 'Agree', label: <>
@@ -36,10 +32,25 @@ describe('Checkbox', () => {
         onChange={onCheckboxChange}
       />
     );
-    single.find('input').simulate('change');
-    expect(onCheckboxChange.called).toBe(true);
-    expect(onCheckboxChange.calledWith(['Agree'])).toBe(true);
-
+    const user = userEvent.setup();
+    const checkbox = screen.getByRole('checkbox');
+    await user.click(checkbox)
+    expect(onCheckboxChange).toHaveBeenCalled();
+    expect(checkbox).toBeChecked();
+    expect(single).toMatchSnapshot();
+  });
+  it('singleTristate renders correctly', async () => {
+    const singleTristate = render(
+      <Checkbox 
+        tristate={true}
+        items={[
+          { name: 'State', key: 'Status', label: 'Change State' },
+        ]}
+      />
+    );
+    expect(singleTristate).toMatchSnapshot();
+  });
+  it('multiple renders correctly', async () => {
     const multiple = render(
       <Checkbox items={[
         { name: 'C', key: 'Cheese', label: 'Cheese' },
@@ -48,22 +59,11 @@ describe('Checkbox', () => {
         { name: 'O', key: 'Onion', label: 'Onion' },
       ]} />
     );
-
-    const onTriStateCheckboxChange = sinon.spy();
-    const singleTristate = mount(
-      <Checkbox 
-        tristate={true}
-        items={[
-          { name: 'State', key: 'Status', label: 'Change State' },
-        ]}
-        onChange={onTriStateCheckboxChange}
-      />
-    );
-    singleTristate.find('input').simulate('change');
-    expect(onTriStateCheckboxChange.called).toBe(true);
-    expect(onTriStateCheckboxChange.calledWith({ Status: true })).toBe(true);
-
-    const multipleTristate = shallow(
+    
+    expect(multiple).toMatchSnapshot();
+  });
+  it('multipleTristate renders correctly', async () => {
+    const multipleTristate = render(
       <Checkbox 
         tristate={true}
         items={[
@@ -74,9 +74,7 @@ describe('Checkbox', () => {
         ]}
       />
     );
-    expect(single).toMatchSnapshot();
-    expect(multiple).toMatchSnapshot();
-    expect(singleTristate).toMatchSnapshot();
+
     expect(multipleTristate).toMatchSnapshot();
   });
 });

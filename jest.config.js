@@ -29,5 +29,5 @@ module.exports = {
     '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
   },
 
-  setupFiles: ['jest-canvas-mock']
+  setupFiles: ['<rootDir>/setupTests.js', 'jest-canvas-mock']
 };

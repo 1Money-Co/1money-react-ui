@@ -16,3 +16,4 @@ gulpfile.js
 .eslintrc.js
 *.config.js
 *.conf.js
+setupTests.js

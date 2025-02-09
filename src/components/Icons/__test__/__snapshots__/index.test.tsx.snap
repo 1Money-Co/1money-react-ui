@@ -1,106 +1,248 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icons renders correctly 1`] = `
-LoadedCheerio {
-  "0": <svg
-    class="usd1-react-ui-icons"
-    fill="#000000"
-    height="24"
-    stroke="none"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g
-      clip-path="url(#clip0_85_8182)"
-      id="Property 1=Visible"
-    >
-      <path
-        d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
-        id="Vector"
-      />
-    </g>
-    <defs>
-      <clippath
-        id="clip0_85_8182"
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        class="usd1-react-ui-icons"
+        fill="#000000"
+        height="24"
+        stroke="none"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <rect
-          fill="white"
-          height="24"
-          width="24"
+        <g
+          clip-path="url(#clip0_85_8182)"
+          id="Property 1=Visible"
+        >
+          <path
+            d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
+            id="Vector"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="clip0_85_8182"
+          >
+            <rect
+              fill="white"
+              height="24"
+              width="24"
+            />
+          </clippath>
+        </defs>
+      </svg>
+    </div>
+    <div>
+      <svg
+        class="usd1-react-ui-icons"
+        fill="#000000"
+        height="24"
+        stroke="none"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      class="usd1-react-ui-icons"
+      fill="#000000"
+      height="24"
+      stroke="none"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        clip-path="url(#clip0_85_8182)"
+        id="Property 1=Visible"
+      >
+        <path
+          d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
+          id="Vector"
         />
-      </clippath>
-    </defs>
-  </svg>,
-  "_root": LoadedCheerio {
-    "0": Document {
-      "children": [
-        <html>
-          <head />
-          <body />
-        </html>,
-      ],
-      "endIndex": null,
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "startIndex": null,
-      "type": "root",
-      "x-mode": "quirks",
-    },
-    "_root": [Circular],
-    "length": 1,
-    "options": {
-      "decodeEntities": true,
-      "xml": false,
-    },
-  },
-  "length": 1,
-  "options": {
-    "decodeEntities": true,
-    "xml": false,
-  },
+      </g>
+      <defs>
+        <clippath
+          id="clip0_85_8182"
+        >
+          <rect
+            fill="white"
+            height="24"
+            width="24"
+          />
+        </clippath>
+      </defs>
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;
 
 exports[`Icons renders correctly 2`] = `
-LoadedCheerio {
-  "0": <svg
-    class="usd1-react-ui-icons"
-    fill="#000000"
-    height="24"
-    stroke="none"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  />,
-  "_root": LoadedCheerio {
-    "0": Document {
-      "children": [
-        <html>
-          <head />
-          <body />
-        </html>,
-      ],
-      "endIndex": null,
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "startIndex": null,
-      "type": "root",
-      "x-mode": "quirks",
-    },
-    "_root": [Circular],
-    "length": 1,
-    "options": {
-      "decodeEntities": true,
-      "xml": false,
-    },
-  },
-  "length": 1,
-  "options": {
-    "decodeEntities": true,
-    "xml": false,
-  },
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        class="usd1-react-ui-icons"
+        fill="#000000"
+        height="24"
+        stroke="none"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          clip-path="url(#clip0_85_8182)"
+          id="Property 1=Visible"
+        >
+          <path
+            d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
+            id="Vector"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="clip0_85_8182"
+          >
+            <rect
+              fill="white"
+              height="24"
+              width="24"
+            />
+          </clippath>
+        </defs>
+      </svg>
+    </div>
+    <div>
+      <svg
+        class="usd1-react-ui-icons"
+        fill="#000000"
+        height="24"
+        stroke="none"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      class="usd1-react-ui-icons"
+      fill="#000000"
+      height="24"
+      stroke="none"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

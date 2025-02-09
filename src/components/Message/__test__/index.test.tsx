@@ -1,20 +1,15 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { configure, shallow, render, mount } from 'enzyme';
-import Adapter from '@cfaester/enzyme-adapter-react-18';
-import sinon from 'sinon';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { Message } from '../index';
-
-configure({ adapter: new Adapter() });
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
   if (
     message.includes('Could not parse CSS stylesheet') ||
-    message.includes('findDOMNode is deprecated and will be removed') ||
-    message.includes('React does not recognize') ||
-    message.includes('should not be null') ||
-    message.includes('A component is changing an uncontrolled input to be controlled')
+    message.includes('findDOMNode is deprecated and will be removed')
   ) {
       return;
   }
@@ -28,12 +23,11 @@ describe('Message', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('simulate events', () => {
-    const onClick = sinon.spy(); 
-    const wrapper = mount(
-      <Message severity="error" onClick={onClick} />
-    );
-    wrapper.find('div').simulate('click');
-    expect(onClick.called).toBe(true);
+  it('simulate events', async () => {
+    const onClick = jest.fn();
+    render(<Message severity="error" text="Error Message" onClick={onClick} />);
+    const user = userEvent.setup();
+    await user.click(screen.getByText('Error Message'))
+    expect(onClick).toHaveBeenCalled();
   });
 });

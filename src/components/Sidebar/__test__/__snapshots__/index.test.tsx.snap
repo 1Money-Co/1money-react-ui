@@ -1,304 +1,604 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar renders correctly 1`] = `
-LoadedCheerio {
-  "0": <aside
-    class="ps-sidebar-root usd1-react-ui-sidebar css-dw6gey"
-    data-testid="ps-sidebar-root-test-id"
-    width="261px"
-  >
-    <div
-      class="ps-sidebar-container css-dip3t8"
-      data-testid="ps-sidebar-container-test-id"
-    >
-      <div
-        class="usd1-react-ui-sidebar-header"
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <aside
+        class="ps-sidebar-root usd1-react-ui-sidebar css-dw6gey"
+        data-testid="ps-sidebar-root-test-id"
+        width="261px"
       >
-        <span
-          class="usd1-react-ui-sidebar-logo"
+        <div
+          class="ps-sidebar-container css-dip3t8"
+          data-testid="ps-sidebar-container-test-id"
         >
-          <i
-            class="usd1-react-ui-icon-logo-with-words "
+          <div
+            class="usd1-react-ui-sidebar-header"
           >
-            <svg
-              class="usd1-react-ui-icons"
-              fill="#3D73F2"
-              height="18"
-              stroke="none"
-              viewBox="0 0 80 79"
-              width="18"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="usd1-react-ui-sidebar-logo"
             >
-              <path
-                clip-rule="evenodd"
-                d="M55.4352 39.4986C61.181 35.0885 64.9419 28.2212 65.147 20.4679C73.5514 22.7174 79.7402 30.3858 79.7402 39.4997C79.7402 50.3799 70.9201 59.1999 60.04 59.1999C52.8746 59.1999 46.6028 55.3745 43.1553 49.6546C43.958 47.9306 44.5685 46.0991 44.9593 44.1876C45.3442 44.1151 45.7259 44.0338 46.1043 43.9437C46.2254 43.9149 46.3462 43.8852 46.4667 43.8546C49.7708 43.0157 52.8106 41.5139 55.436 39.4991C55.4357 39.4989 55.4355 39.4987 55.4352 39.4986ZM40.2251 54.4417C44.6334 60.2708 51.5548 64.0936 59.3771 64.298C57.1306 72.7069 49.46 78.9001 40.3429 78.9001C29.4628 78.9001 20.6427 70.08 20.6427 59.1999C20.6427 52.0885 24.4107 45.8572 30.0592 42.3935C31.8236 43.1977 33.6987 43.8012 35.6553 44.175C36.3829 47.9764 37.9773 51.4699 40.2251 54.4418C40.2251 54.4418 40.2251 54.4418 40.2251 54.4417ZM35.6489 34.82C24.3881 36.9651 15.8249 46.7191 15.5121 58.5292C7.10993 56.2781 0.923172 48.6108 0.923172 39.4985C0.923172 28.6183 9.74327 19.7982 20.6234 19.7982C27.7339 19.7982 33.9646 23.5654 37.4285 29.2127C36.6243 30.9806 36.0213 32.8595 35.6489 34.82ZM45.1144 34.8404C43.0998 23.4455 33.3112 14.7341 21.4237 14.3813C23.7776 6.13609 31.3685 0.0998688 40.3693 0.0998688C51.2495 0.0998688 60.0695 8.91996 60.0695 19.8001C60.0695 26.9165 56.2962 33.1516 50.6412 36.6138C48.8978 35.8174 47.0461 35.2169 45.1144 34.8404Z"
-                fill-rule="evenodd"
-              />
-            </svg>
-            <svg
-              class="usd1-react-ui-icons"
-              fill="#3D73F2"
-              height="18"
-              stroke="none"
-              viewBox="0 0 333 61"
-              width="85"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M151.815 30.8501C151.815 40.1769 144.254 47.7377 134.928 47.7377C125.601 47.7377 118.04 40.1769 118.04 30.8501C118.04 21.5234 125.601 13.9625 134.928 13.9625C144.254 13.9625 151.815 21.5234 151.815 30.8501ZM164.95 30.8501C164.95 47.431 151.508 60.8725 134.928 60.8725C118.347 60.8725 104.905 47.431 104.905 30.8501C104.905 14.2692 118.347 0.827736 134.928 0.827736C151.508 0.827736 164.95 14.2692 164.95 30.8501ZM0.0761719 23.5364V14.3691C7.68648 13.2706 13.9933 8.1422 16.7637 1.21694H26.935V60.247H12.2618V23.5364H0.0761719ZM240.713 13.5289L269.738 13.5286V1.21662L226.04 1.21694V60.247H269.738V47.935H240.713V36.0447L263.046 36.0446V24.5759L240.713 24.576V13.5289ZM32.8951 60.247H47.5682V26.4312L60.4705 60.247H72.4452L85.3474 26.4312V60.247H100.021V1.21694H82.6489L66.4578 41.273L50.2668 1.21694H32.8951V60.247ZM221.078 1.21694V60.247H206.321L184.311 24.4916V60.247H169.638V1.21694H184.395L206.405 37.2253V1.21694H221.078ZM315.295 1.21694H332.076L309.729 40.8514V60.247H295.056V40.8514L272.624 1.21694H289.406L302.392 25.5879L315.295 1.21694Z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </i>
-        </span>
-      </div>
-      <nav
-        class="ps-menu-root css-vj11vy"
-      >
-        <ul
-          class="css-ewdv3l"
-        >
-          <li
-            class="ps-menuitem-root ps-active css-1654oxy"
-          >
-            <a
-              class="ps-menu-button ps-active"
-              data-testid="ps-menu-button-test-id"
-              href="/?path=/docs/components-sidebar--overview"
-              tabindex="0"
-            >
-              <span
-                class="ps-menu-icon ps-active css-wx7wi4"
-              >
-                <i
-                  class="pi pi-home"
-                  style="font-size:16px"
-                />
-              </span>
-              <span
-                class="ps-menu-label ps-active css-12w9als"
-              >
-                Dashboard
-              </span>
-            </a>
-          </li>
-          <li
-            class="ps-menuitem-root css-1t8x7v1"
-          >
-            <a
-              class="ps-menu-button"
-              data-testid="ps-menu-button-test-id"
-              tabindex="0"
-            >
-              <span
-                class="ps-menu-icon css-wx7wi4"
-              >
-                <i
-                  class="pi pi-wallet"
-                  style="font-size:16px"
-                />
-              </span>
-              <span
-                class="ps-menu-label css-12w9als"
-              >
-                Digital Assets
-              </span>
-            </a>
-          </li>
-          <li
-            class="ps-menuitem-root css-1t8x7v1"
-          >
-            <a
-              class="ps-menu-button"
-              data-testid="ps-menu-button-test-id"
-              tabindex="0"
-            >
-              <span
-                class="ps-menu-icon css-wx7wi4"
-              >
-                <i
-                  class="pi pi-book"
-                  style="font-size:16px"
-                />
-              </span>
-              <span
-                class="ps-menu-label css-12w9als"
-              >
-                Address Book
-              </span>
-            </a>
-          </li>
-          <li
-            class="ps-menuitem-root css-1t8x7v1"
-          >
-            <a
-              class="ps-menu-button"
-              data-testid="ps-menu-button-test-id"
-              tabindex="0"
-            >
-              <span
-                class="ps-menu-icon css-wx7wi4"
-              >
-                <i
-                  class="pi pi-credit-card"
-                  style="font-size:16px"
-                />
-              </span>
-              <span
-                class="ps-menu-label css-12w9als"
-              >
-                Banking accounts
-              </span>
-            </a>
-          </li>
-          <li
-            class="ps-menuitem-root ps-submenu-root ps-open css-16jesut"
-          >
-            <a
-              class="ps-menu-button ps-open"
-              data-testid="ps-menu-button-test-id"
-              tabindex="0"
-            >
-              <span
-                class="ps-menu-icon ps-open css-wx7wi4"
-              >
-                <i
-                  class="pi pi-user"
-                  style="font-size:16px"
-                />
-              </span>
-              <span
-                class="ps-menu-label ps-open css-12w9als"
-              >
-                Account
-              </span>
-              <span
-                class="ps-submenu-expand-icon ps-open css-1cuxlhl"
+              <i
+                class="usd1-react-ui-icon-logo-with-words "
               >
                 <svg
-                  class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
-                  fill="none"
-                  height="24"
-                  stroke="#808080"
-                  viewBox="0 0 24 24"
-                  width="24"
+                  class="usd1-react-ui-icons"
+                  fill="#3D73F2"
+                  height="18"
+                  stroke="none"
+                  viewBox="0 0 80 79"
+                  width="18"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M6 9L12 15L18 9"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    clip-rule="evenodd"
+                    d="M55.4352 39.4986C61.181 35.0885 64.9419 28.2212 65.147 20.4679C73.5514 22.7174 79.7402 30.3858 79.7402 39.4997C79.7402 50.3799 70.9201 59.1999 60.04 59.1999C52.8746 59.1999 46.6028 55.3745 43.1553 49.6546C43.958 47.9306 44.5685 46.0991 44.9593 44.1876C45.3442 44.1151 45.7259 44.0338 46.1043 43.9437C46.2254 43.9149 46.3462 43.8852 46.4667 43.8546C49.7708 43.0157 52.8106 41.5139 55.436 39.4991C55.4357 39.4989 55.4355 39.4987 55.4352 39.4986ZM40.2251 54.4417C44.6334 60.2708 51.5548 64.0936 59.3771 64.298C57.1306 72.7069 49.46 78.9001 40.3429 78.9001C29.4628 78.9001 20.6427 70.08 20.6427 59.1999C20.6427 52.0885 24.4107 45.8572 30.0592 42.3935C31.8236 43.1977 33.6987 43.8012 35.6553 44.175C36.3829 47.9764 37.9773 51.4699 40.2251 54.4418C40.2251 54.4418 40.2251 54.4418 40.2251 54.4417ZM35.6489 34.82C24.3881 36.9651 15.8249 46.7191 15.5121 58.5292C7.10993 56.2781 0.923172 48.6108 0.923172 39.4985C0.923172 28.6183 9.74327 19.7982 20.6234 19.7982C27.7339 19.7982 33.9646 23.5654 37.4285 29.2127C36.6243 30.9806 36.0213 32.8595 35.6489 34.82ZM45.1144 34.8404C43.0998 23.4455 33.3112 14.7341 21.4237 14.3813C23.7776 6.13609 31.3685 0.0998688 40.3693 0.0998688C51.2495 0.0998688 60.0695 8.91996 60.0695 19.8001C60.0695 26.9165 56.2962 33.1516 50.6412 36.6138C48.8978 35.8174 47.0461 35.2169 45.1144 34.8404Z"
+                    fill-rule="evenodd"
                   />
                 </svg>
-              </span>
-            </a>
-            <div
-              class="ps-submenu-content ps-open css-nx2aea"
-              data-testid="ps-submenu-content-test-id"
-              open=""
+                <svg
+                  class="usd1-react-ui-icons"
+                  fill="#3D73F2"
+                  height="18"
+                  stroke="none"
+                  viewBox="0 0 333 61"
+                  width="85"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M151.815 30.8501C151.815 40.1769 144.254 47.7377 134.928 47.7377C125.601 47.7377 118.04 40.1769 118.04 30.8501C118.04 21.5234 125.601 13.9625 134.928 13.9625C144.254 13.9625 151.815 21.5234 151.815 30.8501ZM164.95 30.8501C164.95 47.431 151.508 60.8725 134.928 60.8725C118.347 60.8725 104.905 47.431 104.905 30.8501C104.905 14.2692 118.347 0.827736 134.928 0.827736C151.508 0.827736 164.95 14.2692 164.95 30.8501ZM0.0761719 23.5364V14.3691C7.68648 13.2706 13.9933 8.1422 16.7637 1.21694H26.935V60.247H12.2618V23.5364H0.0761719ZM240.713 13.5289L269.738 13.5286V1.21662L226.04 1.21694V60.247H269.738V47.935H240.713V36.0447L263.046 36.0446V24.5759L240.713 24.576V13.5289ZM32.8951 60.247H47.5682V26.4312L60.4705 60.247H72.4452L85.3474 26.4312V60.247H100.021V1.21694H82.6489L66.4578 41.273L50.2668 1.21694H32.8951V60.247ZM221.078 1.21694V60.247H206.321L184.311 24.4916V60.247H169.638V1.21694H184.395L206.405 37.2253V1.21694H221.078ZM315.295 1.21694H332.076L309.729 40.8514V60.247H295.056V40.8514L272.624 1.21694H289.406L302.392 25.5879L315.295 1.21694Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </span>
+          </div>
+          <nav
+            class="ps-menu-root css-vj11vy"
+          >
+            <ul
+              class="css-ewdv3l"
             >
-              <ul
-                class="css-ewdv3l"
+              <li
+                class="ps-menuitem-root ps-active css-1654oxy"
               >
-                <li
-                  class="ps-menuitem-root css-1tqrhto"
+                <a
+                  class="ps-menu-button ps-active"
+                  data-testid="ps-menu-button-test-id"
+                  href="/?path=/docs/components-sidebar--overview"
+                  tabindex="0"
                 >
-                  <a
-                    class="ps-menu-button"
-                    data-testid="ps-menu-button-test-id"
-                    tabindex="0"
+                  <span
+                    class="ps-menu-icon ps-active css-wx7wi4"
                   >
-                    <span
-                      class="ps-menu-icon css-wx7wi4"
-                    >
-                      <i
-                        class="pi pi-user-edit"
-                        style="font-size:16px"
-                      />
-                    </span>
-                    <span
-                      class="ps-menu-label css-12w9als"
-                    >
-                      Profile
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="ps-menuitem-root css-1tqrhto"
+                    <i
+                      class="pi pi-home"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label ps-active css-12w9als"
+                  >
+                    Dashboard
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root css-1t8x7v1"
+              >
+                <a
+                  class="ps-menu-button"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
                 >
-                  <a
-                    class="ps-menu-button"
-                    data-testid="ps-menu-button-test-id"
-                    tabindex="0"
+                  <span
+                    class="ps-menu-icon css-wx7wi4"
                   >
-                    <span
-                      class="ps-menu-icon css-wx7wi4"
+                    <i
+                      class="pi pi-wallet"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label css-12w9als"
+                  >
+                    Digital Assets
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root css-1t8x7v1"
+              >
+                <a
+                  class="ps-menu-button"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-book"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label css-12w9als"
+                  >
+                    Address Book
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root css-1t8x7v1"
+              >
+                <a
+                  class="ps-menu-button"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-credit-card"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label css-12w9als"
+                  >
+                    Banking accounts
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root ps-submenu-root ps-open css-16jesut"
+              >
+                <a
+                  class="ps-menu-button ps-open"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon ps-open css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-user"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label ps-open css-12w9als"
+                  >
+                    Account
+                  </span>
+                  <span
+                    class="ps-submenu-expand-icon ps-open css-1cuxlhl"
+                  >
+                    <svg
+                      class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
+                      fill="none"
+                      height="24"
+                      stroke="#808080"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <i
-                        class="pi pi-shield"
-                        style="font-size:16px"
+                      <path
+                        d="M6 9L12 15L18 9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
                       />
-                    </span>
-                    <span
-                      class="ps-menu-label css-12w9als"
+                    </svg>
+                  </span>
+                </a>
+                <div
+                  class="ps-submenu-content ps-open css-nx2aea"
+                  data-testid="ps-submenu-content-test-id"
+                  open=""
+                >
+                  <ul
+                    class="css-ewdv3l"
+                  >
+                    <li
+                      class="ps-menuitem-root css-1tqrhto"
                     >
-                      Security
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <div
-        class="usd1-react-ui-sidebar-footer"
-      >
-        <span
-          class="usd1-react-ui-sidebar-footer-logout"
-        >
-          <i
-            class="pi pi-sign-out usd1-react-ui-sidebar-footer-logout-icon"
-            style="font-size:16px"
-          />
-        </span>
-        <span
-          class="usd1-react-ui-sidebar-footer-logout-text"
-        >
-          Log out
-        </span>
-      </div>
+                      <a
+                        class="ps-menu-button"
+                        data-testid="ps-menu-button-test-id"
+                        tabindex="0"
+                      >
+                        <span
+                          class="ps-menu-icon css-wx7wi4"
+                        >
+                          <i
+                            class="pi pi-user-edit"
+                            style="font-size: 16px;"
+                          />
+                        </span>
+                        <span
+                          class="ps-menu-label css-12w9als"
+                        >
+                          Profile
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ps-menuitem-root css-1tqrhto"
+                    >
+                      <a
+                        class="ps-menu-button"
+                        data-testid="ps-menu-button-test-id"
+                        tabindex="0"
+                      >
+                        <span
+                          class="ps-menu-icon css-wx7wi4"
+                        >
+                          <i
+                            class="pi pi-shield"
+                            style="font-size: 16px;"
+                          />
+                        </span>
+                        <span
+                          class="ps-menu-label css-12w9als"
+                        >
+                          Security
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div
+            class="usd1-react-ui-sidebar-footer"
+          >
+            <span
+              class="usd1-react-ui-sidebar-footer-logout"
+            >
+              <i
+                class="pi pi-sign-out usd1-react-ui-sidebar-footer-logout-icon"
+                style="font-size: 16px;"
+              />
+            </span>
+            <span
+              class="usd1-react-ui-sidebar-footer-logout-text"
+            >
+              Log out
+            </span>
+          </div>
+        </div>
+      </aside>
     </div>
-  </aside>,
-  "_root": LoadedCheerio {
-    "0": Document {
-      "children": [
-        <html>
-          <head />
-          <body />
-        </html>,
-      ],
-      "endIndex": null,
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "startIndex": null,
-      "type": "root",
-      "x-mode": "quirks",
-    },
-    "_root": [Circular],
-    "length": 1,
-    "options": {
-      "decodeEntities": true,
-      "xml": false,
-    },
-  },
-  "length": 1,
-  "options": {
-    "decodeEntities": true,
-    "xml": false,
-  },
+  </body>,
+  "container": <div>
+    <aside
+      class="ps-sidebar-root usd1-react-ui-sidebar css-dw6gey"
+      data-testid="ps-sidebar-root-test-id"
+      width="261px"
+    >
+      <div
+        class="ps-sidebar-container css-dip3t8"
+        data-testid="ps-sidebar-container-test-id"
+      >
+        <div
+          class="usd1-react-ui-sidebar-header"
+        >
+          <span
+            class="usd1-react-ui-sidebar-logo"
+          >
+            <i
+              class="usd1-react-ui-icon-logo-with-words "
+            >
+              <svg
+                class="usd1-react-ui-icons"
+                fill="#3D73F2"
+                height="18"
+                stroke="none"
+                viewBox="0 0 80 79"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M55.4352 39.4986C61.181 35.0885 64.9419 28.2212 65.147 20.4679C73.5514 22.7174 79.7402 30.3858 79.7402 39.4997C79.7402 50.3799 70.9201 59.1999 60.04 59.1999C52.8746 59.1999 46.6028 55.3745 43.1553 49.6546C43.958 47.9306 44.5685 46.0991 44.9593 44.1876C45.3442 44.1151 45.7259 44.0338 46.1043 43.9437C46.2254 43.9149 46.3462 43.8852 46.4667 43.8546C49.7708 43.0157 52.8106 41.5139 55.436 39.4991C55.4357 39.4989 55.4355 39.4987 55.4352 39.4986ZM40.2251 54.4417C44.6334 60.2708 51.5548 64.0936 59.3771 64.298C57.1306 72.7069 49.46 78.9001 40.3429 78.9001C29.4628 78.9001 20.6427 70.08 20.6427 59.1999C20.6427 52.0885 24.4107 45.8572 30.0592 42.3935C31.8236 43.1977 33.6987 43.8012 35.6553 44.175C36.3829 47.9764 37.9773 51.4699 40.2251 54.4418C40.2251 54.4418 40.2251 54.4418 40.2251 54.4417ZM35.6489 34.82C24.3881 36.9651 15.8249 46.7191 15.5121 58.5292C7.10993 56.2781 0.923172 48.6108 0.923172 39.4985C0.923172 28.6183 9.74327 19.7982 20.6234 19.7982C27.7339 19.7982 33.9646 23.5654 37.4285 29.2127C36.6243 30.9806 36.0213 32.8595 35.6489 34.82ZM45.1144 34.8404C43.0998 23.4455 33.3112 14.7341 21.4237 14.3813C23.7776 6.13609 31.3685 0.0998688 40.3693 0.0998688C51.2495 0.0998688 60.0695 8.91996 60.0695 19.8001C60.0695 26.9165 56.2962 33.1516 50.6412 36.6138C48.8978 35.8174 47.0461 35.2169 45.1144 34.8404Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <svg
+                class="usd1-react-ui-icons"
+                fill="#3D73F2"
+                height="18"
+                stroke="none"
+                viewBox="0 0 333 61"
+                width="85"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M151.815 30.8501C151.815 40.1769 144.254 47.7377 134.928 47.7377C125.601 47.7377 118.04 40.1769 118.04 30.8501C118.04 21.5234 125.601 13.9625 134.928 13.9625C144.254 13.9625 151.815 21.5234 151.815 30.8501ZM164.95 30.8501C164.95 47.431 151.508 60.8725 134.928 60.8725C118.347 60.8725 104.905 47.431 104.905 30.8501C104.905 14.2692 118.347 0.827736 134.928 0.827736C151.508 0.827736 164.95 14.2692 164.95 30.8501ZM0.0761719 23.5364V14.3691C7.68648 13.2706 13.9933 8.1422 16.7637 1.21694H26.935V60.247H12.2618V23.5364H0.0761719ZM240.713 13.5289L269.738 13.5286V1.21662L226.04 1.21694V60.247H269.738V47.935H240.713V36.0447L263.046 36.0446V24.5759L240.713 24.576V13.5289ZM32.8951 60.247H47.5682V26.4312L60.4705 60.247H72.4452L85.3474 26.4312V60.247H100.021V1.21694H82.6489L66.4578 41.273L50.2668 1.21694H32.8951V60.247ZM221.078 1.21694V60.247H206.321L184.311 24.4916V60.247H169.638V1.21694H184.395L206.405 37.2253V1.21694H221.078ZM315.295 1.21694H332.076L309.729 40.8514V60.247H295.056V40.8514L272.624 1.21694H289.406L302.392 25.5879L315.295 1.21694Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+        <nav
+          class="ps-menu-root css-vj11vy"
+        >
+          <ul
+            class="css-ewdv3l"
+          >
+            <li
+              class="ps-menuitem-root ps-active css-1654oxy"
+            >
+              <a
+                class="ps-menu-button ps-active"
+                data-testid="ps-menu-button-test-id"
+                href="/?path=/docs/components-sidebar--overview"
+                tabindex="0"
+              >
+                <span
+                  class="ps-menu-icon ps-active css-wx7wi4"
+                >
+                  <i
+                    class="pi pi-home"
+                    style="font-size: 16px;"
+                  />
+                </span>
+                <span
+                  class="ps-menu-label ps-active css-12w9als"
+                >
+                  Dashboard
+                </span>
+              </a>
+            </li>
+            <li
+              class="ps-menuitem-root css-1t8x7v1"
+            >
+              <a
+                class="ps-menu-button"
+                data-testid="ps-menu-button-test-id"
+                tabindex="0"
+              >
+                <span
+                  class="ps-menu-icon css-wx7wi4"
+                >
+                  <i
+                    class="pi pi-wallet"
+                    style="font-size: 16px;"
+                  />
+                </span>
+                <span
+                  class="ps-menu-label css-12w9als"
+                >
+                  Digital Assets
+                </span>
+              </a>
+            </li>
+            <li
+              class="ps-menuitem-root css-1t8x7v1"
+            >
+              <a
+                class="ps-menu-button"
+                data-testid="ps-menu-button-test-id"
+                tabindex="0"
+              >
+                <span
+                  class="ps-menu-icon css-wx7wi4"
+                >
+                  <i
+                    class="pi pi-book"
+                    style="font-size: 16px;"
+                  />
+                </span>
+                <span
+                  class="ps-menu-label css-12w9als"
+                >
+                  Address Book
+                </span>
+              </a>
+            </li>
+            <li
+              class="ps-menuitem-root css-1t8x7v1"
+            >
+              <a
+                class="ps-menu-button"
+                data-testid="ps-menu-button-test-id"
+                tabindex="0"
+              >
+                <span
+                  class="ps-menu-icon css-wx7wi4"
+                >
+                  <i
+                    class="pi pi-credit-card"
+                    style="font-size: 16px;"
+                  />
+                </span>
+                <span
+                  class="ps-menu-label css-12w9als"
+                >
+                  Banking accounts
+                </span>
+              </a>
+            </li>
+            <li
+              class="ps-menuitem-root ps-submenu-root ps-open css-16jesut"
+            >
+              <a
+                class="ps-menu-button ps-open"
+                data-testid="ps-menu-button-test-id"
+                tabindex="0"
+              >
+                <span
+                  class="ps-menu-icon ps-open css-wx7wi4"
+                >
+                  <i
+                    class="pi pi-user"
+                    style="font-size: 16px;"
+                  />
+                </span>
+                <span
+                  class="ps-menu-label ps-open css-12w9als"
+                >
+                  Account
+                </span>
+                <span
+                  class="ps-submenu-expand-icon ps-open css-1cuxlhl"
+                >
+                  <svg
+                    class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
+                    fill="none"
+                    height="24"
+                    stroke="#808080"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </span>
+              </a>
+              <div
+                class="ps-submenu-content ps-open css-nx2aea"
+                data-testid="ps-submenu-content-test-id"
+                open=""
+              >
+                <ul
+                  class="css-ewdv3l"
+                >
+                  <li
+                    class="ps-menuitem-root css-1tqrhto"
+                  >
+                    <a
+                      class="ps-menu-button"
+                      data-testid="ps-menu-button-test-id"
+                      tabindex="0"
+                    >
+                      <span
+                        class="ps-menu-icon css-wx7wi4"
+                      >
+                        <i
+                          class="pi pi-user-edit"
+                          style="font-size: 16px;"
+                        />
+                      </span>
+                      <span
+                        class="ps-menu-label css-12w9als"
+                      >
+                        Profile
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="ps-menuitem-root css-1tqrhto"
+                  >
+                    <a
+                      class="ps-menu-button"
+                      data-testid="ps-menu-button-test-id"
+                      tabindex="0"
+                    >
+                      <span
+                        class="ps-menu-icon css-wx7wi4"
+                      >
+                        <i
+                          class="pi pi-shield"
+                          style="font-size: 16px;"
+                        />
+                      </span>
+                      <span
+                        class="ps-menu-label css-12w9als"
+                      >
+                        Security
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="usd1-react-ui-sidebar-footer"
+        >
+          <span
+            class="usd1-react-ui-sidebar-footer-logout"
+          >
+            <i
+              class="pi pi-sign-out usd1-react-ui-sidebar-footer-logout-icon"
+              style="font-size: 16px;"
+            />
+          </span>
+          <span
+            class="usd1-react-ui-sidebar-footer-logout-text"
+          >
+            Log out
+          </span>
+        </div>
+      </div>
+    </aside>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

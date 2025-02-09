@@ -1,11 +1,8 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { configure, shallow, render, mount } from 'enzyme';
-import Adapter from '@cfaester/enzyme-adapter-react-18';
-import sinon from 'sinon';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { Menu } from '../index';
-
-configure({ adapter: new Adapter() });
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {

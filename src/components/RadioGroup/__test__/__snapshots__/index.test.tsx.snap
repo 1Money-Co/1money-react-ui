@@ -1,167 +1,330 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioGroup renders correctly 1`] = `
-LoadedCheerio {
-  "0": <div
-    class="usd1-react-ui-radiogroup-wrapper tw-flex"
-  >
-    <div
-      class="usd1-react-ui-radiogroup-inner"
-    >
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
       <div
-        class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-        data-p-checked="false"
-        data-pc-name="radiobutton"
-        data-pc-section="root"
+        class="usd1-react-ui-radiogroup-wrapper tw-flex"
       >
-        <input
-          class="p-radiobutton-input"
-          data-pc-section="input"
-          id="USA"
-          name="US"
-          type="radio"
-        />
         <div
-          class="p-radiobutton-box"
-          data-pc-section="box"
+          class="usd1-react-ui-radiogroup-inner"
         >
           <div
-            class="p-radiobutton-icon"
-            data-pc-section="icon"
-          />
+            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA"
+              name="US"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA"
+          >
+            USA
+          </label>
+        </div>
+        <div
+          class="usd1-react-ui-radiogroup-inner"
+        >
+          <div
+            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+            data-p-checked="true"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              checked=""
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="Canada"
+              name="CA"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Canada"
+          >
+            Canada
+          </label>
+        </div>
+        <div
+          class="usd1-react-ui-radiogroup-inner"
+        >
+          <div
+            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="Mexico"
+              name="MX"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Mexico"
+          >
+            Mexico
+          </label>
+        </div>
+        <div
+          class="usd1-react-ui-radiogroup-inner"
+        >
+          <div
+            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="Brazil"
+              name="BR"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Brazil"
+          >
+            Brazil
+          </label>
         </div>
       </div>
-      <label
-        for="USA"
-      >
-        USA
-      </label>
     </div>
+  </body>,
+  "container": <div>
     <div
-      class="usd1-react-ui-radiogroup-inner"
+      class="usd1-react-ui-radiogroup-wrapper tw-flex"
     >
       <div
-        class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-        data-p-checked="true"
-        data-pc-name="radiobutton"
-        data-pc-section="root"
+        class="usd1-react-ui-radiogroup-inner"
       >
-        <input
-          checked=""
-          class="p-radiobutton-input"
-          data-pc-section="input"
-          id="Canada"
-          name="CA"
-          type="radio"
-        />
         <div
-          class="p-radiobutton-box"
-          data-pc-section="box"
+          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
         >
-          <div
-            class="p-radiobutton-icon"
-            data-pc-section="icon"
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA"
+            name="US"
+            type="radio"
           />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
         </div>
+        <label
+          for="USA"
+        >
+          USA
+        </label>
       </div>
-      <label
-        for="Canada"
-      >
-        Canada
-      </label>
-    </div>
-    <div
-      class="usd1-react-ui-radiogroup-inner"
-    >
       <div
-        class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-        data-p-checked="false"
-        data-pc-name="radiobutton"
-        data-pc-section="root"
+        class="usd1-react-ui-radiogroup-inner"
       >
-        <input
-          class="p-radiobutton-input"
-          data-pc-section="input"
-          id="Mexico"
-          name="MX"
-          type="radio"
-        />
         <div
-          class="p-radiobutton-box"
-          data-pc-section="box"
+          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+          data-p-checked="true"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
         >
-          <div
-            class="p-radiobutton-icon"
-            data-pc-section="icon"
+          <input
+            checked=""
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="Canada"
+            name="CA"
+            type="radio"
           />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
         </div>
+        <label
+          for="Canada"
+        >
+          Canada
+        </label>
       </div>
-      <label
-        for="Mexico"
-      >
-        Mexico
-      </label>
-    </div>
-    <div
-      class="usd1-react-ui-radiogroup-inner"
-    >
       <div
-        class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-        data-p-checked="false"
-        data-pc-name="radiobutton"
-        data-pc-section="root"
+        class="usd1-react-ui-radiogroup-inner"
       >
-        <input
-          class="p-radiobutton-input"
-          data-pc-section="input"
-          id="Brazil"
-          name="BR"
-          type="radio"
-        />
         <div
-          class="p-radiobutton-box"
-          data-pc-section="box"
+          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
         >
-          <div
-            class="p-radiobutton-icon"
-            data-pc-section="icon"
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="Mexico"
+            name="MX"
+            type="radio"
           />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
         </div>
+        <label
+          for="Mexico"
+        >
+          Mexico
+        </label>
       </div>
-      <label
-        for="Brazil"
+      <div
+        class="usd1-react-ui-radiogroup-inner"
       >
-        Brazil
-      </label>
+        <div
+          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="Brazil"
+            name="BR"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Brazil"
+        >
+          Brazil
+        </label>
+      </div>
     </div>
   </div>,
-  "_root": LoadedCheerio {
-    "0": Document {
-      "children": [
-        <html>
-          <head />
-          <body />
-        </html>,
-      ],
-      "endIndex": null,
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "startIndex": null,
-      "type": "root",
-      "x-mode": "quirks",
-    },
-    "_root": [Circular],
-    "length": 1,
-    "options": {
-      "decodeEntities": true,
-      "xml": false,
-    },
-  },
-  "length": 1,
-  "options": {
-    "decodeEntities": true,
-    "xml": false,
-  },
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

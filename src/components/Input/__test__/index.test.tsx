@@ -1,19 +1,16 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { configure, shallow, render, mount } from 'enzyme';
-import Adapter from '@cfaester/enzyme-adapter-react-18';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { Input } from '../index';
-
-configure({ adapter: new Adapter() });
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
   if (
     message.includes('Could not parse CSS stylesheet') ||
     message.includes('findDOMNode is deprecated and will be removed') ||
-    message.includes('React does not recognize') ||
-    message.includes('should not be null') ||
-    message.includes('A component is changing an uncontrolled input to be controlled')
+    message.includes('should not be null')
   ) {
       return;
   }
@@ -25,19 +22,19 @@ describe('Input', () => {
     const text = render(
       <Input />
     );
-    const autocomplete = shallow(
+    const autocomplete = render(
       <Input type='autocomplete' />
     );
-    const mask = mount(
+    const mask = render(
       <Input type='mask' mask='(999) 999-9999' />
     );
     const number = render(
       <Input type='number' />
     );
-    const otp = shallow(
+    const otp = render(
       <Input type='otp' />
     );
-    const password = mount(
+    const password = render(
       <Input type='password' />
     );
     const textarea = render(

@@ -1,116 +1,278 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch renders correctly 1`] = `
-LoadedCheerio {
-  "0": <div
-    aria-checked="false"
-    class="usd1-react-ui-switch p-inputswitch p-component"
-    data-p-disabled="false"
-    data-p-highlight="false"
-    data-pc-name="inputswitch"
-    data-pc-section="root"
-    role="checkbox"
-  >
-    <input
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        aria-checked="false"
+        class="usd1-react-ui-switch p-inputswitch p-component"
+        data-p-disabled="false"
+        data-p-highlight="false"
+        data-pc-name="inputswitch"
+        data-pc-section="root"
+        role="checkbox"
+      >
+        <input
+          aria-checked="false"
+          class="p-inputswitch-input"
+          data-pc-section="input"
+          role="switch"
+          type="checkbox"
+        />
+        <span
+          class="p-inputswitch-slider"
+          data-pc-section="slider"
+        />
+      </div>
+    </div>
+    <div>
+      <div
+        class="p-togglebutton p-component"
+        data-p-highlight="false"
+        data-pc-name="togglebutton"
+        data-pc-section="root"
+      >
+        <input
+          aria-invalid="false"
+          aria-pressed="false"
+          class="p-togglebutton-input"
+          data-pc-section="input"
+          role="switch"
+          tabindex="0"
+          type="checkbox"
+          value="false"
+        />
+        <div
+          class="usd1-react-ui-switch p-button p-component"
+          data-pc-section="box"
+        >
+          <span
+            class="p-button-label"
+            data-pc-section="label"
+          >
+            No
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
       aria-checked="false"
-      class="p-inputswitch-input"
-      data-pc-section="input"
-      role="switch"
-      type="checkbox"
-    />
-    <span
-      class="p-inputswitch-slider"
-      data-pc-section="slider"
-    />
+      class="usd1-react-ui-switch p-inputswitch p-component"
+      data-p-disabled="false"
+      data-p-highlight="false"
+      data-pc-name="inputswitch"
+      data-pc-section="root"
+      role="checkbox"
+    >
+      <input
+        aria-checked="false"
+        class="p-inputswitch-input"
+        data-pc-section="input"
+        role="switch"
+        type="checkbox"
+      />
+      <span
+        class="p-inputswitch-slider"
+        data-pc-section="slider"
+      />
+    </div>
   </div>,
-  "_root": LoadedCheerio {
-    "0": Document {
-      "children": [
-        <html>
-          <head />
-          <body />
-        </html>,
-      ],
-      "endIndex": null,
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "startIndex": null,
-      "type": "root",
-      "x-mode": "quirks",
-    },
-    "_root": [Circular],
-    "length": 1,
-    "options": {
-      "decodeEntities": true,
-      "xml": false,
-    },
-  },
-  "length": 1,
-  "options": {
-    "decodeEntities": true,
-    "xml": false,
-  },
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;
 
 exports[`Switch renders correctly 2`] = `
-LoadedCheerio {
-  "0": <div
-    class="usd1-react-ui-switch p-togglebutton p-component"
-    data-p-highlight="false"
-    data-pc-name="togglebutton"
-    data-pc-section="root"
-  >
-    <input
-      aria-invalid="false"
-      aria-pressed="false"
-      class="p-togglebutton-input"
-      data-pc-section="input"
-      role="switch"
-      tabindex="0"
-      type="checkbox"
-      value="false"
-    />
-    <div
-      class="p-button p-component"
-      data-pc-section="box"
-    >
-      <span
-        class="p-button-label"
-        data-pc-section="label"
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        aria-checked="false"
+        class="usd1-react-ui-switch p-inputswitch p-component"
+        data-p-disabled="false"
+        data-p-highlight="false"
+        data-pc-name="inputswitch"
+        data-pc-section="root"
+        role="checkbox"
       >
-        No
-      </span>
+        <input
+          aria-checked="false"
+          class="p-inputswitch-input"
+          data-pc-section="input"
+          role="switch"
+          type="checkbox"
+        />
+        <span
+          class="p-inputswitch-slider"
+          data-pc-section="slider"
+        />
+      </div>
+    </div>
+    <div>
+      <div
+        class="p-togglebutton p-component"
+        data-p-highlight="false"
+        data-pc-name="togglebutton"
+        data-pc-section="root"
+      >
+        <input
+          aria-invalid="false"
+          aria-pressed="false"
+          class="p-togglebutton-input"
+          data-pc-section="input"
+          role="switch"
+          tabindex="0"
+          type="checkbox"
+          value="false"
+        />
+        <div
+          class="usd1-react-ui-switch p-button p-component"
+          data-pc-section="box"
+        >
+          <span
+            class="p-button-label"
+            data-pc-section="label"
+          >
+            No
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="p-togglebutton p-component"
+      data-p-highlight="false"
+      data-pc-name="togglebutton"
+      data-pc-section="root"
+    >
+      <input
+        aria-invalid="false"
+        aria-pressed="false"
+        class="p-togglebutton-input"
+        data-pc-section="input"
+        role="switch"
+        tabindex="0"
+        type="checkbox"
+        value="false"
+      />
+      <div
+        class="usd1-react-ui-switch p-button p-component"
+        data-pc-section="box"
+      >
+        <span
+          class="p-button-label"
+          data-pc-section="label"
+        >
+          No
+        </span>
+      </div>
     </div>
   </div>,
-  "_root": LoadedCheerio {
-    "0": Document {
-      "children": [
-        <html>
-          <head />
-          <body />
-        </html>,
-      ],
-      "endIndex": null,
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "startIndex": null,
-      "type": "root",
-      "x-mode": "quirks",
-    },
-    "_root": [Circular],
-    "length": 1,
-    "options": {
-      "decodeEntities": true,
-      "xml": false,
-    },
-  },
-  "length": 1,
-  "options": {
-    "decodeEntities": true,
-    "xml": false,
-  },
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

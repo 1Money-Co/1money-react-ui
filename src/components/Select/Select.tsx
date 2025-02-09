@@ -48,7 +48,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         name={name}
         required={required}
         options={options}
-        value={selected}
+        value={selected == null ? undefined : selected}
         className={
           classes(void 0, [
             isOpen ? classes('show') : '',
