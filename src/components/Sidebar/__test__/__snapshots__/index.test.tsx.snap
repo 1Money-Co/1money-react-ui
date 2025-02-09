@@ -18,7 +18,7 @@ LoadedCheerio {
           class="usd1-react-ui-sidebar-logo"
         >
           <i
-            class="usd1-react-ui-icon-logo-with-words"
+            class="usd1-react-ui-icon-logo-with-words "
           >
             <svg
               class="usd1-react-ui-icons"
