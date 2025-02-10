@@ -6,128 +6,128 @@
   "module": "es/index.js",
   "exports": {
     ".": {
+      "types": "./es/index.d.ts",
       "import": "./es/index.js",
-      "require": "./lib/index.js",
-      "types": "./es/index.d.ts"
+      "require": "./lib/index.js"
     },
     "./index.css": {
       "import": "./es/index.css",
       "require": "./lib/index.css"
     },
     "./Button": {
+      "types": "./es/components/Button/index.d.ts",
       "import": "./es/components/Button/index.js",
-      "require": "./lib/components/Button/index.js",
-      "types": "./es/components/Button/index.d.ts"
+      "require": "./lib/components/Button/index.js"
     },
     "./Calendar": {
+      "types": "./es/components/Calendar/index.d.ts",
       "import": "./es/components/Calendar/index.js",
-      "require": "./lib/components/Calendar/index.js",
-      "types": "./es/components/Calendar/index.d.ts"
+      "require": "./lib/components/Calendar/index.js"
     },
     "./Checkbox": {
+      "types": "./es/components/Checkbox/index.d.ts",
       "import": "./es/components/Checkbox/index.js",
-      "require": "./lib/components/Checkbox/index.js",
-      "types": "./es/components/Checkbox/index.d.ts"
+      "require": "./lib/components/Checkbox/index.js"
     },
     "./Collapse": {
+      "types": "./es/components/Collapse/index.d.ts",
       "import": "./es/components/Collapse/index.js",
-      "require": "./lib/components/Collapse/index.js",
-      "types": "./es/components/Collapse/index.d.ts"
+      "require": "./lib/components/Collapse/index.js"
     },
     "./ConfirmPopup": {
+      "types": "./es/components/ConfirmPopup/index.d.ts",
       "import": "./es/components/ConfirmPopup/index.js",
-      "require": "./lib/components/ConfirmPopup/index.js",
-      "types": "./es/components/ConfirmPopup/index.d.ts"
+      "require": "./lib/components/ConfirmPopup/index.js"
     },
     "./Drawer": {
+      "types": "./es/components/Drawer/index.d.ts",
       "import": "./es/components/Drawer/index.js",
-      "require": "./lib/components/Drawer/index.js",
-      "types": "./es/components/Drawer/index.d.ts"
+      "require": "./lib/components/Drawer/index.js"
     },
     "./Input": {
+      "types": "./es/components/Input/index.d.ts",
       "import": "./es/components/Input/index.js",
-      "require": "./lib/components/Input/index.js",
-      "types": "./es/components/Input/index.d.ts"
+      "require": "./lib/components/Input/index.js"
     },
     "./Loading": {
+      "types": "./es/components/Loading/index.d.ts",
       "import": "./es/components/Loading/index.js",
-      "require": "./lib/components/Loading/index.js",
-      "types": "./es/components/Loading/index.d.ts"
+      "require": "./lib/components/Loading/index.js"
     },
     "./Menu": {
+      "types": "./es/components/Menu/index.d.ts",
       "import": "./es/components/Menu/index.js",
-      "require": "./lib/components/Menu/index.js",
-      "types": "./es/components/Menu/index.d.ts"
+      "require": "./lib/components/Menu/index.js"
     },
     "./Message": {
+      "types": "./es/components/Message/index.d.ts",
       "import": "./es/components/Message/index.js",
-      "require": "./lib/components/Message/index.js",
-      "types": "./es/components/Message/index.d.ts"
+      "require": "./lib/components/Message/index.js"
     },
     "./Modal": {
+      "types": "./es/components/Modal/index.d.ts",
       "import": "./es/components/Modal/index.js",
-      "require": "./lib/components/Modal/index.js",
-      "types": "./es/components/Modal/index.d.ts"
+      "require": "./lib/components/Modal/index.js"
     },
     "./Popup": {
+      "types": "./es/components/Popup/index.d.ts",
       "import": "./es/components/Popup/index.js",
-      "require": "./lib/components/Popup/index.js",
-      "types": "./es/components/Popup/index.d.ts"
+      "require": "./lib/components/Popup/index.js"
     },
     "./Progress": {
+      "types": "./es/components/Progress/index.d.ts",
       "import": "./es/components/Progress/index.js",
-      "require": "./lib/components/Progress/index.js",
-      "types": "./es/components/Progress/index.d.ts"
+      "require": "./lib/components/Progress/index.js"
     },
     "./RadioGroup": {
+      "types": "./es/components/RadioGroup/index.d.ts",
       "import": "./es/components/RadioGroup/index.js",
-      "require": "./lib/components/RadioGroup/index.js",
-      "types": "./es/components/RadioGroup/index.d.ts"
+      "require": "./lib/components/RadioGroup/index.js"
     },
     "./Select": {
+      "types": "./es/components/Select/index.d.ts",
       "import": "./es/components/Select/index.js",
-      "require": "./lib/components/Select/index.js",
-      "types": "./es/components/Select/index.d.ts"
+      "require": "./lib/components/Select/index.js"
     },
     "./Spinner": {
+      "types": "./es/components/Spinner/index.d.ts",
       "import": "./es/components/Spinner/index.js",
-      "require": "./lib/components/Spinner/index.js",
-      "types": "./es/components/Spinner/index.d.ts"
+      "require": "./lib/components/Spinner/index.js"
     },
     "./Switch": {
+      "types": "./es/components/Switch/index.d.ts",
       "import": "./es/components/Switch/index.js",
-      "require": "./lib/components/Switch/index.js",
-      "types": "./es/components/Switch/index.d.ts"
+      "require": "./lib/components/Switch/index.js"
     },
     "./Toast": {
+      "types": "./es/components/Toast/index.d.ts",
       "import": "./es/components/Toast/index.js",
-      "require": "./lib/components/Toast/index.js",
-      "types": "./es/components/Toast/index.d.ts"
+      "require": "./lib/components/Toast/index.js"
     },
     "./Icons": {
+      "types": "./es/components/Icons/index.d.ts",
       "import": "./es/components/Icons/index.js",
-      "require": "./lib/components/Icons/index.js",
-      "types": "./es/components/Icons/index.d.ts"
+      "require": "./lib/components/Icons/index.js"
     },
     "./Clipboard": {
+      "types": "./es/components/Clipboard/index.d.ts",
       "import": "./es/components/Clipboard/index.js",
-      "require": "./lib/components/Clipboard/index.js",
-      "types": "./es/components/Clipboard/index.d.ts"
+      "require": "./lib/components/Clipboard/index.js"
     },
     "./Sidebar": {
+      "types": "./es/components/Sidebar/index.d.ts",
       "import": "./es/components/Sidebar/index.js",
-      "require": "./lib/components/Sidebar/index.js",
-      "types": "./es/components/Sidebar/index.d.ts"
+      "require": "./lib/components/Sidebar/index.js"
     },
     "./Tab": {
+      "types": "./es/components/Tab/index.d.ts",
       "import": "./es/components/Tab/index.js",
-      "require": "./lib/components/Tab/index.js",
-      "types": "./es/components/Tab/index.d.ts"
+      "require": "./lib/components/Tab/index.js"
     },
     "./Upload": {
+      "types": "./es/components/Upload/index.d.ts",
       "import": "./es/components/Upload/index.js",
-      "require": "./lib/components/Upload/index.js",
-      "types": "./es/components/Upload/index.d.ts"
+      "require": "./lib/components/Upload/index.js"
     }
   },
   "scripts": {
