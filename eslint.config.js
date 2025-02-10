@@ -1,3 +1,4 @@
+/* eslint-disable */
 const js = require('@eslint/js');
 const globals = require('globals');
 const typescriptParser = require('@typescript-eslint/parser');
@@ -24,13 +25,13 @@ module.exports = [
         },
         project: './tsconfig.json',
       },
-      ecmaVersion: 2022,
+      ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
         ...globals.browser,
-        ...globals.es2015
+        ...globals.es2022
       }
     },
     plugins: {
