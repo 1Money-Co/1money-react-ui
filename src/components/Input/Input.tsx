@@ -1,5 +1,4 @@
-/* eslint-disable no-case-declarations */
-import { memo, useMemo, useCallback } from 'react';
+import { memo, useMemo } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
@@ -12,7 +11,7 @@ import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
 
 /* import types */
-import type { FC, PropsWithChildren, FormEvent } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
