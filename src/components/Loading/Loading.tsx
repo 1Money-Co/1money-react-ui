@@ -1,7 +1,6 @@
 'use client';
 import { memo, useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
-import lottie from 'lottie-web';
 import classnames from '@/utils/classnames';
 import lottiePureJson from './lottie-pure.json';
 import lottiePatternJson from './lottie-pattern.json';
@@ -16,19 +15,23 @@ export const Loading: FC<LoadingProps> = props => {
 
   useEffect(() => {
     if (!container.current) return;
-    const instance =lottie.loadAnimation({
-      container: container.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: type === 'pure' ? lottiePureJson : lottiePatternJson
-    });
+
+    let instance: any;
+    (async function () {
+      const lottie = (await import('lottie-web')).default;
+      instance = lottie.loadAnimation({
+        container: container.current!,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: type === 'pure' ? lottiePureJson : lottiePatternJson
+      });
+    })();
 
     return () => instance.destroy();
   }, []);
 
   return <div ref={container} className={classes(void 0, className)} />;
-  
 };
 
 /**
