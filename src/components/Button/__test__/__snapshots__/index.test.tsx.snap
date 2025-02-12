@@ -6,7 +6,7 @@ exports[`Button renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="usd1-react-ui-button usd1-react-ui-button-primary  p-button p-component"
+        class="om-react-ui-button om-react-ui-button-primary  p-button p-component"
         data-pc-name="button"
         data-pc-section="root"
       >
@@ -21,7 +21,7 @@ exports[`Button renders correctly 1`] = `
   </body>,
   "container": <div>
     <button
-      class="usd1-react-ui-button usd1-react-ui-button-primary  p-button p-component"
+      class="om-react-ui-button om-react-ui-button-primary  p-button p-component"
       data-pc-name="button"
       data-pc-section="root"
     >

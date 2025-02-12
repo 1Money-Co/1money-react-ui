@@ -1,4 +1,4 @@
-.usd1-react-ui-input {
+.om-react-ui-input {
   display: inline-flex;
   width: 100%;
   color: #000;
@@ -34,7 +34,7 @@
     border-radius: 20px;
   }
 
-  &-otp.usd1-react-ui-input-rounded {
+  &-otp.om-react-ui-input-rounded {
     input {
       border-radius: 16px;
     }
@@ -102,17 +102,17 @@
   }
 }
 
-.usd1-react-ui-input-wrapper {
+.om-react-ui-input-wrapper {
   display: inline-flex;
   flex-direction: column;
 }
 
-.usd1-react-ui-input-inner {
+.om-react-ui-input-inner {
   display: inline-flex;
   align-items: center;
 }
 
-.usd1-react-ui-input-addons {
+.om-react-ui-input-addons {
   padding: 10px;
   color: #808080;
   font-weight: 400;
@@ -127,13 +127,13 @@
   border-bottom-left-radius: 6px;
 }
 
-.usd1-react-ui-input-addons+.usd1-react-ui-input {
+.om-react-ui-input-addons+.om-react-ui-input {
   background-color: #FFF;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.usd1-react-ui-input-label {
+.om-react-ui-input-label {
   display: inline-block;
   margin-bottom: 8px;
   font-weight: 400;
@@ -155,7 +155,7 @@
   }
 }
 
-.usd1-react-ui-input-error {
+.om-react-ui-input-error {
   display: inline-block;
   padding: 4px 8px 0;
   color: #CC1461;

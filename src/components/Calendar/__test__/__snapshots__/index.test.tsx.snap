@@ -6,10 +6,10 @@ exports[`Calendar renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-calendar-wrapper"
+        class="om-react-ui-calendar-wrapper"
       >
         <span
-          class="usd1-react-ui-calendar  false p-calendar p-component p-inputwrapper"
+          class="om-react-ui-calendar  false p-calendar p-component p-inputwrapper"
           data-pc-name="calendar"
           data-pc-section="root"
         >
@@ -33,10 +33,10 @@ exports[`Calendar renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-calendar-wrapper"
+      class="om-react-ui-calendar-wrapper"
     >
       <span
-        class="usd1-react-ui-calendar  false p-calendar p-component p-inputwrapper"
+        class="om-react-ui-calendar  false p-calendar p-component p-inputwrapper"
         data-pc-name="calendar"
         data-pc-section="root"
       >

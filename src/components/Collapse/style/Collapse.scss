@@ -1,4 +1,4 @@
-.usd1-react-ui-collapse {
+.om-react-ui-collapse {
   font-family: inherit;
   background-color: #FFF;
 
@@ -19,7 +19,7 @@
     padding-bottom: 28px;
   }
 
-  &-item:not(.usd1-react-ui-collapse-item-content) {
+  &-item:not(.om-react-ui-collapse-item-content) {
     cursor: pointer;
 
     // &:hover {
@@ -86,8 +86,8 @@
 }
 
 @media (width < 1024px) {
-  .usd1-react-ui-collapse {
-    &-item:not(.usd1-react-ui-collapse-item-content) {
+  .om-react-ui-collapse {
+    &-item:not(.om-react-ui-collapse-item-content) {
       >a {
         padding: 24px 0;
         font-size: 16px;

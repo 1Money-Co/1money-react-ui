@@ -6,10 +6,10 @@ exports[`Select renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-select-wrapper"
+        class="om-react-ui-select-wrapper"
       >
         <div
-          class="usd1-react-ui-select    p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select    p-dropdown p-component p-inputwrapper"
           data-p-disabled="false"
           data-p-focus="false"
           data-pc-name="dropdown"
@@ -57,7 +57,7 @@ exports[`Select renders correctly 1`] = `
             role="button"
           >
             <svg
-              class="usd1-react-ui-icons"
+              class="om-react-ui-icons"
               fill="none"
               height="20"
               stroke="#808080"
@@ -78,10 +78,10 @@ exports[`Select renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-select-wrapper"
+        class="om-react-ui-select-wrapper"
       >
         <div
-          class="usd1-react-ui-select    p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select    p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
         >
@@ -116,7 +116,7 @@ exports[`Select renders correctly 1`] = `
             data-pc-section="trigger"
           >
             <svg
-              class="usd1-react-ui-icons"
+              class="om-react-ui-icons"
               fill="none"
               height="20"
               stroke="#808080"
@@ -138,10 +138,10 @@ exports[`Select renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-select-wrapper"
+      class="om-react-ui-select-wrapper"
     >
       <div
-        class="usd1-react-ui-select    p-dropdown p-component p-inputwrapper"
+        class="om-react-ui-select    p-dropdown p-component p-inputwrapper"
         data-p-disabled="false"
         data-p-focus="false"
         data-pc-name="dropdown"
@@ -189,7 +189,7 @@ exports[`Select renders correctly 1`] = `
           role="button"
         >
           <svg
-            class="usd1-react-ui-icons"
+            class="om-react-ui-icons"
             fill="none"
             height="20"
             stroke="#808080"
@@ -268,10 +268,10 @@ exports[`Select renders correctly 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-select-wrapper"
+        class="om-react-ui-select-wrapper"
       >
         <div
-          class="usd1-react-ui-select    p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select    p-dropdown p-component p-inputwrapper"
           data-p-disabled="false"
           data-p-focus="false"
           data-pc-name="dropdown"
@@ -319,7 +319,7 @@ exports[`Select renders correctly 2`] = `
             role="button"
           >
             <svg
-              class="usd1-react-ui-icons"
+              class="om-react-ui-icons"
               fill="none"
               height="20"
               stroke="#808080"
@@ -340,10 +340,10 @@ exports[`Select renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-select-wrapper"
+        class="om-react-ui-select-wrapper"
       >
         <div
-          class="usd1-react-ui-select    p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select    p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
         >
@@ -378,7 +378,7 @@ exports[`Select renders correctly 2`] = `
             data-pc-section="trigger"
           >
             <svg
-              class="usd1-react-ui-icons"
+              class="om-react-ui-icons"
               fill="none"
               height="20"
               stroke="#808080"
@@ -400,10 +400,10 @@ exports[`Select renders correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-select-wrapper"
+      class="om-react-ui-select-wrapper"
     >
       <div
-        class="usd1-react-ui-select    p-multiselect p-component p-inputwrapper"
+        class="om-react-ui-select    p-multiselect p-component p-inputwrapper"
         data-pc-name="multiselect"
         data-pc-section="root"
       >
@@ -438,7 +438,7 @@ exports[`Select renders correctly 2`] = `
           data-pc-section="trigger"
         >
           <svg
-            class="usd1-react-ui-icons"
+            class="om-react-ui-icons"
             fill="none"
             height="20"
             stroke="#808080"

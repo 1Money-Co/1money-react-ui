@@ -6,7 +6,7 @@ exports[`Collapse renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-collapse p-accordion p-component"
+        class="om-react-ui-collapse p-accordion p-component"
         data-pc-name="accordion"
         data-pc-section="root"
         id="pr_id_1"
@@ -17,7 +17,7 @@ exports[`Collapse renders correctly 1`] = `
           data-pc-section="root"
         >
           <div
-            class="usd1-react-ui-collapse-item p-accordion-header"
+            class="om-react-ui-collapse-item p-accordion-header"
             data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="header"
@@ -34,10 +34,10 @@ exports[`Collapse renders correctly 1`] = `
               tabindex="0"
             >
               <i
-                class="usd1-react-ui-collapse-icon usd1-react-ui-collapse-icon-expand"
+                class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
               >
                 <svg
-                  class="usd1-react-ui-icons"
+                  class="om-react-ui-icons"
                   fill="none"
                   height="24"
                   stroke="#000000"
@@ -68,7 +68,7 @@ exports[`Collapse renders correctly 1`] = `
           data-pc-section="root"
         >
           <div
-            class="usd1-react-ui-collapse-item p-accordion-header"
+            class="om-react-ui-collapse-item p-accordion-header"
             data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="header"
@@ -85,10 +85,10 @@ exports[`Collapse renders correctly 1`] = `
               tabindex="0"
             >
               <i
-                class="usd1-react-ui-collapse-icon usd1-react-ui-collapse-icon-expand"
+                class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
               >
                 <svg
-                  class="usd1-react-ui-icons"
+                  class="om-react-ui-icons"
                   fill="none"
                   height="24"
                   stroke="#000000"
@@ -119,7 +119,7 @@ exports[`Collapse renders correctly 1`] = `
           data-pc-section="root"
         >
           <div
-            class="usd1-react-ui-collapse-item p-accordion-header"
+            class="om-react-ui-collapse-item p-accordion-header"
             data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="header"
@@ -136,10 +136,10 @@ exports[`Collapse renders correctly 1`] = `
               tabindex="0"
             >
               <i
-                class="usd1-react-ui-collapse-icon usd1-react-ui-collapse-icon-expand"
+                class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
               >
                 <svg
-                  class="usd1-react-ui-icons"
+                  class="om-react-ui-icons"
                   fill="none"
                   height="24"
                   stroke="#000000"
@@ -169,7 +169,7 @@ exports[`Collapse renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-collapse p-accordion p-component"
+      class="om-react-ui-collapse p-accordion p-component"
       data-pc-name="accordion"
       data-pc-section="root"
       id="pr_id_1"
@@ -180,7 +180,7 @@ exports[`Collapse renders correctly 1`] = `
         data-pc-section="root"
       >
         <div
-          class="usd1-react-ui-collapse-item p-accordion-header"
+          class="om-react-ui-collapse-item p-accordion-header"
           data-p-disabled="false"
           data-p-highlight="false"
           data-pc-section="header"
@@ -197,10 +197,10 @@ exports[`Collapse renders correctly 1`] = `
             tabindex="0"
           >
             <i
-              class="usd1-react-ui-collapse-icon usd1-react-ui-collapse-icon-expand"
+              class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
             >
               <svg
-                class="usd1-react-ui-icons"
+                class="om-react-ui-icons"
                 fill="none"
                 height="24"
                 stroke="#000000"
@@ -231,7 +231,7 @@ exports[`Collapse renders correctly 1`] = `
         data-pc-section="root"
       >
         <div
-          class="usd1-react-ui-collapse-item p-accordion-header"
+          class="om-react-ui-collapse-item p-accordion-header"
           data-p-disabled="false"
           data-p-highlight="false"
           data-pc-section="header"
@@ -248,10 +248,10 @@ exports[`Collapse renders correctly 1`] = `
             tabindex="0"
           >
             <i
-              class="usd1-react-ui-collapse-icon usd1-react-ui-collapse-icon-expand"
+              class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
             >
               <svg
-                class="usd1-react-ui-icons"
+                class="om-react-ui-icons"
                 fill="none"
                 height="24"
                 stroke="#000000"
@@ -282,7 +282,7 @@ exports[`Collapse renders correctly 1`] = `
         data-pc-section="root"
       >
         <div
-          class="usd1-react-ui-collapse-item p-accordion-header"
+          class="om-react-ui-collapse-item p-accordion-header"
           data-p-disabled="false"
           data-p-highlight="false"
           data-pc-section="header"
@@ -299,10 +299,10 @@ exports[`Collapse renders correctly 1`] = `
             tabindex="0"
           >
             <i
-              class="usd1-react-ui-collapse-icon usd1-react-ui-collapse-icon-expand"
+              class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
             >
               <svg
-                class="usd1-react-ui-icons"
+                class="om-react-ui-icons"
                 fill="none"
                 height="24"
                 stroke="#000000"

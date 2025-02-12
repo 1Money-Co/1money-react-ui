@@ -6,21 +6,21 @@ exports[`Clipboard renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-clipboard"
+        class="om-react-ui-clipboard"
       >
         <span
-          class="usd1-react-ui-clipboard-label"
+          class="om-react-ui-clipboard-label"
         />
         <div
-          class="usd1-react-ui-clipboard-content"
+          class="om-react-ui-clipboard-content"
         >
           <span
-            class="usd1-react-ui-clipboard-content-text"
+            class="om-react-ui-clipboard-content-text"
           >
             复制 copy
           </span>
           <svg
-            class="usd1-react-ui-icons usd1-react-ui-clipboard-content-icon"
+            class="om-react-ui-icons om-react-ui-clipboard-content-icon"
             fill="#000"
             height="20"
             stroke="none"
@@ -53,21 +53,21 @@ exports[`Clipboard renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-clipboard"
+      class="om-react-ui-clipboard"
     >
       <span
-        class="usd1-react-ui-clipboard-label"
+        class="om-react-ui-clipboard-label"
       />
       <div
-        class="usd1-react-ui-clipboard-content"
+        class="om-react-ui-clipboard-content"
       >
         <span
-          class="usd1-react-ui-clipboard-content-text"
+          class="om-react-ui-clipboard-content-text"
         >
           复制 copy
         </span>
         <svg
-          class="usd1-react-ui-icons usd1-react-ui-clipboard-content-icon"
+          class="om-react-ui-icons om-react-ui-clipboard-content-icon"
           fill="#000"
           height="20"
           stroke="none"

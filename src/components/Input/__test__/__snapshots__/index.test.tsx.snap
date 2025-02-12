@@ -6,13 +6,13 @@ exports[`Input renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -21,13 +21,13 @@ exports[`Input renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -50,13 +50,13 @@ exports[`Input renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -66,13 +66,13 @@ exports[`Input renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -91,13 +91,13 @@ exports[`Input renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -151,13 +151,13 @@ exports[`Input renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -174,13 +174,13 @@ exports[`Input renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -190,13 +190,13 @@ exports[`Input renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <input
-          class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+          class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
           data-pc-name="inputtext"
           data-pc-section="root"
         />
@@ -263,13 +263,13 @@ exports[`Input renders correctly 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -278,13 +278,13 @@ exports[`Input renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -307,13 +307,13 @@ exports[`Input renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -323,13 +323,13 @@ exports[`Input renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -348,13 +348,13 @@ exports[`Input renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -408,13 +408,13 @@ exports[`Input renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -431,13 +431,13 @@ exports[`Input renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -447,13 +447,13 @@ exports[`Input renders correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <span
-          class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+          class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
           data-pc-name="autocomplete"
           data-pc-section="root"
           id="pr_id_1"
@@ -534,13 +534,13 @@ exports[`Input renders correctly 3`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -549,13 +549,13 @@ exports[`Input renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -578,13 +578,13 @@ exports[`Input renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -594,13 +594,13 @@ exports[`Input renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -619,13 +619,13 @@ exports[`Input renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -679,13 +679,13 @@ exports[`Input renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -702,13 +702,13 @@ exports[`Input renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -718,13 +718,13 @@ exports[`Input renders correctly 3`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <input
-          class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+          class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
           data-pc-name="inputtext"
           data-pc-section="root"
           type="text"
@@ -792,13 +792,13 @@ exports[`Input renders correctly 4`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -807,13 +807,13 @@ exports[`Input renders correctly 4`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -836,13 +836,13 @@ exports[`Input renders correctly 4`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -852,13 +852,13 @@ exports[`Input renders correctly 4`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -877,13 +877,13 @@ exports[`Input renders correctly 4`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -937,13 +937,13 @@ exports[`Input renders correctly 4`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -960,13 +960,13 @@ exports[`Input renders correctly 4`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -976,13 +976,13 @@ exports[`Input renders correctly 4`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <span
-          class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+          class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
           data-pc-name="inputnumber"
           data-pc-section="root"
         >
@@ -1059,13 +1059,13 @@ exports[`Input renders correctly 5`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -1074,13 +1074,13 @@ exports[`Input renders correctly 5`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -1103,13 +1103,13 @@ exports[`Input renders correctly 5`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -1119,13 +1119,13 @@ exports[`Input renders correctly 5`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -1144,13 +1144,13 @@ exports[`Input renders correctly 5`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -1204,13 +1204,13 @@ exports[`Input renders correctly 5`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -1227,13 +1227,13 @@ exports[`Input renders correctly 5`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -1243,13 +1243,13 @@ exports[`Input renders correctly 5`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <div
-          class="usd1-react-ui-input usd1-react-ui-input-otp  "
+          class="om-react-ui-input om-react-ui-input-otp  "
         >
           <div
             class="p-inputotp p-component"
@@ -1361,13 +1361,13 @@ exports[`Input renders correctly 6`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -1376,13 +1376,13 @@ exports[`Input renders correctly 6`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -1405,13 +1405,13 @@ exports[`Input renders correctly 6`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -1421,13 +1421,13 @@ exports[`Input renders correctly 6`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -1446,13 +1446,13 @@ exports[`Input renders correctly 6`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -1506,13 +1506,13 @@ exports[`Input renders correctly 6`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -1529,13 +1529,13 @@ exports[`Input renders correctly 6`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -1545,13 +1545,13 @@ exports[`Input renders correctly 6`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <div
-          class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+          class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
           data-pc-name="password"
           data-pc-section="root"
         >
@@ -1626,13 +1626,13 @@ exports[`Input renders correctly 7`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -1641,13 +1641,13 @@ exports[`Input renders correctly 7`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -1670,13 +1670,13 @@ exports[`Input renders correctly 7`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <input
-            class="usd1-react-ui-input usd1-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -1686,13 +1686,13 @@ exports[`Input renders correctly 7`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <span
-            class="usd1-react-ui-input usd1-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -1711,13 +1711,13 @@ exports[`Input renders correctly 7`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-otp  "
           >
             <div
               class="p-inputotp p-component"
@@ -1771,13 +1771,13 @@ exports[`Input renders correctly 7`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <div
-            class="usd1-react-ui-input usd1-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -1794,13 +1794,13 @@ exports[`Input renders correctly 7`] = `
     </div>
     <div>
       <div
-        class="usd1-react-ui-input-wrapper"
+        class="om-react-ui-input-wrapper"
       >
         <div
-          class="usd1-react-ui-input-inner"
+          class="om-react-ui-input-inner"
         >
           <textarea
-            class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -1810,13 +1810,13 @@ exports[`Input renders correctly 7`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-input-wrapper"
+      class="om-react-ui-input-wrapper"
     >
       <div
-        class="usd1-react-ui-input-inner"
+        class="om-react-ui-input-inner"
       >
         <textarea
-          class="usd1-react-ui-input usd1-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+          class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
           data-pc-name="inputtextarea"
           data-pc-section="root"
         />

@@ -7,7 +7,7 @@ exports[`Spinner renders correctly 1`] = `
     <div>
       <div
         aria-busy="true"
-        class="usd1-react-ui-spinner p-progress-spinner"
+        class="om-react-ui-spinner p-progress-spinner"
         data-pc-name="progressspinner"
         data-pc-section="root"
         role="progressbar"
@@ -35,7 +35,7 @@ exports[`Spinner renders correctly 1`] = `
   "container": <div>
     <div
       aria-busy="true"
-      class="usd1-react-ui-spinner p-progress-spinner"
+      class="om-react-ui-spinner p-progress-spinner"
       data-pc-name="progressspinner"
       data-pc-section="root"
       role="progressbar"

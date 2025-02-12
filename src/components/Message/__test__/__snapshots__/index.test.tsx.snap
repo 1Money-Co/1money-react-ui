@@ -8,7 +8,7 @@ exports[`Message renders correctly 1`] = `
       <div
         aria-atomic="true"
         aria-live="polite"
-        class="usd1-react-ui-message p-inline-message p-component p-inline-message-success"
+        class="om-react-ui-message p-inline-message p-component p-inline-message-success"
         data-pc-name="message"
         data-pc-section="root"
         role="alert"
@@ -38,7 +38,7 @@ exports[`Message renders correctly 1`] = `
     <div
       aria-atomic="true"
       aria-live="polite"
-      class="usd1-react-ui-message p-inline-message p-component p-inline-message-success"
+      class="om-react-ui-message p-inline-message p-component p-inline-message-success"
       data-pc-name="message"
       data-pc-section="root"
       role="alert"
