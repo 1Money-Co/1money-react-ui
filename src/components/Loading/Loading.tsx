@@ -28,7 +28,7 @@ export const Loading: FC<LoadingProps> = props => {
       });
     })();
 
-    return () => instance.destroy();
+    return () => instance?.destroy();
   }, []);
 
   return <div ref={container} className={classes(void 0, className)} />;
