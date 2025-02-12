@@ -6,13 +6,13 @@ exports[`RadioGroup renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="usd1-react-ui-radiogroup-wrapper tw-flex"
+        class="om-react-ui-radiogroup-wrapper tw-flex"
       >
         <div
-          class="usd1-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner"
         >
           <div
-            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
             data-p-checked="false"
             data-pc-name="radiobutton"
             data-pc-section="root"
@@ -41,10 +41,10 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="usd1-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner"
         >
           <div
-            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
             data-p-checked="true"
             data-pc-name="radiobutton"
             data-pc-section="root"
@@ -74,10 +74,10 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="usd1-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner"
         >
           <div
-            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
             data-p-checked="false"
             data-pc-name="radiobutton"
             data-pc-section="root"
@@ -106,10 +106,10 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="usd1-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner"
         >
           <div
-            class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
             data-p-checked="false"
             data-pc-name="radiobutton"
             data-pc-section="root"
@@ -142,13 +142,13 @@ exports[`RadioGroup renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="usd1-react-ui-radiogroup-wrapper tw-flex"
+      class="om-react-ui-radiogroup-wrapper tw-flex"
     >
       <div
-        class="usd1-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner"
       >
         <div
-          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
           data-p-checked="false"
           data-pc-name="radiobutton"
           data-pc-section="root"
@@ -177,10 +177,10 @@ exports[`RadioGroup renders correctly 1`] = `
         </label>
       </div>
       <div
-        class="usd1-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner"
       >
         <div
-          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
           data-p-checked="true"
           data-pc-name="radiobutton"
           data-pc-section="root"
@@ -210,10 +210,10 @@ exports[`RadioGroup renders correctly 1`] = `
         </label>
       </div>
       <div
-        class="usd1-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner"
       >
         <div
-          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
           data-p-checked="false"
           data-pc-name="radiobutton"
           data-pc-section="root"
@@ -242,10 +242,10 @@ exports[`RadioGroup renders correctly 1`] = `
         </label>
       </div>
       <div
-        class="usd1-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner"
       >
         <div
-          class="usd1-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
           data-p-checked="false"
           data-pc-name="radiobutton"
           data-pc-section="root"

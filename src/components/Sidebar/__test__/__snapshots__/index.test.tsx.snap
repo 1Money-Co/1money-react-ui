@@ -6,7 +6,7 @@ exports[`Sidebar renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <aside
-        class="ps-sidebar-root usd1-react-ui-sidebar css-dw6gey"
+        class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
         data-testid="ps-sidebar-root-test-id"
         width="261px"
       >
@@ -15,16 +15,16 @@ exports[`Sidebar renders correctly 1`] = `
           data-testid="ps-sidebar-container-test-id"
         >
           <div
-            class="usd1-react-ui-sidebar-header"
+            class="om-react-ui-sidebar-header"
           >
             <span
-              class="usd1-react-ui-sidebar-logo"
+              class="om-react-ui-sidebar-logo"
             >
               <i
-                class="usd1-react-ui-icon-logo-with-words "
+                class="om-react-ui-icon-logo-with-words "
               >
                 <svg
-                  class="usd1-react-ui-icons"
+                  class="om-react-ui-icons"
                   fill="#3D73F2"
                   height="18"
                   stroke="none"
@@ -39,7 +39,7 @@ exports[`Sidebar renders correctly 1`] = `
                   />
                 </svg>
                 <svg
-                  class="usd1-react-ui-icons"
+                  class="om-react-ui-icons"
                   fill="#3D73F2"
                   height="18"
                   stroke="none"
@@ -180,7 +180,7 @@ exports[`Sidebar renders correctly 1`] = `
                     class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                   >
                     <svg
-                      class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
+                      class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
                       fill="none"
                       height="24"
                       stroke="#808080"
@@ -257,18 +257,18 @@ exports[`Sidebar renders correctly 1`] = `
             </ul>
           </nav>
           <div
-            class="usd1-react-ui-sidebar-footer"
+            class="om-react-ui-sidebar-footer"
           >
             <span
-              class="usd1-react-ui-sidebar-footer-logout"
+              class="om-react-ui-sidebar-footer-logout"
             >
               <i
-                class="pi pi-sign-out usd1-react-ui-sidebar-footer-logout-icon"
+                class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
                 style="font-size: 16px;"
               />
             </span>
             <span
-              class="usd1-react-ui-sidebar-footer-logout-text"
+              class="om-react-ui-sidebar-footer-logout-text"
             >
               Log out
             </span>
@@ -279,7 +279,7 @@ exports[`Sidebar renders correctly 1`] = `
   </body>,
   "container": <div>
     <aside
-      class="ps-sidebar-root usd1-react-ui-sidebar css-dw6gey"
+      class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
       data-testid="ps-sidebar-root-test-id"
       width="261px"
     >
@@ -288,16 +288,16 @@ exports[`Sidebar renders correctly 1`] = `
         data-testid="ps-sidebar-container-test-id"
       >
         <div
-          class="usd1-react-ui-sidebar-header"
+          class="om-react-ui-sidebar-header"
         >
           <span
-            class="usd1-react-ui-sidebar-logo"
+            class="om-react-ui-sidebar-logo"
           >
             <i
-              class="usd1-react-ui-icon-logo-with-words "
+              class="om-react-ui-icon-logo-with-words "
             >
               <svg
-                class="usd1-react-ui-icons"
+                class="om-react-ui-icons"
                 fill="#3D73F2"
                 height="18"
                 stroke="none"
@@ -312,7 +312,7 @@ exports[`Sidebar renders correctly 1`] = `
                 />
               </svg>
               <svg
-                class="usd1-react-ui-icons"
+                class="om-react-ui-icons"
                 fill="#3D73F2"
                 height="18"
                 stroke="none"
@@ -453,7 +453,7 @@ exports[`Sidebar renders correctly 1`] = `
                   class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                 >
                   <svg
-                    class="usd1-react-ui-icons usd1-react-ui-sidebar-expand-icon usd1-react-ui-sidebar-expand-icon-open"
+                    class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
                     fill="none"
                     height="24"
                     stroke="#808080"
@@ -530,18 +530,18 @@ exports[`Sidebar renders correctly 1`] = `
           </ul>
         </nav>
         <div
-          class="usd1-react-ui-sidebar-footer"
+          class="om-react-ui-sidebar-footer"
         >
           <span
-            class="usd1-react-ui-sidebar-footer-logout"
+            class="om-react-ui-sidebar-footer-logout"
           >
             <i
-              class="pi pi-sign-out usd1-react-ui-sidebar-footer-logout-icon"
+              class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
               style="font-size: 16px;"
             />
           </span>
           <span
-            class="usd1-react-ui-sidebar-footer-logout-text"
+            class="om-react-ui-sidebar-footer-logout-text"
           >
             Log out
           </span>

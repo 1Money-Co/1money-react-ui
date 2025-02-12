@@ -1,4 +1,4 @@
-.usd1-react-ui-sidebar {
+.om-react-ui-sidebar {
   height: 100vh;
   padding: 0 8px;
   border-right: 1px solid #F2F2F2 !important;
@@ -119,7 +119,7 @@
       color: #3D73F2;
       background-color: rgba(229, 239, 255, 50%);
 
-      .usd1-react-ui-sidebar-footer-logout {
+      .om-react-ui-sidebar-footer-logout {
         color: #3D73F2;
       }
     }
@@ -144,11 +144,11 @@
       }
     }
 
-    .usd1-react-ui-sidebar-header {
+    .om-react-ui-sidebar-header {
       padding-left: 22px;
     }
 
-    .usd1-react-ui-sidebar-footer {
+    .om-react-ui-sidebar-footer {
       padding-left: 24px;
 
       &-logout-text {
