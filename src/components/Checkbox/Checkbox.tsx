@@ -3,17 +3,19 @@ import { Checkbox as PrimeCheckbox, type CheckboxChangeEvent } from 'primereact/
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
-/* import types */
+import { PrimeIcons } from 'primereact/api';
+
 import type { FC, PropsWithChildren } from 'react';
 import type { CheckboxProps } from './interface';
 
 export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
-  const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxCls, prefixCls = 'checkbox' } = props;
+  const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxCls, prefixCls = 'checkbox', size = 'md' } = props;
   const classes = classnames(prefixCls);
+  const sizeClass = `ckb-${size}`;
+  const iconSize = size === 'sm' ? '10px' : '14px';
 
   const CheckBoxComponent = useMemo(() => tristate ? TriStateCheckbox as new() => TriStateCheckbox : PrimeCheckbox as new() => PrimeCheckbox, [tristate]);
   const defaultChecked = useMemo(() => items.filter(item => !!item.autoFocus).map(v => v.key), [items]);
-
   const [checkedItems, setCheckedItems] = useState<string[]>(defaultChecked);
   const [itemsState, setItemsState] = useState<Record<string, boolean | null>>(Object.assign({}, ...items.map(v => ({[v.key]: v.defaultValue ?? null}))));
 
@@ -39,7 +41,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
         if (!tristate) return;
         setTrivalue(curr => curr === null ? true : curr === true ? false : null);
       }, [tristate]);
-      return <div key={key} className={classes('inner', innerCls)}>
+      return <div key={key} className={[classes('inner', innerCls), sizeClass].join(' ')}>
         <CheckBoxComponent
           {...rest as any}
           id={tristate ? key : void 0}
@@ -48,13 +50,18 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
           required={required}
           checked={tristate ? void 0 : checkedItems.includes(key)}
           className={classes('inner-checkbox', checkboxCls)}
+          // 仅在 CheckBoxComponent 上传递图标属性
+          {...(tristate ? { uncheckIcon: <i className="pi pi-minus" style={{ fontSize: iconSize, color: '#fff' }}></i> } : {})}
+          {...(tristate ? { checkIcon: <i className="pi pi-check" style={{ fontSize: iconSize, color: '#fff' }}></i> } : {
+            icon: <i className="pi pi-check" style={{ fontSize: iconSize, color: '#fff' }}></i>
+          })}
           onChange={e => {
             tristate && setTrivalue(e.value);
             onChange?.(tristate ? e.value : !!e.checked);
             handleOnChange(e);
           }}
         />
-        {item?.label && <label htmlFor={key} onClick={handleLabelClick}>{label}</label>} 
+        {item?.label && <label htmlFor={key} onClick={handleLabelClick}>{label}</label>}
       </div>;
     })}
   </div>;
@@ -68,7 +75,8 @@ Checkbox.propTypes = {
   wrapperCls: propTypes.string,
   innerCls: propTypes.string,
   checkboxCls: propTypes.string,
-  prefixCls: propTypes.string
+  prefixCls: propTypes.string,
+  size: propTypes.oneOf(['sm', 'md', 'lg']),
 };
 
 export default memo(Checkbox);
