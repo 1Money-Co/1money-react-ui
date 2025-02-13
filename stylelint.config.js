@@ -32,6 +32,7 @@ module.exports = {
 		'scss/selector-no-redundant-nesting-selector': true,
 		'plugin/declaration-block-no-ignored-properties': true,
 		'number-max-precision': 10,
-		'selector-id-pattern': null
+		'selector-id-pattern': null,
+		'font-family-no-missing-generic-family-keyword': null
 	}
 };

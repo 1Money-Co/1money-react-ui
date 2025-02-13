@@ -2,6 +2,7 @@ import { useCallback, useMemo, memo } from 'react';
 import {
   Logo,
   LogoWord,
+  LogoNetwork,
   LogoWithWords,
   MinusIcon, 
   AddIcon,
@@ -32,6 +33,7 @@ import type { IconsProps, IconWrapperProps } from './interface';
 const IconList = {
   logo: Logo,
   logoWord: LogoWord,
+  logoNetwork: LogoNetwork,
   logoWithWords: LogoWithWords,
   minus: MinusIcon,
   add: AddIcon,
@@ -59,8 +61,13 @@ const IconList = {
 export type IconName = keyof typeof IconList;
 export interface LogoWithWordsProps extends IconsProps {
   name: 'logoWithWords';
+  logoCls?: string;
+  wordCls?: string;
+  networkCls?: string;
   logoColor?: string;
   wordColor?: string;
+  networkColor?: string;
+  networkLogo?: boolean;
 }
 export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps> = ({ name, ...rest }) => {
   const IconComponent = useCallback((props: IconWrapperProps) => {

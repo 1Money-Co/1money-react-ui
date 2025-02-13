@@ -1,0 +1,151 @@
+@use '../../../variable.scss'as *;
+
+.om-react-ui-typography {
+  &-display {
+    color: $color-primary-black;
+    font-weight: 500;
+    font-family: var(--font-aeonik), Aeonik;
+    line-height: 108%;
+
+    &-xl {
+      font-size: 64px;
+      letter-spacing: -0.25px;
+    }
+
+    &-l {
+      font-size: 52px;
+      letter-spacing: -0.25px;
+    }
+
+    &-m {
+      font-size: 45px;
+    }
+
+    &-s {
+      font-size: 36px;
+    }
+  }
+
+  &-headline {
+    color: $color-primary-black;
+    font-weight: 500;
+    font-family: var(--font-aeonik), Aeonik;
+    line-height: 108%;
+
+    &-l {
+      font-size: 32px;
+    }
+
+    &-m {
+      font-size: 28px;
+    }
+
+    &-s {
+      font-size: 24px;
+    }
+
+    &-xs {
+      font-size: 18px;
+    }
+  }
+
+  &-title {
+    color: $color-primary-black;
+    font-weight: 500;
+    font-family: var(--font-inter), Inter;
+    line-height: 108%;
+
+    &-bold {
+      font-weight: 700;
+    }
+
+    &-l {
+      font-size: 18px;
+
+    }
+
+    &-m {
+      font-size: 16px;
+    }
+
+    &-s {
+      font-size: 14px;
+    }
+  }
+
+  &-body {
+    color: $color-primary-black;
+    font-weight: 400;
+    font-family: var(--font-inter), Inter;
+    line-height: 140%;
+
+    &-bold {
+      font-weight: 700;
+    }
+
+    &-l {
+      font-size: 16px;
+    }
+
+    &-m {
+      font-size: 14px;
+    }
+
+    &-s {
+      font-size: 12px;
+    }
+  }
+
+  &-link {
+    color: $color-primary-black;
+    font-weight: 500;
+    font-family: var(--font-inter), Inter;
+    line-height: 140%;
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+
+    &-m {
+      font-size: 14px;
+    }
+
+    &-s {
+      font-size: 12px;
+    }
+  }
+
+  &-label {
+    color: $color-primary-black;
+    font-weight: 500;
+    font-family: var(--font-inter), Inter;
+    line-height: 108%;
+
+    &-bold {
+      font-weight: 600;
+    }
+
+    &-xl {
+      font-size: 18px;
+    }
+
+    &-l {
+      font-size: 16px;
+    }
+
+    &-m {
+      font-size: 14px;
+    }
+
+    &-s {
+      font-size: 12px;
+    }
+
+    &-xs {
+      font-size: 10px;
+    }
+  }
+}

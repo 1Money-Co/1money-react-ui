@@ -37,7 +37,11 @@ export const Primary: Story = {
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='logo'  />
         <Icons {...args} name='logoWord' width={150} height={30}/>
+        <Icons {...args} name='logoNetwork' width={150} height={30} color='#073387'/>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='logoWithWords' width={180} height={36} logoColor='#073387' wordColor='#000000' />
+        <Icons {...args} name='logoWithWords' width={320} height={36} logoColor='#073387' wordColor='#000000' networkLogo networkColor='#131313' />
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='minus'  />
