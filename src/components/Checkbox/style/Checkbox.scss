@@ -9,6 +9,7 @@ $checkbox-hover-border-color: #073387;
 $checkbox-invalid-border-color: #e24c4c;
 $checkbox-highlight-bg-color: #073387;
 $checkbox-highlight-invalid-bg-color: #AE0000;
+$checkbox-disabled-bg-color: #D1D2D2;
 $checkbox-size: (
   sm: 16px,
   md: 20px,
@@ -36,6 +37,8 @@ $checkbox-size: (
     }
 
     @each $size, $dimension in $checkbox-size {
+      //解释下 $size, $dimension
+
       &.ckb-#{$size} {
         .p-checkbox {
           width: $dimension;
@@ -46,6 +49,11 @@ $checkbox-size: (
             height: $dimension;
             border: 1px solid $checkbox-border-color;
             border-radius: map.get($checkbox-border-radius, $size);
+
+            & > i {
+              font-size: if($size == 'sm', 10px, 14px);
+              color: #fff;
+            }
           }
         }
 
@@ -87,6 +95,17 @@ $checkbox-size: (
           .p-checkbox-box {
             border-color: $checkbox-highlight-invalid-bg-color;
             background-color: $checkbox-highlight-invalid-bg-color;
+          }
+        }
+
+      }
+      &.p-disabled {
+        .p-checkbox-box {
+          background-color: $checkbox-disabled-bg-color;
+          border-color: $checkbox-disabled-bg-color;
+
+          &>i {
+            color: #9FA3A3 !important;
           }
         }
       }

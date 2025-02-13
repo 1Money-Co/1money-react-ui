@@ -12,7 +12,6 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
   const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxCls, prefixCls = 'checkbox', size = 'md' } = props;
   const classes = classnames(prefixCls);
   const sizeClass = `ckb-${size}`;
-  const iconSize = size === 'sm' ? '10px' : '14px';
 
   const CheckBoxComponent = useMemo(() => tristate ? TriStateCheckbox as new() => TriStateCheckbox : PrimeCheckbox as new() => PrimeCheckbox, [tristate]);
   const defaultChecked = useMemo(() => items.filter(item => !!item.autoFocus).map(v => v.key), [items]);
@@ -51,9 +50,9 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
           checked={tristate ? void 0 : checkedItems.includes(key)}
           className={classes('inner-checkbox', checkboxCls)}
           // 仅在 CheckBoxComponent 上传递图标属性
-          {...(tristate ? { uncheckIcon: <i className="pi pi-minus" style={{ fontSize: iconSize, color: '#fff' }}></i> } : {})}
-          {...(tristate ? { checkIcon: <i className="pi pi-check" style={{ fontSize: iconSize, color: '#fff' }}></i> } : {
-            icon: <i className="pi pi-check" style={{ fontSize: iconSize, color: '#fff' }}></i>
+          {...(tristate ? { uncheckIcon: <i className="pi pi-minus" ></i> } : {})}
+          {...(tristate ? { checkIcon: <i className="pi pi-check" ></i> } : {
+            icon: <i className="pi pi-check" ></i>
           })}
           onChange={e => {
             tristate && setTrivalue(e.value);

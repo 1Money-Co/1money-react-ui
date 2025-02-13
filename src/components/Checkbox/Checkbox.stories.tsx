@@ -60,6 +60,17 @@ export const Size: Story = {
   }
 }
 
+export const Disabled: Story = {
+  args: {
+    tristate: true,
+    items: [
+      { name: 'disabled', key: 'disabled', label: 'disabled',   disabled: true, },
+      { name: 'Achecked', key: 'Achecked',   label:'checked ', disabled:true,   defaultValue: true },
+      { name: 'BnotChecked', key: 'BnotChecked',  label:'Not checked ', disabled:true,  defaultValue: false }
+    ],
+    prefixCls: 'checkbox',
+  }
+}
 export const SingleTristate: Story = {
   args: {
     tristate: true,
