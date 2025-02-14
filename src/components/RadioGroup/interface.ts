@@ -5,6 +5,7 @@ export interface RadioGroupProps {
   innerCls?: string;
   radioCls?: string;
   prefixCls?: string;
+  size?: 'sm' | 'md' | 'lg';
   onChange?: (selected:  RadioGroupProps['items'][number]) => any;
   items:({
     key: string;

@@ -7,8 +7,10 @@ import type { FC, PropsWithChildren } from 'react';
 import type { RadioGroupProps } from './interface';
 
 export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
-  const { items = [], onChange, wrapperCls, innerCls, radioCls, prefixCls = 'radiogroup' } = props;
+  const { items = [], onChange, wrapperCls, innerCls, radioCls, prefixCls = 'radiogroup', size = 'md' } = props;
   const classes = classnames(prefixCls);
+  const sizeClass = `rd-${size}`;
+
   const defaultSelected = useMemo(() => items.find(item => !!item.autoFocus), [items]);
   const [selected, setSelected] = useState<(typeof items)[number] | undefined>(defaultSelected);
 
@@ -16,7 +18,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     {items.map(item => {
       const { key, label, required, ...rest } = item;
       return (
-        <div key={key} className={classes('inner', innerCls)}>
+        <div key={key} className={[classes('inner', innerCls),sizeClass].join(' ')}>
           <RadioButton
             {...rest}
             required={required}
@@ -29,7 +31,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
             }}
             checked={selected?.key === key}
           />
-          {item?.label && <label htmlFor={key}>{label}</label>} 
+          {item?.label && <label htmlFor={key}>{label}</label>}
         </div>
       );
     })}
@@ -44,7 +46,8 @@ RadioGroup.propTypes = {
   wrapperCls: propTypes.string,
   innerCls: propTypes.string,
   radioCls: propTypes.string,
-  prefixCls: propTypes.string
+  prefixCls: propTypes.string,
+  size: propTypes.oneOf(['sm', 'md', 'lg']),
 };
 
 export default memo(RadioGroup);
