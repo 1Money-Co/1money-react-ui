@@ -1,42 +1,175 @@
+@use '../../../variable.scss'as *;
+
 .om-react-ui-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 24px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 100%;
-  border-radius: 8px;
+  padding: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 16px;
   box-shadow: none;
+
+  &-medium {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 12px;
+  }
+
+  &-small {
+    max-height: 32px;
+    padding: 12px;
+    font-size: 12px;
+    line-height: 8px;
+    border-radius: 12px;
+  }
+
+  &.p-disabled {
+    cursor: not-allowed;
+  }
 
   &.p-button-rounded {
     border-radius: 36px;
   }
 
+  &-loading-icon {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 8px;
+
+    &-medium {
+      width: 16px !important;
+      height: 16px !important;
+    }
+
+    &-small {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    &-primary {
+      svg circle {
+        stroke: $color-primary-white !important;
+      }
+    }
+
+    &-secondary {
+      svg circle {
+        stroke: $color-primary !important;
+      }
+    }
+
+    &-grey {
+      svg circle {
+        stroke: $color-grey-dark !important;
+      }
+    }
+
+    &-black {
+      svg circle {
+        stroke: $color-primary-white !important;
+      }
+    }
+
+    &-white {
+      svg circle {
+        stroke: $color-grey-dark !important;
+      }
+    }
+  }
+
   &-primary {
-    color: #FFF;
-    background-color: #142D66;
+    color: $color-primary-white;
+    background-color: $color-primary;
     border: none;
 
     &:hover {
-      background-color: #183699;
+      background-color: $color-primary-hover;
     }
+
+    &-active {
+      background-color: $color-primary-active;
+    }
+  }
+
+  &-primary.p-disabled {
+    opacity: 0.3;
   }
 
   &-secondary {
-    color: #000;
-    background-color: #E5EFFF;
+    color: $color-primary;
+    background-color: $color-secondary;
     border: none;
 
     &:hover {
-      background-color: #cdf;
+      background-color: $color-secondary-hover;
+    }
+
+    &-active {
+      background-color: $color-secondary-active;
     }
   }
 
-  &.p-disabled {
-    color: #808080;
-    background-color: #E0E2EE;
-    cursor: not-allowed;
+  &-secondary.p-disabled {
+    opacity: 0.4;
+  }
+
+  &-grey {
+    color: $color-primary-black;
+    background-color: $color-grey;
+    border: none;
+
+    &:hover {
+      background-color: $color-grey-deep;
+    }
+
+    &-active {
+      background-color: $color-grey-bold;
+    }
+  }
+
+  &-grey.p-disabled {
+    color: $color-grey-dark;
+    background-color: $color-grey;
+  }
+
+  &-black {
+    color: $color-primary-white;
+    background-color: $color-primary-black;
+    border: none;
+
+    &:hover {
+      background-color: $color-grey-night;
+    }
+
+    &-active {
+      background-color: $color-grey-midnight;
+    }
+  }
+
+  &-black.p-disabled {
+    background-color: $color-grey-bold;
+  }
+
+  &-white {
+    color: $color-primary-black;
+    background-color: $color-primary-white;
+    border: none;
+
+    &:hover {
+      background-color: $color-grey;
+    }
+
+    &-active {
+      background-color: $color-grey-bold;
+    }
+  }
+
+  &-white.p-disabled {
+    color: $color-grey-dark;
+    background-color: $color-primary-white;
   }
 
   &-primary.p-button-loading.p-disabled {
@@ -47,18 +180,6 @@
   &-secondary.p-button-loading.p-disabled {
     color: #000;
     background-color: #E5EFFF;
-  }
-
-  &.p-button-sm {
-    padding: 8px 16px;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  &-loading-icon {
-    width: 16px !important;
-    height: 16px !important;
-    margin-right: 8px;
   }
 
   &-primary-landing {

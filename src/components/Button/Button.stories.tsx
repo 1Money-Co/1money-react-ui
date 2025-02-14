@@ -1,3 +1,4 @@
+import React from 'react';
 import { fn } from '@storybook/test';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -10,12 +11,19 @@ const meta: Meta<typeof Button> = {
   component: Button,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
-    className: { control: 'text' },
+    active: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
+    rounded: { control: 'boolean' },
+    size: { control: 'radio', options: ['small', 'medium', 'large'] },
     prefixCls: { control: 'text' },
-    size: { control: 'radio', options: ['small', 'large'] },
-    loading: { control: 'boolean' }
   },
   args: {
+    active: false,
+    disabled: false,
+    loading: false,
+    rounded: false,
+    size: 'large',
     prefixCls: 'button',
     onClick: fn(),
   },
@@ -27,10 +35,26 @@ export default meta;
 type Story = StoryObj<typeof Button>;
  
 export const Primary: Story = {
+  render: (args) => {
+    return <>
+    <Button {...args} severity='primary' />
+    <br />
+    <br />
+    <Button {...args} severity='secondary' />
+    <br />
+    <br />
+    <Button {...args} severity='grey' />
+    <br />
+    <br />
+    <Button {...args} severity='black' />
+    <br />
+    <br />
+    <Button {...args} severity='white' />
+    </>
+  },
   args: {
     prefixCls: 'button',
-    children: 'Primary',
-    rounded: false
+    children: '1Money Network',
   },
   tags: ['!autodocs', 'dev']
 };
@@ -39,8 +63,7 @@ export const PrimaryLanding: Story = {
   args: {
     prefixCls: 'button',
     children: 'Primary Landing',
-    severity: 'primary-landing',
-    rounded: false
+    severity: 'primary-landing'
   }
 };
 
@@ -48,54 +71,7 @@ export const SecondaryLanding: Story = {
   args: {
     prefixCls: 'button',
     children: 'Secondary Landing',
-    severity: 'secondary-landing',
-    rounded: false
+    severity: 'secondary-landing'
   }
 };
 
-export const Secondary: Story = {
-  args: {
-    prefixCls: 'button',
-    children: 'Secondary',
-    severity: 'secondary',
-    rounded: false
-  }
-};
-
-export const Disabled: Story = {
-  args: {
-    prefixCls: 'button',
-    children: 'Disabled',
-    disabled: true,
-    rounded: false
-  }
-};
-
-export const Rounded: Story = {
-  args: {
-    prefixCls: 'button',
-    children: 'Flat',
-    severity: 'success',
-    rounded: true
-  },
-};
-
-export const Text: Story = {
-  args: {
-    prefixCls: 'button',
-    children: 'Text',
-    severity: 'info',
-    text: true,
-    rounded: false
-  },
-};
-
-export const Outlined: Story = {
-  args: {
-    prefixCls: 'button',
-    children: 'Outlined',
-    severity: 'warning',
-    outlined: true,
-    rounded: false
-  },
-};

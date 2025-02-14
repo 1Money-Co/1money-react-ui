@@ -1,14 +1,22 @@
 import { memo } from 'react';
 import { Button as PrimeButton } from 'primereact/button';
 import propTypes from 'prop-types';
-import Loading from '@/components/Loading';
+import Spinner from '@/components/Spinner';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { ButtonProps } from './interface';
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
-  const { children, className = '', prefixCls = 'button', severity, ...rest } = props;
+  const {
+    children,
+    className = '',
+    prefixCls = 'button',
+    active = false,
+    severity = 'primary',
+    size = 'large',
+    ...rest
+  } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -16,8 +24,18 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
       {...rest}
       // @ts-ignore
       severity={severity}
-      loadingIcon={<Loading type='pattern' className={classes('loading-icon')} />}
-      className={classes(void 0, [classes(`${severity ? severity : 'primary'}`), className].join(' '))}
+      loadingIcon={
+        <Spinner strokeWidth="5" className={classes('loading-icon', [
+          classes(`loading-icon-${severity}`),
+          classes(`loading-icon-${size}`)
+        ].join(' '))} />
+      }
+      className={classes(void 0, [
+        classes(severity),
+        classes(size),
+        active ? classes(`${severity}-active`) : '',
+        className
+      ].join(' '))}
     >
       { children }
     </PrimeButton>
