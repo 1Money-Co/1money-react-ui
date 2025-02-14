@@ -1,3 +1,23 @@
+@use "sass:map";
+$checkbox-border-color: #E0E2EE;
+$checkbox-border-radius: (
+  sm: 4px,
+  md: 4px,
+  lg: 6px
+);
+$checkbox-hover-border-color: #131313;
+$checkbox-hover-bg-color:#052561;
+$checkbox-focus-border-color: #073387;
+$checkbox-focus-bg-color: #03163A;
+$checkbox-invalid-color: #AE0000;
+$checkbox-highlight-bg-color: #073387;
+$checkbox-disabled-bg-color: #D1D2D2;
+$checkbox-size: (
+  sm: 16px,
+  md: 20px,
+  lg: 24px
+);
+
 .om-react-ui-checkbox {
   &-wrapper {
     display: flex;
@@ -9,32 +29,103 @@
     align-items: center;
     margin-right: 12px;
 
-    &-checkbox {
-      align-self: flex-start;
+    label {
+      margin-left: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      font-style: normal;
+      cursor: pointer;
+      user-select: none;
+    }
 
-      >.p-checkbox-box {
-        border: 1px solid #E0E2EE;
-        border-radius: 2px;
-      }
+    @each $size, $dimension in $checkbox-size {
+      &.ckb-#{$size} {
+        .p-checkbox {
+          width: $dimension;
+          height: $dimension;
 
-      >.p-checkbox-input {
-        border: none;
-        border-radius: 2px;
-      }
+          & > .p-checkbox-box {
+            width: $dimension;
+            height: $dimension;
+            border: 1px solid $checkbox-border-color;
+            border-radius: map.get($checkbox-border-radius, $size);
 
-      &.p-checkbox.p-highlight .p-checkbox-box {
-        background-color: #000;
+            & > i {
+              font-size: if($size == 'sm', 10px, 14px);
+              color: #fff;
+            }
+          }
+        }
+
+
+        label {
+          line-height: $dimension + 4px;
+          font-size: if($size == 'sm', 12px, 14px);
+        }
       }
     }
 
-    label {
-      margin-left: 10px;
-      font-weight: 300;
-      font-size: 14px;
-      font-style: normal;
-      line-height: 20px;
-      cursor: pointer;
-      user-select: none;
+    .p-checkbox {
+      // 悬停状态
+      &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
+        .p-checkbox-box {
+          border-color: $checkbox-hover-border-color;
+        }
+        // 选中悬停状态
+        &:has(.p-checkbox-input:checked) {
+          .p-checkbox-box {
+            border-color: $checkbox-hover-bg-color;
+            background-color: $checkbox-hover-bg-color;
+          }
+        }
+
+      }
+
+      // 聚焦状态
+    &:not(.p-disabled,.p-invalid):has(.p-checkbox-input:focus) {
+      .p-checkbox-box {
+        box-shadow: none;
+        border-color: $checkbox-focus-border-color;
+      }
+      &:has(.p-checkbox-input:checked) {
+        .p-checkbox-box {
+          border-color: $checkbox-focus-bg-color;
+          background-color: $checkbox-focus-bg-color;
+        }
+      }
+    }
+      // 选中状态
+      // 无效状态
+      &.p-invalid {
+        .p-checkbox-box {
+          border: 1px solid $checkbox-invalid-color;
+        }
+      }
+      // 高亮状态
+      &.p-highlight {
+        .p-checkbox-box {
+          border-color: $checkbox-highlight-bg-color;
+          background-color: $checkbox-highlight-bg-color;
+        }
+        // 高亮无效状态
+        &.p-invalid {
+          .p-checkbox-box {
+            border-color: $checkbox-invalid-color;
+            background-color: $checkbox-invalid-color;
+          }
+        }
+
+      }
+      &.p-disabled {
+        .p-checkbox-box {
+          background-color: $checkbox-disabled-bg-color;
+          border-color: $checkbox-disabled-bg-color;
+
+          &>i {
+            color: #9FA3A3 !important;
+          }
+        }
+      }
     }
   }
 }

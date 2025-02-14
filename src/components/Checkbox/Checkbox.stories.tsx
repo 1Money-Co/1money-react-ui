@@ -20,7 +20,7 @@ const meta: Meta<typeof Checkbox> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Checkbox>;
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Checkbox>;
 export const Single: Story = {
   args: {
     items: [
-      { name: 'Agree', key: 'Agree', label: <>
+      { name: 'Agree', key: 'Agree',label: <>
       I am over 18 years old and I have read, understand and agree to the
       <a href='https://github.com/1Money-Co'>1Money Terms of Use</a>
       , <a href='https://github.com/1Money-Co'>Privacy Policy</a>.
@@ -39,6 +39,38 @@ export const Single: Story = {
   tags: ['!autodocs', 'dev'],
 };
 
+export const Invalid: Story = {
+  args: {
+    tristate: true,
+    items: [
+      { name: 'invalid', key: 'invalid', invalid:true, label:'invalid'  },
+      { name: 'checked', key: 'checked',  invalid:true, label:'checked ' , defaultValue: true },
+      { name: 'notChecked', key: 'notChecked', invalid:true,label:'Not checked', defaultValue: false }],
+    prefixCls: 'checkbox',
+  }
+}
+
+export const Size: Story = {
+  args: {
+    size: 'sm',
+    items: [
+      { name: 'small', key: 'small', label: 'small' },
+    ],
+    prefixCls: 'checkbox',
+  }
+}
+
+export const Disabled: Story = {
+  args: {
+    tristate: true,
+    items: [
+      { name: 'disabled', key: 'disabled', label: 'disabled',   disabled: true, },
+      { name: 'Achecked', key: 'Achecked',   label:'checked ', disabled:true,   defaultValue: true },
+      { name: 'BnotChecked', key: 'BnotChecked',  label:'Not checked ', disabled:true,  defaultValue: false }
+    ],
+    prefixCls: 'checkbox',
+  }
+}
 export const SingleTristate: Story = {
   args: {
     tristate: true,
@@ -53,7 +85,7 @@ export const Multiple: Story = {
   args: {
     items: [
       { name: 'C', key: 'Cheese', label: 'Cheese' },
-      { name: 'M', key: 'Mushroom', label: 'Mushroom', autoFocus: true },
+      { name: 'M', key: 'Mushroom', label: 'Mushroom',  autoFocus: true },
       { name: 'P', key: 'Pepper', label: 'Pepper' },
       { name: 'O', key: 'Onion', label: 'Onion' },
     ],
@@ -64,6 +96,7 @@ export const Multiple: Story = {
 export const MultipleTristate: Story = {
   args: {
     tristate: true,
+    size:'lg',
     items: [
       { name: 'A', key: 'Audi', label: 'Audi' },
       { name: 'B', key: 'BWM', label: 'BWM' },
