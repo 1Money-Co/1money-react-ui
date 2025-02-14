@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from './index';
+import { Icons } from '../Icons';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -8,16 +9,21 @@ const meta: Meta<typeof Input> = {
   component: Input,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
-    className: { control: 'text' },
-    prefixCls: { control: 'text' },
+    size: { control: 'radio', options: ['large', 'small'] },
     type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp'] },
-    variant: { control: 'select', options: ['filled', 'outlined'] },
+    disabled: { control: 'boolean' },
+    success: { control: 'boolean' },
     invalid: { control: 'boolean' },
     rounded: { control: 'boolean' },
-    errMsg: { control: 'text' },
+    addons: { control: 'text' },
+    message: { control: 'text' },
   },
   args: {
-    prefixCls: 'input',
+    size: 'large',
+    disabled: false,
+    success: false,
+    invalid: false,
+    required: false,
   },
   tags: ['autodocs'],
 };
@@ -29,10 +35,8 @@ type Story = StoryObj<typeof Input>;
 export const Normal: Story = {
   args: {
     type: 'text',
-    prefixCls: 'input',
-    variant: 'outlined',
     label: 'Email',
-    addons: 'www'
+    placeholder: 'Enter your email',
   },
   tags: ['!autodocs'],
 };
@@ -40,16 +44,16 @@ export const Normal: Story = {
 export const Number: Story = {
   args: {
     type: 'number',
-    prefixCls: 'input',
-    variant: 'outlined',
+    prefix: <i style={{ backgroundColor: '#DDE6F4', borderRadius: '50%', padding: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Icons name='logo' size={20} color='#073387' />
+    </i>,
+    suffix: <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#073387', cursor: 'pointer' }}>Max</div>,
   },
 };
 
 export const Password: Story = {
   args: {
     type: 'password',
-    prefixCls: 'input',
-    variant: 'outlined',
     label: 'password',
     required: true,
     toggleMask: true,
@@ -60,8 +64,6 @@ export const Password: Story = {
 export const AutoComplete: Story = {
   args: {
     type: 'autocomplete',
-    prefixCls: 'input',
-    variant: 'outlined',
   },
   render: function Render(args) {
     const [value, setValue] = useState('');
@@ -79,16 +81,12 @@ export const Mask: Story = {
   args: {
     type: 'mask',
     mask: '(999) 999-9999',
-    prefixCls: 'input',
-    variant: 'outlined',
   },
 };
 
 export const OtpCode: Story = {
   args: {
     type: 'otp',
-    prefixCls: 'input',
-    variant: 'outlined',
     integerOnly: true,
   },
 };
@@ -96,7 +94,5 @@ export const OtpCode: Story = {
 export const TextArea: Story = {
   args: {
     type: 'textarea',
-    prefixCls: 'input',
-    variant: 'outlined',
   },
 };
