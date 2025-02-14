@@ -1,17 +1,18 @@
 @use "sass:map";
+@use '../../../variable.scss' as *;
 $checkbox-border-color: #E0E2EE;
 $checkbox-border-radius: (
   sm: 4px,
   md: 4px,
   lg: 6px
 );
-$checkbox-hover-border-color: #131313;
-$checkbox-hover-bg-color:#052561;
-$checkbox-focus-border-color: #073387;
-$checkbox-focus-bg-color: #03163A;
-$checkbox-invalid-color: #AE0000;
-$checkbox-highlight-bg-color: #073387;
-$checkbox-disabled-bg-color: #D1D2D2;
+$checkbox-hover-border-color: $color-primary-black;
+$checkbox-hover-bg-color:$color-primary-hover;
+$checkbox-focus-border-color: $color-primary;
+$checkbox-focus-bg-color: $color-primary-active;
+$checkbox-invalid-color: $color-negative;
+$checkbox-highlight-bg-color: $color-primary;
+$checkbox-disabled-bg-color: $color-grey-bold;
 $checkbox-size: (
   sm: 16px,
   md: 20px,

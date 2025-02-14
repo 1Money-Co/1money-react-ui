@@ -1,16 +1,16 @@
 @use "sass:map";
-
-$radio-border-color: #9FA3A3;
-$radio-border-disabled-color: #D1D2D2;
+@use '../../../variable.scss' as *;
+$radio-border-color: $color-grey-dark;
+$radio-border-disabled-color: $color-grey-bold;
 $radio-border-radius: 50%;
 
-$radio-hover-border-color: #131313;
-$radio-hover-bg-color: #052561;
-$radio-focus-color: #03163A;
-$radio-invalid-color: #AE0000;
-$radio-highlight-bg-color: #073387;
-$radio-disabled-bg-color: #F0F0F0;
-$radio-disabled-bg-fill-color: #9FA3A3;
+$radio-hover-border-color: $color-primary-black;
+$radio-hover-bg-color: $color-primary-hover;
+$radio-focus-color: $color-primary-active;
+$radio-invalid-color: $color-negative;
+$radio-highlight-bg-color: $color-primary;
+$radio-disabled-bg-color: $color-grey;
+$radio-disabled-bg-fill-color: $color-grey-dark;
 
 $radio-size: (
   sm: 16px,
