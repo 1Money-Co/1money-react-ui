@@ -43,11 +43,11 @@ $icon-size: (
 
     @each $size, $dimension in $radio-size {
       &.rd-#{$size} {
-        .p-radiobutton{
+        .p-radiobutton {
           width: $dimension;
           height: $dimension;
 
-          & > .p-radiobutton-box{
+          &>.p-radiobutton-box {
             width: $dimension;
             height: $dimension;
             border: 1px solid $radio-border-color;
@@ -55,7 +55,7 @@ $icon-size: (
           }
         }
 
-        .p-radiobutton-icon{
+        .p-radiobutton-icon {
           width: map.get($icon-size, $size);
           height: map.get($icon-size, $size);
         }
@@ -67,32 +67,32 @@ $icon-size: (
       }
     }
 
-    .p-radiobutton{
+    .p-radiobutton {
       // 悬停状态
       &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:hover) {
         .p-radiobutton-box {
           border-color: $radio-hover-border-color;
         }
 
-        &:has(.p-radiobutton-input:checked){
+        &:has(.p-radiobutton-input:checked) {
           .p-radiobutton-box {
             background-color: $radio-hover-bg-color;
-            border-color: $radio-highlight-bg-color;
+            border-color:$radio-hover-bg-color;
           }
         }
       }
 
       // 聚焦状态
-      &:not(.p-disabled,.p-invalid):has(.p-radiobutton-input:focus) {
+      &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:focus) {
         .p-radiobutton-box {
           border: 2px solid $radio-highlight-bg-color;
           box-shadow: none;
 
-          .p-radiobutton-icon{
+          .p-radiobutton-icon {
             background-color: #fff;
           }
 
-          &:has(.p-radiobutton-input:checked){
+          &:has(.p-radiobutton-input:checked) {
             background-color: $radio-focus-color;
           }
         }
@@ -108,7 +108,7 @@ $icon-size: (
       // 高亮状态
       &.p-highlight {
         .p-radiobutton-box {
-          background-color:$radio-highlight-bg-color;
+          background-color: $radio-highlight-bg-color;
           border-color: $radio-highlight-bg-color;
         }
 
@@ -127,14 +127,14 @@ $icon-size: (
           border-color: $radio-border-disabled-color;
 
           .p-radiobutton-icon {
-              background-color: $radio-disabled-bg-fill-color;
-            }
+            background-color: $radio-disabled-bg-fill-color;
+          }
         }
 
-        &:has(.p-radiobutton-input:checked){
+        &:has(.p-radiobutton-input:checked) {
           .p-radiobutton-box {
             background-color: $radio-disabled-bg-color;
-            border:0 ;
+            border: 0;
           }
         }
 

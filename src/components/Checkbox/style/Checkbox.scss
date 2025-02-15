@@ -84,7 +84,7 @@ $checkbox-size: (
       }
 
       // 聚焦状态
-      &:not(.p-disabled,.p-invalid):has(.p-checkbox-input:focus) {
+      &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:focus) {
         .p-checkbox-box {
           border-color: $checkbox-focus-border-color;
           box-shadow: none;
@@ -128,7 +128,7 @@ $checkbox-size: (
           background-color: $checkbox-disabled-bg-color;
           border-color: $checkbox-disabled-bg-color;
 
-          & > i {
+          &>i {
             color: $color-grey-dark !important;
           }
         }

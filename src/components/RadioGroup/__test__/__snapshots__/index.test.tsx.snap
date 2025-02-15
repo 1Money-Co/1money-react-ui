@@ -1,5 +1,872 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RadioGroup Large renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-radiogroup-wrapper tw-flex"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner rd-lg"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA-1"
+              name="US1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA-1"
+          >
+            USA-1
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-lg"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+            data-p-checked="true"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              checked=""
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA-2"
+              name="US2"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA-2"
+          >
+            USA-2
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-lg"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="Canada-1"
+              name="CA1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Canada-1"
+          >
+            Canada (invalid)
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-lg"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              disabled=""
+              id="Mexico"
+              name="MX"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Mexico"
+          >
+            Mexico (disabled)
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-radiogroup-wrapper tw-flex"
+    >
+      <div
+        class="om-react-ui-radiogroup-inner rd-lg"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA-1"
+            name="US1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="USA-1"
+        >
+          USA-1
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-lg"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+          data-p-checked="true"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            checked=""
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA-2"
+            name="US2"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="USA-2"
+        >
+          USA-2
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-lg"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="Canada-1"
+            name="CA1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Canada-1"
+        >
+          Canada (invalid)
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-lg"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            disabled=""
+            id="Mexico"
+            name="MX"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Mexico"
+        >
+          Mexico (disabled)
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup Medium renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-radiogroup-wrapper tw-flex"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner rd-md"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA-1"
+              name="US1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA-1"
+          >
+            USA-1
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-md"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+            data-p-checked="true"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              checked=""
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA-2"
+              name="US2"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA-2"
+          >
+            USA-2
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-md"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="Canada-1"
+              name="CA1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Canada-1"
+          >
+            Canada (invalid)
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-md"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              disabled=""
+              id="Mexico"
+              name="MX"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Mexico"
+          >
+            Mexico (disabled)
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-radiogroup-wrapper tw-flex"
+    >
+      <div
+        class="om-react-ui-radiogroup-inner rd-md"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA-1"
+            name="US1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="USA-1"
+        >
+          USA-1
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-md"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+          data-p-checked="true"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            checked=""
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA-2"
+            name="US2"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="USA-2"
+        >
+          USA-2
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-md"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="Canada-1"
+            name="CA1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Canada-1"
+        >
+          Canada (invalid)
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-md"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            disabled=""
+            id="Mexico"
+            name="MX"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Mexico"
+        >
+          Mexico (disabled)
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup disabled renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-radiogroup-wrapper tw-flex"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner rd-md"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              disabled=""
+              id="Japan"
+              name="Janpan"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Japan"
+          >
+            Japan
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-md"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
+            data-p-checked="true"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              checked=""
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              disabled=""
+              id="Janpan-1"
+              name="Janpan1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Janpan-1"
+          >
+            Janpan (checked)
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-radiogroup-wrapper tw-flex"
+    >
+      <div
+        class="om-react-ui-radiogroup-inner rd-md"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            disabled=""
+            id="Japan"
+            name="Janpan"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Japan"
+        >
+          Japan
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-md"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
+          data-p-checked="true"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            checked=""
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            disabled=""
+            id="Janpan-1"
+            name="Janpan1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Janpan-1"
+        >
+          Janpan (checked)
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`RadioGroup renders correctly 1`] = `
 {
   "asFragment": [Function],
@@ -271,6 +1138,337 @@ exports[`RadioGroup renders correctly 1`] = `
           for="Brazil"
         >
           Brazil
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup size renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-radiogroup-wrapper tw-flex"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner rd-sm"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA-1"
+              name="US1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA-1"
+          >
+            USA-1
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-sm"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+            data-p-checked="true"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              checked=""
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="USA-2"
+              name="US2"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="USA-2"
+          >
+            USA-2
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-sm"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              id="Canada-1"
+              name="CA1"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Canada-1"
+          >
+            Canada (invalid)
+          </label>
+        </div>
+        <div
+          class="om-react-ui-radiogroup-inner rd-sm"
+        >
+          <div
+            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+            data-p-checked="false"
+            data-pc-name="radiobutton"
+            data-pc-section="root"
+          >
+            <input
+              class="p-radiobutton-input"
+              data-pc-section="input"
+              disabled=""
+              id="Mexico"
+              name="MX"
+              type="radio"
+            />
+            <div
+              class="p-radiobutton-box"
+              data-pc-section="box"
+            >
+              <div
+                class="p-radiobutton-icon"
+                data-pc-section="icon"
+              />
+            </div>
+          </div>
+          <label
+            for="Mexico"
+          >
+            Mexico (disabled)
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-radiogroup-wrapper tw-flex"
+    >
+      <div
+        class="om-react-ui-radiogroup-inner rd-sm"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA-1"
+            name="US1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="USA-1"
+        >
+          USA-1
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-sm"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+          data-p-checked="true"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            checked=""
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="USA-2"
+            name="US2"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="USA-2"
+        >
+          USA-2
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-sm"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            id="Canada-1"
+            name="CA1"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Canada-1"
+        >
+          Canada (invalid)
+        </label>
+      </div>
+      <div
+        class="om-react-ui-radiogroup-inner rd-sm"
+      >
+        <div
+          class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+          data-p-checked="false"
+          data-pc-name="radiobutton"
+          data-pc-section="root"
+        >
+          <input
+            class="p-radiobutton-input"
+            data-pc-section="input"
+            disabled=""
+            id="Mexico"
+            name="MX"
+            type="radio"
+          />
+          <div
+            class="p-radiobutton-box"
+            data-pc-section="box"
+          >
+            <div
+              class="p-radiobutton-icon"
+              data-pc-section="icon"
+            />
+          </div>
+        </div>
+        <label
+          for="Mexico"
+        >
+          Mexico (disabled)
         </label>
       </div>
     </div>

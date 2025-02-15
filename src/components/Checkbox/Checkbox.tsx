@@ -3,8 +3,7 @@ import { Checkbox as PrimeCheckbox, type CheckboxChangeEvent } from 'primereact/
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
 import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
-import { PrimeIcons } from 'primereact/api';
-
+/* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { CheckboxProps } from './interface';
 
@@ -15,6 +14,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
 
   const CheckBoxComponent = useMemo(() => tristate ? TriStateCheckbox as new() => TriStateCheckbox : PrimeCheckbox as new() => PrimeCheckbox, [tristate]);
   const defaultChecked = useMemo(() => items.filter(item => !!item.autoFocus).map(v => v.key), [items]);
+
   const [checkedItems, setCheckedItems] = useState<string[]>(defaultChecked);
   const [itemsState, setItemsState] = useState<Record<string, boolean | null>>(Object.assign({}, ...items.map(v => ({[v.key]: v.defaultValue ?? null}))));
 
@@ -32,7 +32,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
     onChange?.(_state as any);
   }, [tristate, itemsState, checkedItems]);
 
-  return <div className={classes('wrapper', wrapperCls)}>
+  return <div className={[classes('wrapper', wrapperCls), sizeClass].join(' ')}>
     {items.map(item => {
       const { key, required, defaultValue = null, label, onChange, ...rest } = item;
       const [trivalue, setTrivalue] = useState(defaultValue);
@@ -74,8 +74,7 @@ Checkbox.propTypes = {
   wrapperCls: propTypes.string,
   innerCls: propTypes.string,
   checkboxCls: propTypes.string,
-  prefixCls: propTypes.string,
-  size: propTypes.oneOf(['sm', 'md', 'lg']),
+  prefixCls: propTypes.string
 };
 
 export default memo(Checkbox);

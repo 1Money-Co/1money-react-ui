@@ -7,7 +7,7 @@ import type { FC, PropsWithChildren } from 'react';
 import type { RadioGroupProps } from './interface';
 
 export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
-  const { items = [], onChange, wrapperCls, innerCls, radioCls, prefixCls = 'radiogroup', size = 'md' } = props;
+  const { items = [], onChange, wrapperCls, innerCls, radioCls, prefixCls = 'radiogroup',size = 'md' } = props;
   const classes = classnames(prefixCls);
   const sizeClass = `rd-${size}`;
 
@@ -18,7 +18,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     {items.map(item => {
       const { key, label, required, ...rest } = item;
       return (
-        <div key={key} className={[classes('inner', innerCls),sizeClass].join(' ')}>
+        <div key={key} className={[classes('inner', innerCls), sizeClass].join(' ')}>
           <RadioButton
             {...rest}
             required={required}
@@ -46,8 +46,7 @@ RadioGroup.propTypes = {
   wrapperCls: propTypes.string,
   innerCls: propTypes.string,
   radioCls: propTypes.string,
-  prefixCls: propTypes.string,
-  size: propTypes.oneOf(['sm', 'md', 'lg']),
+  prefixCls: propTypes.string
 };
 
 export default memo(RadioGroup);
