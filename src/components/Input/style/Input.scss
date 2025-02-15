@@ -15,20 +15,20 @@
   &-mask,
   &-textarea,
   &-password input {
+    height: 52px;
+    padding: 0;
     color: $color-primary-black;
     font-weight: 400;
-    border: none;
-    padding: 0;
-    height: 52px;
-    line-height: 22px;
-    background-color: inherit;
     font-size: 16px;
     font-family: inherit;
     font-style: normal;
+    line-height: 22px;
+    background-color: inherit;
+    border: none;
 
     &-small {
-      font-size: 14px;
       height: 40px;
+      font-size: 14px;
       line-height: 20px;
     }
 
@@ -171,12 +171,12 @@
     border-width: 1px;
     border-radius: 12px;
 
-    &:hover:not(:has(.p-invalid)):not(:has(.p-disabled)) {
+    &:hover:not(:has(.p-invalid), :has(.p-disabled)) {
       border-color: $color-primary-black;
     }
   }
 
-  &-inner:focus-within:not(.om-react-ui-input-inner-invalid):not(.om-react-ui-input-inner-success) {
+  &-inner:focus-within:not(.om-react-ui-input-inner-invalid, .om-react-ui-input-inner-success) {
     border-color: $color-primary;
     border-width: 2px;
   }
