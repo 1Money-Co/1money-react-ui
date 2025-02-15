@@ -11,38 +11,45 @@ export interface InputBaseProps {
   prefixCls?: string;
   wrapperCls?: string;
   labelCls?: string;
+  messageCls?: string;
   label?: ReactNode;
   addons?: ReactNode;
+  message?: ReactNode;
   required?: boolean;
-  errMsg?: string;
   rounded?: boolean;
+  size?: 'large' | 'small';
+  success?: boolean;
 }
 
-export interface InputTextProps extends PrimeInputTextProps, InputBaseProps{
+export interface InputTextProps extends Omit<PrimeInputTextProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type?: 'text';
+  prefix?: ReactNode;
+  suffix?: ReactNode;
 }
 
-export interface InputNumberProps extends PrimeInputNumberProps, InputBaseProps{
+export interface InputNumberProps extends Omit<PrimeInputNumberProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'number';
+  prefix?: ReactNode;
+  suffix?: ReactNode;
 }
 
-export interface InputMaskProps extends PrimeInputMaskProps, InputBaseProps{
+export interface InputMaskProps extends Omit<PrimeInputMaskProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'mask';
 }
 
-export interface InputTextareaProps extends PrimeInputTextareaProps, InputBaseProps{
+export interface InputTextareaProps extends Omit<PrimeInputTextareaProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'textarea';
 }
 
-export interface InputOtpProps extends PrimeInputOtpProps, InputBaseProps{
+export interface InputOtpProps extends Omit<PrimeInputOtpProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'otp';
 }
 
-export interface InputPwdProps extends PasswordProps, InputBaseProps{
+export interface InputPwdProps extends Omit<PasswordProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'password';
 }
 
-export interface InputAutoCompleteProps extends AutoCompleteProps, InputBaseProps{
+export interface InputAutoCompleteProps extends Omit<AutoCompleteProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'autocomplete';
 }
 
