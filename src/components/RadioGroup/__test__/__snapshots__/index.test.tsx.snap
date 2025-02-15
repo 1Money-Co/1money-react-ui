@@ -9,7 +9,7 @@ exports[`RadioGroup renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper tw-flex"
       >
         <div
-          class="om-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner rd-md"
         >
           <div
             class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -41,7 +41,7 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner rd-md"
         >
           <div
             class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -74,7 +74,7 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner rd-md"
         >
           <div
             class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -106,7 +106,7 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-inner"
+          class="om-react-ui-radiogroup-inner rd-md"
         >
           <div
             class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -145,7 +145,7 @@ exports[`RadioGroup renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper tw-flex"
     >
       <div
-        class="om-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner rd-md"
       >
         <div
           class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -177,7 +177,7 @@ exports[`RadioGroup renders correctly 1`] = `
         </label>
       </div>
       <div
-        class="om-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner rd-md"
       >
         <div
           class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -210,7 +210,7 @@ exports[`RadioGroup renders correctly 1`] = `
         </label>
       </div>
       <div
-        class="om-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner rd-md"
       >
         <div
           class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -242,7 +242,7 @@ exports[`RadioGroup renders correctly 1`] = `
         </label>
       </div>
       <div
-        class="om-react-ui-radiogroup-inner"
+        class="om-react-ui-radiogroup-inner rd-md"
       >
         <div
           class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"

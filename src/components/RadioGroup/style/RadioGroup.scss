@@ -1,9 +1,9 @@
 @use "sass:map";
 @use '../../../variable.scss' as *;
+
 $radio-border-color: $color-grey-dark;
 $radio-border-disabled-color: $color-grey-bold;
 $radio-border-radius: 50%;
-
 $radio-hover-border-color: $color-primary-black;
 $radio-hover-bg-color: $color-primary-hover;
 $radio-focus-color: $color-primary-active;
@@ -11,7 +11,6 @@ $radio-invalid-color: $color-negative;
 $radio-highlight-bg-color: $color-primary;
 $radio-disabled-bg-color: $color-grey;
 $radio-disabled-bg-fill-color: $color-grey-dark;
-
 $radio-size: (
   sm: 16px,
   md: 20px,
@@ -62,8 +61,8 @@ $icon-size: (
         }
 
         label {
+          font-size: if($size == 'sm', 12px, 14px);
           line-height: $dimension + 4px;
-          font-size: if($size =='sm', 12px, 14px);
         }
       }
     }
@@ -74,58 +73,68 @@ $icon-size: (
         .p-radiobutton-box {
           border-color: $radio-hover-border-color;
         }
+
         &:has(.p-radiobutton-input:checked){
           .p-radiobutton-box {
-            border-color: $radio-highlight-bg-color;
             background-color: $radio-hover-bg-color;
+            border-color: $radio-highlight-bg-color;
           }
         }
       }
+
       // 聚焦状态
       &:not(.p-disabled,.p-invalid):has(.p-radiobutton-input:focus) {
         .p-radiobutton-box {
-          box-shadow: none;
           border: 2px solid $radio-highlight-bg-color;
+          box-shadow: none;
+
           .p-radiobutton-icon{
             background-color: #fff;
           }
+
           &:has(.p-radiobutton-input:checked){
             background-color: $radio-focus-color;
           }
         }
       }
+
       // 无效状态
       &.p-invalid {
         .p-radiobutton-box {
           border-color: $radio-invalid-color;
         }
       }
+
       // 高亮状态
       &.p-highlight {
         .p-radiobutton-box {
-          border-color: $radio-highlight-bg-color;
           background-color:$radio-highlight-bg-color;
+          border-color: $radio-highlight-bg-color;
         }
+
         // 高亮无效状态
         &.p-invalid {
           .p-radiobutton-box {
-            border-color: $radio-invalid-color;
             background-color: $radio-invalid-color;
+            border-color: $radio-invalid-color;
           }
         }
       }
+
       &.p-disabled {
         .p-radiobutton-box {
           background-color: $radio-disabled-bg-color;
           border-color: $radio-border-disabled-color;
+
           .p-radiobutton-icon {
               background-color: $radio-disabled-bg-fill-color;
             }
         }
+
         &:has(.p-radiobutton-input:checked){
           .p-radiobutton-box {
-            border:0px ;
             background-color: $radio-disabled-bg-color;
+            border:0 ;
           }
         }
 

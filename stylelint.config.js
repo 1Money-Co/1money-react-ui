@@ -5,10 +5,10 @@
 module.exports = {
 	extends: [
 		'stylelint-config-standard',
-		'stylelint-config-standard-scss',
 		'stylelint-config-standard-less',
 		'stylelint-config-css-modules',
-		'stylelint-config-rational-order'
+     'stylelint-config-standard-scss',
+		'stylelint-config-rational-order',
 	],
 	plugins: [
 		'stylelint-order',
@@ -33,6 +33,9 @@ module.exports = {
 		'plugin/declaration-block-no-ignored-properties': true,
 		'number-max-precision': 10,
 		'selector-id-pattern': null,
-		'font-family-no-missing-generic-family-keyword': null
+		'font-family-no-missing-generic-family-keyword': null,
+    'declaration-property-value-no-unknown': null,
+    'scss/selector-no-redundant-nesting-selector': null
+
 	}
 };
