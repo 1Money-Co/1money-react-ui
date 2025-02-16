@@ -36,6 +36,9 @@ export const Normal: Story = {
   args: {
     type: 'text',
     label: 'Email',
+    prefix: <h4 style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600 }}>
+      Title
+    </h4>,
     placeholder: 'Enter your email',
   },
   tags: ['!autodocs'],

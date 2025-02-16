@@ -12,6 +12,7 @@ import type { SelectProps } from './interface';
 export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const {
     label,
+    message,
     required,
     rounded = false,
     multiple,
@@ -23,8 +24,11 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     prefixCls = 'select',
     wrapperCls,
     labelCls,
+    messageCls,
     defaultValue,
     value,
+    size = 'large',
+    success,
     onHide,
     onShow,
     ...rest
@@ -51,8 +55,10 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         value={selected == null ? undefined : selected}
         className={
           classes(void 0, [
+            classes(size),
             isOpen ? classes('show') : '',
             rounded ? classes('rounded') : '',
+            success ? classes('success') : '',
             className
           ].join(' '))
         }

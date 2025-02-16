@@ -8,15 +8,19 @@ const meta: Meta<typeof Select> = {
   component: Select,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
-    className: { control: 'text' },
-    prefixCls: { control: 'text' },
+    size: { control: 'radio', options: ['large', 'small'] },
+    disabled: { control: 'boolean' },
+    success: { control: 'boolean' },
+    invalid: { control: 'boolean' },
     rounded: { control: 'boolean' },
     filter: { control: 'boolean' },
-    invalid: { control: 'boolean' },
   },
   args: {
-    prefixCls: 'button',
-    onClick: fn(),
+    size: 'large',
+    disabled: false,
+    success: false,
+    invalid: false,
+    required: false,
   },
   tags: ['autodocs'],
 };
