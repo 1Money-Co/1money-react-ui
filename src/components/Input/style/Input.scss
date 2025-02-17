@@ -27,6 +27,7 @@ $cls: #{$prefix}-#{$component};
     line-height: 22px;
     background-color: inherit;
     border: none;
+    border-radius: 0;
     transition: none;
 
     &-small {
