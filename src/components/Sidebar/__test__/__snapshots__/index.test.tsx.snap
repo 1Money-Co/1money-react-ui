@@ -21,7 +21,7 @@ exports[`Sidebar renders correctly 1`] = `
               class="om-react-ui-sidebar-logo"
             >
               <i
-                class="om-react-ui-icon-logo-with-words  "
+                class="om-react-ui-icons-logo-with-words  "
               >
                 <svg
                   class="om-react-ui-icons"
@@ -316,7 +316,7 @@ exports[`Sidebar renders correctly 1`] = `
             class="om-react-ui-sidebar-logo"
           >
             <i
-              class="om-react-ui-icon-logo-with-words  "
+              class="om-react-ui-icons-logo-with-words  "
             >
               <svg
                 class="om-react-ui-icons"

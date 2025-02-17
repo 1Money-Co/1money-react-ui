@@ -40,7 +40,7 @@ export const LogoWithWords: FC<IconWrapperProps & {
   networkColor?: string;
 }> = (props) => {
   const { logoColor, wordColor, logoCls, wordCls, color, className, width, height, size, networkLogo, networkCls, networkColor, ...rest } = props;
-  const classes = classnames('icon');
+  const classes = classnames('icons');
 
   return <i className={[classes('logo-with-words'),  networkLogo ? classes('logo-with-words-with-network') : '', className].join(' ') }>
     <Logo
