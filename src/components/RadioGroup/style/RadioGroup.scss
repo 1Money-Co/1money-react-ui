@@ -1,16 +1,7 @@
 @use "sass:map";
 @use '../../../variable.scss'as *;
 
-$radio-border-color: $color-grey-dark;
-$radio-border-disabled-color: $color-grey-bold;
 $radio-border-radius: 50%;
-$radio-hover-border-color: $color-primary-black;
-$radio-hover-bg-color: $color-primary-hover;
-$radio-focus-color: $color-primary-active;
-$radio-invalid-color: $color-negative;
-$radio-highlight-bg-color: $color-primary;
-$radio-disabled-bg-color: $color-grey;
-$radio-disabled-bg-fill-color: $color-grey-dark;
 $radio-size: (sm: 16px,
   md: 20px,
   lg: 24px);
@@ -47,7 +38,7 @@ $component: 'radiogroup';
           &>.p-radiobutton-box {
             width: $dimension;
             height: $dimension;
-            border: 1px solid $radio-border-color;
+            border: 1px solid $color-grey-dark;
             border-radius: $radio-border-radius;
           }
         }
@@ -68,13 +59,13 @@ $component: 'radiogroup';
       // 悬停状态
       &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:hover) {
         .p-radiobutton-box {
-          border-color: $radio-hover-border-color;
+          border-color: $color-primary-black;
         }
 
         &:has(.p-radiobutton-input:checked) {
           .p-radiobutton-box {
-            background-color: $radio-hover-bg-color;
-            border-color: $radio-hover-bg-color;
+            background-color: $color-primary-hover;
+            border-color: $color-primary-hover;
           }
         }
       }
@@ -82,7 +73,7 @@ $component: 'radiogroup';
       // 聚焦状态
       &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:focus) {
         .p-radiobutton-box {
-          border: 2px solid $radio-highlight-bg-color;
+          border: 2px solid $color-primary;
           box-shadow: none;
 
           .p-radiobutton-icon {
@@ -90,7 +81,7 @@ $component: 'radiogroup';
           }
 
           &:has(.p-radiobutton-input:checked) {
-            background-color: $radio-focus-color;
+            background-color: $color-primary-active;
           }
         }
       }
@@ -98,39 +89,39 @@ $component: 'radiogroup';
       // 无效状态
       &.p-invalid {
         .p-radiobutton-box {
-          border-color: $radio-invalid-color;
+          border-color: $color-negative;
         }
       }
 
       // 高亮状态
       &.p-highlight {
         .p-radiobutton-box {
-          background-color: $radio-highlight-bg-color;
-          border-color: $radio-highlight-bg-color;
+          background-color: $color-primary;
+          border-color: $color-primary;
         }
 
         // 高亮无效状态
         &.p-invalid {
           .p-radiobutton-box {
-            background-color: $radio-invalid-color;
-            border-color: $radio-invalid-color;
+            background-color: $color-negative;
+            border-color: $color-negative;
           }
         }
       }
 
       &.p-disabled {
         .p-radiobutton-box {
-          background-color: $radio-disabled-bg-color;
-          border-color: $radio-border-disabled-color;
+          background-color: $color-grey;
+          border-color: $color-grey-bold;
 
           .p-radiobutton-icon {
-            background-color: $radio-disabled-bg-fill-color;
+            background-color: $color-grey-dark;
           }
         }
 
         &:has(.p-radiobutton-input:checked) {
           .p-radiobutton-box {
-            background-color: $radio-disabled-bg-color;
+            background-color: $color-grey;
             border: 0;
           }
         }
