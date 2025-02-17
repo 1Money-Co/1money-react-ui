@@ -8,6 +8,8 @@ import lottiePatternJson from './lottie-pattern.json';
 import type { FC } from 'react';
 import type { LoadingProps } from './interface';
 
+let instance: any;
+
 export const Loading: FC<LoadingProps> = props => {
   const { className, prefixCls = 'loading', type = 'pure' } = props;
   const container = useRef<HTMLDivElement>(null);
@@ -16,8 +18,8 @@ export const Loading: FC<LoadingProps> = props => {
   useEffect(() => {
     if (!container.current) return;
 
-    let instance: any;
-    (async function () {
+    const loadAnimation = async () => {
+      if (instance) return;
       const lottie = (await import('lottie-web')).default;
       instance = lottie.loadAnimation({
         container: container.current!,
@@ -26,9 +28,15 @@ export const Loading: FC<LoadingProps> = props => {
         autoplay: true,
         animationData: type === 'pure' ? lottiePureJson : lottiePatternJson
       });
-    })();
+    };
+    loadAnimation();
 
-    return () => instance?.destroy();
+    return () => {
+      if (instance) {
+        instance.destroy();
+        instance = null;
+      }
+    };
   }, []);
 
   return <div ref={container} className={classes(void 0, className)} />;

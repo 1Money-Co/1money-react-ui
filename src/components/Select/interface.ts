@@ -6,17 +6,21 @@ interface BaseProps {
   prefixCls?: string;
   wrapperCls?: string;
   labelCls?: string;
+  messageCls?: string;
   label?: ReactNode;
+  message?: ReactNode;
   required?: boolean;
   rounded?: boolean;
   value?: any;
+  size?: 'large' | 'small';
+  success?: boolean;
 }
 
-export interface SingleSelectProps extends Omit<DropdownProps, 'value'>, BaseProps {
+export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size'>, BaseProps {
   multiple?: false;
 }
 
-export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value'>, BaseProps {
+export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 'size'>, BaseProps {
   multiple: true;
 }
 
