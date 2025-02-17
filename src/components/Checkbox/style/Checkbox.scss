@@ -63,13 +63,14 @@ $checkbox-size: (
       // 悬停状态
       &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
           .p-checkbox-box {
-            border-color: $color-primary-black;
             background-color: $color-grey;
+            border-color: $color-primary-black;
           }
+
         // 不是选中悬停状态
         &:has(.p-checkbox-input:checked),
         &:has(.p-checkbox-input:indeterminate),
-        &:has(.p-checkbox-input[value=false]){
+        &:has(.p-checkbox-input[value="false"]){
           .p-checkbox-box {
           background-color: $color-primary-hover;
           border-color: $color-primary-hover;
@@ -122,12 +123,14 @@ $checkbox-size: (
         .p-checkbox-box {
           background-color: $color-grey;
           border-color: $color-grey-bold;
+
           &>i {
             color: $color-grey-dark !important;
           }
         }
+
         &:has(.p-checkbox-input:checked),
-        &:has(.p-checkbox-input[value=false]),
+        &:has(.p-checkbox-input[value="false"]),
         &:has(.p-checkbox-input:indeterminate) {
           .p-checkbox-box {
             background-color: $color-grey-deep;
