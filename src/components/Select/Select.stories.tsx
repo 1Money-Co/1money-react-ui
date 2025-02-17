@@ -1,4 +1,4 @@
-import { fn } from '@storybook/test';
+import React from 'react';
 import { Select } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -38,6 +38,9 @@ const cities = [
 ];
 
 export const Single: Story = {
+  render: (props) => <div style={{ width: '320px' }}>
+    <Select {...props} />
+  </div>,
   args: {
     placeholder: 'Select City',
     defaultValue: 'IST',
@@ -50,6 +53,9 @@ export const Single: Story = {
 };
 
 export const Multiple: Story = {
+  render: (props) => <div style={{ width: '360px' }}>
+    <Select {...props} />
+  </div>,
   args: {
     placeholder: 'Select Cities',
     multiple: true,

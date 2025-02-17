@@ -39,6 +39,8 @@ export interface InputMaskProps extends Omit<PrimeInputMaskProps, 'size' | 'pref
 
 export interface InputTextareaProps extends Omit<PrimeInputTextareaProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'textarea';
+  maxLength?: number;
+  showCount?: boolean;
 }
 
 export interface InputOtpProps extends Omit<PrimeInputOtpProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{

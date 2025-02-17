@@ -1,4 +1,4 @@
-import { memo, useRef, useMemo } from 'react';
+import { memo, useRef, useMemo, useState, useCallback } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
@@ -6,12 +6,11 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { InputOtp } from 'primereact/inputotp';
 import { Password } from 'primereact/password';
 import { AutoComplete } from 'primereact/autocomplete';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
 
 /* import types */
-import type { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren, ChangeEvent } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
@@ -34,9 +33,22 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     prefix,
     // @ts-ignore
     suffix,
+    maxLength,
+    // @ts-ignore
+    showCount,
+    value,
+    defaultValue,
+    onChange,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
+
+  const [val, setVal] = useState(value || defaultValue || '');
+
+  const handleChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
+    setVal(e.target.value);
+    (onChange as (e: ChangeEvent<HTMLTextAreaElement>) => void)?.(e);
+  }, [onChange]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -88,9 +100,13 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         <InputComponent
           {...rest as any}
           ref={inputRef}
+          value={type === 'textarea' ? val : value}
+          defaultValue={type === 'textarea' ? undefined : defaultValue}
+          onChange={type === 'textarea' ? handleChange : onChange}
           invalid={invalid}
           disabled={disabled}
           required={required}
+          maxLength={maxLength}
           className={classes(void 0, [
             classes(size),
             classes(type),
@@ -100,6 +116,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           ].join(' '))}
         />
         {suffix && <div onClick={e => e.stopPropagation()} className={classes('suffix')}>{suffix}</div>}
+        {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${val.length}/${maxLength}`}</div>}
       </div>
       {
         message && <span

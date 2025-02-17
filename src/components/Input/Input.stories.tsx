@@ -16,6 +16,7 @@ const meta: Meta<typeof Input> = {
     invalid: { control: 'boolean' },
     addons: { control: 'text' },
     message: { control: 'text' },
+    label: { control: 'text' },
   },
   args: {
     size: 'large',
@@ -96,5 +97,7 @@ export const OtpCode: Story = {
 export const TextArea: Story = {
   args: {
     type: 'textarea',
+    maxLength: 256,
+    showCount: true,
   },
 };

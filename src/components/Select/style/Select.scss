@@ -67,10 +67,10 @@ $component: 'select';
 
     .p-multiselect-token {
       margin-right: 0;
-      background-color: #E5EFFF;
+      background-color: $color-secondary;
 
       .p-multiselect-token-label {
-        color: #404040;
+        color: $color-primary-black;
       }
     }
   }
@@ -119,34 +119,40 @@ $component: 'select';
   }
 
   &-panel {
+    padding: 8px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10%);
+    box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus,
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
-      font-weight: 600;
-      background-color: inherit;
+      background-color: $color-grey-light;
+
+      .#{$prefix}-#{$component}-panel-item {
+        i {
+          display: inline-block;
+        }
+      }
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight, .p-disabled).p-focus {
-      font-weight: 600;
-      background-color: #FAFAFC;
+      background-color: $color-grey-light;
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-      color: #000;
-      font-weight: 300;
-      font-size: 14px;
+      color: $color-primary-black;
+      font-weight: 400;
+      font-size: 16px;
       font-style: normal;
-      line-height: 20px;
+      line-height: 140%;
+      border-radius: 8px;
     }
 
     &.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-      background-color: #E5EFFF;
+      background-color: $color-secondary;
     }
 
     .p-multiselect-item .p-multiselect-checkbox .p-checkbox.p-highlight .p-checkbox-box {
-      background-color: #3D73F2;
+      background-color: $color-primary;
     }
 
     .p-dropdown-filter.p-inputtext {
@@ -154,17 +160,34 @@ $component: 'select';
       font-size: 14px;
 
       &:enabled:focus:not(.p-invalid) {
-        border-color: #3D73F2;
-        box-shadow: 0 0 0 2px #ABC4FF;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 2px $color-secondary;
       }
 
       &:hover {
-        border-color: #3D73F2;
+        border-color: $color-primary;
       }
     }
 
     .p-dropdown-filter-icon {
       right: 1rem;
+    }
+
+    .p-dropdown-item-label {
+      width: 100%;
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      i {
+        display: none;
+        color: $color-primary;
+        font-size: 16px;
+      }
     }
   }
 
@@ -176,6 +199,7 @@ $component: 'select';
 .#{$prefix}-#{$component}-wrapper {
   display: inline-flex;
   flex-direction: column;
+  width: 100%;
 }
 
 

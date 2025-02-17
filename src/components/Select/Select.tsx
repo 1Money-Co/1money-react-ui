@@ -61,6 +61,13 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             className
           ].join(' '))
         }
+        itemTemplate={option => {
+          console.info(123, option);
+          return <span className={classes('panel-item')}>
+            {option.label}
+            <i className='pi pi-check' />
+          </span>;
+        }}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);
