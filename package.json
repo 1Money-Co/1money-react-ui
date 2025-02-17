@@ -14,6 +14,11 @@
       "import": "./es/index.css",
       "require": "./lib/index.css"
     },
+    "./Badge": {
+      "types": "./es/components/Badge/index.d.ts",
+      "import": "./es/components/Badge/index.js",
+      "require": "./lib/components/Badge/index.js"
+    },
     "./Button": {
       "types": "./es/components/Button/index.d.ts",
       "import": "./es/components/Button/index.js",
@@ -123,6 +128,11 @@
       "types": "./es/components/Tab/index.d.ts",
       "import": "./es/components/Tab/index.js",
       "require": "./lib/components/Tab/index.js"
+    },
+    "./Typography": {
+      "types": "./es/components/Typography/index.d.ts",
+      "import": "./es/components/Typography/index.js",
+      "require": "./lib/components/Typography/index.js"
     },
     "./Upload": {
       "types": "./es/components/Upload/index.d.ts",

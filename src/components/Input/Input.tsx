@@ -1,4 +1,4 @@
-import { memo, useRef, useMemo, useState, useCallback } from 'react';
+import { memo, useRef, useMemo, useState, useCallback, useEffect } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
@@ -46,9 +46,9 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
   const [val, setVal] = useState(value || defaultValue || '');
 
   const handleChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
-    setVal(e.target.value);
+    setVal(e.target.value?.slice(0, maxLength) || '');
     (onChange as (e: ChangeEvent<HTMLTextAreaElement>) => void)?.(e);
-  }, [onChange]);
+  }, [onChange, maxLength]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -82,6 +82,12 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         return InputText;
     }
   }, [type]);
+
+  useEffect(() => {
+    if (type === 'textarea' && val !== value && value !== undefined) {
+      setVal(value);
+    }
+  }, [type, val, value]);
 
   return (
     <div className={classes('wrapper', wrapperCls)}>

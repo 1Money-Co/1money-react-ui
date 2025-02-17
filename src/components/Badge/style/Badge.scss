@@ -1,0 +1,45 @@
+@use '../../../variable.scss'as *;
+
+$component: 'badge';
+
+.#{$prefix}-#{$component} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 108%;
+  border-radius: 12px;
+
+  &-neutral {
+    color: $color-primary-black;
+    background-color: $color-grey-deep;
+  }
+
+  &-warning {
+    color: $color-primary-black;
+    background-color: $color-warning;
+  }
+
+  &-negative {
+    color: $color-white;
+    background-color: $color-negative;
+  }
+
+  &-success {
+    color: $color-white;
+    background-color: $color-success;
+  }
+
+  &-recommend {
+    color: $color-white;
+    background-color: $color-info;
+  }
+
+  &-black {
+    color: $color-white;
+    background-color: $color-primary-black;
+  }
+}

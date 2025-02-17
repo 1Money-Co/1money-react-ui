@@ -1,3 +1,4 @@
+import { Badge } from './components/Badge';
 import { Button } from './components/Button';
 import { Calendar } from './components/Calendar';
 import { Checkbox } from './components/Checkbox';
@@ -20,8 +21,10 @@ import { Icons, IconWrapper } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar } from './components/Sidebar';
 import { Tab } from './components/Tab';
+import { Typography } from './components/Typography';
 import { Upload } from './components/Upload';
 
+export { Badge } from './components/Badge';
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
 export { Checkbox } from './components/Checkbox';
@@ -44,9 +47,11 @@ export { Icons, IconWrapper } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar } from './components/Sidebar';
 export { Tab } from './components/Tab';
+export { Typography } from './components/Typography';
 export { Upload } from './components/Upload';
 
 export default {
+  Badge,
   Button,
   Calendar,
   Checkbox,
@@ -70,5 +75,6 @@ export default {
   Clipboard,
   Sidebar,
   Tab,
+  Typography,
   Upload,
 };
