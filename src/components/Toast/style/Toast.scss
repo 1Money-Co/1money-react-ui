@@ -1,3 +1,7 @@
-.om-react-ui-toast {
+@use '../../../variable.scss'as *;
+
+$component: 'toast';
+
+.#{$prefix}-#{$component} {
   display: block;
 }

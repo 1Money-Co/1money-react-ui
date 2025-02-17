@@ -1,3 +1,7 @@
-.om-react-ui-spinner {
+@use '../../../variable.scss'as *;
+
+$component: 'spinner';
+
+.#{$prefix}-#{$component} {
   display: block;
 }

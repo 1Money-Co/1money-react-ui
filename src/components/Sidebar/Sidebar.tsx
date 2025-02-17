@@ -102,12 +102,4 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
   );
 });
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Sidebar.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Sidebar);

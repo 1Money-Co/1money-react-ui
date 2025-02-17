@@ -1,3 +1,7 @@
-.om-react-ui-modal {
+@use '../../../variable.scss'as *;
+
+$component: 'modal';
+
+.#{$prefix}-#{$component} {
   display: block;
 }

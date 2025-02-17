@@ -1,4 +1,8 @@
-.om-react-ui-confirm-popup {
+@use '../../../variable.scss'as *;
+
+$component: 'confirm-popup';
+
+.#{$prefix}-#{$component} {
   .p-confirm-popup-footer {
     .p-confirm-popup-accept {
       color: #FFF;

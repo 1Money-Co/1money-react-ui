@@ -42,13 +42,4 @@ export const Loading: FC<LoadingProps> = props => {
   return <div ref={container} className={classes(void 0, className)} />;
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Loading.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  type: propTypes.oneOf(['pure', 'pattern'])
-};
-
 export default memo(Loading);

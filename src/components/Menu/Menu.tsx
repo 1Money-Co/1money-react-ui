@@ -18,12 +18,4 @@ export const Menu = forwardRef<PrimeMenu, MenuProps>((props, ref) => {
   );
 });
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Menu.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Menu);

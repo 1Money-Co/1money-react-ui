@@ -1,4 +1,8 @@
-.om-react-ui-calendar {
+@use '../../../variable.scss'as *;
+
+$component: 'calendar';
+
+.#{$prefix}-#{$component} {
   &.p-invalid input {
     border-color: #CC1461;
     box-shadow: none;
@@ -37,7 +41,7 @@
   }
 }
 
-.om-react-ui-calendar-panel {
+.#{$prefix}-#{$component}-panel {
   .p-datepicker-buttonbar {
     .p-button {
       color: #3B82F6;
@@ -45,12 +49,12 @@
   }
 }
 
-.om-react-ui-calendar-wrapper {
+.#{$prefix}-#{$component}-wrapper {
   display: inline-flex;
   flex-direction: column;
 }
 
-.om-react-ui-calendar-label {
+.#{$prefix}-#{$component}-label {
   display: inline-block;
   margin-bottom: 8px;
   font-weight: 400;

@@ -18,11 +18,4 @@ export const Message: FC<PropsWithChildren<MessageProps>> = props => {
   );
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Message.propTypes = {
-  prefixCls: propTypes.string
-};
-
 export default memo(Message);

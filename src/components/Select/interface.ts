@@ -10,7 +10,6 @@ interface BaseProps {
   label?: ReactNode;
   message?: ReactNode;
   required?: boolean;
-  rounded?: boolean;
   value?: any;
   size?: 'large' | 'small';
   success?: boolean;

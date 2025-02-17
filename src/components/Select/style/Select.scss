@@ -1,36 +1,54 @@
-.om-react-ui-select {
+@use '../../../variable'as *;
+
+$component: 'select';
+
+.#{$prefix}-#{$component} {
   display: inline-flex;
   height: 56px;
   padding: 8px 16px;
-  background-color: #FAFAFC;
-  border: 1px solid #E0E2EE;
+  background-color: $color-grey-light;
+  border-color: $color-grey-deep;
+  border-style: solid;
+  border-width: 1px;
   border-radius: 12px;
+  transition: none;
 
   &-small {
     height: 44px;
-    font-size: 14px;
     line-height: 20px;
+
+    .p-dropdown-label,
+    .p-multiselect-label {
+      font-size: 14px !important;
+    }
   }
 
   &.p-invalid {
-    border-color: #CC1461;
+    border-color: $color-negative;
     box-shadow: none;
+
+    .p-dropdown-label,
+    .p-multiselect-label {
+      color: $color-negative;
+    }
   }
 
-  &.p-multiselect {
-    padding: 6px 10.5px;
+  &.p-disabled {
+    background-color: $color-grey;
+    border-color: $color-grey-bold;
+
+    .p-dropdown-label,
+    .p-multiselect-label {
+      color: $color-grey-dark;
+    }
   }
 
-  &.p-multiselect:not(.p-disabled, .p-invalid).p-focus,
-  &.p-dropdown:not(.p-disabled, .p-invalid).p-focus {
-    border-color: #3D73F2;
-    box-shadow: 0 0 0 2px #ABC4FF;
-  }
+  &-success:not(.p-disabled, .p-invalid) {
+    border-color: $color-success;
 
-  &.p-multiselect:not(.p-disabled, .p-invalid),
-  &.p-dropdown:not(.p-disabled, .p-invalid) {
-    &:hover {
-      border-color: #3D73F2;
+    .p-dropdown-label,
+    .p-multiselect-label {
+      color: $color-success !important;
     }
   }
 
@@ -40,9 +58,12 @@
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
-    padding: 0 6px 0 0;
-    color: #000;
-    font-size: 14px;
+    padding: 0 8px 0 0;
+    color: $color-primary-black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    transition: none;
 
     .p-multiselect-token {
       margin-right: 0;
@@ -67,15 +88,34 @@
 
   .p-multiselect-label,
   >.p-placeholder {
-    color: #808080;
-    font-weight: 300;
-    font-size: 14px;
+    color: $color-grey-midnight;
+    font-weight: 400;
+    font-size: 16px;
     font-style: normal;
+    line-height: 140%;
   }
 
   .p-dropdown-trigger,
   .p-multiselect-trigger {
     width: auto;
+  }
+
+  &.p-multiselect {
+    padding: 6px 10.5px;
+  }
+
+  &.p-multiselect:not(.p-disabled, .p-invalid).p-focus,
+  &.p-dropdown:not(.p-disabled, .p-invalid).p-focus {
+    border-color: $color-primary;
+    border-width: 2px;
+    box-shadow: none;
+  }
+
+  &.p-multiselect:not(.p-disabled, .p-invalid),
+  &.p-dropdown:not(.p-disabled, .p-invalid) {
+    &:hover {
+      border-color: $color-primary-black;
+    }
   }
 
   &-panel {
@@ -131,37 +171,49 @@
   &-show svg {
     transform: rotate(180deg);
   }
-
-  &-rounded {
-    border-radius: 20px;
-
-    &-panel {
-      border-radius: 20px;
-    }
-  }
 }
 
-.om-react-ui-select-wrapper {
+.#{$prefix}-#{$component}-wrapper {
   display: inline-flex;
   flex-direction: column;
 }
 
 
-.om-react-ui-select-label {
+.#{$prefix}-#{$component}-label {
   margin-bottom: 8px;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   font-style: normal;
-  line-height: 20px;
+  line-height: 108%;
 
   &-required {
     &::after {
-      color: #CC1461;
-      font-weight: 400;
-      font-size: 14px;
+      margin-left: 4px;
+      color: $color-negative;
+      font-size: 16px;
       font-style: normal;
       line-height: 120%;
       content: '*';
     }
+  }
+}
+
+.#{$prefix}-#{$component}-message {
+  display: inline-block;
+  margin-top: 4px;
+  color: $color-grey-midnight;
+  font-weight: 400;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 17px;
+  word-wrap: break-word;
+  word-break: break-all;
+
+  &-success {
+    color: $color-success;
+  }
+
+  &-error {
+    color: $color-negative;
   }
 }

@@ -22,7 +22,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     required,
     success,
     invalid,
-    rounded = false,
+    disabled,
     type = 'text',
     className = '',
     prefixCls = 'input',
@@ -80,6 +80,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           classes(`inner-${size}`),
           success ? classes('inner-success') : '',
           invalid ? classes('inner-invalid') : '',
+          disabled ? classes('inner-disabled') : '',
         ].join(' '))}
       >
         {addons && <div className={classes('addons')}>{addons}</div>}
@@ -88,6 +89,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           {...rest as any}
           ref={inputRef}
           invalid={invalid}
+          disabled={disabled}
           required={required}
           className={classes(void 0, [
             classes(size),
@@ -112,21 +114,6 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       }
     </div>
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Input.propTypes = {
-  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  addons: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  message: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  required: propTypes.bool,
-  prefixCls: propTypes.string,
-  wrapperCls: propTypes.string,
-  labelCls: propTypes.string,
-  messageCls: propTypes.string,
-  rounded: propTypes.bool,
 };
 
 export default memo(Input);

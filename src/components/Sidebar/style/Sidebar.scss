@@ -1,4 +1,8 @@
-.om-react-ui-sidebar {
+@use '../../../variable.scss'as *;
+
+$component: 'sidebar';
+
+.#{$prefix}-#{$component} {
   height: 100vh;
   padding: 0 8px;
   border-right: 1px solid #F2F2F2 !important;

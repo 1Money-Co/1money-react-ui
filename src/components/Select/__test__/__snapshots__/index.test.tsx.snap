@@ -9,7 +9,7 @@ exports[`Select renders correctly 1`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large     p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large    p-dropdown p-component p-inputwrapper"
           data-p-disabled="false"
           data-p-focus="false"
           data-pc-name="dropdown"
@@ -60,7 +60,7 @@ exports[`Select renders correctly 1`] = `
               class="om-react-ui-icons"
               fill="none"
               height="20"
-              stroke="#808080"
+              stroke="#131313"
               viewBox="0 0 24 24"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ exports[`Select renders correctly 1`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large     p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large    p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
         >
@@ -119,7 +119,7 @@ exports[`Select renders correctly 1`] = `
               class="om-react-ui-icons"
               fill="none"
               height="20"
-              stroke="#808080"
+              stroke="#131313"
               viewBox="0 0 24 24"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@ exports[`Select renders correctly 1`] = `
       class="om-react-ui-select-wrapper"
     >
       <div
-        class="om-react-ui-select om-react-ui-select-large     p-dropdown p-component p-inputwrapper"
+        class="om-react-ui-select om-react-ui-select-large    p-dropdown p-component p-inputwrapper"
         data-p-disabled="false"
         data-p-focus="false"
         data-pc-name="dropdown"
@@ -192,7 +192,7 @@ exports[`Select renders correctly 1`] = `
             class="om-react-ui-icons"
             fill="none"
             height="20"
-            stroke="#808080"
+            stroke="#131313"
             viewBox="0 0 24 24"
             width="20"
             xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +271,7 @@ exports[`Select renders correctly 2`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large     p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large    p-dropdown p-component p-inputwrapper"
           data-p-disabled="false"
           data-p-focus="false"
           data-pc-name="dropdown"
@@ -322,7 +322,7 @@ exports[`Select renders correctly 2`] = `
               class="om-react-ui-icons"
               fill="none"
               height="20"
-              stroke="#808080"
+              stroke="#131313"
               viewBox="0 0 24 24"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
@@ -343,7 +343,7 @@ exports[`Select renders correctly 2`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large     p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large    p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
         >
@@ -381,7 +381,7 @@ exports[`Select renders correctly 2`] = `
               class="om-react-ui-icons"
               fill="none"
               height="20"
-              stroke="#808080"
+              stroke="#131313"
               viewBox="0 0 24 24"
               width="20"
               xmlns="http://www.w3.org/2000/svg"
@@ -403,7 +403,7 @@ exports[`Select renders correctly 2`] = `
       class="om-react-ui-select-wrapper"
     >
       <div
-        class="om-react-ui-select om-react-ui-select-large     p-multiselect p-component p-inputwrapper"
+        class="om-react-ui-select om-react-ui-select-large    p-multiselect p-component p-inputwrapper"
         data-pc-name="multiselect"
         data-pc-section="root"
       >
@@ -441,7 +441,7 @@ exports[`Select renders correctly 2`] = `
             class="om-react-ui-icons"
             fill="none"
             height="20"
-            stroke="#808080"
+            stroke="#131313"
             viewBox="0 0 24 24"
             width="20"
             xmlns="http://www.w3.org/2000/svg"

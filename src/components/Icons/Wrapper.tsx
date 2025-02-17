@@ -23,17 +23,4 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
   </svg>;
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-IconWrapper.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  size: propTypes.number,
-  width: propTypes.number,
-  height: propTypes.number,
-  color: propTypes.string,
-  viewBox: propTypes.string,
-};
-
 export default memo(IconWrapper);

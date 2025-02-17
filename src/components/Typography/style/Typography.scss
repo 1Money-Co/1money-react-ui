@@ -1,6 +1,8 @@
 @use '../../../variable.scss'as *;
 
-.om-react-ui-typography {
+$component: 'typography';
+
+.#{$prefix}-#{$component} {
   &-display {
     color: $color-primary-black;
     font-weight: 500;

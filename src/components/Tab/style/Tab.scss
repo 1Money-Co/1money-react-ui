@@ -1,4 +1,8 @@
-.om-react-ui-tab {
+@use '../../../variable.scss'as *;
+
+$component: 'tab';
+
+.#{$prefix}-#{$component} {
   position: relative;
 
   &::after {

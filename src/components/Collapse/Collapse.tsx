@@ -36,14 +36,4 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
   );
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Collapse.propTypes = {
-  wrapperCls: propTypes.string,
-  itemCls: propTypes.string,
-  contentCls: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Collapse);

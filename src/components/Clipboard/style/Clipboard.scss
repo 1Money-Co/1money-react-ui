@@ -1,4 +1,8 @@
-.om-react-ui-clipboard {
+@use '../../../variable.scss'as *;
+
+$component: 'clipboard';
+
+.#{$prefix}-#{$component} {
   display: flex;
   flex-direction: column;
   gap: 8px;

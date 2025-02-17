@@ -1,5 +1,5 @@
 @use "sass:map";
-@use '../../../variable.scss' as *;
+@use '../../../variable.scss'as *;
 
 $radio-border-color: $color-grey-dark;
 $radio-border-disabled-color: $color-grey-bold;
@@ -11,19 +11,15 @@ $radio-invalid-color: $color-negative;
 $radio-highlight-bg-color: $color-primary;
 $radio-disabled-bg-color: $color-grey;
 $radio-disabled-bg-fill-color: $color-grey-dark;
-$radio-size: (
-  sm: 16px,
+$radio-size: (sm: 16px,
   md: 20px,
-  lg: 24px
-);
-$icon-size: (
-  sm: 9px,
+  lg: 24px);
+$icon-size: (sm: 9px,
   md: 12px,
-  lg: 15px
-);
+  lg: 15px);
+$component: 'radiogroup';
 
-
-.om-react-ui-radiogroup {
+.#{$prefix}-#{$component} {
   &-wrapper {
     display: flex;
     flex-direction: row;
@@ -41,7 +37,8 @@ $icon-size: (
       user-select: none;
     }
 
-    @each $size, $dimension in $radio-size {
+    @each $size,
+    $dimension in $radio-size {
       &.rd-#{$size} {
         .p-radiobutton {
           width: $dimension;
@@ -61,7 +58,7 @@ $icon-size: (
         }
 
         label {
-          font-size: if($size == 'sm', 12px, 14px);
+          font-size: if($size=='sm', 12px, 14px);
           line-height: $dimension + 4px;
         }
       }
@@ -77,7 +74,7 @@ $icon-size: (
         &:has(.p-radiobutton-input:checked) {
           .p-radiobutton-box {
             background-color: $radio-hover-bg-color;
-            border-color:$radio-hover-bg-color;
+            border-color: $radio-hover-bg-color;
           }
         }
       }

@@ -2,7 +2,6 @@ import { memo, useMemo, useState, useEffect } from 'react';
 import isEqual from 'lodash.isequal';
 import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
 /* import types */
@@ -14,7 +13,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     label,
     message,
     required,
-    rounded = false,
+    invalid,
     multiple,
     options,
     name,
@@ -51,13 +50,13 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         {...rest as any}
         name={name}
         required={required}
+        invalid={invalid}
         options={options}
         value={selected == null ? undefined : selected}
         className={
           classes(void 0, [
             classes(size),
             isOpen ? classes('show') : '',
-            rounded ? classes('rounded') : '',
             success ? classes('success') : '',
             className
           ].join(' '))
@@ -75,24 +74,22 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           setIsOpen(true);
           onShow?.();
         }}
-        dropdownIcon={() => <Icons name='dropDown' color='#808080' size={20} />}
+        dropdownIcon={() => <Icons name='dropDown' color='#131313' size={20} />}
+        collapseIcon={() => <Icons name='dropDown' color='#131313' size={20} />}
       />
+      {
+        message && <span
+          className={classes('message', [
+            success ? classes('message-success') : '',
+            invalid ? classes('message-error') : '',
+            messageCls
+          ].join(' '))}
+        >
+          {message}
+        </span>
+      }
     </div>
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Select.propTypes = {
-  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  required: propTypes.bool,
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  wrapperCls: propTypes.string,
-  labelCls: propTypes.string,
-  rounded: propTypes.bool,
-  value: propTypes.any,
 };
 
 export default memo(Select);

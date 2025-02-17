@@ -1,6 +1,8 @@
 @use '../../../variable.scss'as *;
 
-.om-react-ui-button {
+$component: 'button';
+
+.#{$prefix}-#{$component} {
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -19,12 +19,4 @@ export const Tab: FC<PropsWithChildren<TabProps>> = props => {
   );
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Tab.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Tab);

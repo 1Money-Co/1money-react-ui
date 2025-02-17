@@ -1,4 +1,8 @@
-.om-react-ui-switch {
+@use '../../../variable.scss'as *;
+
+$component: 'switch';
+
+.#{$prefix}-#{$component} {
   display: inline-flex;
 
   &.p-inputswitch.p-highlight .p-inputswitch-slider {

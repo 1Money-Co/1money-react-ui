@@ -1,12 +1,10 @@
 @use "sass:map";
-@use '../../../variable.scss' as *;
+@use '../../../variable.scss'as *;
 
 $checkbox-border-color: $color-grey-dark;
-$checkbox-border-radius: (
-  sm: 4px,
+$checkbox-border-radius: (sm: 4px,
   md: 4px,
-  lg: 6px
-);
+  lg: 6px);
 $checkbox-hover-border-color: $color-primary-black;
 $checkbox-hover-bg-color: $color-primary-hover;
 $checkbox-focus-border-color: $color-primary;
@@ -14,13 +12,12 @@ $checkbox-focus-bg-color: $color-primary-active;
 $checkbox-invalid-color: $color-negative;
 $checkbox-highlight-bg-color: $color-primary;
 $checkbox-disabled-bg-color: $color-grey-bold;
-$checkbox-size: (
-  sm: 16px,
+$checkbox-size: (sm: 16px,
   md: 20px,
-  lg: 24px
-);
+  lg: 24px);
+$component: 'checkbox';
 
-.om-react-ui-checkbox {
+.#{$prefix}-#{$component} {
   &-wrapper {
     display: flex;
     flex-direction: row;
@@ -40,7 +37,8 @@ $checkbox-size: (
       user-select: none;
     }
 
-    @each $size, $dimension in $checkbox-size {
+    @each $size,
+    $dimension in $checkbox-size {
       &.ckb-#{$size} {
         .p-checkbox {
           width: $dimension;
@@ -54,13 +52,13 @@ $checkbox-size: (
 
             i {
               color: #fff;
-              font-size: if($size == 'sm', 10px, 14px);
+              font-size: if($size=='sm', 10px, 14px);
             }
           }
         }
 
         label {
-          font-size: if($size == 'sm', 12px, 14px);
+          font-size: if($size=='sm', 12px, 14px);
           line-height: $dimension + 4px;
         }
       }

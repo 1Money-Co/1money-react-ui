@@ -1,4 +1,8 @@
-.om-react-ui-upload {
+@use '../../../variable.scss'as *;
+
+$component: 'upload';
+
+.#{$prefix}-#{$component} {
   &-btn {
     color: #fff;
     font-weight: 700;

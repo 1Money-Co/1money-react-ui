@@ -66,15 +66,4 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
   </div>;
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Checkbox.propTypes = {
-  items: propTypes.array.isRequired,
-  wrapperCls: propTypes.string,
-  innerCls: propTypes.string,
-  checkboxCls: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Checkbox);

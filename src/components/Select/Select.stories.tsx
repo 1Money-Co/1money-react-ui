@@ -12,8 +12,8 @@ const meta: Meta<typeof Select> = {
     disabled: { control: 'boolean' },
     success: { control: 'boolean' },
     invalid: { control: 'boolean' },
-    rounded: { control: 'boolean' },
     filter: { control: 'boolean' },
+    message: { control: 'text' },
   },
   args: {
     size: 'large',
@@ -39,11 +39,11 @@ const cities = [
 
 export const Single: Story = {
   args: {
-    prefixCls: 'select',
     placeholder: 'Select City',
     defaultValue: 'IST',
-    options: cities,
     label: 'Cities',
+    message: 'Please select a city',
+    options: cities,
     required: true
   },
   tags: ['!autodocs', 'dev'],
@@ -51,7 +51,6 @@ export const Single: Story = {
 
 export const Multiple: Story = {
   args: {
-    prefixCls: 'select',
     placeholder: 'Select Cities',
     multiple: true,
     options: cities,

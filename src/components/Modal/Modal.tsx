@@ -48,12 +48,4 @@ export const Modal = forwardRef<ModalHandlers, PropsWithChildren<ModalProps>>((p
   );
 });
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Modal.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Modal);

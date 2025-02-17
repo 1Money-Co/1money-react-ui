@@ -60,12 +60,4 @@ export const Progress: FC<PropsWithChildren<ProgressProps>> = props => {
   );
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Progress.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
-
 export default memo(Progress);

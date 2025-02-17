@@ -56,17 +56,4 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
   );
 };
 
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Calendar.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  wrapperCls: propTypes.string,
-  labelCls: propTypes.string,
-  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  required: propTypes.bool,
-  rounded: propTypes.bool,
-};
-
 export default memo(Calendar);

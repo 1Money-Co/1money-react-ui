@@ -7,7 +7,7 @@ module.exports = {
 		'stylelint-config-standard',
 		'stylelint-config-standard-less',
 		'stylelint-config-css-modules',
-     'stylelint-config-standard-scss',
+		'stylelint-config-standard-scss',
 		'stylelint-config-rational-order',
 	],
 	plugins: [
@@ -34,8 +34,8 @@ module.exports = {
 		'number-max-precision': 10,
 		'selector-id-pattern': null,
 		'font-family-no-missing-generic-family-keyword': null,
-    'declaration-property-value-no-unknown': null,
-    'scss/selector-no-redundant-nesting-selector': null
-
+		'declaration-property-value-no-unknown': null,
+		'scss/selector-no-redundant-nesting-selector': null,
+		'scss/operator-no-unspaced': null
 	}
 };

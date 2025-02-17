@@ -1,6 +1,8 @@
-@use '../../../variable'as *;
+@use '../../../variable.scss'as *;
 
-.om-react-ui-input {
+$component: 'input';
+
+.#{$prefix}-#{$component} {
   display: inline-flex;
   width: 100%;
 
@@ -25,6 +27,7 @@
     line-height: 22px;
     background-color: inherit;
     border: none;
+    transition: none;
 
     &-small {
       height: 40px;
@@ -35,6 +38,10 @@
     &.p-invalid {
       color: $color-negative;
       box-shadow: none;
+    }
+
+    &.p-disabled {
+      color: $color-grey-dark;
     }
 
     &::placeholder {
@@ -156,6 +163,12 @@
 
     &-invalid {
       border-color: $color-negative !important;
+    }
+
+    &-disabled {
+      background-color: $color-grey !important;
+      border-color: $color-grey-bold !important;
+
     }
   }
 

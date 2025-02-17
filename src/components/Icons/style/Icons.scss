@@ -1,4 +1,8 @@
-.om-react-ui-icon {
+@use '../../../variable.scss'as *;
+
+$component: 'icons';
+
+.#{$prefix}-#{$component} {
   *[fill="none"] {
     fill: currentcolor;
   }
