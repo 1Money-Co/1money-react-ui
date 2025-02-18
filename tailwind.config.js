@@ -54,6 +54,7 @@ module.exports = {
         hover: '#052561',
         'blue-light': '#DDE6F4',
         black: '#131313',
+        white: '#FEFEFE',
       },
       secondary: '#DDE6F4',
       secondary: {
