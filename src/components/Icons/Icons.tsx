@@ -25,6 +25,7 @@ import {
   ArrowUpIcon,
   ArrowLinkIcon,
   UnionIcon,
+  ErrorIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -56,6 +57,7 @@ const IconList = {
   arrowUp: ArrowUpIcon,
   arrowLink: ArrowLinkIcon,
   union: UnionIcon,
+  error: ErrorIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;

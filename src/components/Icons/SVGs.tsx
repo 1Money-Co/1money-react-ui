@@ -42,7 +42,7 @@ export const LogoWithWords: FC<IconWrapperProps & {
   const { logoColor, wordColor, logoCls, wordCls, color, className, width, height, size, networkLogo, networkCls, networkColor, ...rest } = props;
   const classes = classnames('icons');
 
-  return <i className={[classes('logo-with-words'),  networkLogo ? classes('logo-with-words-with-network') : '', className].join(' ') }>
+  return <i className={[classes('logo-with-words'), networkLogo ? classes('logo-with-words-with-network') : '', className].join(' ')}>
     <Logo
       color={logoColor || color}
       width={height || size}
@@ -213,6 +213,12 @@ export const ArrowLinkIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewB
 
 export const UnionIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0 14 14" {...props}>
   <path d="M9.2767 9.38955C8.95308 10.9667 8.32551 12.4332 7.45782 13.7252C7.20941 14.0951 6.67556 14.0908 6.43316 13.717C5.59271 12.4208 4.99123 10.9556 4.69107 9.38353C3.08736 9.07748 1.59477 8.45856 0.279353 7.59277C-0.0931067 7.34763 -0.0931201 6.81387 0.279327 6.56871C1.59455 5.70296 3.08692 5.08401 4.69039 4.77783C5.0032 3.1369 5.6443 1.61226 6.54281 0.274719C6.79125 -0.0951197 7.32511 -0.0907622 7.56746 0.28309C8.43742 1.6251 9.05127 3.14828 9.33984 4.78355C10.9318 5.09163 12.4137 5.70815 13.7206 6.56837C14.0931 6.81352 14.0931 7.34727 13.7207 7.59244C12.3965 8.46411 10.8927 9.08559 9.2767 9.38955Z" />
+</IconWrapper>;
+
+export const ErrorIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0 24 24" {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M11.0002 14V7.49998H13.0002V14H11.0002Z" />
+  <path d="M13.5002 17C13.5002 17.8284 12.8286 18.5 12.0002 18.5C11.1718 18.5 10.5002 17.8284 10.5002 17C10.5002 16.1715 11.1718 15.5 12.0002 15.5C12.8286 15.5 13.5002 16.1715 13.5002 17Z" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M3.2256 16.7674L4.40106 20H19.5994L20.7748 16.7674L12.0002 3.60553L3.2256 16.7674ZM13.6643 2.49613C12.8727 1.30866 11.1277 1.30866 10.3361 2.49613L1.5615 15.658C1.2086 16.1874 1.1286 16.853 1.34601 17.4509L2.52147 20.6835C2.80889 21.4738 3.56005 22 4.40106 22H19.5994C20.4404 22 21.1915 21.4738 21.4789 20.6835L22.6544 17.4509C22.8718 16.853 22.7918 16.1874 22.4389 15.658L13.6643 2.49613Z" />
 </IconWrapper>;
 
 export default {

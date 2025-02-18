@@ -68,6 +68,9 @@ export const Primary: Story = {
         <Icons {...args} name='arrowLink' />
         <Icons {...args} name='union' />
       </div>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
+        <Icons {...args} name='error' />
+      </div>
     </div>;
   },
 };
