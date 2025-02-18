@@ -11,9 +11,12 @@ module.exports = {
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
     screens: {
-      md: '481px',
-      lg: '769px',
+      xs: '376px',
+      sm: '576px',
+      md: '768px',
+      lg: '1024px',
       xl: '1280px',
+      xxl: '1440px',
     },
     spacing: {
       1: 'var(--space-1, 4px)',
@@ -40,38 +43,31 @@ module.exports = {
     colors: {
       white: '#ffffff',
       black: '#000000',
+      transparent: 'transparent',
+      info: '#3D7CF5',
+      success: '#1F5800',
+      warning: '#F4C600',
+      error: '#AE0000',
+      primary: '#073387',
       primary: {
-        100: '#e5efff',
-        200: '#ccddff',
-        300: '#abc4ff',
-        400: '#6491fa',
-        500: '#3d73f2',
-        600: '#2e59e5',
-        700: '#1444cc',
-        800: '#183699',
-        900: '#142d66',
-        1000: '#1c2844'
+        active: '#03163A',
+        hover: '#052561',
+        'blue-light': '#DDE6F4',
+        black: '#131313',
       },
-      neutrals: {
-        100: '#fafafc',
-        300: '#e0e2ee',
-        600: '#808080',
-        800: '#404040'
+      secondary: '#DDE6F4',
+      secondary: {
+        active: '#A4BBE1',
+        hover: '#C1D0EB',
       },
-      success: {
-        100: '#56dbb3',
-        200: '#07b898',
-        300: '#56dbb3',
-      },
-      warning: {
-        100: '#faaa48',
-        200: '#e58918',
-        300: '#c96b06'
-      },
-      error: {
-        100: '#e74878',
-        200: '#cc1461',
-        300: '#9c184c'
+      grey: {
+        light: '#F8F8F8',
+        normal: '#F0F0F0',
+        deep: '#E3E4E4',
+        bold: '#D1D2D2',
+        dark: '#9FA3A3',
+        midnight: '#646465',
+        night: '#404042'
       },
     },
     borderRadius: {
@@ -122,6 +118,11 @@ module.exports = {
         '23': 'repeat(23, minmax(0, 1fr))',
         '24': 'repeat(24, minmax(0, 1fr))',
       },
+      fontFamily: {
+        'inter': 'var(--font-inter)',
+        'aeonik': 'var(--font-aeonik)',
+        'albert-sans': 'var(--font-albert-sans)',
+      }
     },
   },
   plugins: [],
