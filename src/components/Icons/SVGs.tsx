@@ -30,7 +30,7 @@ export const LogoNetwork: FC<IconWrapperProps> = (props) => <IconWrapper viewBox
   <path d="M496.385 1.3502H506.015V38.121H510.108L544.896 1.3502H557.295L518.534 42.286L557.656 84.6497H544.896L509.987 46.4509H506.015V84.6497H496.385V1.3502Z" />
 </IconWrapper>;
 
-export const LogoWithWords: FC<IconWrapperProps & {
+export interface LogoWithWordsCustomProps {
   logoColor?: string;
   logoCls?: string;
   wordColor?: string;
@@ -38,7 +38,8 @@ export const LogoWithWords: FC<IconWrapperProps & {
   networkLogo?: boolean;
   networkCls?: string;
   networkColor?: string;
-}> = (props) => {
+}
+export const LogoWithWords: FC<IconWrapperProps & LogoWithWordsCustomProps> = (props) => {
   const { logoColor, wordColor, logoCls, wordCls, color, className, width, height, size, networkLogo, networkCls, networkColor, ...rest } = props;
   const classes = classnames('icons');
 

@@ -1,5 +1,10 @@
 import { useCallback, useMemo, memo } from 'react';
 import {
+  IllusLocked,
+  IllusChecked,
+  IllusError
+} from './Illustrations';
+import {
   Logo,
   LogoWord,
   LogoNetwork,
@@ -30,8 +35,13 @@ import {
 /* import types */
 import type { FC } from 'react';
 import type { IconsProps, IconWrapperProps } from './interface';
+import type { LogoWithWordsCustomProps } from './SVGs';
+import type { IllustrationsCustomProps } from './Illustrations';
 
 const IconList = {
+  illusLocked: IllusLocked,
+  illusChecked: IllusChecked,
+  illusError: IllusError,
   logo: Logo,
   logoWord: LogoWord,
   logoNetwork: LogoNetwork,
@@ -61,17 +71,16 @@ const IconList = {
 } as const;
 
 export type IconName = keyof typeof IconList;
-export interface LogoWithWordsProps extends IconsProps {
+
+export interface LogoWithWordsProps extends IconsProps, LogoWithWordsCustomProps {
   name: 'logoWithWords';
-  logoCls?: string;
-  wordCls?: string;
-  networkCls?: string;
-  logoColor?: string;
-  wordColor?: string;
-  networkColor?: string;
-  networkLogo?: boolean;
 }
-export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps> = ({ name, ...rest }) => {
+
+export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps {
+  name: 'illusLocked' | 'illusChecked' | 'illusError';
+}
+
+export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {
   const IconComponent = useCallback((props: IconWrapperProps) => {
     const Icon = useMemo(() => IconList[name], [name]);
     return Icon ? <Icon {...props} /> : null;

@@ -15,6 +15,7 @@ const meta: Meta<typeof Icons> = {
     prefixCls: { control: 'text' },
     size: { control: 'number' },
     color: { control: 'color' },
+    borderColor: { control: 'color' },
   },
   args: {
     prefixCls: 'icons',
@@ -29,7 +30,8 @@ type Story = StoryObj<typeof Icons>;
 export const Primary: Story = {
   args: {
     prefixCls: 'icons',
-    color: '#142D66',
+    color: '#073387',
+    borderColor: '#03163A',
     size: 32
   },
   render: function Render(args) {
@@ -42,6 +44,11 @@ export const Primary: Story = {
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='logoWithWords' width={180} height={36} logoColor='#073387' wordColor='#000000' />
         <Icons {...args} name='logoWithWords' width={320} height={36} logoColor='#073387' wordColor='#000000' networkLogo networkColor='#131313' />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
+        <Icons {...args} name='illusLocked' />
+        <Icons {...args} name='illusChecked' />
+        <Icons {...args} name='illusError' />
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='minus'  />
