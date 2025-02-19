@@ -36,7 +36,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
   const SelectComponent = useMemo(() => multiple ? MultiSelect as new() => MultiSelect : Dropdown as new() => Dropdown, [multiple]);
-  
+
   useEffect(() => {
     if (value !== undefined && !isEqual(selected, value)) {
       setSelected(value);

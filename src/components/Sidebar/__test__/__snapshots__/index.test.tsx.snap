@@ -203,18 +203,17 @@ exports[`Sidebar renders correctly 1`] = `
                   >
                     <svg
                       class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                      fill="none"
+                      fill="#808080"
                       height="24"
-                      stroke="#808080"
+                      stroke="none"
                       viewBox="0 0 24 24"
                       width="24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M6 9L12 15L18 9"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        clip-rule="evenodd"
+                        d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                        fill-rule="evenodd"
                       />
                     </svg>
                   </span>
@@ -498,18 +497,17 @@ exports[`Sidebar renders correctly 1`] = `
                 >
                   <svg
                     class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                    fill="none"
+                    fill="#808080"
                     height="24"
-                    stroke="#808080"
+                    stroke="none"
                     viewBox="0 0 24 24"
                     width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M6 9L12 15L18 9"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      clip-rule="evenodd"
+                      d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                      fill-rule="evenodd"
                     />
                   </svg>
                 </span>

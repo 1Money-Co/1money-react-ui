@@ -11,5 +11,7 @@ export interface IconWrapperProps {
   color?: string;
   stroke?: boolean;
   viewBox?: string;
+  fill?: string;
+  illustrations?: boolean;
   onClick?: (e: MouseEvent<SVGSVGElement>) => any;
 }

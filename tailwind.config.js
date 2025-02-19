@@ -52,11 +52,11 @@ module.exports = {
       primary: {
         active: '#03163A',
         hover: '#052561',
-        'blue-light': '#DDE6F4',
         black: '#131313',
+        white: '#FEFEFE',
       },
-      secondary: '#DDE6F4',
       secondary: {
+        default: '#DDE6F4',
         active: '#A4BBE1',
         hover: '#C1D0EB',
       },

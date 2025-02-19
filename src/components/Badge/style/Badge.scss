@@ -24,22 +24,22 @@ $component: 'badge';
   }
 
   &-negative {
-    color: $color-white;
+    color: $color-primary-white;
     background-color: $color-negative;
   }
 
   &-success {
-    color: $color-white;
+    color: $color-primary-white;
     background-color: $color-success;
   }
 
   &-recommend {
-    color: $color-white;
+    color: $color-primary-white;
     background-color: $color-info;
   }
 
   &-black {
-    color: $color-white;
+    color: $color-primary-white;
     background-color: $color-primary-black;
   }
 }
