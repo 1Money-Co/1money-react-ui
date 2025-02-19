@@ -220,7 +220,7 @@ $cls: #{$prefix}-#{$component};
       }
     }
 
-    &:focus-within:not(.#{$cls}-inner-invalid, .#{$cls}-inner-success) {
+    &:focus-within:not(.#{$cls}-inner-invalid, .#{$cls}-inner-success):not(:has(.#{$cls}-otp)) {
       border-color: $color-primary;
       border-width: 2px;
     }
