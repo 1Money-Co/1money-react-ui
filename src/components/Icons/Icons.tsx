@@ -1,23 +1,21 @@
 import { useCallback, useMemo, memo } from 'react';
 import {
-  IllusLocked,
-  IllusChecked,
-  IllusError
-} from './Illustrations';
-import {
   Logo,
   LogoWord,
   LogoNetwork,
   LogoWithWords,
-  MinusIcon, 
-  AddIcon,
+} from './Logo';
+import {
+  IllusLocked,
+  IllusChecked,
+  IllusError
+} from './Illustrations';
+import { 
   BurgerIcon,
   ReturnIcon,
   CloseIcon,
   ArrowIcon,
   DropDownIcon,
-  EyeCloseIcon,
-  EyeOnIcon,
   CircleIcon,
   CheckIcon,
   TimesIcon,
@@ -30,12 +28,19 @@ import {
   ArrowUpIcon,
   ArrowLinkIcon,
   UnionIcon,
+} from './Old';
+import {
+  EyeCloseIcon,
+  EyeOnIcon,
   ErrorIcon,
+  SuccessIcon,
+  AddIcon,
+  MinusIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
 import type { IconsProps, IconWrapperProps } from './interface';
-import type { LogoWithWordsCustomProps } from './SVGs';
+import type { LogoWithWordsCustomProps } from './Logo';
 import type { IllustrationsCustomProps } from './Illustrations';
 
 const IconList = {
@@ -46,15 +51,17 @@ const IconList = {
   logoWord: LogoWord,
   logoNetwork: LogoNetwork,
   logoWithWords: LogoWithWords,
+  eyeClose: EyeCloseIcon,
+  eyeOn: EyeOnIcon,
   minus: MinusIcon,
   add: AddIcon,
+  success: SuccessIcon,
+  error: ErrorIcon,
   burger: BurgerIcon,
   return: ReturnIcon,
   close: CloseIcon,
   arrow: ArrowIcon,
   dropDown: DropDownIcon,
-  eyeClose: EyeCloseIcon,
-  eyeOn: EyeOnIcon,
   circle: CircleIcon,
   check: CheckIcon,
   times: TimesIcon,
@@ -67,7 +74,6 @@ const IconList = {
   arrowUp: ArrowUpIcon,
   arrowLink: ArrowLinkIcon,
   union: UnionIcon,
-  error: ErrorIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;

@@ -77,6 +77,7 @@ export const Primary: Story = {
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: 24 }}>
         <Icons {...args} name='error' />
+        <Icons {...args} name='success' />
       </div>
     </div>;
   },
