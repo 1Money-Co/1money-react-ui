@@ -81,6 +81,17 @@ export const LogoWithWords: FC<IconWrapperProps & {
   </i>;
 };
 
+/* Primary Icons */
+
+
+/* Menu Icons */
+
+/* Functional Icons */
+
+/* System Icons */
+
+
+
 export const MinusIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <g clipPath="url(#clip0_29_4749)">
     <path d="M23 13.5H13.5714H10.4286H1V10.5H10.4286H13.5714H23V13.5Z" />
