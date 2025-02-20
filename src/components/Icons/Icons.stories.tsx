@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {
   IconWrapper,
   Icons,
- } from './index';
+} from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 import clipboard from '../../utils/clipboard';
@@ -84,128 +84,136 @@ export const PrimaryIcons: Story = {
 
     };
 
-    return <div style={{ display: 'grid',  gap: 24 , gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))'}}>
-       <Toast  ref={toast} />
-     {/* Primary Icons */}
-     <CopyIconBox onClick={() => handleCopy("<Icons name='deposit' />")}>
-      <Icons {...args} name='deposit' />
-      <span>Deposit</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='withdrawal' />")}>
-      <Icons {...args} name='withdrawal' />
-      <span>Withdrawal</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='conversion' />")}>
-      <Icons {...args} name='conversion' />
-      <span>Conversion</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='mintToken' />")}>
-      <Icons {...args} name='mintToken' />
-      <span>MintToken</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='burnToken' />")}>
-      <Icons {...args} name='burnToken' />
-      <span>BurnToken</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='accountLocked' />")}>
-      <Icons {...args} name='accountLocked' />
-      <span>Account Locked</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='pending' />")}>
-      <Icons {...args} name='pending' />
-      <span>Pending</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='success' />")}>
-      <Icons {...args} name='success' />
-      <span>Success</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='fail' />")}>
-      <Icons {...args} name='fail' />
-      <span>Fail</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='error' />")}>
-      <Icons {...args} name='error' />
-      <span>Error</span>
-     </CopyIconBox>
-     {/* Menu Icons */}
-     <CopyIconBox onClick={() => handleCopy("<Icons name='dashboard' />")}>
-      <Icons {...args} name='dashboard' />
-      <span>Dashboard</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='digitalAsset' />")}>
-      <Icons {...args} name='digitalAsset' />
-      <span>Digital Asset</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='addressBook' />")}>
-      <Icons {...args} name='addressBook' />
-      <span>Address Book</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='linkedBankAccounts' />")}>
-      <Icons {...args} name='linkedBankAccounts' />
-      <span>Linked Bank Accounts</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='ach' />")}>
-      <Icons {...args} name='ach' />
-      <span>ACH</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='wire' />")}>
-      <Icons {...args} name='wire' />
-      <span>Wire</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='account' />")}>
-      <Icons {...args} name='account' />
-      <span>Account</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='profile' />")}>
-      <Icons {...args} name='profile' />
-      <span>Profile</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='security' />")}>
-      <Icons {...args} name='security' />
-      <span>Security</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='logout' />")}>
-      <Icons {...args} name='logout' />
-      <span>Logout</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='portfolio' />")}>
-      <Icons {...args} name='portfolio' />
-      <span>Portfolio</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='home' />")}>
-      <Icons {...args} name='home' />
-      <span>Home</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='convert' />")}>
-      <Icons {...args} name='convert' />
-      <span>Convert</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='withdraw' />")}>
-      <Icons {...args} name='withdraw' />
-      <span>Withdraw</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='send' />")}>
-      <Icons {...args} name='send' />
-      <span>Send</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='menuDeposit' />")}>
-      <Icons {...args} name='menuDeposit' />
-      <span>Menu Deposit</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='company' />")}>
-      <Icons {...args} name='company' />
-      <span>Company</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='parties' />")}>
-      <Icons {...args} name='parties' />
-      <span>Parties</span>
-     </CopyIconBox>
-     <CopyIconBox onClick={() => handleCopy("<Icons name='transactions' />")}>
-      <Icons {...args} name='transactions' />
-      <span>Transactions</span>
-     </CopyIconBox>
-     {/* Functional Icons */}
-     <CopyIconBox onClick={() => handleCopy("<Icons name='arrowUp' />")}>
+    return <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))' }}>
+      <Toast ref={toast} />
+      {/* Primary Icons */}
+      <CopyIconBox onClick={() => handleCopy("<Icons name='deposit' />")}>
+        <Icons {...args} name='deposit' />
+        <span>Deposit</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='withdrawal' />")}>
+        <Icons {...args} name='withdrawal' />
+        <span>Withdrawal</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='conversion' />")}>
+        <Icons {...args} name='conversion' />
+        <span>Conversion</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='mintToken' />")}>
+        <Icons {...args} name='mintToken' />
+        <span>MintToken</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='burnToken' />")}>
+        <Icons {...args} name='burnToken' />
+        <span>BurnToken</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='accountLocked' />")}>
+        <Icons {...args} name='accountLocked' />
+        <span>Account Locked</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='pending' />")}>
+        <Icons {...args} name='pending' />
+        <span>Pending</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='success' />")}>
+        <Icons {...args} name='success' />
+        <span>Success</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='fail' />")}>
+        <Icons {...args} name='fail' />
+        <span>Fail</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='error' />")}>
+        <Icons {...args} name='error' />
+        <span>Error</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='statusSuccess' />")}>
+        <Icons {...args} name='statusSuccess' />
+        <span>Status Success</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='statusFail' />")}>
+        <Icons {...args} name='statusFail' />
+        <span>Status Fail</span>
+      </CopyIconBox>
+      {/* Menu Icons */}
+      <CopyIconBox onClick={() => handleCopy("<Icons name='dashboard' />")}>
+        <Icons {...args} name='dashboard' />
+        <span>Dashboard</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='digitalAsset' />")}>
+        <Icons {...args} name='digitalAsset' />
+        <span>Digital Asset</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='addressBook' />")}>
+        <Icons {...args} name='addressBook' />
+        <span>Address Book</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='linkedBankAccounts' />")}>
+        <Icons {...args} name='linkedBankAccounts' />
+        <span>Linked Bank Accounts</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='ach' />")}>
+        <Icons {...args} name='ach' />
+        <span>ACH</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='wire' />")}>
+        <Icons {...args} name='wire' />
+        <span>Wire</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='account' />")}>
+        <Icons {...args} name='account' />
+        <span>Account</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='profile' />")}>
+        <Icons {...args} name='profile' />
+        <span>Profile</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='security' />")}>
+        <Icons {...args} name='security' />
+        <span>Security</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='logout' />")}>
+        <Icons {...args} name='logout' />
+        <span>Logout</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='portfolio' />")}>
+        <Icons {...args} name='portfolio' />
+        <span>Portfolio</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='home' />")}>
+        <Icons {...args} name='home' />
+        <span>Home</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='convert' />")}>
+        <Icons {...args} name='convert' />
+        <span>Convert</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='withdraw' />")}>
+        <Icons {...args} name='withdraw' />
+        <span>Withdraw</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='send' />")}>
+        <Icons {...args} name='send' />
+        <span>Send</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='menuDeposit' />")}>
+        <Icons {...args} name='menuDeposit' />
+        <span>Menu Deposit</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='company' />")}>
+        <Icons {...args} name='company' />
+        <span>Company</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='parties' />")}>
+        <Icons {...args} name='parties' />
+        <span>Parties</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='transactions' />")}>
+        <Icons {...args} name='transactions' />
+        <span>Transactions</span>
+      </CopyIconBox>
+      {/* Functional Icons */}
+      <CopyIconBox onClick={() => handleCopy("<Icons name='arrowUp' />")}>
         <Icons {...args} name='arrowUp' />
         <span>Arrow Up</span>
       </CopyIconBox>
@@ -213,7 +221,7 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='arrowDown' />
         <span>Arrow Down</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='arrowLeft' />" )}>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='arrowLeft' />")}>
         <Icons {...args} name='arrowLeft' />
         <span>Arrow Left</span>
       </CopyIconBox>
@@ -265,8 +273,8 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='remove' />
         <span>Remove</span>
       </CopyIconBox>
-    {/* System Icons */}
-    <CopyIconBox onClick={() => handleCopy("<Icons name='info' />")}>
+      {/* System Icons */}
+      <CopyIconBox onClick={() => handleCopy("<Icons name='info' />")}>
         <Icons {...args} name='info' />
         <span>Info</span>
       </CopyIconBox>
@@ -338,11 +346,11 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='card' />
         <span>Card</span>
       </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='coin' />")}>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='coin' />")}>
         <Icons {...args} name='coin' />
         <span>Coin</span>
       </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='wallet' />")}>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='wallet' />")}>
         <Icons {...args} name='wallet' />
         <span>Wallet</span>
       </CopyIconBox>
@@ -389,7 +397,7 @@ export const PrimaryIcons: Story = {
       <CopyIconBox onClick={() => handleCopy("<Icons name='earn' />")}>
         <Icons {...args} name='earn' />
         <span>Earn</span>
-        </CopyIconBox>
+      </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='scan' />")}>
         <Icons {...args} name='scan' />
         <span>Scan</span>
@@ -484,19 +492,20 @@ export const Logo: Story = {
     };
 
 
-    return <div style={{ display: 'grid', flexDirection: 'row', gap: 24, flexWrap: 'wrap',     gridTemplateColumns: 'repeat(auto-fill, minmax(222px, 1fr))'
+    return <div style={{
+      display: 'grid', flexDirection: 'row', gap: 24, flexWrap: 'wrap', gridTemplateColumns: 'repeat(auto-fill, minmax(222px, 1fr))'
     }}>
       <Toast ref={toast} />
       <CopyIconBox onClick={() => handleCopy("<Icons name='logo' />")}>
-        <Icons {...args} name='logo'  />
+        <Icons {...args} name='logo' />
         <span>logo</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoWord' />")}>
-        <Icons {...args} name='logoWord' width={150} height={30}/>
+        <Icons {...args} name='logoWord' width={150} height={30} />
         <span>logoWord</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoNetwork' />")}>
-        <Icons {...args} name='logoNetwork' width={150} height={30} color='#073387'/>
+        <Icons {...args} name='logoNetwork' width={150} height={30} color='#073387' />
         <span>logoNetwork</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' />")}>
@@ -523,47 +532,46 @@ export const Illustrations: Story = {
     const toast = useRef<ToastClass>(null);
     const handleCopy = (el: string) => {
       copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
-
     };
 
-    return <div style={{ display: 'grid',  gap: 24 , gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))'}}>
+    return <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
       <Toast ref={toast} />
-    <CopyIconBox onClick={() => handleCopy("<Icons name='illusChecked' />")}>
-          <Icons {...args} name='illusChecked' />
-          <span>illusChecked</span>
-          </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusEmailError' />")}>
-          <Icons {...args} name='illusEmailError' />
-          <span>illusEmailError</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusLinkExpired' />")}>
-          <Icons {...args} name='illusLinkExpired' />
-          <span>Link Expired</span>
-          </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illus2FA' />")}>
-          <Icons {...args} name='illus2FA' />
-          <span>illus2FA</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusLocked' />")}>
-          <Icons {...args} name='illusLocked' />
-          <span>illusLocked</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusError' />")}>
-          <Icons {...args} name='illusError' />
-          <span>illusError</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusRegoinNotSupported' />")}>
-          <Icons {...args} name='illusRegoinNotSupported' />
-          <span>illusRegoinNotSupported</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusIDCard' />")}>
-          <Icons {...args} name='illusIDCard' />
-          <span>illusIDCard</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='illusVerification' />")}>
-          <Icons {...args} name='illusVerification' />
-          <span>illusVerification</span>
-        </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusChecked' />")}>
+        <Icons {...args} name='illusChecked' />
+        <span>illusChecked</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusEmailError' />")}>
+        <Icons {...args} name='illusEmailError' />
+        <span>illusEmailError</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusLinkExpired' />")}>
+        <Icons {...args} name='illusLinkExpired' />
+        <span>Link Expired</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illus2FA' />")}>
+        <Icons {...args} name='illus2FA' />
+        <span>illus2FA</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusLocked' />")}>
+        <Icons {...args} name='illusLocked' />
+        <span>illusLocked</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusError' />")}>
+        <Icons {...args} name='illusError' />
+        <span>illusError</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusRegoinNotSupported' />")}>
+        <Icons {...args} name='illusRegoinNotSupported' />
+        <span>illusRegoinNotSupported</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusIDCard' />")}>
+        <Icons {...args} name='illusIDCard' />
+        <span>illusIDCard</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusVerification' />")}>
+        <Icons {...args} name='illusVerification' />
+        <span>illusVerification</span>
+      </CopyIconBox>
     </div>;
   }
 };
@@ -580,73 +588,73 @@ export const OldIcons: Story = {
       copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
 
     };
-    return <div style={{ display: 'grid',  gap: 24 , gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))'}}>
+    return <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
       <Toast ref={toast} />
       <CopyIconBox onClick={() => handleCopy("<Icons name='burger' />")}>
-          <Icons {...args} name='burger' />
-          <span>burger</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='return' />")}>
-          <Icons {...args} name='return' />
-          <span>return</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='close' />")}>
-          <Icons {...args} name='close' />
-          <span>close</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='arrow' />")}>
-          <Icons {...args} name='arrow' />
-          <span>arrow</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='circle' />")}>
-          <Icons {...args} name='circle' />
-          <span>circle</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='times' />")}>
-          <Icons {...args} name='times' />
-          <span>times</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='doubleCheck' />")}>
-          <Icons {...args} name='doubleCheck' />
-          <span>doubleCheck</span>
-        </CopyIconBox>
+        <Icons {...args} name='burger' />
+        <span>burger</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='return' />")}>
+        <Icons {...args} name='return' />
+        <span>return</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='close' />")}>
+        <Icons {...args} name='close' />
+        <span>close</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='arrow' />")}>
+        <Icons {...args} name='arrow' />
+        <span>arrow</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='circle' />")}>
+        <Icons {...args} name='circle' />
+        <span>circle</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='times' />")}>
+        <Icons {...args} name='times' />
+        <span>times</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='doubleCheck' />")}>
+        <Icons {...args} name='doubleCheck' />
+        <span>doubleCheck</span>
+      </CopyIconBox>
 
-        <CopyIconBox onClick={() => handleCopy("<Icons name='checkCircle' />")}>
-          <Icons {...args} name='checkCircle' />
-          <span>checkCircle</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='timesCircle' />")}>
-          <Icons {...args} name='timesCircle' />
-          <span>timesCircle</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='content' />")}>
-          <Icons {...args} name='content' />
-          <span>Content</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='locked' />")}>
-          <Icons {...args} name='locked' />
-          <span>locked</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='exclamation' />")}>
-          <Icons {...args} name='exclamation' />
-          <span>exclamation</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='arrowLink' />")}>
-          <Icons {...args} name='arrowLink' />
-          <span>arrowLink</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='union' />")}>
-          <Icons {...args} name='union' />
-          <span>union</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='eyeClose' />")}>
-          <Icons {...args} name='eyeClose' />
-          <span>eyeClose</span>
-        </CopyIconBox>
-        <CopyIconBox onClick={() => handleCopy("<Icons name='eyeOn' />")}>
-          <Icons {...args} name='eyeOn' />
-          <span>eyeOn</span>
-        </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='checkCircle' />")}>
+        <Icons {...args} name='checkCircle' />
+        <span>checkCircle</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='timesCircle' />")}>
+        <Icons {...args} name='timesCircle' />
+        <span>timesCircle</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='content' />")}>
+        <Icons {...args} name='content' />
+        <span>Content</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='locked' />")}>
+        <Icons {...args} name='locked' />
+        <span>locked</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='exclamation' />")}>
+        <Icons {...args} name='exclamation' />
+        <span>exclamation</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='arrowLink' />")}>
+        <Icons {...args} name='arrowLink' />
+        <span>arrowLink</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='union' />")}>
+        <Icons {...args} name='union' />
+        <span>union</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='eyeClose' />")}>
+        <Icons {...args} name='eyeClose' />
+        <span>eyeClose</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='eyeOn' />")}>
+        <Icons {...args} name='eyeOn' />
+        <span>eyeOn</span>
+      </CopyIconBox>
     </div>;
   }
 };

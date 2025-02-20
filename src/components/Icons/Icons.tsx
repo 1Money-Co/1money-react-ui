@@ -46,6 +46,9 @@ import {
   SuccessIcon,
   FailIcon,
   ErrorIcon,
+  /* Status Icons */
+  StatusSuccessIcon,
+  StatusFailIcon,
   /* Menu Icons */
   DashboardIcon,
   DigitalAssetIcon,
@@ -148,11 +151,13 @@ const IconList = {
   illusRegoinNotSupported:IllusRegoinNotSupported,
   illusIDCard:IllusIDCard,
   illusVerification:IllusVerification,
+
   /* Logo */
   logo: Logo,
   logoWord: LogoWord,
   logoNetwork: LogoNetwork,
   logoWithWords: LogoWithWords,
+
   /* Old Icons */
   burger: BurgerIcon,
   return: ReturnIcon,
@@ -170,6 +175,7 @@ const IconList = {
   union: UnionIcon,
   eyeClose: EyeCloseIcon,
   eyeOn: EyeOnIcon,
+
   /* Primary Icons */
   deposit: DepositIcon,
   withdrawal: WithdrawalIcon,
@@ -181,6 +187,11 @@ const IconList = {
   success: SuccessIcon,
   fail: FailIcon,
   error: ErrorIcon,
+
+  /* Status Icons */
+  statusSuccess: StatusSuccessIcon,
+  statusFail: StatusFailIcon,
+
   /* Menu Icons */
   dashboard: DashboardIcon,
   digitalAsset: DigitalAssetIcon,
@@ -201,6 +212,7 @@ const IconList = {
   company: CompanyIcon,
   parties: PartiesIcon,
   transactions: TransactionsIcon,
+
   /* Functional Icons */
   arrowUp: ArrowUpIcon,
   arrowDown: ArrowDownIcon,

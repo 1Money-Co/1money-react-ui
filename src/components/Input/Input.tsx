@@ -72,8 +72,8 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       case 'password':
         return (_props: Omit<InputPwdProps, 'size' | 'prefix' | 'suffix'>) => <Password
           feedback={false}
-          showIcon={({ iconProps }) => <Icons name='eyeOn' onClick={iconProps.onClick} size={20} color='#131313' />}
-          hideIcon={({ iconProps }) => <Icons name='eyeClose' onClick={iconProps.onClick} size={20} color='#131313' />}
+          showIcon={({ iconProps }) => <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
+          hideIcon={({ iconProps }) => <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
           {..._props}
         />;
       case 'autocomplete':

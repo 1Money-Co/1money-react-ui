@@ -109,6 +109,11 @@ $cls: #{$prefix}-#{$component};
         box-shadow: none;
       }
 
+      &.p-filled:not([value='']) {
+        border-color: $color-primary;
+        border-width: 2px;
+      }
+
       &:hover {
         border-color: $color-primary-black;
       }
@@ -116,8 +121,8 @@ $cls: #{$prefix}-#{$component};
   }
 
   // focus
-  .p-inputtext:enabled:focus:not(.p-invalid, .om-react-ui-input-success),
-  &.p-inputtext:enabled:focus:not(.p-invalid, .om-react-ui-input-success) {
+  .p-inputtext:enabled:focus:not(.p-invalid, .#{$cls}-success),
+  &.p-inputtext:enabled:focus:not(.p-invalid, .#{$cls}-success) {
     border-color: $color-primary;
     border-width: 2px;
     box-shadow: none;
@@ -226,6 +231,7 @@ $cls: #{$prefix}-#{$component};
     }
   }
 
+  // addons
   &-addons {
     padding: 10px;
     color: #808080;
@@ -241,6 +247,7 @@ $cls: #{$prefix}-#{$component};
     border-bottom-left-radius: 6px;
   }
 
+  // label
   &-label {
     display: inline-block;
     margin-bottom: 8px;
@@ -263,6 +270,7 @@ $cls: #{$prefix}-#{$component};
     }
   }
 
+  // message
   &-message {
     display: inline-block;
     margin-top: 4px;

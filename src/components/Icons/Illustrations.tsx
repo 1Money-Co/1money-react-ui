@@ -7,8 +7,7 @@ export interface IllustrationsCustomProps {
   borderColor?: string;
 }
 
-
-export const IllusChecked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', ...rest }) => <IconWrapper  viewBox="0 0 54 62" {...rest}>
+export const IllusChecked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', ...rest }) => <IconWrapper viewBox="0 0 54 62" {...rest}>
   <path fillRule="evenodd" clipRule="evenodd" d="M17 60H16.5V62H17H21H25H29H33H37H37.5V60H37H33H29H25H21H17Z" fill={borderColor} />
   <circle cx="27" cy="27" r="27" fill="white" />
   <circle cx="27" cy="27" r="26" stroke={borderColor} strokeWidth="2" fill="transparent" />
@@ -24,50 +23,50 @@ export const IllusChecked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ 
 </IconWrapper>;
 
 export const IllusEmailError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 62 58" fill='none' {...rest}>
-  <path fillRule="evenodd" clipRule="evenodd" d="M38 56H34V58H38V56ZM46 56H42V58H46V56Z" fill={borderColor}/>
-  <path d="M10 0L62 0V11L36 27L10 11V0Z" fill="url(#paint0_linear_85_13620)"/>
-  <path fillRule="evenodd" clipRule="evenodd" d="M10 4C10 1.79086 11.7909 0 14 0H58C60.2091 0 62 1.79086 62 4V42C62 44.2091 60.2091 46 58 46H14C11.7909 46 10 44.2091 10 42V4ZM12 10.9181L36 26.6104L60 10.9181V2H12V10.9181ZM60 13.3077L38.189 27.5687C36.8592 28.4382 35.1408 28.4382 33.811 27.5687L12 13.3077V44H60V13.3077Z" fill={borderColor}/>
-  <circle cx="13" cy="40" r="13" fill={color}/>
-  <circle cx="13" cy="40" r="12" stroke={borderColor} strokeWidth="2"/>
-  <path fillRule="evenodd" clipRule="evenodd" d="M11.5842 39.9986L7.34164 44.2411L8.75585 45.6553L12.9984 41.4128L17.2425 45.6569L18.6568 44.2427L14.4126 39.9986L18.6553 35.7558L17.2411 34.3416L12.9984 38.5844L8.75726 34.3432L7.34305 35.7574L11.5842 39.9986Z" fill="white"/>
-  <rect x="27" y="56" width="21" height="2" fill={borderColor}/>
+  <path fillRule="evenodd" clipRule="evenodd" d="M38 56H34V58H38V56ZM46 56H42V58H46V56Z" fill={borderColor} />
+  <path d="M10 0L62 0V11L36 27L10 11V0Z" fill="url(#paint0_linear_85_13620)" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M10 4C10 1.79086 11.7909 0 14 0H58C60.2091 0 62 1.79086 62 4V42C62 44.2091 60.2091 46 58 46H14C11.7909 46 10 44.2091 10 42V4ZM12 10.9181L36 26.6104L60 10.9181V2H12V10.9181ZM60 13.3077L38.189 27.5687C36.8592 28.4382 35.1408 28.4382 33.811 27.5687L12 13.3077V44H60V13.3077Z" fill={borderColor} />
+  <circle cx="13" cy="40" r="13" fill={color} />
+  <circle cx="13" cy="40" r="12" stroke={borderColor} strokeWidth="2" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M11.5842 39.9986L7.34164 44.2411L8.75585 45.6553L12.9984 41.4128L17.2425 45.6569L18.6568 44.2427L14.4126 39.9986L18.6553 35.7558L17.2411 34.3416L12.9984 38.5844L8.75726 34.3432L7.34305 35.7574L11.5842 39.9986Z" fill="white" />
+  <rect x="27" y="56" width="21" height="2" fill={borderColor} />
   <defs>
     <linearGradient id="paint0_linear_85_13620" x1="36" y1="0" x2="36" y2="27" gradientUnits="userSpaceOnUse">
-      <stop stopColor="#B9CCE4"/>
-      <stop offset="1" stopColor="white"/>
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
     </linearGradient>
   </defs>
 </IconWrapper>;
 
 export const IllusLinkExpired: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill="none" {...rest}>
-<circle cx="36.9996" cy="36.9979" r="29.5909" fill="white"/>
-<circle cx="37" cy="37" r="30" stroke={borderColor} strokeWidth="2"/>
-<circle cx="37" cy="37" r="24" fill="url(#paint0_linear_85_13740)"/>
-<circle cx="37" cy="37" r="23.5" stroke={borderColor}/>
-<path fillRule="evenodd" clipRule="evenodd" d="M47.0743 26.8327C44.5082 24.3902 40.3476 24.3902 37.7815 26.8327L34.4629 29.9915C31.3969 32.9098 31.3969 37.6414 34.4629 40.5597L35.9115 39.1808C33.6456 37.024 33.6456 33.5272 35.9115 31.3704L39.2302 28.2116C40.9962 26.5307 43.8596 26.5307 45.6256 28.2116C47.3917 29.8926 47.3917 32.618 45.6256 34.299L43.5137 36.3091L44.9624 37.688L47.0743 35.6779C49.6404 33.2354 49.6404 29.2753 47.0743 26.8327ZM26.9241 47.1673C29.4902 49.6098 33.6507 49.6098 36.2169 47.1673L39.5355 44.0085C42.6015 41.0902 42.6015 36.3587 39.5355 33.4403L38.0868 34.8192C40.3527 36.976 40.3528 40.4728 38.0868 42.6296L34.7682 45.7884C33.0021 47.4693 30.1388 47.4693 28.3728 45.7884C26.6067 44.1074 26.6067 41.382 28.3728 39.701L30.4846 37.6909L29.036 36.312L26.9241 38.3221C24.358 40.7646 24.358 44.7247 26.9241 47.1673Z" fill={borderColor}/>
-<circle cx="15" cy="58" r="13" fill={color}/>
-<circle cx="15" cy="58" r="12" stroke={borderColor} strokeWidth="2"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M13.5842 57.9986L9.34164 62.2411L10.7559 63.6553L14.9984 59.4128L19.2425 63.6569L20.6568 62.2427L16.4126 57.9986L20.6553 53.7558L19.2411 52.3416L14.9984 56.5844L10.7573 52.3432L9.34305 53.7574L13.5842 57.9986Z" fill="white"/>
-<defs>
-<linearGradient id="paint0_linear_85_13740" x1="37" y1="13" x2="37" y2="61" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-</defs>
+  <circle cx="36.9996" cy="36.9979" r="29.5909" fill="white" />
+  <circle cx="37" cy="37" r="30" stroke={borderColor} strokeWidth="2" />
+  <circle cx="37" cy="37" r="24" fill="url(#paint0_linear_85_13740)" />
+  <circle cx="37" cy="37" r="23.5" stroke={borderColor} />
+  <path fillRule="evenodd" clipRule="evenodd" d="M47.0743 26.8327C44.5082 24.3902 40.3476 24.3902 37.7815 26.8327L34.4629 29.9915C31.3969 32.9098 31.3969 37.6414 34.4629 40.5597L35.9115 39.1808C33.6456 37.024 33.6456 33.5272 35.9115 31.3704L39.2302 28.2116C40.9962 26.5307 43.8596 26.5307 45.6256 28.2116C47.3917 29.8926 47.3917 32.618 45.6256 34.299L43.5137 36.3091L44.9624 37.688L47.0743 35.6779C49.6404 33.2354 49.6404 29.2753 47.0743 26.8327ZM26.9241 47.1673C29.4902 49.6098 33.6507 49.6098 36.2169 47.1673L39.5355 44.0085C42.6015 41.0902 42.6015 36.3587 39.5355 33.4403L38.0868 34.8192C40.3527 36.976 40.3528 40.4728 38.0868 42.6296L34.7682 45.7884C33.0021 47.4693 30.1388 47.4693 28.3728 45.7884C26.6067 44.1074 26.6067 41.382 28.3728 39.701L30.4846 37.6909L29.036 36.312L26.9241 38.3221C24.358 40.7646 24.358 44.7247 26.9241 47.1673Z" fill={borderColor} />
+  <circle cx="15" cy="58" r="13" fill={color} />
+  <circle cx="15" cy="58" r="12" stroke={borderColor} strokeWidth="2" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M13.5842 57.9986L9.34164 62.2411L10.7559 63.6553L14.9984 59.4128L19.2425 63.6569L20.6568 62.2427L16.4126 57.9986L20.6553 53.7558L19.2411 52.3416L14.9984 56.5844L10.7573 52.3432L9.34305 53.7574L13.5842 57.9986Z" fill="white" />
+  <defs>
+    <linearGradient id="paint0_linear_85_13740" x1="37" y1="13" x2="37" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+  </defs>
 </IconWrapper>;
 
 export const Illus2FA: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
-<path d="M47.7071 26.1213L46.2929 24.7071L32 39L24.7071 31.7071L23.2929 33.1213L32 41.8284L47.7071 26.1213Z" fill={borderColor}/>
-<path fillRule="evenodd" clipRule="evenodd" d="M31.675 67.3393C33.0658 68.3327 34.9342 68.3327 36.325 67.3393L43.6217 62.1273C53.0704 55.3783 59.1201 44.8564 60.1991 33.2952L61.7016 17.1972C61.8759 15.3294 60.7288 13.5914 58.9429 13.0174L35.224 5.39344C34.4281 5.13759 33.5719 5.13759 32.776 5.39344L9.05706 13.0174C7.27115 13.5914 6.12408 15.3294 6.29841 17.1972L7.80088 33.2952C8.87994 44.8564 14.9296 55.3783 24.3783 62.1273L31.675 67.3393ZM59.8595 15.4127L34 7.10078L8.14055 15.4127L9.79223 33.1093C10.8173 44.0925 16.5645 54.0883 25.5407 60.4999L34 66.5422L42.4593 60.4999C51.4355 54.0883 57.1827 44.0925 58.2078 33.1093L59.8595 15.4127Z" fill={borderColor}/>
-<circle cx="53" cy="54" r="15" fill="url(#paint0_linear_85_13765)"/>
-<circle cx="53" cy="54" r="14" stroke={borderColor} strokeWidth="2"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M50.5 49.5C50.5 48.1193 51.6193 47 53 47C54.3807 47 55.5 48.1193 55.5 49.5V51H50.5V49.5ZM48.5 51V49.5C48.5 47.0147 50.5147 45 53 45C55.4853 45 57.5 47.0147 57.5 49.5V51H59H60V52V60V61H59H47H46V60V52V51H47H48.5ZM48 59V53H58V59H48Z" fill={borderColor}/>
-<defs>
-<linearGradient id="paint0_linear_85_13765" x1="53" y1="39" x2="53" y2="69" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-</defs>
+  <path d="M47.7071 26.1213L46.2929 24.7071L32 39L24.7071 31.7071L23.2929 33.1213L32 41.8284L47.7071 26.1213Z" fill={borderColor} />
+  <path fillRule="evenodd" clipRule="evenodd" d="M31.675 67.3393C33.0658 68.3327 34.9342 68.3327 36.325 67.3393L43.6217 62.1273C53.0704 55.3783 59.1201 44.8564 60.1991 33.2952L61.7016 17.1972C61.8759 15.3294 60.7288 13.5914 58.9429 13.0174L35.224 5.39344C34.4281 5.13759 33.5719 5.13759 32.776 5.39344L9.05706 13.0174C7.27115 13.5914 6.12408 15.3294 6.29841 17.1972L7.80088 33.2952C8.87994 44.8564 14.9296 55.3783 24.3783 62.1273L31.675 67.3393ZM59.8595 15.4127L34 7.10078L8.14055 15.4127L9.79223 33.1093C10.8173 44.0925 16.5645 54.0883 25.5407 60.4999L34 66.5422L42.4593 60.4999C51.4355 54.0883 57.1827 44.0925 58.2078 33.1093L59.8595 15.4127Z" fill={borderColor} />
+  <circle cx="53" cy="54" r="15" fill="url(#paint0_linear_85_13765)" />
+  <circle cx="53" cy="54" r="14" stroke={borderColor} strokeWidth="2" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M50.5 49.5C50.5 48.1193 51.6193 47 53 47C54.3807 47 55.5 48.1193 55.5 49.5V51H50.5V49.5ZM48.5 51V49.5C48.5 47.0147 50.5147 45 53 45C55.4853 45 57.5 47.0147 57.5 49.5V51H59H60V52V60V61H59H47H46V60V52V51H47H48.5ZM48 59V53H58V59H48Z" fill={borderColor} />
+  <defs>
+    <linearGradient id="paint0_linear_85_13765" x1="53" y1="39" x2="53" y2="69" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+  </defs>
 </IconWrapper>;
 
 
@@ -88,91 +87,91 @@ export const IllusLocked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ b
   </defs>
 </IconWrapper>;
 
-export const IllusError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color='#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const IllusError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
   <path d="M12 55C12 53.8954 12.8954 53 14 53H60C61.1046 53 62 53.8954 62 55V63C62 64.1046 61.1046 65 60 65H14C12.8954 65 12 64.1046 12 63V55Z" fill={color} />
   <path d="M36 37V22H38V37H36Z" fill={borderColor} />
   <path d="M37 40C35.8954 40 35 40.8954 35 42C35 43.1046 35.8954 44 37 44C38.1046 44 39 43.1046 39 42C39 40.8954 38.1046 40 37 40Z" fill={borderColor} />
   <path fillRule="evenodd" clipRule="evenodd" d="M16.2308 53L7.84256 41.3164C6.76234 39.8118 6.85635 37.7624 8.06979 36.3631L33.9779 6.48512C35.5729 4.64582 38.4271 4.64582 40.0221 6.48512L65.9302 36.3631C67.1436 37.7624 67.2377 39.8118 66.1574 41.3164L57.7692 53H58C60.2091 53 62 54.7909 62 57V61C62 63.2091 60.2091 65 58 65H16C13.7909 65 12 63.2091 12 61V57C12 54.7909 13.7909 53 16 53H16.2308ZM37 6.05282L65.4541 38.8668L55.3072 53H18.6928L8.54593 38.8668L37 6.05282ZM60 55V63H14V55H60Z" fill={borderColor} />
 </IconWrapper>;
 
-export const IllusRegoinNotSupported: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color='#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
-<rect width="74" height="74" fill="white"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M20.8809 38.6129L14.5057 60.129H67.4943L61.1191 38.6129H20.8809ZM63.3099 39.4208C62.8391 37.8319 61.3793 36.7419 59.7221 36.7419H22.2779C20.6207 36.7419 19.1609 37.8319 18.6901 39.4208L13.4237 57.195C12.7131 59.5932 14.5102 62 17.0115 62H64.9885C67.4898 62 69.2869 59.5932 68.5763 57.195L63.3099 39.4208Z" fill={borderColor}/>
-<path d="M28.7911 9.05709C35.5338 2.31432 46.466 2.31432 53.2088 9.05709C59.4298 15.2781 59.9783 25.1819 54.4824 32.0519L40.9999 48.9049L27.5175 32.0519C22.0215 25.1819 22.5701 15.2781 28.7911 9.05709Z" fill="url(#paint0_linear_659_26755)"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M41.0004 45.9099L53.0219 30.8831C57.9223 24.7576 57.4332 15.9269 51.8863 10.38C45.8742 4.36794 36.1266 4.36794 30.1145 10.38C24.5676 15.9269 24.0786 24.7576 28.979 30.8831L41.0004 45.9099ZM42.1984 47.4074L54.4828 32.0519C59.9788 25.1819 59.4303 15.2781 53.2093 9.05707C46.4665 2.31431 35.5343 2.31431 28.7916 9.05707C22.5706 15.2781 22.022 25.1819 27.518 32.0519L39.8024 47.4074L41.0004 48.9049L42.1984 47.4074Z" fill={borderColor}/>
-<circle cx="41" cy="21.7742" r="7.48387" fill="white"/>
-<circle cx="41" cy="21.7742" r="6.54839" stroke={borderColor} strokeWidth="1.87097"/>
-<rect x="19.4839" y="55.4516" width="5.6129" height="1.87097" fill={borderColor}/>
-<rect x="28.8389" y="55.4516" width="5.6129" height="1.87097" fill={borderColor}/>
-<rect x="38.1934" y="55.4516" width="5.6129" height="1.87097" fill={borderColor}/>
-<rect x="47.5483" y="55.4516" width="5.6129" height="1.87097" fill={borderColor}/>
-<rect x="56.9033" y="55.4516" width="5.6129" height="1.87097" fill={borderColor}/>
-<circle cx="16" cy="57" r="13" fill={color} />
-<circle cx="16" cy="57" r="12" stroke={borderColor} strokeWidth="2"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M14.5842 56.9986L10.3416 61.2411L11.7559 62.6553L15.9984 58.4128L20.2425 62.6569L21.6568 61.2427L17.4126 56.9986L21.6553 52.7558L20.2411 51.3416L15.9984 55.5844L11.7573 51.3432L10.343 52.7574L14.5842 56.9986Z" fill="white"/>
-<defs>
-<linearGradient id="paint0_linear_659_26755" x1="40.9999" y1="4.00002" x2="40.9999" y2="48.9049" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-</defs>
+export const IllusRegoinNotSupported: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+  <rect width="74" height="74" fill="white" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M20.8809 38.6129L14.5057 60.129H67.4943L61.1191 38.6129H20.8809ZM63.3099 39.4208C62.8391 37.8319 61.3793 36.7419 59.7221 36.7419H22.2779C20.6207 36.7419 19.1609 37.8319 18.6901 39.4208L13.4237 57.195C12.7131 59.5932 14.5102 62 17.0115 62H64.9885C67.4898 62 69.2869 59.5932 68.5763 57.195L63.3099 39.4208Z" fill={borderColor} />
+  <path d="M28.7911 9.05709C35.5338 2.31432 46.466 2.31432 53.2088 9.05709C59.4298 15.2781 59.9783 25.1819 54.4824 32.0519L40.9999 48.9049L27.5175 32.0519C22.0215 25.1819 22.5701 15.2781 28.7911 9.05709Z" fill="url(#paint0_linear_659_26755)" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M41.0004 45.9099L53.0219 30.8831C57.9223 24.7576 57.4332 15.9269 51.8863 10.38C45.8742 4.36794 36.1266 4.36794 30.1145 10.38C24.5676 15.9269 24.0786 24.7576 28.979 30.8831L41.0004 45.9099ZM42.1984 47.4074L54.4828 32.0519C59.9788 25.1819 59.4303 15.2781 53.2093 9.05707C46.4665 2.31431 35.5343 2.31431 28.7916 9.05707C22.5706 15.2781 22.022 25.1819 27.518 32.0519L39.8024 47.4074L41.0004 48.9049L42.1984 47.4074Z" fill={borderColor} />
+  <circle cx="41" cy="21.7742" r="7.48387" fill="white" />
+  <circle cx="41" cy="21.7742" r="6.54839" stroke={borderColor} strokeWidth="1.87097" />
+  <rect x="19.4839" y="55.4516" width="5.6129" height="1.87097" fill={borderColor} />
+  <rect x="28.8389" y="55.4516" width="5.6129" height="1.87097" fill={borderColor} />
+  <rect x="38.1934" y="55.4516" width="5.6129" height="1.87097" fill={borderColor} />
+  <rect x="47.5483" y="55.4516" width="5.6129" height="1.87097" fill={borderColor} />
+  <rect x="56.9033" y="55.4516" width="5.6129" height="1.87097" fill={borderColor} />
+  <circle cx="16" cy="57" r="13" fill={color} />
+  <circle cx="16" cy="57" r="12" stroke={borderColor} strokeWidth="2" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M14.5842 56.9986L10.3416 61.2411L11.7559 62.6553L15.9984 58.4128L20.2425 62.6569L21.6568 61.2427L17.4126 56.9986L21.6553 52.7558L20.2411 51.3416L15.9984 55.5844L11.7573 51.3432L10.343 52.7574L14.5842 56.9986Z" fill="white" />
+  <defs>
+    <linearGradient id="paint0_linear_659_26755" x1="40.9999" y1="4.00002" x2="40.9999" y2="48.9049" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+  </defs>
 </IconWrapper>;
 
 export const IllusIDCard: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
-<path d="M11 50H63V59H11V50Z" fill="url(#paint0_linear_659_22574)"/>
-<rect x="15" y="34" width="18" height="8" fill="url(#paint1_linear_659_22574)"/>
-<circle cx="24" cy="24" r="5" fill="url(#paint2_linear_659_22574)"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M18 32C15.7909 32 14 33.7909 14 36V43H34V36C34 33.7909 32.2091 32 30 32H18ZM32 41V34H16V41H32Z" fill={borderColor}/>
-<path fillRule="evenodd" clipRule="evenodd" d="M30 24C30 27.3137 27.3137 30 24 30C20.6863 30 18 27.3137 18 24C18 20.6863 20.6863 18 24 18C27.3137 18 30 20.6863 30 24ZM28 24C28 26.2091 26.2091 28 24 28C21.7909 28 20 26.2091 20 24C20 21.7909 21.7909 20 24 20C26.2091 20 28 21.7909 28 24Z" fill={borderColor}/>
-<path d="M59 21H42V19H59V21Z" fill={borderColor}/>
-<path d="M42 28H59V26H42V28Z" fill={borderColor}/>
-<path d="M59 35H42V33H59V35Z" fill={borderColor}/>
-<path d="M42 42H49V40H42V42Z" fill={borderColor}/>
-<path d="M59 42H52V40H59V42Z" fill={borderColor}/>
-<path fillRule="evenodd" clipRule="evenodd" d="M63 52H64C66.2091 52 68 50.2091 68 48V13C68 10.7909 66.2091 9 64 9H10C7.79086 9 6 10.7909 6 13V48C6 50.2091 7.79086 52 10 52H11V55C11 57.2091 12.7909 59 15 59H59C61.2091 59 63 57.2091 63 55V52ZM66 11H8V50H66V11ZM61 52H13V57H61V52Z" fill={borderColor}/>
-<rect x="27" y="64" width="21" height="2" fill={borderColor}/>
-<defs>
-<linearGradient id="paint0_linear_659_22574" x1="37" y1="50" x2="37" y2="59" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-<linearGradient id="paint1_linear_659_22574" x1="24" y1="34" x2="24" y2="42" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-<linearGradient id="paint2_linear_659_22574" x1="24" y1="19" x2="24" y2="29" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-</defs>
+  <path d="M11 50H63V59H11V50Z" fill="url(#paint0_linear_659_22574)" />
+  <rect x="15" y="34" width="18" height="8" fill="url(#paint1_linear_659_22574)" />
+  <circle cx="24" cy="24" r="5" fill="url(#paint2_linear_659_22574)" />
+  <path fillRule="evenodd" clipRule="evenodd" d="M18 32C15.7909 32 14 33.7909 14 36V43H34V36C34 33.7909 32.2091 32 30 32H18ZM32 41V34H16V41H32Z" fill={borderColor} />
+  <path fillRule="evenodd" clipRule="evenodd" d="M30 24C30 27.3137 27.3137 30 24 30C20.6863 30 18 27.3137 18 24C18 20.6863 20.6863 18 24 18C27.3137 18 30 20.6863 30 24ZM28 24C28 26.2091 26.2091 28 24 28C21.7909 28 20 26.2091 20 24C20 21.7909 21.7909 20 24 20C26.2091 20 28 21.7909 28 24Z" fill={borderColor} />
+  <path d="M59 21H42V19H59V21Z" fill={borderColor} />
+  <path d="M42 28H59V26H42V28Z" fill={borderColor} />
+  <path d="M59 35H42V33H59V35Z" fill={borderColor} />
+  <path d="M42 42H49V40H42V42Z" fill={borderColor} />
+  <path d="M59 42H52V40H59V42Z" fill={borderColor} />
+  <path fillRule="evenodd" clipRule="evenodd" d="M63 52H64C66.2091 52 68 50.2091 68 48V13C68 10.7909 66.2091 9 64 9H10C7.79086 9 6 10.7909 6 13V48C6 50.2091 7.79086 52 10 52H11V55C11 57.2091 12.7909 59 15 59H59C61.2091 59 63 57.2091 63 55V52ZM66 11H8V50H66V11ZM61 52H13V57H61V52Z" fill={borderColor} />
+  <rect x="27" y="64" width="21" height="2" fill={borderColor} />
+  <defs>
+    <linearGradient id="paint0_linear_659_22574" x1="37" y1="50" x2="37" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+    <linearGradient id="paint1_linear_659_22574" x1="24" y1="34" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+    <linearGradient id="paint2_linear_659_22574" x1="24" y1="19" x2="24" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+  </defs>
 </IconWrapper>;
 
 
 export const IllusVerification: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
-<path d="M10 6C7.79086 6 6 7.79086 6 10V19H8V8H19V6H10Z" fill={borderColor}/>
-<path d="M64 6C66.2091 6 68 7.79086 68 10V19H66V8H55V6H64Z" fill={borderColor}/>
-<path d="M64 68C66.2091 68 68 66.2091 68 64V55H66V66H55V68H64Z" fill={borderColor}/>
-<path d="M68 10C68 7.79086 66.2091 6 64 6L55 6L55 8L66 8L66 19L68 19L68 10Z" fill={borderColor}/>
-<path d="M68 64C68 66.2091 66.2091 68 64 68L55 68L55 66L66 66L66 55L68 55L68 64Z" fill={borderColor}/>
-<path d="M6 64C6 66.2091 7.79086 68 10 68L19 68L19 66L8 66L8 55L6 55L6 64Z" fill={borderColor}/>
-<path d="M42.4546 26.8544V12.9453L57.1819 26.8544H42.4546Z" fill="url(#paint0_linear_659_20553)"/>
-<path d="M49.8185 35.0359H29.3639V33.3995H49.8185V35.0359Z" fill={borderColor}/>
-<path d="M29.3639 39.1268H32.6367V40.7631H29.3639V39.1268Z" fill={borderColor}/>
-<path d="M35.0912 39.1268H38.3639V40.7631H35.0912V39.1268Z" fill={borderColor}/>
-<path d="M44.0912 40.7631V39.1268H40.8185V40.7631H44.0912Z" fill={borderColor}/>
-<path d="M46.5458 39.1268H49.8185V40.7631H46.5458V39.1268Z" fill={borderColor}/>
-<path fillRule="evenodd" clipRule="evenodd" d="M41.9719 12.1268C42.8075 12.1268 43.6115 12.4464 44.219 13.0202L56.9747 25.0672C57.6293 25.6855 58.0003 26.5461 58.0003 27.4466V54.6722C58.0003 56.4797 56.5351 57.945 54.7276 57.945H24.4549C22.6474 57.945 21.1821 56.4797 21.1821 54.6722V15.3995C21.1821 13.592 22.6474 12.1268 24.4549 12.1268H41.9719ZM56.3639 56.3086H22.8185V13.7631H41.6367V24.3995C41.6367 26.207 43.1019 27.6722 44.9094 27.6722H56.3639V56.3086ZM55.6171 26.0359L43.273 14.3776V26.0359H55.6171Z" fill={borderColor}/>
-<circle cx="24.4546" cy="51.4005" r="9" fill="url(#paint1_linear_659_20553)"/>
-<circle cx="24.4546" cy="51.4005" r="8.18182" stroke={borderColor} strokeWidth="1.63636"/>
-<path d="M18.7273 57.127L13 62.8542" stroke={borderColor} strokeWidth="1.63636"/>
-<defs>
-<linearGradient id="paint0_linear_659_20553" x1="49.8182" y1="12.9453" x2="49.8182" y2="26.8544" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-<linearGradient id="paint1_linear_659_20553" x1="24.4546" y1="42.4005" x2="24.4546" y2="60.4005" gradientUnits="userSpaceOnUse">
-<stop stopColor="#B9CCE4"/>
-<stop offset="1" stopColor="white"/>
-</linearGradient>
-</defs>
+  <path d="M10 6C7.79086 6 6 7.79086 6 10V19H8V8H19V6H10Z" fill={borderColor} />
+  <path d="M64 6C66.2091 6 68 7.79086 68 10V19H66V8H55V6H64Z" fill={borderColor} />
+  <path d="M64 68C66.2091 68 68 66.2091 68 64V55H66V66H55V68H64Z" fill={borderColor} />
+  <path d="M68 10C68 7.79086 66.2091 6 64 6L55 6L55 8L66 8L66 19L68 19L68 10Z" fill={borderColor} />
+  <path d="M68 64C68 66.2091 66.2091 68 64 68L55 68L55 66L66 66L66 55L68 55L68 64Z" fill={borderColor} />
+  <path d="M6 64C6 66.2091 7.79086 68 10 68L19 68L19 66L8 66L8 55L6 55L6 64Z" fill={borderColor} />
+  <path d="M42.4546 26.8544V12.9453L57.1819 26.8544H42.4546Z" fill="url(#paint0_linear_659_20553)" />
+  <path d="M49.8185 35.0359H29.3639V33.3995H49.8185V35.0359Z" fill={borderColor} />
+  <path d="M29.3639 39.1268H32.6367V40.7631H29.3639V39.1268Z" fill={borderColor} />
+  <path d="M35.0912 39.1268H38.3639V40.7631H35.0912V39.1268Z" fill={borderColor} />
+  <path d="M44.0912 40.7631V39.1268H40.8185V40.7631H44.0912Z" fill={borderColor} />
+  <path d="M46.5458 39.1268H49.8185V40.7631H46.5458V39.1268Z" fill={borderColor} />
+  <path fillRule="evenodd" clipRule="evenodd" d="M41.9719 12.1268C42.8075 12.1268 43.6115 12.4464 44.219 13.0202L56.9747 25.0672C57.6293 25.6855 58.0003 26.5461 58.0003 27.4466V54.6722C58.0003 56.4797 56.5351 57.945 54.7276 57.945H24.4549C22.6474 57.945 21.1821 56.4797 21.1821 54.6722V15.3995C21.1821 13.592 22.6474 12.1268 24.4549 12.1268H41.9719ZM56.3639 56.3086H22.8185V13.7631H41.6367V24.3995C41.6367 26.207 43.1019 27.6722 44.9094 27.6722H56.3639V56.3086ZM55.6171 26.0359L43.273 14.3776V26.0359H55.6171Z" fill={borderColor} />
+  <circle cx="24.4546" cy="51.4005" r="9" fill="url(#paint1_linear_659_20553)" />
+  <circle cx="24.4546" cy="51.4005" r="8.18182" stroke={borderColor} strokeWidth="1.63636" />
+  <path d="M18.7273 57.127L13 62.8542" stroke={borderColor} strokeWidth="1.63636" />
+  <defs>
+    <linearGradient id="paint0_linear_659_20553" x1="49.8182" y1="12.9453" x2="49.8182" y2="26.8544" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+    <linearGradient id="paint1_linear_659_20553" x1="24.4546" y1="42.4005" x2="24.4546" y2="60.4005" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#B9CCE4" />
+      <stop offset="1" stopColor="white" />
+    </linearGradient>
+  </defs>
 </IconWrapper>;

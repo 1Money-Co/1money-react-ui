@@ -3,11 +3,11 @@
 $component: 'icons';
 
 .#{$prefix}-#{$component} {
-  *[fill="none"]:not([stroke]) {
+  *[fill="none"][stroke="none"] {
     fill: currentcolor;
   }
 
-  *[stroke="none"][stroke-width] {
+  *[stroke="none"]:not([stroke-width="0"]) {
     stroke: currentcolor;
   }
 
