@@ -4,6 +4,7 @@ $component: 'typography';
 
 .#{$prefix}-#{$component} {
   &-display {
+    margin: 0;
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-aeonik), Aeonik;
@@ -29,6 +30,7 @@ $component: 'typography';
   }
 
   &-headline {
+    margin: 0;
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-aeonik), Aeonik;
@@ -52,6 +54,7 @@ $component: 'typography';
   }
 
   &-title {
+    margin: 0;
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-inter), Inter;
@@ -76,6 +79,7 @@ $component: 'typography';
   }
 
   &-body {
+    margin: 0;
     color: $color-primary-black;
     font-weight: 400;
     font-family: var(--font-inter), Inter;

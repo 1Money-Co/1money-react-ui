@@ -28,8 +28,11 @@ type DisplayStory = StoryObj<typeof Typography.Display>;
 export const Display: DisplayStory = {
   render: (props) => <>
     <Typography.Display {...props} size='xl'>{`${props.children} - extra large`}</Typography.Display>
+    <br />
     <Typography.Display {...props} size='l'>{`${props.children} - large`}</Typography.Display>
+    <br />
     <Typography.Display {...props} size='m'>{`${props.children} - medium`}</Typography.Display>
+    <br />
     <Typography.Display {...props} size='s'>{`${props.children} - small`}</Typography.Display>
   </>,
   argTypes: {
@@ -47,8 +50,11 @@ type HeadlineStory = StoryObj<typeof Typography.Headline>;
 export const Headline: HeadlineStory = {
   render: (props) => <>
     <Typography.Headline {...props} size='l'>{`${props.children} - large`}</Typography.Headline>
+    <br />
     <Typography.Headline {...props} size='m'>{`${props.children} - medium`}</Typography.Headline>
+    <br />
     <Typography.Headline {...props} size='s'>{`${props.children} - small`}</Typography.Headline>
+    <br />
     <Typography.Headline {...props} size='xs'>{`${props.children} - extra small`}</Typography.Headline>
   </>,
   argTypes: {
@@ -66,8 +72,11 @@ type TitleStory = StoryObj<typeof Typography.Title>;
 export const Title: TitleStory = {
   render: (props) => <>
     <Typography.Title {...props} size='l'>{`${props.children} - large`}</Typography.Title>
+    <br />
     <Typography.Title {...props} size='l'>{`${props.children} - large`}</Typography.Title>
+    <br />
     <Typography.Title {...props} size='m'>{`${props.children} - medium`}</Typography.Title>
+    <br />
     <Typography.Title {...props} size='s'>{`${props.children} - small`}</Typography.Title>
   </>,
   argTypes: {
@@ -87,7 +96,9 @@ type BodyStory = StoryObj<typeof Typography.Body>;
 export const Body: BodyStory = {
   render: (props) => <>
     <Typography.Body {...props} size='l'>{`${props.children} - large`}</Typography.Body>
+    <br />
     <Typography.Body {...props} size='m'>{`${props.children} - medium`}</Typography.Body>
+    <br />
     <Typography.Body {...props} size='s'>{`${props.children} - small`}</Typography.Body>
   </>,
   argTypes: {
@@ -124,7 +135,9 @@ type LabelStory = StoryObj<typeof Typography.Label>;
 
 export const Label: LabelStory = {
   render: (props) => <>
-    <Typography.Label {...props} size='l'>{`${props.children} - medium`}</Typography.Label>
+    <Typography.Label {...props} size='xl'>{`${props.children} - extra large`}</Typography.Label>
+    <br />
+    <Typography.Label {...props} size='l'>{`${props.children} - large`}</Typography.Label>
     <br />
     <Typography.Label {...props} size='m'>{`${props.children} - medium`}</Typography.Label>
     <br />
