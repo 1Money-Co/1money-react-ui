@@ -1,14 +1,12 @@
 'use client';
 import { memo, useEffect, useRef } from 'react';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 import lottiePureJson from './lottie-pure.json';
 import lottiePatternJson from './lottie-pattern.json';
 /* import types */
 import type { FC } from 'react';
+import type { AnimationItem } from 'lottie-web';
 import type { LoadingProps } from './interface';
-
-let instance: any;
 
 export const Loading: FC<LoadingProps> = props => {
   const { className, prefixCls = 'loading', type = 'pure' } = props;
@@ -18,9 +16,11 @@ export const Loading: FC<LoadingProps> = props => {
   useEffect(() => {
     if (!container.current) return;
 
-    const loadAnimation = async () => {
-      if (instance) return;
+    let instance: AnimationItem | null = null;
+    let destroyed = false;
+    (async () => {
       const lottie = (await import('lottie-web')).default;
+      if (destroyed) return;
       instance = lottie.loadAnimation({
         container: container.current!,
         renderer: 'svg',
@@ -28,10 +28,10 @@ export const Loading: FC<LoadingProps> = props => {
         autoplay: true,
         animationData: type === 'pure' ? lottiePureJson : lottiePatternJson
       });
-    };
-    loadAnimation();
+    })();
 
     return () => {
+      destroyed = true;
       if (instance) {
         instance.destroy();
         instance = null;
