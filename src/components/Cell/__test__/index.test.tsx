@@ -3,7 +3,7 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { Authenticator } from '../index';
+import { Cell } from '../index';
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
@@ -17,11 +17,11 @@ console.error = (message, ...optionalParams) => {
   originalConsoleError(message, ...optionalParams);
 };
 
-describe('Authenticator', () => {
+describe('Cell', () => {
   it('renders correctly', () => {
-    const defaultRender = render(<Authenticator />);
-    const active = render(<Authenticator active />);
-    const disabled = render(<Authenticator disabled />);
+    const defaultRender = render(<Cell />);
+    const active = render(<Cell active />);
+      const disabled = render(<Cell disabled />);
 
     expect(defaultRender).toMatchSnapshot();
     expect(active).toMatchSnapshot();

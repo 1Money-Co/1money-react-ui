@@ -1,6 +1,6 @@
 @use '../../../variable.scss' as *;
 
-.om-react-ui-authenticator {
+.om-react-ui-cell {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,5 +36,6 @@
         gap: 8px;
         align-items: center;
         justify-self: start;
+        min-height: 48px;
     }
 }

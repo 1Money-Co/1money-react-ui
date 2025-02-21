@@ -13,13 +13,14 @@ interface BaseProps {
   value?: any;
   size?: 'large' | 'small';
   success?: boolean;
+  itemTemplate?: (option: any) => ReactNode;
 }
 
-export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size'>, BaseProps {
+export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size' | 'itemTemplate'>, BaseProps {
   multiple?: false;
 }
 
-export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 'size'>, BaseProps {
+export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 'size' | 'itemTemplate'>, BaseProps {
   multiple: true;
 }
 
