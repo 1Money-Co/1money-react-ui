@@ -75,11 +75,12 @@ export const CustomItemTemplate: Story = {
     defaultValue: []
   },
   tags: ['!autodocs', 'dev'],
-  render: (props) => <div style={{ width: '360px' }}>
+  render: (props) =>  <div style={{ width: '360px' }}>
     <Select {...props} itemTemplate={(option) => <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       <span>xxx  </span>
       <span>{option.label}</span>
     </div>} />
+
   </div>,
 };
 
