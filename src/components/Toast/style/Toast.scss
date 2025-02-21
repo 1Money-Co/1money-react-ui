@@ -3,5 +3,53 @@
 $component: 'toast';
 
 .#{$prefix}-#{$component} {
-  display: block;
+  .p-toast-message {
+    background-color: $color-grey-light !important;
+    border: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 92px 55px 0 rgba(0, 0, 0, 5%), 0 10px 22px 0 rgba(0, 0, 0, 10%) !important;
+
+    &-content {
+      justify-content: space-between;
+      padding: 12px !important;
+    }
+  }
+
+  &-inner {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+
+    &-left {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border-radius: 50%;
+    }
+
+    &-right {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+
+      &-summary {
+        margin: 0;
+        color: $color-grey-night !important;
+      }
+
+      &-detail {
+        margin: 0;
+        color: $color-grey-night !important;
+      }
+    }
+  }
+
+  &-close-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
 }
