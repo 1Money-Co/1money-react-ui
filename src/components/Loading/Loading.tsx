@@ -1,11 +1,11 @@
 'use client';
 import { memo, useEffect, useRef } from 'react';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 import lottiePureJson from './lottie-pure.json';
 import lottiePatternJson from './lottie-pattern.json';
 /* import types */
 import type { FC } from 'react';
+import type { AnimationItem } from 'lottie-web';
 import type { LoadingProps } from './interface';
 
 export const Loading: FC<LoadingProps> = props => {
@@ -16,9 +16,11 @@ export const Loading: FC<LoadingProps> = props => {
   useEffect(() => {
     if (!container.current) return;
 
-    let instance: any;
-    (async function () {
+    let instance: AnimationItem | null = null;
+    let destroyed = false;
+    (async () => {
       const lottie = (await import('lottie-web')).default;
+      if (destroyed) return;
       instance = lottie.loadAnimation({
         container: container.current!,
         renderer: 'svg',
@@ -28,19 +30,16 @@ export const Loading: FC<LoadingProps> = props => {
       });
     })();
 
-    return () => instance?.destroy();
+    return () => {
+      destroyed = true;
+      if (instance) {
+        instance.destroy();
+        instance = null;
+      }
+    };
   }, []);
 
   return <div ref={container} className={classes(void 0, className)} />;
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Loading.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  type: propTypes.oneOf(['pure', 'pattern'])
 };
 
 export default memo(Loading);
