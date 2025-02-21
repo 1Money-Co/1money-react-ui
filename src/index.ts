@@ -1,3 +1,4 @@
+import { Authenticator } from './components/Authenticator';
 import { Badge } from './components/Badge';
 import { Button } from './components/Button';
 import { Calendar } from './components/Calendar';
@@ -24,6 +25,7 @@ import { Tab } from './components/Tab';
 import { Typography } from './components/Typography';
 import { Upload } from './components/Upload';
 
+export { Authenticator } from './components/Authenticator';
 export { Badge } from './components/Badge';
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
@@ -51,6 +53,7 @@ export { Typography } from './components/Typography';
 export { Upload } from './components/Upload';
 
 export default {
+  Authenticator,
   Badge,
   Button,
   Calendar,
