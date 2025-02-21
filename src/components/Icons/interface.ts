@@ -15,3 +15,17 @@ export interface IconWrapperProps {
   illustrations?: boolean;
   onClick?: (e: MouseEvent<SVGSVGElement>) => any;
 }
+
+export type IconName =
+  | 'illusChecked'
+  | 'illusEmailError'
+  | 'illusLinkExpired'
+  | 'illus2FA'
+  | 'illusLocked'
+  | 'illusError'
+  | 'illusRegoinNotSupported'
+  | 'illusIDCard'
+  | 'illusVerification'
+  | 'logo'
+  // 添加其他图标名称...
+  | 'copy';

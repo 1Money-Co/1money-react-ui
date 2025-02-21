@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Authenticator renders correctly 1`] = `
+exports[`Cell renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-authenticator   "
+        class="om-react-ui-cell   "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -50,10 +50,10 @@ exports[`Authenticator renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-authenticator om-react-ui-authenticator-active  "
+        class="om-react-ui-cell om-react-ui-cell-active  "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -94,10 +94,10 @@ exports[`Authenticator renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-authenticator  om-react-ui-authenticator-disabled "
+        class="om-react-ui-cell  om-react-ui-cell-disabled "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -139,10 +139,10 @@ exports[`Authenticator renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-authenticator   "
+      class="om-react-ui-cell   "
     >
       <div
-        class="om-react-ui-authenticator-inner"
+        class="om-react-ui-cell-inner"
       >
         <svg
           class="om-react-ui-icons"
@@ -235,16 +235,16 @@ exports[`Authenticator renders correctly 1`] = `
 }
 `;
 
-exports[`Authenticator renders correctly 2`] = `
+exports[`Cell renders correctly 2`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-authenticator   "
+        class="om-react-ui-cell   "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -285,10 +285,10 @@ exports[`Authenticator renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-authenticator om-react-ui-authenticator-active  "
+        class="om-react-ui-cell om-react-ui-cell-active  "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -329,10 +329,10 @@ exports[`Authenticator renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-authenticator  om-react-ui-authenticator-disabled "
+        class="om-react-ui-cell  om-react-ui-cell-disabled "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -374,10 +374,10 @@ exports[`Authenticator renders correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-authenticator om-react-ui-authenticator-active  "
+      class="om-react-ui-cell om-react-ui-cell-active  "
     >
       <div
-        class="om-react-ui-authenticator-inner"
+        class="om-react-ui-cell-inner"
       >
         <svg
           class="om-react-ui-icons"
@@ -470,16 +470,16 @@ exports[`Authenticator renders correctly 2`] = `
 }
 `;
 
-exports[`Authenticator renders correctly 3`] = `
+exports[`Cell renders correctly 3`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-authenticator   "
+        class="om-react-ui-cell   "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -520,10 +520,10 @@ exports[`Authenticator renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-authenticator om-react-ui-authenticator-active  "
+        class="om-react-ui-cell om-react-ui-cell-active  "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -564,10 +564,10 @@ exports[`Authenticator renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-authenticator  om-react-ui-authenticator-disabled "
+        class="om-react-ui-cell  om-react-ui-cell-disabled "
       >
         <div
-          class="om-react-ui-authenticator-inner"
+          class="om-react-ui-cell-inner"
         >
           <svg
             class="om-react-ui-icons"
@@ -609,10 +609,10 @@ exports[`Authenticator renders correctly 3`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-authenticator  om-react-ui-authenticator-disabled "
+      class="om-react-ui-cell  om-react-ui-cell-disabled "
     >
       <div
-        class="om-react-ui-authenticator-inner"
+        class="om-react-ui-cell-inner"
       >
         <svg
           class="om-react-ui-icons"
