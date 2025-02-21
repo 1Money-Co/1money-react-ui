@@ -25,6 +25,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     labelCls,
     messageCls,
     defaultValue,
+    itemTemplate,
     value,
     size = 'large',
     success,
@@ -61,13 +62,12 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             className
           ].join(' '))
         }
-        itemTemplate={option => {
-          console.info(123, option);
+        itemTemplate={itemTemplate ?? (option => {
           return <span className={classes('panel-item')}>
             {option.label}
             <i className='pi pi-check' />
           </span>;
-        }}
+        })}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);

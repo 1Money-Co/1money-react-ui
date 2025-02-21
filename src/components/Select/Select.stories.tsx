@@ -24,7 +24,7 @@ const meta: Meta<typeof Select> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Select>;
@@ -65,3 +65,22 @@ export const Multiple: Story = {
     defaultValue: []
   },
 };
+
+export const CustomItemTemplate: Story = {
+  args: {
+    placeholder: 'Select Cities',
+    options: cities,
+    display: 'chip',
+    label: 'CustomItemTemplate',
+    defaultValue: []
+  },
+  tags: ['!autodocs', 'dev'],
+  render: (props) => <div style={{ width: '360px' }}>
+    <Select {...props} itemTemplate={(option) => <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <span>xxx  </span>
+      <span>{option.label}</span>
+    </div>} />
+  </div>,
+};
+
+
