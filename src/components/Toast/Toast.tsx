@@ -40,7 +40,7 @@ export const Toast: FC<ToastProps> = props => {
       ? message
       : [message];
     for (let i = 0; i < _message.length; i++) {
-      const { severity, content, summary, detail, closeIcon } = _message[i];
+      const { severity, content, summary, detail, closeIcon, life } = _message[i];
       if (!content && (severity === 'success' || severity === 'info' || severity === 'warn' || severity === 'error')) {
         const iconData = SeverityIconMap[severity];
         _message[i].content = props => <div className={classes('inner', classes(severity))}>
@@ -55,6 +55,9 @@ export const Toast: FC<ToastProps> = props => {
       }
       if (!closeIcon) {
         _message[i].closeIcon = <i className={classes('close-icon')}><Icons name='close' color='#646465' size={16} /></i>;
+      }
+      if (!life) {
+        _message[i].life = 3000;
       }
     }
     return _message;
