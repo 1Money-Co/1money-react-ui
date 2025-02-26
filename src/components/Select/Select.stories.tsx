@@ -34,7 +34,11 @@ const cities = [
   { label: 'Rome', value: 'RM' },
   { label: 'London', value: 'LDN' },
   { label: 'Istanbul', value: 'IST' },
-  { label: 'Paris', value: 'PRS' }
+  { label: 'Paris', value: 'PRS' },
+  { label: 'Beijing', value: 'BJ' },
+  { label: 'Shanghai', value: 'SH' },
+  { label: 'Tokyo', value: 'TK' },
+  { label: 'Seoul', value: 'SE' },
 ];
 
 export const Single: Story = {
