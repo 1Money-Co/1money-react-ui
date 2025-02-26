@@ -84,7 +84,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           onShow?.();
         }}
         dropdownIcon={() => <Icons name='dropDown' color='#131313' size={20} />}
-        collapseIcon={() => <Icons name='dropDown' color='#131313' size={20} />}
+        collapseIcon={multiple ? void 0 : () => <Icons name='dropDown' color='#131313' size={20} />}
       />
       {
         message && <span

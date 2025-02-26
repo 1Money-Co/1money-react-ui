@@ -5,7 +5,7 @@ $cls: #{$prefix}-#{$component};
 
 .#{$cls} {
   display: inline-flex;
-  height: 56px;
+  min-height: 56px;
   padding: 8px 16px;
   font-family: inherit;
   background-color: $color-grey-light;
@@ -16,7 +16,7 @@ $cls: #{$prefix}-#{$component};
   transition: none;
 
   &-small {
-    height: 44px;
+    min-height: 44px;
     line-height: 20px;
 
     .p-dropdown-label,
