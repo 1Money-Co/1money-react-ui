@@ -32,7 +32,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
     onChange?.(_state as any);
   }, [tristate, itemsState, checkedItems]);
 
-  return <div className={[classes('wrapper', wrapperCls), sizeClass].join(' ')}>
+  return <div className={classes('wrapper', wrapperCls)}>
     {items.map(item => {
       const { key, required, defaultValue = null, label, onChange, ...rest } = item;
       const [trivalue, setTrivalue] = useState(defaultValue);
