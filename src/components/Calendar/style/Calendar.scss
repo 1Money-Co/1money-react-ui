@@ -14,11 +14,12 @@ $cls: #{$prefix}-#{$component};
   }
 
   input {
-    height: 52px;
+    height: 56px;
     padding: 10px 16px;
     color: #000;
     font-size: 16px;
     line-height: 22px;
+    background-color: $color-grey-light;
     border-color: $color-grey-deep;
     border-style: solid;
     border-width: 1px;
