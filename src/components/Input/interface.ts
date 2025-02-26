@@ -12,7 +12,6 @@ export interface InputBaseProps {
   wrapperCls?: string;
   labelCls?: string;
   messageCls?: string;
-  addons?: ReactNode;
   label?: ReactNode;
   message?: ReactNode;
   required?: boolean;
