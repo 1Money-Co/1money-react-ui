@@ -5,6 +5,8 @@
 
 .github
 .vscode
+.cursor
+.husky
 build
 src
 *test*
