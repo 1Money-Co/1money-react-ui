@@ -51,7 +51,8 @@ export const Single: Story = {
     label: 'Cities',
     message: 'Please select a city',
     options: cities,
-    required: true
+    required: true,
+    showClear: false
   },
   tags: ['!autodocs', 'dev'],
 };
