@@ -31,13 +31,38 @@ export const Primary: Story = {
   render: function Render(args) {
     const toast = useRef<ToastClass>(null);
  
-    return <>
+    return <div style={{ minHeight: '420px' }}>
       <Button
-        onClick={() => toast.current?.show({ severity: 'success', summary: 'Success Message', detail: 'Order submitted' })}
+        onClick={() => toast.current?.show([
+          {
+            severity: 'success',
+            summary: 'Success Message',
+            detail: 'You successfully topped up 1000 USD1 on 2024-11-20 15:21:17 (UTC)',
+            life: 1500
+          },
+          {
+            severity: 'info',
+            summary: 'Info Message',
+            detail: 'You can now link multiple accounts to manage your finances all in one place.',
+            life: 1600
+          },
+          {
+            severity: 'warn',
+            summary: 'Warn Message',
+            detail: 'Update your card details to avoid interruptions.',
+            life: 1700
+          },
+          {
+            severity: 'error',
+            summary: 'Error Message',
+            detail: 'Please check your account balance and try again.',
+            life: 1800
+          }
+        ])}
       >
         Show Toast
       </Button>
       <Toast {...args as any} ref={toast} />
-    </>;
+    </div>;
   },
 };

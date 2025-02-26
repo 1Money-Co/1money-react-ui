@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, MouseEvent } from 'react';
 import type { IconName } from '@/components/Icons/interface';
 
 export interface CellProps {
@@ -9,4 +9,5 @@ export interface CellProps {
   prefixIcon?: IconName | ReactNode;
   title?: string;
   suffixIcon?: IconName | ReactNode;
+  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }

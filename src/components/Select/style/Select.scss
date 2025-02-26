@@ -1,11 +1,13 @@
 @use '../../../variable'as *;
 
 $component: 'select';
+$cls: #{$prefix}-#{$component};
 
-.#{$prefix}-#{$component} {
+.#{$cls} {
   display: inline-flex;
-  height: 56px;
+  min-height: 56px;
   padding: 8px 16px;
+  font-family: inherit;
   background-color: $color-grey-light;
   border-color: $color-grey-deep;
   border-style: solid;
@@ -14,7 +16,7 @@ $component: 'select';
   transition: none;
 
   &-small {
-    height: 44px;
+    min-height: 44px;
     line-height: 20px;
 
     .p-dropdown-label,
@@ -62,6 +64,7 @@ $component: 'select';
     color: $color-primary-black;
     font-weight: 400;
     font-size: 16px;
+    font-family: inherit;
     line-height: 140%;
     transition: none;
 
@@ -128,7 +131,7 @@ $component: 'select';
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
       background-color: $color-grey-light;
 
-      .#{$prefix}-#{$component}-panel-item {
+      .#{$cls}-panel-item {
         i {
           display: inline-block;
         }
@@ -140,12 +143,13 @@ $component: 'select';
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+      padding: 8px;
       color: $color-primary-black;
       font-weight: 400;
       font-size: 16px;
       font-style: normal;
-      line-height: 140%;
-      border-radius: 8px;
+      line-height: 22px;
+      border-radius: 8px
     }
 
     &.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
@@ -184,6 +188,10 @@ $component: 'select';
       justify-content: space-between;
       width: 100%;
 
+      &-label {
+        font-family: inherit;
+      }
+
       i {
         display: none;
         color: $color-primary;
@@ -197,14 +205,14 @@ $component: 'select';
   }
 }
 
-.#{$prefix}-#{$component}-wrapper {
+.#{$cls}-wrapper {
   display: inline-flex;
   flex-direction: column;
   width: 100%;
 }
 
 
-.#{$prefix}-#{$component}-label {
+.#{$cls}-label {
   margin-bottom: 8px;
   font-weight: 600;
   font-size: 16px;
@@ -223,7 +231,7 @@ $component: 'select';
   }
 }
 
-.#{$prefix}-#{$component}-message {
+.#{$cls}-message {
   display: inline-block;
   margin-top: 4px;
   color: $color-grey-midnight;

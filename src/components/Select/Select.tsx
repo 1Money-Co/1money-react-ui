@@ -1,7 +1,7 @@
-import { memo, useMemo, useState, useEffect } from 'react';
+import { memo, useMemo, useState, useEffect, useCallback } from 'react';
 import isEqual from 'lodash.isequal';
-import { Dropdown } from 'primereact/dropdown';
-import { MultiSelect } from 'primereact/multiselect';
+import { Dropdown, type DropdownProps } from 'primereact/dropdown';
+import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
 /* import types */
@@ -36,7 +36,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
-  const SelectComponent = useMemo(() => multiple ? MultiSelect as new() => MultiSelect : Dropdown as new() => Dropdown, [multiple]);
+  const SelectComponent = useCallback((props: MultiSelectProps & DropdownProps) => multiple ? <MultiSelect {...(props as MultiSelectProps)} /> : <Dropdown {...(props as DropdownProps)} collapseIcon={multiple ? void 0 : () => <Icons name='dropDown' color='#131313' size={20} />} />, [multiple]);
 
   useEffect(() => {
     if (value !== undefined && !isEqual(selected, value)) {
@@ -84,7 +84,6 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           onShow?.();
         }}
         dropdownIcon={() => <Icons name='dropDown' color='#131313' size={20} />}
-        collapseIcon={() => <Icons name='dropDown' color='#131313' size={20} />}
       />
       {
         message && <span

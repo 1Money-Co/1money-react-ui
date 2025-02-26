@@ -1,8 +1,9 @@
-import type { MouseEvent } from 'react';
+import type { MouseEvent, CSSProperties } from 'react';
 
 export interface IconsProps extends IconWrapperProps {}
 
 export interface IconWrapperProps {
+  style?: CSSProperties;
   className?: string;
   prefixCls?: string;
   size?: number | `${number}`;

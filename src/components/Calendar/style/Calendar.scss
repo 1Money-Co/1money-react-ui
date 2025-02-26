@@ -1,29 +1,36 @@
 @use '../../../variable.scss'as *;
 
 $component: 'calendar';
+$cls: #{$prefix}-#{$component};
 
-.#{$prefix}-#{$component} {
+.#{$cls} {
   &.p-invalid input {
-    border-color: #CC1461;
+    border-color: $color-negative;
     box-shadow: none;
 
     &:hover {
-      border-color: #CC1461;
+      border-color: $color-negative;
     }
   }
 
   input {
+    height: 56px;
     padding: 10px 16px;
     color: #000;
-    font-size: 14px;
-    border-radius: 6px;
+    font-size: 16px;
+    line-height: 22px;
+    background-color: $color-grey-light;
+    border-color: $color-grey-deep;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
 
     &:hover {
-      border-color: #3D73F2;
+      border-color: $color-primary;
     }
 
     &::placeholder {
-      color: #6B7280;
+      color: $color-grey-midnight;
       font-weight: 400;
       font-size: 14px;
     }
@@ -36,25 +43,26 @@ $component: 'calendar';
   }
 
   &.p-calendar:not(.p-calendar-disabled, .p-invalid).p-focus>.p-inputtext {
-    border-color: #3D73F2;
-    box-shadow: 0 0 0 2px #ABC4FF;
+    border-color: $color-primary;
+    border-width: 2px;
+    box-shadow: none;
   }
 }
 
-.#{$prefix}-#{$component}-panel {
+.#{$cls}-panel {
   .p-datepicker-buttonbar {
     .p-button {
-      color: #3B82F6;
+      color: $color-primary;
     }
   }
 }
 
-.#{$prefix}-#{$component}-wrapper {
+.#{$cls}-wrapper {
   display: inline-flex;
   flex-direction: column;
 }
 
-.#{$prefix}-#{$component}-label {
+.#{$cls}-label {
   display: inline-block;
   margin-bottom: 8px;
   font-weight: 400;
@@ -66,7 +74,7 @@ $component: 'calendar';
 
   &-required {
     &::after {
-      color: #CC1461;
+      color: $color-negative;
       font-weight: 400;
       font-size: 14px;
       font-style: normal;
