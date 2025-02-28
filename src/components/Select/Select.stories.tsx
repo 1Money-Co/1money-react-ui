@@ -64,6 +64,7 @@ export const Multiple: Story = {
   args: {
     placeholder: 'Select Cities',
     multiple: true,
+    filter: true,
     options: cities,
     display: 'chip',
     label: 'Multiple Cities',

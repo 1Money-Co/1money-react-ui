@@ -47,6 +47,13 @@ const config: StorybookConfig = {
       ...config.resolve?.alias,
       '@': path.resolve(__dirname, '../src')
     };
+    config.css = {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        }
+      }
+    };
     return config;
   }
 };

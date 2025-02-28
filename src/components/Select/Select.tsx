@@ -50,6 +50,9 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
       <SelectComponent
         {...rest as any}
         name={name}
+        filterIcon={<Icons name='search' size={20} color='#131313' className={classes('filter-icon')} />}
+        filterPlaceholder='Search'
+        showSelectAll={false}
         required={required}
         invalid={invalid}
         options={options}
@@ -67,9 +70,10 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             <div className={classes('panel-item-label')}>
               {itemTemplate ? itemTemplate(option) : option.label}
             </div>
-            <i className='pi pi-check' />
+            <Icons name='check' size={16} color='#073387' />
           </div>;
         }}
+        checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);

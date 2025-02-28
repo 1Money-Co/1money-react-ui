@@ -123,23 +123,34 @@ $cls: #{$prefix}-#{$component};
 
   &-panel {
     padding: 8px;
+    font-family: inherit;
     background-color: $color-primary-white;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
+
+    ::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: $color-grey-dark;
+      border-radius: 2px;
+    }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus,
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
       background-color: $color-grey-light;
 
       .#{$cls}-panel-item {
-        i {
+        svg {
           display: inline-block;
         }
       }
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight, .p-disabled).p-focus {
-      background-color: $color-grey-light;
+      font-weight: 600;
+      background-color: inherit;
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
@@ -152,12 +163,84 @@ $cls: #{$prefix}-#{$component};
       border-radius: 8px
     }
 
-    &.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
-      background-color: $color-secondary;
-    }
+    &.p-multiselect-panel {
+      .p-multiselect-header {
+        margin-bottom: 8px;
+        padding: 0;
+        background-color: inherit;
+        border: none;
 
-    .p-multiselect-item .p-multiselect-checkbox .p-checkbox.p-highlight .p-checkbox-box {
-      background-color: $color-primary;
+        .p-multiselect-close {
+          display: none;
+        }
+
+        .p-multiselect-filter-container {
+          .p-multiselect-filter {
+            padding: 12px 16px 12px 44px;
+            color: $color-primary-black;
+            background-color: $color-grey-light;
+            border-color: $color-grey-bold;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 12px;
+
+            &.p-inputtext:enabled:focus {
+              box-shadow: none;
+            }
+
+            &::placeholder {
+              color: $color-grey-dark;
+            }
+          }
+        }
+      }
+
+      .p-multiselect-items {
+        font-family: inherit;
+
+        .p-multiselect-item {
+          color: $color-primary-black;
+
+          &.p-highlight {
+            background-color: $color-grey-light;
+          }
+
+          &:hover:not(.p-highlight) {
+            font-weight: 500;
+            background-color: inherit;
+          }
+
+          .p-multiselect-checkbox {
+            display: inline-flex;
+            align-items: center;
+
+            .p-checkbox {
+              width: 16px;
+              height: 16px;
+              margin-right: 8px;
+
+              &.p-highlight {
+                .p-checkbox-box {
+                  background-color: $color-primary;
+                  border-color: $color-primary;
+                }
+              }
+
+              .p-checkbox-box {
+                width: 16px;
+                height: 16px;
+                padding: 2px;
+                background-color: $color-primary-white;
+                border-color: $color-grey-dark;
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 4px;
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      }
     }
 
     .p-dropdown-filter.p-inputtext {
@@ -189,10 +272,13 @@ $cls: #{$prefix}-#{$component};
       width: 100%;
 
       &-label {
+        font-weight: 400;
+        font-size: 16px;
         font-family: inherit;
+        line-height: 22px;
       }
 
-      i {
+      svg {
         display: none;
         color: $color-primary;
         font-size: 16px;
@@ -248,5 +334,14 @@ $cls: #{$prefix}-#{$component};
 
   &-error {
     color: $color-negative;
+  }
+}
+
+.#{$cls}-filter {
+  &-icon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
   }
 }
