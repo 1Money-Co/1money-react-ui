@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import propTypes from 'prop-types';
 import { TabMenu } from 'primereact/tabmenu';
 import classnames from '@/utils/classnames';
 /* import types */

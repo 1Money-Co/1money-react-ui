@@ -1,6 +1,5 @@
 import { memo, forwardRef } from 'react';
 import { Menu as PrimeMenu } from 'primereact/menu';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { MenuProps } from './interface';

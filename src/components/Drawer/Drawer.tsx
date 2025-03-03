@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import propTypes from 'prop-types';
 import { Sidebar } from 'primereact/sidebar';
 import { Icons } from '@/components/Icons';
 import classnames from '@/utils/classnames';

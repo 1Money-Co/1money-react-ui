@@ -1,6 +1,5 @@
 'use client';
 import { memo, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
-import propTypes from 'prop-types';
 import {
   Sidebar as ProSidebar,
   Menu as ProMenu,

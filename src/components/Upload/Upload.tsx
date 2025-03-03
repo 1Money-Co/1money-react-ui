@@ -1,12 +1,12 @@
-import { memo, forwardRef } from 'react';
-import propTypes from 'prop-types';
+import { memo } from 'react';
 import { FileUpload } from 'primereact/fileupload';
 import classnames from '@/utils/classnames';
 /* import types */
-import type { UploadProps, UploadHandler } from './interface';
+import type { FC } from 'react';
+import type { UploadProps } from './interface';
 
-export const Upload = forwardRef<UploadHandler, UploadProps>((props, ref) => {
-  const { className, prefixCls = 'upload', uploadOptions, chooseOptions, cancelOptions, ...rest } = props;
+export const Upload: FC<UploadProps> = props => {
+  const { className, prefixCls = 'upload', ref, uploadOptions, chooseOptions, cancelOptions, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -28,6 +28,6 @@ export const Upload = forwardRef<UploadHandler, UploadProps>((props, ref) => {
       }}
     />
   );
-});
+};
 
 export default memo(Upload);

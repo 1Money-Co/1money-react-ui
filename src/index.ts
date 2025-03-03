@@ -23,7 +23,7 @@ import { Clipboard } from './components/Clipboard';
 import { Sidebar } from './components/Sidebar';
 import { Tab } from './components/Tab';
 import { Typography } from './components/Typography';
-import { Upload } from './components/Upload';
+import { Upload, UploadFileBar } from './components/Upload';
 
 export { Cell } from './components/Cell';
 export { Badge } from './components/Badge';
@@ -50,7 +50,7 @@ export { Clipboard } from './components/Clipboard';
 export { Sidebar } from './components/Sidebar';
 export { Tab } from './components/Tab';
 export { Typography } from './components/Typography';
-export { Upload } from './components/Upload';
+export { Upload, UploadFileBar } from './components/Upload';
 
 export default {
   Cell,
@@ -80,4 +80,5 @@ export default {
   Tab,
   Typography,
   Upload,
+  UploadFileBar,
 };

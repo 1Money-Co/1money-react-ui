@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { Button as PrimeButton } from 'primereact/button';
-import propTypes from 'prop-types';
 import Spinner from '@/components/Spinner';
 import classnames from '@/utils/classnames';
 /* import types */

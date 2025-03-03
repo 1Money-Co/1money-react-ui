@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import propTypes from 'prop-types';
 import { ConfirmPopup as PrimeConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 import classnames from '@/utils/classnames';
 /* import types */

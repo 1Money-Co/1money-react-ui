@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import propTypes from 'prop-types';
 import { ProgressBar } from 'primereact/progressbar';
 import classnames from '@/utils/classnames';
 /* import types */

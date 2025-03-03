@@ -1,6 +1,5 @@
 import { memo, useMemo, useState } from 'react';
 import { RadioButton } from 'primereact/radiobutton';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';

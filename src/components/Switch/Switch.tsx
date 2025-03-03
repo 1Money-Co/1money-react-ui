@@ -1,5 +1,4 @@
 import { memo, useMemo, useState, useCallback } from 'react';
-import propTypes from 'prop-types';
 import { InputSwitch } from 'primereact/inputswitch';
 import { ToggleButton } from 'primereact/togglebutton';
 import classnames from '@/utils/classnames';

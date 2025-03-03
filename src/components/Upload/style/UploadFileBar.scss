@@ -1,0 +1,65 @@
+@use '../../../variable.scss'as *;
+
+$component: 'upload-file-bar';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+
+  &-inner {
+    position: relative;
+    display: inline-flex;
+    flex-grow: 1;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    padding: 12px;
+    padding: 12px 16px;
+    color: $color-primary;
+    background-color: $color-primary-white;
+    border-color: $color-grey-bold;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
+  }
+
+  &-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &-failure {
+    .#{$cls}-inner {
+      color: $color-negative;
+      border-color: $color-negative;
+    }
+  }
+
+
+  &-icon {
+    &-status {
+      margin-left: auto;
+    }
+
+    &-remove {
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+  }
+
+  &-message {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+  }
+}

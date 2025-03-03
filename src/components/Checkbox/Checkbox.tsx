@@ -1,7 +1,6 @@
 import { memo, useState, useMemo, useCallback } from 'react';
 import { Checkbox as PrimeCheckbox, type CheckboxChangeEvent } from 'primereact/checkbox';
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
