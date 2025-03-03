@@ -73,7 +73,43 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             <Icons name='check' size={16} color='#073387' />
           </div>;
         }}
+        removeIcon={props => {
+          const { onClick, onKeyDown, tabIndex } = props.iconProps;
+          return <Icons
+            name='close'
+            size={16}
+            color='#131313'
+            tabIndex={tabIndex}
+            className={classes('token-remove-icon')}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+          />;
+        }}
         checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
+        panelHeaderTemplate={options => {
+          console.info(111, options);
+          const { filterElement, onChange, onCloseClick, props } = options;
+
+          return <div className={classes('panel-header')}>
+            <div className={classes('panel-header-info')}>
+              <span className={classes('panel-header-info-count')}>
+                { (selected as Array<string>)?.length ?? 0 } selected
+              </span>
+              <span
+                className={classes('panel-header-info-clear')}
+                onClick={e => {
+                  // @ts-ignore
+                  props.resetFilter();
+                  setSelected(null);
+                }}
+              >
+                <Icons name='close' size={16} color='#AE0000' className={classes('panel-header-info-clear-icon')} />
+                Clear all
+              </span>
+            </div>
+            { filterElement.props.children }
+          </div>;
+        }}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);

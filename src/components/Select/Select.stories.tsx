@@ -86,7 +86,6 @@ export const CustomItemTemplate: Story = {
       <span>xxx  </span>
       <span>{option.label}</span>
     </div>} />
-
   </div>,
 };
 

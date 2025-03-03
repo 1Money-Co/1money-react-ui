@@ -8,6 +8,7 @@ $cls: #{$prefix}-#{$component};
   min-height: 56px;
   padding: 8px 16px;
   font-family: inherit;
+  line-height: 22px;
   background-color: $color-grey-light;
   border-color: $color-grey-deep;
   border-style: solid;
@@ -17,7 +18,7 @@ $cls: #{$prefix}-#{$component};
 
   &-small {
     min-height: 44px;
-    line-height: 20px;
+    line-height: 18px;
 
     .p-dropdown-label,
     .p-multiselect-label {
@@ -70,10 +71,15 @@ $cls: #{$prefix}-#{$component};
 
     .p-multiselect-token {
       margin-right: 0;
-      background-color: $color-secondary;
+      padding: 4px 8px;
+      background-color: $color-grey-deep;
+      border-radius: 12px;
 
       .p-multiselect-token-label {
         color: $color-primary-black;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 13px;
       }
     }
   }
@@ -81,21 +87,16 @@ $cls: #{$prefix}-#{$component};
   .p-multiselect-label-container {
     display: flex;
     align-items: center;
-  }
-
-  .p-multiselect-label {
-    .p-multiselect-token {
-      height: 28px;
-    }
+    line-height: inherit;
   }
 
   .p-multiselect-label,
   >.p-placeholder {
-    color: $color-grey-midnight;
+    color: $color-grey-dark;
     font-weight: 400;
     font-size: 16px;
     font-style: normal;
-    line-height: 140%;
+    line-height: inherit;
   }
 
   .p-dropdown-trigger,
@@ -104,7 +105,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &.p-multiselect {
-    padding: 6px 10.5px;
+    padding: 12px 16px;
   }
 
   &.p-multiselect:not(.p-disabled, .p-invalid).p-focus,
@@ -164,11 +165,41 @@ $cls: #{$prefix}-#{$component};
     }
 
     &.p-multiselect-panel {
-      .p-multiselect-header {
+      .#{$cls}-panel-header {
         margin-bottom: 8px;
         padding: 0;
         background-color: inherit;
         border: none;
+
+        &-info {
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          margin-bottom: 8px;
+          padding: 4px;
+
+          &-count {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 15px;
+          }
+
+          &-clear {
+            display: inline-flex;
+            gap: 4px;
+            align-items: center;
+            color: $color-negative;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 13px;
+            cursor: pointer;
+
+            &-icon {
+              padding: 2px;
+            }
+          }
+        }
 
         .p-multiselect-close {
           display: none;
@@ -200,12 +231,13 @@ $cls: #{$prefix}-#{$component};
 
         .p-multiselect-item {
           color: $color-primary-black;
+          font-weight: 400;
 
           &.p-highlight {
             background-color: $color-grey-light;
           }
 
-          &:hover:not(.p-highlight) {
+          &:not(.p-disabled, .p-invalid, .p-highlight).p-focus {
             font-weight: 500;
             background-color: inherit;
           }
@@ -272,7 +304,7 @@ $cls: #{$prefix}-#{$component};
       width: 100%;
 
       &-label {
-        font-weight: 400;
+        font-weight: inherit;
         font-size: 16px;
         font-family: inherit;
         line-height: 22px;
@@ -344,4 +376,10 @@ $cls: #{$prefix}-#{$component};
     left: 16px;
     transform: translateY(-50%);
   }
+}
+
+.#{$cls}-token-remove-icon {
+  margin-left: 4px;
+  padding: 2px;
+  cursor: pointer;
 }
