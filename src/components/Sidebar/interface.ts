@@ -24,3 +24,19 @@ export interface SidebarHandlers {
   toggle: () => any;
   collapse: (collapsed: boolean) => any;
 }
+
+export interface Step {
+  key: string;
+  label: ReactNode;
+  status: 'todo' | 'active' | 'done' | 'done-active';
+  disabled?: boolean;
+  onClick?: (data: Step) => any;
+}
+
+export interface StepperProps {
+  className?: string;
+  prefixCls?: string;
+  onLogoClick?: () => any;
+  steps: Step[];
+  footer?: ReactNode;
+}

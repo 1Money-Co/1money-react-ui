@@ -19,7 +19,7 @@ import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
 import { Icons, IconWrapper } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
-import { Sidebar } from './components/Sidebar';
+import { Sidebar, Stepper } from './components/Sidebar';
 import { Tab } from './components/Tab';
 import { Toast } from './components/Toast';
 import { Tooltip } from './components/Tooltip';
@@ -47,7 +47,7 @@ export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
 export { Icons, IconWrapper } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
-export { Sidebar } from './components/Sidebar';
+export { Sidebar, Stepper } from './components/Sidebar';
 export { Tab } from './components/Tab';
 export { Toast } from './components/Toast';
 export { Tooltip } from './components/Tooltip';
@@ -78,6 +78,7 @@ export default {
   IconWrapper,
   Clipboard,
   Sidebar,
+  Stepper,
   Tab,
   Toast,
   Tooltip,

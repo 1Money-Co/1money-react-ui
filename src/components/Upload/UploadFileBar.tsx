@@ -6,7 +6,7 @@ import type { FC } from 'react';
 import type { UploadFileBarProps } from './interface';
 
 export const UploadFileBar: FC<UploadFileBarProps> = props => {
-  const { className, prefixCls = 'upload-file-bar', wrapperCls, fileName, status = 0, message, ...rest } = props;
+  const { className, prefixCls = 'upload-file-bar', wrapperCls, fileName, status = 0, message, onClickRemove } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -38,6 +38,7 @@ export const UploadFileBar: FC<UploadFileBarProps> = props => {
           name='remove'
           size={20}
           color='#131313'
+          onClick={() => onClickRemove?.()}
         />
       </div>
     </>

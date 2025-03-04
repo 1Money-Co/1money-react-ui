@@ -17,4 +17,5 @@ export interface UploadFileBarProps {
   className?: string;
   prefixCls?: string;
   wrapperCls?: string;
+  onClickRemove?: () => any;
 }
