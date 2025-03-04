@@ -17,11 +17,12 @@ import { RadioGroup } from './components/RadioGroup';
 import { Select } from './components/Select';
 import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
-import { Toast } from './components/Toast';
 import { Icons, IconWrapper } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar } from './components/Sidebar';
 import { Tab } from './components/Tab';
+import { Toast } from './components/Toast';
+import { Tooltip } from './components/Tooltip';
 import { Typography } from './components/Typography';
 import { Upload, UploadFileBar } from './components/Upload';
 
@@ -44,11 +45,12 @@ export { RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
 export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
-export { Toast } from './components/Toast';
 export { Icons, IconWrapper } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar } from './components/Sidebar';
 export { Tab } from './components/Tab';
+export { Toast } from './components/Toast';
+export { Tooltip } from './components/Tooltip';
 export { Typography } from './components/Typography';
 export { Upload, UploadFileBar } from './components/Upload';
 
@@ -72,12 +74,13 @@ export default {
   Select,
   Spinner,
   Switch,
-  Toast,
   Icons,
   IconWrapper,
   Clipboard,
   Sidebar,
   Tab,
+  Toast,
+  Tooltip,
   Typography,
   Upload,
   UploadFileBar,
