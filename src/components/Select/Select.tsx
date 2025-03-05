@@ -62,6 +62,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             classes(size),
             isOpen ? classes('show') : '',
             success ? classes('success') : '',
+            (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
             className
           ].join(' '))
         }
@@ -87,9 +88,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         }}
         checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
         panelHeaderTemplate={options => {
-          console.info(111, options);
           const { filterElement, onChange, onCloseClick, props } = options;
-
           return <div className={classes('panel-header')}>
             <div className={classes('panel-header-info')}>
               <span className={classes('panel-header-info-count')}>

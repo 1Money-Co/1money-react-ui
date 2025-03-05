@@ -10,7 +10,7 @@ $cls: #{$prefix}-#{$component};
   font-family: inherit;
   line-height: 22px;
   background-color: $color-grey-light;
-  border-color: $color-grey-deep;
+  border-color: $color-grey-bold;
   border-style: solid;
   border-width: 1px;
   border-radius: 12px;
@@ -37,13 +37,14 @@ $cls: #{$prefix}-#{$component};
   }
 
   &.p-disabled {
-    background-color: $color-grey;
-    border-color: $color-grey-bold;
+    background-color: $color-grey-deep;
+    border-color: $color-grey-deep;
+    opacity: 1;
+  }
 
-    .p-dropdown-label,
-    .p-multiselect-label {
-      color: $color-grey-dark;
-    }
+  &-filled.p-disabled {
+    background-color: $color-grey;
+    border-color: $color-grey;
   }
 
   &-success:not(.p-disabled, .p-invalid) {
@@ -150,8 +151,7 @@ $cls: #{$prefix}-#{$component};
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight, .p-disabled).p-focus {
-      font-weight: 600;
-      background-color: inherit;
+      background-color: $color-grey-light;
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
@@ -207,15 +207,23 @@ $cls: #{$prefix}-#{$component};
 
         .p-multiselect-filter-container {
           .p-multiselect-filter {
+            height: 44px;
             padding: 12px 16px 12px 44px;
             color: $color-primary-black;
+            line-height: 22px;
             background-color: $color-grey-light;
             border-color: $color-grey-bold;
             border-style: solid;
             border-width: 1px;
             border-radius: 12px;
 
+            &:hover {
+              border-color: $color-primary-black;
+            }
+
             &.p-inputtext:enabled:focus {
+              border-color: $color-primary;
+              border-width: 2px;
               box-shadow: none;
             }
 
@@ -238,8 +246,7 @@ $cls: #{$prefix}-#{$component};
           }
 
           &:not(.p-disabled, .p-invalid, .p-highlight).p-focus {
-            font-weight: 500;
-            background-color: inherit;
+            background-color: $color-grey-light;
           }
 
           .p-multiselect-checkbox {
