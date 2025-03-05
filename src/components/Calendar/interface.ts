@@ -8,7 +8,6 @@ export type CalendarProps = PrimeCalendarProps & {
   labelCls?: string;
   label?: ReactNode;
   required?: boolean;
-  rounded?: boolean;
   size?: 'large' | 'small';
   defaultValue?: Nullable<Date | (Date | null)[] | Date[]>;
 }

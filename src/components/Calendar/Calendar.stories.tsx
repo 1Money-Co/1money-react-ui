@@ -11,7 +11,7 @@ const meta: Meta<typeof Calendar> = {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
     size: { control: 'radio', options: ['large', 'small'] },
-    rounded: { control: 'boolean' },
+    disabled: { control: 'boolean' },
     showButtonBar: { control: 'boolean' },
     invalid: { control: 'boolean' },
   },
@@ -25,6 +25,7 @@ type Story = StoryObj<typeof Calendar>;
 export const Primary: Story = {
   args: {
     size: 'large',
+    disabled: false,
     label: 'Date of Incorporation',
     required: true,
   },

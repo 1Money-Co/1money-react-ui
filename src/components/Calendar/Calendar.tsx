@@ -15,7 +15,6 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     panelClassName,
     label,
     required,
-    rounded = false,
     placeholder = 'MM/DD/YYYY',
     defaultValue,
     value,
@@ -48,7 +47,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
         className={classes(void 0, [
           className,
           classes(size),
-          rounded && classes('rounded'),
+          date && classes('filled'),
         ].join(' '))}
         panelClassName={classes('panel', panelClassName)}
         placeholder={placeholder}

@@ -4,7 +4,15 @@ $component: 'calendar';
 $cls: #{$prefix}-#{$component};
 
 .#{$cls} {
+  &-small {
+    input {
+      height: 44px !important;
+      line-height: 18px !important;
+    }
+  }
+
   &.p-invalid input {
+    color: $color-negative;
     border-color: $color-negative;
     box-shadow: none;
 
@@ -13,11 +21,19 @@ $cls: #{$prefix}-#{$component};
     }
   }
 
-  &-small {
+  &.p-calendar-disabled {
+    cursor: not-allowed;
+
     input {
-      height: 44px !important;
-      line-height: 18px !important;
+      background-color: $color-grey-deep;
+      border-color: $color-grey-deep;
+      opacity: 1;
     }
+  }
+
+  &-filled.p-calendar-disabled input {
+    background-color: $color-grey;
+    border-color: $color-grey;
   }
 
   input {
@@ -40,12 +56,6 @@ $cls: #{$prefix}-#{$component};
       color: $color-grey-dark;
       font-weight: 400;
       font-size: 14px;
-    }
-  }
-
-  &-rounded {
-    input {
-      border-radius: 20px;
     }
   }
 

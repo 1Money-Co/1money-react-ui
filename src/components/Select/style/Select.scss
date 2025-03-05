@@ -39,6 +39,7 @@ $cls: #{$prefix}-#{$component};
   &.p-disabled {
     background-color: $color-grey-deep;
     border-color: $color-grey-deep;
+    cursor: not-allowed;
     opacity: 1;
   }
 
