@@ -39,7 +39,6 @@ $cls: #{$prefix}-#{$component};
   &.p-disabled {
     background-color: $color-grey-deep;
     border-color: $color-grey-deep;
-    cursor: not-allowed;
     opacity: 1;
   }
 
@@ -354,6 +353,10 @@ $cls: #{$prefix}-#{$component};
   display: inline-flex;
   flex-direction: column;
   width: 100%;
+
+  &:has(.p-disabled) {
+    cursor: not-allowed;
+  }
 }
 
 
@@ -363,6 +366,7 @@ $cls: #{$prefix}-#{$component};
   font-size: 16px;
   font-style: normal;
   line-height: 108%;
+  cursor: text;
 
   &-required {
     &::after {
@@ -386,6 +390,7 @@ $cls: #{$prefix}-#{$component};
   line-height: 17px;
   word-wrap: break-word;
   word-break: break-all;
+  cursor: text;
 
   &-success {
     color: $color-success;
