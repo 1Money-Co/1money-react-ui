@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Upload } from './index';
+import { Upload, UploadFileBar } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -38,3 +38,12 @@ export const Basic: Story = {
     }
   },
 };
+
+export const FileBar: Story = {
+  render: () => <div style={{ width: '300px' }}>
+    <UploadFileBar fileName='test.png' />
+    <br />
+    <br />
+    <UploadFileBar fileName='test.png' status={1} message='system error' />
+  </div>
+}

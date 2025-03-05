@@ -1,7 +1,6 @@
 'use client';
 import { memo } from 'react';
 import { ProgressSpinner } from 'primereact/progressspinner';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC } from 'react';

@@ -44,19 +44,19 @@ export const Primary: Story = {
             severity: 'info',
             summary: 'Info Message',
             detail: 'You can now link multiple accounts to manage your finances all in one place.',
-            life: 1600
+            life: 2000
           },
           {
             severity: 'warn',
             summary: 'Warn Message',
             detail: 'Update your card details to avoid interruptions.',
-            life: 1700
+            life: 2500
           },
           {
             severity: 'error',
             summary: 'Error Message',
             detail: 'Please check your account balance and try again.',
-            life: 1800
+            life: 3000
           }
         ])}
       >

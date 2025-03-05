@@ -63,20 +63,17 @@ $cls: #{$prefix}-#{$component};
 }
 
 .#{$cls}-label {
-  display: inline-block;
   margin-bottom: 8px;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   font-style: normal;
-  line-height: 20px;
-  word-wrap: break-word;
-  word-break: break-all;
+  line-height: 108%;
 
   &-required {
     &::after {
+      margin-left: 4px;
       color: $color-negative;
-      font-weight: 400;
-      font-size: 14px;
+      font-size: 16px;
       font-style: normal;
       line-height: 120%;
       content: '*';

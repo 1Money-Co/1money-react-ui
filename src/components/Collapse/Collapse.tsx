@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 import Icons from '@/components/Icons';
 /* import types */

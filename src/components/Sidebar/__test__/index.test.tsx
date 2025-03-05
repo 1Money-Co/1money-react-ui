@@ -1,9 +1,8 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Sidebar } from '../index';
+import { Sidebar, Stepper } from '../index';
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
@@ -57,6 +56,42 @@ describe('Sidebar', () => {
         ]}
       />
     );
+
+    const stepperWrapper = render(
+      <Stepper
+        steps={[
+          {
+            key: '1',
+            label: '1.Business Overview',
+            status: 'done'
+          },
+          {
+            key: '2',
+            label: '2.Business Address',
+            status: 'active'
+          },
+          {
+            key: '3',
+            label: '3.Tax Information',
+            status: 'done-active'
+          },
+          {
+            key: '4',
+            label: '4. Business Details',
+            status: 'todo'
+          },
+          {
+            key: '5',
+            label: '5. Compliance Details',
+            status: 'todo',
+            disabled: true
+          }
+        ]}
+        footer={<span>Auto-saved at 12:30, 25 Jan 2025</span>}
+      />
+    );
+
     expect(wrapper).toMatchSnapshot();
+    expect(stepperWrapper).toMatchSnapshot();
   });
 });

@@ -1,5 +1,4 @@
 import { memo, useMemo, useState, useCallback } from 'react';
-import propTypes from 'prop-types';
 import { InputSwitch } from 'primereact/inputswitch';
 import { ToggleButton } from 'primereact/togglebutton';
 import classnames from '@/utils/classnames';
@@ -25,7 +24,7 @@ export const Switch: FC<PropsWithChildren<SwitchProps>> = props => {
   return (
     <SwitchComponent
       {...rest as any}
-      className={classes(void 0, className)}
+      className={classes(void 0, [classes(type), className].join(' '))}
       checked={checked}
       onChange={e => {
         setChecked(e.value);

@@ -51,7 +51,8 @@ export const Single: Story = {
     label: 'Cities',
     message: 'Please select a city',
     options: cities,
-    required: true
+    required: true,
+    showClear: false
   },
   tags: ['!autodocs', 'dev'],
 };
@@ -63,6 +64,7 @@ export const Multiple: Story = {
   args: {
     placeholder: 'Select Cities',
     multiple: true,
+    filter: true,
     options: cities,
     display: 'chip',
     label: 'Multiple Cities',
@@ -84,7 +86,6 @@ export const CustomItemTemplate: Story = {
       <span>xxx  </span>
       <span>{option.label}</span>
     </div>} />
-
   </div>,
 };
 

@@ -15,7 +15,6 @@ import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
   const {
-    addons,
     label,
     message,
     required,
@@ -101,7 +100,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           disabled ? classes('inner-disabled') : '',
         ].join(' '))}
       >
-        {addons && <div className={classes('addons')}>{addons}</div>}
+        {/* {addons && <div className={classes('addons')}>{addons}</div>} */}
         {prefix && <div onClick={e => e.stopPropagation()} className={classes('prefix')}>{prefix}</div>}
         <InputComponent
           {...rest as any}

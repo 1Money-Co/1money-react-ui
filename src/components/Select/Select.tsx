@@ -50,6 +50,9 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
       <SelectComponent
         {...rest as any}
         name={name}
+        filterIcon={<Icons name='search' size={20} color='#131313' className={classes('filter-icon')} />}
+        filterPlaceholder='Search'
+        showSelectAll={false}
         required={required}
         invalid={invalid}
         options={options}
@@ -67,7 +70,44 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             <div className={classes('panel-item-label')}>
               {itemTemplate ? itemTemplate(option) : option.label}
             </div>
-            <i className='pi pi-check' />
+            <Icons name='check' size={16} color='#073387' />
+          </div>;
+        }}
+        removeIcon={props => {
+          const { onClick, onKeyDown, tabIndex } = props.iconProps;
+          return <Icons
+            name='close'
+            size={16}
+            color='#131313'
+            tabIndex={tabIndex}
+            className={classes('token-remove-icon')}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+          />;
+        }}
+        checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
+        panelHeaderTemplate={options => {
+          console.info(111, options);
+          const { filterElement, onChange, onCloseClick, props } = options;
+
+          return <div className={classes('panel-header')}>
+            <div className={classes('panel-header-info')}>
+              <span className={classes('panel-header-info-count')}>
+                { (selected as Array<string>)?.length ?? 0 } selected
+              </span>
+              <span
+                className={classes('panel-header-info-clear')}
+                onClick={e => {
+                  // @ts-ignore
+                  props.resetFilter();
+                  setSelected(null);
+                }}
+              >
+                <Icons name='close' size={16} color='#AE0000' className={classes('panel-header-info-clear-icon')} />
+                Clear all
+              </span>
+            </div>
+            { filterElement.props.children }
           </div>;
         }}
         panelClassName={classes('panel', panelClassName)}

@@ -1,4 +1,4 @@
-import type { MouseEvent, CSSProperties } from 'react';
+import type { MouseEvent, KeyboardEvent, CSSProperties } from 'react';
 
 export interface IconsProps extends IconWrapperProps {}
 
@@ -14,7 +14,10 @@ export interface IconWrapperProps {
   viewBox?: string;
   fill?: string;
   illustrations?: boolean;
+  ariaLabel?: string;
+  tabIndex?: number;
   onClick?: (e: MouseEvent<SVGSVGElement>) => any;
+  onKeyDown?: (e: KeyboardEvent<SVGSVGElement>) => any;
 }
 
 export type IconName =

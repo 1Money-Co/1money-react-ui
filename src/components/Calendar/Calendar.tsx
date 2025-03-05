@@ -1,5 +1,4 @@
 import { memo, useState, useEffect } from 'react';
-import propTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import classnames from '@/utils/classnames';

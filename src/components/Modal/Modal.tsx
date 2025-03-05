@@ -1,7 +1,6 @@
 import { memo, forwardRef, useImperativeHandle, useState, useCallback } from 'react';
 import { ConfirmDialog, confirmDialog, type ConfirmDialogProps } from 'primereact/confirmdialog';
 import { Dialog, type DialogProps } from 'primereact/dialog';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { PropsWithChildren } from 'react';

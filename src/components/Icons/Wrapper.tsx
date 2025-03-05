@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';

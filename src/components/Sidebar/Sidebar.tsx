@@ -1,6 +1,5 @@
 'use client';
 import { memo, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
-import propTypes from 'prop-types';
 import {
   Sidebar as ProSidebar,
   Menu as ProMenu,
@@ -43,9 +42,13 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
         >
           <Icons
             name={collapsed ? 'logo' : 'logoWithWords'}
-            color='#3D73F2'
-            width={collapsed ? 18 : 103}
-            height={18}
+            // @ts-ignore
+            logoColor='#073387'
+            // @ts-ignore
+            wordColor='#131313'
+            color='#073387'
+            width={collapsed ? 24 : 131}
+            height={24}
           />
         </span>
         {

@@ -1,6 +1,5 @@
 import { memo, forwardRef, useImperativeHandle } from 'react';
 import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { PopupProps, PopupHandlers } from './interface';

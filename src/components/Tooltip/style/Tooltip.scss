@@ -1,0 +1,156 @@
+@use '../../../variable.scss'as *;
+
+$component: 'tooltip';
+$cls: #{$prefix}-#{$component};
+$tooltip-bg: $color-primary-black;
+$tooltip-border-width: 1px;
+$tooltip-border-color: #b1b1b1;
+$tooltip-shadow-width: 1px;
+$tooltip-arrow-width: 36px;
+$tooltip-arrow-height: 9px;
+$tooltip-arrow-color: $tooltip-border-color;
+$tooltip-arrow-inner-color: $tooltip-bg;
+
+.#{$cls} {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+  background-color: rgba(0, 0, 0, 5%);
+  visibility: visible;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-inner {
+    position: relative;
+    min-height: 34px;
+    padding: 10px;
+    color: $color-primary-white;
+    text-align: left;
+    text-decoration: none;
+    background-color: $color-primary-black;
+    border-radius: 8px;
+  }
+
+  &-arrow {
+    position: absolute;
+    width: $tooltip-arrow-width;
+    height: $tooltip-arrow-height;
+
+    &-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-placement {
+    &-top,
+    &-topLeft,
+    &-topRight {
+      .#{$cls}-inner {
+        transform: translateY(-4.5px);
+      }
+
+      .#{$cls}-arrow {
+        bottom: calc(1px - $tooltip-arrow-height);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &-topLeft {
+      .#{$cls}-arrow {
+        left: 25%;
+      }
+    }
+
+    &-topRight {
+      .#{$cls}-arrow {
+        left: 75%;
+      }
+    }
+
+    &-right,
+    &-rightTop,
+    &-rightBottom {
+      .#{$cls}-inner {
+        transform: translateX(4.5px);
+      }
+
+      .#{$cls}-arrow {
+        top: 50%;
+        left: -22px;
+        transform: rotate(90deg) translate(-3.5px, 0);
+      }
+    }
+
+    &-rightTop {
+      .#{$cls}-arrow {
+        top: 25%;
+      }
+    }
+
+    &-rightBottom {
+      .#{$cls}-arrow {
+        top: 75%;
+      }
+    }
+
+    &-left,
+    &-leftTop,
+    &-leftBottom {
+      .#{$cls}-inner {
+        transform: translateX(-4.5px);
+      }
+
+      .#{$cls}-arrow {
+        top: 50%;
+        right: -22px;
+        transform: rotate(-90deg) translate(3.5px, 0);
+      }
+    }
+
+    &-leftTop {
+      .#{$cls}-arrow {
+        top: 25%;
+      }
+    }
+
+    &-leftBottom {
+      .#{$cls}-arrow {
+        top: 75%;
+      }
+    }
+
+    &-bottom,
+    &-bottomLeft,
+    &-bottomRight {
+      .#{$cls}-inner {
+        transform: translateY(4.5px);
+      }
+
+      .#{$cls}-arrow {
+        top: calc(1px - $tooltip-arrow-height);
+        left: 50%;
+        transform: rotate(180deg) translateX(50%);
+      }
+    }
+
+    &-bottomLeft {
+      .#{$cls}-arrow {
+        left: 25%;
+      }
+    }
+
+    &-bottomRight {
+      .#{$cls}-arrow {
+        left: 75%;
+      }
+    }
+  }
+}

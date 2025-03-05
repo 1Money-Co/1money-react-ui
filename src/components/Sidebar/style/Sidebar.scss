@@ -1,10 +1,12 @@
 @use '../../../variable.scss'as *;
 
 $component: 'sidebar';
+$cls: #{$prefix}-#{$component};
 
-.#{$prefix}-#{$component} {
+.#{$cls} {
   height: 100vh;
-  padding: 0 8px;
+  padding: 40px 16px 24px;
+  background-color: $color-grey-light;
   border-right: 1px solid #F2F2F2 !important;
 
   &-expand-icon {
@@ -29,15 +31,15 @@ $component: 'sidebar';
         .ps-menu-button {
           padding: 0;
           padding: 16px;
-          color: #404040;
-          font-weight: 700;
+          color: $color-primary-black;
+          font-weight: 500;
           font-size: 14px;
-          line-height: 14px;
-          border-radius: 8px;
+          line-height: 17px;
+          border-radius: 12px;
 
           &:hover {
-            color: #3D73F2;
-            background-color: rgba(229, 239, 255, 50%);
+            color: inherit;
+            background-color: $color-grey;
 
             .ps-menu-icon {
               color: inherit;
@@ -55,8 +57,8 @@ $component: 'sidebar';
         }
 
         .ps-menu-button.ps-active {
-          color: #3D73F2;
-          background-color: #E5EFFF;
+          color: $color-primary-black;
+          background-color: $color-grey;
 
           .ps-menu-icon {
             color: inherit;
@@ -64,7 +66,7 @@ $component: 'sidebar';
         }
 
         .ps-submenu-content {
-          background-color: #F9FAFB;
+          background-color: $color-grey-light;
           border-radius: 8px;
         }
 
@@ -120,11 +122,11 @@ $component: 'sidebar';
     }
 
     &:hover {
-      color: #3D73F2;
-      background-color: rgba(229, 239, 255, 50%);
+      color: $color-primary-black;
+      background-color: $color-grey;
 
-      .om-react-ui-sidebar-footer-logout {
-        color: #3D73F2;
+      .#{$cls}-footer-logout {
+        color: $color-primary-black;
       }
     }
 
@@ -137,23 +139,32 @@ $component: 'sidebar';
 
   &.ps-collapsed {
     .ps-sidebar-container {
+      overflow: visible;
+
+      .#{$cls}-header {
+        margin-left: 16px;
+        padding: 0;
+      }
+
       .ps-menu-root {
         .ps-menuitem-root {
           .ps-menu-button {
+            padding: 0;
+
             .ps-menu-icon {
-              margin-left: 8px;
+              margin-left: 16px;
             }
           }
         }
       }
     }
 
-    .om-react-ui-sidebar-header {
+    .#{$cls}-header {
       padding-left: 22px;
     }
 
-    .om-react-ui-sidebar-footer {
-      padding-left: 24px;
+    .#{$cls}-footer {
+      padding-left: 16px;
 
       &-logout-text {
         display: none;
