@@ -10,12 +10,10 @@ const meta: Meta<typeof Calendar> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    size: { control: 'radio', options: ['large', 'small'] },
     rounded: { control: 'boolean' },
     showButtonBar: { control: 'boolean' },
     invalid: { control: 'boolean' },
-  },
-  args: {
-    prefixCls: 'calendar',
   },
   tags: ['autodocs'],
 };
@@ -26,7 +24,7 @@ type Story = StoryObj<typeof Calendar>;
  
 export const Primary: Story = {
   args: {
-    prefixCls: 'calendar',
+    size: 'large',
     label: 'Date of Incorporation',
     required: true,
   },

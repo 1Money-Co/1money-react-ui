@@ -9,5 +9,6 @@ export type CalendarProps = PrimeCalendarProps & {
   label?: ReactNode;
   required?: boolean;
   rounded?: boolean;
+  size?: 'large' | 'small';
   defaultValue?: Nullable<Date | (Date | null)[] | Date[]>;
 }
