@@ -10,7 +10,7 @@ $cls: #{$prefix}-#{$component};
   font-family: inherit;
   line-height: 22px;
   background-color: $color-grey-light;
-  border-color: $color-grey-deep;
+  border-color: $color-grey-bold;
   border-style: solid;
   border-width: 1px;
   border-radius: 12px;
@@ -37,13 +37,14 @@ $cls: #{$prefix}-#{$component};
   }
 
   &.p-disabled {
-    background-color: $color-grey;
-    border-color: $color-grey-bold;
+    background-color: $color-grey-deep;
+    border-color: $color-grey-deep;
+    opacity: 1;
+  }
 
-    .p-dropdown-label,
-    .p-multiselect-label {
-      color: $color-grey-dark;
-    }
+  &-filled.p-disabled {
+    background-color: $color-grey;
+    border-color: $color-grey;
   }
 
   &-success:not(.p-disabled, .p-invalid) {
@@ -150,8 +151,7 @@ $cls: #{$prefix}-#{$component};
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight, .p-disabled).p-focus {
-      font-weight: 600;
-      background-color: inherit;
+      background-color: $color-grey-light;
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
@@ -207,15 +207,24 @@ $cls: #{$prefix}-#{$component};
 
         .p-multiselect-filter-container {
           .p-multiselect-filter {
+            height: 44px;
             padding: 12px 16px 12px 44px;
             color: $color-primary-black;
+            font-size: 14px;
+            line-height: 22px;
             background-color: $color-grey-light;
             border-color: $color-grey-bold;
             border-style: solid;
             border-width: 1px;
             border-radius: 12px;
 
+            &:hover {
+              border-color: $color-primary-black;
+            }
+
             &.p-inputtext:enabled:focus {
+              border-color: $color-primary;
+              border-width: 2px;
               box-shadow: none;
             }
 
@@ -238,8 +247,7 @@ $cls: #{$prefix}-#{$component};
           }
 
           &:not(.p-disabled, .p-invalid, .p-highlight).p-focus {
-            font-weight: 500;
-            background-color: inherit;
+            background-color: $color-grey-light;
           }
 
           .p-multiselect-checkbox {
@@ -275,17 +283,35 @@ $cls: #{$prefix}-#{$component};
       }
     }
 
+    .p-dropdown-header {
+      margin-bottom: 8px;
+      padding: 0;
+      border: none;
+    }
+
     .p-dropdown-filter.p-inputtext {
-      padding: 10px 16px;
+      height: 44px;
+      padding: 12px 16px 12px 44px;
+      color: $color-primary-black;
       font-size: 14px;
+      background-color: $color-grey-light;
+      border-color: $color-grey-bold;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 12px;
 
       &:enabled:focus:not(.p-invalid) {
         border-color: $color-primary;
-        box-shadow: 0 0 0 2px $color-secondary;
+        border-width: 2px;
+        box-shadow: none;
       }
 
       &:hover {
-        border-color: $color-primary;
+        border-color: $color-primary-black;
+      }
+
+      &::placeholder {
+        color: $color-grey-dark;
       }
     }
 
@@ -327,6 +353,10 @@ $cls: #{$prefix}-#{$component};
   display: inline-flex;
   flex-direction: column;
   width: 100%;
+
+  &:has(.p-disabled) {
+    cursor: not-allowed;
+  }
 }
 
 
@@ -336,6 +366,7 @@ $cls: #{$prefix}-#{$component};
   font-size: 16px;
   font-style: normal;
   line-height: 108%;
+  cursor: text;
 
   &-required {
     &::after {
@@ -359,6 +390,7 @@ $cls: #{$prefix}-#{$component};
   line-height: 17px;
   word-wrap: break-word;
   word-break: break-all;
+  cursor: text;
 
   &-success {
     color: $color-success;

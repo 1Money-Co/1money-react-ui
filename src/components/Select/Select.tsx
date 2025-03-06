@@ -36,43 +36,11 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
-  const SelectComponent = useCallback((props: MultiSelectProps & DropdownProps) => multiple ? <MultiSelect {...(props as MultiSelectProps)} /> : <Dropdown {...(props as DropdownProps)} collapseIcon={multiple ? void 0 : () => <Icons name='dropDown' color='#131313' size={20} />} />, [multiple]);
-
-  useEffect(() => {
-    if (value !== undefined && !isEqual(selected, value)) {
-      setSelected(value);
-    }
-  }, [value]);
-
-  return (
-    <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
-      <SelectComponent
-        {...rest as any}
-        name={name}
-        filterIcon={<Icons name='search' size={20} color='#131313' className={classes('filter-icon')} />}
-        filterPlaceholder='Search'
+  const SelectComponent = useCallback(
+    (props: MultiSelectProps & DropdownProps) => multiple
+      ? <MultiSelect
         showSelectAll={false}
-        required={required}
-        invalid={invalid}
-        options={options}
-        value={selected == null ? undefined : selected}
-        className={
-          classes(void 0, [
-            classes(size),
-            isOpen ? classes('show') : '',
-            success ? classes('success') : '',
-            className
-          ].join(' '))
-        }
-        itemTemplate={(option) => {
-          return <div className={classes('panel-item')}>
-            <div className={classes('panel-item-label')}>
-              {itemTemplate ? itemTemplate(option) : option.label}
-            </div>
-            <Icons name='check' size={16} color='#073387' />
-          </div>;
-        }}
+        checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
         removeIcon={props => {
           const { onClick, onKeyDown, tabIndex } = props.iconProps;
           return <Icons
@@ -85,15 +53,12 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             onKeyDown={onKeyDown}
           />;
         }}
-        checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
         panelHeaderTemplate={options => {
-          console.info(111, options);
           const { filterElement, onChange, onCloseClick, props } = options;
-
           return <div className={classes('panel-header')}>
             <div className={classes('panel-header-info')}>
               <span className={classes('panel-header-info-count')}>
-                { (selected as Array<string>)?.length ?? 0 } selected
+                {(selected as Array<string>)?.length ?? 0} selected
               </span>
               <span
                 className={classes('panel-header-info-clear')}
@@ -107,9 +72,53 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
                 Clear all
               </span>
             </div>
-            { filterElement.props.children }
+            {filterElement?.props?.children}
           </div>;
         }}
+        {...(props as MultiSelectProps)}
+      />
+      : <Dropdown
+        collapseIcon={multiple ? void 0 : () => <Icons name='dropDown' color='#131313' size={20} />}
+        {...(props as DropdownProps)}
+      />
+    , [multiple]
+  );
+
+  useEffect(() => {
+    if (value !== undefined && !isEqual(selected, value)) {
+      setSelected(value);
+    }
+  }, [value]);
+
+  return (
+    <div className={classes('wrapper', wrapperCls)}>
+      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+      <SelectComponent
+        {...rest as any}
+        name={name}
+        filterPlaceholder='Search'
+        required={required}
+        invalid={invalid}
+        options={options}
+        value={selected == null ? undefined : selected}
+        className={
+          classes(void 0, [
+            classes(size),
+            isOpen ? classes('show') : '',
+            success ? classes('success') : '',
+            (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
+            className
+          ].join(' '))
+        }
+        itemTemplate={(option) => {
+          return <div className={classes('panel-item')}>
+            <div className={classes('panel-item-label')}>
+              {itemTemplate ? itemTemplate(option) : option.label}
+            </div>
+            <Icons name='check' size={16} color='#073387' />
+          </div>;
+        }}
+        filterIcon={<Icons name='search' size={20} color='#131313' className={classes('filter-icon')} />}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);

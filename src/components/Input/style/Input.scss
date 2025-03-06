@@ -41,12 +41,8 @@ $cls: #{$prefix}-#{$component};
       box-shadow: none;
     }
 
-    &.p-disabled {
-      color: $color-grey-dark;
-    }
-
     &::placeholder {
-      color: $color-grey-midnight;
+      color: $color-grey-dark;
       font-weight: 400;
     }
   }
@@ -97,7 +93,7 @@ $cls: #{$prefix}-#{$component};
       font-weight: 600;
       font-size: 16px;
       background-color: $color-grey-light;
-      border-color: $color-grey-deep;
+      border-color: $color-grey-bold;
       border-style: solid;
       border-width: 0.5px;
       border-radius: 8px;
@@ -185,15 +181,25 @@ $cls: #{$prefix}-#{$component};
     }
 
     &-disabled {
+      background-color: $color-grey-deep !important;
+      border-color: $color-grey-deep !important;
+      cursor: not-allowed;
+
+      input {
+        opacity: 1;
+      }
+    }
+
+    &-disabled.#{$cls}-inner-filled {
       background-color: $color-grey !important;
-      border-color: $color-grey-bold !important;
+      border-color: $color-grey !important;
     }
 
     &:not(:has(.#{$cls}-otp)) {
       height: 56px;
       padding: 8px 16px;
       background-color: $color-grey-light;
-      border-color: $color-grey-deep;
+      border-color: $color-grey-bold;
       border-style: solid;
       border-width: 1px;
       border-radius: 12px;
@@ -300,8 +306,8 @@ $cls: #{$prefix}-#{$component};
   }
 }
 
-.om-react-ui-input-addons+.om-react-ui-input {
-  background-color: #FFF;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
+// .om-react-ui-input-addons+.om-react-ui-input {
+//   background-color: #FFF;
+//   border-top-left-radius: 0;
+//   border-bottom-left-radius: 0;
+// }

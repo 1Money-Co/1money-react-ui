@@ -44,10 +44,11 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
 
   const [val, setVal] = useState(value || defaultValue || '');
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
-    setVal(e.target.value?.slice(0, maxLength) || '');
-    (onChange as (e: ChangeEvent<HTMLTextAreaElement>) => void)?.(e);
-  }, [onChange, maxLength]);
+  const handleChange = useCallback((e: Parameters<Exclude<InputProps['onChange'], undefined>>[0]) => {
+    const _val = 'target' in e ? e.target.value : e.value;
+    setVal((type === 'textarea' ? _val?.slice(0, maxLength) : _val) || '');
+    onChange?.(e as any);
+  }, [onChange, maxLength, type]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -65,7 +66,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         return (_props: InputOtpProps) => {
           const { className: _className, ..._rest } = _props;
           return <div className={_className}>
-            <InputOtp{..._rest as any} />
+            <InputOtp {..._rest as any} />
           </div>;
         };
       case 'password':
@@ -98,6 +99,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           success ? classes('inner-success') : '',
           invalid ? classes('inner-invalid') : '',
           disabled ? classes('inner-disabled') : '',
+          val ? classes('inner-filled') : '',
         ].join(' '))}
       >
         {/* {addons && <div className={classes('addons')}>{addons}</div>} */}
@@ -107,7 +109,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           ref={inputRef}
           value={type === 'textarea' ? val : value}
           defaultValue={type === 'textarea' ? undefined : defaultValue}
-          onChange={type === 'textarea' ? handleChange : onChange}
+          onChange={handleChange}
           invalid={invalid}
           disabled={disabled}
           required={required}

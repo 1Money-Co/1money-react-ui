@@ -1,3 +1,4 @@
+'use client';
 import { memo } from 'react';
 import RCTooltip from 'rc-tooltip';
 import { IconWrapper } from '../Icons';
