@@ -72,7 +72,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
                 Clear all
               </span>
             </div>
-            {filterElement.props.children}
+            {filterElement?.props?.children}
           </div>;
         }}
         {...(props as MultiSelectProps)}
