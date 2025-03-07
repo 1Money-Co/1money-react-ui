@@ -1,4 +1,4 @@
-import { memo, useMemo, useState, useEffect, useCallback } from 'react';
+import { memo, useRef, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import isEqual from 'lodash.isequal';
 import { Dropdown, type DropdownProps } from 'primereact/dropdown';
 import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
@@ -10,6 +10,7 @@ import type { SelectProps } from './interface';
 
 export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const {
+    ref,
     label,
     message,
     required,
@@ -31,14 +32,19 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     success,
     onHide,
     onShow,
+    unselectable,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef<Dropdown | MultiSelect | null>(null);
+  const _ref = useRef<Dropdown | MultiSelect | null>(null);
+
   const SelectComponent = useCallback(
     (props: MultiSelectProps & DropdownProps) => multiple
       ? <MultiSelect
+        unselectable={unselectable}
         showSelectAll={false}
         checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
         removeIcon={props => {
@@ -90,11 +96,14 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     }
   }, [value]);
 
+  useImperativeHandle(ref ?? _ref, () => selectRef.current!);
+
   return (
     <div className={classes('wrapper', wrapperCls)}>
       {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
       <SelectComponent
         {...rest as any}
+        ref={selectRef}
         name={name}
         filterPlaceholder='Search'
         required={required}
@@ -111,7 +120,13 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           ].join(' '))
         }
         itemTemplate={(option) => {
-          return <div className={classes('panel-item')}>
+          return <div className={classes('panel-item')}
+            onClick={() => {
+              if (!multiple && unselectable === 'on' && option.value === selected) {
+                (selectRef.current as Dropdown)?.clear();
+              }
+            }}
+          >
             <div className={classes('panel-item-label')}>
               {itemTemplate ? itemTemplate(option) : option.label}
             </div>
@@ -122,7 +137,8 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);
-          onChange?.(e as any);
+          // @ts-ignore
+          onChange?.(e);
         }}
         onHide={() => {
           setIsOpen(false);
