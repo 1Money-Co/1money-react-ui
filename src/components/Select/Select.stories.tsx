@@ -14,6 +14,7 @@ const meta: Meta<typeof Select> = {
     invalid: { control: 'boolean' },
     filter: { control: 'boolean' },
     message: { control: 'text' },
+    unselectable: { control: 'radio', options: ['on', 'off'] },
   },
   args: {
     size: 'large',
@@ -52,7 +53,8 @@ export const Single: Story = {
     message: 'Please select a city',
     options: cities,
     required: true,
-    showClear: false
+    showClear: false,
+    unselectable: 'on'
   },
   tags: ['!autodocs', 'dev'],
 };
