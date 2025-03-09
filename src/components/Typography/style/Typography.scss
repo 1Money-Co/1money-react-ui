@@ -10,6 +10,10 @@ $component: 'typography';
     font-family: var(--font-aeonik), Aeonik;
     line-height: 108%;
 
+    &-bold {
+      font-weight: 700;
+    }
+
     &-xl {
       font-size: 64px;
       letter-spacing: -0.25px;
@@ -35,6 +39,10 @@ $component: 'typography';
     font-weight: 500;
     font-family: var(--font-aeonik), Aeonik;
     line-height: 108%;
+    
+    &-bold {
+        font-weight: 700;
+      }
 
     &-l {
       font-size: 32px;

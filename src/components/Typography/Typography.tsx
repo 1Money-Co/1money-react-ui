@@ -14,24 +14,32 @@ export interface TypographyProps {
 }
 
 const Display: FC<PropsWithChildren<DisplayProps>> = memo(props => {
-  const { children, className, prefixCls = 'typography-display', size, ...rest } = props;
+  const { children, className, prefixCls = 'typography-display', size, bold, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return <h1
     {...rest}
-    className={classes(void 0, [classes(size), className].join(' '))}
+    className={classes(void 0, [
+      classes(size),
+      bold ? classes('bold') : '',
+      className
+    ].join(' '))}
   >
     { children }
   </h1>;
 });
 
 const Headline: FC<PropsWithChildren<HeadlineProps>> = memo(props => {
-  const { children, className, prefixCls = 'typography-headline', size, ...rest } = props;
+  const { children, className, prefixCls = 'typography-headline', size, bold, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return <h2
     {...rest}
-    className={classes(void 0, [classes(size), className].join(' '))}
+    className={classes(void 0, [
+      classes(size),
+      bold ? classes('bold') : '',
+      className
+    ].join(' '))}
   >
     { children }
   </h2>;

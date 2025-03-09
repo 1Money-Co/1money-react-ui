@@ -7,11 +7,13 @@ interface BaseProps extends PropsWithChildren {
 
 export interface DisplayProps extends BaseProps {
   size: 'xl' | 'l' | 'm' | 's';
+  bold?: boolean;
   onClick?: MouseEventHandler<HTMLHeadingElement>;
 }
 
 export interface HeadlineProps extends BaseProps {
   size: 'l' | 'm' | 's' | 'xs';
+  bold?: boolean;
   onClick?: MouseEventHandler<HTMLHeadingElement>;
 }
 

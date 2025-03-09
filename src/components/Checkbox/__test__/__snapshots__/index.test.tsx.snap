@@ -6,7 +6,7 @@ exports[`Checkbox disabled renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-md"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-md"
@@ -147,7 +147,7 @@ exports[`Checkbox disabled renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-md"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-md"
@@ -345,7 +345,7 @@ exports[`Checkbox multiple renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-md"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-md"
@@ -481,7 +481,7 @@ exports[`Checkbox multiple renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-md"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-md"
@@ -674,7 +674,7 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-md"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-md"
@@ -849,7 +849,7 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-md"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-md"
@@ -1081,7 +1081,7 @@ exports[`Checkbox single renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-md"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-md"
@@ -1135,7 +1135,7 @@ exports[`Checkbox single renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-md"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-md"
@@ -1246,7 +1246,7 @@ exports[`Checkbox singleTristate renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-md"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-md"
@@ -1294,7 +1294,7 @@ exports[`Checkbox singleTristate renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-md"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-md"
@@ -1399,7 +1399,7 @@ exports[`Checkbox size renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-md"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-md"
@@ -1537,7 +1537,7 @@ exports[`Checkbox size renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-md"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-md"
@@ -1732,7 +1732,7 @@ exports[`Checkbox size renders correctly 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-checkbox-wrapper ckb-sm"
+        class="om-react-ui-checkbox-wrapper"
       >
         <div
           class="om-react-ui-checkbox-inner ckb-sm"
@@ -1770,7 +1770,7 @@ exports[`Checkbox size renders correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-checkbox-wrapper ckb-sm"
+      class="om-react-ui-checkbox-wrapper"
     >
       <div
         class="om-react-ui-checkbox-inner ckb-sm"
