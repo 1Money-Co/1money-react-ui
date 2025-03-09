@@ -1,0 +1,25 @@
+@use '../../../variable.scss'as *;
+
+$component: 'tag';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  padding: 4px 8px;
+
+  &.p-tag.p-tag-success {
+    background-color: $color-success;
+  }
+
+  &.p-tag.p-tag-warning {
+    background-color:$color-warning;
+  }
+
+  &.p-tag.p-tag-danger {
+    background-color: $color-negative;
+  }
+
+  &.p-tag.p-tag-info {
+    background-color: $color-grey-deep;
+  }
+
+}
