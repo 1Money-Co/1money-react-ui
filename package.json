@@ -129,11 +129,6 @@
       "import": "./es/components/Tab/index.js",
       "require": "./lib/components/Tab/index.js"
     },
-    "./Tag": {
-      "types": "./es/components/Tag/index.d.ts",
-      "import": "./es/components/Tag/index.js",
-      "require": "./lib/components/Tag/index.js"
-    },
     "./Toast": {
       "types": "./es/components/Toast/index.d.ts",
       "import": "./es/components/Toast/index.js",
