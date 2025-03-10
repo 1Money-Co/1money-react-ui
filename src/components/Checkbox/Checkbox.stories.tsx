@@ -64,8 +64,8 @@ export const Disabled: Story = {
   args: {
     tristate: true,
     items: [
-      { name: 'disabled', key: 'disabled', label: 'disabled',   disabled: true, },
-      { name: 'Achecked', key: 'Achecked',   label:'checked ', disabled:true,   defaultValue: true },
+      { name: 'disabled', key: 'disabled', label: 'Empty value',   disabled: true, },
+      { name: 'Achecked', key: 'Achecked',   label:'Checked ', disabled:true,   defaultValue: true },
       { name: 'BnotChecked', key: 'BnotChecked',  label:'Not checked ', disabled:true,  defaultValue: false }
     ],
     prefixCls: 'checkbox',

@@ -352,7 +352,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-name="checkbox"
             data-pc-section="root"
@@ -367,7 +366,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
             />
             <div
               class="p-checkbox-box"
-              data-p-disabled="false"
               data-p-highlight="false"
               data-pc-section="box"
             />
@@ -383,7 +381,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-            data-p-disabled="false"
             data-p-highlight="true"
             data-pc-name="checkbox"
             data-pc-section="root"
@@ -399,7 +396,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
             />
             <div
               class="p-checkbox-box"
-              data-p-disabled="false"
               data-p-highlight="true"
               data-pc-section="box"
             >
@@ -419,7 +415,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-name="checkbox"
             data-pc-section="root"
@@ -434,7 +429,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
             />
             <div
               class="p-checkbox-box"
-              data-p-disabled="false"
               data-p-highlight="false"
               data-pc-section="box"
             />
@@ -450,7 +444,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-name="checkbox"
             data-pc-section="root"
@@ -465,7 +458,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
             />
             <div
               class="p-checkbox-box"
-              data-p-disabled="false"
               data-p-highlight="false"
               data-pc-section="box"
             />
@@ -488,7 +480,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
           data-p-highlight="false"
           data-pc-name="checkbox"
           data-pc-section="root"
@@ -503,7 +494,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
           />
           <div
             class="p-checkbox-box"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="box"
           />
@@ -519,7 +509,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-          data-p-disabled="false"
           data-p-highlight="true"
           data-pc-name="checkbox"
           data-pc-section="root"
@@ -535,7 +524,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
           />
           <div
             class="p-checkbox-box"
-            data-p-disabled="false"
             data-p-highlight="true"
             data-pc-section="box"
           >
@@ -555,7 +543,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
           data-p-highlight="false"
           data-pc-name="checkbox"
           data-pc-section="root"
@@ -570,7 +557,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
           />
           <div
             class="p-checkbox-box"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="box"
           />
@@ -586,7 +572,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
           data-p-highlight="false"
           data-pc-name="checkbox"
           data-pc-section="root"
@@ -601,7 +586,6 @@ exports[`Checkbox multiple renders correctly 1`] = `
           />
           <div
             class="p-checkbox-box"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="box"
           />
@@ -681,7 +665,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Audi"
@@ -722,7 +705,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="BWM"
@@ -763,7 +745,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Benz"
@@ -808,7 +789,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Lexus"
@@ -856,7 +836,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="Audi"
@@ -897,7 +876,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="BWM"
@@ -938,7 +916,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="Benz"
@@ -983,7 +960,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="Lexus"
@@ -1088,7 +1064,6 @@ exports[`Checkbox single renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-            data-p-disabled="false"
             data-p-highlight="true"
             data-pc-name="checkbox"
             data-pc-section="root"
@@ -1103,7 +1078,6 @@ exports[`Checkbox single renders correctly 1`] = `
             />
             <div
               class="p-checkbox-box"
-              data-p-disabled="false"
               data-p-highlight="true"
               data-pc-section="box"
             >
@@ -1142,7 +1116,6 @@ exports[`Checkbox single renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-          data-p-disabled="false"
           data-p-highlight="true"
           data-pc-name="checkbox"
           data-pc-section="root"
@@ -1157,7 +1130,6 @@ exports[`Checkbox single renders correctly 1`] = `
           />
           <div
             class="p-checkbox-box"
-            data-p-disabled="false"
             data-p-highlight="true"
             data-pc-section="box"
           >
@@ -1253,7 +1225,6 @@ exports[`Checkbox singleTristate renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Status"
@@ -1301,7 +1272,6 @@ exports[`Checkbox singleTristate renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="Status"
@@ -1406,7 +1376,6 @@ exports[`Checkbox size renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="invalid"
@@ -1447,7 +1416,6 @@ exports[`Checkbox size renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="checked"
@@ -1492,7 +1460,6 @@ exports[`Checkbox size renders correctly 1`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="notChecked"
@@ -1544,7 +1511,6 @@ exports[`Checkbox size renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="invalid"
@@ -1585,7 +1551,6 @@ exports[`Checkbox size renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="checked"
@@ -1630,7 +1595,6 @@ exports[`Checkbox size renders correctly 1`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-          data-p-disabled="false"
           data-pc-name="tristatecheckbox"
           data-pc-section="root"
           id="notChecked"
@@ -1739,7 +1703,6 @@ exports[`Checkbox size renders correctly 2`] = `
         >
           <div
             class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-name="checkbox"
             data-pc-section="root"
@@ -1754,7 +1717,6 @@ exports[`Checkbox size renders correctly 2`] = `
             />
             <div
               class="p-checkbox-box"
-              data-p-disabled="false"
               data-p-highlight="false"
               data-pc-section="box"
             />
@@ -1777,7 +1739,6 @@ exports[`Checkbox size renders correctly 2`] = `
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
           data-p-highlight="false"
           data-pc-name="checkbox"
           data-pc-section="root"
@@ -1792,7 +1753,6 @@ exports[`Checkbox size renders correctly 2`] = `
           />
           <div
             class="p-checkbox-box"
-            data-p-disabled="false"
             data-p-highlight="false"
             data-pc-section="box"
           />

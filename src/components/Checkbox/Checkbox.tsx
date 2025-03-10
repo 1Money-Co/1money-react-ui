@@ -33,12 +33,12 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
 
   return <div className={classes('wrapper', wrapperCls)}>
     {items.map(item => {
-      const { key, required, defaultValue = null, label, onChange, ...rest } = item;
+      const { key, required, disabled, defaultValue = null, label, onChange, ...rest } = item;
       const [trivalue, setTrivalue] = useState(defaultValue);
       const handleLabelClick = useCallback(() => {
-        if (!tristate) return;
+        if (!tristate || disabled) return;
         setTrivalue(curr => curr === null ? true : curr === true ? false : null);
-      }, [tristate]);
+      }, [tristate, disabled]);
       return <div key={key} className={[classes('inner', innerCls), sizeClass].join(' ')}>
         <CheckBoxComponent
           {...rest as any}
@@ -46,6 +46,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
           inputId={key}
           value={tristate ? trivalue : key}
           required={required}
+          disabled={disabled}
           checked={tristate ? void 0 : checkedItems.includes(key)}
           className={classes('inner-checkbox', checkboxCls)}
           // 仅在 CheckBoxComponent 上传递图标属性
@@ -54,6 +55,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
             icon: <i className="pi pi-check" ></i>
           })}
           onChange={e => {
+            if (disabled) return;
             tristate && setTrivalue(e.value);
             onChange?.(tristate ? e.value : !!e.checked);
             handleOnChange(e);
