@@ -35,33 +35,43 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
     {items.map(item => {
       const { key, required, disabled, defaultValue = null, label, onChange, ...rest } = item;
       const [trivalue, setTrivalue] = useState(defaultValue);
+
       const handleLabelClick = useCallback(() => {
         if (!tristate || disabled) return;
         setTrivalue(curr => curr === null ? true : curr === true ? false : null);
       }, [tristate, disabled]);
+
+      const LabelWrapper = useCallback(({ children }: PropsWithChildren) => {
+        if (!label) return children;
+        return <label onClick={handleLabelClick}>
+          {children}
+          {label}
+        </label>;
+      }, [label, handleLabelClick]);
+
       return <div key={key} className={[classes('inner', innerCls), sizeClass].join(' ')}>
-        <CheckBoxComponent
-          {...rest as any}
-          id={tristate ? key : void 0}
-          inputId={key}
-          value={tristate ? trivalue : key}
-          required={required}
-          disabled={disabled}
-          checked={tristate ? void 0 : checkedItems.includes(key)}
-          className={classes('inner-checkbox', checkboxCls)}
-          // 仅在 CheckBoxComponent 上传递图标属性
-          {...(tristate ? { uncheckIcon: <i className="pi pi-minus" ></i> } : {})}
-          {...(tristate ? { checkIcon: <i className="pi pi-check" ></i> } : {
-            icon: <i className="pi pi-check" ></i>
-          })}
-          onChange={e => {
-            if (disabled) return;
-            tristate && setTrivalue(e.value);
-            onChange?.(tristate ? e.value : !!e.checked);
-            handleOnChange(e);
-          }}
-        />
-        {item?.label && <label htmlFor={key} onClick={handleLabelClick}>{label}</label>}
+        <LabelWrapper>
+          <CheckBoxComponent
+            {...rest as any}
+            id={tristate ? key : void 0}
+            value={tristate ? trivalue : key}
+            required={required}
+            disabled={disabled}
+            checked={tristate ? void 0 : checkedItems.includes(key)}
+            className={classes('inner-checkbox', checkboxCls)}
+            // 仅在 CheckBoxComponent 上传递图标属性
+            {...(tristate ? { uncheckIcon: <i className="pi pi-minus" ></i> } : {})}
+            {...(tristate ? { checkIcon: <i className="pi pi-check" ></i> } : {
+              icon: <i className="pi pi-check" ></i>
+            })}
+            onChange={e => {
+              if (disabled) return;
+              tristate && setTrivalue(e.value);
+              onChange?.(tristate ? e.value : !!e.checked);
+              handleOnChange(e);
+            }}
+          />
+        </LabelWrapper>
       </div>;
     })}
   </div>;

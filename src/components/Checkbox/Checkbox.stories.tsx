@@ -40,6 +40,15 @@ export const Single: Story = {
   tags: ['!autodocs', 'dev'],
 };
 
+export const NoLabel: Story = {
+  args: {
+    items: [
+      { name: 'NoLabel', key: 'NoLabel' },
+    ],
+    prefixCls: 'checkbox',
+  },
+};
+
 export const Invalid: Story = {
   args: {
     tristate: true,
