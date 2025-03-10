@@ -13,6 +13,7 @@ const meta: Meta<typeof Checkbox> = {
     innerCls: { control: 'text' },
     checkboxCls: { control: 'text' },
     prefixCls: { control: 'text' },
+    size: { control: 'radio', options: ['sm', 'md', 'lg'] },
   },
   args: {
     prefixCls: 'checkbox',
