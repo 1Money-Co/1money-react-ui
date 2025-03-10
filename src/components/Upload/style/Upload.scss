@@ -4,17 +4,21 @@ $component: 'upload';
 
 .#{$prefix}-#{$component} {
   &-btn {
-    color: #fff;
-    font-weight: 700;
+    color: $color-primary-white;
+    font-weight: 500;
     font-size: 14px;
-    background-color: #142D66;
+    background-color: $color-primary;
     border-color: transparent;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: none;
 
     >svg {
       width: 12px;
       height: 12px;
+    }
+
+    .p-button-label {
+      font-weight: inherit;
     }
   }
 }

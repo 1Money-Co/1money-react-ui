@@ -33,7 +33,7 @@ export const Basic: Story = {
     prefixCls: 'upload',
     mode: 'basic',
     chooseOptions: {
-      label: 'Basic Upload',
+      label: 'Upload',
       icon: () => <></>
     }
   },
