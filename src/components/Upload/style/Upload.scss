@@ -4,13 +4,35 @@ $component: 'upload';
 
 .#{$prefix}-#{$component} {
   &-btn {
+    padding: 12px;
     color: $color-primary-white;
     font-weight: 500;
     font-size: 14px;
+    line-height: 16px;
     background-color: $color-primary;
-    border-color: transparent;
+    border: none;
     border-radius: 12px;
     box-shadow: none;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+
+    &.p-disabled {
+      opacity: 0.3;
+    }
+
+    &-large {
+      padding: 16px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &-small {
+      height: 32px;
+      font-size: 12px;
+      line-height: 12px;
+    }
 
     >svg {
       width: 12px;

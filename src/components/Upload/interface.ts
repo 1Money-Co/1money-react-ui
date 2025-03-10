@@ -5,6 +5,7 @@ export interface UploadProps extends FileUploadProps {
   ref?: RefObject<FileUpload>;
   className?: string;
   prefixCls?: string;
+  btnSize?: 'small' | 'medium' | 'large';
 }
 
 export type UploadHandler = FileUpload;
@@ -16,6 +17,5 @@ export interface UploadFileBarProps {
   message?: string;
   className?: string;
   prefixCls?: string;
-  wrapperCls?: string;
   onClickRemove?: () => any;
 }
