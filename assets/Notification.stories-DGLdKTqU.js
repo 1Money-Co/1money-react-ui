@@ -1,0 +1,6 @@
+import{f}from"./index-C-CZKJQo.js";import{j as d}from"./jsx-runtime-BjG_zV1W.js";import{r as x}from"./index-Ca8FO3x4.js";import{c as u}from"./classnames-B-6LArsQ.js";const s=r=>{const{children:n,className:a,onClick:c,prefixCls:l="notification",...m}=r,p=u(l);return d.jsx("div",{...m,className:p(void 0,a),onClick:c,children:n})};x.memo(s);s.__docgenInfo={description:"",methods:[],displayName:"Notification",props:{className:{required:!1,tsType:{name:"string"},description:""},prefixCls:{required:!1,tsType:{name:"string"},description:""},onClick:{required:!1,tsType:{name:"MouseEventHandler",elements:[{name:"HTMLDivElement"}],raw:"MouseEventHandler<HTMLDivElement>"},description:""}}};const E={title:"Components/Notification",component:s,argTypes:{className:{control:"text"},prefixCls:{control:"text"}},args:{prefixCls:"notification",onClick:f()},tags:["autodocs"]},e={args:{prefixCls:"notification",children:"Hello Notification"}};var o,t,i;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    prefixCls: 'notification',
+    children: 'Hello Notification'
+  }
+}`,...(i=(t=e.parameters)==null?void 0:t.docs)==null?void 0:i.source}}};const v=["Primary"];export{e as Primary,v as __namedExportsOrder,E as default};
