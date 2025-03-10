@@ -11,6 +11,7 @@ const meta: Meta<typeof Upload> = {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
     disabled: { control: 'boolean' },
+    btnSize: { control: 'radio', options: ['small', 'medium', 'large'] },
   },
   args: {
     prefixCls: 'upload',
@@ -33,7 +34,7 @@ export const Basic: Story = {
     prefixCls: 'upload',
     mode: 'basic',
     chooseOptions: {
-      label: 'Basic Upload',
+      label: 'Upload',
       icon: () => <></>
     }
   },

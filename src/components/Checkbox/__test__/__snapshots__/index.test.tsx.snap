@@ -11,13 +11,142 @@ exports[`Checkbox disabled renders correctly 1`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-disabled"
+              data-p-disabled="true"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="disabled"
+              name="disabled"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                disabled=""
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="-1"
+              />
+            </div>
+            disabled
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkbox-inner ckb-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
+              data-p-disabled="true"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Achecked"
+              name="Achecked"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                disabled=""
+                type="checkbox"
+                value="true"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                True
+              </span>
+              <div
+                aria-checked="true"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="-1"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            checked 
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkbox-inner ckb-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
+              data-p-disabled="true"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="BnotChecked"
+              name="BnotChecked"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                disabled=""
+                type="checkbox"
+                value="false"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                False
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="-1"
+              >
+                <i
+                  class="pi pi-minus"
+                />
+              </div>
+            </div>
+            Not checked 
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkbox-wrapper"
+    >
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-disabled"
             data-p-disabled="true"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="disabled"
-            inputid="disabled"
             name="disabled"
           >
             <input
@@ -25,7 +154,6 @@ exports[`Checkbox disabled renders correctly 1`] = `
               class="p-checkbox-input"
               data-pc-section="input"
               disabled=""
-              id="disabled"
               type="checkbox"
               value=""
             />
@@ -44,22 +172,19 @@ exports[`Checkbox disabled renders correctly 1`] = `
               tabindex="-1"
             />
           </div>
-          <label
-            for="disabled"
-          >
-            disabled
-          </label>
-        </div>
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
+          disabled
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
             data-p-disabled="true"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Achecked"
-            inputid="Achecked"
             name="Achecked"
           >
             <input
@@ -67,7 +192,6 @@ exports[`Checkbox disabled renders correctly 1`] = `
               class="p-checkbox-input"
               data-pc-section="input"
               disabled=""
-              id="Achecked"
               type="checkbox"
               value="true"
             />
@@ -90,22 +214,19 @@ exports[`Checkbox disabled renders correctly 1`] = `
               />
             </div>
           </div>
-          <label
-            for="Achecked"
-          >
-            checked 
-          </label>
-        </div>
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
+          checked 
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
             data-p-disabled="true"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="BnotChecked"
-            inputid="BnotChecked"
             name="BnotChecked"
           >
             <input
@@ -113,7 +234,6 @@ exports[`Checkbox disabled renders correctly 1`] = `
               class="p-checkbox-input"
               data-pc-section="input"
               disabled=""
-              id="BnotChecked"
               type="checkbox"
               value="false"
             />
@@ -136,150 +256,6 @@ exports[`Checkbox disabled renders correctly 1`] = `
               />
             </div>
           </div>
-          <label
-            for="BnotChecked"
-          >
-            Not checked 
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-checkbox-wrapper"
-    >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-disabled"
-          data-p-disabled="true"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="disabled"
-          inputid="disabled"
-          name="disabled"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            disabled=""
-            id="disabled"
-            type="checkbox"
-            value=""
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            Not Selected
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="-1"
-          />
-        </div>
-        <label
-          for="disabled"
-        >
-          disabled
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
-          data-p-disabled="true"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="Achecked"
-          inputid="Achecked"
-          name="Achecked"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            disabled=""
-            id="Achecked"
-            type="checkbox"
-            value="true"
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            True
-          </span>
-          <div
-            aria-checked="true"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="-1"
-          >
-            <i
-              class="pi pi-check"
-            />
-          </div>
-        </div>
-        <label
-          for="Achecked"
-        >
-          checked 
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
-          data-p-disabled="true"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="BnotChecked"
-          inputid="BnotChecked"
-          name="BnotChecked"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            disabled=""
-            id="BnotChecked"
-            type="checkbox"
-            value="false"
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            False
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="-1"
-          >
-            <i
-              class="pi pi-minus"
-            />
-          </div>
-        </div>
-        <label
-          for="BnotChecked"
-        >
           Not checked 
         </label>
       </div>
@@ -350,129 +326,109 @@ exports[`Checkbox multiple renders correctly 1`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
-            data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Cheese"
-              name="C"
-              type="checkbox"
-            />
+          <label>
             <div
-              class="p-checkbox-box"
-              data-p-disabled="false"
+              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
               data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          <label
-            for="Cheese"
-          >
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="C"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
             Cheese
           </label>
         </div>
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-            data-p-disabled="false"
-            data-p-highlight="true"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              checked=""
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Mushroom"
-              name="M"
-              type="checkbox"
-            />
+          <label>
             <div
-              class="p-checkbox-box"
-              data-p-disabled="false"
+              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
               data-p-highlight="true"
-              data-pc-section="box"
+              data-pc-name="checkbox"
+              data-pc-section="root"
             >
-              <i
-                class="pi pi-check"
+              <input
+                aria-invalid="false"
+                checked=""
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="M"
+                type="checkbox"
               />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="true"
+                data-pc-section="box"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
             </div>
-          </div>
-          <label
-            for="Mushroom"
-          >
             Mushroom
           </label>
         </div>
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
-            data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Pepper"
-              name="P"
-              type="checkbox"
-            />
+          <label>
             <div
-              class="p-checkbox-box"
-              data-p-disabled="false"
+              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
               data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          <label
-            for="Pepper"
-          >
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="P"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
             Pepper
           </label>
         </div>
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
-            data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Onion"
-              name="O"
-              type="checkbox"
-            />
+          <label>
             <div
-              class="p-checkbox-box"
-              data-p-disabled="false"
+              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
               data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          <label
-            for="Onion"
-          >
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="O"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
             Onion
           </label>
         </div>
@@ -486,129 +442,109 @@ exports[`Checkbox multiple renders correctly 1`] = `
       <div
         class="om-react-ui-checkbox-inner ckb-md"
       >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-p-highlight="false"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Cheese"
-            name="C"
-            type="checkbox"
-          />
+        <label>
           <div
-            class="p-checkbox-box"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
             data-p-highlight="false"
-            data-pc-section="box"
-          />
-        </div>
-        <label
-          for="Cheese"
-        >
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="C"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
           Cheese
         </label>
       </div>
       <div
         class="om-react-ui-checkbox-inner ckb-md"
       >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-          data-p-disabled="false"
-          data-p-highlight="true"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-        >
-          <input
-            aria-invalid="false"
-            checked=""
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Mushroom"
-            name="M"
-            type="checkbox"
-          />
+        <label>
           <div
-            class="p-checkbox-box"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
             data-p-highlight="true"
-            data-pc-section="box"
+            data-pc-name="checkbox"
+            data-pc-section="root"
           >
-            <i
-              class="pi pi-check"
+            <input
+              aria-invalid="false"
+              checked=""
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="M"
+              type="checkbox"
             />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="true"
+              data-pc-section="box"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
           </div>
-        </div>
-        <label
-          for="Mushroom"
-        >
           Mushroom
         </label>
       </div>
       <div
         class="om-react-ui-checkbox-inner ckb-md"
       >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-p-highlight="false"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Pepper"
-            name="P"
-            type="checkbox"
-          />
+        <label>
           <div
-            class="p-checkbox-box"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
             data-p-highlight="false"
-            data-pc-section="box"
-          />
-        </div>
-        <label
-          for="Pepper"
-        >
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="P"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
           Pepper
         </label>
       </div>
       <div
         class="om-react-ui-checkbox-inner ckb-md"
       >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-p-highlight="false"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Onion"
-            name="O"
-            type="checkbox"
-          />
+        <label>
           <div
-            class="p-checkbox-box"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
             data-p-highlight="false"
-            data-pc-section="box"
-          />
-        </div>
-        <label
-          for="Onion"
-        >
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="O"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
           Onion
         </label>
       </div>
@@ -679,61 +615,173 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
-            data-pc-name="tristatecheckbox"
-            data-pc-section="root"
-            id="Audi"
-            inputid="Audi"
-            name="A"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Audi"
-              type="checkbox"
-              value=""
-            />
-            <span
-              aria-live="polite"
-              class="p-hidden-accessible"
-              data-pc-section="sronlyaria"
-            >
-              Not Selected
-            </span>
+          <label>
             <div
-              aria-checked="false"
-              class="p-checkbox-box"
-              data-pc-section="box"
-              role="checkbox"
-              tabindex="0"
-            />
-          </div>
-          <label
-            for="Audi"
-          >
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Audi"
+              name="A"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
             Audi
           </label>
         </div>
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="BWM"
+              name="B"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            BWM
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkbox-inner ckb-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Benz"
+              name="B"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value="true"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                True
+              </span>
+              <div
+                aria-checked="true"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            Mercedes-Benz
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkbox-inner ckb-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Lexus"
+              name="L"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            Lexus
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkbox-wrapper"
+    >
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
-            id="BWM"
-            inputid="BWM"
-            name="B"
+            id="Audi"
+            name="A"
           >
             <input
               aria-invalid="false"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="BWM"
               type="checkbox"
               value=""
             />
@@ -752,29 +800,60 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
               tabindex="0"
             />
           </div>
-          <label
-            for="BWM"
-          >
-            BWM
-          </label>
-        </div>
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
+          Audi
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
-            id="Benz"
-            inputid="Benz"
+            id="BWM"
             name="B"
           >
             <input
               aria-invalid="false"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="Benz"
+              type="checkbox"
+              value=""
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              role="checkbox"
+              tabindex="0"
+            />
+          </div>
+          BWM
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="Benz"
+            name="B"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
               type="checkbox"
               value="true"
             />
@@ -797,29 +876,24 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
               />
             </div>
           </div>
-          <label
-            for="Benz"
-          >
-            Mercedes-Benz
-          </label>
-        </div>
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
+          Mercedes-Benz
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Lexus"
-            inputid="Lexus"
             name="L"
           >
             <input
               aria-invalid="false"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="Lexus"
               type="checkbox"
               value=""
             />
@@ -838,184 +912,6 @@ exports[`Checkbox multipleTristate renders correctly 1`] = `
               tabindex="0"
             />
           </div>
-          <label
-            for="Lexus"
-          >
-            Lexus
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-checkbox-wrapper"
-    >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="Audi"
-          inputid="Audi"
-          name="A"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Audi"
-            type="checkbox"
-            value=""
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            Not Selected
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          />
-        </div>
-        <label
-          for="Audi"
-        >
-          Audi
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="BWM"
-          inputid="BWM"
-          name="B"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="BWM"
-            type="checkbox"
-            value=""
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            Not Selected
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          />
-        </div>
-        <label
-          for="BWM"
-        >
-          BWM
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="Benz"
-          inputid="Benz"
-          name="B"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Benz"
-            type="checkbox"
-            value="true"
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            True
-          </span>
-          <div
-            aria-checked="true"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          >
-            <i
-              class="pi pi-check"
-            />
-          </div>
-        </div>
-        <label
-          for="Benz"
-        >
-          Mercedes-Benz
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="Lexus"
-          inputid="Lexus"
-          name="L"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Lexus"
-            type="checkbox"
-            value=""
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            Not Selected
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          />
-        </div>
-        <label
-          for="Lexus"
-        >
           Lexus
         </label>
       </div>
@@ -1086,35 +982,30 @@ exports[`Checkbox single renders correctly 1`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-            data-p-disabled="false"
-            data-p-highlight="true"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Agree"
-              name="Agree"
-              type="checkbox"
-            />
+          <label>
             <div
-              class="p-checkbox-box"
-              data-p-disabled="false"
+              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
               data-p-highlight="true"
-              data-pc-section="box"
+              data-pc-name="checkbox"
+              data-pc-section="root"
             >
-              <i
-                class="pi pi-check"
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="Agree"
+                type="checkbox"
               />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="true"
+                data-pc-section="box"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
             </div>
-          </div>
-          <label
-            for="Agree"
-          >
             I am over 18 years old and I have read, understand and agree to the
             <a
               href="https://github.com/1Money-Co"
@@ -1140,35 +1031,30 @@ exports[`Checkbox single renders correctly 1`] = `
       <div
         class="om-react-ui-checkbox-inner ckb-md"
       >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-          data-p-disabled="false"
-          data-p-highlight="true"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Agree"
-            name="Agree"
-            type="checkbox"
-          />
+        <label>
           <div
-            class="p-checkbox-box"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
             data-p-highlight="true"
-            data-pc-section="box"
+            data-pc-name="checkbox"
+            data-pc-section="root"
           >
-            <i
-              class="pi pi-check"
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="Agree"
+              type="checkbox"
             />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="true"
+              data-pc-section="box"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
           </div>
-        </div>
-        <label
-          for="Agree"
-        >
           I am over 18 years old and I have read, understand and agree to the
           <a
             href="https://github.com/1Money-Co"
@@ -1251,20 +1137,61 @@ exports[`Checkbox singleTristate renders correctly 1`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Status"
+              name="State"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            Change State
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkbox-wrapper"
+    >
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="Status"
-            inputid="Status"
             name="State"
           >
             <input
               aria-invalid="false"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="Status"
               type="checkbox"
               value=""
             />
@@ -1283,57 +1210,6 @@ exports[`Checkbox singleTristate renders correctly 1`] = `
               tabindex="0"
             />
           </div>
-          <label
-            for="Status"
-          >
-            Change State
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-checkbox-wrapper"
-    >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="Status"
-          inputid="Status"
-          name="State"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Status"
-            type="checkbox"
-            value=""
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            Not Selected
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          />
-        </div>
-        <label
-          for="Status"
-        >
           Change State
         </label>
       </div>
@@ -1404,20 +1280,141 @@ exports[`Checkbox size renders correctly 1`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-md"
         >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="invalid"
+              name="invalid"
+            >
+              <input
+                aria-invalid="true"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            invalid
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkbox-inner ckb-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="checked"
+              name="checked"
+            >
+              <input
+                aria-invalid="true"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value="true"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                True
+              </span>
+              <div
+                aria-checked="true"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            checked
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkbox-inner ckb-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="notChecked"
+              name="notChecked"
+            >
+              <input
+                aria-invalid="true"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value="false"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                False
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                role="checkbox"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-minus"
+                />
+              </div>
+            </div>
+            Not checked
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkbox-wrapper"
+    >
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="invalid"
-            inputid="invalid"
             name="invalid"
           >
             <input
               aria-invalid="true"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="invalid"
               type="checkbox"
               value=""
             />
@@ -1436,29 +1433,24 @@ exports[`Checkbox size renders correctly 1`] = `
               tabindex="0"
             />
           </div>
-          <label
-            for="invalid"
-          >
-            invalid
-          </label>
-        </div>
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
+          invalid
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="checked"
-            inputid="checked"
             name="checked"
           >
             <input
               aria-invalid="true"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="checked"
               type="checkbox"
               value="true"
             />
@@ -1481,29 +1473,24 @@ exports[`Checkbox size renders correctly 1`] = `
               />
             </div>
           </div>
-          <label
-            for="checked"
-          >
-            checked
-          </label>
-        </div>
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
+          checked
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkbox-inner ckb-md"
+      >
+        <label>
           <div
             class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-            data-p-disabled="false"
             data-pc-name="tristatecheckbox"
             data-pc-section="root"
             id="notChecked"
-            inputid="notChecked"
             name="notChecked"
           >
             <input
               aria-invalid="true"
               class="p-checkbox-input"
               data-pc-section="input"
-              id="notChecked"
               type="checkbox"
               value="false"
             />
@@ -1526,147 +1513,6 @@ exports[`Checkbox size renders correctly 1`] = `
               />
             </div>
           </div>
-          <label
-            for="notChecked"
-          >
-            Not checked
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-checkbox-wrapper"
-    >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="invalid"
-          inputid="invalid"
-          name="invalid"
-        >
-          <input
-            aria-invalid="true"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="invalid"
-            type="checkbox"
-            value=""
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            Not Selected
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          />
-        </div>
-        <label
-          for="invalid"
-        >
-          invalid
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="checked"
-          inputid="checked"
-          name="checked"
-        >
-          <input
-            aria-invalid="true"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="checked"
-            type="checkbox"
-            value="true"
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            True
-          </span>
-          <div
-            aria-checked="true"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          >
-            <i
-              class="pi pi-check"
-            />
-          </div>
-        </div>
-        <label
-          for="checked"
-        >
-          checked
-        </label>
-      </div>
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
-          data-p-disabled="false"
-          data-pc-name="tristatecheckbox"
-          data-pc-section="root"
-          id="notChecked"
-          inputid="notChecked"
-          name="notChecked"
-        >
-          <input
-            aria-invalid="true"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="notChecked"
-            type="checkbox"
-            value="false"
-          />
-          <span
-            aria-live="polite"
-            class="p-hidden-accessible"
-            data-pc-section="sronlyaria"
-          >
-            False
-          </span>
-          <div
-            aria-checked="false"
-            class="p-checkbox-box"
-            data-pc-section="box"
-            role="checkbox"
-            tabindex="0"
-          >
-            <i
-              class="pi pi-minus"
-            />
-          </div>
-        </div>
-        <label
-          for="notChecked"
-        >
           Not checked
         </label>
       </div>
@@ -1737,31 +1583,26 @@ exports[`Checkbox size renders correctly 2`] = `
         <div
           class="om-react-ui-checkbox-inner ckb-sm"
         >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-disabled="false"
-            data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              id="Cheese"
-              name="C"
-              type="checkbox"
-            />
+          <label>
             <div
-              class="p-checkbox-box"
-              data-p-disabled="false"
+              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
               data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          <label
-            for="Cheese"
-          >
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="C"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
             Cheese
           </label>
         </div>
@@ -1775,31 +1616,26 @@ exports[`Checkbox size renders correctly 2`] = `
       <div
         class="om-react-ui-checkbox-inner ckb-sm"
       >
-        <div
-          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-          data-p-disabled="false"
-          data-p-highlight="false"
-          data-pc-name="checkbox"
-          data-pc-section="root"
-        >
-          <input
-            aria-invalid="false"
-            class="p-checkbox-input"
-            data-pc-section="input"
-            id="Cheese"
-            name="C"
-            type="checkbox"
-          />
+        <label>
           <div
-            class="p-checkbox-box"
-            data-p-disabled="false"
+            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
             data-p-highlight="false"
-            data-pc-section="box"
-          />
-        </div>
-        <label
-          for="Cheese"
-        >
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="C"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
           Cheese
         </label>
       </div>

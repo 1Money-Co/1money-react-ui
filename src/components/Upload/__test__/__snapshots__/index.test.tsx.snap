@@ -17,7 +17,7 @@ exports[`Upload basic render 1`] = `
           <div />
         </div>
         <span
-          class="om-react-ui-upload-btn om-react-ui-upload-btn-choose  p-button p-component p-fileupload-choose"
+          class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-choose  p-button p-component p-fileupload-choose"
           data-pc-section="basicbutton"
           tabindex="0"
         >
@@ -62,7 +62,7 @@ exports[`Upload basic render 1`] = `
         <div />
       </div>
       <span
-        class="om-react-ui-upload-btn om-react-ui-upload-btn-choose  p-button p-component p-fileupload-choose"
+        class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-choose  p-button p-component p-fileupload-choose"
         data-pc-section="basicbutton"
         tabindex="0"
       >
@@ -162,7 +162,7 @@ exports[`Upload renders correctly 1`] = `
           data-pc-section="buttonbar"
         >
           <span
-            class="om-react-ui-upload-btn om-react-ui-upload-btn-choose  p-button p-fileupload-choose p-component"
+            class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-choose  p-button p-fileupload-choose p-component"
             data-p-disabled="false"
             data-p-focus="false"
             data-pc-section="choosebutton"
@@ -197,7 +197,7 @@ exports[`Upload renders correctly 1`] = `
           <button
             aria-hidden="true"
             aria-label="Upload"
-            class="om-react-ui-upload-btn om-react-ui-upload-btn-upload  p-button p-component p-disabled"
+            class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-upload  p-button p-component p-disabled"
             data-pc-name="button"
             data-pc-section="root"
             disabled=""
@@ -230,7 +230,7 @@ exports[`Upload renders correctly 1`] = `
           <button
             aria-hidden="true"
             aria-label="Cancel"
-            class="om-react-ui-upload-btn om-react-ui-upload-btn-cancel  p-button p-component p-disabled"
+            class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-cancel  p-button p-component p-disabled"
             data-pc-name="button"
             data-pc-section="root"
             disabled=""
@@ -285,7 +285,7 @@ exports[`Upload renders correctly 1`] = `
         data-pc-section="buttonbar"
       >
         <span
-          class="om-react-ui-upload-btn om-react-ui-upload-btn-choose  p-button p-fileupload-choose p-component"
+          class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-choose  p-button p-fileupload-choose p-component"
           data-p-disabled="false"
           data-p-focus="false"
           data-pc-section="choosebutton"
@@ -320,7 +320,7 @@ exports[`Upload renders correctly 1`] = `
         <button
           aria-hidden="true"
           aria-label="Upload"
-          class="om-react-ui-upload-btn om-react-ui-upload-btn-upload  p-button p-component p-disabled"
+          class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-upload  p-button p-component p-disabled"
           data-pc-name="button"
           data-pc-section="root"
           disabled=""
@@ -353,7 +353,7 @@ exports[`Upload renders correctly 1`] = `
         <button
           aria-hidden="true"
           aria-label="Cancel"
-          class="om-react-ui-upload-btn om-react-ui-upload-btn-cancel  p-button p-component p-disabled"
+          class="om-react-ui-upload-btn om-react-ui-upload-btn-medium om-react-ui-upload-btn-cancel  p-button p-component p-disabled"
           data-pc-name="button"
           data-pc-section="root"
           disabled=""

@@ -14,15 +14,18 @@ $component: 'checkbox';
   &-wrapper {
     display: flex;
     flex-direction: row;
+    gap: 12px;
   }
 
   &-inner {
     display: flex;
     align-items: center;
-    margin-right: 12px;
 
     label {
-      margin-left: 10px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: $color-grey-midnight;
       font-weight: 500;
       font-size: 14px;
       font-style: normal;
@@ -52,7 +55,7 @@ $component: 'checkbox';
 
         label {
           font-size: if($size=='sm', 12px, 14px);
-          line-height: $dimension + 4px;
+          line-height: $dimension;
         }
       }
     }
