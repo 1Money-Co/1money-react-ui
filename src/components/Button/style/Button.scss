@@ -207,4 +207,22 @@ $component: 'button';
     border-radius: 8px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10%);
   }
+
+  &-negative {
+    color: $color-primary-white;
+    background-color: $color-negative;
+    border: none;
+
+    &:hover {
+      background-color: #8B0000;
+    }
+
+    &-active {
+      background-color: #5C0000;
+    }
+
+    &.p-disabled {
+      opacity: 0.4;
+    }
+  }
 }
