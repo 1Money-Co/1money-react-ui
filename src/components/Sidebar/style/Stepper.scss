@@ -12,6 +12,12 @@ $cls: #{$prefix}-#{$component};
   color: $color-primary-black;
   background-color: $color-primary-white;
 
+  &-header {
+    &-logo {
+      cursor: pointer;
+    }
+  }
+
   &-steps {
     display: flex;
     flex-direction: column;

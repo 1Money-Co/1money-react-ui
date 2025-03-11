@@ -6,7 +6,7 @@ import type { FC } from 'react';
 import type { StepperProps } from './interface';
 
 export const Stepper: FC<StepperProps> = props => {
-  const { steps, className, prefixCls = 'stepper', onLogoClick, footer } = props;
+  const { steps, className, prefixCls = 'stepper', logoCls, onLogoClick, footer } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -21,6 +21,7 @@ export const Stepper: FC<StepperProps> = props => {
           width={131}
           height={24}
           onClick={onLogoClick}
+          className={classes('header-logo', logoCls)}
         />
       </div>
       <ul className={classes('steps')}>

@@ -6,9 +6,9 @@ exports[`Sidebar renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <aside
-        class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
+        class="ps-sidebar-root om-react-ui-sidebar css-1vx3kiy"
         data-testid="ps-sidebar-root-test-id"
-        width="261px"
+        width="280px"
       >
         <div
           class="ps-sidebar-container css-dip3t8"
@@ -277,23 +277,6 @@ exports[`Sidebar renders correctly 1`] = `
               </li>
             </ul>
           </nav>
-          <div
-            class="om-react-ui-sidebar-footer"
-          >
-            <span
-              class="om-react-ui-sidebar-footer-logout"
-            >
-              <i
-                class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
-                style="font-size: 16px;"
-              />
-            </span>
-            <span
-              class="om-react-ui-sidebar-footer-logout-text"
-            >
-              Log out
-            </span>
-          </div>
         </div>
       </aside>
     </div>
@@ -305,7 +288,7 @@ exports[`Sidebar renders correctly 1`] = `
           class="om-react-ui-stepper-header"
         >
           <i
-            class="om-react-ui-icons-logo-with-words  "
+            class="om-react-ui-icons-logo-with-words  om-react-ui-stepper-header-logo"
           >
             <svg
               class="om-react-ui-icons"
@@ -452,9 +435,9 @@ exports[`Sidebar renders correctly 1`] = `
   </body>,
   "container": <div>
     <aside
-      class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
+      class="ps-sidebar-root om-react-ui-sidebar css-1vx3kiy"
       data-testid="ps-sidebar-root-test-id"
-      width="261px"
+      width="280px"
     >
       <div
         class="ps-sidebar-container css-dip3t8"
@@ -723,23 +706,6 @@ exports[`Sidebar renders correctly 1`] = `
             </li>
           </ul>
         </nav>
-        <div
-          class="om-react-ui-sidebar-footer"
-        >
-          <span
-            class="om-react-ui-sidebar-footer-logout"
-          >
-            <i
-              class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
-              style="font-size: 16px;"
-            />
-          </span>
-          <span
-            class="om-react-ui-sidebar-footer-logout-text"
-          >
-            Log out
-          </span>
-        </div>
       </div>
     </aside>
   </div>,
@@ -803,9 +769,9 @@ exports[`Sidebar renders correctly 2`] = `
   "baseElement": <body>
     <div>
       <aside
-        class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
+        class="ps-sidebar-root om-react-ui-sidebar css-1vx3kiy"
         data-testid="ps-sidebar-root-test-id"
-        width="261px"
+        width="280px"
       >
         <div
           class="ps-sidebar-container css-dip3t8"
@@ -1074,23 +1040,6 @@ exports[`Sidebar renders correctly 2`] = `
               </li>
             </ul>
           </nav>
-          <div
-            class="om-react-ui-sidebar-footer"
-          >
-            <span
-              class="om-react-ui-sidebar-footer-logout"
-            >
-              <i
-                class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
-                style="font-size: 16px;"
-              />
-            </span>
-            <span
-              class="om-react-ui-sidebar-footer-logout-text"
-            >
-              Log out
-            </span>
-          </div>
         </div>
       </aside>
     </div>
@@ -1102,7 +1051,7 @@ exports[`Sidebar renders correctly 2`] = `
           class="om-react-ui-stepper-header"
         >
           <i
-            class="om-react-ui-icons-logo-with-words  "
+            class="om-react-ui-icons-logo-with-words  om-react-ui-stepper-header-logo"
           >
             <svg
               class="om-react-ui-icons"
@@ -1255,7 +1204,7 @@ exports[`Sidebar renders correctly 2`] = `
         class="om-react-ui-stepper-header"
       >
         <i
-          class="om-react-ui-icons-logo-with-words  "
+          class="om-react-ui-icons-logo-with-words  om-react-ui-stepper-header-logo"
         >
           <svg
             class="om-react-ui-icons"
