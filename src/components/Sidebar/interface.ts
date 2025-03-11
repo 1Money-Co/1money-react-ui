@@ -36,6 +36,7 @@ export interface Step {
 export interface StepperProps {
   className?: string;
   prefixCls?: string;
+  logoCls?: string;
   onLogoClick?: () => any;
   steps: Step[];
   footer?: ReactNode;
