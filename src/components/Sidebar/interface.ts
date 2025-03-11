@@ -6,6 +6,7 @@ export interface MenuItem {
   icon?: ReactNode;
   link?: string | ReactElement;
   active?: boolean;
+  disabled?: boolean;
   defaultOpen?: boolean;
   children?: Omit<MenuItem, 'children'>[];
 }
@@ -16,7 +17,6 @@ export interface SidebarProps {
   collapsible?: boolean;
   onCollapse?: (collapsed: boolean) => any;
   onLogoClick?: () => any;
-  onLogout?: () => any;
   menus: MenuItem[];
 }
 

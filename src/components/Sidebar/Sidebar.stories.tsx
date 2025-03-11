@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Sidebar as SidebarComponent, Stepper as StepperComponent } from './index';
+import { Icons } from '../Icons';
+import { Tooltip } from '../Tooltip';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -17,21 +19,23 @@ const meta: Meta<typeof SidebarComponent> = {
     menus: [
       {
         label: 'Dashboard',
-        icon: <i className="pi pi-home" style={{ fontSize: '16px' }} />,
+        icon: <Icons name='dashboard' size={20} color='#131313' />,
         link: <a href='/?path=/docs/components-sidebar--overview' />,
         active: true
       },
       {
         label: 'Digital Assets',
-        icon: <i className="pi pi-wallet" style={{ fontSize: '16px' }} />,
+        icon: <Icons name='digitalAsset' size={20} color='#131313' />,
       },
       {
         label: 'Address Book',
-        icon: <i className="pi pi-book" style={{ fontSize: '16px' }} />,
+        icon: <Icons name='addressBook' size={20} color='#131313' />,
+        disabled: true
       },
       {
         label: 'Banking accounts',
-        icon: <i className="pi pi-credit-card" style={{ fontSize: '16px' }} />,
+        icon: <Icons name='bank' size={20} color='#131313' />,
+        disabled: true
       },
       {
         label: 'Account',
@@ -52,11 +56,11 @@ const meta: Meta<typeof SidebarComponent> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof SidebarComponent>;
- 
+
 export const Sidebar: Story = {
   args: {
     prefixCls: 'sidebar'
@@ -65,11 +69,19 @@ export const Sidebar: Story = {
     const { children, ...rest } = args;
     const [collapsed, setCollapsed] = useState(false);
     return <SidebarComponent {...rest} onCollapse={setCollapsed}>
-      <div style={{ display: collapsed ? 'none' : 'flex', alignItems: 'end', flexShrink: 0, flexGrow: 1, padding: '16px 0' }}>
-        <div style={{ padding: '16px', backgroundColor: '#E5EFFF', borderRadius: '16px', height: '95px' }}>
-          <h4 style={{ margin: '0' }}>Complete verification</h4>
-          <span>Unlock the full power of 1Money</span>
-        </div>
+      <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', marginTop: 'auto', gap: '12px' }}>
+        <Tooltip placement='top' overlay={
+          <div style={{ width: '80px', textAlign: 'center' }}>
+            <span>Overlay Data</span>
+            <br />
+            <span>Tooltip</span>
+          </div>
+        }>
+          <i style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
+            <Icons name='help' size={20} color='#646465' />
+          </i>
+        </Tooltip>
+        <span style={{ fontSize: collapsed ? '10px' : '14px' }}>Support</span>
       </div>
     </SidebarComponent>;
   }

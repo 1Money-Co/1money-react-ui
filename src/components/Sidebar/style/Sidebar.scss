@@ -7,7 +7,11 @@ $cls: #{$prefix}-#{$component};
   height: 100vh;
   padding: 40px 16px 24px;
   background-color: $color-grey-light;
-  border-right: 1px solid #F2F2F2 !important;
+  border: none !important;
+
+  &.ps-collapsed {
+    padding: 40px 8px 24px;
+  }
 
   &-expand-icon {
     &-open {
@@ -29,13 +33,17 @@ $cls: #{$prefix}-#{$component};
 
       .ps-menuitem-root {
         .ps-menu-button {
-          padding: 0;
-          padding: 16px;
+          display: inline-flex;
+          gap: 12px;
+          align-items: center;
+          width: 100%;
+          height: 48px;
+          padding: 16px 12px;
           color: $color-primary-black;
           font-weight: 500;
           font-size: 14px;
-          line-height: 17px;
           border-radius: 12px;
+
 
           &:hover {
             color: inherit;
@@ -47,22 +55,32 @@ $cls: #{$prefix}-#{$component};
           }
 
           .ps-menu-icon {
-            width: 16px;
-            min-width: 16px;
-            height: 16px;
-            margin-right: 16px;
-            color: #808080;
-            line-height: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: start;
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            margin-right: 0;
+            line-height: 20px;
           }
         }
 
         .ps-menu-button.ps-active {
           color: $color-primary-black;
           background-color: $color-grey;
+          border-color: $color-grey-deep;
+          border-style: solid;
+          border-width: 1px;
 
           .ps-menu-icon {
             color: inherit;
           }
+        }
+
+        .ps-menu-button.ps-disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
         }
 
         .ps-submenu-content {
@@ -95,45 +113,29 @@ $cls: #{$prefix}-#{$component};
 
   &-collapse {
     display: inline-flex;
+    gap: 8px;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-
-    &-icon {
-      cursor: pointer;
-    }
-  }
-
-  &-footer {
-    display: inline-flex;
-    align-items: center;
-    margin-top: auto;
-    padding: 16px;
-    border-radius: 8px;
+    margin: 32px auto 0;
+    padding: 8px 12px;
+    background-color: $color-grey;
+    border-radius: 12px;
     cursor: pointer;
 
-    &-logout {
-      display: inline-flex;
-      width: 16px;
-      height: 16px;
-      margin-right: 16px;
-      color: #808080;
-    }
+    &-collapsed {
+      width: 36px;
+      height: 36px;
 
-    &:hover {
-      color: $color-primary-black;
-      background-color: $color-grey;
-
-      .#{$cls}-footer-logout {
-        color: $color-primary-black;
+      .#{$cls}-collapse-text {
+        display: none;
       }
     }
 
-    &-logout-text {
-      font-weight: 700;
+    &-text {
+      color: $color-grey-midnight;
+      font-weight: 500;
       font-size: 14px;
-      line-height: 14px;
+      line-height: 15px;
     }
   }
 
@@ -149,10 +151,16 @@ $cls: #{$prefix}-#{$component};
       .ps-menu-root {
         .ps-menuitem-root {
           .ps-menu-button {
-            padding: 0;
+            flex-direction: column;
+            gap: 4px;
+            height: auto;
+            padding: 8px;
+            font-size: 10px;
+            line-height: 11px;
 
-            .ps-menu-icon {
-              margin-left: 16px;
+            .ps-menu-label {
+              white-space: pre-line;
+              text-align: center;
             }
           }
         }
