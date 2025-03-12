@@ -212,7 +212,7 @@
     "@chromatic-com/storybook": "^1.6.1",
     "@commitlint/cli": "8.3.5",
     "@eslint/js": "^9.20.0",
-    "@omni-door/cli": "^3.0.2",
+    "@omni-door/cli": "^3.0.3",
     "@storybook/addon-actions": "^8.5.3",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.5.3",
