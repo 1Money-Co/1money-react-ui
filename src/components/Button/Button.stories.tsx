@@ -51,7 +51,7 @@ export const Primary: Story = {
     <br />
     <Button {...args} severity='white' />
     <br />
-    <Button {...args} severity='negative'/>
+    <Button {...args} severity='severity'/>
     </>
   },
   args: {
