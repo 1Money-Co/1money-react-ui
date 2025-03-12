@@ -29,11 +29,11 @@ const meta: Meta<typeof Button> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Button>;
- 
+
 export const Primary: Story = {
   render: (args) => {
     return <>
@@ -50,6 +50,8 @@ export const Primary: Story = {
     <br />
     <br />
     <Button {...args} severity='white' />
+    <br />
+    <Button {...args} severity='severity'/>
     </>
   },
   args: {
