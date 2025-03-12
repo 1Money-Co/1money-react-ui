@@ -193,6 +193,13 @@ $cls: #{$prefix}-#{$component};
     &-disabled.#{$cls}-inner-filled {
       background-color: $color-grey !important;
       border-color: $color-grey !important;
+      cursor: text;
+
+      input {
+        cursor: text;
+        user-select: text;
+        pointer-events: auto;
+      }
     }
 
     &:not(:has(.#{$cls}-otp)) {
