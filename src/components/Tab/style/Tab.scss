@@ -9,6 +9,7 @@ $component: 'tab';
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 0;
     width: 100%;
     height: 2px;
     background-color: $color-grey-deep;
@@ -16,6 +17,8 @@ $component: 'tab';
   }
 
   .p-tabmenu {
+    position: relative;
+    z-index: 1;
     padding-bottom: 2px;
 
     .p-tabmenu-nav {
@@ -29,6 +32,8 @@ $component: 'tab';
           font-size: 16px;
           background-color: transparent;
           border-color: $color-grey-deep;
+          border-bottom-width: 2px;
+          border-bottom-style: solid;
 
           &:hover {
             background-color: transparent;
