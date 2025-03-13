@@ -134,6 +134,8 @@ import {
   LikeIcon,
   DislikeIcon,
   CopyIcon,
+  MobileIcon,
+  ChatIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -279,6 +281,8 @@ const IconList = {
   like: LikeIcon,
   dislike: DislikeIcon,
   copy: CopyIcon,
+  mobile: MobileIcon,
+  chat: ChatIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;

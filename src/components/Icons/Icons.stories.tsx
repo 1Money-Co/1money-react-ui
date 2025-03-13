@@ -467,10 +467,17 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='copy' />
         <span>Copy</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='mobile' />")}>
+        <Icons {...args} name='mobile' />
+        <span>Mobile</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='chat' />")}>
+        <Icons {...args} name='chat' />
+        <span>Chat</span>
+      </CopyIconBox>
     </div>;
   },
 };
-
 
 export const Logo: Story = {
   args: {
