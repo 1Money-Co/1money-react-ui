@@ -7,7 +7,7 @@ exports[`Icons renders correctly 1`] = `
     <div>
       <svg
         class="om-react-ui-icons"
-        fill="#000000"
+        fill="#131313"
         height="24"
         stroke="none"
         viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ exports[`Icons renders correctly 1`] = `
     <div>
       <svg
         class="om-react-ui-icons"
-        fill="#000000"
+        fill="#131313"
         height="24"
         stroke="none"
         viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ exports[`Icons renders correctly 1`] = `
   "container": <div>
     <svg
       class="om-react-ui-icons"
-      fill="#000000"
+      fill="#131313"
       height="24"
       stroke="none"
       viewBox="0 0 24 24"
@@ -121,7 +121,7 @@ exports[`Icons renders correctly 2`] = `
     <div>
       <svg
         class="om-react-ui-icons"
-        fill="#000000"
+        fill="#131313"
         height="24"
         stroke="none"
         viewBox="0 0 24 24"
@@ -143,7 +143,7 @@ exports[`Icons renders correctly 2`] = `
     <div>
       <svg
         class="om-react-ui-icons"
-        fill="#000000"
+        fill="#131313"
         height="24"
         stroke="none"
         viewBox="0 0 24 24"
@@ -155,7 +155,7 @@ exports[`Icons renders correctly 2`] = `
   "container": <div>
     <svg
       class="om-react-ui-icons"
-      fill="#000000"
+      fill="#131313"
       height="24"
       stroke="none"
       viewBox="0 0 24 24"

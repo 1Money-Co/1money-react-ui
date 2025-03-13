@@ -13,7 +13,7 @@ exports[`Cell renders correctly 1`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ exports[`Cell renders correctly 1`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ exports[`Cell renders correctly 1`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -80,7 +80,7 @@ exports[`Cell renders correctly 1`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ exports[`Cell renders correctly 1`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -124,7 +124,7 @@ exports[`Cell renders correctly 1`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@ exports[`Cell renders correctly 1`] = `
       >
         <svg
           class="om-react-ui-icons"
-          fill="#000000"
+          fill="#131313"
           height="24"
           stroke="none"
           viewBox="0 0 24 24"
@@ -169,7 +169,7 @@ exports[`Cell renders correctly 1`] = `
         class="om-react-ui-icons"
         fill="none"
         height="24"
-        stroke="#000000"
+        stroke="#131313"
         viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
@@ -248,7 +248,7 @@ exports[`Cell renders correctly 2`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -271,7 +271,7 @@ exports[`Cell renders correctly 2`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -292,7 +292,7 @@ exports[`Cell renders correctly 2`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -315,7 +315,7 @@ exports[`Cell renders correctly 2`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -336,7 +336,7 @@ exports[`Cell renders correctly 2`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -359,7 +359,7 @@ exports[`Cell renders correctly 2`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -381,7 +381,7 @@ exports[`Cell renders correctly 2`] = `
       >
         <svg
           class="om-react-ui-icons"
-          fill="#000000"
+          fill="#131313"
           height="24"
           stroke="none"
           viewBox="0 0 24 24"
@@ -404,7 +404,7 @@ exports[`Cell renders correctly 2`] = `
         class="om-react-ui-icons"
         fill="none"
         height="24"
-        stroke="#000000"
+        stroke="#131313"
         viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
@@ -483,7 +483,7 @@ exports[`Cell renders correctly 3`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -506,7 +506,7 @@ exports[`Cell renders correctly 3`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -527,7 +527,7 @@ exports[`Cell renders correctly 3`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -550,7 +550,7 @@ exports[`Cell renders correctly 3`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -571,7 +571,7 @@ exports[`Cell renders correctly 3`] = `
         >
           <svg
             class="om-react-ui-icons"
-            fill="#000000"
+            fill="#131313"
             height="24"
             stroke="none"
             viewBox="0 0 24 24"
@@ -594,7 +594,7 @@ exports[`Cell renders correctly 3`] = `
           class="om-react-ui-icons"
           fill="none"
           height="24"
-          stroke="#000000"
+          stroke="#131313"
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
@@ -616,7 +616,7 @@ exports[`Cell renders correctly 3`] = `
       >
         <svg
           class="om-react-ui-icons"
-          fill="#000000"
+          fill="#131313"
           height="24"
           stroke="none"
           viewBox="0 0 24 24"
@@ -639,7 +639,7 @@ exports[`Cell renders correctly 3`] = `
         class="om-react-ui-icons"
         fill="none"
         height="24"
-        stroke="#000000"
+        stroke="#131313"
         viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
