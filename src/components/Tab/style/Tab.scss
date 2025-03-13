@@ -11,7 +11,7 @@ $component: 'tab';
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #F2F2F2;
+    background-color: $color-grey-deep;
     content: '';
   }
 
@@ -23,23 +23,25 @@ $component: 'tab';
 
       .p-tabmenuitem {
         .p-menuitem-link {
-          color: #808080;
-          font-size: 14px;
+          padding: 18px 24px;
+          color: $color-grey-midnight;
+          font-weight: 700;
+          font-size: 16px;
           background-color: transparent;
-          border-color: transparent;
+          border-color: $color-grey-deep;
 
           &:hover {
             background-color: transparent;
-            border-color: #e0e2ee;
+            border-color: $color-grey-deep;
           }
         }
       }
 
       .p-tabmenuitem.p-highlight {
         .p-menuitem-link {
-          color: #3D73F2;
+          color: $color-primary-black;
           background-color: transparent;
-          border-color: #3D73F2;
+          border-color: $color-primary-black;
         }
       }
     }
