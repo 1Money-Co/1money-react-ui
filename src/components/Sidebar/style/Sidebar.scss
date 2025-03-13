@@ -141,10 +141,10 @@ $cls: #{$prefix}-#{$component};
 
   &.ps-collapsed {
     .ps-sidebar-container {
+      align-items: center;
       overflow: visible;
 
       .#{$cls}-header {
-        margin-left: 16px;
         padding: 0;
       }
 
