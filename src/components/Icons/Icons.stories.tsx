@@ -20,6 +20,7 @@ const meta: Meta<typeof Icons> = {
     size: { control: 'number' },
     color: { control: 'color' },
     borderColor: { control: 'color' },
+    gradientColor: { control: 'object' },
   },
   args: {
     prefixCls: 'icons',
@@ -527,6 +528,7 @@ export const Illustrations: Story = {
     borderColor: '#1D1D1F',
     size: 50,
     illustrations: true,
+    gradientColor: ['#F4C600', 'white'],
   },
   render: function Render(args) {
     const toast = useRef<ToastClass>(null);
