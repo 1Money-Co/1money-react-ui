@@ -7,7 +7,7 @@ import type { FC, PropsWithChildren } from 'react';
 import type { CheckboxProps } from './interface';
 
 export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
-  const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxCls, prefixCls = 'checkbox', size = 'md' } = props;
+  const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxCls, labelCls,prefixCls = 'checkbox', size = 'md' } = props;
   const classes = classnames(prefixCls);
   const sizeClass = `ckb-${size}`;
 
@@ -43,7 +43,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
 
       const LabelWrapper = useCallback(({ children }: PropsWithChildren) => {
         if (!label) return children;
-        return <label onClick={handleLabelClick}>
+        return <label className={labelCls} onClick={handleLabelClick}>
           {children}
           {label}
         </label>;
