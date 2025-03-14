@@ -17,8 +17,8 @@ export interface IconWrapperProps {
   illustrations?: boolean;
   ariaLabel?: string;
   tabIndex?: number;
-  onClick?: (e: MouseEvent<SVGSVGElement>) => any;
-  onKeyDown?: (e: KeyboardEvent<SVGSVGElement>) => any;
+  onClick?: (e: MouseEvent<HTMLElement>) => any;
+  onKeyDown?: (e: KeyboardEvent<HTMLElement>) => any;
 }
 
 export type { IconName } from './Icons';

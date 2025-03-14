@@ -18,13 +18,16 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
     prefixCls = 'icons',
     illustrations = false,
     viewBox = '0 0 24 24',
-    onClick
+    onClick,
+    onKeyDown,
   } = props;
   const classes = classnames(prefixCls);
 
   return <i
     style={{ color, width: width ?? size, height: height ?? size }}
     className={classes('wrapper', wrapperCls)}
+    onClick={onClick}
+    onKeyDown={onKeyDown}
   >
     <svg
       width={width ?? size}
@@ -34,7 +37,6 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
       className={classes(void 0, className)}
       fill={fill ? 'currentColor' : 'none'}
       stroke={stroke ? 'currentColor' : 'none'}
-      onClick={onClick}
     >
       { children }
     </svg>
