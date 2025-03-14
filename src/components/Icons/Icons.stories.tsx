@@ -516,6 +516,10 @@ export const Logo: Story = {
         <Icons {...args} name='logoWithWords' width={320} height={36} logoColor='#073387' wordColor='#000000' networkLogo networkColor='#131313' />
         <span>logoWithWords</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='logoBg' />")}>
+        <Icons {...args} name='logoBg' width={56} height={57} color='#073387' />
+        <span>logoBg</span>
+      </CopyIconBox>
     </div>;
   },
 };

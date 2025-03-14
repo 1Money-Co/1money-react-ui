@@ -4,6 +4,7 @@ import {
   LogoWord,
   LogoNetwork,
   LogoWithWords,
+  LogoBg,
 } from './Logo';
 import {
   IllusChecked,
@@ -157,6 +158,7 @@ const IconList = {
   logoWord: LogoWord,
   logoNetwork: LogoNetwork,
   logoWithWords: LogoWithWords,
+  logoBg: LogoBg,
 
   /* Old Icons */
   burger: BurgerIcon,
