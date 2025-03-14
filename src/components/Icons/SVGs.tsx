@@ -16,14 +16,14 @@ export const WithdrawalIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...
 export const ConversionIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M3 7C3 4.79086 4.79086 3 7 3C9.20914 3 11 4.79086 11 7C11 9.20914 9.20914 11 7 11C4.79086 11 3 9.20914 3 7ZM7 1C3.68629 1 1 3.68629 1 7C1 10.3137 3.68629 13 7 13C10.3137 13 13 10.3137 13 7C13 3.68629 10.3137 1 7 1ZM13 17C13 14.7909 14.7909 13 17 13C19.2091 13 21 14.7909 21 17C21 19.2091 19.2091 21 17 21C14.7909 21 13 19.2091 13 17ZM17 11C13.6863 11 11 13.6863 11 17C11 20.3137 13.6863 23 17 23C20.3137 23 23 20.3137 23 17C23 13.6863 20.3137 11 17 11ZM19 17C19 18.1046 18.1046 19 17 19C15.8954 19 15 18.1046 15 17C15 15.8954 15.8954 15 17 15C18.1046 15 19 15.8954 19 17ZM17 1.5V3C19.7614 3 22 5.23858 22 8V10H20V8C20 6.34315 18.6569 5 17 5V6.5L14 4L17 1.5ZM7 21V22.5L10 20L7 17.5V19C5.34315 19 4 17.6569 4 16V14H2V16C2 18.7614 4.23858 21 7 21ZM7.00207 4.47689L7.2903 5.11087C7.60999 5.81406 8.17358 6.37764 8.87676 6.69733L9.51074 6.98556L8.87676 7.27379C8.17357 7.59348 7.60999 8.15707 7.2903 8.86025L7.00207 9.49423L6.71384 8.86025C6.39415 8.15706 5.83057 7.59348 5.12738 7.27379L4.4934 6.98556L5.12738 6.69733C5.83057 6.37764 6.39415 5.81406 6.71384 5.11087L7.00207 4.47689Z' />
 </IconWrapper>;
-export const MintTokenIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper fill='none' {...props} >
-  <path fillRule='evenodd' clipRule='evenodd' d='M13.0001 8.92879L16.0356 11.9643L17.4498 10.5501L12.7071 5.80745L12 5.10034L11.2929 5.80745L6.55029 10.5501L7.96451 11.9643L11.0001 8.92875L11.0002 17.5001L13.0002 17.5001L13.0001 8.92879Z' fill={color} />
-  <path d='M11.4855 1.47489C11.8022 1.28488 12.1978 1.28488 12.5145 1.47489L20.5145 6.27489C20.8157 6.45561 21 6.78112 21 7.13238V16.8676C21 17.2189 20.8157 17.5444 20.5145 17.7251L12.5145 22.5251C12.1978 22.7151 11.8022 22.7151 11.4855 22.5251L3.4855 17.7251C3.1843 17.5444 3 17.2189 3 16.8676V7.13238C3 6.78112 3.1843 6.45561 3.4855 6.27489L11.4855 1.47489Z' stroke={color} strokeWidth='2' />
+export const MintTokenIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule='evenodd' clipRule='evenodd' d='M13.0001 8.92879L16.0356 11.9643L17.4498 10.5501L12.7071 5.80745L12 5.10034L11.2929 5.80745L6.55029 10.5501L7.96451 11.9643L11.0001 8.92875L11.0002 17.5001L13.0002 17.5001L13.0001 8.92879Z' />
+  <path d='M11.4855 1.47489C11.8022 1.28488 12.1978 1.28488 12.5145 1.47489L20.5145 6.27489C20.8157 6.45561 21 6.78112 21 7.13238V16.8676C21 17.2189 20.8157 17.5444 20.5145 17.7251L12.5145 22.5251C12.1978 22.7151 11.8022 22.7151 11.4855 22.5251L3.4855 17.7251C3.1843 17.5444 3 17.2189 3 16.8676V7.13238C3 6.78112 3.1843 6.45561 3.4855 6.27489L11.4855 1.47489Z' strokeWidth='2' />
 </IconWrapper>;
-export const BurnTokenIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper fill='none' {...props} >
-  <path d='M9.5 8.97935C11.3349 7.03039 14.0829 6.2139 14.0829 1.99994C20.7098 3.19994 16.6098 10.7999 16.6098 10.7999C18.6598 11.1999 20.2998 9.19994 20.2998 9.19994C21.5298 11.4312 21.1098 14.4947 19.2726 16.2161C18.3598 17.0708 17.2127 17.6122 16 17.8535' stroke={color} strokeWidth='2' />
-  <circle cx='8' cy='17' r='5' stroke={color} strokeWidth='2' />
-  <circle cx='8' cy='17' r='2' fill={color} />
+export const BurnTokenIcon: FC<IconWrapperProps> = (props) => <IconWrapper  {...props}>
+  <path d='M9.5 8.97935C11.3349 7.03039 14.0829 6.2139 14.0829 1.99994C20.7098 3.19994 16.6098 10.7999 16.6098 10.7999C18.6598 11.1999 20.2998 9.19994 20.2998 9.19994C21.5298 11.4312 21.1098 14.4947 19.2726 16.2161C18.3598 17.0708 17.2127 17.6122 16 17.8535' strokeWidth='2' />
+  <circle cx='8' cy='17' r='5' strokeWidth='2' />
+  <circle cx='8' cy='17' r='2' />
 </IconWrapper>;
 export const AccountLockedIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M8.5 6C8.5 4.067 10.067 2.5 12 2.5C13.933 2.5 15.5 4.067 15.5 6V9H8.5V6ZM6.5 9V6C6.5 2.96243 8.96243 0.5 12 0.5C15.0376 0.5 17.5 2.96243 17.5 6V9H19C20.1046 9 21 9.89543 21 11V21C21 22.1046 20.1046 23 19 23H5C3.89543 23 3 22.1046 3 21V11C3 9.89543 3.89543 9 5 9H6.5ZM19 11V21H5L5 11H19Z' />
@@ -37,10 +37,10 @@ export const SuccessIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox
   <path d='M11.2374 16.1716L17.8417 9.36972L16.4068 7.97651L11.1996 13.3395L8.11423 10.3269L6.71699 11.7579L11.2374 16.1716Z' />
   <path fillRule='evenodd' clipRule='evenodd' d='M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z' />
 </IconWrapper>;
-export const FailIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <path fillRule='evenodd' clipRule='evenodd' d='M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z' fill={color} />
-  <path fillRule='evenodd' clipRule='evenodd' d='M11 13V6.5H13V13H11Z' fill={color} />
-  <path d='M13.5 16C13.5 16.8284 12.8284 17.5 12 17.5C11.1716 17.5 10.5 16.8284 10.5 16C10.5 15.1716 11.1716 14.5 12 14.5C12.8284 14.5 13.5 15.1716 13.5 16Z' fill={color} />
+export const FailIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}  >
+  <path fillRule='evenodd' clipRule='evenodd' d='M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z' />
+  <path fillRule='evenodd' clipRule='evenodd' d='M11 13V6.5H13V13H11Z' />
+  <path d='M13.5 16C13.5 16.8284 12.8284 17.5 12 17.5C11.1716 17.5 10.5 16.8284 10.5 16C10.5 15.1716 11.1716 14.5 12 14.5C12.8284 14.5 13.5 15.1716 13.5 16Z' />
 </IconWrapper>;
 export const ErrorIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox='0 0 24 24' {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M11.0002 14V7.49998H13.0002V14H11.0002Z' />
@@ -49,11 +49,11 @@ export const ErrorIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox='
 </IconWrapper>;
 
 /* Menu Icons */
-export const DashboardIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <path d='M4.85857 20C3.09032 18.1962 2 15.7255 2 13C2 7.47715 6.47715 3 12 3C17.5228 3 22 7.47715 22 13C22 15.7255 20.9097 18.1962 19.1414 20' stroke={color} strokeWidth='2' />
-  <path d='M16 8L12.8994 11.8758' stroke={color} strokeWidth='2' />
-  <circle cx='12' cy='13' r='2' stroke={color} strokeWidth='2' />
-  <path d='M8 18.5H16' stroke={color} strokeWidth='2' />
+export const DashboardIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}  >
+  <path d='M4.85857 20C3.09032 18.1962 2 15.7255 2 13C2 7.47715 6.47715 3 12 3C17.5228 3 22 7.47715 22 13C22 15.7255 20.9097 18.1962 19.1414 20' strokeWidth='2' />
+  <path d='M16 8L12.8994 11.8758' strokeWidth='2' />
+  <circle cx='12' cy='13' r='2' strokeWidth='2' />
+  <path d='M8 18.5H16' strokeWidth='2' />
 </IconWrapper>;
 export const DigitalAssetIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path fillRule='evenodd' clipRule='evenodd' d='M4 5C3.44772 5 3 5.44772 3 6V16C3 16.5523 3.44772 17 4 17H20C20.5523 17 21 16.5523 21 16V6C21 5.44772 20.5523 5 20 5H19V3H20C21.6569 3 23 4.34315 23 6V16C23 17.6569 21.6569 19 20 19H4C2.34315 19 1 17.6569 1 16V6C1 4.34315 2.34315 3 4 3H5V5H4Z' />
@@ -67,24 +67,24 @@ export const AddressBookIcon: FC<IconWrapperProps> = (props) => <IconWrapper {..
   <path fillRule='evenodd' clipRule='evenodd' d='M5 6H0.5V4H5V6ZM5 12H0.5V10H5V12ZM5 18H0.5V16H5V18Z' />
   <path fillRule='evenodd' clipRule='evenodd' d='M8.56402 12.0477C7.66911 12.2466 7 13.0452 7 14V17H16V14C16 13.0452 15.3309 12.2466 14.436 12.0477C14.2956 12.0165 14.1497 12 14 12H9C8.85026 12 8.70436 12.0165 8.56402 12.0477ZM9.26389 10C9.81321 10.6137 10.6115 11 11.5 11C12.3885 11 13.1868 10.6137 13.7361 10C14.2111 9.46924 14.5 8.76835 14.5 8C14.5 6.34315 13.1569 5 11.5 5C9.84315 5 8.5 6.34315 8.5 8C8.5 8.76835 8.78885 9.46924 9.26389 10ZM14 15V14H9V15H14ZM11.5 9C12.0523 9 12.5 8.55228 12.5 8C12.5 7.44772 12.0523 7 11.5 7C10.9477 7 10.5 7.44772 10.5 8C10.5 8.55228 10.9477 9 11.5 9Z' />
 </IconWrapper>;
-export const LinkedBankAccountsIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <path d='M17.5 18V17.5C17.5 16.1193 16.3807 15 15 15H12.5C11.1193 15 10 16.1193 10 17.5V17.5C10 18.8807 11.1193 20 12.5 20H13' stroke={color} strokeWidth='2' />
-  <path d='M14.5 17V17.5C14.5 18.8807 15.6193 20 17 20H19.5C20.8807 20 22 18.8807 22 17.5V17.5C22 16.1193 20.8807 15 19.5 15H19' stroke={color} strokeWidth='2' />
-  <path fillRule='evenodd' clipRule='evenodd' d='M19 12V5L3 5V16H7V18H3C1.89543 18 1 17.1046 1 16V5C1 3.89543 1.89543 3 3 3H19C20.1046 3 21 3.89543 21 5V12H19Z' fill={color} />
-  <path d='M2 7.5H20' stroke={color} strokeWidth='2' />
-  <path d='M4.5 13H9.5' stroke={color} strokeWidth='2' />
+export const LinkedBankAccountsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}  >
+  <path d='M17.5 18V17.5C17.5 16.1193 16.3807 15 15 15H12.5C11.1193 15 10 16.1193 10 17.5V17.5C10 18.8807 11.1193 20 12.5 20H13' strokeWidth='2' />
+  <path d='M14.5 17V17.5C14.5 18.8807 15.6193 20 17 20H19.5C20.8807 20 22 18.8807 22 17.5V17.5C22 16.1193 20.8807 15 19.5 15H19' strokeWidth='2' />
+  <path fillRule='evenodd' clipRule='evenodd' d='M19 12V5L3 5V16H7V18H3C1.89543 18 1 17.1046 1 16V5C1 3.89543 1.89543 3 3 3H19C20.1046 3 21 3.89543 21 5V12H19Z' />
+  <path d='M2 7.5H20' strokeWidth='2' />
+  <path d='M4.5 13H9.5' strokeWidth='2' />
 </IconWrapper>;
 export const ACHIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M12.8207 1.27271C12.2988 1.03784 11.7012 1.03784 11.1793 1.27271L2.17927 5.32271C1.46157 5.64568 1 6.35954 1 7.14656V8.99997V9.99997H2H4V17C2.34315 17 1 18.3431 1 20V22V23H2H12V21H3V20C3 19.4477 3.44772 19 4 19H12V17H10.5V9.99997H13.5V15H15.5V9.99997H18V13H20V9.99997H22H23V8.99997V7.14656C23 6.35954 22.5384 5.64568 21.8207 5.32271L12.8207 1.27271ZM8.5 9.99997H6V17H8.5V9.99997ZM3 7.14656L12 3.09656L21 7.14656V7.99997H3V7.14656ZM14 17.9999H21.5V19.9999H14V17.9999Z' />
   <path d='M18.5 15.5L22 19L18.5 22.5' strokeWidth='2' />
 </IconWrapper>;
-export const WireIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} fill='none' stroke>
+export const WireIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <circle cx='12' cy='12' r='10' strokeWidth='2' />
   <path d='M12 22C9.23858 22 7 17.5228 7 12C7 6.47715 9.23858 2 12 2' strokeWidth='2' />
   <path d='M12 22C14.7614 22 17 17.5228 17 12C17 6.47715 14.7614 2 12 2' strokeWidth='2' />
   <path d='M2 12H22' strokeWidth='2' />
 </IconWrapper>;
-export const AccountIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} fill='none' stroke>
+export const AccountIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path d='M4 3C4 2.44772 4.44771 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V3Z' strokeWidth='2' />
   <path d='M7.5 18.5H16.5' strokeWidth='2' />
   <path d='M8.5 13C8.5 12.4477 8.94772 12 9.5 12H14.5C15.0523 12 15.5 12.4477 15.5 13V15H8.5V13Z' strokeWidth='2' />
@@ -99,7 +99,7 @@ export const SecurityIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
 export const LogoutIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M5 3C4.44772 3 4 3.44772 4 4V20C4 20.5523 4.44771 21 5 21H13V23H5C3.34315 23 2 21.6569 2 20V4C2 2.34315 3.34315 1 5 1H13V3H5ZM15.293 7.70716L18.586 11.0001H7.00002V13.0001H18.5859L15.293 16.2929L16.7072 17.7072L21.7072 12.7072L22.4143 12.0001L21.7072 11.2929L16.7072 6.29295L15.293 7.70716Z' />
 </IconWrapper>;
-export const PortfolioIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const PortfolioIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M20 13C20 17.9706 15.9706 22 11 22C6.02944 22 2 17.9706 2 13C2 8.02944 6.02944 4 11 4' strokeWidth='2' />
   <path d='M22 13C22 6.92487 17.0751 2 11 2V13H22Z' strokeWidth='2' />
 </IconWrapper>;
@@ -117,12 +117,12 @@ export const WithdrawIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
   <path fillRule='evenodd' clipRule='evenodd' d='M11 2.99999V17H13V2.99999H11Z' />
   <path fillRule='evenodd' clipRule='evenodd' d='M12 4.41424L17.2929 9.70714L18.7071 8.29292L12 1.58582L5.29286 8.29292L6.70707 9.70714L12 4.41424Z' />
 </IconWrapper>;
-export const SendIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <path fillRule='evenodd' clipRule='evenodd' d='M13.6382 5.76565C12.5257 5.27341 11.2948 5 10 5C5.02944 5 1 9.02944 1 14C1 18.9706 5.02944 23 10 23C14.9706 23 19 18.9706 19 14C19 12.7052 18.7266 11.4743 18.2343 10.3618L16.6835 11.9127C16.8892 12.5719 17 13.273 17 14C17 17.866 13.866 21 10 21C6.13401 21 3 17.866 3 14C3 10.134 6.13401 7 10 7C10.727 7 11.4281 7.11082 12.0873 7.31649L13.6382 5.76565Z' fill={color} />
-  <path d='M12 12L21.5 2.5' stroke={color} strokeWidth='2' />
-  <path d='M16 2H22V8' stroke={color} strokeWidth='2' />
+export const SendIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule='evenodd' clipRule='evenodd' d='M13.6382 5.76565C12.5257 5.27341 11.2948 5 10 5C5.02944 5 1 9.02944 1 14C1 18.9706 5.02944 23 10 23C14.9706 23 19 18.9706 19 14C19 12.7052 18.7266 11.4743 18.2343 10.3618L16.6835 11.9127C16.8892 12.5719 17 13.273 17 14C17 17.866 13.866 21 10 21C6.13401 21 3 17.866 3 14C3 10.134 6.13401 7 10 7C10.727 7 11.4281 7.11082 12.0873 7.31649L13.6382 5.76565Z' />
+  <path d='M12 12L21.5 2.5' strokeWidth='2' />
+  <path d='M16 2H22V8' strokeWidth='2' />
 </IconWrapper>;
-export const MenuDepositIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const MenuDepositIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M2 21H22' strokeWidth='2' />
   <path d='M12 2.5V16' strokeWidth='2' />
   <path d='M18 10.5L12 16.5L6 10.5' strokeWidth='2' />
@@ -150,19 +150,19 @@ export const StatusFailIcon: FC<IconWrapperProps> = (props) => <IconWrapper view
 </IconWrapper>;
 
 /* Functional Icons */
-export const ArrowUpIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ArrowUpIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M12 20V5M12 5L19 12M12 5L5 12' strokeWidth='2' />
 </IconWrapper>;
-export const ArrowDownIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ArrowDownIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M12 4V19M12 19L19 12M12 19L5 12' strokeWidth='2' />
 </IconWrapper>;
-export const ArrowLeftIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ArrowLeftIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M20 12L5 12M5 12L12 19M5 12L12 5' strokeWidth='2' />
 </IconWrapper>;
-export const ArrowRightIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ArrowRightIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M4 12L19 12M19 12L12 19M19 12L12 5' strokeWidth='2' />
 </IconWrapper>;
-export const AddIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const AddIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 12L21 12M12 3L12 21' strokeWidth='2' />
 </IconWrapper>;
 export const MinusIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
@@ -180,7 +180,7 @@ export const DropDownIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
 export const DropDownUpIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M12.0005 7.23077L19.0847 13.87L17.7144 15.3322L12.0007 9.9774L6.28651 15.3335L4.91602 13.8714L12.0005 7.23077Z' />
 </IconWrapper>;
-export const CollapseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const CollapseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <g clipPath='url(#clip0_23_5192)'>
     <path d='M11.3368 3.99992L3.83884 11.9991L11.3351 19.9978' strokeWidth='2' />
     <path d='M17.9091 3.99992L10.4111 11.9991L17.9074 19.9978' strokeWidth='2' />
@@ -191,7 +191,7 @@ export const CollapseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
     </clipPath>
   </defs>
 </IconWrapper>;
-export const ExtendIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ExtendIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <g clipPath='url(#clip0_23_5195)'>
     <path d='M11.7491 20.2442L19.2471 12.2451L11.7509 4.24636' strokeWidth='2' />
     <path d='M5.17684 20.2442L12.6748 12.2451L5.17858 4.24636' strokeWidth='2' />
@@ -220,7 +220,7 @@ export const InfoIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}
   <path d='M13.5 8C13.5 7.17157 12.8284 6.5 12 6.5C11.1716 6.5 10.5 7.17157 10.5 8C10.5 8.82843 11.1716 9.5 12 9.5C12.8284 9.5 13.5 8.82843 13.5 8Z' />
 </IconWrapper>;
 
-export const NotificationsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const NotificationsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M9 18V19C9 20.6569 10.3431 22 12 22V22C13.6569 22 15 20.6569 15 19V18' strokeWidth='2' />
   <path d='M18 12.9998V13.4139L18.2928 13.7068L19.7071 15.1213C19.8947 15.3088 20 15.5632 20 15.8284V16.9999C20 17.5522 19.5523 17.9999 19 17.9999H5C4.44772 17.9999 4 17.5522 4 16.9999V15.8284C4 15.5632 4.10534 15.3088 4.29285 15.1213L5.70715 13.7068L6 13.4139V12.9998V9.99984C6 6.68616 8.68625 3.99988 11.9999 3.99984C15.3137 3.9998 18 6.6861 18 9.99984V12.9998Z' strokeWidth='2' />
   <path d='M12 3.5V1' strokeWidth='2' />
@@ -234,7 +234,7 @@ export const TransferHistoryIcon: FC<IconWrapperProps> = (props) => <IconWrapper
   <path fillRule='evenodd' clipRule='evenodd' d='M12 3C9.78151 3 7.75145 3.80173 6.18196 5.13307L7.5784 6.66851L2.62786 6.98222L3.40851 2.08356L4.83569 3.65279C6.7598 2.00007 9.26371 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12H3C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM11 6.5V12V12.5352L11.4453 12.8321L15.9453 15.8321L17.0547 14.1679L13 11.4648V6.5H11Z' />
 </IconWrapper>;
 
-export const SupportIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const SupportIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M16 2H4C2.89543 2 2 2.89543 2 4V18L6 14.8H16C17.1046 14.8 18 13.9046 18 12.8V4C18 2.89543 17.1046 2 16 2Z' strokeWidth='2' />
   <path d='M9 15V16.4C9 17.5046 9.89543 18.4 11 18.4H18.75L22 21V10C22 8.89543 21.1046 8 20 8H18' strokeWidth='2' />
   <path d='M6 6.5H14' strokeWidth='2' />
@@ -246,15 +246,15 @@ export const HelpIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox='0
   <path d='M7.16516 8.68232C7.16516 8.16121 7.27794 7.68676 7.5035 7.25898C7.73683 6.82343 8.07127 6.4812 8.50683 6.23232C8.94238 5.97565 9.45961 5.84732 10.0585 5.84732C10.6263 5.84732 11.1163 5.94065 11.5285 6.12732C11.9485 6.31398 12.2713 6.57454 12.4968 6.90898C12.7224 7.24343 12.8352 7.62454 12.8352 8.05232C12.8352 8.55787 12.7302 8.95843 12.5202 9.25398C12.3179 9.54176 12.0185 9.82176 11.6218 10.094C11.2718 10.3273 11.0229 10.5295 10.8752 10.7006C10.7352 10.8718 10.6652 11.074 10.6652 11.3073V11.459H9.12516V11.1323C9.12516 10.689 9.22238 10.3429 9.41683 10.094C9.61905 9.84509 9.93405 9.59621 10.3618 9.34732C10.6341 9.17621 10.8324 9.0012 10.9568 8.82232C11.0813 8.64343 11.1435 8.43732 11.1435 8.20398C11.1435 7.92398 11.0463 7.69843 10.8518 7.52732C10.6574 7.34843 10.3968 7.25898 10.0702 7.25898C9.69683 7.25898 9.39738 7.3912 9.17183 7.65565C8.94627 7.91232 8.83349 8.25454 8.83349 8.68232H7.16516ZM8.9735 13.209C8.9735 12.9368 9.06294 12.7151 9.24183 12.544C9.4285 12.3651 9.66183 12.2757 9.94183 12.2757C10.2218 12.2757 10.4513 12.3651 10.6302 12.544C10.8168 12.7151 10.9102 12.9368 10.9102 13.209C10.9102 13.4812 10.8168 13.7068 10.6302 13.8856C10.4435 14.0645 10.2141 14.154 9.94183 14.154C9.66961 14.154 9.44016 14.0645 9.2535 13.8856C9.06683 13.7068 8.9735 13.4812 8.9735 13.209Z' />
 </IconWrapper>;
 
-export const LanguageIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <path fillRule='evenodd' clipRule='evenodd' d='M4 3C3.44772 3 3 3.44772 3 4V16C3 16.5523 3.44772 17 4 17H9H9.5L9.8 17.4L12 20.3333L14.2 17.4L14.5 17H15H20C20.5523 17 21 16.5523 21 16V4C21 3.44772 20.5523 3 20 3H4ZM1 4C1 2.34315 2.34315 1 4 1H20C21.6569 1 23 2.34315 23 4V16C23 17.6569 21.6569 19 20 19H15.5L12.8 22.6L12 23.6667L11.2 22.6L8.5 19H4C2.34315 19 1 17.6569 1 16V4Z' fill={color} />
-  <circle cx='12' cy='10' r='5' stroke={color} strokeWidth='2' />
-  <path d='M12 15C10.8954 15 10 12.7614 10 10C10 7.23858 10.8954 5 12 5' stroke={color} strokeWidth='2' />
-  <path d='M12 15C13.1046 15 14 12.7614 14 10C14 7.23858 13.1046 5 12 5' stroke={color} strokeWidth='2' />
-  <path d='M7 10H17' stroke={color} strokeWidth='2' />
+export const LanguageIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule='evenodd' clipRule='evenodd' d='M4 3C3.44772 3 3 3.44772 3 4V16C3 16.5523 3.44772 17 4 17H9H9.5L9.8 17.4L12 20.3333L14.2 17.4L14.5 17H15H20C20.5523 17 21 16.5523 21 16V4C21 3.44772 20.5523 3 20 3H4ZM1 4C1 2.34315 2.34315 1 4 1H20C21.6569 1 23 2.34315 23 4V16C23 17.6569 21.6569 19 20 19H15.5L12.8 22.6L12 23.6667L11.2 22.6L8.5 19H4C2.34315 19 1 17.6569 1 16V4Z' />
+  <circle cx='12' cy='10' r='5' strokeWidth='2' />
+  <path d='M12 15C10.8954 15 10 12.7614 10 10C10 7.23858 10.8954 5 12 5' strokeWidth='2' />
+  <path d='M12 15C13.1046 15 14 12.7614 14 10C14 7.23858 13.1046 5 12 5' strokeWidth='2' />
+  <path d='M7 10H17' strokeWidth='2' />
 </IconWrapper>;
 
-export const ShareIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ShareIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path d='M2 16V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V16' strokeWidth='2' />
   <path d='M12 17V3' strokeWidth='2' />
   <path d='M18 9.00006L12 3.00006L6 9.00006' strokeWidth='2' />
@@ -264,7 +264,7 @@ export const ProductsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
   <path fillRule='evenodd' clipRule='evenodd' d='M7.3721 8.41852L5.28981 7.31613L12.0028 3.76135L13.7866 4.70015L7.3721 8.41852ZM9.45644 9.52199L12.0001 10.8687L18.7336 7.30387L15.8767 5.80024L9.45644 9.52199ZM12.9282 12.6403L19.5 9.16113V16.2927L12.9282 19.7512V12.6403ZM4.5 9.16098L10.9282 12.5642V19.6757L4.5 16.2927V9.16098ZM12 1.49976L21.5 6.49976V17.5002L12 22.4998L2.5 17.5002V6.53033L12 1.49976Z' />
 </IconWrapper>;
 
-export const HubIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const HubIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <circle cx='6' cy='6' r='5' transform='matrix(1 0 0 -1 6 18)' strokeWidth='2' />
   <circle cx='3' cy='3' r='2' transform='matrix(1 0 0 -1 1 7)' strokeWidth='2' />
   <circle cx='3' cy='3' r='2' transform='matrix(1 0 0 -1 17 7)' strokeWidth='2' />
@@ -280,18 +280,18 @@ export const SystemSecurityIcon: FC<IconWrapperProps> = (props) => <IconWrapper 
   <path fillRule='evenodd' clipRule='evenodd' d='M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z' />
 </IconWrapper>;
 
-export const FeesIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <circle cx='11' cy='11' r='10' transform='matrix(1 0 0 -1 1 23)' strokeWidth='2' stroke={color} />
-  <path d='M8 17L16 7' strokeWidth='2' stroke={color} />
-  <circle cx='2' cy='2' r='2' transform='matrix(1 0 0 -1 6.5 11)' fill={color} />
-  <circle cx='2' cy='2' r='2' transform='matrix(1 0 0 -1 13.5 17.5)' fill={color} />
+export const FeesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <circle cx='11' cy='11' r='10' transform='matrix(1 0 0 -1 1 23)' strokeWidth='2' />
+  <path d='M8 17L16 7' strokeWidth='2' />
+  <circle cx='2' cy='2' r='2' transform='matrix(1 0 0 -1 6.5 11)' />
+  <circle cx='2' cy='2' r='2' transform='matrix(1 0 0 -1 13.5 17.5)' />
 </IconWrapper>;
 
 export const SettingsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M9.18026 1H10.0001H14.0001H14.8199L14.9806 1.80388L15.4673 4.23728C16.0687 4.50623 16.6327 4.8428 17.1499 5.23715L19.5206 4.49755L20.3032 4.25341L20.6961 4.97293L22.6131 8.48365L23.006 9.20318L22.3775 9.72955L20.4735 11.3241C20.4911 11.5473 20.5001 11.7727 20.5001 12C20.5001 12.2274 20.4911 12.4528 20.4735 12.676L22.3774 14.2704L23.0059 14.7968L22.613 15.5163L20.696 19.0271L20.3031 19.7466L19.5205 19.5024L17.1498 18.7629C16.6327 19.1572 16.0686 19.4938 15.4673 19.7627L14.9806 22.1961L14.8199 23H14.0001H10.0001H9.18026L9.01948 22.1961L8.5328 19.7627C7.93148 19.4938 7.36744 19.1572 6.85028 18.7629L4.47962 19.5024L3.69701 19.7466L3.30413 19.0271L1.38714 15.5163L0.994255 14.7968L1.62276 14.2704L3.5266 12.676C3.50901 12.4528 3.50006 12.2274 3.50006 12C3.50006 11.7727 3.50901 11.5473 3.52659 11.3241L1.62264 9.72955L0.994141 9.20318L1.38703 8.48365L3.30401 4.97293L3.6969 4.25341L4.4795 4.49755L6.85025 5.23715C7.36742 4.8428 7.93147 4.50623 8.5328 4.23728L9.01948 1.80388L9.18026 1ZM10.8199 3L10.3887 5.15607L10.2789 5.7049L9.75368 5.89834C9.00278 6.17489 8.31621 6.58661 7.72375 7.10464L7.30222 7.47321L6.7677 7.30646L4.66649 6.65095L3.53528 8.72262L5.22195 10.1352L5.65042 10.494L5.56929 11.047C5.52373 11.3575 5.50006 11.6757 5.50006 12C5.50006 12.3243 5.52374 12.6425 5.5693 12.9531L5.65044 13.506L5.22196 13.8649L3.53539 15.2774L4.6666 17.349L6.76772 16.6936L7.30225 16.5268L7.72377 16.8954C8.31623 17.4134 9.00279 17.8251 9.75368 18.1017L10.2789 18.2951L10.3887 18.8439L10.8199 21H13.1803L13.6115 18.8439L13.7212 18.2951L14.2465 18.1017C14.9973 17.8251 15.6839 17.4134 16.2764 16.8954L16.6979 16.5268L17.2324 16.6936L19.3335 17.349L20.4647 15.2774L18.7782 13.8649L18.3497 13.506L18.4308 12.9531C18.4764 12.6425 18.5001 12.3243 18.5001 12C18.5001 11.6757 18.4764 11.3575 18.4308 11.047L18.3497 10.4941L18.7782 10.1352L20.4649 8.72262L19.3336 6.65095L17.2324 7.30646L16.6979 7.47322L16.2764 7.10465C15.6839 6.58661 14.9973 6.1749 14.2465 5.89834L13.7212 5.70491L13.6115 5.15608L13.1803 3H10.8199ZM12.0001 10C10.8955 10 10.0001 10.8954 10.0001 12C10.0001 13.1046 10.8955 14 12.0001 14C13.1046 14 14.0001 13.1046 14.0001 12C14.0001 10.8954 13.1046 10 12.0001 10ZM8.00006 12C8.00006 9.79086 9.79092 8 12.0001 8C14.2092 8 16.0001 9.79086 16.0001 12C16.0001 14.2091 14.2092 16 12.0001 16C9.79092 16 8.00006 14.2091 8.00006 12Z' />
 </IconWrapper>;
 
-export const IDIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const IDIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M2 8C2 7.44772 2.44772 7 3 7H21C21.5523 7 22 7.44771 22 8V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V8Z' strokeWidth='2' />
   <path d='M14 12.5H19.5' strokeWidth='2' />
   <path d='M14 15.5H19.5' strokeWidth='2' />
@@ -313,7 +313,7 @@ export const HideBalanceIcon: FC<IconWrapperProps> = (props) => <IconWrapper {..
   <path fillRule='evenodd' clipRule='evenodd' d='M2.29289 20.2928L20.2929 2.29285L21.7071 3.70706L3.70711 21.7071L2.29289 20.2928Z' />
 </IconWrapper>;
 
-export const PrivacyIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const PrivacyIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M1.5 11.5H22.5' strokeWidth='2' />
   <path d='M6 11L8 3L8.11943 3.02986C10.6673 3.66682 13.3327 3.66682 15.8806 3.02986L16 3L18 11' strokeWidth='2' />
   <circle cx='7' cy='18' r='3' strokeWidth='2' />
@@ -323,13 +323,13 @@ export const PrivacyIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pro
   <circle cx='17' cy='18' r='3' strokeWidth='2' />
 </IconWrapper>;
 
-export const CardIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const CardIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44771 22 6V18C22 18.5523 21.5523 19 21 19H3C2.44772 19 2 18.5523 2 18V6Z' strokeWidth='2' />
   <path d='M2 9H22' strokeWidth='2' />
   <path d='M4.5 15.5H9.5' strokeWidth='2' />
 </IconWrapper>;
 
-export const CoinIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const CoinIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <circle cx='11' cy='11' r='10' transform='matrix(1 0 0 -1 1 23)' strokeWidth='2' />
   <circle cx='6' cy='6' r='5' transform='matrix(1 0 0 -1 6 18)' strokeWidth='2' />
 </IconWrapper>;
@@ -338,7 +338,7 @@ export const WalletIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...prop
   <path fillRule='evenodd' clipRule='evenodd' d='M4 4C3.44772 4 3 4.44772 3 5C3 5.55228 3.44772 6 4 6H8H8.5H17.5V5C17.5 4.44772 17.0523 4 16.5 4H4ZM4 2C2.34315 2 1 3.34315 1 5V18C1 20.2091 2.79086 22 5 22H20C21.6569 22 23 20.6569 23 19V9C23 7.34315 21.6569 6 20 6H19.5V5C19.5 3.34315 18.1569 2 16.5 2H4ZM4 8C3.64936 8 3.31278 7.93985 3 7.82929V18C3 19.1046 3.89543 20 5 20H20C20.5523 20 21 19.5523 21 19V9C21 8.44772 20.5523 8 20 8H8.5H8H4ZM17 16C18.1046 16 19 15.1046 19 14C19 12.8954 18.1046 12 17 12C15.8954 12 15 12.8954 15 14C15 15.1046 15.8954 16 17 16Z' />
 </IconWrapper>;
 
-export const EmailIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} fill='none' stroke>
+export const EmailIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M2 5C2 4.44772 2.44772 4 3 4H21C21.5523 4 22 4.44772 22 5V19C22 19.5523 21.5523 20 21 20H3C2.44771 20 2 19.5523 2 19V5Z' strokeWidth='2' />
   <path d='M2 7L12 13L22 7' strokeWidth='2' />
 
@@ -356,7 +356,7 @@ export const LocationIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
   <path fillRule='evenodd' clipRule='evenodd' d='M16.941 15.151L12 20.1538L7.05902 15.151C4.31366 12.3712 4.31366 7.85418 7.05902 5.07443C9.79073 2.30852 14.2093 2.30852 16.941 5.07443C19.6863 7.85418 19.6863 12.3712 16.941 15.151ZM18.364 3.66905C21.8787 7.22778 21.8787 12.9976 18.364 16.5563L12 23L5.63604 16.5563C2.12132 12.9976 2.12132 7.22778 5.63604 3.66905C9.15076 0.110318 14.8492 0.110318 18.364 3.66905ZM12.0004 6.30664L12.4395 7.27256C12.9266 8.34392 13.7852 9.20258 14.8566 9.68965L15.8225 10.1288L14.8566 10.5679C13.7852 11.055 12.9266 11.9137 12.4395 12.985L12.0004 13.9509L11.5612 12.985C11.0742 11.9137 10.2155 11.055 9.14414 10.5679L8.17822 10.1288L9.14414 9.68965C10.2155 9.20258 11.0742 8.34392 11.5612 7.27256L12.0004 6.30664Z' />
 </IconWrapper>;
 
-export const CalendarIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const CalendarIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 7C3 5.89543 3.89543 5 5 5H19C20.1046 5 21 5.89543 21 7V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V7Z' strokeWidth='2' />
   <path d='M8 2.5V7.5' strokeWidth='2' />
   <path d='M16 2.5V7.5' strokeWidth='2' />
@@ -368,11 +368,11 @@ export const CalendarIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
   <path d='M15 15.5H17' strokeWidth='2' />
 </IconWrapper>;
 
-export const SecurityCheckIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const SecurityCheckIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M7.5 10.5L11 14.5L16.5 7M22 7.58561V3C22 1.89543 21.1046 1 20 1H4C2.89543 1 2 1.89543 2 3V7.58561C2 13.9682 5.60612 19.8031 11.3149 22.6575C11.7462 22.8731 12.2538 22.8731 12.6851 22.6575C18.3939 19.8031 22 13.9682 22 7.58561Z' strokeWidth='2' />
 </IconWrapper>;
 
-export const DevicesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const DevicesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M15.5 17H4C2.89543 17 2 16.1046 2 15V5C2 3.89543 2.89543 3 4 3H20C21.1046 3 22 3.89543 22 5V13' strokeWidth='2' />
   <path d='M12 17V20.5' strokeWidth='2' />
   <path d='M7 21H17' strokeWidth='2' />
@@ -381,7 +381,7 @@ export const DevicesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pro
   <path d='M18 14.5H20' strokeWidth='2' />
 </IconWrapper>;
 
-export const ImagesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ImagesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M6 4C6 2.89543 6.89543 2 8 2H19C20.1046 2 21 2.89543 21 4V17C21 18.1046 20.1046 19 19 19H8C6.89543 19 6 18.1046 6 17V4Z' strokeWidth='2' />
   <path d='M6 5H5C3.89543 5 3 5.89543 3 7V20C3 21.1046 3.89543 22 5 22H16C17.1046 22 18 21.1046 18 20V19' strokeWidth='2' />
   <path d='M6 15L21 11.5' strokeWidth='2' />
@@ -392,13 +392,13 @@ export const BankIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}
   <path fillRule='evenodd' clipRule='evenodd' d='M12.8207 1.27284C12.2988 1.03796 11.7012 1.03796 11.1793 1.27284L2.17927 5.32284C1.46157 5.6458 1 6.35966 1 7.14668V10.0001H4V17.0001C2.34315 17.0001 1 18.3432 1 20.0001V23.0001H23V20.0001C23 18.3432 21.6569 17.0001 20 17.0001V10.0001H23V7.14668C23 6.35966 22.5384 5.6458 21.8207 5.32284L12.8207 1.27284ZM18 10.0001H15.5V17.0001H18V10.0001ZM13.5 10.0001H10.5V17.0001H13.5V10.0001ZM8.5 10.0001H6V17.0001H8.5V10.0001ZM3 7.14668L12 3.09668L21 7.14668V8.00009H3V7.14668ZM3 20.0001C3 19.4478 3.44772 19.0001 4 19.0001H20C20.5523 19.0001 21 19.4478 21 20.0001V21.0001H3V20.0001Z' />
 </IconWrapper>;
 
-export const CoinsIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none' >
-  <path fillRule='evenodd' clipRule='evenodd' d='M18.999 13.8779C18.9997 13.9185 19 13.9592 19 14C19 17.866 15.866 21 12 21C8.13401 21 5 17.866 5 14C5 13.9592 5.00035 13.9185 5.00104 13.8779C4.36323 12.7292 4 11.407 4 10C4 9.95686 4.00034 9.9138 4.00102 9.87082C3.36132 11.1075 3 12.5116 3 14C3 18.9706 7.02944 23 12 23C16.9706 23 21 18.9706 21 14C21 12.5116 20.6387 11.1075 19.999 9.87082C19.9997 9.9138 20 9.95686 20 10C20 11.407 19.6368 12.7292 18.999 13.8779Z' fill={color} />
-  <circle cx='9' cy='9' r='8' transform='matrix(1 0 0 -1 3 19)' stroke={color} strokeWidth='2' />
-  <circle cx='5' cy='5' r='4' transform='matrix(1 0 0 -1 7 15)' stroke={color} strokeWidth='2' />
+export const CoinsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}  >
+  <path fillRule='evenodd' clipRule='evenodd' d='M18.999 13.8779C18.9997 13.9185 19 13.9592 19 14C19 17.866 15.866 21 12 21C8.13401 21 5 17.866 5 14C5 13.9592 5.00035 13.9185 5.00104 13.8779C4.36323 12.7292 4 11.407 4 10C4 9.95686 4.00034 9.9138 4.00102 9.87082C3.36132 11.1075 3 12.5116 3 14C3 18.9706 7.02944 23 12 23C16.9706 23 21 18.9706 21 14C21 12.5116 20.6387 11.1075 19.999 9.87082C19.9997 9.9138 20 9.95686 20 10C20 11.407 19.6368 12.7292 18.999 13.8779Z' />
+  <circle cx='9' cy='9' r='8' transform='matrix(1 0 0 -1 3 19)' strokeWidth='2' />
+  <circle cx='5' cy='5' r='4' transform='matrix(1 0 0 -1 7 15)' strokeWidth='2' />
 </IconWrapper>;
 
-export const EarnIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke fill='none'>
+export const EarnIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}   >
   <g clipPath='url(#clip0_14_1439)'>
     <path d='M1.5 18V18C1.5 16.067 3.067 14.5 5 14.5H12.5V15C12.5 16.6569 11.1569 18 9.5 18H7' strokeWidth='2' />
     <path d='M8 18H9.79535C11.8796 18 13.9117 17.3488 15.6077 16.1373L18.1538 14.3187C19.246 13.5386 20.7235 13.5788 21.7716 14.4173L22.5 15L17.3233 19.2632C15.1748 21.0325 12.4781 22 9.69482 22H1' strokeWidth='2' />
@@ -413,25 +413,25 @@ export const EarnIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}
   </defs>
 </IconWrapper>;
 
-export const ScanIcon: FC<IconWrapperProps> = ({ color = '#131313', ...props }) => <IconWrapper {...props} fill='none'>
-  <path d='M8 2H4C2.89543 2 2 2.89543 2 4V8' stroke={color} strokeWidth='2' />
-  <path d='M16 2H20C21.1046 2 22 2.89543 22 4V8' stroke={color} strokeWidth='2' />
-  <path d='M8 22H4C2.89543 22 2 21.1046 2 20V16' stroke={color} strokeWidth='2' />
-  <path d='M16 22H20C21.1046 22 22 21.1046 22 20V16' stroke={color} strokeWidth='2' />
-  <path fillRule='evenodd' clipRule='evenodd' d='M5.75 7V17H7.75V7H5.75ZM9.25 7V17H11.25V7H9.25ZM12.75 17V7H14.75V17H12.75ZM16.25 7V17H18.25V7H16.25Z' fill={color} />
+export const ScanIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}  >
+  <path d='M8 2H4C2.89543 2 2 2.89543 2 4V8' strokeWidth='2' />
+  <path d='M16 2H20C21.1046 2 22 2.89543 22 4V8' strokeWidth='2' />
+  <path d='M8 22H4C2.89543 22 2 21.1046 2 20V16' strokeWidth='2' />
+  <path d='M16 22H20C21.1046 22 22 21.1046 22 20V16' strokeWidth='2' />
+  <path fillRule='evenodd' clipRule='evenodd' d='M5.75 7V17H7.75V7H5.75ZM9.25 7V17H11.25V7H9.25ZM12.75 17V7H14.75V17H12.75ZM16.25 7V17H18.25V7H16.25Z' />
 </IconWrapper>;
 
-export const SearchIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const SearchIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <circle cx='8' cy='8' r='8' transform='matrix(1 0 0 -1 2 18)' strokeWidth='2' />
   <path d='M22 22L16 16' strokeWidth='2' strokeLinejoin='round' />
 </IconWrapper>;
 
-export const MaintenanceIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const MaintenanceIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M7.06547 17.6482L4.18175 18.5478L2.26476 15.0371L4.57984 13.0982C4.52724 12.7398 4.5 12.3731 4.5 12C4.5 11.627 4.52723 11.2603 4.57982 10.9019L2.26465 8.9629L4.18163 5.45218L7.06545 6.35183C7.74835 5.75472 8.54051 5.27946 9.40801 4.95996L10 2H14L14.592 4.95996C15.4595 5.27946 16.2517 5.75473 16.9346 6.35184L19.8184 5.45218L21.7354 8.9629L19.4202 10.9019C19.4728 11.2603 19.5 11.627 19.5 12C19.5 12.3731 19.4728 12.7398 19.4202 13.0982L21.7352 15.0371L19.8183 18.5478L16.9345 17.6482' strokeWidth='2' />
   <path d='M10 23V15.4649C8.8044 14.7733 8 13.4806 8 12C8 10.5195 8.8044 9.22678 10 8.53516L10.5 12H13.5L14 8.53516C15.1956 9.22678 16 10.5195 16 12C16 13.4806 15.1956 14.7733 14 15.4649V23' strokeWidth='2' />
 </IconWrapper>;
 
-export const EditFileIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const EditFileIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5' strokeWidth='2' />
   <path d='M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z' strokeWidth='2' />
 </IconWrapper>;
@@ -450,11 +450,11 @@ export const GiftIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}
   <path fillRule='evenodd' clipRule='evenodd' d='M14.8507 6L17.6245 3.78098L16.3751 2.21924L12 5.71934L7.62488 2.21924L6.37549 3.78098L9.14927 6H2V13H4V22H20V13H22V6H14.8507ZM13 13H18V20H13V13ZM11 13H6V20H11V13ZM20 11H4V8H20V11Z' />
 </IconWrapper>;
 
-export const FilterIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const FilterIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 3H21V6.5L14.5 12.75V19L9.5 21V12.75L3 6.5V3Z' strokeWidth='2' />
 </IconWrapper>;
 
-export const ExpandIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const ExpandIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M8 2H2V8' strokeWidth='2' />
   <path d='M16 2H22V8' strokeWidth='2' />
   <path d='M8 22H2V16' strokeWidth='2' />
@@ -465,7 +465,7 @@ export const ExpandIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...prop
   <path d='M22 22L15 15' strokeWidth='2' />
 </IconWrapper>;
 
-export const SystemCollapseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const SystemCollapseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 9H9V3' strokeWidth='2' />
   <path d='M21 9H15V3' strokeWidth='2' />
   <path d='M3 15H9V21' strokeWidth='2' />
@@ -487,23 +487,23 @@ export const TransferIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pr
   <path fillRule='evenodd' clipRule='evenodd' d='M5.41436 7.00007L8.70726 10.293L7.29304 11.7072L1.58594 6.00007L7.29304 0.292969L8.70726 1.70718L5.41436 5.00007L15.0002 5.00008C18.8661 5.00008 22.0002 8.13408 22.0002 12.0001L20.0002 12.0001C20.0002 9.23865 17.7616 7.00008 15.0002 7.00008L5.41436 7.00007ZM4.00015 12.0001C4.00015 14.7615 6.23873 17.0001 9.00015 17.0001H18.5859L15.293 13.7072L16.7073 12.293L22.4144 18.0001L16.7073 23.7072L15.293 22.293L18.5859 19.0001H9.00015C5.13416 19.0001 2.00015 15.8661 2.00015 12.0001H4.00015Z' />
 </IconWrapper>;
 
-export const LinkIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const LinkIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M14.8286 10.5857L14.5929 10.35C12.7704 8.5276 9.81566 8.5276 7.99322 10.35L4.22198 14.1213C2.65988 15.6834 2.65988 18.216 4.22198 19.7781V19.7781C5.78408 21.3402 8.31674 21.3402 9.87884 19.7781L11.4345 18.2225' strokeWidth='2' />
   <path d='M9.17142 13.4143L9.40712 13.65C11.2296 15.4724 14.1843 15.4724 16.0068 13.65L19.778 9.87872C21.3401 8.31662 21.3401 5.78396 19.778 4.22187V4.22187C18.2159 2.65977 15.6833 2.65977 14.1212 4.22187L12.5655 5.7775' strokeWidth='2' />
 </IconWrapper>;
 
-export const SaveIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const SaveIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M2 4C2 2.89543 2.89543 2 4 2H15.1716C15.702 2 16.2107 2.21071 16.5858 2.58579L21.4142 7.41421C21.7893 7.78929 22 8.29799 22 8.82843V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V4Z' strokeWidth='2' />
   <path d='M6 2V7H14V2' strokeWidth='2' strokeLinejoin='round' />
   <path d='M6 22V14H18V22' strokeWidth='2' strokeLinejoin='round' />
 </IconWrapper>;
 
-export const LikeIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const LikeIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 10H8V21H3V10Z' strokeWidth='2' />
   <path d='M8 10L9.08269 8.48424C10.0139 7.18051 10.6183 5.67212 10.8448 4.08607L11 3H12C13.1046 3 14 3.89543 14 5V9H18.6391C19.875 9 20.815 10.1097 20.6119 11.3288L19.2785 19.3288C19.1178 20.2932 18.2834 21 17.3057 21H8' strokeWidth='2' />
 </IconWrapper>;
 
-export const DislikeIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} stroke>
+export const DislikeIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 14H8V3H3V14Z' strokeWidth='2' />
   <path d='M8 14L9.08269 15.5158C10.0139 16.8195 10.6183 18.3279 10.8448 19.9139L11 21H12C13.1046 21 14 20.1046 14 19V15H18.6391C19.875 15 20.815 13.8903 20.6119 12.6712L19.2785 4.6712C19.1178 3.70683 18.2834 3 17.3057 3H8' strokeWidth='2' />
 </IconWrapper>;
@@ -515,13 +515,13 @@ export const CopyIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}
 
 export const MobileIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule="evenodd" clipRule="evenodd" d="M7.60469 3H6.32812V4.05299C6.31274 4.13296 6.30469 4.21554 6.30469 4.3V19.7C6.30469 19.7845 6.31274 19.867 6.32812 19.947V20.9756H7.35265C7.43419 20.9916 7.51846 21 7.60469 21H16.4047C16.4909 21 16.5752 20.9916 16.6567 20.9756H17.75V3H16.4047H7.60469ZM4.30469 4.3C4.30469 2.47746 5.78215 1 7.60469 1H16.4047C18.2272 1 19.7047 2.47746 19.7047 4.3V19.7C19.7047 21.5225 18.2272 23 16.4047 23H7.60469C5.78215 23 4.30469 21.5225 4.30469 19.7V4.3Z" />
-  <path d="M13.0984 18.5996H10.8984" stroke={props.color} strokeWidth="2.2"/>
+  <path d="M13.0984 18.5996H10.8984" strokeWidth="2.2" />
 </IconWrapper>;
 
 export const ChatIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule="evenodd" clipRule="evenodd" d="M9 20.8571L7 22V20V19.6965V18H5C3.34315 18 2 16.6569 2 15V5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V15C22 16.6569 20.6569 18 19 18H14L9 20.8571ZM9 18.5536L13.0077 16.2635L13.4689 16H14H19C19.5523 16 20 15.5523 20 15V14.9805V14.9609V14.9414V14.9219V14.9023V14.8828V14.8633V14.8438V14.8242V14.8047V14.7852V14.7656V14.7461V14.7266V14.707V14.6875V14.668V14.6484V14.6289V14.6094V14.5898V14.5703V14.5508V14.5312V14.5117V14.4922V14.4727V14.4531V14.4336V14.4141V14.3945V14.375V14.3555V14.3359V14.3164V14.2969V14.2773V14.2578V14.2383V14.2188V14.1992V14.1797V14.1602V14.1406V14.1211V14.1016V14.082V14.0625V14.043V14.0234V14.0039V13.9844V13.9648V13.9453V13.9258V13.9062V13.8867V13.8672V13.8477V13.8281V13.8086V13.7891V13.7695V13.75V13.7305V13.7109V13.6914V13.6719V13.6523V13.6328V13.6133V13.5938V13.5742V13.5547V13.5352V13.5156V13.4961V13.4766V13.457V13.4375V13.418V13.3984V13.3789V13.3594V13.3398V13.3203V13.3008V13.2812V13.2617V13.2422V13.2227V13.2031V13.1836V13.1641V13.1445V13.125V13.1055V13.0859V13.0664V13.0469V13.0273V13.0078V12.9883V12.9688V12.9492V12.9297V12.9102V12.8906V12.8711V12.8516V12.832V12.8125V12.793V12.7734V12.7539V12.7344V12.7148V12.6953V12.6758V12.6562V12.6367V12.6172V12.5977V12.5781V12.5586V12.5391V12.5195V12.5V12.4805V12.4609V12.4414V12.4219V12.4023V12.3828V12.3633V12.3438V12.3242V12.3047V12.2852V12.2656V12.2461V12.2266V12.207V12.1875V12.168V12.1484V12.1289V12.1094V12.0898V12.0703V12.0508V12.0312V12.0117V11.9922V11.9727V11.9531V11.9336V11.9141V11.8945V11.875V11.8555V11.8359V11.8164V11.7969V11.7773V11.7578V11.7383V11.7188V11.6992V11.6797V11.6602V11.6406V11.6211V11.6016V11.582V11.5625V11.543V11.5234V11.5039V11.4844V11.4648V11.4453V11.4258V11.4062V11.3867V11.3672V11.3477V11.3281V11.3086V11.2891V11.2695V11.25V11.2305V11.2109V11.1914V11.1719V11.1523V11.1328V11.1133V11.0938V11.0742V11.0547V11.0352V11.0156V10.9961V10.9766V10.957V10.9375V10.918V10.8984V10.8789V10.8594V10.8398V10.8203V10.8008V10.7812V10.7617V10.7422V10.7227V10.7031V10.6836V10.6641V10.6445V10.625V10.6055V10.5859V10.5664V10.5469V10.5273V10.5078V10.4883V10.4688V10.4492V10.4297V10.4102V10.3906V10.3711V10.3516V10.332V10.3125V10.293V10.2734V10.2539V10.2344V10.2148V10.1953V10.1758V10.1562V10.1367V10.1172V10.0977V10.0781V10.0586V10.0391V10.0195V10V9.98047V9.96094V9.94141V9.92188V9.90234V9.88281V9.86328V9.84375V9.82422V9.80469V9.78516V9.76562V9.74609V9.72656V9.70703V9.6875V9.66797V9.64844V9.62891V9.60938V9.58984V9.57031V9.55078V9.53125V9.51172V9.49219V9.47266V9.45312V9.43359V9.41406V9.39453V9.375V9.35547V9.33594V9.31641V9.29688V9.27734V9.25781V9.23828V9.21875V9.19922V9.17969V9.16016V9.14062V9.12109V9.10156V9.08203V9.0625V9.04297V9.02344V9.00391V8.98438V8.96484V8.94531V8.92578V8.90625V8.88672V8.86719V8.84766V8.82812V8.80859V8.78906V8.76953V8.75V8.73047V8.71094V8.69141V8.67188V8.65234V8.63281V8.61328V8.59375V8.57422V8.55469V8.53516V8.51562V8.49609V8.47656V8.45703V8.4375V8.41797V8.39844V8.37891V8.35938V8.33984V8.32031V8.30078V8.28125V8.26172V8.24219V8.22266V8.20312V8.18359V8.16406V8.14453V8.125V8.10547V8.08594V8.06641V8.04688V8.02734V8.00781V7.98828V7.96875V7.94922V7.92969V7.91016V7.89062V7.87109V7.85156V7.83203V7.8125V7.79297V7.77344V7.75391V7.73438V7.71484V7.69531V7.67578V7.65625V7.63672V7.61719V7.59766V7.57812V7.55859V7.53906V7.51953V7.5V7.48047V7.46094V7.44141V7.42188V7.40234V7.38281V7.36328V7.34375V7.32422V7.30469V7.28516V7.26562V7.24609V7.22656V7.20703V7.1875V7.16797V7.14844V7.12891V7.10938V7.08984V7.07031V7.05078V7.03125V7.01172V6.99219V6.97266V6.95312V6.93359V6.91406V6.89453V6.875V6.85547V6.83594V6.81641V6.79688V6.77734V6.75781V6.73828V6.71875V6.69922V6.67969V6.66016V6.64062V6.62109V6.60156V6.58203V6.5625V6.54297V6.52344V6.50391V6.48438V6.46484V6.44531V6.42578V6.40625V6.38672V6.36719V6.34766V6.32812V6.30859V6.28906V6.26953V6.25V6.23047V6.21094V6.19141V6.17188V6.15234V6.13281V6.11328V6.09375V6.07422V6.05469V6.03516V6.01562V5.99609V5.97656V5.95703V5.9375V5.91797V5.89844V5.87891V5.85938V5.83984V5.82031V5.80078V5.78125V5.76172V5.74219V5.72266V5.70312V5.68359V5.66406V5.64453V5.625V5.60547V5.58594V5.56641V5.54688V5.52734V5.50781V5.48828V5.46875V5.44922V5.42969V5.41016V5.39062V5.37109V5.35156V5.33203V5.3125V5.29297V5.27344V5.25391V5.23438V5.21484V5.19531V5.17578V5.15625V5.13672V5.11719V5.09766V5.07812V5.05859V5.03906V5.01953V5C20 4.44771 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V5.01953V5.03906V5.05859V5.07812V5.09766V5.11719V5.13672V5.15625V5.17578V5.19531V5.21484V5.23438V5.25391V5.27344V5.29297V5.3125V5.33203V5.35156V5.37109V5.39062V5.41016V5.42969V5.44922V5.46875V5.48828V5.50781V5.52734V5.54688V5.56641V5.58594V5.60547V5.625V5.64453V5.66406V5.68359V5.70312V5.72266V5.74219V5.76172V5.78125V5.80078V5.82031V5.83984V5.85938V5.87891V5.89844V5.91797V5.9375V5.95703V5.97656V5.99609V6.01562V6.03516V6.05469V6.07422V6.09375V6.11328V6.13281V6.15234V6.17188V6.19141V6.21094V6.23047V6.25V6.26953V6.28906V6.30859V6.32812V6.34766V6.36719V6.38672V6.40625V6.42578V6.44531V6.46484V6.48438V6.50391V6.52344V6.54297V6.5625V6.58203V6.60156V6.62109V6.64062V6.66016V6.67969V6.69922V6.71875V6.73828V6.75781V6.77734V6.79688V6.81641V6.83594V6.85547V6.875V6.89453V6.91406V6.93359V6.95312V6.97266V6.99219V7.01172V7.03125V7.05078V7.07031V7.08984V7.10938V7.12891V7.14844V7.16797V7.1875V7.20703V7.22656V7.24609V7.26562V7.28516V7.30469V7.32422V7.34375V7.36328V7.38281V7.40234V7.42188V7.44141V7.46094V7.48047V7.5V7.51953V7.53906V7.55859V7.57812V7.59766V7.61719V7.63672V7.65625V7.67578V7.69531V7.71484V7.73438V7.75391V7.77344V7.79297V7.8125V7.83203V7.85156V7.87109V7.89062V7.91016V7.92969V7.94922V7.96875V7.98828V8.00781V8.02734V8.04688V8.06641V8.08594V8.10547V8.125V8.14453V8.16406V8.18359V8.20312V8.22266V8.24219V8.26172V8.28125V8.30078V8.32031V8.33984V8.35938V8.37891V8.39844V8.41797V8.4375V8.45703V8.47656V8.49609V8.51562V8.53516V8.55469V8.57422V8.59375V8.61328V8.63281V8.65234V8.67188V8.69141V8.71094V8.73047V8.75V8.76953V8.78906V8.80859V8.82812V8.84766V8.86719V8.88672V8.90625V8.92578V8.94531V8.96484V8.98438V9.00391V9.02344V9.04297V9.0625V9.08203V9.10156V9.12109V9.14062V9.16016V9.17969V9.19922V9.21875V9.23828V9.25781V9.27734V9.29688V9.31641V9.33594V9.35547V9.375V9.39453V9.41406V9.43359V9.45312V9.47266V9.49219V9.51172V9.53125V9.55078V9.57031V9.58984V9.60938V9.62891V9.64844V9.66797V9.6875V9.70703V9.72656V9.74609V9.76562V9.78516V9.80469V9.82422V9.84375V9.86328V9.88281V9.90234V9.92188V9.94141V9.96094V9.98047V10V10.0195V10.0391V10.0586V10.0781V10.0977V10.1172V10.1367V10.1562V10.1758V10.1953V10.2148V10.2344V10.2539V10.2734V10.293V10.3125V10.332V10.3516V10.3711V10.3906V10.4102V10.4297V10.4492V10.4688V10.4883V10.5078V10.5273V10.5469V10.5664V10.5859V10.6055V10.625V10.6445V10.6641V10.6836V10.7031V10.7227V10.7422V10.7617V10.7812V10.8008V10.8203V10.8398V10.8594V10.8789V10.8984V10.918V10.9375V10.957V10.9766V10.9961V11.0156V11.0352V11.0547V11.0742V11.0938V11.1133V11.1328V11.1523V11.1719V11.1914V11.2109V11.2305V11.25V11.2695V11.2891V11.3086V11.3281V11.3477V11.3672V11.3867V11.4062V11.4258V11.4453V11.4648V11.4844V11.5039V11.5234V11.543V11.5625V11.582V11.6016V11.6211V11.6406V11.6602V11.6797V11.6992V11.7188V11.7383V11.7578V11.7773V11.7969V11.8164V11.8359V11.8555V11.875V11.8945V11.9141V11.9336V11.9531V11.9727V11.9922V12.0117V12.0312V12.0508V12.0703V12.0898V12.1094V12.1289V12.1484V12.168V12.1875V12.207V12.2266V12.2461V12.2656V12.2852V12.3047V12.3242V12.3438V12.3633V12.3828V12.4023V12.4219V12.4414V12.4609V12.4805V12.5V12.5195V12.5391V12.5586V12.5781V12.5977V12.6172V12.6367V12.6562V12.6758V12.6953V12.7148V12.7344V12.7539V12.7734V12.793V12.8125V12.832V12.8516V12.8711V12.8906V12.9102V12.9297V12.9492V12.9688V12.9883V13.0078V13.0273V13.0469V13.0664V13.0859V13.1055V13.125V13.1445V13.1641V13.1836V13.2031V13.2227V13.2422V13.2617V13.2812V13.3008V13.3203V13.3398V13.3594V13.3789V13.3984V13.418V13.4375V13.457V13.4766V13.4961V13.5156V13.5352V13.5547V13.5742V13.5938V13.6133V13.6328V13.6523V13.6719V13.6914V13.7109V13.7305V13.75V13.7695V13.7891V13.8086V13.8281V13.8477V13.8672V13.8867V13.9062V13.9258V13.9453V13.9648V13.9844V14.0039V14.0234V14.043V14.0625V14.082V14.1016V14.1211V14.1406V14.1602V14.1797V14.1992V14.2188V14.2383V14.2578V14.2773V14.2969V14.3164V14.3359V14.3555V14.375V14.3945V14.4141V14.4336V14.4531V14.4727V14.4922V14.5117V14.5312V14.5508V14.5703V14.5898V14.6094V14.6289V14.6484V14.668V14.6875V14.707V14.7266V14.7461V14.7656V14.7852V14.8047V14.8242V14.8438V14.8633V14.8828V14.9023V14.9219V14.9414V14.9609V14.9805V15C4 15.5523 4.44772 16 5 16H7H9V18V18.5536Z" />
-  <path d="M7 8H17" stroke={props.color || '#131313'} strokeWidth="2"/>
-  <path d="M7 12H13" stroke={props.color || '#131313'} strokeWidth="2"/>
+  <path d="M7 8H17" strokeWidth="2" />
+  <path d="M7 12H13" strokeWidth="2" />
 </IconWrapper>;
 
 export default {

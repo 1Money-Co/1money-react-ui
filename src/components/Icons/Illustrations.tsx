@@ -23,7 +23,7 @@ export const IllusChecked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ 
   </defs>
 </IconWrapper>;
 
-export const IllusEmailError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 62 58" fill='none' {...rest}>
+export const IllusEmailError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 62 58" {...rest}>
   <path fillRule="evenodd" clipRule="evenodd" d="M38 56H34V58H38V56ZM46 56H42V58H46V56Z" fill={borderColor} />
   <path d="M10 0L62 0V11L36 27L10 11V0Z" fill="url(#paint0_linear_85_13620)" />
   <path fillRule="evenodd" clipRule="evenodd" d="M10 4C10 1.79086 11.7909 0 14 0H58C60.2091 0 62 1.79086 62 4V42C62 44.2091 60.2091 46 58 46H14C11.7909 46 10 44.2091 10 42V4ZM12 10.9181L36 26.6104L60 10.9181V2H12V10.9181ZM60 13.3077L38.189 27.5687C36.8592 28.4382 35.1408 28.4382 33.811 27.5687L12 13.3077V44H60V13.3077Z" fill={borderColor} />
@@ -39,7 +39,7 @@ export const IllusEmailError: FC<IconWrapperProps & IllustrationsCustomProps> = 
   </defs>
 </IconWrapper>;
 
-export const IllusLinkExpired: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" fill="none" {...rest}>
+export const IllusLinkExpired: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <circle cx="36.9996" cy="36.9979" r="29.5909" fill="white" />
   <circle cx="37" cy="37" r="30" stroke={borderColor} strokeWidth="2" />
   <circle cx="37" cy="37" r="24" fill="url(#paint0_linear_85_13740)" />
@@ -56,7 +56,7 @@ export const IllusLinkExpired: FC<IconWrapperProps & IllustrationsCustomProps> =
   </defs>
 </IconWrapper>;
 
-export const Illus2FA: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const Illus2FA: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <path d="M47.7071 26.1213L46.2929 24.7071L32 39L24.7071 31.7071L23.2929 33.1213L32 41.8284L47.7071 26.1213Z" fill={borderColor} />
   <path fillRule="evenodd" clipRule="evenodd" d="M31.675 67.3393C33.0658 68.3327 34.9342 68.3327 36.325 67.3393L43.6217 62.1273C53.0704 55.3783 59.1201 44.8564 60.1991 33.2952L61.7016 17.1972C61.8759 15.3294 60.7288 13.5914 58.9429 13.0174L35.224 5.39344C34.4281 5.13759 33.5719 5.13759 32.776 5.39344L9.05706 13.0174C7.27115 13.5914 6.12408 15.3294 6.29841 17.1972L7.80088 33.2952C8.87994 44.8564 14.9296 55.3783 24.3783 62.1273L31.675 67.3393ZM59.8595 15.4127L34 7.10078L8.14055 15.4127L9.79223 33.1093C10.8173 44.0925 16.5645 54.0883 25.5407 60.4999L34 66.5422L42.4593 60.4999C51.4355 54.0883 57.1827 44.0925 58.2078 33.1093L59.8595 15.4127Z" fill={borderColor} />
   <circle cx="53" cy="54" r="15" fill="url(#paint0_linear_85_13765)" />
@@ -71,7 +71,7 @@ export const Illus2FA: FC<IconWrapperProps & IllustrationsCustomProps> = ({ bord
 </IconWrapper>;
 
 
-export const IllusLocked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const IllusLocked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <rect x="67" y="66" width="56" height="36" rx="7" transform="rotate(-180 67 66)" fill="url(#paint0_linear_85_13893)" />
   <mask id="path-2-inside-1_85_13893" fill="white">
     <path fillRule="evenodd" clipRule="evenodd" d="M39 11C33.4772 11 29 15.4772 29 21V28H49V21C49 15.4772 44.5229 11 39 11ZM57 28V21C57 11.0589 48.9411 3 39 3C29.0589 3 21 11.0589 21 21V28H13C11.8954 28 11 28.8954 11 30V64C11 65.1046 11.8954 66 13 66H15H63H65C66.1046 66 67 65.1046 67 64V30C67 28.8954 66.1046 28 65 28H57Z" />
@@ -88,14 +88,14 @@ export const IllusLocked: FC<IconWrapperProps & IllustrationsCustomProps> = ({ b
   </defs>
 </IconWrapper>;
 
-export const IllusError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const IllusError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <path d="M12 55C12 53.8954 12.8954 53 14 53H60C61.1046 53 62 53.8954 62 55V63C62 64.1046 61.1046 65 60 65H14C12.8954 65 12 64.1046 12 63V55Z" fill={color} />
   <path d="M36 37V22H38V37H36Z" fill={borderColor} />
   <path d="M37 40C35.8954 40 35 40.8954 35 42C35 43.1046 35.8954 44 37 44C38.1046 44 39 43.1046 39 42C39 40.8954 38.1046 40 37 40Z" fill={borderColor} />
   <path fillRule="evenodd" clipRule="evenodd" d="M16.2308 53L7.84256 41.3164C6.76234 39.8118 6.85635 37.7624 8.06979 36.3631L33.9779 6.48512C35.5729 4.64582 38.4271 4.64582 40.0221 6.48512L65.9302 36.3631C67.1436 37.7624 67.2377 39.8118 66.1574 41.3164L57.7692 53H58C60.2091 53 62 54.7909 62 57V61C62 63.2091 60.2091 65 58 65H16C13.7909 65 12 63.2091 12 61V57C12 54.7909 13.7909 53 16 53H16.2308ZM37 6.05282L65.4541 38.8668L55.3072 53H18.6928L8.54593 38.8668L37 6.05282ZM60 55V63H14V55H60Z" fill={borderColor} />
 </IconWrapper>;
 
-export const IllusRegoinNotSupported: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const IllusRegoinNotSupported: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <rect width="74" height="74" fill="white" />
   <path fillRule="evenodd" clipRule="evenodd" d="M20.8809 38.6129L14.5057 60.129H67.4943L61.1191 38.6129H20.8809ZM63.3099 39.4208C62.8391 37.8319 61.3793 36.7419 59.7221 36.7419H22.2779C20.6207 36.7419 19.1609 37.8319 18.6901 39.4208L13.4237 57.195C12.7131 59.5932 14.5102 62 17.0115 62H64.9885C67.4898 62 69.2869 59.5932 68.5763 57.195L63.3099 39.4208Z" fill={borderColor} />
   <path d="M28.7911 9.05709C35.5338 2.31432 46.466 2.31432 53.2088 9.05709C59.4298 15.2781 59.9783 25.1819 54.4824 32.0519L40.9999 48.9049L27.5175 32.0519C22.0215 25.1819 22.5701 15.2781 28.7911 9.05709Z" fill="url(#paint0_linear_659_26755)" />
@@ -118,7 +118,7 @@ export const IllusRegoinNotSupported: FC<IconWrapperProps & IllustrationsCustomP
   </defs>
 </IconWrapper>;
 
-export const IllusIDCard: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const IllusIDCard: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <path d="M11 50H63V59H11V50Z" fill="url(#paint0_linear_659_22574)" />
   <rect x="15" y="34" width="18" height="8" fill="url(#paint1_linear_659_22574)" />
   <circle cx="24" cy="24" r="5" fill="url(#paint2_linear_659_22574)" />
@@ -148,7 +148,7 @@ export const IllusIDCard: FC<IconWrapperProps & IllustrationsCustomProps> = ({ b
 </IconWrapper>;
 
 
-export const IllusVerification: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" fill='none' {...rest}>
+export const IllusVerification: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <path d="M10 6C7.79086 6 6 7.79086 6 10V19H8V8H19V6H10Z" fill={borderColor} />
   <path d="M64 6C66.2091 6 68 7.79086 68 10V19H66V8H55V6H64Z" fill={borderColor} />
   <path d="M64 68C66.2091 68 68 66.2091 68 64V55H66V66H55V68H64Z" fill={borderColor} />

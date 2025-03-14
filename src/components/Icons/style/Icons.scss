@@ -3,11 +3,18 @@
 $component: 'icons';
 
 .#{$prefix}-#{$component} {
-  *[fill="none"][stroke="none"] {
+  &-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+  }
+
+  *:not(g, defs, clipPath, linearGradient, [fill], [stroke], [stroke-width]) {
     fill: currentcolor;
   }
 
-  *[stroke="none"]:not([stroke-width="0"]) {
+  *:not(g, defs, clipPath, linearGradient)[stroke-width]:not([stroke], [fill]) {
     stroke: currentcolor;
   }
 

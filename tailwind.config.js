@@ -73,6 +73,9 @@ module.exports = {
         midnight: '#646465',
         night: '#404042'
       },
+      dimmer: {
+        dark: '#1F2531'
+      },
     },
     borderRadius: {
       none: '0',

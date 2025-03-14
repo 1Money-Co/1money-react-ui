@@ -41,7 +41,7 @@ const CopyIconBox = styled.div`
     background-color: #029cfd;
     border-radius: 8px;
     svg{
-      fill: #fff;
+      fill: transparent;
     }
     span{
       color: #fff;
@@ -66,7 +66,7 @@ type Story = StoryObj<typeof Icons>;
 export const PrimaryIcons: Story = {
   args: {
     prefixCls: 'icons',
-    color: '#142D66',
+    color: '#073387',
     borderColor: '#03163A',
     size: 24
   },
@@ -482,7 +482,10 @@ export const PrimaryIcons: Story = {
 export const Logo: Story = {
   args: {
     prefixCls: 'icons',
-    color: '#142D66',
+    color: '#073387',
+    logoColor: '#073387',
+    wordColor: '#000000',
+    networkColor: '#131313',
     size: 32
   },
   parameters: {
@@ -496,9 +499,7 @@ export const Logo: Story = {
     const toast = useRef<ToastClass>(null);
     const handleCopy = (el: string) => {
       copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
-
     };
-
 
     return <div style={{
       display: 'grid', flexDirection: 'row', gap: 24, flexWrap: 'wrap', gridTemplateColumns: 'repeat(auto-fill, minmax(222px, 1fr))'
@@ -513,19 +514,19 @@ export const Logo: Story = {
         <span>logoWord</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoNetwork' />")}>
-        <Icons {...args} name='logoNetwork' width={150} height={30} color='#073387' />
+        <Icons {...args} name='logoNetwork' width={150} height={30} />
         <span>logoNetwork</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' />")}>
-        <Icons {...args} name='logoWithWords' width={180} height={36} logoColor='#073387' wordColor='#000000' />
+        <Icons {...args} name='logoWithWords' width={180} height={36} />
         <span>logoWithWords</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' />")}>
-        <Icons {...args} name='logoWithWords' width={320} height={36} logoColor='#073387' wordColor='#000000' networkLogo networkColor='#131313' />
+        <Icons {...args} name='logoWithWords' width={320} height={36} networkLogo />
         <span>logoWithWords</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoBg' />")}>
-        <Icons {...args} name='logoBg' width={56} height={57} color='#073387' />
+        <Icons {...args} name='logoBg' width={56} height={57} />
         <span>logoBg</span>
       </CopyIconBox>
     </div>;
@@ -590,9 +591,10 @@ export const Illustrations: Story = {
 };
 
 export const OldIcons: Story = {
+  name: 'Old Icons (Deprecated)',
   args: {
     prefixCls: 'icons',
-    color: '#131313',
+    color: '#073387',
     borderColor: '#131313',
   },
   render: function Render(args) {
