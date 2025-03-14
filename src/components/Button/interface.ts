@@ -11,9 +11,9 @@ export interface ButtonProps extends Omit<PrimeButtonProps, 'label' | 'severity'
     | 'grey'
     | 'black'
     | 'white'
+    | 'danger'
     | 'primary-landing'
     | 'secondary-landing'
     | 'primary-outline'
-    | 'secondary-outline'
-    | 'severity';
+    | 'secondary-outline';
 }
