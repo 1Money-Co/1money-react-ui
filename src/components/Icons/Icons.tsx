@@ -135,6 +135,8 @@ import {
   LikeIcon,
   DislikeIcon,
   CopyIcon,
+  MobileIcon,
+  ChatIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -281,7 +283,8 @@ const IconList = {
   like: LikeIcon,
   dislike: DislikeIcon,
   copy: CopyIcon,
-
+  mobile: MobileIcon,
+  chat: ChatIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;
@@ -291,7 +294,7 @@ export interface LogoWithWordsProps extends IconsProps, LogoWithWordsCustomProps
 }
 
 export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps {
-  name: 'illusLocked' | 'illusChecked' | 'illusError';
+  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'illusRegoinNotSupported';
 }
 
 export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {

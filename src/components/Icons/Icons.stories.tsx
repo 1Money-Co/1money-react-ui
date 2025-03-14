@@ -20,6 +20,7 @@ const meta: Meta<typeof Icons> = {
     size: { control: 'number' },
     color: { control: 'color' },
     borderColor: { control: 'color' },
+    gradientColor: { control: 'object' },
   },
   args: {
     prefixCls: 'icons',
@@ -466,10 +467,17 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='copy' />
         <span>Copy</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='mobile' />")}>
+        <Icons {...args} name='mobile' />
+        <span>Mobile</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='chat' />")}>
+        <Icons {...args} name='chat' />
+        <span>Chat</span>
+      </CopyIconBox>
     </div>;
   },
 };
-
 
 export const Logo: Story = {
   args: {
@@ -531,6 +539,7 @@ export const Illustrations: Story = {
     borderColor: '#1D1D1F',
     size: 50,
     illustrations: true,
+    gradientColor: ['#F4C600', 'white'],
   },
   render: function Render(args) {
     const toast = useRef<ToastClass>(null);
