@@ -14,6 +14,7 @@ const meta: Meta<typeof Calendar> = {
     disabled: { control: 'boolean' },
     showButtonBar: { control: 'boolean' },
     invalid: { control: 'boolean' },
+    appendTo: { control: 'radio', options: ['self', null]}
   },
   tags: ['autodocs'],
 };
@@ -28,5 +29,6 @@ export const Primary: Story = {
     disabled: false,
     label: 'Date of Incorporation',
     required: true,
+    appendTo: null
   },
 };
