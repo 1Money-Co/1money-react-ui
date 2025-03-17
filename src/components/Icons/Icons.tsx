@@ -6,6 +6,7 @@ import {
   LogoWithWords,
   LogoBg,
 } from './Logo';
+
 import {
   IllusChecked,
   IllusEmailError,
@@ -17,6 +18,7 @@ import {
   IllusIDCard,
   IllusVerification
 } from './Illustrations';
+
 import {
   BurgerIcon,
   ReturnIcon,
@@ -34,7 +36,8 @@ import {
   UnionIcon,
   EyeCloseIcon,
   EyeOnIcon,
-} from './Old';
+} from './Deprecated';
+
 import {
   /* Primary Icons */
   DepositIcon,
@@ -79,8 +82,10 @@ import {
   MinusIcon,
   CrossIcon,
   MoreIcon,
-  DropDownIcon,
-  DropDownUpIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   CollapseIcon,
   ExtendIcon,
   SpinnerIcon,
@@ -226,8 +231,10 @@ const IconList = {
   minus: MinusIcon,
   cross: CrossIcon,
   more: MoreIcon,
-  dropDown: DropDownIcon,
-  dropDownUp: DropDownUpIcon,
+  chevronDown: ChevronDownIcon,
+  chevronUp: ChevronUpIcon,
+  chevronLeft: ChevronLeftIcon,
+  chevronRight: ChevronRightIcon,
   collapse: CollapseIcon,
   extend: ExtendIcon,
   spinner: SpinnerIcon,

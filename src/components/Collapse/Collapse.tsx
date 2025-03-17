@@ -23,8 +23,8 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
     <Accordion
       {...rest}
       className={classes(void 0, wrapperCls)}
-      expandIcon={<i className={[classes('icon'), classes('icon-expand')].join(' ')}><Icons name='dropDown' size={24} color='#000000' /></i>}
-      collapseIcon={<i className={[classes('icon'), classes('icon-collapse')].join(' ')}><Icons name='dropDown' size={24} color='#000000' /></i>}
+      expandIcon={<i className={[classes('icon'), classes('icon-expand')].join(' ')}><Icons name='chevronDown' size={24} color='#000000' /></i>}
+      collapseIcon={<i className={[classes('icon'), classes('icon-collapse')].join(' ')}><Icons name='chevronDown' size={24} color='#000000' /></i>}
       transitionOptions={{ 
         timeout: 0,
         disabled: true

@@ -1,6 +1,7 @@
 import { memo, useState, useEffect } from 'react';
 import isEqual from 'lodash.isequal';
 import { Calendar as PrimeCalendar } from 'primereact/calendar';
+import Icons from '@/components/Icons';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -51,6 +52,8 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
         ].join(' '))}
         panelClassName={classes('panel', panelClassName)}
         placeholder={placeholder}
+        prevIcon={<Icons name='chevronLeft' size={24} />}
+        nextIcon={<Icons name='chevronRight' size={24} />}
       />
     </div>
   );

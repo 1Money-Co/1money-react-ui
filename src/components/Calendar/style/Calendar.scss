@@ -67,9 +67,87 @@ $cls: #{$prefix}-#{$component};
 }
 
 .#{$cls}-panel {
+  padding: 24px;
+  background-color: $color-primary-white;
+
   .p-datepicker-buttonbar {
     .p-button {
       color: $color-primary;
+    }
+  }
+
+  .p-datepicker-group-container {
+    .p-datepicker-group {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .p-datepicker-header {
+        padding: 0;
+        border: none;
+
+        .p-datepicker-title {
+          display: inline-flex;
+          gap: 4px;
+          align-items: center;
+
+          >* {
+            font-weight: 500;
+            font-size: 18px;
+            font-family: var(--font-inter), Inter;
+            line-height: 20px;
+
+            &:hover {
+              color: $color-primary;
+            }
+          }
+        }
+
+        .p-datepicker-prev,
+        .p-datepicker-next {
+          &:hover {
+            background-color: inherit;
+
+            >i {
+              color: $color-primary !important;
+            }
+          }
+        }
+      }
+
+      .p-datepicker-calendar-container {
+        .p-datepicker-calendar {
+          thead tr th span {
+            color: $color-primary-black;
+            font-weight: 700;
+            font-size: 16px;
+            font-family: var(--font-inter), Inter;
+            line-height: 18px;
+          }
+
+          tbody tr td span {
+            color: $color-primary-black;
+            font-weight: 500;
+            font-size: 16px;
+            font-family: var(--font-inter), Inter;
+            line-height: 18px;
+
+            &.p-highlight {
+              color: $color-primary-white;
+              background-color: $color-primary;
+            }
+
+            &.p-disabled {
+              color: $color-grey-dark;
+            }
+
+            &:hover {
+              color: $color-primary;
+              background-color: inherit;
+            }
+          }
+        }
+      }
     }
   }
 }

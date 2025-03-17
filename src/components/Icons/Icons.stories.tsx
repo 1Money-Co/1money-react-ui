@@ -246,13 +246,21 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='more' />
         <span>More</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='dropDown' />")}>
-        <Icons {...args} name='dropDown' />
-        <span>DropDown</span>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='chevronDown' />")}>
+        <Icons {...args} name='chevronDown' />
+        <span>Chevron Down</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='dropDownUp' />")}>
-        <Icons {...args} name='dropDownUp' />
-        <span>Dropdown Up</span>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='chevronUp' />")}>
+        <Icons {...args} name='chevronUp' />
+        <span>Chevron Up</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='chevronLeft' />")}>
+        <Icons {...args} name='chevronLeft' />
+        <span>Chevron Left</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='chevronRight' />")}>
+        <Icons {...args} name='chevronRight' />
+        <span>Chevron Right</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='collapse' />")}>
         <Icons {...args} name='collapse' />

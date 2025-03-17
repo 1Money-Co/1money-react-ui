@@ -139,6 +139,12 @@ export const PartiesIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...pro
 export const TransactionsIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M6 4H16C16.5523 4 17 4.44772 17 5V9H19V5C19 3.34315 17.6569 2 16 2H6C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H12V20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM7 7H15V9H7V7ZM7 11H15V13H7V11ZM12 15H7V17H12V15ZM22.0831 17.1016L20.0038 17.1016H19.0057V22.1016H17.0057V17.1016L16.0038 17.1016H13.9219L15.2232 15.4765L17.2252 12.9765L18.0065 12.0008L18.7869 12.9772L20.7849 15.4772L22.0831 17.1016Z' />
 </IconWrapper>;
+export const FiatIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M19 4H5C4.44772 4 4 4.44772 4 5V14C4 14.5523 4.44772 15 5 15H19C19.5523 15 20 14.5523 20 14V5C20 4.44771 19.5523 4 19 4ZM5 2C3.34315 2 2 3.34315 2 5V14C2 15.6569 3.34315 17 5 17H19C20.6569 17 22 15.6569 22 14V5C22 3.34315 20.6569 2 19 2H5ZM7 7H5V5H7V7ZM17 7H19V5H17V7ZM7 14H5V12H7V14ZM17 14H19V12H17V14ZM12 12C12.8896 12 14 11.1087 14 9.5C14 7.89133 12.8896 7 12 7C11.1104 7 10 7.89133 10 9.5C10 11.1087 11.1104 12 12 12ZM12 14C14.2091 14 16 11.9853 16 9.5C16 7.01472 14.2091 5 12 5C9.79086 5 8 7.01472 8 9.5C8 11.9853 9.79086 14 12 14ZM3.5 22H21V20H3.5V22Z" />
+</IconWrapper>;
+export const SendCryptoIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M6 10C6 13.3137 8.68629 16 12 16C15.3137 16 18 13.3137 18 10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10ZM12 2C7.58172 2 4 5.58172 4 10C4 10.6906 4.08751 11.3608 4.25203 12C4.08751 12.6392 4 13.3094 4 14C4 18.4183 7.58172 22 12 22C16.4183 22 20 18.4183 20 14C20 13.3094 19.9125 12.6392 19.748 12C19.9125 11.3608 20 10.6906 20 10C20 5.58172 16.4183 2 12 2ZM12 20C9.20347 20 6.8538 18.0868 6.18848 15.4979C7.64668 17.0387 9.71108 18 12 18C14.2889 18 16.3533 17.0387 17.8115 15.4979C17.1462 18.0868 14.7965 20 12 20ZM13.2784 8.72155L12 6L10.7216 8.72155L8 10L10.7216 11.2784L12 14L13.2784 11.2784L16 10L13.2784 8.72155Z" />
+</IconWrapper>;
 
 /* Status Icons */
 export const StatusSuccessIcon: FC<IconWrapperProps> = (props) => <IconWrapper viewBox='0 0 24 25' {...props}>
@@ -174,11 +180,17 @@ export const CrossIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props
 export const MoreIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
   <path fillRule='evenodd' clipRule='evenodd' d='M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z' />
 </IconWrapper>;
-export const DropDownIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
-  <path fillRule='evenodd' clipRule='evenodd' d='M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z' />
+export const ChevronDownIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z" />
 </IconWrapper>;
-export const DropDownUpIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
-  <path fillRule='evenodd' clipRule='evenodd' d='M12.0005 7.23077L19.0847 13.87L17.7144 15.3322L12.0007 9.9774L6.28651 15.3335L4.91602 13.8714L12.0005 7.23077Z' />
+export const ChevronUpIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M12.0005 7.23077L19.0847 13.87L17.7144 15.3322L12.0007 9.9774L6.28651 15.3335L4.91602 13.8714L12.0005 7.23077Z" />
+</IconWrapper>;
+export const ChevronRightIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M9.4621 19L8 17.6295L13.3561 11.9154L8.00133 6.20165L9.46356 4.83128L16.1028 11.9155L9.4621 19Z" />
+</IconWrapper>;
+export const ChevronLeftIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M6.94922 11.9155L13.5884 4.83128L15.0506 6.20165L9.69584 11.9154L15.052 17.6295L13.5899 19L6.94922 11.9155Z" />
 </IconWrapper>;
 export const CollapseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <g clipPath='url(#clip0_23_5192)'>
@@ -556,6 +568,8 @@ export default {
   CompanyIcon,
   PartiesIcon,
   TransactionsIcon,
+  FiatIcon,
+  SendCryptoIcon,
   /* Functional Icons */
   ArrowUpIcon,
   ArrowDownIcon,
@@ -565,8 +579,10 @@ export default {
   MinusIcon,
   CrossIcon,
   MoreIcon,
-  DropDownIcon,
-  DropDownUpIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   CollapseIcon,
   ExtendIcon,
   SpinnerIcon,
