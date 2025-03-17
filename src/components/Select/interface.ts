@@ -20,6 +20,7 @@ export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size' 
   ref?: RefObject<Dropdown | null>;
   multiple?: false;
   unselectable?: 'on' | 'off';
+  panelType?: 'menu' | 'selector';
 }
 
 export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 'size' | 'itemTemplate'>, BaseProps {

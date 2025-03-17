@@ -71,8 +71,24 @@ $cls: #{$prefix}-#{$component};
   background-color: $color-primary-white;
 
   .p-datepicker-buttonbar {
+    padding: 8px 0;
+    border: none;
+
     .p-button {
-      color: $color-primary;
+      padding: 0 16px;
+      color: $color-primary-black;
+      font-size: 16px;
+      font-family: var(--font-inter), Inter;
+      line-height: 18px;
+
+      &:hover {
+        color: $color-primary;
+        background-color: inherit;
+      }
+
+      span {
+        font-weight: 500;
+      }
     }
   }
 
@@ -126,6 +142,8 @@ $cls: #{$prefix}-#{$component};
           }
 
           tbody tr td span {
+            width: 36px;
+            height: 36px;
             color: $color-primary-black;
             font-weight: 500;
             font-size: 16px;
@@ -135,6 +153,11 @@ $cls: #{$prefix}-#{$component};
             &.p-highlight {
               color: $color-primary-white;
               background-color: $color-primary;
+
+              &:hover {
+                color: $color-primary-white;
+                background-color: $color-primary;
+              }
             }
 
             &.p-disabled {
@@ -143,7 +166,14 @@ $cls: #{$prefix}-#{$component};
 
             &:hover {
               color: $color-primary;
-              background-color: inherit;
+              background-color: $color-primary-white;
+            }
+          }
+
+          .p-datepicker-today {
+            span {
+              color: $color-primary;
+              background-color: $color-primary-white;
             }
           }
         }

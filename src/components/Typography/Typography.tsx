@@ -93,7 +93,7 @@ const Label: FC<PropsWithChildren<LabelProps>> = memo(props => {
   const { children, className, prefixCls = 'typography-label', bold, size, ...rest } = props;
   const classes = classnames(prefixCls);
 
-  return <span
+  return <strong
     {...rest}
     className={classes(void 0, [
       classes(size),
@@ -102,7 +102,7 @@ const Label: FC<PropsWithChildren<LabelProps>> = memo(props => {
     ].join(' '))}
   >
     { children }
-  </span>;
+  </strong>;
 });
 
 

@@ -8,7 +8,7 @@ exports[`Clipboard renders correctly 1`] = `
       <div
         class="om-react-ui-clipboard"
       >
-        <span
+        <strong
           class="om-react-ui-typography-label om-react-ui-typography-label-l om-react-ui-typography-label-bold om-react-ui-clipboard-label"
         />
         <div
@@ -52,7 +52,7 @@ exports[`Clipboard renders correctly 1`] = `
     <div
       class="om-react-ui-clipboard"
     >
-      <span
+      <strong
         class="om-react-ui-typography-label om-react-ui-typography-label-l om-react-ui-typography-label-bold om-react-ui-clipboard-label"
       />
       <div
