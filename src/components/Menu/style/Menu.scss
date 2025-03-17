@@ -1,35 +1,66 @@
 @use '../../../variable.scss'as *;
 
 $component: 'menu';
+$cls: #{$prefix}-#{$component};
 
-.#{$prefix}-#{$component} {
+.#{$cls} {
   width: auto;
-  padding: 10px 0;
-  border: 1px solid #E0E2EE;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10%);
+  padding: 8px;
+  background-color: $color-primary-white;
+  border-color: $color-grey;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
 
-  &.p-menu .p-submenu-header:empty {
-    display: none;
-  }
+  &.p-menu {
+    .p-submenu-header:empty {
+      display: none;
+    }
 
-  &.p-menu .p-menuitem {
-    background-color: #FFF;
+    .p-menuitem {
+      background-color: $color-primary-white;
 
-    &:hover {
-      background-color: #FAFAFC;
+      .p-menuitem-content {
+        background-color: $color-primary-white;
+
+        &:hover {
+          background-color: $color-grey-light;
+        }
+
+        .p-menuitem-link {
+          padding: 8px;
+
+          .p-menuitem-text {
+            color: $color-primary-black;
+            font-weight: 400;
+            font-size: 16px;
+            font-style: normal;
+            line-height: 140%;
+          }
+        }
+      }
     }
   }
 
-  &.p-menu .p-menuitem>.p-menuitem-content .p-menuitem-link {
-    padding: 10px 20px;
+  &.#{$cls}-selector {
+    padding: 8px 16px;
+    background-color: $color-grey-light;
+    border-radius: 16px;
+    box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
 
-    .p-menuitem-text {
-      color: #000;
-      font-weight: 400;
-      font-size: 14px;
-      font-style: normal;
-      line-height: 20px;
+    &.p-menu {
+      .p-menuitem {
+        background-color: $color-grey-light;
+
+        .p-menuitem-content {
+          background-color: $color-grey-light;
+
+          .p-menuitem-link {
+            padding: 12px 0;
+          }
+        }
+      }
     }
   }
 }

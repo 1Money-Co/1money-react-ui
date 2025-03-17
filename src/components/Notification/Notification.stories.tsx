@@ -10,6 +10,7 @@ const meta: Meta<typeof Notification> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    severity: { control: 'radio', options: ['success', 'info', 'warn', 'error'] },
   },
   args: {
     prefixCls: 'notification',
@@ -25,6 +26,6 @@ type Story = StoryObj<typeof Notification>;
 export const Primary: Story = {
   args: {
     prefixCls: 'notification',
-    children: 'Hello Notification'
+    children: `Include your account identifier in the bank's "memo" or "instructions" field to avoid delays or returns.`
   },
 };
