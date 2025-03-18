@@ -1,6 +1,5 @@
 import { memo, forwardRef, useImperativeHandle } from 'react';
 import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { PopupProps, PopupHandlers } from './interface';
@@ -20,13 +19,5 @@ export const Popup = forwardRef<PopupHandlers, PopupProps>((props, ref) => {
     />
   );
 });
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Popup.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
 
 export default memo(Popup);

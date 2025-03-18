@@ -1,4 +1,8 @@
-.om-react-ui-loading {
+@use '../../../variable.scss'as *;
+
+$component: 'loading';
+
+.#{$prefix}-#{$component} {
   display: block;
   width: 150px;
 }

@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 import Icons from '@/components/Icons';
 /* import types */
@@ -24,8 +23,8 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
     <Accordion
       {...rest}
       className={classes(void 0, wrapperCls)}
-      expandIcon={<i className={[classes('icon'), classes('icon-expand')].join(' ')}><Icons name='dropDown' size={24} color='#000000' /></i>}
-      collapseIcon={<i className={[classes('icon'), classes('icon-collapse')].join(' ')}><Icons name='dropDown' size={24} color='#000000' /></i>}
+      expandIcon={<i className={[classes('icon'), classes('icon-expand')].join(' ')}><Icons name='chevronDown' size={24} color='#000000' /></i>}
+      collapseIcon={<i className={[classes('icon'), classes('icon-collapse')].join(' ')}><Icons name='chevronDown' size={24} color='#000000' /></i>}
       transitionOptions={{ 
         timeout: 0,
         disabled: true
@@ -34,16 +33,6 @@ export const Collapse: FC<PropsWithChildren<CollapseProps>> = props => {
       { getCollapseItem() }
     </Accordion>
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Collapse.propTypes = {
-  wrapperCls: propTypes.string,
-  itemCls: propTypes.string,
-  contentCls: propTypes.string,
-  prefixCls: propTypes.string
 };
 
 export default memo(Collapse);

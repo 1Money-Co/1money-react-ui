@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Upload } from './index';
+import { Upload, UploadFileBar } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -11,6 +11,7 @@ const meta: Meta<typeof Upload> = {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
     disabled: { control: 'boolean' },
+    btnSize: { control: 'radio', options: ['small', 'medium', 'large'] },
   },
   args: {
     prefixCls: 'upload',
@@ -33,8 +34,17 @@ export const Basic: Story = {
     prefixCls: 'upload',
     mode: 'basic',
     chooseOptions: {
-      label: 'Basic Upload',
+      label: 'Upload',
       icon: () => <></>
     }
   },
 };
+
+export const FileBar: Story = {
+  render: () => <div style={{ width: '300px' }}>
+    <UploadFileBar fileName='test.png' />
+    <br />
+    <br />
+    <UploadFileBar fileName='test.png' status={1} message='system error' />
+  </div>
+}

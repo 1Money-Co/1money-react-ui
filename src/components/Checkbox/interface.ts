@@ -7,6 +7,8 @@ interface CheckboxBaseProps {
   innerCls?: string;
   checkboxCls?: string;
   prefixCls?: string;
+  labelCls?: string;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 interface CheckboxNormalProps extends CheckboxBaseProps {

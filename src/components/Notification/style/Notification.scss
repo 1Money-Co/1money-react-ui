@@ -1,0 +1,56 @@
+@use '../../../variable.scss'as *;
+
+$component: 'notification';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  color: $color-grey-night;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  border-radius: 16px;
+
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 50%;
+  }
+
+  &-success {
+    background-color: rgba(31, 88, 0, 5%);
+
+    .#{$cls}-icon {
+      background-color: $color-success;
+    }
+  }
+
+  &-info {
+    background-color: $color-grey-light;
+
+    .#{$cls}-icon {
+      background-color: $color-secondary;
+    }
+  }
+
+  &-error {
+    background-color: rgba(174, 0, 0, 10%);
+
+    .#{$cls}-icon {
+      background-color: $color-negative;
+    }
+  }
+
+  &-warn {
+    background-color: rgba(244, 198, 0, 20%);
+
+    .#{$cls}-icon {
+      background-color: $color-warning;
+    }
+  }
+}

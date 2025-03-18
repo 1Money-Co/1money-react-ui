@@ -10,6 +10,7 @@ const meta: Meta<typeof Menu> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    type: { control: 'radio', options: ['menu', 'selector'] },
   },
   args: {
     prefixCls: 'menu',
@@ -38,6 +39,6 @@ type Story = StoryObj<typeof Menu>;
 export const Primary: Story = {
   args: {
     prefixCls: 'menu',
-    children: 'Hello Menu'
+    type: 'menu'
   },
 };

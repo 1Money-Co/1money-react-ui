@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import propTypes from 'prop-types';
 import { ConfirmPopup as PrimeConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 import classnames from '@/utils/classnames';
 /* import types */
@@ -19,14 +18,6 @@ export const ConfirmPopup: FC<ConfirmPopupProps> = props => {
     >
     </PrimeConfirmPopup>
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-ConfirmPopup.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string,
 };
 
 export default memo(ConfirmPopup);

@@ -1,70 +1,273 @@
-.om-react-ui-calendar {
+@use '../../../variable.scss'as *;
+
+$component: 'calendar';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  &-small {
+    input {
+      height: 44px !important;
+      line-height: 18px !important;
+    }
+  }
+
   &.p-invalid input {
-    border-color: #CC1461;
+    color: $color-negative;
+    border-color: $color-negative;
     box-shadow: none;
 
     &:hover {
-      border-color: #CC1461;
+      border-color: $color-negative;
     }
+  }
+
+  &.p-calendar-disabled {
+    cursor: not-allowed;
+
+    input {
+      background-color: $color-grey-deep;
+      border-color: $color-grey-deep;
+      opacity: 1;
+    }
+  }
+
+  &-filled.p-calendar-disabled input {
+    background-color: $color-grey;
+    border-color: $color-grey;
   }
 
   input {
-    padding: 10px 16px;
-    color: #000;
-    font-size: 14px;
-    border-radius: 6px;
+    height: 56px;
+    padding: 8px 16px;
+    color: $color-primary-black;
+    font-size: 16px;
+    line-height: 22px;
+    background-color: $color-grey-light;
+    border-color: $color-grey-bold;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
 
     &:hover {
-      border-color: #3D73F2;
+      border-color: $color-primary;
     }
 
     &::placeholder {
-      color: #6B7280;
+      color: $color-grey-dark;
       font-weight: 400;
       font-size: 14px;
-    }
-  }
-
-  &-rounded {
-    input {
-      border-radius: 20px;
     }
   }
 
   &.p-calendar:not(.p-calendar-disabled, .p-invalid).p-focus>.p-inputtext {
-    border-color: #3D73F2;
-    box-shadow: 0 0 0 2px #ABC4FF;
+    border-color: $color-primary;
+    border-width: 2px;
+    box-shadow: none;
   }
 }
 
-.om-react-ui-calendar-panel {
+.#{$cls}-panel {
+  padding: 24px;
+  background-color: $color-primary-white;
+
   .p-datepicker-buttonbar {
+    padding: 8px 0;
+    border: none;
+
     .p-button {
-      color: #3B82F6;
+      padding: 0 16px;
+      color: $color-primary-black;
+      font-size: 16px;
+      font-family: var(--font-inter), Inter;
+      line-height: 18px;
+
+      &:hover {
+        color: $color-primary;
+        background-color: inherit;
+      }
+
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .p-datepicker-group-container {
+    .p-datepicker-group {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .p-datepicker-header {
+        padding: 0;
+        border: none;
+
+        .p-datepicker-title {
+          display: inline-flex;
+          gap: 4px;
+          align-items: center;
+
+          >* {
+            font-weight: 500;
+            font-size: 18px;
+            font-family: var(--font-inter), Inter;
+            line-height: 20px;
+
+            &:hover {
+              color: $color-primary;
+            }
+          }
+        }
+
+        .p-datepicker-prev,
+        .p-datepicker-next {
+          &:hover {
+            background-color: inherit;
+
+            >i {
+              color: $color-primary !important;
+            }
+          }
+        }
+      }
+
+      .p-datepicker-calendar-container {
+        .p-datepicker-calendar {
+          thead tr th span {
+            color: $color-primary-black;
+            font-weight: 700;
+            font-size: 16px;
+            font-family: var(--font-inter), Inter;
+            line-height: 18px;
+          }
+
+          tbody tr td span {
+            width: 36px;
+            height: 36px;
+            color: $color-primary-black;
+            font-weight: 500;
+            font-size: 16px;
+            font-family: var(--font-inter), Inter;
+            line-height: 18px;
+            border: none;
+            box-shadow: none;
+
+            &.p-highlight {
+              color: $color-primary-white;
+              background-color: $color-primary;
+
+              &:hover {
+                color: $color-primary-white;
+                background-color: $color-primary;
+              }
+            }
+
+            &.p-disabled {
+              color: $color-grey-dark;
+            }
+
+            &:hover {
+              color: $color-primary;
+              background-color: $color-primary-white;
+            }
+          }
+
+          .p-datepicker-today {
+            span {
+              color: $color-primary;
+              background-color: $color-primary-white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .p-yearpicker {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    place-items: center center;
+    text-align: center;
+
+    .p-yearpicker-year {
+      width: auto;
+      font-weight: 500;
+      font-size: 18px;
+      font-family: var(--font-inter), Inter;
+      line-height: 20px;
+      border: none;
+      box-shadow: none;
+
+      &.p-highlight {
+        color: $color-primary-white;
+        background-color: $color-primary;
+
+        &:hover {
+          color: $color-primary-white;
+          background-color: $color-primary;
+        }
+      }
+
+      &:hover {
+        color: $color-primary;
+        background-color: $color-primary-white;
+      }
+    }
+  }
+
+  .p-monthpicker {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    place-items: center center;
+    text-align: center;
+
+    .p-monthpicker-month {
+      width: auto;
+      padding: 4px 16px;
+      font-weight: 500;
+      font-size: 18px;
+      font-family: var(--font-inter), Inter;
+      line-height: 20px;
+      border: none;
+      box-shadow: none;
+
+      &.p-highlight {
+        color: $color-primary-white;
+        background-color: $color-primary;
+
+        &:hover {
+          color: $color-primary-white;
+          background-color: $color-primary;
+        }
+      }
+
+      &:hover {
+        color: $color-primary;
+        background-color: $color-primary-white;
+      }
     }
   }
 }
 
-.om-react-ui-calendar-wrapper {
+.#{$cls}-wrapper {
   display: inline-flex;
   flex-direction: column;
 }
 
-.om-react-ui-calendar-label {
-  display: inline-block;
+.#{$cls}-label {
   margin-bottom: 8px;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   font-style: normal;
-  line-height: 20px;
-  word-wrap: break-word;
-  word-break: break-all;
+  line-height: 108%;
 
   &-required {
     &::after {
-      color: #CC1461;
-      font-weight: 400;
-      font-size: 14px;
+      margin-left: 4px;
+      color: $color-negative;
+      font-size: 16px;
       font-style: normal;
       line-height: 120%;
       content: '*';

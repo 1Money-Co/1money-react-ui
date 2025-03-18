@@ -1,3 +1,7 @@
-.om-react-ui-popup {
+@use '../../../variable.scss'as *;
+
+$component: 'popup';
+
+.#{$prefix}-#{$component} {
   display: block;
 }

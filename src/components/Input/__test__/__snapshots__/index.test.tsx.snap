@@ -9,10 +9,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -24,10 +24,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -53,10 +53,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -69,10 +69,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -94,10 +94,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -154,10 +154,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -177,10 +177,10 @@ exports[`Input renders correctly 1`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -193,10 +193,10 @@ exports[`Input renders correctly 1`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <input
-          class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
           data-pc-name="inputtext"
           data-pc-section="root"
         />
@@ -266,10 +266,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -281,10 +281,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -310,10 +310,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -326,10 +326,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -351,10 +351,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -411,10 +411,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -434,10 +434,10 @@ exports[`Input renders correctly 2`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -450,10 +450,10 @@ exports[`Input renders correctly 2`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <span
-          class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
           data-pc-name="autocomplete"
           data-pc-section="root"
           id="pr_id_1"
@@ -537,10 +537,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -552,10 +552,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -581,10 +581,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -597,10 +597,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -622,10 +622,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -682,10 +682,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -705,10 +705,10 @@ exports[`Input renders correctly 3`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -721,10 +721,10 @@ exports[`Input renders correctly 3`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <input
-          class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
           data-pc-name="inputtext"
           data-pc-section="root"
           type="text"
@@ -795,10 +795,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -810,10 +810,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -839,10 +839,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -855,10 +855,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -880,10 +880,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -940,10 +940,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -963,10 +963,10 @@ exports[`Input renders correctly 4`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -979,10 +979,10 @@ exports[`Input renders correctly 4`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <span
-          class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
           data-pc-name="inputnumber"
           data-pc-section="root"
         >
@@ -1062,10 +1062,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -1077,10 +1077,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -1106,10 +1106,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -1122,10 +1122,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -1147,10 +1147,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -1207,10 +1207,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -1230,10 +1230,10 @@ exports[`Input renders correctly 5`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -1246,10 +1246,10 @@ exports[`Input renders correctly 5`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <div
-          class="om-react-ui-input om-react-ui-input-otp  "
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
         >
           <div
             class="p-inputotp p-component"
@@ -1364,10 +1364,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -1379,10 +1379,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -1408,10 +1408,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -1424,10 +1424,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -1449,10 +1449,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -1509,10 +1509,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -1532,10 +1532,10 @@ exports[`Input renders correctly 6`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -1548,10 +1548,10 @@ exports[`Input renders correctly 6`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <div
-          class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
           data-pc-name="password"
           data-pc-section="root"
         >
@@ -1629,10 +1629,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-text p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
           />
@@ -1644,10 +1644,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-autocomplete   p-autocomplete p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-autocomplete om-react-ui-input-autocomplete-large   p-autocomplete p-component p-inputwrapper"
             data-pc-name="autocomplete"
             data-pc-section="root"
             id="pr_id_1"
@@ -1673,10 +1673,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <input
-            class="om-react-ui-input om-react-ui-input-mask p-inputmask p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-mask om-react-ui-input-mask-large p-inputmask p-inputtext p-component"
             data-pc-name="inputtext"
             data-pc-section="root"
             type="text"
@@ -1689,10 +1689,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <span
-            class="om-react-ui-input om-react-ui-input-number   p-inputnumber p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-number om-react-ui-input-number-large   p-inputnumber p-component p-inputwrapper"
             data-pc-name="inputnumber"
             data-pc-section="root"
           >
@@ -1714,10 +1714,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-otp  "
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-otp om-react-ui-input-otp-large  "
           >
             <div
               class="p-inputotp p-component"
@@ -1774,10 +1774,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <div
-            class="om-react-ui-input om-react-ui-input-password   p-password p-component p-inputwrapper"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-password om-react-ui-input-password-large   p-password p-component p-inputwrapper"
             data-pc-name="password"
             data-pc-section="root"
           >
@@ -1797,10 +1797,10 @@ exports[`Input renders correctly 7`] = `
         class="om-react-ui-input-wrapper"
       >
         <div
-          class="om-react-ui-input-inner"
+          class="om-react-ui-input-inner om-react-ui-input-inner-large    "
         >
           <textarea
-            class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+            class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
             data-pc-name="inputtextarea"
             data-pc-section="root"
           />
@@ -1813,10 +1813,10 @@ exports[`Input renders correctly 7`] = `
       class="om-react-ui-input-wrapper"
     >
       <div
-        class="om-react-ui-input-inner"
+        class="om-react-ui-input-inner om-react-ui-input-inner-large    "
       >
         <textarea
-          class="om-react-ui-input om-react-ui-input-textarea   p-inputtextarea p-inputtext p-component"
+          class="om-react-ui-input om-react-ui-input-large om-react-ui-input-textarea om-react-ui-input-textarea-large   p-inputtextarea p-inputtext p-component"
           data-pc-name="inputtextarea"
           data-pc-section="root"
         />

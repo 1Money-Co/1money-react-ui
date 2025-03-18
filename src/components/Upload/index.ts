@@ -1,6 +1,7 @@
 import Upload from './Upload';
+import UploadFileBar from './UploadFileBar';
 
-export { Upload } from './Upload';
+export { Upload, UploadFileBar };
 
 export default Upload;
 

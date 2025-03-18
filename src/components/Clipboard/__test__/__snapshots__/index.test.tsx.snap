@@ -8,45 +8,42 @@ exports[`Clipboard renders correctly 1`] = `
       <div
         class="om-react-ui-clipboard"
       >
-        <span
-          class="om-react-ui-clipboard-label"
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-l om-react-ui-typography-label-bold om-react-ui-clipboard-label"
         />
         <div
           class="om-react-ui-clipboard-content"
         >
-          <span
-            class="om-react-ui-clipboard-content-text"
+          <p
+            class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
           >
             复制 copy
-          </span>
-          <svg
-            class="om-react-ui-icons om-react-ui-clipboard-content-icon"
-            fill="#000"
-            height="20"
-            stroke="none"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          </p>
+          <i
+            class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+            style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
           >
-            <g
-              clip-path="url(#clip0_85_7945)"
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="20"
+              stroke="none"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M13.3327 0.833008H3.33268C2.41602 0.833008 1.66602 1.58301 1.66602 2.49967V14.1663H3.33268V2.49967H13.3327V0.833008ZM15.8327 4.16634H6.66602C5.74935 4.16634 4.99935 4.91634 4.99935 5.83301V17.4997C4.99935 18.4163 5.74935 19.1663 6.66602 19.1663H15.8327C16.7493 19.1663 17.4993 18.4163 17.4993 17.4997V5.83301C17.4993 4.91634 16.7493 4.16634 15.8327 4.16634ZM15.8327 17.4997H6.66602V5.83301H15.8327V17.4997Z"
+                clip-rule="evenodd"
+                d="M7 4C7 2.34315 8.34315 1 10 1H20C21.6569 1 23 2.34315 23 4V14C23 15.6569 21.6569 17 20 17H10C8.34315 17 7 15.6569 7 14V4ZM10 3C9.44772 3 9 3.44772 9 4V14C9 14.5523 9.44772 15 10 15H20C20.5523 15 21 14.5523 21 14V4C21 3.44772 20.5523 3 20 3H10Z"
+                fill-rule="evenodd"
               />
-            </g>
-            <defs>
-              <clippath
-                id="clip0_85_7945"
-              >
-                <rect
-                  fill="white"
-                  height="20"
-                  width="20"
-                />
-              </clippath>
-            </defs>
-          </svg>
+              <path
+                clip-rule="evenodd"
+                d="M4 9C3.44772 9 3 9.44772 3 10V20C3 20.5523 3.44772 21 4 21H14C14.5523 21 15 20.5523 15 20V16H17V20C17 21.6569 15.6569 23 14 23H4C2.34315 23 1 21.6569 1 20V10C1 8.34315 2.34315 7 4 7H8V9H4Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
         </div>
       </div>
     </div>
@@ -55,45 +52,42 @@ exports[`Clipboard renders correctly 1`] = `
     <div
       class="om-react-ui-clipboard"
     >
-      <span
-        class="om-react-ui-clipboard-label"
+      <strong
+        class="om-react-ui-typography-label om-react-ui-typography-label-l om-react-ui-typography-label-bold om-react-ui-clipboard-label"
       />
       <div
         class="om-react-ui-clipboard-content"
       >
-        <span
-          class="om-react-ui-clipboard-content-text"
+        <p
+          class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
         >
           复制 copy
-        </span>
-        <svg
-          class="om-react-ui-icons om-react-ui-clipboard-content-icon"
-          fill="#000"
-          height="20"
-          stroke="none"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        </p>
+        <i
+          class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+          style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
         >
-          <g
-            clip-path="url(#clip0_85_7945)"
+          <svg
+            class="om-react-ui-icons"
+            fill="none"
+            height="20"
+            stroke="none"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M13.3327 0.833008H3.33268C2.41602 0.833008 1.66602 1.58301 1.66602 2.49967V14.1663H3.33268V2.49967H13.3327V0.833008ZM15.8327 4.16634H6.66602C5.74935 4.16634 4.99935 4.91634 4.99935 5.83301V17.4997C4.99935 18.4163 5.74935 19.1663 6.66602 19.1663H15.8327C16.7493 19.1663 17.4993 18.4163 17.4993 17.4997V5.83301C17.4993 4.91634 16.7493 4.16634 15.8327 4.16634ZM15.8327 17.4997H6.66602V5.83301H15.8327V17.4997Z"
+              clip-rule="evenodd"
+              d="M7 4C7 2.34315 8.34315 1 10 1H20C21.6569 1 23 2.34315 23 4V14C23 15.6569 21.6569 17 20 17H10C8.34315 17 7 15.6569 7 14V4ZM10 3C9.44772 3 9 3.44772 9 4V14C9 14.5523 9.44772 15 10 15H20C20.5523 15 21 14.5523 21 14V4C21 3.44772 20.5523 3 20 3H10Z"
+              fill-rule="evenodd"
             />
-          </g>
-          <defs>
-            <clippath
-              id="clip0_85_7945"
-            >
-              <rect
-                fill="white"
-                height="20"
-                width="20"
-              />
-            </clippath>
-          </defs>
-        </svg>
+            <path
+              clip-rule="evenodd"
+              d="M4 9C3.44772 9 3 9.44772 3 10V20C3 20.5523 3.44772 21 4 21H14C14.5523 21 15 20.5523 15 20V16H17V20C17 21.6569 15.6569 23 14 23H4C2.34315 23 1 21.6569 1 20V10C1 8.34315 2.34315 7 4 7H8V9H4Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
       </div>
     </div>
   </div>,

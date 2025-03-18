@@ -1,4 +1,8 @@
-.om-react-ui-drawer {
+@use '../../../variable.scss'as *;
+
+$component: 'drawer';
+
+.#{$prefix}-#{$component} {
   .p-sidebar-icons {
     display: flex;
     align-items: center;

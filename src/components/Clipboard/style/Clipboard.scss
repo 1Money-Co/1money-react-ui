@@ -1,31 +1,32 @@
-.om-react-ui-clipboard {
+@use '../../../variable.scss'as *;
+
+$component: 'clipboard';
+
+.#{$prefix}-#{$component} {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 
   &-label {
-    margin-left: 8px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    margin-bottom: 8px;
   }
 
   &-content {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: 8px;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 24px;
-    background-color: #FAFAFC;
-    border: 0.5px solid #E0E2EE;
-    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: $color-grey-light;
+    border-color: $color-grey-deep;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
 
     &-text {
       display: inline-block;
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 20px;
+      margin: 0;
+      color: $color-grey-midnight !important;
       word-wrap: break-word;
       word-break: break-all;
     }

@@ -1,13 +1,20 @@
-.om-react-ui-switch {
+@use '../../../variable.scss'as *;
+
+$component: 'switch';
+
+.#{$prefix}-#{$component} {
   display: inline-flex;
 
   &.p-inputswitch.p-highlight .p-inputswitch-slider {
-    background-color: #142D66;
+    background-color: $color-primary;
     box-shadow: none;
   }
 
-  &.p-togglebutton.p-highlight .p-button {
-    background-color: #142D66;
-    box-shadow: 0 0 0 2px #ABC4FF;
+  &-button {
+    &.p-button {
+      background-color: $color-info;
+      border: none;
+      box-shadow: none;
+    }
   }
 }
