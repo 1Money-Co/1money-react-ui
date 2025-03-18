@@ -303,10 +303,10 @@ exports[`Sidebar renders correctly 1`] = `
           class="om-react-ui-stepper-header"
         >
           <i
-            class="om-react-ui-icons-logo-with-words  om-react-ui-stepper-header-logo"
+            class="om-react-ui-icons-logo-with-words  "
           >
             <i
-              class="om-react-ui-icons-wrapper"
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
               style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
             >
               <svg
@@ -333,7 +333,7 @@ exports[`Sidebar renders correctly 1`] = `
               </svg>
             </i>
             <i
-              class="om-react-ui-icons-wrapper"
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
               style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
             >
               <svg
@@ -1116,10 +1116,10 @@ exports[`Sidebar renders correctly 2`] = `
           class="om-react-ui-stepper-header"
         >
           <i
-            class="om-react-ui-icons-logo-with-words  om-react-ui-stepper-header-logo"
+            class="om-react-ui-icons-logo-with-words  "
           >
             <i
-              class="om-react-ui-icons-wrapper"
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
               style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
             >
               <svg
@@ -1146,7 +1146,7 @@ exports[`Sidebar renders correctly 2`] = `
               </svg>
             </i>
             <i
-              class="om-react-ui-icons-wrapper"
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
               style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
             >
               <svg
@@ -1289,10 +1289,10 @@ exports[`Sidebar renders correctly 2`] = `
         class="om-react-ui-stepper-header"
       >
         <i
-          class="om-react-ui-icons-logo-with-words  om-react-ui-stepper-header-logo"
+          class="om-react-ui-icons-logo-with-words  "
         >
           <i
-            class="om-react-ui-icons-wrapper"
+            class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
             style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
           >
             <svg
@@ -1319,7 +1319,7 @@ exports[`Sidebar renders correctly 2`] = `
             </svg>
           </i>
           <i
-            class="om-react-ui-icons-wrapper"
+            class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
             style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
           >
             <svg

@@ -16,11 +16,7 @@ export const Drawer: FC<PropsWithChildren<DrawerProps>> = props => {
       icons={
         <Icons name='logoWithWords' logoColor='#073387' width={157} height={30} />
       }
-      closeIcon={
-        <i className={classes('close')}>
-          <Icons name='times' size={24} />
-        </i>
-      }
+      closeIcon={<Icons name='cross' size={24} wrapperCls={classes('close')} />}
       {...rest}
     >
       { children }

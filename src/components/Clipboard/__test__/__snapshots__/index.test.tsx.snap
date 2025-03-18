@@ -20,11 +20,11 @@ exports[`Clipboard renders correctly 1`] = `
             复制 copy
           </p>
           <i
-            class="om-react-ui-icons-wrapper"
+            class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
             style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
           >
             <svg
-              class="om-react-ui-icons om-react-ui-clipboard-content-icon"
+              class="om-react-ui-icons"
               fill="none"
               height="20"
               stroke="none"
@@ -64,11 +64,11 @@ exports[`Clipboard renders correctly 1`] = `
           复制 copy
         </p>
         <i
-          class="om-react-ui-icons-wrapper"
+          class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
           style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
         >
           <svg
-            class="om-react-ui-icons om-react-ui-clipboard-content-icon"
+            class="om-react-ui-icons"
             fill="none"
             height="20"
             stroke="none"

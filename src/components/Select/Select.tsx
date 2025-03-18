@@ -54,7 +54,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             size={16}
             color='#131313'
             tabIndex={tabIndex}
-            className={classes('token-remove-icon')}
+            wrapperCls={classes('token-remove-icon')}
             onClick={onClick}
             onKeyDown={onKeyDown}
           />;
@@ -74,7 +74,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
                   setSelected(null);
                 }}
               >
-                <Icons name='close' size={16} color='#AE0000' className={classes('panel-header-info-clear-icon')} />
+                <Icons name='close' size={16} color='#AE0000' wrapperCls={classes('panel-header-info-clear-icon')} />
                 Clear all
               </span>
             </div>
@@ -133,7 +133,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
             <Icons name='check' size={16} color='#073387' />
           </div>;
         }}
-        filterIcon={<Icons name='search' size={20} color='#131313' className={classes('filter-icon')} />}
+        filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);

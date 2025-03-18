@@ -26,7 +26,7 @@ export const Clipboard: FC<ClipboardProps> = props => {
       <Typography.Label bold size='l' className={classes('label', labelCls)}>{label}</Typography.Label>
       <div className={classes('content')}>
         <Typography.Body size='l' className={classes('content-text')}>{ content }</Typography.Body>
-        <Icons name='copy' size={20} color='#131313' className={classes('content-icon')} onClick={onCopy} />
+        <Icons name='copy' size={20} color='#131313' wrapperCls={classes('content-icon')} onClick={onCopy} />
       </div>
     </div>
   );

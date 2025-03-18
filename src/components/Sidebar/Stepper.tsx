@@ -21,7 +21,7 @@ export const Stepper: FC<StepperProps> = props => {
           width={131}
           height={24}
           onClick={onLogoClick}
-          className={classes('header-logo', logoCls)}
+          wrapperCls={classes('header-logo', logoCls)}
         />
       </div>
       <ul className={classes('steps')}>
