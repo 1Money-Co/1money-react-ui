@@ -357,6 +357,14 @@ $cls: #{$prefix}-#{$component};
   &:has(.p-disabled) {
     cursor: not-allowed;
   }
+
+  &:has(.#{$cls}-filled, .p-disabled) {
+    cursor: text;
+
+    .p-dropdown-label.p-inputtext {
+      user-select: text;
+    }
+  }
 }
 
 
