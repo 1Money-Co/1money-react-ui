@@ -52,7 +52,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
           />
         </span>
       </div>
-      <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' color='#808080' className={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
+      <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' color='#808080' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
         {
           menus.map((menu, ind) => {
             const { key, label, icon, link, active, disabled, defaultOpen, children } = menu;
@@ -93,7 +93,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
       </ProMenu>
       {
         collapsible && <span className={classes('collapse', collapsed ? classes('collapse-collapsed') : '')} onClick={() => handleCollapse(!collapsed)}>
-          <Icons name={collapsed ? 'extend' : 'collapse'} className={classes('collapse-icon')} size={16} />
+          <Icons name={collapsed ? 'extend' : 'collapse'} wrapperCls={classes('collapse-icon')} size={16} />
           <span className={classes('collapse-text')}>Collapse</span>
         </span>
       }

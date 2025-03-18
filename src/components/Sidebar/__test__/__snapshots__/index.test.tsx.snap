@@ -212,11 +212,11 @@ exports[`Sidebar renders correctly 1`] = `
                     class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                   >
                     <i
-                      class="om-react-ui-icons-wrapper"
+                      class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
                       style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
                     >
                       <svg
-                        class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
+                        class="om-react-ui-icons"
                         fill="none"
                         height="24"
                         stroke="none"
@@ -676,11 +676,11 @@ exports[`Sidebar renders correctly 1`] = `
                   class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                 >
                   <i
-                    class="om-react-ui-icons-wrapper"
+                    class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
                     style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
                   >
                     <svg
-                      class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
+                      class="om-react-ui-icons"
                       fill="none"
                       height="24"
                       stroke="none"
@@ -1025,11 +1025,11 @@ exports[`Sidebar renders correctly 2`] = `
                     class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                   >
                     <i
-                      class="om-react-ui-icons-wrapper"
+                      class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
                       style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
                     >
                       <svg
-                        class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
+                        class="om-react-ui-icons"
                         fill="none"
                         height="24"
                         stroke="none"
