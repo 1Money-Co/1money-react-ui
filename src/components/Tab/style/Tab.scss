@@ -1,17 +1,24 @@
-.om-react-ui-tab {
+@use '../../../variable.scss'as *;
+
+$component: 'tab';
+
+.#{$prefix}-#{$component} {
   position: relative;
 
   &::after {
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 0;
     width: 100%;
     height: 2px;
-    background-color: #F2F2F2;
+    background-color: $color-grey-deep;
     content: '';
   }
 
   .p-tabmenu {
+    position: relative;
+    z-index: 1;
     padding-bottom: 2px;
 
     .p-tabmenu-nav {
@@ -19,23 +26,27 @@
 
       .p-tabmenuitem {
         .p-menuitem-link {
-          color: #808080;
-          font-size: 14px;
+          padding: 18px 24px;
+          color: $color-grey-midnight;
+          font-weight: 700;
+          font-size: 16px;
           background-color: transparent;
-          border-color: transparent;
+          border-color: $color-grey-deep;
+          border-bottom-width: 2px;
+          border-bottom-style: solid;
 
           &:hover {
             background-color: transparent;
-            border-color: #e0e2ee;
+            border-color: $color-grey-deep;
           }
         }
       }
 
       .p-tabmenuitem.p-highlight {
         .p-menuitem-link {
-          color: #3D73F2;
+          color: $color-primary-black;
           background-color: transparent;
-          border-color: #3D73F2;
+          border-color: $color-primary-black;
         }
       }
     }

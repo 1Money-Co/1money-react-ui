@@ -1,40 +1,144 @@
-.om-react-ui-checkbox {
+@use "sass:map";
+@use '../../../variable.scss'as *;
+
+$checkbox-border-color: $color-grey-dark;
+$checkbox-border-radius: (sm: 4px,
+  md: 4px,
+  lg: 6px);
+$checkbox-size: (sm: 16px,
+  md: 20px,
+  lg: 24px);
+$component: 'checkbox';
+
+.#{$prefix}-#{$component} {
   &-wrapper {
     display: flex;
     flex-direction: row;
+    gap: 12px;
   }
 
   &-inner {
     display: flex;
     align-items: center;
-    margin-right: 12px;
 
-    &-checkbox {
-      align-self: flex-start;
+    label {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: $color-grey-midnight;
+      font-weight: 500;
+      font-size: 14px;
+      font-style: normal;
+      cursor: pointer;
+      user-select: none;
+    }
 
-      >.p-checkbox-box {
-        border: 1px solid #E0E2EE;
-        border-radius: 2px;
-      }
+    @each $size,
+    $dimension in $checkbox-size {
+      &.ckb-#{$size} {
+        .p-checkbox {
+          width: $dimension;
+          height: $dimension;
 
-      >.p-checkbox-input {
-        border: none;
-        border-radius: 2px;
-      }
+          .p-checkbox-box {
+            width: $dimension;
+            height: $dimension;
+            border: 1px solid $checkbox-border-color;
+            border-radius: map.get($checkbox-border-radius, $size);
 
-      &.p-checkbox.p-highlight .p-checkbox-box {
-        background-color: #000;
+            i {
+              color: #fff;
+              font-size: if($size=='sm', 10px, 14px);
+            }
+          }
+        }
+
+        label {
+          font-size: if($size=='sm', 12px, 14px);
+          line-height: $dimension;
+        }
       }
     }
 
-    label {
-      margin-left: 10px;
-      font-weight: 300;
-      font-size: 14px;
-      font-style: normal;
-      line-height: 20px;
-      cursor: pointer;
-      user-select: none;
+    .p-checkbox {
+      // 悬停状态
+      &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
+        .p-checkbox-box {
+          background-color: $color-grey;
+          border-color: $color-primary-black;
+        }
+
+        // 不是选中悬停状态
+        &:has(.p-checkbox-input:checked),
+        &:has(.p-checkbox-input:indeterminate),
+        &:has(.p-checkbox-input[value="false"]) {
+          .p-checkbox-box {
+            background-color: $color-primary-hover;
+            border-color: $color-primary-hover;
+          }
+        }
+
+      }
+
+      // 聚焦状态
+      &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:focus) {
+        .p-checkbox-box {
+          border: 2px solid $color-primary;
+          box-shadow: none;
+        }
+
+        &:has(.p-checkbox-input:checked) {
+          .p-checkbox-box {
+            background-color: $color-primary-active;
+            border-color: $color-primary-active;
+          }
+        }
+      }
+
+      // 选中状态
+      // 无效状态
+      &.p-invalid {
+        .p-checkbox-box {
+          border: 1px solid $color-negative;
+        }
+      }
+
+      // 高亮状态
+      &.p-highlight {
+        .p-checkbox-box {
+          background-color: $color-primary;
+          border-color: $color-primary;
+        }
+
+        // 高亮无效状态
+        &.p-invalid {
+          .p-checkbox-box {
+            background-color: $color-negative;
+            border-color: $color-negative;
+          }
+        }
+
+      }
+
+      &.p-disabled {
+        .p-checkbox-box {
+          background-color: $color-grey;
+          border-color: $color-grey-bold;
+
+          &>i {
+            color: $color-grey-dark !important;
+          }
+        }
+
+        &:has(.p-checkbox-input:checked),
+        &:has(.p-checkbox-input[value="false"]),
+        &:has(.p-checkbox-input:indeterminate) {
+          .p-checkbox-box {
+            background-color: $color-grey-deep;
+            border-color: $color-grey-deep;
+          }
+        }
+      }
     }
   }
 }

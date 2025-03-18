@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { Message as PrimeMessage } from 'primereact/message';
-import propTypes from 'prop-types';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -16,13 +15,6 @@ export const Message: FC<PropsWithChildren<MessageProps>> = props => {
       className={classes(void 0, className)}
     />
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Message.propTypes = {
-  prefixCls: propTypes.string
 };
 
 export default memo(Message);

@@ -1,8 +1,7 @@
-import { memo, useMemo, useState, useEffect } from 'react';
+import { memo, useRef, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import isEqual from 'lodash.isequal';
-import { Dropdown } from 'primereact/dropdown';
-import { MultiSelect } from 'primereact/multiselect';
-import propTypes from 'prop-types';
+import { Dropdown, type DropdownProps } from 'primereact/dropdown';
+import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
 /* import types */
@@ -11,9 +10,11 @@ import type { SelectProps } from './interface';
 
 export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const {
+    ref,
     label,
+    message,
     required,
-    rounded = false,
+    invalid,
     multiple,
     options,
     name,
@@ -23,43 +24,121 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
     prefixCls = 'select',
     wrapperCls,
     labelCls,
+    messageCls,
     defaultValue,
+    itemTemplate,
     value,
+    size = 'large',
+    success,
     onHide,
     onShow,
+    unselectable,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
-  const SelectComponent = useMemo(() => multiple ? MultiSelect as new() => MultiSelect : Dropdown as new() => Dropdown, [multiple]);
-  
+  const selectRef = useRef<Dropdown | MultiSelect | null>(null);
+  const _ref = useRef<Dropdown | MultiSelect | null>(null);
+
+  const SelectComponent = useCallback(
+    (props: MultiSelectProps & DropdownProps) => multiple
+      ? <MultiSelect
+        unselectable={unselectable}
+        showSelectAll={false}
+        checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
+        removeIcon={props => {
+          const { onClick, onKeyDown, tabIndex } = props.iconProps;
+          return <Icons
+            name='close'
+            size={16}
+            color='#131313'
+            tabIndex={tabIndex}
+            wrapperCls={classes('token-remove-icon')}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+          />;
+        }}
+        panelHeaderTemplate={options => {
+          const { filterElement, onChange, onCloseClick, props } = options;
+          return <div className={classes('panel-header')}>
+            <div className={classes('panel-header-info')}>
+              <span className={classes('panel-header-info-count')}>
+                {(selected as Array<string>)?.length ?? 0} selected
+              </span>
+              <span
+                className={classes('panel-header-info-clear')}
+                onClick={e => {
+                  // @ts-ignore
+                  props.resetFilter();
+                  setSelected(null);
+                }}
+              >
+                <Icons name='close' size={16} color='#AE0000' wrapperCls={classes('panel-header-info-clear-icon')} />
+                Clear all
+              </span>
+            </div>
+            {filterElement?.props?.children}
+          </div>;
+        }}
+        {...(props as MultiSelectProps)}
+      />
+      : <Dropdown
+        collapseIcon={multiple ? void 0 : () => <Icons name='chevronDown' color='#131313' size={20} />}
+        {...(props as DropdownProps)}
+      />
+    , [multiple]
+  );
+
   useEffect(() => {
     if (value !== undefined && !isEqual(selected, value)) {
       setSelected(value);
     }
   }, [value]);
 
+  useImperativeHandle(ref ?? _ref, () => selectRef.current!);
+
   return (
     <div className={classes('wrapper', wrapperCls)}>
       {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
       <SelectComponent
         {...rest as any}
+        ref={selectRef}
         name={name}
+        filterPlaceholder='Search'
         required={required}
+        invalid={invalid}
         options={options}
         value={selected == null ? undefined : selected}
         className={
           classes(void 0, [
+            classes(size),
             isOpen ? classes('show') : '',
-            rounded ? classes('rounded') : '',
+            success ? classes('success') : '',
+            (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
             className
           ].join(' '))
         }
+        itemTemplate={(option) => {
+          return <div className={classes('panel-item')}
+            onClick={() => {
+              if (!multiple && unselectable === 'on' && option.value === selected) {
+                (selectRef.current as Dropdown)?.clear();
+              }
+            }}
+          >
+            <div className={classes('panel-item-label')}>
+              {itemTemplate ? itemTemplate(option) : option.label}
+            </div>
+            <Icons name='check' size={16} color='#073387' />
+          </div>;
+        }}
+        filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);
-          onChange?.(e as any);
+          // @ts-ignore
+          onChange?.(e);
         }}
         onHide={() => {
           setIsOpen(false);
@@ -69,24 +148,21 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           setIsOpen(true);
           onShow?.();
         }}
-        dropdownIcon={() => <Icons name='dropDown' color='#808080' size={20} />}
+        dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
       />
+      {
+        message && <span
+          className={classes('message', [
+            success ? classes('message-success') : '',
+            invalid ? classes('message-error') : '',
+            messageCls
+          ].join(' '))}
+        >
+          {message}
+        </span>
+      }
     </div>
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Select.propTypes = {
-  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  required: propTypes.bool,
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  wrapperCls: propTypes.string,
-  labelCls: propTypes.string,
-  rounded: propTypes.bool,
-  value: propTypes.any,
 };
 
 export default memo(Select);

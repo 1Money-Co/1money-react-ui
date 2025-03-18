@@ -1,7 +1,7 @@
 import { memo, useState, useEffect } from 'react';
-import propTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { Calendar as PrimeCalendar } from 'primereact/calendar';
+import Icons from '@/components/Icons';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -16,10 +16,10 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     panelClassName,
     label,
     required,
-    rounded = false,
     placeholder = 'MM/DD/YYYY',
     defaultValue,
     value,
+    size = 'large',
     onChange,
     ...rest
   } = props;
@@ -47,26 +47,16 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
         }}
         className={classes(void 0, [
           className,
-          rounded && classes('rounded')
+          classes(size),
+          date && classes('filled'),
         ].join(' '))}
         panelClassName={classes('panel', panelClassName)}
         placeholder={placeholder}
+        prevIcon={<Icons name='chevronLeft' size={24} />}
+        nextIcon={<Icons name='chevronRight' size={24} />}
       />
     </div>
   );
-};
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Calendar.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string,
-  wrapperCls: propTypes.string,
-  labelCls: propTypes.string,
-  label: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  required: propTypes.bool,
-  rounded: propTypes.bool,
 };
 
 export default memo(Calendar);

@@ -1,4 +1,16 @@
-.om-react-ui-radiogroup {
+@use "sass:map";
+@use '../../../variable.scss'as *;
+
+$radio-border-radius: 50%;
+$radio-size: (sm: 16px,
+  md: 20px,
+  lg: 24px);
+$icon-size: (sm: 9px,
+  md: 12px,
+  lg: 15px);
+$component: 'radiogroup';
+
+.#{$prefix}-#{$component} {
   &-wrapper {
     display: flex;
     flex-direction: row;
@@ -9,14 +21,115 @@
     align-items: center;
     margin-right: 12px;
 
-    &-checkbox {
-      align-self: flex-start;
-    }
-
     label {
       margin-left: 8px;
+      font-weight: 500;
       cursor: pointer;
       user-select: none;
     }
+
+    @each $size,
+    $dimension in $radio-size {
+      &.rd-#{$size} {
+        .p-radiobutton {
+          width: $dimension;
+          height: $dimension;
+
+          &>.p-radiobutton-box {
+            width: $dimension;
+            height: $dimension;
+            border: 1px solid $color-grey-dark;
+            border-radius: $radio-border-radius;
+          }
+        }
+
+        .p-radiobutton-icon {
+          width: map.get($icon-size, $size);
+          height: map.get($icon-size, $size);
+        }
+
+        label {
+          font-size: if($size=='sm', 12px, 14px);
+          line-height: $dimension + 4px;
+        }
+      }
+    }
+
+    .p-radiobutton {
+      // 悬停状态
+      &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:hover) {
+        .p-radiobutton-box {
+          border-color: $color-primary-black;
+        }
+
+        &:has(.p-radiobutton-input:checked) {
+          .p-radiobutton-box {
+            background-color: $color-primary-hover;
+            border-color: $color-primary-hover;
+          }
+        }
+      }
+
+      // 聚焦状态
+      &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:focus) {
+        .p-radiobutton-box {
+          border: 2px solid $color-primary;
+          box-shadow: none;
+
+          .p-radiobutton-icon {
+            background-color: #fff;
+          }
+
+          &:has(.p-radiobutton-input:checked) {
+            background-color: $color-primary-active;
+          }
+        }
+      }
+
+      // 无效状态
+      &.p-invalid {
+        .p-radiobutton-box {
+          border-color: $color-negative;
+        }
+      }
+
+      // 高亮状态
+      &.p-highlight {
+        .p-radiobutton-box {
+          background-color: $color-primary;
+          border-color: $color-primary;
+        }
+
+        // 高亮无效状态
+        &.p-invalid {
+          .p-radiobutton-box {
+            background-color: $color-negative;
+            border-color: $color-negative;
+          }
+        }
+      }
+
+      &.p-disabled {
+        .p-radiobutton-box {
+          background-color: $color-grey;
+          border-color: $color-grey-bold;
+
+          .p-radiobutton-icon {
+            background-color: $color-grey-dark;
+          }
+        }
+
+        &:has(.p-radiobutton-input:checked) {
+          .p-radiobutton-box {
+            background-color: $color-grey;
+            border: 0;
+          }
+        }
+
+      }
+    }
+
+
+
   }
 }

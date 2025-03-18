@@ -18,7 +18,7 @@ console.error = (message, ...optionalParams) => {
 describe('Icons', () => {
   it('renders correctly', () => {
     const Icon = render(
-      <Icons name='eyeOn' />
+      <Icons name='deposit' />
     );
     const wrapperIcon = render(
       <IconWrapper />

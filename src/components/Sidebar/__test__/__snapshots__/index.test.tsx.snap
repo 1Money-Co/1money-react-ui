@@ -6,9 +6,9 @@ exports[`Sidebar renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <aside
-        class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
+        class="ps-sidebar-root om-react-ui-sidebar css-1vx3kiy"
         data-testid="ps-sidebar-root-test-id"
-        width="261px"
+        width="280px"
       >
         <div
           class="ps-sidebar-container css-dip3t8"
@@ -21,38 +21,70 @@ exports[`Sidebar renders correctly 1`] = `
               class="om-react-ui-sidebar-logo"
             >
               <i
-                class="om-react-ui-icon-logo-with-words "
+                class="om-react-ui-icons-logo-with-words  "
               >
-                <svg
-                  class="om-react-ui-icons"
-                  fill="#3D73F2"
-                  height="18"
-                  stroke="none"
-                  viewBox="0 0 80 79"
-                  width="18"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M55.4352 39.4986C61.181 35.0885 64.9419 28.2212 65.147 20.4679C73.5514 22.7174 79.7402 30.3858 79.7402 39.4997C79.7402 50.3799 70.9201 59.1999 60.04 59.1999C52.8746 59.1999 46.6028 55.3745 43.1553 49.6546C43.958 47.9306 44.5685 46.0991 44.9593 44.1876C45.3442 44.1151 45.7259 44.0338 46.1043 43.9437C46.2254 43.9149 46.3462 43.8852 46.4667 43.8546C49.7708 43.0157 52.8106 41.5139 55.436 39.4991C55.4357 39.4989 55.4355 39.4987 55.4352 39.4986ZM40.2251 54.4417C44.6334 60.2708 51.5548 64.0936 59.3771 64.298C57.1306 72.7069 49.46 78.9001 40.3429 78.9001C29.4628 78.9001 20.6427 70.08 20.6427 59.1999C20.6427 52.0885 24.4107 45.8572 30.0592 42.3935C31.8236 43.1977 33.6987 43.8012 35.6553 44.175C36.3829 47.9764 37.9773 51.4699 40.2251 54.4418C40.2251 54.4418 40.2251 54.4418 40.2251 54.4417ZM35.6489 34.82C24.3881 36.9651 15.8249 46.7191 15.5121 58.5292C7.10993 56.2781 0.923172 48.6108 0.923172 39.4985C0.923172 28.6183 9.74327 19.7982 20.6234 19.7982C27.7339 19.7982 33.9646 23.5654 37.4285 29.2127C36.6243 30.9806 36.0213 32.8595 35.6489 34.82ZM45.1144 34.8404C43.0998 23.4455 33.3112 14.7341 21.4237 14.3813C23.7776 6.13609 31.3685 0.0998688 40.3693 0.0998688C51.2495 0.0998688 60.0695 8.91996 60.0695 19.8001C60.0695 26.9165 56.2962 33.1516 50.6412 36.6138C48.8978 35.8174 47.0461 35.2169 45.1144 34.8404Z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-                <svg
-                  class="om-react-ui-icons"
-                  fill="#3D73F2"
-                  height="18"
-                  stroke="none"
-                  viewBox="0 0 333 61"
-                  width="85"
-                  xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 248 248"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+                    />
+                    <path
+                      d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+                    />
+                    <path
+                      d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+                    />
+                    <path
+                      d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+                    />
+                  </svg>
+                </i>
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M151.815 30.8501C151.815 40.1769 144.254 47.7377 134.928 47.7377C125.601 47.7377 118.04 40.1769 118.04 30.8501C118.04 21.5234 125.601 13.9625 134.928 13.9625C144.254 13.9625 151.815 21.5234 151.815 30.8501ZM164.95 30.8501C164.95 47.431 151.508 60.8725 134.928 60.8725C118.347 60.8725 104.905 47.431 104.905 30.8501C104.905 14.2692 118.347 0.827736 134.928 0.827736C151.508 0.827736 164.95 14.2692 164.95 30.8501ZM0.0761719 23.5364V14.3691C7.68648 13.2706 13.9933 8.1422 16.7637 1.21694H26.935V60.247H12.2618V23.5364H0.0761719ZM240.713 13.5289L269.738 13.5286V1.21662L226.04 1.21694V60.247H269.738V47.935H240.713V36.0447L263.046 36.0446V24.5759L240.713 24.576V13.5289ZM32.8951 60.247H47.5682V26.4312L60.4705 60.247H72.4452L85.3474 26.4312V60.247H100.021V1.21694H82.6489L66.4578 41.273L50.2668 1.21694H32.8951V60.247ZM221.078 1.21694V60.247H206.321L184.311 24.4916V60.247H169.638V1.21694H184.395L206.405 37.2253V1.21694H221.078ZM315.295 1.21694H332.076L309.729 40.8514V60.247H295.056V40.8514L272.624 1.21694H289.406L302.392 25.5879L315.295 1.21694Z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 469 86"
+                    width="107"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+                    />
+                    <path
+                      d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+                    />
+                    <path
+                      d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+                    />
+                    <path
+                      d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+                    />
+                    <path
+                      d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+                    />
+                  </svg>
+                </i>
               </i>
             </span>
           </div>
@@ -179,22 +211,26 @@ exports[`Sidebar renders correctly 1`] = `
                   <span
                     class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                   >
-                    <svg
-                      class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                      fill="none"
-                      height="24"
-                      stroke="#808080"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <i
+                      class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
+                      style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
                     >
-                      <path
-                        d="M6 9L12 15L18 9"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                    </svg>
+                      <svg
+                        class="om-react-ui-icons"
+                        fill="none"
+                        height="24"
+                        stroke="none"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </i>
                   </span>
                 </a>
                 <div
@@ -256,32 +292,187 @@ exports[`Sidebar renders correctly 1`] = `
               </li>
             </ul>
           </nav>
-          <div
-            class="om-react-ui-sidebar-footer"
+        </div>
+      </aside>
+    </div>
+    <div>
+      <aside
+        class="om-react-ui-stepper"
+      >
+        <div
+          class="om-react-ui-stepper-header"
+        >
+          <i
+            class="om-react-ui-icons-logo-with-words  "
+          >
+            <i
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
+              style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 248 248"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+                />
+                <path
+                  d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+                />
+                <path
+                  d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+                />
+                <path
+                  d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+                />
+              </svg>
+            </i>
+            <i
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
+              style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 469 86"
+                width="107"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+                  fill-rule="evenodd"
+                />
+                <path
+                  d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+                />
+                <path
+                  d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+                />
+                <path
+                  d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+                />
+                <path
+                  d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+                />
+                <path
+                  d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+                />
+              </svg>
+            </i>
+          </i>
+        </div>
+        <ul
+          class="om-react-ui-stepper-steps"
+        >
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done "
           >
             <span
-              class="om-react-ui-sidebar-footer-logout"
+              class="om-react-ui-stepper-step-label"
             >
-              <i
-                class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
-                style="font-size: 16px;"
-              />
+              1.Business Overview
             </span>
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 25"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M23 12.052C23 18.1271 18.0751 23.052 12 23.052C5.92487 23.052 1 18.1271 1 12.052C1 5.97687 5.92487 1.052 12 1.052C18.0751 1.052 23 5.97687 23 12.052ZM11.2374 16.2236L17.8417 9.42173L16.4068 8.02851L11.1996 13.3915L8.11423 10.3789L6.71699 11.8099L11.2374 16.2236Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-active "
+          >
             <span
-              class="om-react-ui-sidebar-footer-logout-text"
+              class="om-react-ui-stepper-step-label"
             >
-              Log out
+              2.Business Address
             </span>
-          </div>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active "
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              3.Tax Information
+            </span>
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 25"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M23 12.052C23 18.1271 18.0751 23.052 12 23.052C5.92487 23.052 1 18.1271 1 12.052C1 5.97687 5.92487 1.052 12 1.052C18.0751 1.052 23 5.97687 23 12.052ZM11.2374 16.2236L17.8417 9.42173L16.4068 8.02851L11.1996 13.3915L8.11423 10.3789L6.71699 11.8099L11.2374 16.2236Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo "
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              4. Business Details
+            </span>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo om-react-ui-stepper-step-disabled"
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              5. Compliance Details
+            </span>
+          </li>
+        </ul>
+        <div
+          class="om-react-ui-stepper-footer"
+        >
+          <span>
+            Auto-saved at 12:30, 25 Jan 2025
+          </span>
         </div>
       </aside>
     </div>
   </body>,
   "container": <div>
     <aside
-      class="ps-sidebar-root om-react-ui-sidebar css-dw6gey"
+      class="ps-sidebar-root om-react-ui-sidebar css-1vx3kiy"
       data-testid="ps-sidebar-root-test-id"
-      width="261px"
+      width="280px"
     >
       <div
         class="ps-sidebar-container css-dip3t8"
@@ -294,38 +485,70 @@ exports[`Sidebar renders correctly 1`] = `
             class="om-react-ui-sidebar-logo"
           >
             <i
-              class="om-react-ui-icon-logo-with-words "
+              class="om-react-ui-icons-logo-with-words  "
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="#3D73F2"
-                height="18"
-                stroke="none"
-                viewBox="0 0 80 79"
-                width="18"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M55.4352 39.4986C61.181 35.0885 64.9419 28.2212 65.147 20.4679C73.5514 22.7174 79.7402 30.3858 79.7402 39.4997C79.7402 50.3799 70.9201 59.1999 60.04 59.1999C52.8746 59.1999 46.6028 55.3745 43.1553 49.6546C43.958 47.9306 44.5685 46.0991 44.9593 44.1876C45.3442 44.1151 45.7259 44.0338 46.1043 43.9437C46.2254 43.9149 46.3462 43.8852 46.4667 43.8546C49.7708 43.0157 52.8106 41.5139 55.436 39.4991C55.4357 39.4989 55.4355 39.4987 55.4352 39.4986ZM40.2251 54.4417C44.6334 60.2708 51.5548 64.0936 59.3771 64.298C57.1306 72.7069 49.46 78.9001 40.3429 78.9001C29.4628 78.9001 20.6427 70.08 20.6427 59.1999C20.6427 52.0885 24.4107 45.8572 30.0592 42.3935C31.8236 43.1977 33.6987 43.8012 35.6553 44.175C36.3829 47.9764 37.9773 51.4699 40.2251 54.4418C40.2251 54.4418 40.2251 54.4418 40.2251 54.4417ZM35.6489 34.82C24.3881 36.9651 15.8249 46.7191 15.5121 58.5292C7.10993 56.2781 0.923172 48.6108 0.923172 39.4985C0.923172 28.6183 9.74327 19.7982 20.6234 19.7982C27.7339 19.7982 33.9646 23.5654 37.4285 29.2127C36.6243 30.9806 36.0213 32.8595 35.6489 34.82ZM45.1144 34.8404C43.0998 23.4455 33.3112 14.7341 21.4237 14.3813C23.7776 6.13609 31.3685 0.0998688 40.3693 0.0998688C51.2495 0.0998688 60.0695 8.91996 60.0695 19.8001C60.0695 26.9165 56.2962 33.1516 50.6412 36.6138C48.8978 35.8174 47.0461 35.2169 45.1144 34.8404Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-              <svg
-                class="om-react-ui-icons"
-                fill="#3D73F2"
-                height="18"
-                stroke="none"
-                viewBox="0 0 333 61"
-                width="85"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="24"
+                  stroke="none"
+                  viewBox="0 0 248 248"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+                  />
+                  <path
+                    d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+                  />
+                  <path
+                    d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+                  />
+                  <path
+                    d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+                  />
+                </svg>
+              </i>
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M151.815 30.8501C151.815 40.1769 144.254 47.7377 134.928 47.7377C125.601 47.7377 118.04 40.1769 118.04 30.8501C118.04 21.5234 125.601 13.9625 134.928 13.9625C144.254 13.9625 151.815 21.5234 151.815 30.8501ZM164.95 30.8501C164.95 47.431 151.508 60.8725 134.928 60.8725C118.347 60.8725 104.905 47.431 104.905 30.8501C104.905 14.2692 118.347 0.827736 134.928 0.827736C151.508 0.827736 164.95 14.2692 164.95 30.8501ZM0.0761719 23.5364V14.3691C7.68648 13.2706 13.9933 8.1422 16.7637 1.21694H26.935V60.247H12.2618V23.5364H0.0761719ZM240.713 13.5289L269.738 13.5286V1.21662L226.04 1.21694V60.247H269.738V47.935H240.713V36.0447L263.046 36.0446V24.5759L240.713 24.576V13.5289ZM32.8951 60.247H47.5682V26.4312L60.4705 60.247H72.4452L85.3474 26.4312V60.247H100.021V1.21694H82.6489L66.4578 41.273L50.2668 1.21694H32.8951V60.247ZM221.078 1.21694V60.247H206.321L184.311 24.4916V60.247H169.638V1.21694H184.395L206.405 37.2253V1.21694H221.078ZM315.295 1.21694H332.076L309.729 40.8514V60.247H295.056V40.8514L272.624 1.21694H289.406L302.392 25.5879L315.295 1.21694Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="24"
+                  stroke="none"
+                  viewBox="0 0 469 86"
+                  width="107"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+                  />
+                  <path
+                    d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+                  />
+                  <path
+                    d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+                  />
+                  <path
+                    d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+                  />
+                  <path
+                    d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+                  />
+                </svg>
+              </i>
             </i>
           </span>
         </div>
@@ -452,22 +675,26 @@ exports[`Sidebar renders correctly 1`] = `
                 <span
                   class="ps-submenu-expand-icon ps-open css-1cuxlhl"
                 >
-                  <svg
-                    class="om-react-ui-icons om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                    fill="none"
-                    height="24"
-                    stroke="#808080"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <i
+                    class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
+                    style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
                   >
-                    <path
-                      d="M6 9L12 15L18 9"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                  </svg>
+                    <svg
+                      class="om-react-ui-icons"
+                      fill="none"
+                      height="24"
+                      stroke="none"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </i>
                 </span>
               </a>
               <div
@@ -529,23 +756,700 @@ exports[`Sidebar renders correctly 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+    </aside>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Sidebar renders correctly 2`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <aside
+        class="ps-sidebar-root om-react-ui-sidebar css-1vx3kiy"
+        data-testid="ps-sidebar-root-test-id"
+        width="280px"
+      >
         <div
-          class="om-react-ui-sidebar-footer"
+          class="ps-sidebar-container css-dip3t8"
+          data-testid="ps-sidebar-container-test-id"
         >
-          <span
-            class="om-react-ui-sidebar-footer-logout"
+          <div
+            class="om-react-ui-sidebar-header"
+          >
+            <span
+              class="om-react-ui-sidebar-logo"
+            >
+              <i
+                class="om-react-ui-icons-logo-with-words  "
+              >
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
+                >
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 248 248"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+                    />
+                    <path
+                      d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+                    />
+                    <path
+                      d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+                    />
+                    <path
+                      d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+                    />
+                  </svg>
+                </i>
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
+                >
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 469 86"
+                    width="107"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+                    />
+                    <path
+                      d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+                    />
+                    <path
+                      d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+                    />
+                    <path
+                      d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+                    />
+                    <path
+                      d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+                    />
+                  </svg>
+                </i>
+              </i>
+            </span>
+          </div>
+          <nav
+            class="ps-menu-root css-vj11vy"
+          >
+            <ul
+              class="css-ewdv3l"
+            >
+              <li
+                class="ps-menuitem-root ps-active css-1654oxy"
+              >
+                <a
+                  class="ps-menu-button ps-active"
+                  data-testid="ps-menu-button-test-id"
+                  href="/?path=/docs/components-sidebar--overview"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon ps-active css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-home"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label ps-active css-12w9als"
+                  >
+                    Dashboard
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root css-1t8x7v1"
+              >
+                <a
+                  class="ps-menu-button"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-wallet"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label css-12w9als"
+                  >
+                    Digital Assets
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root css-1t8x7v1"
+              >
+                <a
+                  class="ps-menu-button"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-book"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label css-12w9als"
+                  >
+                    Address Book
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root css-1t8x7v1"
+              >
+                <a
+                  class="ps-menu-button"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-credit-card"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label css-12w9als"
+                  >
+                    Banking accounts
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ps-menuitem-root ps-submenu-root ps-open css-16jesut"
+              >
+                <a
+                  class="ps-menu-button ps-open"
+                  data-testid="ps-menu-button-test-id"
+                  tabindex="0"
+                >
+                  <span
+                    class="ps-menu-icon ps-open css-wx7wi4"
+                  >
+                    <i
+                      class="pi pi-user"
+                      style="font-size: 16px;"
+                    />
+                  </span>
+                  <span
+                    class="ps-menu-label ps-open css-12w9als"
+                  >
+                    Account
+                  </span>
+                  <span
+                    class="ps-submenu-expand-icon ps-open css-1cuxlhl"
+                  >
+                    <i
+                      class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
+                      style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
+                    >
+                      <svg
+                        class="om-react-ui-icons"
+                        fill="none"
+                        height="24"
+                        stroke="none"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </i>
+                  </span>
+                </a>
+                <div
+                  class="ps-submenu-content ps-open css-nx2aea"
+                  data-testid="ps-submenu-content-test-id"
+                  open=""
+                >
+                  <ul
+                    class="css-ewdv3l"
+                  >
+                    <li
+                      class="ps-menuitem-root css-1tqrhto"
+                    >
+                      <a
+                        class="ps-menu-button"
+                        data-testid="ps-menu-button-test-id"
+                        tabindex="0"
+                      >
+                        <span
+                          class="ps-menu-icon css-wx7wi4"
+                        >
+                          <i
+                            class="pi pi-user-edit"
+                            style="font-size: 16px;"
+                          />
+                        </span>
+                        <span
+                          class="ps-menu-label css-12w9als"
+                        >
+                          Profile
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="ps-menuitem-root css-1tqrhto"
+                    >
+                      <a
+                        class="ps-menu-button"
+                        data-testid="ps-menu-button-test-id"
+                        tabindex="0"
+                      >
+                        <span
+                          class="ps-menu-icon css-wx7wi4"
+                        >
+                          <i
+                            class="pi pi-shield"
+                            style="font-size: 16px;"
+                          />
+                        </span>
+                        <span
+                          class="ps-menu-label css-12w9als"
+                        >
+                          Security
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+    </div>
+    <div>
+      <aside
+        class="om-react-ui-stepper"
+      >
+        <div
+          class="om-react-ui-stepper-header"
+        >
+          <i
+            class="om-react-ui-icons-logo-with-words  "
           >
             <i
-              class="pi pi-sign-out om-react-ui-sidebar-footer-logout-icon"
-              style="font-size: 16px;"
-            />
-          </span>
-          <span
-            class="om-react-ui-sidebar-footer-logout-text"
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
+              style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 248 248"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+                />
+                <path
+                  d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+                />
+                <path
+                  d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+                />
+                <path
+                  d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+                />
+              </svg>
+            </i>
+            <i
+              class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
+              style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 469 86"
+                width="107"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+                  fill-rule="evenodd"
+                />
+                <path
+                  d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+                />
+                <path
+                  d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+                />
+                <path
+                  d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+                />
+                <path
+                  d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+                />
+                <path
+                  d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+                />
+              </svg>
+            </i>
+          </i>
+        </div>
+        <ul
+          class="om-react-ui-stepper-steps"
+        >
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done "
           >
-            Log out
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              1.Business Overview
+            </span>
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 25"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M23 12.052C23 18.1271 18.0751 23.052 12 23.052C5.92487 23.052 1 18.1271 1 12.052C1 5.97687 5.92487 1.052 12 1.052C18.0751 1.052 23 5.97687 23 12.052ZM11.2374 16.2236L17.8417 9.42173L16.4068 8.02851L11.1996 13.3915L8.11423 10.3789L6.71699 11.8099L11.2374 16.2236Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-active "
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              2.Business Address
+            </span>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active "
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              3.Tax Information
+            </span>
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 25"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M23 12.052C23 18.1271 18.0751 23.052 12 23.052C5.92487 23.052 1 18.1271 1 12.052C1 5.97687 5.92487 1.052 12 1.052C18.0751 1.052 23 5.97687 23 12.052ZM11.2374 16.2236L17.8417 9.42173L16.4068 8.02851L11.1996 13.3915L8.11423 10.3789L6.71699 11.8099L11.2374 16.2236Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo "
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              4. Business Details
+            </span>
+          </li>
+          <li
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo om-react-ui-stepper-step-disabled"
+          >
+            <span
+              class="om-react-ui-stepper-step-label"
+            >
+              5. Compliance Details
+            </span>
+          </li>
+        </ul>
+        <div
+          class="om-react-ui-stepper-footer"
+        >
+          <span>
+            Auto-saved at 12:30, 25 Jan 2025
           </span>
         </div>
+      </aside>
+    </div>
+  </body>,
+  "container": <div>
+    <aside
+      class="om-react-ui-stepper"
+    >
+      <div
+        class="om-react-ui-stepper-header"
+      >
+        <i
+          class="om-react-ui-icons-logo-with-words  "
+        >
+          <i
+            class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
+            style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="24"
+              stroke="none"
+              viewBox="0 0 248 248"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+              />
+              <path
+                d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+              />
+              <path
+                d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+              />
+              <path
+                d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+              />
+            </svg>
+          </i>
+          <i
+            class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
+            style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="24"
+              stroke="none"
+              viewBox="0 0 469 86"
+              width="107"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+              />
+              <path
+                d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+              />
+              <path
+                d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+              />
+              <path
+                d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+              />
+              <path
+                d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+              />
+            </svg>
+          </i>
+        </i>
+      </div>
+      <ul
+        class="om-react-ui-stepper-steps"
+      >
+        <li
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-done "
+        >
+          <span
+            class="om-react-ui-stepper-step-label"
+          >
+            1.Business Overview
+          </span>
+          <i
+            class="om-react-ui-icons-wrapper"
+            style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="20"
+              stroke="none"
+              viewBox="0 0 24 25"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23 12.052C23 18.1271 18.0751 23.052 12 23.052C5.92487 23.052 1 18.1271 1 12.052C1 5.97687 5.92487 1.052 12 1.052C18.0751 1.052 23 5.97687 23 12.052ZM11.2374 16.2236L17.8417 9.42173L16.4068 8.02851L11.1996 13.3915L8.11423 10.3789L6.71699 11.8099L11.2374 16.2236Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </li>
+        <li
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-active "
+        >
+          <span
+            class="om-react-ui-stepper-step-label"
+          >
+            2.Business Address
+          </span>
+        </li>
+        <li
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active "
+        >
+          <span
+            class="om-react-ui-stepper-step-label"
+          >
+            3.Tax Information
+          </span>
+          <i
+            class="om-react-ui-icons-wrapper"
+            style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="20"
+              stroke="none"
+              viewBox="0 0 24 25"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M23 12.052C23 18.1271 18.0751 23.052 12 23.052C5.92487 23.052 1 18.1271 1 12.052C1 5.97687 5.92487 1.052 12 1.052C18.0751 1.052 23 5.97687 23 12.052ZM11.2374 16.2236L17.8417 9.42173L16.4068 8.02851L11.1996 13.3915L8.11423 10.3789L6.71699 11.8099L11.2374 16.2236Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </li>
+        <li
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-todo "
+        >
+          <span
+            class="om-react-ui-stepper-step-label"
+          >
+            4. Business Details
+          </span>
+        </li>
+        <li
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-todo om-react-ui-stepper-step-disabled"
+        >
+          <span
+            class="om-react-ui-stepper-step-label"
+          >
+            5. Compliance Details
+          </span>
+        </li>
+      </ul>
+      <div
+        class="om-react-ui-stepper-footer"
+      >
+        <span>
+          Auto-saved at 12:30, 25 Jan 2025
+        </span>
       </div>
     </aside>
   </div>,

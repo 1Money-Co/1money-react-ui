@@ -1,6 +1,16 @@
-.om-react-ui-confirm-popup {
+@use '../../../variable.scss'as *;
+
+$component: 'confirm-popup';
+
+.#{$prefix}-#{$component} {
   .p-confirm-popup-footer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+
     .p-confirm-popup-accept {
+      padding: 6px 12px;
       color: #FFF;
       background-color: #faaa48;
       border: none;

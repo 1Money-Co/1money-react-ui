@@ -6,6 +6,7 @@ export interface MenuItem {
   icon?: ReactNode;
   link?: string | ReactElement;
   active?: boolean;
+  disabled?: boolean;
   defaultOpen?: boolean;
   children?: Omit<MenuItem, 'children'>[];
 }
@@ -16,11 +17,27 @@ export interface SidebarProps {
   collapsible?: boolean;
   onCollapse?: (collapsed: boolean) => any;
   onLogoClick?: () => any;
-  onLogout?: () => any;
   menus: MenuItem[];
 }
 
 export interface SidebarHandlers {
   toggle: () => any;
   collapse: (collapsed: boolean) => any;
+}
+
+export interface Step {
+  key: string;
+  label: ReactNode;
+  status: 'todo' | 'active' | 'done' | 'done-active';
+  disabled?: boolean;
+  onClick?: (data: Step) => any;
+}
+
+export interface StepperProps {
+  className?: string;
+  prefixCls?: string;
+  logoCls?: string;
+  onLogoClick?: () => any;
+  steps: Step[];
+  footer?: ReactNode;
 }

@@ -1,19 +1,40 @@
-.om-react-ui-icon {
-  *[fill="none"] {
+@use '../../../variable.scss'as *;
+
+$component: 'icons';
+
+.#{$prefix}-#{$component} {
+  &-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+  }
+
+  *:not(g, defs, clipPath, linearGradient, [fill], [stroke], [stroke-width]) {
     fill: currentcolor;
   }
 
-  *[stroke="none"] {
+  *:not(g, defs, clipPath, linearGradient)[stroke-width]:not([stroke], [fill]) {
     stroke: currentcolor;
   }
 
   &-logo-with-words {
     display: inline-flex;
     align-items: center;
+    font-style: normal;
 
     svg {
       &:nth-last-child(1) {
         padding-left: 5%;
+      }
+    }
+
+    &-with-network {
+      svg {
+        &:nth-child(2),
+        &:nth-child(3) {
+          padding-left: 2.5%;
+        }
       }
     }
   }

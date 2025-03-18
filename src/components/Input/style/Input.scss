@@ -1,90 +1,53 @@
-.om-react-ui-input {
+@use '../../../variable.scss'as *;
+
+$component: 'input';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
   display: inline-flex;
   width: 100%;
-  color: #000;
-  font-weight: 300;
-  font-size: 14px;
-  font-family: inherit;
-  font-style: normal;
-  line-height: 20px;
+
+  &-small {
+    font-size: 14px;
+    line-height: 20px;
+  }
 
   >input,
   &-text,
   &-mask,
   &-textarea,
   &-password input {
-    width: 100%;
-    padding: 10px 16px;
-    font-weight: 300;
-    font-size: 14px;
+    height: 52px;
+    padding: 0;
+    color: $color-primary-black;
+    font-weight: 400;
+    font-size: 16px;
     font-family: inherit;
-    line-height: 20px;
-    background-color: #FAFAFC;
-    border: 1px solid #E0E2EE;
-    border-radius: 8px;
-
-    &.p-invalid {
-      border-color: #CC1461;
-      box-shadow: none;
-    }
-  }
-
-  &-rounded,
-  &-rounded input {
-    border-radius: 20px;
-  }
-
-  &-otp.om-react-ui-input-rounded {
-    input {
-      border-radius: 16px;
-    }
-  }
-
-  &-otp {
+    font-style: normal;
+    line-height: 22px;
     background-color: inherit;
     border: none;
+    border-radius: 0;
+    transition: none;
 
-    .p-inputtext:enabled:hover:not(.p-invalid) {
-      border-color: #3d73f2;
+    &-small {
+      height: 40px;
+      font-size: 14px;
+      line-height: 20px;
     }
 
-    .p-inputotp {
-      gap: 16px;
+    &.p-invalid {
+      color: $color-negative;
+      box-shadow: none;
     }
 
-    input {
-      width: 48px;
-      height: 50px;
-      padding: 12px 16px;
-      font-weight: 600;
-      font-size: 17px;
-      background-color: #FAFAFC;
-      border: 0.5px solid #E0E2EE;
-      border-radius: 8px;
-
-      &.p-invalid {
-        border-color: #CC1461;
-        box-shadow: none;
-      }
+    &::placeholder {
+      color: $color-grey-dark;
+      font-weight: 400;
     }
   }
 
-  .p-inputtext:enabled:focus:not(.p-invalid),
-  &.p-inputtext:enabled:focus:not(.p-invalid) {
-    border-color: #3D73F2;
-    box-shadow: 0 0 0 2px #ABC4FF;
-  }
-
-  &.p-invalid {
-    border-color: #CC1461;
-    box-shadow: none;
-
-    input {
-      border-color: inherit !important;
-      box-shadow: inherit !important;
-    }
-  }
-
+  // password
   &-password {
     .p-icon-field {
       width: 100%;
@@ -93,6 +56,7 @@
     }
 
     .p-input-icon {
+      right: 0;
       display: inline-flex;
       align-items: center;
       margin-top: 0;
@@ -100,69 +64,257 @@
       cursor: pointer;
     }
   }
-}
 
-.om-react-ui-input-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-}
+  // otp
+  &-otp {
+    background-color: inherit;
+    border: none;
 
-.om-react-ui-input-inner {
-  display: inline-flex;
-  align-items: center;
-}
-
-.om-react-ui-input-addons {
-  padding: 10px;
-  color: #808080;
-  font-weight: 400;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 20px;
-  background-color: #FAFAFC;
-  border-top: 1px solid #E0E2EE;
-  border-bottom: 1px solid #E0E2EE;
-  border-left: 1px solid #E0E2EE;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-
-.om-react-ui-input-addons+.om-react-ui-input {
-  background-color: #FFF;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.om-react-ui-input-label {
-  display: inline-block;
-  margin-bottom: 8px;
-  font-weight: 400;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 20px;
-  word-wrap: break-word;
-  word-break: break-all;
-
-  &-required {
-    &::after {
-      color: #CC1461;
-      font-weight: 400;
-      font-size: 14px;
-      font-style: normal;
-      line-height: 120%;
-      content: '*';
+    .p-inputtext:enabled:hover:not(.p-invalid) {
+      border-color: $color-primary-black;
     }
+
+    .p-inputotp {
+      gap: 8px;
+    }
+
+    &-small input {
+      width: 42px !important;
+      height: 44px !important;
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+    }
+
+    input {
+      width: 54px;
+      height: 56px;
+      padding: 12px 16px;
+      color: inherit;
+      font-weight: 600;
+      font-size: 16px;
+      background-color: $color-grey-light;
+      border-color: $color-grey-bold;
+      border-style: solid;
+      border-width: 0.5px;
+      border-radius: 8px;
+
+      &.p-invalid {
+        color: $color-negative;
+        border-color: $color-negative;
+        border-width: 2px;
+        box-shadow: none;
+      }
+
+      &.p-filled:not([value='']) {
+        border-color: $color-primary;
+        border-width: 2px;
+      }
+
+      &:hover {
+        border-color: $color-primary-black;
+      }
+    }
+  }
+
+  // focus
+  .p-inputtext:enabled:focus:not(.p-invalid, .#{$cls}-success),
+  &.p-inputtext:enabled:focus:not(.p-invalid, .#{$cls}-success) {
+    border-color: $color-primary;
+    border-width: 2px;
+    box-shadow: none;
+  }
+
+  // invalid
+  &.p-invalid {
+    color: $color-negative;
+    border-color: $color-negative;
+    box-shadow: none;
+
+    input {
+      border-color: inherit !important;
+      box-shadow: inherit !important;
+    }
+  }
+
+  // success
+  &-success {
+    color: $color-success;
+    box-shadow: none;
+
+    input {
+      color: inherit;
+    }
+  }
+
+  // wrapper
+  &-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  // inner
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    cursor: text;
+
+    &-small {
+      height: 44px !important;
+      padding: 12px 16px !important;
+
+      &:has(.#{$cls}-textarea) {
+        height: auto !important;
+      }
+
+      &:has(.#{$cls}-otp) {
+        padding: 0 !important;
+      }
+    }
+
+    &-success {
+      border-color: $color-success !important;
+    }
+
+    &-invalid {
+      border-color: $color-negative !important;
+    }
+
+    &-disabled {
+      background-color: $color-grey-deep !important;
+      border-color: $color-grey-deep !important;
+      cursor: not-allowed;
+
+      input {
+        opacity: 1;
+      }
+    }
+
+    &-disabled.#{$cls}-inner-filled {
+      background-color: $color-grey !important;
+      border-color: $color-grey !important;
+      cursor: text;
+
+      input {
+        cursor: text;
+        user-select: text;
+        pointer-events: auto;
+      }
+    }
+
+    &:not(:has(.#{$cls}-otp)) {
+      height: 56px;
+      padding: 8px 16px;
+      background-color: $color-grey-light;
+      border-color: $color-grey-bold;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 12px;
+
+      &:hover:not(:has(.p-invalid), :has(.p-disabled)) {
+        border-color: $color-primary-black;
+      }
+    }
+
+    &:has(.#{$cls}-textarea) {
+      position: relative;
+      height: auto;
+      padding: 2px;
+
+      textarea {
+        min-width: 310px;
+        min-height: 120px;
+        padding: 12px 16px;
+      }
+
+      .#{$cls}-textarea-count {
+        position: absolute;
+        right: 16px;
+        bottom: 12px;
+        color: $color-grey-dark;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 140%;
+      }
+    }
+
+    &:focus-within:not(.#{$cls}-inner-invalid, .#{$cls}-inner-success):not(:has(.#{$cls}-otp)) {
+      border-color: $color-primary;
+      border-width: 2px;
+    }
+  }
+
+  // addons
+  // &-addons {
+  //   padding: 10px;
+  //   color: #808080;
+  //   font-weight: 400;
+  //   font-size: 14px;
+  //   font-style: normal;
+  //   line-height: 20px;
+  //   background-color: #FAFAFC;
+  //   border-top: 1px solid #E0E2EE;
+  //   border-bottom: 1px solid #E0E2EE;
+  //   border-left: 1px solid #E0E2EE;
+  //   border-top-left-radius: 6px;
+  //   border-bottom-left-radius: 6px;
+  // }
+
+  // label
+  &-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 18px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    &-required {
+      &::after {
+        margin-left: 4px;
+        color: $color-negative;
+        font-size: 16px;
+        font-style: normal;
+        line-height: 120%;
+        content: '*';
+      }
+    }
+  }
+
+  // message
+  &-message {
+    display: inline-block;
+    margin-top: 4px;
+    color: $color-grey-midnight;
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 17px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    &-success {
+      color: $color-success;
+    }
+
+    &-error {
+      color: $color-negative;
+    }
+  }
+
+  &-prefix {
+    margin-right: 8px;
+  }
+
+  &-suffix {
+    margin-left: 8px;
   }
 }
 
-.om-react-ui-input-error {
-  display: inline-block;
-  padding: 4px 8px 0;
-  color: #CC1461;
-  font-weight: 300;
-  font-size: 12px;
-  font-style: normal;
-  line-height: 150%;
-  word-wrap: break-word;
-  word-break: break-all;
-}
+// .om-react-ui-input-addons+.om-react-ui-input {
+//   background-color: #FFF;
+//   border-top-left-radius: 0;
+//   border-bottom-left-radius: 0;
+// }

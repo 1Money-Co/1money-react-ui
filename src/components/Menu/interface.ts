@@ -5,4 +5,5 @@ export type { Menu as MenuClass };
 export interface MenuProps extends PrimeMenuProps {
   className?: string;
   prefixCls?: string;
+  type?: 'menu' | 'selector';
 }

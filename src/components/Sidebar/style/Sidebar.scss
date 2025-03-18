@@ -1,7 +1,17 @@
-.om-react-ui-sidebar {
+@use '../../../variable.scss'as *;
+
+$component: 'sidebar';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
   height: 100vh;
-  padding: 0 8px;
-  border-right: 1px solid #F2F2F2 !important;
+  padding: 40px 16px 24px;
+  background-color: $color-grey-light;
+  border: none !important;
+
+  &.ps-collapsed {
+    padding: 40px 8px 24px;
+  }
 
   &-expand-icon {
     &-open {
@@ -23,17 +33,21 @@
 
       .ps-menuitem-root {
         .ps-menu-button {
-          padding: 0;
-          padding: 16px;
-          color: #404040;
-          font-weight: 700;
+          display: inline-flex;
+          gap: 12px;
+          align-items: center;
+          width: 100%;
+          height: 48px;
+          padding: 16px 12px;
+          color: $color-primary-black;
+          font-weight: 500;
           font-size: 14px;
-          line-height: 14px;
-          border-radius: 8px;
+          border-radius: 12px;
+
 
           &:hover {
-            color: #3D73F2;
-            background-color: rgba(229, 239, 255, 50%);
+            color: inherit;
+            background-color: $color-grey;
 
             .ps-menu-icon {
               color: inherit;
@@ -41,26 +55,36 @@
           }
 
           .ps-menu-icon {
-            width: 16px;
-            min-width: 16px;
-            height: 16px;
-            margin-right: 16px;
-            color: #808080;
-            line-height: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: start;
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            margin-right: 0;
+            line-height: 20px;
           }
         }
 
         .ps-menu-button.ps-active {
-          color: #3D73F2;
-          background-color: #E5EFFF;
+          color: $color-primary-black;
+          background-color: $color-grey;
+          border-color: $color-grey-deep;
+          border-style: solid;
+          border-width: 1px;
 
           .ps-menu-icon {
             color: inherit;
           }
         }
 
+        .ps-menu-button.ps-disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
+        }
+
         .ps-submenu-content {
-          background-color: #F9FAFB;
+          background-color: $color-grey-light;
           border-radius: 8px;
         }
 
@@ -89,67 +113,66 @@
 
   &-collapse {
     display: inline-flex;
+    gap: 8px;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-
-    &-icon {
-      cursor: pointer;
-    }
-  }
-
-  &-footer {
-    display: inline-flex;
-    align-items: center;
-    margin-top: auto;
-    padding: 16px;
-    border-radius: 8px;
+    margin: 32px auto 0;
+    padding: 8px 12px;
+    background-color: $color-grey;
+    border-radius: 12px;
     cursor: pointer;
 
-    &-logout {
-      display: inline-flex;
-      width: 16px;
-      height: 16px;
-      margin-right: 16px;
-      color: #808080;
-    }
+    &-collapsed {
+      width: 36px;
+      height: 36px;
 
-    &:hover {
-      color: #3D73F2;
-      background-color: rgba(229, 239, 255, 50%);
-
-      .om-react-ui-sidebar-footer-logout {
-        color: #3D73F2;
+      .#{$cls}-collapse-text {
+        display: none;
       }
     }
 
-    &-logout-text {
-      font-weight: 700;
+    &-text {
+      color: $color-grey-midnight;
+      font-weight: 500;
       font-size: 14px;
-      line-height: 14px;
+      line-height: 15px;
     }
   }
 
   &.ps-collapsed {
     .ps-sidebar-container {
+      align-items: center;
+      overflow: visible;
+
+      .#{$cls}-header {
+        padding: 0;
+      }
+
       .ps-menu-root {
         .ps-menuitem-root {
           .ps-menu-button {
-            .ps-menu-icon {
-              margin-left: 8px;
+            flex-direction: column;
+            gap: 4px;
+            height: auto;
+            padding: 8px;
+            font-size: 10px;
+            line-height: 11px;
+
+            .ps-menu-label {
+              white-space: pre-line;
+              text-align: center;
             }
           }
         }
       }
     }
 
-    .om-react-ui-sidebar-header {
+    .#{$cls}-header {
       padding-left: 22px;
     }
 
-    .om-react-ui-sidebar-footer {
-      padding-left: 24px;
+    .#{$cls}-footer {
+      padding-left: 16px;
 
       &-logout-text {
         display: none;

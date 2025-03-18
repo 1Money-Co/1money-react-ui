@@ -1,4 +1,8 @@
-.om-react-ui-progress {
+@use '../../../variable.scss'as *;
+
+$component: 'progress';
+
+.#{$prefix}-#{$component} {
   width: 100%;
 
   &-ring {

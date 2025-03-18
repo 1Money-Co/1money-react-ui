@@ -5,9 +5,57 @@ exports[`Icons renders correctly 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <i
+        class="om-react-ui-icons-wrapper"
+        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+      >
+        <svg
+          class="om-react-ui-icons"
+          fill="none"
+          height="24"
+          stroke="none"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            id="Deposit Fiat Crypto"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M11 1V11.0711L7.96447 8.03553L6.55025 9.44975L11.2929 14.1924L12 14.8995L12.7071 14.1924L17.4497 9.44975L16.0355 8.03553L13 11.0711V1H11ZM16.5 18V16H7.5V18H16.5ZM3 12C3 9.05657 4.41194 6.4432 6.5997 4.79949L5.39835 3.20051C2.72943 5.20572 1 8.40104 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 8.40104 21.2706 5.20572 18.6017 3.20051L17.4003 4.79949C19.5881 6.4432 21 9.05657 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
+              fill-rule="evenodd"
+              id="Union"
+            />
+          </g>
+        </svg>
+      </i>
+    </div>
+    <div>
+      <i
+        class="om-react-ui-icons-wrapper"
+        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+      >
+        <svg
+          class="om-react-ui-icons"
+          fill="none"
+          height="24"
+          stroke="none"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        />
+      </i>
+    </div>
+  </body>,
+  "container": <div>
+    <i
+      class="om-react-ui-icons-wrapper"
+      style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+    >
       <svg
         class="om-react-ui-icons"
-        fill="#000000"
+        fill="none"
         height="24"
         stroke="none"
         viewBox="0 0 24 24"
@@ -15,70 +63,17 @@ exports[`Icons renders correctly 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <g
-          clip-path="url(#clip0_85_8182)"
-          id="Property 1=Visible"
+          id="Deposit Fiat Crypto"
         >
           <path
-            d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
-            id="Vector"
+            clip-rule="evenodd"
+            d="M11 1V11.0711L7.96447 8.03553L6.55025 9.44975L11.2929 14.1924L12 14.8995L12.7071 14.1924L17.4497 9.44975L16.0355 8.03553L13 11.0711V1H11ZM16.5 18V16H7.5V18H16.5ZM3 12C3 9.05657 4.41194 6.4432 6.5997 4.79949L5.39835 3.20051C2.72943 5.20572 1 8.40104 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 8.40104 21.2706 5.20572 18.6017 3.20051L17.4003 4.79949C19.5881 6.4432 21 9.05657 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
+            fill-rule="evenodd"
+            id="Union"
           />
         </g>
-        <defs>
-          <clippath
-            id="clip0_85_8182"
-          >
-            <rect
-              fill="white"
-              height="24"
-              width="24"
-            />
-          </clippath>
-        </defs>
       </svg>
-    </div>
-    <div>
-      <svg
-        class="om-react-ui-icons"
-        fill="#000000"
-        height="24"
-        stroke="none"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      />
-    </div>
-  </body>,
-  "container": <div>
-    <svg
-      class="om-react-ui-icons"
-      fill="#000000"
-      height="24"
-      stroke="none"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#clip0_85_8182)"
-        id="Property 1=Visible"
-      >
-        <path
-          d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
-          id="Vector"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="clip0_85_8182"
-        >
-          <rect
-            fill="white"
-            height="24"
-            width="24"
-          />
-        </clippath>
-      </defs>
-    </svg>
+    </i>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -139,59 +134,64 @@ exports[`Icons renders correctly 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <svg
-        class="om-react-ui-icons"
-        fill="#000000"
-        height="24"
-        stroke="none"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <i
+        class="om-react-ui-icons-wrapper"
+        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
       >
-        <g
-          clip-path="url(#clip0_85_8182)"
-          id="Property 1=Visible"
+        <svg
+          class="om-react-ui-icons"
+          fill="none"
+          height="24"
+          stroke="none"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 16.5C9.24 16.5 7 14.26 7 11.5C7 8.74 9.24 6.5 12 6.5C14.76 6.5 17 8.74 17 11.5C17 14.26 14.76 16.5 12 16.5ZM12 8.5C10.34 8.5 9 9.84 9 11.5C9 13.16 10.34 14.5 12 14.5C13.66 14.5 15 13.16 15 11.5C15 9.84 13.66 8.5 12 8.5Z"
-            id="Vector"
-          />
-        </g>
-        <defs>
-          <clippath
-            id="clip0_85_8182"
+          <g
+            id="Deposit Fiat Crypto"
           >
-            <rect
-              fill="white"
-              height="24"
-              width="24"
+            <path
+              clip-rule="evenodd"
+              d="M11 1V11.0711L7.96447 8.03553L6.55025 9.44975L11.2929 14.1924L12 14.8995L12.7071 14.1924L17.4497 9.44975L16.0355 8.03553L13 11.0711V1H11ZM16.5 18V16H7.5V18H16.5ZM3 12C3 9.05657 4.41194 6.4432 6.5997 4.79949L5.39835 3.20051C2.72943 5.20572 1 8.40104 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 8.40104 21.2706 5.20572 18.6017 3.20051L17.4003 4.79949C19.5881 6.4432 21 9.05657 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
+              fill-rule="evenodd"
+              id="Union"
             />
-          </clippath>
-        </defs>
-      </svg>
+          </g>
+        </svg>
+      </i>
     </div>
     <div>
+      <i
+        class="om-react-ui-icons-wrapper"
+        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+      >
+        <svg
+          class="om-react-ui-icons"
+          fill="none"
+          height="24"
+          stroke="none"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        />
+      </i>
+    </div>
+  </body>,
+  "container": <div>
+    <i
+      class="om-react-ui-icons-wrapper"
+      style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+    >
       <svg
         class="om-react-ui-icons"
-        fill="#000000"
+        fill="none"
         height="24"
         stroke="none"
         viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
       />
-    </div>
-  </body>,
-  "container": <div>
-    <svg
-      class="om-react-ui-icons"
-      fill="#000000"
-      height="24"
-      stroke="none"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
-    />
+    </i>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -36,22 +36,26 @@ exports[`Collapse renders correctly 1`] = `
               <i
                 class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
               >
-                <svg
-                  class="om-react-ui-icons"
-                  fill="none"
-                  height="24"
-                  stroke="#000000"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(0, 0, 0); width: 24px; height: 24px;"
                 >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
               </i>
               <span
                 class="p-accordion-header-text"
@@ -87,22 +91,26 @@ exports[`Collapse renders correctly 1`] = `
               <i
                 class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
               >
-                <svg
-                  class="om-react-ui-icons"
-                  fill="none"
-                  height="24"
-                  stroke="#000000"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(0, 0, 0); width: 24px; height: 24px;"
                 >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
               </i>
               <span
                 class="p-accordion-header-text"
@@ -138,22 +146,26 @@ exports[`Collapse renders correctly 1`] = `
               <i
                 class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
               >
-                <svg
-                  class="om-react-ui-icons"
-                  fill="none"
-                  height="24"
-                  stroke="#000000"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="om-react-ui-icons-wrapper"
+                  style="color: rgb(0, 0, 0); width: 24px; height: 24px;"
                 >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
+                  <svg
+                    class="om-react-ui-icons"
+                    fill="none"
+                    height="24"
+                    stroke="none"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
               </i>
               <span
                 class="p-accordion-header-text"
@@ -199,22 +211,26 @@ exports[`Collapse renders correctly 1`] = `
             <i
               class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="24"
-                stroke="#000000"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(0, 0, 0); width: 24px; height: 24px;"
               >
-                <path
-                  d="M6 9L12 15L18 9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="24"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
             </i>
             <span
               class="p-accordion-header-text"
@@ -250,22 +266,26 @@ exports[`Collapse renders correctly 1`] = `
             <i
               class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="24"
-                stroke="#000000"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(0, 0, 0); width: 24px; height: 24px;"
               >
-                <path
-                  d="M6 9L12 15L18 9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="24"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
             </i>
             <span
               class="p-accordion-header-text"
@@ -301,22 +321,26 @@ exports[`Collapse renders correctly 1`] = `
             <i
               class="om-react-ui-collapse-icon om-react-ui-collapse-icon-expand"
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="24"
-                stroke="#000000"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(0, 0, 0); width: 24px; height: 24px;"
               >
-                <path
-                  d="M6 9L12 15L18 9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="24"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
             </i>
             <span
               class="p-accordion-header-text"

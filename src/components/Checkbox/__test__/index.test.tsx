@@ -21,7 +21,7 @@ describe('Checkbox', () => {
   it('single renders correctly', async () => {
     const onCheckboxChange = jest.fn();
     const single =render(
-      <Checkbox 
+      <Checkbox
         items={[
           { name: 'Agree', key: 'Agree', label: <>
           I am over 18 years old and I have read, understand and agree to the
@@ -39,9 +39,40 @@ describe('Checkbox', () => {
     expect(checkbox).toBeChecked();
     expect(single).toMatchSnapshot();
   });
+  it('size renders correctly', async () => {
+    const Invalid = render(
+      <Checkbox
+        tristate={true}
+        items={[
+          { name: 'invalid', key: 'invalid', invalid: true, label: 'invalid' },
+          { name: 'checked', key: 'checked', invalid: true, label: 'checked', defaultValue: true },
+          { name: 'notChecked', key: 'notChecked', invalid: true, label: 'Not checked', defaultValue: false }
+        ]}
+      />
+    );
+    expect(Invalid).toMatchSnapshot();
+  });
+  it('size renders correctly', async () => {
+    const size = render(
+      <Checkbox size='sm' items={[
+        { name: 'C', key: 'Cheese', label: 'Cheese' },
+      ]} />
+    );
+    expect(size).toMatchSnapshot();
+  });
+  it('disabled renders correctly', async () => {
+    const disabled = render(
+      <Checkbox  tristate={true}  items={[
+        { name: 'disabled', key: 'disabled', label: 'disabled',   disabled: true, },
+      { name: 'Achecked', key: 'Achecked',   label:'checked ', disabled:true,   defaultValue: true },
+      { name: 'BnotChecked', key: 'BnotChecked',  label:'Not checked ', disabled:true,  defaultValue: false }
+      ]} />
+    );
+    expect(disabled).toMatchSnapshot();
+  });
   it('singleTristate renders correctly', async () => {
     const singleTristate = render(
-      <Checkbox 
+      <Checkbox
         tristate={true}
         items={[
           { name: 'State', key: 'Status', label: 'Change State' },
@@ -59,12 +90,12 @@ describe('Checkbox', () => {
         { name: 'O', key: 'Onion', label: 'Onion' },
       ]} />
     );
-    
+
     expect(multiple).toMatchSnapshot();
   });
   it('multipleTristate renders correctly', async () => {
     const multipleTristate = render(
-      <Checkbox 
+      <Checkbox
         tristate={true}
         items={[
           { name: 'A', key: 'Audi', label: 'Audi' },

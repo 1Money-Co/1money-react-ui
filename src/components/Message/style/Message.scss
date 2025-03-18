@@ -1,4 +1,8 @@
-.om-react-ui-message {
+@use '../../../variable.scss'as *;
+
+$component: 'message';
+
+.#{$prefix}-#{$component} {
   align-items: start;
   justify-content: start;
   padding: 10px;

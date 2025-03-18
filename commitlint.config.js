@@ -23,6 +23,7 @@ const Configuration = {
       'upgrade',
       'modify',
       'merge',
+      'optimize',
       'chore'
     ]]
   },

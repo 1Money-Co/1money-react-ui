@@ -1,6 +1,5 @@
 'use client';
 import { memo, useState, useCallback, useImperativeHandle, forwardRef } from 'react';
-import propTypes from 'prop-types';
 import {
   Sidebar as ProSidebar,
   Menu as ProMenu,
@@ -14,7 +13,7 @@ import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
 export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
-  const { children, collapsible, menus, className, prefixCls = 'sidebar', onCollapse, onLogoClick, onLogout } = props;
+  const { children, collapsible, menus, className, prefixCls = 'sidebar', onCollapse, onLogoClick } = props;
   const [collapsed, setCollapsed] = useState(false);
   const classes = classnames(prefixCls);
 
@@ -31,8 +30,8 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
   return (
     <ProSidebar
       className={classes(void 0, className)}
-      width='261px'
-      collapsedWidth='81px'
+      width='280px'
+      collapsedWidth='84px'
       collapsed={collapsed}
       transitionDuration={150}
     >
@@ -43,21 +42,20 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
         >
           <Icons
             name={collapsed ? 'logo' : 'logoWithWords'}
-            color='#3D73F2'
-            width={collapsed ? 18 : 103}
-            height={18}
+            // @ts-ignore
+            logoColor='#073387'
+            // @ts-ignore
+            wordColor='#131313'
+            color='#073387'
+            width={collapsed ? 24 : 131}
+            height={24}
           />
         </span>
-        {
-          collapsible && <span className={classes('collapse')} onClick={() => handleCollapse(!collapsed)}>
-            <i className={['pi', collapsed ? 'pi-angle-double-right' : 'pi-angle-double-left', classes('collapse-icon')].join(' ')} style={{ fontSize: '16px', color: '#808080' }} />
-          </span>
-        }
       </div>
-      <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='dropDown' color='#808080' className={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
+      <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' color='#808080' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
         {
           menus.map((menu, ind) => {
-            const { key, label, icon, link, active, defaultOpen, children } = menu;
+            const { key, label, icon, link, active, disabled, defaultOpen, children } = menu;
             if (children) {
               return <ProSubMenu
                 key={key ?? ind}
@@ -73,6 +71,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
                       icon={child.icon}
                       component={child.link}
                       active={child.active}
+                      disabled={child.disabled}
                     >
                       {child.label}
                     </ProMenuItem>;
@@ -85,29 +84,22 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
               icon={icon}
               component={link}
               active={active}
+              disabled={disabled}
             >
               {label}
             </ProMenuItem>;
           })
         }
       </ProMenu>
-      { children }
-      <div className={classes('footer')} onClick={() => onLogout?.()}>
-        <span className={classes('footer-logout')}>
-          <i className={['pi pi-sign-out', classes('footer-logout-icon')].join(' ')} style={{ fontSize: '16px' }} />
+      {
+        collapsible && <span className={classes('collapse', collapsed ? classes('collapse-collapsed') : '')} onClick={() => handleCollapse(!collapsed)}>
+          <Icons name={collapsed ? 'extend' : 'collapse'} wrapperCls={classes('collapse-icon')} size={16} />
+          <span className={classes('collapse-text')}>Collapse</span>
         </span>
-        <span className={classes('footer-logout-text')}>Log out</span>
-      </div>
+      }
+      { children }
     </ProSidebar>
   );
 });
-
-/**
- * prop-types can make sure the type-check whatever the environment whether or not use typescript
- */
-Sidebar.propTypes = {
-  className: propTypes.string,
-  prefixCls: propTypes.string
-};
 
 export default memo(Sidebar);

@@ -1,4 +1,4 @@
-import { fn } from '@storybook/test';
+import React from 'react';
 import { Select } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -8,19 +8,24 @@ const meta: Meta<typeof Select> = {
   component: Select,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
-    className: { control: 'text' },
-    prefixCls: { control: 'text' },
-    rounded: { control: 'boolean' },
-    filter: { control: 'boolean' },
+    size: { control: 'radio', options: ['large', 'small'] },
+    disabled: { control: 'boolean' },
+    success: { control: 'boolean' },
     invalid: { control: 'boolean' },
+    filter: { control: 'boolean' },
+    message: { control: 'text' },
+    unselectable: { control: 'radio', options: ['on', 'off'] },
   },
   args: {
-    prefixCls: 'button',
-    onClick: fn(),
+    size: 'large',
+    disabled: false,
+    success: false,
+    invalid: false,
+    required: false,
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Select>;
@@ -30,29 +35,60 @@ const cities = [
   { label: 'Rome', value: 'RM' },
   { label: 'London', value: 'LDN' },
   { label: 'Istanbul', value: 'IST' },
-  { label: 'Paris', value: 'PRS' }
+  { label: 'Paris', value: 'PRS' },
+  { label: 'Beijing', value: 'BJ' },
+  { label: 'Shanghai', value: 'SH' },
+  { label: 'Tokyo', value: 'TK' },
+  { label: 'Seoul', value: 'SE' },
 ];
 
 export const Single: Story = {
+  render: (props) => <div style={{ width: '320px' }}>
+    <Select {...props} />
+  </div>,
   args: {
-    prefixCls: 'select',
     placeholder: 'Select City',
     defaultValue: 'IST',
-    options: cities,
     label: 'Cities',
-    required: true
+    message: 'Please select a city',
+    options: cities,
+    required: true,
+    showClear: false,
+    unselectable: 'on'
   },
   tags: ['!autodocs', 'dev'],
 };
 
 export const Multiple: Story = {
+  render: (props) => <div style={{ width: '360px' }}>
+    <Select {...props} />
+  </div>,
   args: {
-    prefixCls: 'select',
     placeholder: 'Select Cities',
     multiple: true,
+    filter: true,
     options: cities,
     display: 'chip',
     label: 'Multiple Cities',
     defaultValue: []
   },
 };
+
+export const CustomItemTemplate: Story = {
+  args: {
+    placeholder: 'Select Cities',
+    options: cities,
+    display: 'chip',
+    label: 'CustomItemTemplate',
+    defaultValue: []
+  },
+  tags: ['!autodocs', 'dev'],
+  render: (props) =>  <div style={{ width: '360px' }}>
+    <Select {...props} itemTemplate={(option) => <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <span>xxx  </span>
+      <span>{option.label}</span>
+    </div>} />
+  </div>,
+};
+
+
