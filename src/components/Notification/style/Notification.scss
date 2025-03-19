@@ -23,7 +23,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-success {
-    background-color: rgba(31, 88, 0, 5%);
+    background-color: $color-success-background;
 
     .#{$cls}-icon {
       background-color: $color-success;
@@ -39,7 +39,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-error {
-    background-color: rgba(174, 0, 0, 10%);
+    background-color: $color-negative-background;
 
     .#{$cls}-icon {
       background-color: $color-negative;
@@ -47,7 +47,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-warn {
-    background-color: rgba(244, 198, 0, 20%);
+    background-color: $color-warning-background;
 
     .#{$cls}-icon {
       background-color: $color-warning;
