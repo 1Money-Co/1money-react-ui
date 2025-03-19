@@ -45,12 +45,19 @@ module.exports = {
       black: '#000000',
       transparent: 'transparent',
       info: '#3D7CF5',
-      success: '#1F5800',
-      warning: '#F4C600',
+      success: {
+        DEFAULT: '#1F5800',
+        background: '#1F580033',
+      },
+      warning: {
+        DEFAULT: '#F4C600',
+        background: '#F4C60033',
+      },
       error: {
         DEFAULT: '#AE0000',
         hover: '#920000',
         active: '#780000',
+        background: '#AE00001A',
       },
       primary: {
         DEFAULT: '#073387',
