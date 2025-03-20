@@ -157,6 +157,7 @@ $cls: #{$prefix}-#{$component};
     display: inline-flex;
     align-items: center;
     width: 100%;
+    overflow: hidden;
     cursor: text;
 
     &-small {
@@ -242,23 +243,22 @@ $cls: #{$prefix}-#{$component};
       border-color: $color-primary;
       border-width: 2px;
     }
-  }
 
-  // addons
-  // &-addons {
-  //   padding: 10px;
-  //   color: #808080;
-  //   font-weight: 400;
-  //   font-size: 14px;
-  //   font-style: normal;
-  //   line-height: 20px;
-  //   background-color: #FAFAFC;
-  //   border-top: 1px solid #E0E2EE;
-  //   border-bottom: 1px solid #E0E2EE;
-  //   border-left: 1px solid #E0E2EE;
-  //   border-top-left-radius: 6px;
-  //   border-bottom-left-radius: 6px;
-  // }
+    input {
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        box-shadow: 0 0 0 1000px $color-grey-light inset;
+        transition: background-color 600000s 0s, color 600000s 0s !important;
+      }
+
+      &:-internal-autofill-selected {
+        -webkit-text-fill-color: $color-primary-black !important;
+        transition: background-color 600000s 0s, color 600000s 0s !important;
+      }
+    }
+  }
 
   // label
   &-label {
@@ -312,9 +312,3 @@ $cls: #{$prefix}-#{$component};
     margin-left: 8px;
   }
 }
-
-// .om-react-ui-input-addons+.om-react-ui-input {
-//   background-color: #FFF;
-//   border-top-left-radius: 0;
-//   border-bottom-left-radius: 0;
-// }
