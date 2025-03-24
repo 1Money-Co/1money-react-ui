@@ -61,10 +61,12 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         }}
         panelHeaderTemplate={options => {
           const { filterElement, onChange, onCloseClick, props } = options;
+          // @ts-ignore
+          const selectedNum = props?.metaData?.props?.value?.length ?? 0;
           return <div className={classes('panel-header')}>
             <div className={classes('panel-header-info')}>
               <span className={classes('panel-header-info-count')}>
-                {(selected as Array<string>)?.length ?? 0} selected
+                {selectedNum} selected
               </span>
               <span
                 className={classes('panel-header-info-clear')}
