@@ -8,6 +8,7 @@ const meta: Meta<typeof Select> = {
   component: Select,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
+    appendTo: { control: 'radio', options: [null, 'self'] },
     size: { control: 'radio', options: ['large', 'small'] },
     disabled: { control: 'boolean' },
     success: { control: 'boolean' },
@@ -33,6 +34,7 @@ type Story = StoryObj<typeof Select>;
 const cities = [
   { label: 'New York', value: 'NY' },
   { label: 'Rome', value: 'RM' },
+  { label: 'Administrative and Support and waste Management and remediation services', value: 'TT' },
   { label: 'London', value: 'LDN' },
   { label: 'Istanbul', value: 'IST' },
   { label: 'Paris', value: 'PRS' },
@@ -64,6 +66,7 @@ export const Multiple: Story = {
     <Select {...props} />
   </div>,
   args: {
+    appendTo: null,
     placeholder: 'Select Cities',
     multiple: true,
     filter: true,

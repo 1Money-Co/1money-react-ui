@@ -46,6 +46,11 @@ $component: 'toast';
     }
   }
 
+  .p-toast-icon-close {
+    width: 20px;
+    height: 20px;
+  }
+
   &-close-icon {
     display: inline-flex;
     align-items: center;

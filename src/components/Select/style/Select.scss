@@ -16,7 +16,7 @@ $cls: #{$prefix}-#{$component};
   border-radius: 12px;
   transition: none;
 
-  &-small {
+  &.#{$cls}-small {
     min-height: 44px;
     line-height: 18px;
 
@@ -24,6 +24,14 @@ $cls: #{$prefix}-#{$component};
     .p-multiselect-label {
       font-size: 14px !important;
     }
+
+    .p-dropdown-label {
+      padding: 4px 8px 4px 0;
+    }
+  }
+
+  &.p-multiselect.#{$cls}-small.#{$cls}-filled {
+    padding: 8px 16px;
   }
 
   &.p-invalid {
@@ -56,7 +64,19 @@ $cls: #{$prefix}-#{$component};
     }
   }
 
-  .p-dropdown-label,
+  .p-dropdown-label {
+    display: inline-block;
+    padding: 8px 8px 8px 0;
+    overflow: hidden;
+    color: $color-primary-black;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: none;
+  }
+
   .p-multiselect-label {
     display: flex;
     flex-wrap: wrap;
@@ -71,16 +91,21 @@ $cls: #{$prefix}-#{$component};
     transition: none;
 
     .p-multiselect-token {
+      max-width: 100%;
       margin-right: 0;
       padding: 4px 8px;
       background-color: $color-grey-deep;
       border-radius: 12px;
 
       .p-multiselect-token-label {
+        display: inline-block;
+        overflow: hidden;
         color: $color-primary-black;
         font-weight: 500;
         font-size: 12px;
         line-height: 13px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
   }

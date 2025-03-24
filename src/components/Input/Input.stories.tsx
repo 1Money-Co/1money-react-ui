@@ -14,7 +14,6 @@ const meta: Meta<typeof Input> = {
     disabled: { control: 'boolean' },
     success: { control: 'boolean' },
     invalid: { control: 'boolean' },
-    addons: { control: 'text' },
     message: { control: 'text' },
     label: { control: 'text' },
   },

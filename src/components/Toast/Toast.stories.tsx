@@ -38,25 +38,25 @@ export const Primary: Story = {
             severity: 'success',
             summary: 'Success Message',
             detail: 'You successfully topped up 1000 USD1 on 2024-11-20 15:21:17 (UTC)',
-            life: 1500
+            life: 3500
           },
           {
             severity: 'info',
             summary: 'Info Message',
             detail: 'You can now link multiple accounts to manage your finances all in one place.',
-            life: 2000
+            life: 4000
           },
           {
             severity: 'warn',
             summary: 'Warn Message',
             detail: 'Update your card details to avoid interruptions.',
-            life: 2500
+            life: 4500
           },
           {
             severity: 'error',
             summary: 'Error Message',
             detail: 'Please check your account balance and try again.',
-            life: 3000
+            life: 5000
           }
         ])}
       >

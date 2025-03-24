@@ -51,8 +51,9 @@ exports[`Cell renders correctly 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -105,8 +106,9 @@ exports[`Cell renders correctly 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -159,8 +161,9 @@ exports[`Cell renders correctly 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -214,8 +217,9 @@ exports[`Cell renders correctly 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 12L19 12M19 12L12 19M19 12L12 5"
-            stroke-width="2"
+            clip-rule="evenodd"
+            d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+            fill-rule="evenodd"
           />
         </svg>
       </i>
@@ -326,8 +330,9 @@ exports[`Cell renders correctly 2`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -380,8 +385,9 @@ exports[`Cell renders correctly 2`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -434,8 +440,9 @@ exports[`Cell renders correctly 2`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -489,8 +496,9 @@ exports[`Cell renders correctly 2`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 12L19 12M19 12L12 19M19 12L12 5"
-            stroke-width="2"
+            clip-rule="evenodd"
+            d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+            fill-rule="evenodd"
           />
         </svg>
       </i>
@@ -601,8 +609,9 @@ exports[`Cell renders correctly 3`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -655,8 +664,9 @@ exports[`Cell renders correctly 3`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -709,8 +719,9 @@ exports[`Cell renders correctly 3`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M4 12L19 12M19 12L12 19M19 12L12 5"
-              stroke-width="2"
+              clip-rule="evenodd"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+              fill-rule="evenodd"
             />
           </svg>
         </i>
@@ -764,8 +775,9 @@ exports[`Cell renders correctly 3`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M4 12L19 12M19 12L12 19M19 12L12 5"
-            stroke-width="2"
+            clip-rule="evenodd"
+            d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
+            fill-rule="evenodd"
           />
         </svg>
       </i>
