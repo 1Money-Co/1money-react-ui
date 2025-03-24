@@ -25,6 +25,8 @@ $cls: #{$prefix}-#{$component};
     background-color: transparent;
 
     .ps-menu-root {
+      margin-top: 32px;
+
       >ul {
         display: flex;
         flex-direction: column;
@@ -99,7 +101,8 @@ $cls: #{$prefix}-#{$component};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 0 16px 16px;
+    height: 32px;
+    padding: 0 0 8px 8px;
   }
 
   &-logo {
@@ -107,7 +110,6 @@ $cls: #{$prefix}-#{$component};
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 16px 0;
     cursor: pointer;
   }
 
