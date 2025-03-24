@@ -58,15 +58,15 @@ exports[`Select renders correctly 1`] = `
           >
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+              style="color: rgb(19, 19, 19); width: 18px; height: 18px;"
             >
               <svg
                 class="om-react-ui-icons"
                 fill="none"
-                height="20"
+                height="18"
                 stroke="none"
                 viewBox="0 0 24 24"
-                width="20"
+                width="18"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -122,15 +122,15 @@ exports[`Select renders correctly 1`] = `
           >
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+              style="color: rgb(19, 19, 19); width: 18px; height: 18px;"
             >
               <svg
                 class="om-react-ui-icons"
                 fill="none"
-                height="20"
+                height="18"
                 stroke="none"
                 viewBox="0 0 24 24"
-                width="20"
+                width="18"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -199,15 +199,15 @@ exports[`Select renders correctly 1`] = `
         >
           <i
             class="om-react-ui-icons-wrapper"
-            style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            style="color: rgb(19, 19, 19); width: 18px; height: 18px;"
           >
             <svg
               class="om-react-ui-icons"
               fill="none"
-              height="20"
+              height="18"
               stroke="none"
               viewBox="0 0 24 24"
-              width="20"
+              width="18"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -333,15 +333,15 @@ exports[`Select renders correctly 2`] = `
           >
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+              style="color: rgb(19, 19, 19); width: 18px; height: 18px;"
             >
               <svg
                 class="om-react-ui-icons"
                 fill="none"
-                height="20"
+                height="18"
                 stroke="none"
                 viewBox="0 0 24 24"
-                width="20"
+                width="18"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -397,15 +397,15 @@ exports[`Select renders correctly 2`] = `
           >
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+              style="color: rgb(19, 19, 19); width: 18px; height: 18px;"
             >
               <svg
                 class="om-react-ui-icons"
                 fill="none"
-                height="20"
+                height="18"
                 stroke="none"
                 viewBox="0 0 24 24"
-                width="20"
+                width="18"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -462,15 +462,15 @@ exports[`Select renders correctly 2`] = `
         >
           <i
             class="om-react-ui-icons-wrapper"
-            style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            style="color: rgb(19, 19, 19); width: 18px; height: 18px;"
           >
             <svg
               class="om-react-ui-icons"
               fill="none"
-              height="20"
+              height="18"
               stroke="none"
               viewBox="0 0 24 24"
-              width="20"
+              width="18"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

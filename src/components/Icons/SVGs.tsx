@@ -157,16 +157,16 @@ export const StatusFailIcon: FC<IconWrapperProps> = (props) => <IconWrapper view
 
 /* Functional Icons */
 export const ArrowUpIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
-  <path d='M12 20V5M12 5L19 12M12 5L5 12' strokeWidth='2' />
+  <path fillRule="evenodd" clipRule="evenodd" d="M12.0001 3.58578L19.7072 11.2929L18.293 12.7071L13.0001 7.41421V20H11.0001V7.41421L5.70718 12.7071L4.29297 11.2929L12.0001 3.58578Z" />
 </IconWrapper>;
 export const ArrowDownIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
-  <path d='M12 4V19M12 19L19 12M12 19L5 12' strokeWidth='2' />
+  <path fillRule="evenodd" clipRule="evenodd" d="M11.0001 16.5858V4H13.0001V16.5858L18.293 11.2929L19.7072 12.7071L12.0001 20.4142L4.29297 12.7071L5.70718 11.2929L11.0001 16.5858Z" />
 </IconWrapper>;
 export const ArrowLeftIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
-  <path d='M20 12L5 12M5 12L12 19M5 12L12 5' strokeWidth='2' />
+  <path fillRule="evenodd" clipRule="evenodd" d="M7.41436 13L12.7073 18.2929L11.293 19.7071L3.58594 12L11.293 4.29291L12.7073 5.70712L7.41436 11L20.0002 11V13H7.41436Z" />
 </IconWrapper>;
 export const ArrowRightIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
-  <path d='M4 12L19 12M19 12L12 19M19 12L12 5' strokeWidth='2' />
+  <path fillRule="evenodd" clipRule="evenodd" d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z" />
 </IconWrapper>;
 export const AddIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props} >
   <path d='M3 12L21 12M12 3L12 21' strokeWidth='2' />

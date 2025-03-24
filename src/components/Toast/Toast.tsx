@@ -54,7 +54,7 @@ export const Toast: FC<ToastProps> = props => {
         </div>;
       }
       if (!closeIcon) {
-        _message[i].closeIcon = <i className={classes('close-icon')}><Icons name='close' color='#646465' size={16} /></i>;
+        _message[i].closeIcon = <Icons name='close' color='#646465' size={20} wrapperCls={classes('close-icon')}/>;
       }
       if (!life) {
         _message[i].life = 5000;

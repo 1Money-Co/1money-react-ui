@@ -150,7 +150,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           setIsOpen(true);
           onShow?.();
         }}
-        dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
+        dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={18} />}
       />
       {
         message && <span
