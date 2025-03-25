@@ -1,7 +1,7 @@
-import type { TooltipProps as RCTooltipProps } from 'rc-tooltip/es/Tooltip';
+import type { ITooltip } from 'react-tooltip';
 import type { PropsWithChildren } from 'react';
 
-export interface TooltipProps extends PropsWithChildren<RCTooltipProps> {
-  className?: string;
+export interface TooltipProps extends PropsWithChildren<ITooltip> {
   prefixCls?: string;
+  arrowCls?: string;
 }

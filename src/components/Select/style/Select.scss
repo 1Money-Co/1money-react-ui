@@ -369,7 +369,7 @@ $cls: #{$prefix}-#{$component};
     }
   }
 
-  &-show svg {
+  &-show.p-multiselect .p-multiselect-trigger svg {
     transform: rotate(180deg);
   }
 }

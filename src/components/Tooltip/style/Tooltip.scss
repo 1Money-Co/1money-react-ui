@@ -2,155 +2,22 @@
 
 $component: 'tooltip';
 $cls: #{$prefix}-#{$component};
-$tooltip-bg: $color-primary-black;
-$tooltip-border-width: 1px;
-$tooltip-border-color: #b1b1b1;
-$tooltip-shadow-width: 1px;
-$tooltip-arrow-width: 36px;
-$tooltip-arrow-height: 9px;
-$tooltip-arrow-color: $tooltip-border-color;
-$tooltip-arrow-inner-color: $tooltip-bg;
 
-.#{$cls} {
-  position: absolute;
-  z-index: 1070;
-  display: block;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 17px;
-  background-color: rgba(0, 0, 0, 5%);
-  visibility: visible;
+.#{$cls}[role='tooltip'] {
+  padding: 10px;
+  color: $color-primary-white;
+  background-color: $color-primary-black;
+  border-radius: 8px;
 
-  &-hidden {
-    display: none;
-  }
-
-  &-inner {
-    position: relative;
-    min-height: 34px;
-    padding: 10px;
-    color: $color-primary-white;
-    text-align: left;
-    text-decoration: none;
-    background-color: $color-primary-black;
-    border-radius: 8px;
-  }
-
-  &-arrow {
-    position: absolute;
-    width: $tooltip-arrow-width;
-    height: $tooltip-arrow-height;
-
-    &-inner {
+  .#{$cls}-arrow {
+    &::before {
       position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-
-  &-placement {
-    &-top,
-    &-topLeft,
-    &-topRight {
-      .#{$cls}-inner {
-        transform: translateY(-4.5px);
-      }
-
-      .#{$cls}-arrow {
-        bottom: calc(1px - $tooltip-arrow-height);
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-
-    &-topLeft {
-      .#{$cls}-arrow {
-        left: 25%;
-      }
-    }
-
-    &-topRight {
-      .#{$cls}-arrow {
-        left: 75%;
-      }
-    }
-
-    &-right,
-    &-rightTop,
-    &-rightBottom {
-      .#{$cls}-inner {
-        transform: translateX(4.5px);
-      }
-
-      .#{$cls}-arrow {
-        top: 50%;
-        left: -22px;
-        transform: rotate(90deg) translate(-3.5px, 0);
-      }
-    }
-
-    &-rightTop {
-      .#{$cls}-arrow {
-        top: 25%;
-      }
-    }
-
-    &-rightBottom {
-      .#{$cls}-arrow {
-        top: 75%;
-      }
-    }
-
-    &-left,
-    &-leftTop,
-    &-leftBottom {
-      .#{$cls}-inner {
-        transform: translateX(-4.5px);
-      }
-
-      .#{$cls}-arrow {
-        top: 50%;
-        right: -22px;
-        transform: rotate(-90deg) translate(3.5px, 0);
-      }
-    }
-
-    &-leftTop {
-      .#{$cls}-arrow {
-        top: 25%;
-      }
-    }
-
-    &-leftBottom {
-      .#{$cls}-arrow {
-        top: 75%;
-      }
-    }
-
-    &-bottom,
-    &-bottomLeft,
-    &-bottomRight {
-      .#{$cls}-inner {
-        transform: translateY(4.5px);
-      }
-
-      .#{$cls}-arrow {
-        top: calc(1px - $tooltip-arrow-height);
-        left: 50%;
-        transform: rotate(180deg) translateX(50%);
-      }
-    }
-
-    &-bottomLeft {
-      .#{$cls}-arrow {
-        left: 25%;
-      }
-    }
-
-    &-bottomRight {
-      .#{$cls}-arrow {
-        left: 75%;
-      }
+      top: -2px;
+      left: -15px;
+      width: 36px;
+      height: 9px;
+      transform: rotate(-45deg);
+      content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDM2IDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJCZWFrIj4KPHBhdGggaWQ9IlZlY3RvciA3IiBkPSJNMTYuNTg1OCA2LjU4NTc5TDEwLjg3ODcgMC44Nzg2OEMxMC4zMTYxIDAuMzE2MDcxIDkuNTUzMDEgMCA4Ljc1NzM2IDBIMjcuMjQyNkMyNi40NDcgMCAyNS42ODM5IDAuMzE2MDcgMjUuMTIxMyAwLjg3ODY3OUwxOS40MTQyIDYuNTg1NzlDMTguNjMzMiA3LjM2Njg0IDE3LjM2NjggNy4zNjY4NCAxNi41ODU4IDYuNTg1NzlaIiBmaWxsPSIjMTMxMzEzIi8+CjxwYXRoIGlkPSJWZWN0b3IgNiIgZD0iTTggMC41SDguMzQzMTVDOS40MDQwMSAwLjUgMTAuNDIxNCAwLjkyMTQyNyAxMS4xNzE2IDEuNjcxNTdMMTUuODc4NyA2LjM3ODY4QzE3LjA1MDMgNy41NTAyNSAxOC45NDk3IDcuNTUwMjUgMjAuMTIxMyA2LjM3ODY4TDI0LjgyODQgMS42NzE1N0MyNS41Nzg2IDAuOTIxNDI2IDI2LjU5NiAwLjUgMjcuNjU2OSAwLjVIMjgiIHN0cm9rZT0iIzEzMTMxMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==");
     }
   }
 }
