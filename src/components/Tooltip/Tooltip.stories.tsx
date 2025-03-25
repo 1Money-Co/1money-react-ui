@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tooltip } from './index';
+import { Typography } from '../Typography';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -10,7 +11,8 @@ const meta: Meta<typeof Tooltip> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
-    trigger: { control: 'check', options: ['click', 'hover', 'focus'] },
+    openEvents: { control: 'object' },
+    closeEvents: { control: 'object' },
   },
   args: {
     prefixCls: 'tooltip',
@@ -25,17 +27,45 @@ type Story = StoryObj<typeof Tooltip>;
 const Overlay = (props: { position: string }) => {
   const { position } = props;
   return (
-    <div style={{ width: '80px', textAlign: 'center' }}>
-      <span>Overlay Data</span>
-      <br />
-      <span>Tooltip {position}</span>
-    </div>
+    <>
+      <Typography.Body size='s' className='!tw-text-primary-white'>
+        Please provide your US EIN/TIN, Foreign Tax ID, or SSN (for sole proprietorships if based in the U.S.).
+      </Typography.Body>
+      <ul className='!tw-list-disc tw-pl-4'>
+        <li>
+          <Typography.Body size='s' className='!tw-text-primary-white'>
+            If you are a U.S.-based business, this will be a nine-digit number (e.g., 9XX-XX-XXXX).
+          </Typography.Body>
+        </li>
+        <li>
+          <Typography.Body size='s' className='!tw-text-primary-white'>
+            If you are a non-U.S. business, this will be a mix of characters and numbers specific to your jurisdiction.
+          </Typography.Body>
+        </li>
+        <li>
+          <Typography.Body size='s' className='!tw-text-primary-white'>
+            If you do not have a Tax ID, please indicate "NA."
+          </Typography.Body>
+        </li>
+      </ul>
+    </>
   );
 };
 export const Primary: Story = {
   args: {
     prefixCls: 'tooltip',
-    trigger: ['hover'],
+    openEvents: {
+      mouseover: false,
+      click: true,
+      focus: false,
+      mouseenter: false,
+    },
+    closeEvents: {
+      mouseleave: false,
+      blur: false,
+      mouseout: false,
+      click: true,
+    },
   },
   render: args => <div style={{
     display: 'grid',
@@ -45,90 +75,128 @@ export const Primary: Story = {
     width: '100%',
     maxWidth: '1000px',
     margin: '0 auto',
-    padding: '20px 60px'
+    padding: '120px'
   }}>
+
+    <button id='tooltip-right'>
+      Right
+    </button>
+    <button id='tooltip-bottom-start'>
+      Bottom Start
+    </button>
+    <button id='tooltip-bottom-end'>
+      Bottom End
+    </button>
+    <button id='tooltip-left'>
+      Left
+    </button>
+    <button id='tooltip-right-start'>
+      Right Start
+    </button>
+    <button id='tooltip-top'>
+      Top
+    </button>
+    <button id='tooltip-bottom'>
+      Bottom
+    </button>
+    <button id='tooltip-left-start'>
+      Left Start
+    </button>
+    <button id='tooltip-right-end'>
+      Right End
+    </button>
+    <button id='tooltip-top-start'>
+      Top Start
+    </button>
+    <button id='tooltip-top-end'>
+      Top End
+    </button>
+    <button id='tooltip-left-end'>
+      Left End
+    </button>
     <Tooltip
       {...args}
-      placement="left"
-      overlay={<Overlay position="left" />}
+      anchorSelect="#tooltip-left"
+      place="left"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Left</span>
+      <Overlay position="left" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="top"
-      overlay={<Overlay position="top" />}
+      anchorSelect="#tooltip-top"
+      place="top"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Top</span>
+      <Overlay position="top" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="bottom"
-      overlay={<Overlay position="bottom" />}>
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Bottom</span>
+      anchorSelect="#tooltip-bottom"
+      place="bottom"
+    >
+      <Overlay position="bottom" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="right"
-      overlay={<Overlay position="right" />}
+      anchorSelect="#tooltip-right"
+      place="right"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Right</span>
+      <Overlay position="right" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="leftTop"
-      overlay={<Overlay position="leftTop" />}
+      anchorSelect="#tooltip-left-start"
+      place="left-start"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Left Top</span>
+      <Overlay position="left-start" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="leftBottom"
-      overlay={<Overlay position="leftBottom" />}
+      anchorSelect="#tooltip-left-end"
+      place="left-end"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Left Bottom</span>
+      <Overlay position="left-end" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="rightTop"
-      overlay={<Overlay position="rightTop" />}
+      anchorSelect="#tooltip-right-start"
+      place="right-start"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Right Top</span>
+      <Overlay position="right-start" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="rightBottom"
-      overlay={<Overlay position="rightBottom" />}
+      anchorSelect="#tooltip-right-end"
+      place="right-end"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Right Bottom</span>
+      <Overlay position="right-end" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="topLeft"
-      overlay={<Overlay position="topLeft" />}
+      anchorSelect="#tooltip-top-start"
+      place="top-start"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Top Left</span>
+      <Overlay position="top-start" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="topRight"
-      overlay={<Overlay position="topRight" />}
+      anchorSelect="#tooltip-top-end"
+      place="top-end"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Top Right</span>
+      <Overlay position="top-end" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="bottomLeft"
-      overlay={<Overlay position="bottomLeft" />}
+      anchorSelect="#tooltip-bottom-start"
+      place="bottom-start"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Bottom Left</span>
+      <Overlay position="bottom-start" />
     </Tooltip>
     <Tooltip
       {...args}
-      placement="bottomRight"
-      overlay={<Overlay position="bottomRight" />} 
+      anchorSelect="#tooltip-bottom-end"
+      place="bottom-end"
     >
-      <span style={{ border: '1px solid green', borderRadius: '8px', cursor: 'pointer' }}>Bottom Right</span>
+      <Overlay position="bottom-end" />
     </Tooltip>
   </div>
 };

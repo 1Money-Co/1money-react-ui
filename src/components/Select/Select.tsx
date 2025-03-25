@@ -86,7 +86,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         {...(props as MultiSelectProps)}
       />
       : <Dropdown
-        collapseIcon={multiple ? void 0 : () => <Icons name='chevronDown' color='#131313' size={20} />}
+        collapseIcon={multiple ? void 0 : () => <Icons name='chevronUp' color='#131313' size={20} />}
         {...(props as DropdownProps)}
       />
     , [multiple]
@@ -150,7 +150,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
           setIsOpen(true);
           onShow?.();
         }}
-        dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={18} />}
+        dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
       />
       {
         message && <span
