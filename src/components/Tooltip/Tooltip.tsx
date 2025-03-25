@@ -1,3 +1,4 @@
+'use client';
 import { memo } from 'react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 
