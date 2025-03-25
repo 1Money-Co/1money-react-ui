@@ -4,6 +4,7 @@ $component: 'select';
 $cls: #{$prefix}-#{$component};
 
 .#{$cls} {
+  position: relative;
   display: inline-flex;
   min-height: 56px;
   padding: 8px 16px;
