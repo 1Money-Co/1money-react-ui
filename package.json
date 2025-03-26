@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -78,6 +78,11 @@
       "types": "./es/components/Modal/index.d.ts",
       "import": "./es/components/Modal/index.js",
       "require": "./lib/components/Modal/index.js"
+    },
+    "./Notification": {
+      "types": "./es/components/Notification/index.d.ts",
+      "import": "./es/components/Notification/index.js",
+      "require": "./lib/components/Notification/index.js"
     },
     "./Popup": {
       "types": "./es/components/Popup/index.d.ts",
