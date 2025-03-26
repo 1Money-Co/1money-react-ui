@@ -11,6 +11,7 @@ import { Loading } from './components/Loading';
 import { Menu } from './components/Menu';
 import { Message } from './components/Message';
 import { Modal } from './components/Modal';
+import { Notification } from './components/Notification';
 import { Popup } from './components/Popup';
 import { Progress } from './components/Progress';
 import { RadioGroup } from './components/RadioGroup';
@@ -39,6 +40,7 @@ export { Loading } from './components/Loading';
 export { Menu } from './components/Menu';
 export { Message } from './components/Message';
 export { Modal } from './components/Modal';
+export { Notification } from './components/Notification';
 export { Popup } from './components/Popup';
 export { Progress } from './components/Progress';
 export { RadioGroup } from './components/RadioGroup';
@@ -68,6 +70,7 @@ export default {
   Menu,
   Message,
   Modal,
+  Notification,
   Popup,
   Progress,
   RadioGroup,
