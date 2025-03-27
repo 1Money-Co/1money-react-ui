@@ -13,123 +13,188 @@ $component: 'radiogroup';
 .#{$prefix}-#{$component} {
   &-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+   & .horizontal {
+      flex-direction: row;
+    }
+
+   & .vertical {
+      flex-direction: column;
+    }
+  }
+
+  &-label {
+    color: $color-primary-black;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: Inter;
+    font-style: normal;
+    line-height: 108%;
+
+    &.label-required {
+      &::after {
+        margin-left: 4px;
+        color: $color-negative;
+        font-size: 16px;
+        font-style: normal;
+        line-height: 120%;
+        content: '*';
+      }
+    }
   }
 
   &-inner {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  &-default {
     display: flex;
-    align-items: center;
-    margin-right: 12px;
 
-    label {
-      margin-left: 8px;
-      font-weight: 500;
-      cursor: pointer;
-      user-select: none;
-    }
+    &-inner {
+      display: flex;
+      align-items: center;
+      margin-right: 12px;
 
-    @each $size,
-    $dimension in $radio-size {
-      &.rd-#{$size} {
-        .p-radiobutton {
-          width: $dimension;
-          height: $dimension;
+      label {
+        margin-left: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+      }
 
-          &>.p-radiobutton-box {
+      @each $size,
+      $dimension in $radio-size {
+        &.rd-#{$size} {
+          .p-radiobutton {
             width: $dimension;
             height: $dimension;
-            border: 1px solid $color-grey-dark;
-            border-radius: $radio-border-radius;
+
+            &>.p-radiobutton-box {
+              width: $dimension;
+              height: $dimension;
+              border: 1px solid $color-grey-dark;
+              border-radius: $radio-border-radius;
+            }
           }
-        }
-
-        .p-radiobutton-icon {
-          width: map.get($icon-size, $size);
-          height: map.get($icon-size, $size);
-        }
-
-        label {
-          font-size: if($size=='sm', 12px, 14px);
-          line-height: $dimension + 4px;
-        }
-      }
-    }
-
-    .p-radiobutton {
-      // 悬停状态
-      &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:hover) {
-        .p-radiobutton-box {
-          border-color: $color-primary-black;
-        }
-
-        &:has(.p-radiobutton-input:checked) {
-          .p-radiobutton-box {
-            background-color: $color-primary-hover;
-            border-color: $color-primary-hover;
-          }
-        }
-      }
-
-      // 聚焦状态
-      &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:focus) {
-        .p-radiobutton-box {
-          border: 2px solid $color-primary;
-          box-shadow: none;
 
           .p-radiobutton-icon {
-            background-color: #fff;
+            width: map.get($icon-size, $size);
+            height: map.get($icon-size, $size);
+          }
+
+          label {
+            font-size: if($size=='sm', 12px, 14px);
+            line-height: $dimension + 4px;
+          }
+        }
+      }
+
+      .p-radiobutton {
+        // 悬停状态
+        &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:hover) {
+          .p-radiobutton-box {
+            border-color: $color-primary-black;
           }
 
           &:has(.p-radiobutton-input:checked) {
-            background-color: $color-primary-active;
+            .p-radiobutton-box {
+              background-color: $color-primary-hover;
+              border-color: $color-primary-hover;
+            }
           }
         }
-      }
 
-      // 无效状态
-      &.p-invalid {
-        .p-radiobutton-box {
-          border-color: $color-negative;
+        // 聚焦状态
+        &:not(.p-disabled, .p-invalid):has(.p-radiobutton-input:focus) {
+          .p-radiobutton-box {
+            border: 2px solid $color-primary;
+            box-shadow: none;
+
+            .p-radiobutton-icon {
+              background-color: #fff;
+            }
+
+            &:has(.p-radiobutton-input:checked) {
+              background-color: $color-primary-active;
+            }
+          }
         }
-      }
 
-      // 高亮状态
-      &.p-highlight {
-        .p-radiobutton-box {
-          background-color: $color-primary;
-          border-color: $color-primary;
-        }
-
-        // 高亮无效状态
+        // 无效状态
         &.p-invalid {
           .p-radiobutton-box {
-            background-color: $color-negative;
             border-color: $color-negative;
           }
         }
-      }
 
-      &.p-disabled {
-        .p-radiobutton-box {
-          background-color: $color-grey;
-          border-color: $color-grey-bold;
+        // 高亮状态
+        &.p-highlight {
+          .p-radiobutton-box {
+            background-color: $color-primary;
+            border-color: $color-primary;
+          }
 
-          .p-radiobutton-icon {
-            background-color: $color-grey-dark;
+          // 高亮无效状态
+          &.p-invalid {
+            .p-radiobutton-box {
+              background-color: $color-negative;
+              border-color: $color-negative;
+            }
           }
         }
 
-        &:has(.p-radiobutton-input:checked) {
+        &.p-disabled {
           .p-radiobutton-box {
             background-color: $color-grey;
-            border: 0;
-          }
-        }
+            border-color: $color-grey-bold;
 
+            .p-radiobutton-icon {
+              background-color: $color-grey-dark;
+            }
+          }
+
+          &:has(.p-radiobutton-input:checked) {
+            .p-radiobutton-box {
+              background-color: $color-grey;
+              border: 0;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  &-card {
+    display: flex;
+
+    &-inner {
+      display: flex;
+      padding: 8px 16px;
+      border: 1px solid $color-grey-bold;
+      border-radius: 12px;
+      cursor: pointer;
+
+      &:not(.disabled, .invalid):hover {
+        border-color: $color-primary-hover;
       }
     }
 
+    .checked {
+      background-color: $color-grey-light;
+      border-color: $color-primary;
+    }
 
+    .disabled {
+      background-color: $color-grey;
+      cursor: not-allowed;
+    }
 
+    .invalid {
+      border-color: $color-negative;
+      cursor: not-allowed;
+    }
   }
 }
