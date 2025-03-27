@@ -31,7 +31,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const renderDefaultRadio = (item: RadioItemProps) => {
     const { key, label, required, children, ...rest } = item;
     return (
-      <div key={key} className={[classes('default-inner', innerCls), sizeClass].join(' ')}>
+      <div key={key} className={[classes('default-inner'), sizeClass].join(' ')}>
         <RadioButton
           {...rest}
           required={required}
@@ -50,13 +50,12 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   };
 
   const renderCardRadio = (item: RadioItemProps) => {
-    const { key, label, required, disabled, invalid, children, ...rest } = item;
+    const { key, label, required, disabled, invalid, children } = item;
     return (
       <div key={key} className={[classes('card-inner'),
         isSelected(item) && 'checked',
         disabled && 'disabled',
         invalid && 'invalid',
-        innerCls,
         ].filter(Boolean).join(' ')}
         onClick={() => {
           if (disabled) return;
@@ -75,6 +74,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     <div className={[classes('inner'),
       variant === 'card' ? classes('card') : classes('default'),
       direction === 'horizontal' ? 'horizontal' : 'vertical',
+      innerCls,
     ].join(' ')}>
       {items.map(item => variant === 'card' ? renderCardRadio(item) : renderDefaultRadio(item))}
     </div>

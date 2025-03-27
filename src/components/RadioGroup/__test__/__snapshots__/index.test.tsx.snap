@@ -9,7 +9,7 @@ exports[`RadioGroup Large renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
             class="om-react-ui-radiogroup-default-inner rd-lg"
@@ -150,7 +150,7 @@ exports[`RadioGroup Large renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
           class="om-react-ui-radiogroup-default-inner rd-lg"
@@ -348,7 +348,7 @@ exports[`RadioGroup Medium renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
             class="om-react-ui-radiogroup-default-inner rd-md"
@@ -489,7 +489,7 @@ exports[`RadioGroup Medium renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
           class="om-react-ui-radiogroup-default-inner rd-md"
@@ -687,7 +687,7 @@ exports[`RadioGroup disabled renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
             class="om-react-ui-radiogroup-default-inner rd-md"
@@ -765,7 +765,7 @@ exports[`RadioGroup disabled renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
           class="om-react-ui-radiogroup-default-inner rd-md"
@@ -900,7 +900,7 @@ exports[`RadioGroup renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
             class="om-react-ui-radiogroup-default-inner rd-md"
@@ -1040,7 +1040,7 @@ exports[`RadioGroup renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
           class="om-react-ui-radiogroup-default-inner rd-md"
@@ -1237,7 +1237,7 @@ exports[`RadioGroup size renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
             class="om-react-ui-radiogroup-default-inner rd-sm"
@@ -1378,7 +1378,7 @@ exports[`RadioGroup size renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
           class="om-react-ui-radiogroup-default-inner rd-sm"
