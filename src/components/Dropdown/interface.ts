@@ -17,6 +17,7 @@ export interface DropdownProps extends OverlayPanelProps {
   wrapperCls?: string;
   listCls?: string;
   itemCls?: string;
+  itemActiveCls?: string;
   prefixEle?: ReactNode;
   suffixEle?: ReactNode;
 }

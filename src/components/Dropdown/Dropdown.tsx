@@ -6,7 +6,7 @@ import type { FC, PropsWithChildren, CSSProperties } from 'react';
 import type { DropdownProps } from './interface';
 
 export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
-  const { prefixEle, suffixEle, items = [], width, height, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, ...rest } = props;
+  const { prefixEle, suffixEle, items = [], width, height, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, itemActiveCls, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -22,7 +22,7 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
         {prefixEle}
         <ul className={classes('list', listCls)}>
           {items.map((item, key) => (
-            <li key={item.key ?? key} className={classes('list-item', itemCls)}>
+            <li key={item.key ?? key} className={classes('list-item', [itemCls, item.active ? itemActiveCls : void 0].join(' '))}>
               {item.children}
             </li>
           ))}
