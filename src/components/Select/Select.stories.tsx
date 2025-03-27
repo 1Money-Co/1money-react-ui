@@ -66,7 +66,7 @@ export const Multiple: Story = {
     <Select {...props} />
   </div>,
   args: {
-    appendTo: null,
+    appendTo: 'self',
     placeholder: 'Select Cities',
     multiple: true,
     filter: true,
