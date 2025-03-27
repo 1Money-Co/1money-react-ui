@@ -70,16 +70,15 @@ export const Sidebar: Story = {
     const [collapsed, setCollapsed] = useState(false);
     return <SidebarComponent {...rest} onCollapse={setCollapsed}>
       <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', marginTop: 'auto', gap: '12px' }}>
-        <Tooltip placement='top' overlay={
+        <i id='help' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
+          <Icons name='help' size={20} color='#646465' />
+        </i>
+        <Tooltip place='top' anchorSelect='#help' >
           <div style={{ width: '80px', textAlign: 'center' }}>
             <span>Overlay Data</span>
             <br />
             <span>Tooltip</span>
           </div>
-        }>
-          <i style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
-            <Icons name='help' size={20} color='#646465' />
-          </i>
         </Tooltip>
         <span style={{ fontSize: collapsed ? '10px' : '14px' }}>Support</span>
       </div>
