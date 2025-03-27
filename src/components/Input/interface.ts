@@ -18,18 +18,18 @@ export interface InputBaseProps {
   rounded?: boolean;
   size?: 'large' | 'small';
   success?: boolean;
+  prefixEle?: ReactNode;
+  suffixEle?: ReactNode;
+  prefixEleCls?: string;
+  suffixEleCls?: string;
 }
 
 export interface InputTextProps extends Omit<PrimeInputTextProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type?: 'text';
-  prefix?: ReactNode;
-  suffix?: ReactNode;
 }
 
 export interface InputNumberProps extends Omit<PrimeInputNumberProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'number';
-  prefix?: ReactNode;
-  suffix?: ReactNode;
 }
 
 export interface InputMaskProps extends Omit<PrimeInputMaskProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{

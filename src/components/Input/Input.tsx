@@ -28,10 +28,10 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     labelCls,
     messageCls,
     size = 'large',
-    // @ts-ignore
-    prefix,
-    // @ts-ignore
-    suffix,
+    prefixEle,
+    suffixEle,
+    prefixEleCls,
+    suffixEleCls,
     maxLength,
     // @ts-ignore
     showCount,
@@ -102,8 +102,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           val ? classes('inner-filled') : '',
         ].join(' '))}
       >
-        {/* {addons && <div className={classes('addons')}>{addons}</div>} */}
-        {prefix && <div onClick={e => e.stopPropagation()} className={classes('prefix')}>{prefix}</div>}
+        {prefixEle && <div onClick={e => e.stopPropagation()} className={classes('prefix', prefixEleCls)}>{prefixEle}</div>}
         <InputComponent
           {...rest as any}
           ref={inputRef}
@@ -122,7 +121,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
             className,
           ].join(' '))}
         />
-        {suffix && <div onClick={e => e.stopPropagation()} className={classes('suffix')}>{suffix}</div>}
+        {suffixEle && <div onClick={e => e.stopPropagation()} className={classes('suffix', suffixEleCls)}>{suffixEle}</div>}
         {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${val.length}/${maxLength}`}</div>}
       </div>
       {

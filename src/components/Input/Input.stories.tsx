@@ -35,7 +35,7 @@ export const Normal: Story = {
   args: {
     type: 'text',
     label: 'Email',
-    prefix: <h4 style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600 }}>
+    prefixEle: <h4 style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600 }}>
       Title
     </h4>,
     placeholder: 'Enter your email',
@@ -46,10 +46,10 @@ export const Normal: Story = {
 export const Number: Story = {
   args: {
     type: 'number',
-    prefix: <i style={{ backgroundColor: '#DDE6F4', borderRadius: '50%', padding: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+    prefixEle: <i style={{ backgroundColor: '#DDE6F4', borderRadius: '50%', padding: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
       <Icons name='logo' size={20} color='#073387' />
     </i>,
-    suffix: <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#073387', cursor: 'pointer' }}>Max</div>,
+    suffixEle: <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#073387', cursor: 'pointer' }}>Max</div>,
   },
 };
 
