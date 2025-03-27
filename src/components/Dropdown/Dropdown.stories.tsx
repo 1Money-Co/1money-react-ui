@@ -32,6 +32,9 @@ const dropdownItems = [
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
+        padding: '8px 12px 8px 8px',
+        borderRadius: '8px',
+        cursor: 'pointer',
       }}
     >
       <IconWrapper>
@@ -59,6 +62,9 @@ const dropdownItems = [
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
+        padding: '8px 12px 8px 8px',
+        borderRadius: '8px',
+        cursor: 'pointer',
       }}
     >
       <IconWrapper>
@@ -86,6 +92,9 @@ const dropdownItems = [
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
+        padding: '8px 12px 8px 8px',
+        borderRadius: '8px',
+        cursor: 'pointer',
       }}
     >
       <IconWrapper>
@@ -114,6 +123,9 @@ const dropdownItems = [
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
+        padding: '8px 12px 8px 8px',
+        borderRadius: '8px',
+        cursor: 'pointer',
       }}
     >
       <IconWrapper>
@@ -141,6 +153,9 @@ const dropdownItems = [
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
+        padding: '8px 12px 8px 8px',
+        borderRadius: '8px',
+        cursor: 'pointer',
       }}
     >
       <IconWrapper>

@@ -3,6 +3,7 @@ import type { OverlayPanelProps, OverlayPanel } from 'primereact/overlaypanel';
 
 export interface DropdownItem {
   key?: string;
+  active?: boolean;
   children: ReactNode;
 }
 
@@ -15,6 +16,8 @@ export interface DropdownProps extends OverlayPanelProps {
   className?: string;
   wrapperCls?: string;
   listCls?: string;
+  itemCls?: string;
+  itemActiveCls?: string;
   prefixEle?: ReactNode;
   suffixEle?: ReactNode;
 }

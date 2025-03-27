@@ -50,9 +50,7 @@ $cls: #{$prefix}-#{$component};
     list-style: none;
 
     &-item {
-      padding: 8px;
+      position: relative;
     }
   }
-
-
 }
