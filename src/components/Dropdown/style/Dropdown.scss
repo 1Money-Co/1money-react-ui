@@ -1,4 +1,58 @@
-.prefix-dropdown {
-  display: block;
-  color: blue;
+@use '../../../variable.scss'as *;
+
+$component: 'dropdown';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 48px);
+  padding: 8px 4px;
+  overflow: hidden;
+  background-color: $color-primary-white;
+  border-color: $color-grey;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
+
+  .p-overlaypanel-content {
+    width: var(--dropdown-width);
+    max-width: calc(100vw - 48px);
+    height: var(--dropdown-height);
+    max-height: calc(100vh - 48px);
+    padding: 0 4px;
+    overflow-y: scroll;
+    border: none;
+    border-radius: 0;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      max-width: 100%;
+      max-height: 100%;
+      background-color: $color-grey-dark;
+      border-radius: 2px;
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &-item {
+      padding: 8px;
+    }
+  }
+
+
 }

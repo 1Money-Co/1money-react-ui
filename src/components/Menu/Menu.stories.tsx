@@ -17,17 +17,19 @@ const meta: Meta<typeof Menu> = {
     className: 'tw-w-[150px]',
     model: [
       {
-        // label: 'Company',
         items: [
           {
             label: 'About Us',
           },
           {
             label: 'FAQs',
-          }
-      ]
-    }
-  ]
+          },
+          {
+            label: 'Contact Us',
+          },
+        ]
+      }
+    ]
   },
   tags: ['autodocs'],
 };

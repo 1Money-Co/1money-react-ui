@@ -4,17 +4,9 @@ exports[`Dropdown renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-dropdown-mask"
-      />
-    </div>
+    <div />
   </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-dropdown-mask"
-    />
-  </div>,
+  "container": <div />,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
