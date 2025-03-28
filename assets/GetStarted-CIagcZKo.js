@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-BjG_zV1W.js";import{useMDXComponents as i}from"./index-DRNzCPPB.js";import{M as o}from"./index-CxSAPSYM.js";import"./index-DGOumNSj.js";import"./iframe-CBEI781k.js";import"./index-BmTs--ql.js";import"./index-Cu4lwwaE.js";import"./index-Bh1B8kca.js";import"./index-DrFu-skq.js";function t(r){const n={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...i(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Get Started"}),`
+import{j as e}from"./jsx-runtime-BjG_zV1W.js";import{useMDXComponents as i}from"./index-DRNzCPPB.js";import{M as o}from"./index-CIWu5jvK.js";import"./index-DGOumNSj.js";import"./iframe-2BcRV-U2.js";import"./index-BmTs--ql.js";import"./index-Cu4lwwaE.js";import"./index-Bh1B8kca.js";import"./index-DrFu-skq.js";function t(r){const n={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...i(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Get Started"}),`
 `,e.jsx(n.h1,{id:"1moneyreact-ui",children:"@1money/react-ui"}),`
 `,e.jsx(n.h2,{id:"quick-start",children:"Quick start"}),`
 `,e.jsx(n.h3,{id:"install",children:"Install"}),`
