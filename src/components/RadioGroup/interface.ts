@@ -1,4 +1,11 @@
 import type { RadioButtonProps } from 'primereact/radiobutton';
+import { ReactNode } from 'react';
+
+export interface RadioItemProps extends Omit<RadioButtonProps, 'children' | 'inputId' | 'value' | 'onChange' | 'checked' | 'className'> {
+  key: string;
+  label?: string;
+  children?: ReactNode | ((selected: boolean) => ReactNode);
+}
 
 export interface RadioGroupProps {
   wrapperCls?: string;
@@ -6,9 +13,11 @@ export interface RadioGroupProps {
   radioCls?: string;
   prefixCls?: string;
   size?: 'sm' | 'md' | 'lg';
-  onChange?: (selected:  RadioGroupProps['items'][number]) => any;
-  items:({
-    key: string;
-    label?: string;
-  } & Omit<RadioButtonProps, 'inputId' | 'value' | 'onChange' | 'checked' | 'className'>)[];
+  variant?: 'default' | 'card';
+  direction?: 'horizontal' | 'vertical';
+  labelCls?: string;
+  label?: string;
+  required?: boolean;
+  onChange?: (selected: RadioItemProps) => any;
+  items: RadioItemProps[];
 }
