@@ -1,4 +1,4 @@
-import { memo, useRef, useState, useEffect, useCallback, useImperativeHandle } from 'react';
+import { memo, useRef, useMemo, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import isEqual from 'lodash.isequal';
 import { Dropdown, type DropdownProps } from 'primereact/dropdown';
 import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
@@ -6,30 +6,130 @@ import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { SelectProps } from './interface';
+import type { SelectProps, CustomDropdownProps } from './interface';
 
-export const Select: FC<PropsWithChildren<SelectProps>> = props => {
+const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' | 'required' | 'prefixCls' | 'wrapperCls' | 'labelCls' | 'messageCls' | 'success' | 'invalid' | 'disabled'>>> = memo(props => {
+  const {
+    label,
+    message,
+    required,
+    prefixCls,
+    wrapperCls,
+    labelCls,
+    messageCls,
+    success,
+    invalid,
+    disabled,
+    children,
+  } = props;
+  const classes = classnames(prefixCls);
+
+  return <div className={classes('wrapper', wrapperCls)}>
+    {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+    {children}
+    {
+      message && <span
+        className={classes('message', [
+          success ? classes('message-success') : '',
+          invalid ? classes('message-error') : '',
+          messageCls
+        ].join(' '))}
+      >
+        {message}
+      </span>
+    }
+  </div>;
+});
+
+const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
+  const {
+    label,
+    message,
+    required,
+    prefixCls = 'select',
+    wrapperCls,
+    labelCls,
+    messageCls,
+    value,
+    size = 'large',
+    success,
+    invalid,
+    disabled,
+    placeholder,
+    className = '',
+    selectedTemplate,
+    tailTemplate,
+  } = props;
+  const classes = classnames(prefixCls);
+  const [isFocus, setIsFocus] = useState(false);
+
+  const selectCls = useMemo(() => classes(void 0, [
+    classes(size),
+    classes('custom'),
+    isFocus ? classes('focus') : '',
+    success ? classes('success') : '',
+    invalid ? classes('invalid') : '',
+    disabled ? classes('disabled') : '',
+    className
+  ].join(' ')), [size, isFocus, success, invalid, disabled, className]);
+
+  useEffect(() => {
+    const removeFocus = () => {
+      setIsFocus(false);
+    };
+    document.addEventListener('click', removeFocus);
+    return () => {
+      document.removeEventListener('click', removeFocus);
+    };
+  }, []);
+
+  return <SelectWrapper
+    label={label}
+    message={message}
+    required={required}
+    prefixCls={prefixCls}
+    wrapperCls={wrapperCls}
+    labelCls={labelCls}
+    messageCls={messageCls}
+    success={success}
+    invalid={invalid}
+    disabled={disabled}
+  >
+    <div className={selectCls} onClick={(e) => {
+      setIsFocus(prev => !prev);
+      e.stopPropagation();
+      props.onClick?.(e);
+    }}>
+      {typeof selectedTemplate === 'function' ? selectedTemplate(isFocus) : <span className={classes('custom-placeholder')}>{placeholder}</span>}
+      {typeof tailTemplate === 'function' ? tailTemplate(isFocus) : <Icons name={isFocus ? 'chevronUp' : 'chevronDown'} color='#131313' size={20} />}
+    </div>
+  </SelectWrapper>;
+};
+
+export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: typeof CustomDropdown } = props => {
   const {
     ref,
     label,
     message,
     required,
-    invalid,
-    multiple,
-    options,
-    name,
-    className = '',
-    panelClassName,
-    onChange,
     prefixCls = 'select',
     wrapperCls,
     labelCls,
     messageCls,
-    defaultValue,
-    itemTemplate,
     value,
     size = 'large',
     success,
+    invalid,
+    disabled,
+    placeholder,
+    className = '',
+    multiple,
+    options,
+    name,
+    panelClassName,
+    defaultValue,
+    itemTemplate,
+    onChange,
     onHide,
     onShow,
     unselectable,
@@ -38,8 +138,19 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
-  const selectRef = useRef<Dropdown | MultiSelect | null>(null);
-  const _ref = useRef<Dropdown | MultiSelect | null>(null);
+
+  const selectRef = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
+  const _ref = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
+
+  const selectCls = useMemo(() => classes(void 0, [
+    classes(size),
+    isOpen ? classes('show') : '',
+    success ? classes('success') : '',
+    invalid ? classes('invalid') : '',
+    disabled ? classes('disabled') : '',
+    (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
+    className
+  ].join(' ')), [size, isOpen, success, selected, invalid, disabled, className]);
 
   const SelectComponent = useCallback(
     (props: MultiSelectProps & DropdownProps) => multiple
@@ -101,26 +212,29 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
   useImperativeHandle(ref ?? _ref, () => selectRef.current!);
 
   return (
-    <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+    <SelectWrapper
+      label={label}
+      message={message}
+      required={required}
+      prefixCls={prefixCls}
+      wrapperCls={wrapperCls}
+      labelCls={labelCls}
+      messageCls={messageCls}
+      success={success}
+      invalid={invalid}
+      disabled={disabled}
+    >
       <SelectComponent
         {...rest as any}
         ref={selectRef}
         name={name}
         filterPlaceholder='Search'
         required={required}
+        disabled={disabled}
         invalid={invalid}
         options={options}
         value={selected == null ? undefined : selected}
-        className={
-          classes(void 0, [
-            classes(size),
-            isOpen ? classes('show') : '',
-            success ? classes('success') : '',
-            (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
-            className
-          ].join(' '))
-        }
+        className={selectCls}
         itemTemplate={(option) => {
           return <div className={classes('panel-item')}
             onClick={() => {
@@ -139,7 +253,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         panelClassName={classes('panel', panelClassName)}
         onChange={(e) => {
           setSelected(e.value);
-          // @ts-ignore
+          // @ts-expect-error
           onChange?.(e);
         }}
         onHide={() => {
@@ -152,19 +266,10 @@ export const Select: FC<PropsWithChildren<SelectProps>> = props => {
         }}
         dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
       />
-      {
-        message && <span
-          className={classes('message', [
-            success ? classes('message-success') : '',
-            invalid ? classes('message-error') : '',
-            messageCls
-          ].join(' '))}
-        >
-          {message}
-        </span>
-      }
-    </div>
+    </SelectWrapper>
   );
 };
+
+Select.CustomDropdown = CustomDropdown;
 
 export default memo(Select);
