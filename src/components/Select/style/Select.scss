@@ -135,15 +135,16 @@ $cls: #{$prefix}-#{$component};
     padding: 12px 16px;
   }
 
-  &.p-multiselect:not(.p-disabled, .p-invalid).p-focus,
-  &.p-dropdown:not(.p-disabled, .p-invalid).p-focus {
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid).p-focus,
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid).p-focus,
+  &-focus:not(.#{$cls}-disabled, .#{$cls}-invalid) {
     border-color: $color-primary;
     border-width: 2px;
     box-shadow: none;
   }
 
-  &.p-multiselect:not(.p-disabled, .p-invalid),
-  &.p-dropdown:not(.p-disabled, .p-invalid) {
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid),
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid) {
     &:hover {
       border-color: $color-primary-black;
     }
@@ -441,6 +442,20 @@ $cls: #{$prefix}-#{$component};
     top: 50%;
     left: 16px;
     transform: translateY(-50%);
+  }
+}
+
+.#{$cls}-custom {
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &-placeholder {
+    color: $color-grey-dark;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    line-height: inherit;
   }
 }
 

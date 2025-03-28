@@ -77,11 +77,20 @@ export const Multiple: Story = {
   },
 };
 
+export const CustomDropdown: Story = {
+  args: {
+    placeholder: 'Select Cities',
+    options: cities,
+    label: 'Custom Dropdown',
+    defaultValue: [],
+    customDropdown: true,
+  },
+};
+
 export const CustomItemTemplate: Story = {
   args: {
     placeholder: 'Select Cities',
     options: cities,
-    display: 'chip',
     label: 'CustomItemTemplate',
     defaultValue: []
   },
@@ -93,5 +102,3 @@ export const CustomItemTemplate: Story = {
     </div>} />
   </div>,
 };
-
-

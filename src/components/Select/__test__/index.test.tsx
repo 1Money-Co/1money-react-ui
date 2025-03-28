@@ -36,7 +36,11 @@ describe('Select', () => {
         { label: 'Paris', value: 'PRS' }
       ]} multiple />
     );
+    const custom = render(
+      <Select customDropdown />
+    );
     expect(single).toMatchSnapshot();
     expect(multiple).toMatchSnapshot();
+    expect(custom).toMatchSnapshot();
   });
 });
