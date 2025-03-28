@@ -457,6 +457,12 @@ $cls: #{$prefix}-#{$component};
     font-style: normal;
     line-height: inherit;
   }
+
+  &-tail {
+    &-focus {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .#{$cls}-token-remove-icon {

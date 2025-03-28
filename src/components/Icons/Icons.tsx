@@ -1,4 +1,4 @@
-import { useCallback, useMemo, memo } from 'react';
+import { useMemo, memo } from 'react';
 import {
   Logo,
   LogoWord,
@@ -309,12 +309,8 @@ export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps
 }
 
 export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {
-  const IconComponent = useCallback((props: IconWrapperProps) => {
-    const Icon = useMemo(() => IconList[name], [name]);
-    return Icon ? <Icon {...props} /> : null;
-  }, [name]);
-
-  return <IconComponent {...rest} />;
+  const Icon = useMemo(() => IconList[name], [name]);
+  return Icon ? <Icon {...rest} /> : null;
 };
 
 export default memo(Icons);

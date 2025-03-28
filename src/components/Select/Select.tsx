@@ -50,7 +50,6 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     wrapperCls,
     labelCls,
     messageCls,
-    value,
     size = 'large',
     success,
     invalid,
@@ -74,8 +73,19 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   ].join(' ')), [size, isFocus, success, invalid, disabled, className]);
 
   useEffect(() => {
-    const removeFocus = () => {
-      setIsFocus(false);
+    const findCustomDropdown = (target: EventTarget) => {
+      // @ts-expect-error
+      if (target?.classList?.contains(classes('custom'))) return true;
+      if (target === document) return false;
+      // @ts-expect-error
+      const parent = target.parentNode || target.parentElement;
+      if (!parent) return false;
+      return findCustomDropdown(parent);
+    };
+    const removeFocus = (e: MouseEvent) => {
+      // @ts-ignore
+      const isClickOutside = !findCustomDropdown(e.target);
+      if (isClickOutside) setIsFocus(false);
     };
     document.addEventListener('click', removeFocus);
     return () => {
@@ -95,13 +105,15 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     invalid={invalid}
     disabled={disabled}
   >
-    <div className={selectCls} onClick={(e) => {
-      setIsFocus(prev => !prev);
-      e.stopPropagation();
-      props.onClick?.(e);
-    }}>
+    <div
+      className={selectCls}
+      onClick={(e) => {
+        setIsFocus(prev => !prev);
+        props.onClick?.(e);
+      }}
+    >
       {typeof selectedTemplate === 'function' ? selectedTemplate(isFocus) : <span className={classes('custom-placeholder')}>{placeholder}</span>}
-      {typeof tailTemplate === 'function' ? tailTemplate(isFocus) : <Icons name={isFocus ? 'chevronUp' : 'chevronDown'} color='#131313' size={20} />}
+      {typeof tailTemplate === 'function' ? tailTemplate(isFocus) : <Icons name='chevronDown' color='#131313' size={20} wrapperCls={classes('custom-tail', isFocus ? classes('custom-tail-focus') : '')} /> }
     </div>
   </SelectWrapper>;
 };
