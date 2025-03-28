@@ -50,7 +50,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   };
 
   const renderCardRadio = (item: RadioItemProps) => {
-    const { key, label, required, disabled, invalid, children } = item;
+    const { key, disabled, invalid, children } = item;
     return (
       <div key={key} className={[classes('card-inner'),
         isSelected(item) && 'checked',
