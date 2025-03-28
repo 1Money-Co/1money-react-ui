@@ -1,5 +1,6 @@
 import React from 'react';
 import { Select } from './index';
+import { Icons } from '../Icons';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -79,12 +80,14 @@ export const Multiple: Story = {
 
 export const CustomDropdown: Story = {
   args: {
-    placeholder: 'Select Cities',
-    options: cities,
-    label: 'Custom Dropdown',
-    defaultValue: [],
-    customDropdown: true,
+    placeholder: 'Custom Selected',
   },
+  render: props => <>
+    <Select.CustomDropdown label='Custom Dropdown' {...props} />
+    <br />
+    <br />
+    <Select.CustomDropdown label='Custom Dropdown with Tail' {...props} tailTemplate={(isFocus) => <Icons name='addressBook' size={20} />} />
+  </>
 };
 
 export const CustomItemTemplate: Story = {

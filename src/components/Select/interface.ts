@@ -1,6 +1,6 @@
 import type { ReactNode, RefObject, MouseEvent } from 'react';
-import type { DropdownProps, Dropdown } from 'primereact/dropdown';
-import type { MultiSelectProps as PrimeMultiSelectProps, MultiSelect } from 'primereact/multiselect';
+import type { DropdownProps, Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
+import type { MultiSelectProps as PrimeMultiSelectProps, MultiSelect, MultiSelectChangeEvent } from 'primereact/multiselect';
 
 interface BaseProps {
   prefixCls?: string;
@@ -16,27 +16,27 @@ interface BaseProps {
   itemTemplate?: (option: any) => ReactNode;
 }
 
-export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size' | 'itemTemplate'>, BaseProps {
+export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size' | 'itemTemplate' | 'onChange'>, BaseProps {
   ref?: RefObject<Dropdown | null>;
-  multiple?: false;
   unselectable?: 'on' | 'off';
   panelType?: 'menu' | 'selector';
+  onChange?: (e: DropdownChangeEvent) => void;
 }
 
-export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 'size' | 'itemTemplate'>, BaseProps {
-  ref?: RefObject<MultiSelect | null>;
+export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 'size' | 'itemTemplate' | 'onChange'>, BaseProps {
   multiple: true;
+  ref?: RefObject<MultiSelect | null>;
+  onChange?: (e: MultiSelectChangeEvent) => void;
 }
 
-export interface CustomSelectProps extends Omit<BaseProps, 'itemTemplate'> {
-  ref?: RefObject<HTMLDivElement | null>;
+export interface CustomDropdownProps extends Omit<BaseProps, 'itemTemplate'> {
   invalid?: boolean;
   disabled?: boolean;
   placeholder?: string;
   className?: string;
-  selectedTemplate?: ReactNode;
+  selectedTemplate?: (isFocus: boolean) => ReactNode;
+  tailTemplate?: (isFocus: boolean) => ReactNode;
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
-  customDropdown: true;
 }
 
-export type SelectProps = SingleSelectProps | MultiSelectProps | CustomSelectProps;
+export type SelectProps = SingleSelectProps | MultiSelectProps;

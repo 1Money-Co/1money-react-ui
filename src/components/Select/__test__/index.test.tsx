@@ -37,7 +37,7 @@ describe('Select', () => {
       ]} multiple />
     );
     const custom = render(
-      <Select customDropdown />
+      <Select.CustomDropdown />
     );
     expect(single).toMatchSnapshot();
     expect(multiple).toMatchSnapshot();

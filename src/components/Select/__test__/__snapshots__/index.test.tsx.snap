@@ -9,7 +9,7 @@ exports[`Select renders correctly 1`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large         p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large       p-dropdown p-component p-inputwrapper"
           data-p-focus="false"
           data-pc-name="dropdown"
           data-pc-section="root"
@@ -84,7 +84,7 @@ exports[`Select renders correctly 1`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large         p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large       p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
           filtericon="[object Object]"
@@ -148,8 +148,7 @@ exports[`Select renders correctly 1`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large      om-react-ui-select-custom  "
-          tabindex="0"
+          class="om-react-ui-select om-react-ui-select-large om-react-ui-select-custom     "
         >
           <span
             class="om-react-ui-select-custom-placeholder"
@@ -183,7 +182,7 @@ exports[`Select renders correctly 1`] = `
       class="om-react-ui-select-wrapper"
     >
       <div
-        class="om-react-ui-select om-react-ui-select-large         p-dropdown p-component p-inputwrapper"
+        class="om-react-ui-select om-react-ui-select-large       p-dropdown p-component p-inputwrapper"
         data-p-focus="false"
         data-pc-name="dropdown"
         data-pc-section="root"
@@ -316,7 +315,7 @@ exports[`Select renders correctly 2`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large         p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large       p-dropdown p-component p-inputwrapper"
           data-p-focus="false"
           data-pc-name="dropdown"
           data-pc-section="root"
@@ -391,7 +390,7 @@ exports[`Select renders correctly 2`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large         p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large       p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
           filtericon="[object Object]"
@@ -455,8 +454,7 @@ exports[`Select renders correctly 2`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large      om-react-ui-select-custom  "
-          tabindex="0"
+          class="om-react-ui-select om-react-ui-select-large om-react-ui-select-custom     "
         >
           <span
             class="om-react-ui-select-custom-placeholder"
@@ -490,7 +488,7 @@ exports[`Select renders correctly 2`] = `
       class="om-react-ui-select-wrapper"
     >
       <div
-        class="om-react-ui-select om-react-ui-select-large         p-multiselect p-component p-inputwrapper"
+        class="om-react-ui-select om-react-ui-select-large       p-multiselect p-component p-inputwrapper"
         data-pc-name="multiselect"
         data-pc-section="root"
         filtericon="[object Object]"
@@ -612,7 +610,7 @@ exports[`Select renders correctly 3`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large         p-dropdown p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large       p-dropdown p-component p-inputwrapper"
           data-p-focus="false"
           data-pc-name="dropdown"
           data-pc-section="root"
@@ -687,7 +685,7 @@ exports[`Select renders correctly 3`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large         p-multiselect p-component p-inputwrapper"
+          class="om-react-ui-select om-react-ui-select-large       p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
           filtericon="[object Object]"
@@ -751,8 +749,7 @@ exports[`Select renders correctly 3`] = `
         class="om-react-ui-select-wrapper"
       >
         <div
-          class="om-react-ui-select om-react-ui-select-large      om-react-ui-select-custom  "
-          tabindex="0"
+          class="om-react-ui-select om-react-ui-select-large om-react-ui-select-custom     "
         >
           <span
             class="om-react-ui-select-custom-placeholder"
@@ -786,8 +783,7 @@ exports[`Select renders correctly 3`] = `
       class="om-react-ui-select-wrapper"
     >
       <div
-        class="om-react-ui-select om-react-ui-select-large      om-react-ui-select-custom  "
-        tabindex="0"
+        class="om-react-ui-select om-react-ui-select-large om-react-ui-select-custom     "
       >
         <span
           class="om-react-ui-select-custom-placeholder"
