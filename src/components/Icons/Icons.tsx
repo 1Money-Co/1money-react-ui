@@ -158,7 +158,7 @@ const IconList = {
   illus2FA:Illus2FA,
   illusLocked:IllusLocked,
   illusError:IllusError,
-  IllusRegionNotSupported:IllusRegionNotSupported,
+  illusRegionNotSupported:IllusRegionNotSupported,
   illusIDCard:IllusIDCard,
   illusVerification:IllusVerification,
 
@@ -305,7 +305,7 @@ export interface LogoWithWordsProps extends IconsProps, LogoWithWordsCustomProps
 }
 
 export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps {
-  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'IllusRegionNotSupported';
+  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'illusRegionNotSupported';
 }
 
 export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {

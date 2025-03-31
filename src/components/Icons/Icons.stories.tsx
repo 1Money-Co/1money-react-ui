@@ -592,9 +592,9 @@ export const Illustrations: Story = {
         <Icons {...args} name='illusError' />
         <span>illusError</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='IllusRegionNotSupported' />")}>
-        <Icons {...args} name='IllusRegionNotSupported' />
-        <span>IllusRegionNotSupported</span>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusRegionNotSupported' />")}>
+        <Icons {...args} name='illusRegionNotSupported' />
+        <span>illusRegionNotSupported</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='illusIDCard' />")}>
         <Icons {...args} name='illusIDCard' />
