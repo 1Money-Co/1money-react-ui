@@ -18,6 +18,7 @@ interface BaseProps {
 
 export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size' | 'itemTemplate' | 'onChange'>, BaseProps {
   ref?: RefObject<Dropdown | null>;
+  multiple?: false;
   unselectable?: 'on' | 'off';
   panelType?: 'menu' | 'selector';
   onChange?: (e: DropdownChangeEvent) => void;
