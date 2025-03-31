@@ -14,7 +14,7 @@ import {
   Illus2FA,
   IllusLocked,
   IllusError,
-  IllusRegoinNotSupported,
+  IllusRegionNotSupported,
   IllusIDCard,
   IllusVerification
 } from './Illustrations';
@@ -158,7 +158,7 @@ const IconList = {
   illus2FA:Illus2FA,
   illusLocked:IllusLocked,
   illusError:IllusError,
-  illusRegoinNotSupported:IllusRegoinNotSupported,
+  IllusRegionNotSupported:IllusRegionNotSupported,
   illusIDCard:IllusIDCard,
   illusVerification:IllusVerification,
 
@@ -305,7 +305,7 @@ export interface LogoWithWordsProps extends IconsProps, LogoWithWordsCustomProps
 }
 
 export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps {
-  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'illusRegoinNotSupported';
+  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'IllusRegionNotSupported';
 }
 
 export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {
