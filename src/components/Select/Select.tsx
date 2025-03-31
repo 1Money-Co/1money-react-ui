@@ -105,8 +105,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   useEffect(() => {
     const findCustomDropdownDataId = (target: EventTarget | null) => {
       if (!dataIdRef.current) return false;
-      // @ts-expect-error
-      if (target?.dataset?.selectCustomDropdownId === dataIdRef.current) return true;
+      if ((target as HTMLElement)?.dataset?.selectCustomDropdownId === dataIdRef.current) return true;
       if (target === document.body || target === document) return false;
       const parent = (target as Node).parentNode || (target as Element).parentElement;
       if (!parent) return false;
