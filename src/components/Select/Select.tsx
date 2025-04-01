@@ -43,6 +43,8 @@ const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' 
 
 const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   const {
+    ref,
+    dataId,
     label,
     message,
     required,
@@ -50,7 +52,6 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     wrapperCls,
     labelCls,
     messageCls,
-    value,
     size = 'large',
     success,
     invalid,
@@ -59,8 +60,16 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     className = '',
     selectedTemplate,
     tailTemplate,
+    onClick,
+    onFocus,
+    onBlur,
   } = props;
   const classes = classnames(prefixCls);
+
+  const isClickInside = useRef(false);
+  const dataIdRef = useRef(dataId);
+  const lastFocusRef = useRef(false);
+
   const [isFocus, setIsFocus] = useState(false);
 
   const selectCls = useMemo(() => classes(void 0, [
@@ -73,9 +82,44 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     className
   ].join(' ')), [size, isFocus, success, invalid, disabled, className]);
 
+  useImperativeHandle(ref, () => ({
+    focus: () => setIsFocus(true),
+    blur: () => setIsFocus(false),
+  }), [ref]);
+
   useEffect(() => {
-    const removeFocus = () => {
-      setIsFocus(false);
+    dataIdRef.current = dataId;
+  }, [dataId]);
+
+  useEffect(() => {
+    if (isFocus !== lastFocusRef.current) {
+      lastFocusRef.current = isFocus;
+      if (isFocus) {
+        onFocus?.();
+      } else {
+        onBlur?.();
+      }
+    }
+  }, [isFocus, onFocus, onBlur]);
+
+  useEffect(() => {
+    const findCustomDropdownDataId = (target: EventTarget | null) => {
+      if (!dataIdRef.current) return false;
+      if ((target as HTMLElement)?.dataset?.selectCustomDropdownId === dataIdRef.current) return true;
+      if (target === document.body || target === document) return false;
+      const parent = (target as Node).parentNode || (target as Element).parentElement;
+      if (!parent) return false;
+      return findCustomDropdownDataId(parent);
+    };
+    const removeFocus = (e: MouseEvent) => {
+      if (isClickInside.current) {
+        isClickInside.current = false;
+        return;
+      }
+      setIsFocus(prev => {
+        if (!prev) return false;
+        return findCustomDropdownDataId(e.target);
+      });
     };
     document.addEventListener('click', removeFocus);
     return () => {
@@ -95,13 +139,16 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     invalid={invalid}
     disabled={disabled}
   >
-    <div className={selectCls} onClick={(e) => {
-      setIsFocus(prev => !prev);
-      e.stopPropagation();
-      props.onClick?.(e);
-    }}>
+    <div
+      className={selectCls}
+      onClick={(e) => {
+        isClickInside.current = true;
+        setIsFocus(prev => !prev);
+        onClick?.(e);
+      }}
+    >
       {typeof selectedTemplate === 'function' ? selectedTemplate(isFocus) : <span className={classes('custom-placeholder')}>{placeholder}</span>}
-      {typeof tailTemplate === 'function' ? tailTemplate(isFocus) : <Icons name={isFocus ? 'chevronUp' : 'chevronDown'} color='#131313' size={20} />}
+      {typeof tailTemplate === 'function' ? tailTemplate(isFocus) : <Icons name='chevronDown' color='#131313' size={20} wrapperCls={classes('custom-tail', isFocus ? classes('custom-tail-focus') : '')} /> }
     </div>
   </SelectWrapper>;
 };

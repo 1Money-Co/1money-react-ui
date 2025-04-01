@@ -95,7 +95,7 @@ export const IllusError: FC<IconWrapperProps & IllustrationsCustomProps> = ({ bo
   <path fillRule="evenodd" clipRule="evenodd" d="M16.2308 53L7.84256 41.3164C6.76234 39.8118 6.85635 37.7624 8.06979 36.3631L33.9779 6.48512C35.5729 4.64582 38.4271 4.64582 40.0221 6.48512L65.9302 36.3631C67.1436 37.7624 67.2377 39.8118 66.1574 41.3164L57.7692 53H58C60.2091 53 62 54.7909 62 57V61C62 63.2091 60.2091 65 58 65H16C13.7909 65 12 63.2091 12 61V57C12 54.7909 13.7909 53 16 53H16.2308ZM37 6.05282L65.4541 38.8668L55.3072 53H18.6928L8.54593 38.8668L37 6.05282ZM60 55V63H14V55H60Z" fill={borderColor} />
 </IconWrapper>;
 
-export const IllusRegoinNotSupported: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
+export const IllusRegionNotSupported: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
   <rect width="74" height="74" fill="white" />
   <path fillRule="evenodd" clipRule="evenodd" d="M20.8809 38.6129L14.5057 60.129H67.4943L61.1191 38.6129H20.8809ZM63.3099 39.4208C62.8391 37.8319 61.3793 36.7419 59.7221 36.7419H22.2779C20.6207 36.7419 19.1609 37.8319 18.6901 39.4208L13.4237 57.195C12.7131 59.5932 14.5102 62 17.0115 62H64.9885C67.4898 62 69.2869 59.5932 68.5763 57.195L63.3099 39.4208Z" fill={borderColor} />
   <path d="M28.7911 9.05709C35.5338 2.31432 46.466 2.31432 53.2088 9.05709C59.4298 15.2781 59.9783 25.1819 54.4824 32.0519L40.9999 48.9049L27.5175 32.0519C22.0215 25.1819 22.5701 15.2781 28.7911 9.05709Z" fill="url(#paint0_linear_659_26755)" />

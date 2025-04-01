@@ -1,4 +1,4 @@
-import { useCallback, useMemo, memo } from 'react';
+import { useMemo, memo } from 'react';
 import {
   Logo,
   LogoWord,
@@ -14,7 +14,7 @@ import {
   Illus2FA,
   IllusLocked,
   IllusError,
-  IllusRegoinNotSupported,
+  IllusRegionNotSupported,
   IllusIDCard,
   IllusVerification
 } from './Illustrations';
@@ -158,7 +158,7 @@ const IconList = {
   illus2FA:Illus2FA,
   illusLocked:IllusLocked,
   illusError:IllusError,
-  illusRegoinNotSupported:IllusRegoinNotSupported,
+  illusRegionNotSupported:IllusRegionNotSupported,
   illusIDCard:IllusIDCard,
   illusVerification:IllusVerification,
 
@@ -305,16 +305,12 @@ export interface LogoWithWordsProps extends IconsProps, LogoWithWordsCustomProps
 }
 
 export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps {
-  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'illusRegoinNotSupported';
+  name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'illusRegionNotSupported';
 }
 
 export const Icons: FC<(IconsProps & { name: IconName }) | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {
-  const IconComponent = useCallback((props: IconWrapperProps) => {
-    const Icon = useMemo(() => IconList[name], [name]);
-    return Icon ? <Icon {...props} /> : null;
-  }, [name]);
-
-  return <IconComponent {...rest} />;
+  const Icon = useMemo(() => IconList[name], [name]);
+  return Icon ? <Icon {...rest} /> : null;
 };
 
 export default memo(Icons);

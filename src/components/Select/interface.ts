@@ -18,6 +18,7 @@ interface BaseProps {
 
 export interface SingleSelectProps extends Omit<DropdownProps, 'value' | 'size' | 'itemTemplate' | 'onChange'>, BaseProps {
   ref?: RefObject<Dropdown | null>;
+  multiple?: false;
   unselectable?: 'on' | 'off';
   panelType?: 'menu' | 'selector';
   onChange?: (e: DropdownChangeEvent) => void;
@@ -29,7 +30,14 @@ export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 
   onChange?: (e: MultiSelectChangeEvent) => void;
 }
 
+export interface CustomDropdownHandler {
+  focus: () => void;
+  blur: () => void;
+}
+
 export interface CustomDropdownProps extends Omit<BaseProps, 'itemTemplate'> {
+  ref?: RefObject<CustomDropdownHandler | null>;
+  dataId?: string;
   invalid?: boolean;
   disabled?: boolean;
   placeholder?: string;
@@ -37,6 +45,8 @@ export interface CustomDropdownProps extends Omit<BaseProps, 'itemTemplate'> {
   selectedTemplate?: (isFocus: boolean) => ReactNode;
   tailTemplate?: (isFocus: boolean) => ReactNode;
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
 export type SelectProps = SingleSelectProps | MultiSelectProps;

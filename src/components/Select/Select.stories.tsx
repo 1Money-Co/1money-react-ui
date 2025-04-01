@@ -3,6 +3,7 @@ import { Select } from './index';
 import { Icons } from '../Icons';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
+import type { CustomDropdownProps } from './interface';
 
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
@@ -83,10 +84,22 @@ export const CustomDropdown: Story = {
     placeholder: 'Custom Selected',
   },
   render: props => <>
-    <Select.CustomDropdown label='Custom Dropdown' {...props} />
+    <Select.CustomDropdown label='Custom Dropdown' {...(props as CustomDropdownProps)} />
     <br />
     <br />
-    <Select.CustomDropdown label='Custom Dropdown with Tail' {...props} tailTemplate={(isFocus) => <Icons name='addressBook' size={20} />} />
+    <Select.CustomDropdown
+      dataId='custom-dropdown-id'
+      label='Custom Dropdown with Tail'
+      {...(props as CustomDropdownProps)}
+      tailTemplate={(isFocus) => <Icons name='addressBook' size={20} />}
+      onFocus={() => console.info('Custom Dropdown with Tail - focus')}
+      onBlur={() => console.info('Custom Dropdown with Tail - blur')}
+    />
+    <br />
+    <br />
+    <h3 data-select-custom-dropdown-id='custom-dropdown-id' style={{ cursor: 'pointer', padding: '8px', color: '#1F5800', border: '1px solid #1F5800', borderRadius: '8px' }}>
+      Click me with dataId will not blur the dropdown(second)
+    </h3>
   </>
 };
 
