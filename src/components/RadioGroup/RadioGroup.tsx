@@ -53,9 +53,9 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     const { key, disabled, invalid, children } = item;
     return (
       <div key={key} className={[classes('card-inner'),
-        isSelected(item) && 'checked',
-        disabled && 'disabled',
-        invalid && 'invalid',
+        isSelected(item) && classes('card-checked'),
+        disabled && classes('card-disabled'),
+        invalid && classes('card-invalid'),
         ].filter(Boolean).join(' ')}
         onClick={() => {
           if (disabled) return;
