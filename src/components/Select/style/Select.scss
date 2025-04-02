@@ -463,6 +463,10 @@ $cls: #{$prefix}-#{$component};
       transform: rotate(180deg);
     }
   }
+
+  &.#{$cls}-disabled {
+    cursor: text;
+  }
 }
 
 .#{$cls}-token-remove-icon {

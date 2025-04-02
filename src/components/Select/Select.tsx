@@ -142,6 +142,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     <div
       className={selectCls}
       onClick={(e) => {
+        if (disabled) return;
         isClickInside.current = true;
         setIsFocus(prev => !prev);
         onClick?.(e);
