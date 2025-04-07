@@ -42,6 +42,7 @@ export interface CustomDropdownProps extends Omit<BaseProps, 'itemTemplate'> {
   disabled?: boolean;
   placeholder?: string;
   className?: string;
+  editable?: boolean;
   selectedTemplate?: (isFocus: boolean) => ReactNode;
   tailTemplate?: (isFocus: boolean) => ReactNode;
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;

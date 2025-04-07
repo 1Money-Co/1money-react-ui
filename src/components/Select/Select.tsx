@@ -56,7 +56,8 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     success,
     invalid,
     disabled,
-    placeholder,
+    editable,
+    placeholder = '',
     className = '',
     selectedTemplate,
     tailTemplate,
@@ -70,6 +71,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   const dataIdRef = useRef(dataId);
   const lastFocusRef = useRef(false);
 
+  const [value, setValue] = useState('');
   const [isFocus, setIsFocus] = useState(false);
 
   const selectCls = useMemo(() => classes(void 0, [
@@ -79,8 +81,9 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     success ? classes('success') : '',
     invalid ? classes('invalid') : '',
     disabled ? classes('disabled') : '',
+    editable ? classes('editable') : '',
     className
-  ].join(' ')), [size, isFocus, success, invalid, disabled, className]);
+  ].join(' ')), [size, isFocus, success, invalid, disabled, editable, className]);
 
   useImperativeHandle(ref, () => ({
     focus: () => setIsFocus(true),
@@ -141,15 +144,41 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   >
     <div
       className={selectCls}
+      contentEditable={editable}
+      autoFocus={editable}
+      data-placeholder={placeholder}
+      data-value={value}
       onClick={(e) => {
         if (disabled) return;
-        isClickInside.current = true;
-        setIsFocus(prev => !prev);
+        if (!editable) {
+          isClickInside.current = true;
+          setIsFocus(prev => !prev);
+        }
         onClick?.(e);
       }}
+      onInput={e => {
+        let val = e.currentTarget.innerText;
+        if (val === '\n') {
+          val = '';
+          e.currentTarget.innerText = '';
+        }
+        setValue(val);
+      }}
     >
-      {typeof selectedTemplate === 'function' ? selectedTemplate(isFocus) : <span className={classes('custom-placeholder')}>{placeholder}</span>}
-      {typeof tailTemplate === 'function' ? tailTemplate(isFocus) : <Icons name='chevronDown' color='#131313' size={20} wrapperCls={classes('custom-tail', isFocus ? classes('custom-tail-focus') : '')} /> }
+      {
+        editable
+          ? null
+          : typeof selectedTemplate === 'function'
+            ? selectedTemplate(isFocus)
+            : <span className={classes('custom-placeholder')}>{placeholder}</span>
+      }
+      {
+        editable
+          ? null
+          : typeof tailTemplate === 'function'
+            ? tailTemplate(isFocus)
+            : <Icons name='chevronDown' color='#131313' size={20} wrapperCls={classes('custom-tail', isFocus ? classes('custom-tail-focus') : '')} />
+      }
     </div>
   </SelectWrapper>;
 };

@@ -467,6 +467,28 @@ $cls: #{$prefix}-#{$component};
   &.#{$cls}-disabled {
     cursor: text;
   }
+
+  &.#{$cls}-editable {
+    display: inline-flex;
+    align-items: center;
+    color: $color-primary-black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 220%;
+    cursor: text;
+    caret-color: $color-primary-black;
+
+    &[contenteditable='true'][data-value='']::before {
+      display: block;
+      color: $color-grey-dark;
+      font-weight: 400;
+      font-size: 16px;
+      font-style: normal;
+      line-height: inherit;
+      content: attr(data-placeholder);
+      pointer-events: none;
+    }
+  }
 }
 
 .#{$cls}-token-remove-icon {
