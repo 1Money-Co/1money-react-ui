@@ -17,6 +17,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     variant = 'default',
     direction = 'horizontal',
     labelCls,
+    cardCls,
     label,
     required,
   } = props;
@@ -56,6 +57,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
         isSelected(item) && classes('card-checked'),
         disabled && classes('card-disabled'),
         invalid && classes('card-invalid'),
+        cardCls
         ].filter(Boolean).join(' ')}
         onClick={() => {
           if (disabled) return;

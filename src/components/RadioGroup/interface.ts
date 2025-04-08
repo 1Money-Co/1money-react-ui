@@ -12,6 +12,7 @@ export interface RadioGroupProps {
   innerCls?: string;
   radioCls?: string;
   prefixCls?: string;
+  cardCls?: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'default' | 'card';
   direction?: 'horizontal' | 'vertical';
