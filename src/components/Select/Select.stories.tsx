@@ -100,6 +100,13 @@ export const CustomDropdown: Story = {
     <h3 data-select-custom-dropdown-id='custom-dropdown-id' style={{ cursor: 'pointer', padding: '8px', color: '#1F5800', border: '1px solid #1F5800', borderRadius: '8px' }}>
       Click me with dataId will not blur the dropdown(second)
     </h3>
+    <br />
+    <br />
+    <Select.CustomDropdown
+      label='Editable'
+      editable
+      {...(props as CustomDropdownProps)}
+    />
   </>
 };
 
