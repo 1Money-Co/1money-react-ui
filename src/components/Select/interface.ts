@@ -33,6 +33,7 @@ export interface MultiSelectProps extends Omit<PrimeMultiSelectProps, 'value' | 
 export interface CustomDropdownHandler {
   focus: () => void;
   blur: () => void;
+  getDOMNode: () => HTMLDivElement | null;
 }
 
 export interface CustomDropdownProps extends Omit<BaseProps, 'itemTemplate'> {
