@@ -70,6 +70,8 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   const isClickInside = useRef(false);
   const dataIdRef = useRef(dataId);
   const lastFocusRef = useRef(false);
+  const selectRef = useRef<HTMLDivElement>(null);
+
 
   const [value, setValue] = useState('');
   const [isFocus, setIsFocus] = useState(false);
@@ -88,6 +90,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   useImperativeHandle(ref, () => ({
     focus: () => setIsFocus(true),
     blur: () => setIsFocus(false),
+    getDOMNode: () => selectRef.current
   }), [ref]);
 
   useEffect(() => {
@@ -143,6 +146,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     disabled={disabled}
   >
     <div
+      ref={selectRef}
       className={selectCls}
       contentEditable={editable}
       autoFocus={editable}
