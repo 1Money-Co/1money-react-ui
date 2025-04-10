@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo, useState, useCallback, useImperativeHandle } from 'react';
 import { RadioButton } from 'primereact/radiobutton';
 import classnames from '@/utils/classnames';
 /* import types */
@@ -7,6 +7,7 @@ import type { RadioGroupProps, RadioItemProps } from './interface';
 
 export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const {
+    ref,
     items = [],
     onChange,
     wrapperCls,
@@ -26,8 +27,8 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
 
   const defaultSelected = useMemo(() => items.find(item => !!item.autoFocus), [items]);
   const [selected, setSelected] = useState<(typeof items)[number] | undefined>(defaultSelected);
-  const isSelected = (item: RadioItemProps) => selected?.key === item.key;
 
+  const isSelected = useCallback((item: RadioItemProps) => selected?.key === item.key, [selected]);
 
   const renderDefaultRadio = (item: RadioItemProps) => {
     const { key, label, required, children, ...rest } = item;
@@ -53,27 +54,32 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const renderCardRadio = (item: RadioItemProps) => {
     const { key, disabled, invalid, children } = item;
     return (
-      <div key={key} className={[classes('card-inner'),
+      <div key={key} className={[
+        classes('card-inner'),
         isSelected(item) && classes('card-checked'),
         disabled && classes('card-disabled'),
         invalid && classes('card-invalid'),
         cardCls
-        ].filter(Boolean).join(' ')}
+      ].filter(Boolean).join(' ')}
         onClick={() => {
           if (disabled) return;
           onChange?.(item);
           setSelected(item);
         }}
-        >
-      {typeof children === 'function' ? children(isSelected(item)) : children}
+      >
+        {typeof children === 'function' ? children(isSelected(item)) : children}
       </div>
     );
   };
 
-  return <div className={classes('wrapper', [wrapperCls].join(''))}>
-   {label && <label className={classes('label', [ required && 'label-required', labelCls].join(''))}>{label}</label>}
+  useImperativeHandle(ref, () => ({
+    reset: () => setSelected(void 0),
+  }), []);
 
-    <div className={[classes('inner'),
+  return <div className={classes('wrapper', [wrapperCls].join(''))}>
+    {label && <label className={classes('label', [required && 'label-required', labelCls].join(''))}>{label}</label>}
+    <div className={[
+      classes('inner'),
       variant === 'card' ? classes('card') : classes('default'),
       direction === 'horizontal' ? 'horizontal' : 'vertical',
       innerCls,
