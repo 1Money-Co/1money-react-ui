@@ -144,6 +144,11 @@ import {
   CopyIcon,
   MobileIcon,
   ChatIcon,
+  USDIcon,
+  EURIcon,
+  GBPIcon,
+  JPYIcon,
+  CNYIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -296,6 +301,11 @@ const IconList = {
   copy: CopyIcon,
   mobile: MobileIcon,
   chat: ChatIcon,
+  usd: USDIcon,
+  eur: EURIcon,
+  gbp: GBPIcon,
+  jpy: JPYIcon,
+  cny: CNYIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;
