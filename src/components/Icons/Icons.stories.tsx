@@ -221,8 +221,8 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='sendCrypto' />
         <span>Send Crypto</span>
       </CopyIconBox>
-      
-      
+
+
       {/* Functional Icons */}
       <CopyIconBox onClick={() => handleCopy("<Icons name='arrowUp' />")}>
         <Icons {...args} name='arrowUp' />
@@ -492,6 +492,26 @@ export const PrimaryIcons: Story = {
       <CopyIconBox onClick={() => handleCopy("<Icons name='chat' />")}>
         <Icons {...args} name='chat' />
         <span>Chat</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='usd' />")}>
+        <Icons {...args} name='usd' />
+        <span>USD</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='eur' />")}>
+        <Icons {...args} name='eur' />
+        <span>EUR</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='gbp' />")}>
+        <Icons {...args} name='gbp' />
+        <span>GBP</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='jpy' />")}>
+        <Icons {...args} name='jpy' />
+        <span>JPY</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='cny' />")}>
+        <Icons {...args} name='cny' />
+        <span>CNY</span>
       </CopyIconBox>
     </div>;
   },
