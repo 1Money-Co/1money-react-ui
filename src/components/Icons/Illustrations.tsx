@@ -176,3 +176,21 @@ export const IllusVerification: FC<IconWrapperProps & IllustrationsCustomProps> 
     </linearGradient>
   </defs>
 </IconWrapper>;
+
+
+export const IllusTransfer: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', color = '#B31010', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 74" {...rest}>
+  <circle cx="36.9972" cy="36.9981" r="29.5909" fill="white"/>
+  <circle cx="37" cy="37" r="30" stroke={borderColor} strokeWidth="2"/>
+  <circle cx="37" cy="37" r="24" fill="url(#paint0_linear_6707_65760)"/>
+  <circle cx="37" cy="37" r="23.5" stroke={borderColor}/>
+  <circle cx="15" cy="58" r="13" fill={color}/>
+  <path d="M15 52V58L21 61" stroke={borderColor} strokeWidth="2"/>
+  <circle cx="15" cy="58" r="12" stroke={borderColor} strokeWidth="2"/>
+  <path fillRule="evenodd" clipRule="evenodd" d="M30.4144 31.0001L33.7073 34.293L32.293 35.7072L26.5859 30.0001L32.293 24.293L33.7073 25.7072L30.4144 29.0001L40.0002 29.0001C43.8661 29.0001 47.0002 32.1341 47.0002 36.0001L45.0002 36.0001C45.0002 33.2387 42.7616 31.0001 40.0002 31.0001L30.4144 31.0001ZM29.0002 36.0001C29.0002 38.7615 31.2387 41.0001 34.0002 41.0001H43.5859L40.293 37.7072L41.7073 36.293L47.4144 42.0001L41.7073 47.7072L40.293 46.293L43.5859 43.0001H34.0002C30.1342 43.0001 27.0002 39.8661 27.0002 36.0001H29.0002Z" fill="#131313"/>
+  <defs>
+    <linearGradient id="paint0_linear_6707_65760" x1="37" y1="13" x2="37" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stopColor={Array.isArray(gradientColor) ? gradientColor[0] : gradientColor} />
+      <stop offset="1" stopColor={Array.isArray(gradientColor) ? gradientColor[1] : gradientColor} />
+    </linearGradient>
+  </defs>
+</IconWrapper>;
