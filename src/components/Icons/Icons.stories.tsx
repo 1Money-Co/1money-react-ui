@@ -624,6 +624,10 @@ export const Illustrations: Story = {
         <Icons {...args} name='illusVerification' />
         <span>illusVerification</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusTransfer' />")}>
+        <Icons {...args} name='illusTransfer' />
+        <span>illusTransfer</span>
+      </CopyIconBox>
     </div>;
   }
 };
