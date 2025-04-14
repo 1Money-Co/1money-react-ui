@@ -62,7 +62,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
         cardCls
       ].filter(Boolean).join(' ')}
         onClick={() => {
-          if (disabled) return;
+          if (disabled || selected?.key === item.key) return;
           onChange?.(item);
           setSelected(item);
         }}
