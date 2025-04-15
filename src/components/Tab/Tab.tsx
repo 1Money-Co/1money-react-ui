@@ -6,14 +6,31 @@ import type { FC, PropsWithChildren } from 'react';
 import type { TabProps } from './interface';
 
 export const Tab: FC<PropsWithChildren<TabProps>> = props => {
-  const { className, prefixCls = 'tab', ...rest } = props;
+  const { className, prefixCls = 'tab', model, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
     <div
       className={classes(void 0, className)}
     >
-      <TabMenu {...rest} />
+      <TabMenu
+        model={model?.map(item => (
+          {
+            template: (_, options) => {
+              const { className, labelClassName, iconClassName, onClick } = options;
+              return (
+                <div className={classes('item', className)} onClick={onClick}>
+                  { item.icon != null && <span className={iconClassName}>{ item.icon }</span> }
+                  { item.label != null && <strong className={classes('item-label', labelClassName)}>{ item.label }</strong> }
+                  { item.count != null && <span className={classes('item-count')}>{ item.count }</span> }
+                </div>
+              );
+            },
+            ...item,
+          }
+        ))}
+        {...rest}
+      />
     </div>
   );
 };

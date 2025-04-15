@@ -26,21 +26,15 @@ exports[`Tab renders correctly 1`] = `
               id="pr_id_4_0"
               role="presentation"
             >
-              <a
-                aria-label="Password"
-                class="p-menuitem-link"
-                data-pc-section="action"
-                href="#"
-                role="menuitem"
-                tabindex="0"
+              <div
+                class="om-react-ui-tab-item p-menuitem-link"
               >
-                <span
-                  class="p-menuitem-text"
-                  data-pc-section="label"
+                <strong
+                  class="om-react-ui-tab-item-label p-menuitem-text"
                 >
                   Password
-                </span>
-              </a>
+                </strong>
+              </div>
             </li>
             <li
               class="p-tabmenuitem"
@@ -50,21 +44,15 @@ exports[`Tab renders correctly 1`] = `
               id="pr_id_4_1"
               role="presentation"
             >
-              <a
-                aria-label="2FA settings"
-                class="p-menuitem-link"
-                data-pc-section="action"
-                href="#"
-                role="menuitem"
-                tabindex="-1"
+              <div
+                class="om-react-ui-tab-item p-menuitem-link"
               >
-                <span
-                  class="p-menuitem-text"
-                  data-pc-section="label"
+                <strong
+                  class="om-react-ui-tab-item-label p-menuitem-text"
                 >
                   2FA settings
-                </span>
-              </a>
+                </strong>
+              </div>
             </li>
             <li
               class="p-tabmenuitem"
@@ -74,21 +62,15 @@ exports[`Tab renders correctly 1`] = `
               id="pr_id_4_2"
               role="presentation"
             >
-              <a
-                aria-label="Limits"
-                class="p-menuitem-link"
-                data-pc-section="action"
-                href="#"
-                role="menuitem"
-                tabindex="-1"
+              <div
+                class="om-react-ui-tab-item p-menuitem-link"
               >
-                <span
-                  class="p-menuitem-text"
-                  data-pc-section="label"
+                <strong
+                  class="om-react-ui-tab-item-label p-menuitem-text"
                 >
                   Limits
-                </span>
-              </a>
+                </strong>
+              </div>
             </li>
             <li
               class="p-tabmenu-ink-bar"
@@ -123,21 +105,15 @@ exports[`Tab renders correctly 1`] = `
             id="pr_id_4_0"
             role="presentation"
           >
-            <a
-              aria-label="Password"
-              class="p-menuitem-link"
-              data-pc-section="action"
-              href="#"
-              role="menuitem"
-              tabindex="0"
+            <div
+              class="om-react-ui-tab-item p-menuitem-link"
             >
-              <span
-                class="p-menuitem-text"
-                data-pc-section="label"
+              <strong
+                class="om-react-ui-tab-item-label p-menuitem-text"
               >
                 Password
-              </span>
-            </a>
+              </strong>
+            </div>
           </li>
           <li
             class="p-tabmenuitem"
@@ -147,21 +123,15 @@ exports[`Tab renders correctly 1`] = `
             id="pr_id_4_1"
             role="presentation"
           >
-            <a
-              aria-label="2FA settings"
-              class="p-menuitem-link"
-              data-pc-section="action"
-              href="#"
-              role="menuitem"
-              tabindex="-1"
+            <div
+              class="om-react-ui-tab-item p-menuitem-link"
             >
-              <span
-                class="p-menuitem-text"
-                data-pc-section="label"
+              <strong
+                class="om-react-ui-tab-item-label p-menuitem-text"
               >
                 2FA settings
-              </span>
-            </a>
+              </strong>
+            </div>
           </li>
           <li
             class="p-tabmenuitem"
@@ -171,21 +141,15 @@ exports[`Tab renders correctly 1`] = `
             id="pr_id_4_2"
             role="presentation"
           >
-            <a
-              aria-label="Limits"
-              class="p-menuitem-link"
-              data-pc-section="action"
-              href="#"
-              role="menuitem"
-              tabindex="-1"
+            <div
+              class="om-react-ui-tab-item p-menuitem-link"
             >
-              <span
-                class="p-menuitem-text"
-                data-pc-section="label"
+              <strong
+                class="om-react-ui-tab-item-label p-menuitem-text"
               >
                 Limits
-              </span>
-            </a>
+              </strong>
+            </div>
           </li>
           <li
             class="p-tabmenu-ink-bar"
