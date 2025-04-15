@@ -26,7 +26,7 @@ export const Primary: Story = {
     prefixCls: 'tab',
     model: [
       { label: 'Password' },
-      { label: '2FA settings' },
+      { label: '2FA settings', count: 10 },
       { label: 'Limits' },
     ]
   },

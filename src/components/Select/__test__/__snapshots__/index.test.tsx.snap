@@ -101,7 +101,6 @@ exports[`Select renders correctly 1`] = `
               role="combobox"
               tabindex="0"
               type="text"
-              value=""
             />
           </div>
           <div
@@ -374,7 +373,6 @@ exports[`Select renders correctly 2`] = `
               role="combobox"
               tabindex="0"
               type="text"
-              value=""
             />
           </div>
           <div
@@ -439,7 +437,6 @@ exports[`Select renders correctly 2`] = `
             role="combobox"
             tabindex="0"
             type="text"
-            value=""
           />
         </div>
         <div
