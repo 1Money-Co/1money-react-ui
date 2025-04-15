@@ -26,7 +26,7 @@ $component: 'tab';
 
       .p-tabmenuitem {
         .p-menuitem-link {
-          padding: 18px 24px;
+          padding: 14px 24px;
           color: $color-grey-midnight;
           font-weight: 700;
           font-size: 16px;
@@ -49,6 +49,32 @@ $component: 'tab';
           border-color: $color-primary-black;
         }
       }
+    }
+  }
+
+  &-item {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    font-family: var(--font-inter), Inter;
+    cursor: pointer;
+
+    &-label {
+      color: inherit;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    &-count {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 4px 8px;
+      color: $color-primary-black;
+      font-weight: 500;
+      font-size: 12px;
+      background-color: $color-grey;
+      border-radius: 12px;
     }
   }
 }

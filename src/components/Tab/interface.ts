@@ -1,7 +1,10 @@
 
 import type { TabMenuProps } from 'primereact/tabmenu';
 
-export interface TabProps extends TabMenuProps {
+export type TabMenuItem = Exclude<TabMenuProps['model'], undefined>;
+
+export interface TabProps extends Exclude<TabMenuProps, 'model'> {
   className?: string;
   prefixCls?: string;
+  model?: (TabMenuItem[number] & { count?: number })[];
 }
