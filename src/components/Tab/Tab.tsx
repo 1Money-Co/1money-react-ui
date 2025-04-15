@@ -20,9 +20,9 @@ export const Tab: FC<PropsWithChildren<TabProps>> = props => {
               const { className, labelClassName, iconClassName, onClick } = options;
               return (
                 <div className={classes('item', className)} onClick={onClick}>
-                  { item.icon && <span className={iconClassName}>{ item.icon }</span> }
-                  { item.label && <strong className={classes('item-label', labelClassName)}>{ item.label }</strong> }
-                  { item.count && <span className={classes('item-count')}>{ item.count }</span> }
+                  { item.icon != null && <span className={iconClassName}>{ item.icon }</span> }
+                  { item.label != null && <strong className={classes('item-label', labelClassName)}>{ item.label }</strong> }
+                  { item.count != null && <span className={classes('item-count')}>{ item.count }</span> }
                 </div>
               );
             },
