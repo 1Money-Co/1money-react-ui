@@ -19,14 +19,16 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
       } as CSSProperties}
     >
       <div className={classes('wrapper', wrapperCls)}>
-        {prefixEle}
-        <ul className={classes('list', listCls)}>
-          {items.map((item, key) => (
-            <li key={item.key ?? key} className={classes('list-item', [itemCls, item.active ? itemActiveCls : void 0].join(' '))}>
-              {item.children}
-            </li>
-          ))}
-        </ul>
+        <div>
+          {prefixEle}
+          <ul className={classes('list', listCls)}>
+            {items.map((item, key) => (
+              <li key={item.key ?? key} className={classes('list-item', [itemCls, item.active ? itemActiveCls : void 0].join(' '))}>
+                {item.children}
+              </li>
+            ))}
+          </ul>
+        </div>
         {suffixEle}
       </div>
     </OverlayPanel>

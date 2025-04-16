@@ -17,7 +17,8 @@ import {
   IllusRegionNotSupported,
   IllusIDCard,
   IllusVerification,
-  IllusTransfer
+  IllusTransfer,
+  IllusSend
 } from './Illustrations';
 
 import {
@@ -168,6 +169,7 @@ const IconList = {
   illusIDCard:IllusIDCard,
   illusVerification:IllusVerification,
   illusTransfer:IllusTransfer,
+  illusSend:IllusSend,
   /* Logo */
   logo: Logo,
   logoWord: LogoWord,
