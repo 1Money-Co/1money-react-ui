@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { fn } from '@storybook/test';
 import { Button } from '../Button';
 import { Drawer } from './index';
 import './style';
+import '../Button/style';
+import '../Icons/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Drawer> = {

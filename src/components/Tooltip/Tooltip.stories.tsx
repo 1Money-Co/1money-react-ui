@@ -2,6 +2,8 @@ import React from 'react';
 import { Tooltip } from './index';
 import { Typography } from '../Typography';
 import './style';
+import '../Icons/style';
+import '../Typography/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Tooltip> = {
@@ -28,22 +30,22 @@ const Overlay = (props: { position: string }) => {
   const { position } = props;
   return (
     <>
-      <Typography.Body size='s' className='!tw-text-primary-white'>
+      <Typography.Body size='s' style={{ color: '#FEFEFE' }}>
         Please provide your US EIN/TIN, Foreign Tax ID, or SSN (for sole proprietorships if based in the U.S.).
       </Typography.Body>
       <ul className='!tw-list-disc tw-pl-4'>
         <li>
-          <Typography.Body size='s' className='!tw-text-primary-white'>
+          <Typography.Body size='s' style={{ color: '#FEFEFE' }}>
             If you are a U.S.-based business, this will be a nine-digit number (e.g., 9XX-XX-XXXX).
           </Typography.Body>
         </li>
         <li>
-          <Typography.Body size='s' className='!tw-text-primary-white'>
+          <Typography.Body size='s' style={{ color: '#FEFEFE' }}>
             If you are a non-U.S. business, this will be a mix of characters and numbers specific to your jurisdiction.
           </Typography.Body>
         </li>
         <li>
-          <Typography.Body size='s' className='!tw-text-primary-white'>
+          <Typography.Body size='s' style={{ color: '#FEFEFE' }}>
             If you do not have a Tax ID, please indicate "NA."
           </Typography.Body>
         </li>

@@ -1,6 +1,6 @@
-import { fn } from '@storybook/test';
 import { Clipboard } from './index';
 import './style';
+import '../Icons/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Clipboard> = {

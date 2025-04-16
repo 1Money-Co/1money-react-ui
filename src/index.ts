@@ -23,6 +23,7 @@ import { Icons, IconWrapper } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar, Stepper } from './components/Sidebar';
 import { Tab } from './components/Tab';
+import { Table } from './components/Table';
 import { Toast } from './components/Toast';
 import { Tooltip } from './components/Tooltip';
 import { Typography } from './components/Typography';
@@ -53,6 +54,7 @@ export { Icons, IconWrapper } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar, Stepper } from './components/Sidebar';
 export { Tab } from './components/Tab';
+export { Table } from './components/Table';
 export { Toast } from './components/Toast';
 export { Tooltip } from './components/Tooltip';
 export { Typography } from './components/Typography';
@@ -86,6 +88,7 @@ export default {
   Sidebar,
   Stepper,
   Tab,
+  Table,
   Toast,
   Tooltip,
   Typography,

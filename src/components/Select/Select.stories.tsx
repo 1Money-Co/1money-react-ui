@@ -2,6 +2,7 @@ import React from 'react';
 import { Select } from './index';
 import { Icons } from '../Icons';
 import './style';
+import '../Icons/style';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { CustomDropdownProps } from './interface';
 

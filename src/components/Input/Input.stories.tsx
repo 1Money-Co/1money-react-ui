@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Input } from './index';
 import { Icons } from '../Icons';
 import './style';
+import '../Icons/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Input> = {
