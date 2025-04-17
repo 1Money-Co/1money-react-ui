@@ -3,6 +3,8 @@ import { Popup, PopupHandlers } from './index';
 import { Toast, ToastClass } from '../Toast';
 import { Button } from '../Button';
 import './style';
+import '../Toast/style';
+import '../Button/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Popup> = {

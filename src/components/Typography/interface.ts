@@ -1,7 +1,8 @@
-import type { HTMLAttributeAnchorTarget, MouseEventHandler, PropsWithChildren } from 'react';
+import type { CSSProperties, HTMLAttributeAnchorTarget, MouseEventHandler, PropsWithChildren } from 'react';
 
 interface BaseProps extends PropsWithChildren {
   className?: string;
+  style?: CSSProperties;
   prefixCls?: string;
 }
 

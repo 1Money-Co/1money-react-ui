@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.3.17",
+  "version": "1.4.0",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -138,6 +138,11 @@
       "types": "./es/components/Tab/index.d.ts",
       "import": "./es/components/Tab/index.js",
       "require": "./lib/components/Tab/index.js"
+    },
+    "./Table": {
+      "types": "./es/components/Table/index.d.ts",
+      "import": "./es/components/Table/index.js",
+      "require": "./lib/components/Table/index.js"
     },
     "./Toast": {
       "types": "./es/components/Toast/index.d.ts",

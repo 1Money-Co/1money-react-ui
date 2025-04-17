@@ -1,4 +1,3 @@
-import { fn } from '@storybook/test';
 import { Menu } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';

@@ -3,6 +3,8 @@ import { Dropdown } from './index';
 import { Button } from '../Button';
 import { IconWrapper } from '../Icons';
 import './style';
+import '../Icons/style';
+import '../Button/style';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { DropdownHandler } from './interface';
 

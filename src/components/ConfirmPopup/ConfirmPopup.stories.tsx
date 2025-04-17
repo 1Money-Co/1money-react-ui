@@ -2,6 +2,7 @@ import * as React from 'react';
 import { confirmPopup, ConfirmPopup } from './index';
 import { Button } from '../Button';
 import './style';
+import '../Button/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ConfirmPopup> = {
