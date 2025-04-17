@@ -1,5 +1,4 @@
 import React from 'react';
-import { fn } from '@storybook/test';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import Cell from './index';

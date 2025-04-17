@@ -1,4 +1,3 @@
-import { fn } from '@storybook/test';
 import { Spinner } from './index';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';

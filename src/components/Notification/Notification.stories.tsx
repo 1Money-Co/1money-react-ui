@@ -1,6 +1,7 @@
 import { fn } from '@storybook/test';
 import { Notification } from './index';
 import './style';
+import '../Icons/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Notification> = {

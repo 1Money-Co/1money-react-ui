@@ -3,6 +3,8 @@ import { Sidebar as SidebarComponent, Stepper as StepperComponent } from './inde
 import { Icons } from '../Icons';
 import { Tooltip } from '../Tooltip';
 import './style';
+import '../Icons/style';
+import '../Tooltip/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SidebarComponent> = {

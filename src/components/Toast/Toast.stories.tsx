@@ -3,6 +3,9 @@ import { fn } from '@storybook/test';
 import { Button } from '../Button';
 import { Toast, ToastClass } from './index';
 import './style';
+import '../Icons/style';
+import '../Typography/style';
+import '../Button/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Toast> = {

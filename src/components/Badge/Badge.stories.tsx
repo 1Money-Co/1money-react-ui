@@ -1,7 +1,7 @@
 import React from 'react';
-import { fn } from '@storybook/test';
 import { Badge } from './index';
 import './style';
+import '../Icons/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Badge> = {
