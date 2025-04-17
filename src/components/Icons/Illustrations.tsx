@@ -194,3 +194,18 @@ export const IllusTransfer: FC<IconWrapperProps & IllustrationsCustomProps> = ({
     </linearGradient>
   </defs>
 </IconWrapper>;
+
+export const IllusSend: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => <IconWrapper viewBox="0 0 74 75" {...rest}>
+  <circle cx="37" cy="59.585" r="12.2188" stroke={borderColor} fill="transparent"/>
+  <circle cx="37" cy="30.6787" r="27.75" fill="url(#paint0_linear_8063_24424)" />
+  <circle cx="37" cy="30.6787" r="26.75" stroke={borderColor} strokeWidth="2" fill="transparent"/>
+  <path fillRule="evenodd" clipRule="evenodd" d="M49.1005 55.6583C45.4433 57.4332 41.3376 58.4287 36.9995 58.4287C32.6613 58.4287 28.5556 57.4332 24.8984 55.6583C26.553 50.5556 31.3454 46.8662 36.9995 46.8662C42.6535 46.8662 47.4459 50.5556 49.1005 55.6583Z" fill={borderColor} />
+  <path fillRule="evenodd" clipRule="evenodd" d="M38.2262 14.4227L36.9998 13.1963L35.7734 14.4227L24.2109 25.9852L26.6637 28.438L35.2614 19.8402V39.9303H38.7302V19.8322L47.3359 28.438L49.7887 25.9852L38.2262 14.4227Z" fill={borderColor} />
+  <defs>
+    <linearGradient id="paint0_linear_8063_24424" x1="37" y1="2.92871" x2="37" y2="58.4287" gradientUnits="userSpaceOnUse">
+      <stop stopColor={Array.isArray(gradientColor) ? gradientColor[0] : gradientColor} />
+      <stop offset="1" stopColor={Array.isArray(gradientColor) ? gradientColor[1] : gradientColor} />
+    </linearGradient>
+  </defs>
+</IconWrapper>;
+
