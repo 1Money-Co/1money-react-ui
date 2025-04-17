@@ -27,8 +27,8 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
             </li>
           ))}
         </ul>
-        {suffixEle}
       </div>
+      {suffixEle}
     </OverlayPanel>
   );
 };
