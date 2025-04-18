@@ -13,7 +13,7 @@ import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
 export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
-  const { children, collapsible, menus, className, prefixCls = 'sidebar', onCollapse, onLogoClick } = props;
+  const { children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, onCollapse, onLogoClick } = props;
   const [collapsed, setCollapsed] = useState(false);
   const classes = classnames(prefixCls);
 
@@ -35,7 +35,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
       collapsed={collapsed}
       transitionDuration={150}
     >
-      <div className={classes('header')}>
+      <div className={classes('header', headerCls)}>
         <span
           className={classes('logo')}
           onClick={onLogoClick}
@@ -52,7 +52,10 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
           />
         </span>
       </div>
-      <ProMenu renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' color='#808080' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}>
+      <ProMenu
+        className={classes('menu', bodyCls)}
+        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' color='#808080' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
+      >
         {
           menus.map((menu, ind) => {
             const { key, label, icon, link, active, disabled, defaultOpen, children } = menu;
@@ -92,7 +95,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
         }
       </ProMenu>
       {
-        collapsible && <span className={classes('collapse', collapsed ? classes('collapse-collapsed') : '')} onClick={() => handleCollapse(!collapsed)}>
+        collapsible && <span className={classes('collapse', [collapsed ? classes('collapse-collapsed') : '', collapseCls].join(' '))} onClick={() => handleCollapse(!collapsed)}>
           <Icons name={collapsed ? 'extend' : 'collapse'} wrapperCls={classes('collapse-icon')} size={16} />
           <span className={classes('collapse-text')}>Collapse</span>
         </span>
