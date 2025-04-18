@@ -14,6 +14,9 @@ export interface MenuItem {
 export interface SidebarProps {
   className?: string;
   prefixCls?: string;
+  headerCls?: string;
+  bodyCls?: string;
+  collapseCls?: string;
   collapsible?: boolean;
   onCollapse?: (collapsed: boolean) => any;
   onLogoClick?: () => any;
@@ -37,6 +40,9 @@ export interface StepperProps {
   className?: string;
   prefixCls?: string;
   logoCls?: string;
+  headerCls?: string;
+  bodyCls?: string;
+  footerCls?: string;
   onLogoClick?: () => any;
   steps: Step[];
   footer?: ReactNode;

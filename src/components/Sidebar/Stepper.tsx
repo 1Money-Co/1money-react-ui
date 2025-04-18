@@ -6,14 +6,14 @@ import type { FC } from 'react';
 import type { StepperProps } from './interface';
 
 export const Stepper: FC<StepperProps> = props => {
-  const { steps, className, prefixCls = 'stepper', logoCls, onLogoClick, footer } = props;
+  const { steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, onLogoClick, footer } = props;
   const classes = classnames(prefixCls);
 
   return (
     <aside
       className={classes(void 0, className)}
     >
-      <div className={classes('header')}>
+      <div className={classes('header', headerCls)}>
         <Icons
           name='logoWithWords'
           logoColor='#073387'
@@ -24,7 +24,7 @@ export const Stepper: FC<StepperProps> = props => {
           wrapperCls={classes('header-logo', logoCls)}
         />
       </div>
-      <ul className={classes('steps')}>
+      <ul className={classes('steps', bodyCls)}>
         {
           steps.map(step => {
             const { key, label, status, disabled, onClick } = step;
@@ -42,7 +42,7 @@ export const Stepper: FC<StepperProps> = props => {
         }
       </ul>
       {
-        footer && <div className={classes('footer')}>{footer}</div>
+        footer && <div className={classes('footer', footerCls)}>{footer}</div>
       }
     </aside>
   );
