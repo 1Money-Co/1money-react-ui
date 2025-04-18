@@ -89,7 +89,7 @@ exports[`Sidebar renders correctly 1`] = `
             </span>
           </div>
           <nav
-            class="ps-menu-root css-vj11vy"
+            class="ps-menu-root om-react-ui-sidebar-menu css-vj11vy"
           >
             <ul
               class="css-ewdv3l"
@@ -553,7 +553,7 @@ exports[`Sidebar renders correctly 1`] = `
           </span>
         </div>
         <nav
-          class="ps-menu-root css-vj11vy"
+          class="ps-menu-root om-react-ui-sidebar-menu css-vj11vy"
         >
           <ul
             class="css-ewdv3l"
@@ -902,7 +902,7 @@ exports[`Sidebar renders correctly 2`] = `
             </span>
           </div>
           <nav
-            class="ps-menu-root css-vj11vy"
+            class="ps-menu-root om-react-ui-sidebar-menu css-vj11vy"
           >
             <ul
               class="css-ewdv3l"

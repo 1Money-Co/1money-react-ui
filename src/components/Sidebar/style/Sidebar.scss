@@ -24,7 +24,7 @@ $cls: #{$prefix}-#{$component};
     flex-direction: column;
     background-color: transparent;
 
-    .ps-menu-root {
+    .#{$cls}-menu {
       margin-top: 32px;
 
       >ul {
