@@ -314,6 +314,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         disabled={disabled}
         invalid={invalid}
         options={options}
+        placeholder={placeholder}
         value={selected == null ? undefined : selected}
         className={selectCls}
         itemTemplate={(option) => {
