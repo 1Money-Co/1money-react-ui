@@ -6,6 +6,7 @@ export interface TableBaseProps<T extends DataTableValueArray = DataTableValueAr
   className?: string;
   prefixCls?: string;
   columns: ColumnProps[];
+  value?: T;
 }
 
 export interface TableSingleProps<T extends DataTableValueArray = DataTableValueArray> extends DataTablePropsSingle<T>, TableBaseProps<T> {}
