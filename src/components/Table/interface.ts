@@ -1,8 +1,11 @@
-import type { MouseEventHandler } from 'react';
-import type { DataTableBaseProps, DataTableValueArray, DataTablePropsSingle, DataTablePropsMultiple, DataTablePropsCell } from 'primereact/datatable';
+import type { RefObject } from 'react';
+import type { DataTable, DataTableBaseProps, DataTableValueArray, DataTablePropsSingle, DataTablePropsMultiple, DataTablePropsCell } from 'primereact/datatable';
 import type { ColumnProps } from 'primereact/column';
 
+export type TableClass<T extends DataTableValueArray = DataTableValueArray> = DataTable<T>;
+
 export interface TableBaseProps<T extends DataTableValueArray = DataTableValueArray> extends DataTableBaseProps<T> {
+  ref?: RefObject<TableClass<T> | null>;
   className?: string;
   prefixCls?: string;
   columns: ColumnProps[];
