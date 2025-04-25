@@ -83,6 +83,10 @@ $component: 'table';
           }
         }
       }
+
+      .p-datatable-row-expansion td {
+        padding: 0 !important;
+      }
     }
   }
 }

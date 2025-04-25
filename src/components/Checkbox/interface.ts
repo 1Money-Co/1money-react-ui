@@ -3,6 +3,7 @@ import type { CheckboxProps as PrimeCheckboxProps } from 'primereact/checkbox';
 import type { TriStateCheckboxProps } from 'primereact/tristatecheckbox';
 
 interface CheckboxBaseProps {
+  id?: string;
   wrapperCls?: string;
   innerCls?: string;
   checkboxCls?: string;

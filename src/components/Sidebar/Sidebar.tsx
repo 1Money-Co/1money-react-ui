@@ -13,7 +13,7 @@ import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
 export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
-  const { children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, onCollapse, onLogoClick } = props;
+  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, onCollapse, onLogoClick } = props;
   const [collapsed, setCollapsed] = useState(false);
   const classes = classnames(prefixCls);
 
@@ -29,6 +29,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
 
   return (
     <ProSidebar
+      id={id}
       className={classes(void 0, className)}
       width='280px'
       collapsedWidth='84px'
