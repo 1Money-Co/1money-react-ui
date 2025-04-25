@@ -12,6 +12,7 @@ export interface MenuItem {
 }
 
 export interface SidebarProps {
+  id?: string;
   className?: string;
   prefixCls?: string;
   headerCls?: string;
@@ -37,6 +38,7 @@ export interface Step {
 }
 
 export interface StepperProps {
+  id?: string;
   className?: string;
   prefixCls?: string;
   logoCls?: string;

@@ -16,15 +16,15 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
     className = '',
     wrapperCls = '',
     prefixCls = 'icons',
-    illustrations = false,
     viewBox = '0 0 24 24',
+    style,
     onClick,
     onKeyDown,
   } = props;
   const classes = classnames(prefixCls);
 
   return <i
-    style={{ color, width: width ?? size, height: height ?? size }}
+    style={{ color, width: width ?? size, height: height ?? size, ...style }}
     className={classes('wrapper', wrapperCls)}
     onClick={onClick}
     onKeyDown={onKeyDown}

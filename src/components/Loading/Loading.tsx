@@ -9,7 +9,7 @@ import type { AnimationItem } from 'lottie-web';
 import type { LoadingProps } from './interface';
 
 export const Loading: FC<LoadingProps> = props => {
-  const { className, prefixCls = 'loading', type = 'pure' } = props;
+  const { id, className, prefixCls = 'loading', type = 'pure' } = props;
   const container = useRef<HTMLDivElement>(null);
   const classes = classnames(prefixCls);
 
@@ -39,7 +39,7 @@ export const Loading: FC<LoadingProps> = props => {
     };
   }, []);
 
-  return <div ref={container} className={classes(void 0, className)} />;
+  return <div id={id} ref={container} className={classes(void 0, className)} />;
 };
 
 export default memo(Loading);

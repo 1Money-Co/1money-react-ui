@@ -2,6 +2,7 @@ import type { ProgressBarProps as PrimeProgressBarProps } from 'primereact/progr
 
 
 export interface ProgressBaseProps{
+  id?: string;
   className?: string;
   prefixCls?: string;
   wrapperCls?: string;

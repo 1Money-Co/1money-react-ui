@@ -1,6 +1,7 @@
 import type { CSSProperties, HTMLAttributeAnchorTarget, MouseEventHandler, PropsWithChildren } from 'react';
 
 interface BaseProps extends PropsWithChildren {
+  id?: string;
   className?: string;
   style?: CSSProperties;
   prefixCls?: string;

@@ -3,6 +3,7 @@ import type { MouseEvent, KeyboardEvent, CSSProperties } from 'react';
 export interface IconsProps extends IconWrapperProps {}
 
 export interface IconWrapperProps {
+  id?: string;
   style?: CSSProperties;
   className?: string;
   wrapperCls?: string;
@@ -14,7 +15,6 @@ export interface IconWrapperProps {
   viewBox?: string;
   fill?: boolean;
   stroke?: boolean;
-  illustrations?: boolean;
   ariaLabel?: string;
   tabIndex?: number;
   onClick?: (e: MouseEvent<HTMLElement>) => any;

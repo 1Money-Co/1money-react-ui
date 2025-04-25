@@ -6,11 +6,12 @@ import type { FC } from 'react';
 import type { StepperProps } from './interface';
 
 export const Stepper: FC<StepperProps> = props => {
-  const { steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, onLogoClick, footer } = props;
+  const { id, steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, onLogoClick, footer } = props;
   const classes = classnames(prefixCls);
 
   return (
     <aside
+      id={id}
       className={classes(void 0, className)}
     >
       <div className={classes('header', headerCls)}>
