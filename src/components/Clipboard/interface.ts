@@ -1,5 +1,6 @@
 
 export interface ClipboardProps {
+  id?: string;
   content: string;
   className?: string;
   prefixCls?: string;

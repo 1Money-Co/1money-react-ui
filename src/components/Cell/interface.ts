@@ -2,6 +2,7 @@ import type { ReactNode, MouseEvent } from 'react';
 import type { IconName } from '@/components/Icons/interface';
 
 export interface CellProps {
+  id?: string;
   prefixCls?: string;
   active?: boolean;
   disabled?: boolean;

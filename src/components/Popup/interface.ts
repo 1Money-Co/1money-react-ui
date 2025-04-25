@@ -5,5 +5,6 @@ export interface PopupHandlers {
 }
 
 export interface PopupProps extends ConfirmPopupProps {
+  id?: string;
   prefixCls?: string;
 }
