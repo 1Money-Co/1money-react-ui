@@ -6,7 +6,7 @@ $cls: #{$prefix}-#{$component};
 .#{$cls} {
   position: relative;
   display: inline-flex;
-  min-height: 56px;
+  height: 56px;
   padding: 8px 16px;
   font-family: inherit;
   line-height: 22px;
@@ -18,7 +18,7 @@ $cls: #{$prefix}-#{$component};
   transition: none;
 
   &.#{$cls}-small {
-    min-height: 44px;
+    height: 44px;
     line-height: 18px;
 
     .p-dropdown-label,
@@ -136,8 +136,9 @@ $cls: #{$prefix}-#{$component};
   }
 
   &:not(.#{$cls}-disabled, .#{$cls}-invalid).p-focus,
-  &:not(.#{$cls}-disabled, .#{$cls}-invalid).p-focus,
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid).p-inputwrapper-focus,
   &-focus:not(.#{$cls}-disabled, .#{$cls}-invalid) {
+    padding: 7px 15px;
     border-color: $color-primary;
     border-width: 2px;
     box-shadow: none;
@@ -250,6 +251,7 @@ $cls: #{$prefix}-#{$component};
             }
 
             &.p-inputtext:enabled:focus {
+              padding: 11px 15px 11px 43px;
               border-color: $color-primary;
               border-width: 2px;
               box-shadow: none;
@@ -328,6 +330,7 @@ $cls: #{$prefix}-#{$component};
       border-radius: 12px;
 
       &:enabled:focus:not(.p-invalid) {
+        padding: 11px 15px 11px 43px;
         border-color: $color-primary;
         border-width: 2px;
         box-shadow: none;
