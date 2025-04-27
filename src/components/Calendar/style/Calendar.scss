@@ -60,6 +60,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &.p-calendar:not(.p-calendar-disabled, .p-invalid).p-focus>.p-inputtext {
+    padding: 7px 15px;
     border-color: $color-primary;
     border-width: 2px;
     box-shadow: none;
