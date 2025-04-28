@@ -21,6 +21,7 @@ const meta: Meta<typeof Table> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    rowBorder: { control: 'boolean' },
   },
   args: {
     prefixCls: 'table',
@@ -94,7 +95,7 @@ export const Primary: Story = {
           { field: 'updatedAt', header: 'Update Time' },
           { field: 'status', header: 'Status', body: (data) => <Badge severity={data.status.severity} value={data.status.value} /> },
           {
-            field: 'action', header: 'Action', body: (data) => <span style={{ display: 'inline-flex', alignItems: 'center', gap: '12px' }}>
+            field: 'action', header: 'Action', align: 'right', body: (data) => <span style={{ display: 'inline-flex', alignItems: 'center', gap: '12px' }}>
               <Icons
                 name='editFile'
                 size={20}
