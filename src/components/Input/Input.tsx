@@ -1,4 +1,4 @@
-import { memo, useRef, useMemo, useState, useCallback, useEffect } from 'react';
+import { memo, useRef, useMemo, useState, useCallback, useEffect, useImperativeHandle } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
@@ -11,10 +11,11 @@ import { Icons } from '../Icons';
 
 /* import types */
 import type { FC, PropsWithChildren, ChangeEvent } from 'react';
-import type { InputProps, InputOtpProps, InputPwdProps } from './interface';
+import type { InputProps, InputOtpProps, InputPwdProps, InputNumberClass, InputMaskClass, PasswordClass, AutoCompleteClass } from './interface';
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
   const {
+    ref,
     label,
     message,
     required,
@@ -50,7 +51,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     onChange?.(e as any);
   }, [onChange, maxLength, type]);
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
 
   const InputComponent = useMemo(() => {
     switch (type) {
@@ -82,6 +83,9 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         return InputText;
     }
   }, [type]);
+
+  // @ts-expect-error
+  useImperativeHandle(ref, () => inputRef.current, []);
 
   useEffect(() => {
     if (type === 'textarea' && val !== value && value !== undefined) {
