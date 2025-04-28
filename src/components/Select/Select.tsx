@@ -189,7 +189,9 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
 
 export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: typeof CustomDropdown } = props => {
   const {
+    id,
     ref,
+    name,
     label,
     message,
     required,
@@ -206,7 +208,6 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     className = '',
     multiple,
     options,
-    name,
     panelClassName,
     defaultValue,
     itemTemplate,
@@ -252,7 +253,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
           />;
         }}
         panelHeaderTemplate={options => {
-          const { filterElement, onChange, onCloseClick, props } = options;
+          const { filterElement, props } = options;
           // @ts-ignore
           const selectedNum = props?.metaData?.props?.value?.length ?? 0;
           return <div className={classes('panel-header')}>
@@ -264,8 +265,11 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
                 className={classes('panel-header-info-clear')}
                 onClick={e => {
                   // @ts-ignore
-                  props.resetFilter();
-                  setSelected(null);
+                  props.updateModel(
+                    e,
+                    [],
+                    []
+                  );
                 }}
               >
                 <Icons name='close' size={16} color='#AE0000' wrapperCls={classes('panel-header-info-clear-icon')} />
@@ -307,6 +311,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     >
       <SelectComponent
         {...rest as any}
+        id={id}
         ref={selectRef}
         name={name}
         filterPlaceholder='Search'
