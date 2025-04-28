@@ -17,7 +17,8 @@ $component: 'table';
       tr {
         th {
           padding: 0 0 16px;
-          border-color: $color-grey-deep;
+          background-color: transparent;
+          border-bottom: 1px solid $color-grey-deep;
 
           &:first-child {
             padding-left: 8px;
