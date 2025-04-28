@@ -52,6 +52,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
   }, [onChange, maxLength, type]);
 
   const inputRef = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
+  const _ref = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
 
   const InputComponent = useMemo(() => {
     switch (type) {
@@ -84,8 +85,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     }
   }, [type]);
 
-  // @ts-expect-error
-  useImperativeHandle(ref, () => inputRef.current, []);
+  useImperativeHandle(ref ?? _ref, () => inputRef.current!, []);
 
   useEffect(() => {
     if (type === 'textarea' && val !== value && value !== undefined) {
