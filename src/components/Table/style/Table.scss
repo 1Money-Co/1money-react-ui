@@ -49,7 +49,6 @@ $component: 'table';
       tr {
         color: $color-primary-black;
         background-color: transparent;
-        border: none;
 
         &.p-selectable-row:not(.p-highlight, .p-datatable-emptymessage):hover {
           background-color: $color-grey;
@@ -67,7 +66,7 @@ $component: 'table';
           font-family: var(--font-inter), Inter;
           font-style: normal;
           line-height: 140%;
-          border: none;
+          border-bottom: none;
 
           &:first-child {
             padding-left: 8px;
@@ -77,7 +76,6 @@ $component: 'table';
 
           &:last-child {
             padding-right: 8px;
-            text-align: right;
             border-top-right-radius: 12px;
             border-bottom-right-radius: 12px;
           }
@@ -86,6 +84,34 @@ $component: 'table';
 
       .p-datatable-row-expansion td {
         padding: 0 !important;
+      }
+    }
+  }
+
+  &-row-border {
+    .p-datatable-table {
+      .p-datatable-tbody {
+        tr {
+          td {
+            border-bottom: 1px solid $color-grey-deep;
+
+            &:first-child {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+            }
+
+            &:last-child {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+          }
+
+          &:last-child {
+            td {
+              border-bottom: none;
+            }
+          }
+        }
       }
     }
   }
