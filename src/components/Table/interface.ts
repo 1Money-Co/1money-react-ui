@@ -8,6 +8,7 @@ export interface TableBaseProps<T extends DataTableValueArray = DataTableValueAr
   ref?: RefObject<TableClass<T> | null>;
   className?: string;
   prefixCls?: string;
+  rowBorder?: boolean;
   columns: ColumnProps[];
   value?: T;
 }
