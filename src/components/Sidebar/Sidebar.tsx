@@ -55,7 +55,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
       </div>
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' color='#808080' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
+        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={18} color='#646465' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
       >
         {
           menus.map((menu, ind) => {
