@@ -67,6 +67,8 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
                 icon={icon}
                 component={link}
                 defaultOpen={defaultOpen}
+                active={active}
+                disabled={disabled}
               >
                 {
                   menu.children?.map((child, index) => {
