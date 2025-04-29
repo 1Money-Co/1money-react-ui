@@ -45,6 +45,7 @@ const meta: Meta<typeof SidebarComponent> = {
         defaultOpen: true,
         children: [
           {
+            active: true,
             label: 'Profile',
             icon: <i className="pi pi-user-edit" style={{ fontSize: '16px' }} />,
           },

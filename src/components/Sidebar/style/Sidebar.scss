@@ -30,7 +30,7 @@ $cls: #{$prefix}-#{$component};
       >ul {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
       }
 
       .ps-menuitem-root {
@@ -39,8 +39,8 @@ $cls: #{$prefix}-#{$component};
           gap: 12px;
           align-items: center;
           width: 100%;
-          height: 48px;
-          padding: 16px 12px;
+          height: 52px;
+          padding: 16px;
           color: $color-primary-black;
           font-weight: 500;
           font-size: 14px;
@@ -91,7 +91,24 @@ $cls: #{$prefix}-#{$component};
         }
 
         .ps-submenu-content.ps-open {
-          padding: 8px 0;
+          padding-bottom: 8px;
+        }
+      }
+
+      .ps-menuitem-root.ps-submenu-root {
+        .ps-submenu-content ul {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .ps-menu-button {
+            height: 40px;
+            padding: 12px 16px;
+
+            span:only-child {
+              padding-left: 32px;
+            }
+          }
         }
       }
     }
@@ -163,6 +180,46 @@ $cls: #{$prefix}-#{$component};
             .ps-menu-label {
               white-space: pre-line;
               text-align: center;
+            }
+          }
+        }
+
+        .ps-menuitem-root.ps-submenu-root {
+          .ps-submenu-content {
+            padding: 8px 16px;
+            background-color: $color-grey-light;
+            border-radius: 16px;
+            box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
+
+            >ul {
+              gap: 0;
+            }
+
+            .ps-menuitem-root {
+              padding: 4px 0;
+              border-bottom: 1px solid $color-grey-deep;
+
+              &:first-child {
+                padding-top: 0;
+              }
+
+              &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+              }
+            }
+
+            .ps-menu-button {
+              flex-direction: row;
+              gap: 8px;
+
+              span {
+                flex-grow: 0;
+              }
+
+              span:only-child {
+                padding-left: 28px;
+              }
             }
           }
         }

@@ -213,15 +213,15 @@ exports[`Sidebar renders correctly 1`] = `
                   >
                     <i
                       class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                      style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
+                      style="color: rgb(100, 100, 101); width: 18px; height: 18px;"
                     >
                       <svg
                         class="om-react-ui-icons"
                         fill="none"
-                        height="24"
+                        height="18"
                         stroke="none"
                         viewBox="0 0 24 24"
-                        width="24"
+                        width="18"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
@@ -677,15 +677,15 @@ exports[`Sidebar renders correctly 1`] = `
                 >
                   <i
                     class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                    style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
+                    style="color: rgb(100, 100, 101); width: 18px; height: 18px;"
                   >
                     <svg
                       class="om-react-ui-icons"
                       fill="none"
-                      height="24"
+                      height="18"
                       stroke="none"
                       viewBox="0 0 24 24"
-                      width="24"
+                      width="18"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -1026,15 +1026,15 @@ exports[`Sidebar renders correctly 2`] = `
                   >
                     <i
                       class="om-react-ui-icons-wrapper om-react-ui-sidebar-expand-icon om-react-ui-sidebar-expand-icon-open"
-                      style="color: rgb(128, 128, 128); width: 24px; height: 24px;"
+                      style="color: rgb(100, 100, 101); width: 18px; height: 18px;"
                     >
                       <svg
                         class="om-react-ui-icons"
                         fill="none"
-                        height="24"
+                        height="18"
                         stroke="none"
                         viewBox="0 0 24 24"
-                        width="24"
+                        width="18"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
