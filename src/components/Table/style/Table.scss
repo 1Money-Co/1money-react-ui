@@ -26,10 +26,6 @@ $component: 'table';
 
           &:last-child {
             padding-right: 8px;
-
-            .p-column-header-content {
-              justify-content: flex-end;
-            }
           }
 
           .p-column-title {
