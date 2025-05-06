@@ -2,6 +2,7 @@
 
 $component: 'calendar';
 $cls: #{$prefix}-#{$component};
+$size: 36px;
 
 .#{$cls} {
   &-small {
@@ -94,10 +95,14 @@ $cls: #{$prefix}-#{$component};
   }
 
   .p-datepicker-group-container {
+    gap:24px;
+
     .p-datepicker-group {
       display: flex;
       flex-direction: column;
       gap: 24px;
+      padding: 0 !important;
+      border: 0 !important;
 
       .p-datepicker-header {
         padding: 0;
@@ -133,6 +138,14 @@ $cls: #{$prefix}-#{$component};
       }
 
       .p-datepicker-calendar-container {
+        table{
+          width: calc($size * 7);
+          margin: 0;
+          table-layout: fixed;
+          border-collapse: separate;
+          border-spacing: 0 4px;
+        }
+
         .p-datepicker-calendar {
           thead tr th span {
             color: $color-primary-black;
@@ -142,9 +155,23 @@ $cls: #{$prefix}-#{$component};
             line-height: 18px;
           }
 
+          tbody tr td {
+            width: $size !important;
+            height: $size;
+            padding: 0 !important;
+
+            &:first-child {
+              border-radius: 50% 0 0 50% !important;
+            }
+
+            &:last-child {
+              border-radius: 0 50% 50% 0 !important;
+            }
+          }
+
           tbody tr td span {
-            width: 36px;
-            height: 36px;
+            width: $size;
+            height: $size;
             color: $color-primary-black;
             font-weight: 500;
             font-size: 16px;
@@ -179,6 +206,7 @@ $cls: #{$prefix}-#{$component};
               background-color: $color-primary-white;
             }
           }
+
         }
       }
     }
@@ -272,6 +300,41 @@ $cls: #{$prefix}-#{$component};
       font-style: normal;
       line-height: 120%;
       content: '*';
+    }
+  }
+}
+
+.#{$cls}-p-start {
+  background-color: $color-secondary !important;
+  border-radius: 50% 0 0 50% !important;
+
+
+  span {
+    color: $color-primary-white !important;
+    background-color: $color-primary !important;
+    border-radius: 50% !important;
+  }
+}
+
+.#{$cls}-p-end {
+  background-color: $color-secondary !important;
+  border-radius: 0 50% 50% 0 !important;
+
+  span {
+    color: $color-primary-white !important;
+    background-color: $color-primary !important;
+    border-radius: 50% !important;
+  }
+}
+
+.#{$cls}-p-range {
+  color: $color-primary-white !important;
+  background-color: $color-secondary !important;
+
+  span{
+    &.p-highlight{
+      color: $color-primary-black !important;
+      background-color: transparent !important;
     }
   }
 }
