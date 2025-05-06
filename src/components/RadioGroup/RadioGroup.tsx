@@ -1,5 +1,6 @@
 import { memo, useMemo, useState, useCallback, useImperativeHandle } from 'react';
-import { RadioButton } from 'primereact/radiobutton';
+// import { RadioButton } from 'primereact/radiobutton';
+import { Radio } from '../Radio';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -23,7 +24,6 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     required,
   } = props;
   const classes = classnames(prefixCls);
-  const sizeClass = `rd-${size}`;
 
   const defaultSelected = useMemo(() => items.find(item => !!item.autoFocus), [items]);
   const [selected, setSelected] = useState<(typeof items)[number] | undefined>(defaultSelected);
@@ -33,13 +33,14 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const renderDefaultRadio = (item: RadioItemProps) => {
     const { key, label, required, children, ...rest } = item;
     return (
-      <div key={key} className={[classes('default-inner'), sizeClass].join(' ')}>
-        <RadioButton
+      <div key={key} className={[classes('default-inner')].join(' ')}>
+        <Radio
           {...rest}
           required={required}
-          inputId={key}
+          id={key}
           value={key}
-          className={classes('inner-radio', radioCls)}
+          size={size}
+          radioCls={classes('inner-radio', radioCls)}
           onChange={e => {
             onChange?.(item);
             setSelected(item);

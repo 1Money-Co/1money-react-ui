@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.4.14-alpha.2",
+  "version": "1.4.14-alpha.4",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -98,6 +98,11 @@
       "types": "./es/components/Progress/index.d.ts",
       "import": "./es/components/Progress/index.js",
       "require": "./lib/components/Progress/index.js"
+    },
+    "./Radio": {
+      "types": "./es/components/Radio/index.d.ts",
+      "import": "./es/components/Radio/index.js",
+      "require": "./lib/components/Radio/index.js"
     },
     "./RadioGroup": {
       "types": "./es/components/RadioGroup/index.d.ts",

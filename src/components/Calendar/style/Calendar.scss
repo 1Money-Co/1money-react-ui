@@ -161,11 +161,11 @@ $size: 36px;
             padding: 0 !important;
 
             &:first-child {
-              border-radius: 50% 0 0 50% !important;
+              border-radius: 50% 0 0 50%;
             }
 
             &:last-child {
-              border-radius: 0 50% 50% 0 !important;
+              border-radius: 0 50% 50% 0;
             }
           }
 
@@ -308,6 +308,9 @@ $size: 36px;
   background-color: $color-secondary !important;
   border-radius: 50% 0 0 50% !important;
 
+  &:last-child{
+    border-radius: 50% !important;
+  }
 
   span {
     color: $color-primary-white !important;
@@ -319,6 +322,10 @@ $size: 36px;
 .#{$cls}-p-end {
   background-color: $color-secondary !important;
   border-radius: 0 50% 50% 0 !important;
+
+  &:first-child{
+    border-radius: 50% !important;
+  }
 
   span {
     color: $color-primary-white !important;

@@ -12,29 +12,37 @@ exports[`RadioGroup Large renders correctly 1`] = `
           class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
-            class="om-react-ui-radiogroup-default-inner rd-lg"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA-1"
-                name="US1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-lg"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA-1"
+                    name="US1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -44,30 +52,38 @@ exports[`RadioGroup Large renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-lg"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-              data-p-checked="true"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                checked=""
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA-2"
-                name="US2"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-lg"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                  data-p-checked="true"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    checked=""
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA-2"
+                    name="US2"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -77,29 +93,37 @@ exports[`RadioGroup Large renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-lg"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="Canada-1"
-                name="CA1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-lg"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="Canada-1"
+                    name="CA1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -109,30 +133,38 @@ exports[`RadioGroup Large renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-lg"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                disabled=""
-                id="Mexico"
-                name="MX"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-lg"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    disabled=""
+                    id="Mexico"
+                    name="MX"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -153,29 +185,37 @@ exports[`RadioGroup Large renders correctly 1`] = `
         class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
-          class="om-react-ui-radiogroup-default-inner rd-lg"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA-1"
-              name="US1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-lg"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA-1"
+                  name="US1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -185,30 +225,38 @@ exports[`RadioGroup Large renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-lg"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-            data-p-checked="true"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              checked=""
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA-2"
-              name="US2"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-lg"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                data-p-checked="true"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  checked=""
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA-2"
+                  name="US2"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -218,29 +266,37 @@ exports[`RadioGroup Large renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-lg"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="Canada-1"
-              name="CA1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-lg"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="Canada-1"
+                  name="CA1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -250,30 +306,38 @@ exports[`RadioGroup Large renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-lg"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              disabled=""
-              id="Mexico"
-              name="MX"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-lg"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  disabled=""
+                  id="Mexico"
+                  name="MX"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -351,29 +415,37 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA-1"
-                name="US1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA-1"
+                    name="US1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -383,30 +455,38 @@ exports[`RadioGroup Medium renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-              data-p-checked="true"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                checked=""
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA-2"
-                name="US2"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                  data-p-checked="true"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    checked=""
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA-2"
+                    name="US2"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -416,29 +496,37 @@ exports[`RadioGroup Medium renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="Canada-1"
-                name="CA1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="Canada-1"
+                    name="CA1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -448,30 +536,38 @@ exports[`RadioGroup Medium renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                disabled=""
-                id="Mexico"
-                name="MX"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    disabled=""
+                    id="Mexico"
+                    name="MX"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -492,29 +588,37 @@ exports[`RadioGroup Medium renders correctly 1`] = `
         class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA-1"
-              name="US1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA-1"
+                  name="US1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -524,30 +628,38 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-            data-p-checked="true"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              checked=""
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA-2"
-              name="US2"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                data-p-checked="true"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  checked=""
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA-2"
+                  name="US2"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -557,29 +669,37 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="Canada-1"
-              name="CA1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="Canada-1"
+                  name="CA1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -589,30 +709,38 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              disabled=""
-              id="Mexico"
-              name="MX"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  disabled=""
+                  id="Mexico"
+                  name="MX"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -690,30 +818,38 @@ exports[`RadioGroup disabled renders correctly 1`] = `
           class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                disabled=""
-                id="Japan"
-                name="Janpan"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    disabled=""
+                    id="Japan"
+                    name="Janpan"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -723,31 +859,39 @@ exports[`RadioGroup disabled renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
-              data-p-checked="true"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                checked=""
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                disabled=""
-                id="Janpan-1"
-                name="Janpan1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
+                  data-p-checked="true"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    checked=""
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    disabled=""
+                    id="Janpan-1"
+                    name="Janpan1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -768,30 +912,38 @@ exports[`RadioGroup disabled renders correctly 1`] = `
         class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              disabled=""
-              id="Japan"
-              name="Janpan"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  disabled=""
+                  id="Japan"
+                  name="Janpan"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -801,31 +953,39 @@ exports[`RadioGroup disabled renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
-            data-p-checked="true"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              checked=""
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              disabled=""
-              id="Janpan-1"
-              name="Janpan1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
+                data-p-checked="true"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  checked=""
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  disabled=""
+                  id="Janpan-1"
+                  name="Janpan1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -903,29 +1063,37 @@ exports[`RadioGroup renders correctly 1`] = `
           class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA"
-                name="US"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA"
+                    name="US"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -935,30 +1103,38 @@ exports[`RadioGroup renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-              data-p-checked="true"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                checked=""
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="Canada"
-                name="CA"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                  data-p-checked="true"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    checked=""
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="Canada"
+                    name="CA"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -968,29 +1144,37 @@ exports[`RadioGroup renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="Mexico"
-                name="MX"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="Mexico"
+                    name="MX"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -1000,29 +1184,37 @@ exports[`RadioGroup renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-md"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="Brazil"
-                name="BR"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-md"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="Brazil"
+                    name="BR"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -1043,29 +1235,37 @@ exports[`RadioGroup renders correctly 1`] = `
         class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA"
-              name="US"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA"
+                  name="US"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1075,30 +1275,38 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-            data-p-checked="true"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              checked=""
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="Canada"
-              name="CA"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                data-p-checked="true"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  checked=""
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="Canada"
+                  name="CA"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1108,29 +1316,37 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="Mexico"
-              name="MX"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="Mexico"
+                  name="MX"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1140,29 +1356,37 @@ exports[`RadioGroup renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-md"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="Brazil"
-              name="BR"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-md"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="Brazil"
+                  name="BR"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1240,29 +1464,37 @@ exports[`RadioGroup size renders correctly 1`] = `
           class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
         >
           <div
-            class="om-react-ui-radiogroup-default-inner rd-sm"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA-1"
-                name="US1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-sm"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA-1"
+                    name="US1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -1272,30 +1504,38 @@ exports[`RadioGroup size renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-sm"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-              data-p-checked="true"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                checked=""
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="USA-2"
-                name="US2"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-sm"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                  data-p-checked="true"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    checked=""
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="USA-2"
+                    name="US2"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -1305,29 +1545,37 @@ exports[`RadioGroup size renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-sm"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                id="Canada-1"
-                name="CA1"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-sm"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    id="Canada-1"
+                    name="CA1"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -1337,30 +1585,38 @@ exports[`RadioGroup size renders correctly 1`] = `
             </label>
           </div>
           <div
-            class="om-react-ui-radiogroup-default-inner rd-sm"
+            class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-              data-p-checked="false"
-              data-pc-name="radiobutton"
-              data-pc-section="root"
+              class="om-react-ui-radio-wrapper "
             >
-              <input
-                class="p-radiobutton-input"
-                data-pc-section="input"
-                disabled=""
-                id="Mexico"
-                name="MX"
-                type="radio"
-              />
               <div
-                class="p-radiobutton-box"
-                data-pc-section="box"
+                class="om-react-ui-radio-inner  rd-sm"
               >
                 <div
-                  class="p-radiobutton-icon"
-                  data-pc-section="icon"
-                />
+                  class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                  data-p-checked="false"
+                  data-pc-name="radiobutton"
+                  data-pc-section="root"
+                >
+                  <input
+                    class="p-radiobutton-input"
+                    data-pc-section="input"
+                    disabled=""
+                    id="Mexico"
+                    name="MX"
+                    type="radio"
+                  />
+                  <div
+                    class="p-radiobutton-box"
+                    data-pc-section="box"
+                  >
+                    <div
+                      class="p-radiobutton-icon"
+                      data-pc-section="icon"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <label
@@ -1381,29 +1637,37 @@ exports[`RadioGroup size renders correctly 1`] = `
         class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
       >
         <div
-          class="om-react-ui-radiogroup-default-inner rd-sm"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA-1"
-              name="US1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-sm"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA-1"
+                  name="US1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1413,30 +1677,38 @@ exports[`RadioGroup size renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-sm"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
-            data-p-checked="true"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              checked=""
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="USA-2"
-              name="US2"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-sm"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                data-p-checked="true"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  checked=""
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="USA-2"
+                  name="US2"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1446,29 +1718,37 @@ exports[`RadioGroup size renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-sm"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              id="Canada-1"
-              name="CA1"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-sm"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  id="Canada-1"
+                  name="CA1"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
@@ -1478,30 +1758,38 @@ exports[`RadioGroup size renders correctly 1`] = `
           </label>
         </div>
         <div
-          class="om-react-ui-radiogroup-default-inner rd-sm"
+          class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
-            data-p-checked="false"
-            data-pc-name="radiobutton"
-            data-pc-section="root"
+            class="om-react-ui-radio-wrapper "
           >
-            <input
-              class="p-radiobutton-input"
-              data-pc-section="input"
-              disabled=""
-              id="Mexico"
-              name="MX"
-              type="radio"
-            />
             <div
-              class="p-radiobutton-box"
-              data-pc-section="box"
+              class="om-react-ui-radio-inner  rd-sm"
             >
               <div
-                class="p-radiobutton-icon"
-                data-pc-section="icon"
-              />
+                class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
+                data-p-checked="false"
+                data-pc-name="radiobutton"
+                data-pc-section="root"
+              >
+                <input
+                  class="p-radiobutton-input"
+                  data-pc-section="input"
+                  disabled=""
+                  id="Mexico"
+                  name="MX"
+                  type="radio"
+                />
+                <div
+                  class="p-radiobutton-box"
+                  data-pc-section="box"
+                >
+                  <div
+                    class="p-radiobutton-icon"
+                    data-pc-section="icon"
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <label
