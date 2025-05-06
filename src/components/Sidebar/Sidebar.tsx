@@ -59,12 +59,13 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
       >
         {
           menus.map((menu, ind) => {
-            const { key, label, icon, link, active, disabled, defaultOpen, children } = menu;
+            const { key, label, icon, suffix, link, active, disabled, defaultOpen, children } = menu;
             if (children) {
               return <ProSubMenu
                 key={key ?? ind}
                 label={menu.label}
                 icon={icon}
+                suffix={suffix}
                 component={link}
                 defaultOpen={defaultOpen}
                 active={active}
@@ -75,6 +76,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
                     return <ProMenuItem
                       key={`${key ?? ind}-${child.key ?? index}`}
                       icon={child.icon}
+                      suffix={child.suffix}
                       component={child.link}
                       active={child.active}
                       disabled={child.disabled}
@@ -88,6 +90,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
             return <ProMenuItem
               key={key ?? ind}
               icon={icon}
+              suffix={suffix}
               component={link}
               active={active}
               disabled={disabled}

@@ -26,11 +26,11 @@ const meta: Meta<typeof SidebarComponent> = {
         active: true
       },
       {
-        label: 'Digital Assets',
-        icon: <Icons name='digitalAsset' size={20} color='#131313' />,
+        label: 'Transaction history',
+        icon: <Icons name='transferHistory' size={20} color='#131313' />,
       },
       {
-        label: 'Address Book',
+        label: 'Address book',
         icon: <Icons name='addressBook' size={20} color='#131313' />,
         disabled: true
       },
@@ -40,18 +40,25 @@ const meta: Meta<typeof SidebarComponent> = {
         disabled: true
       },
       {
-        label: 'Account',
-        icon: <i className="pi pi-user" style={{ fontSize: '16px' }} />,
+        label: 'Send addresses',
+        icon: <Icons name='addressBook' size={20} color='#131313' />,
         defaultOpen: true,
         children: [
           {
             active: true,
-            label: 'Profile',
-            icon: <i className="pi pi-user-edit" style={{ fontSize: '16px' }} />,
+            label: 'Digital wallets',
+            icon: <Icons name='wallet' size={20} color='#131313' />,
+            suffix: <Icons name='arrowRight' size={20} color='#131313' />,
           },
           {
-            label: 'Security',
-            icon: <i className="pi pi-shield" style={{ fontSize: '16px' }} />,
+            label: 'Bank accounts',
+            icon: <Icons name='bank' size={20} color='#131313' />,
+            suffix: <Icons name='arrowRight' size={20} color='#131313' />,
+          },
+          {
+            label: 'Web3 addresses',
+            icon: <Icons name='fiat' size={20} color='#131313' />,
+            suffix: <Icons name='arrowRight' size={20} color='#131313' />,
           }
         ]
       }
