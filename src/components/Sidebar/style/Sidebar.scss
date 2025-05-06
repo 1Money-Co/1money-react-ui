@@ -9,10 +9,6 @@ $cls: #{$prefix}-#{$component};
   background-color: $color-grey-light;
   border: none !important;
 
-  &.ps-collapsed {
-    padding: 40px 8px 24px;
-  }
-
   &-expand-icon {
     &-open {
       transform: rotate(180deg);
@@ -66,6 +62,10 @@ $cls: #{$prefix}-#{$component};
             height: 20px;
             margin-right: 0;
             line-height: 20px;
+          }
+
+          .ps-menu-suffix {
+            margin: 0 0 0 auto;
           }
         }
 
@@ -156,6 +156,8 @@ $cls: #{$prefix}-#{$component};
   }
 
   &.ps-collapsed {
+    padding: 40px 8px 24px;
+
     .ps-sidebar-container {
       align-items: center;
       overflow: visible;
@@ -183,7 +185,7 @@ $cls: #{$prefix}-#{$component};
 
         .ps-menuitem-root.ps-submenu-root {
           .ps-submenu-content {
-            padding: 8px 16px;
+            padding: 0;
             background-color: $color-grey-light;
             border-radius: 16px;
             box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
@@ -193,18 +195,43 @@ $cls: #{$prefix}-#{$component};
             }
 
             .ps-menuitem-root {
-              padding: 4px 0;
-              border-bottom: 1px solid $color-grey-deep;
+              padding: 0 16px;
+
+              &:hover {
+                background-color: $color-grey;
+              }
+
+              &:has(.ps-menu-button.ps-active) {
+                background-color: $color-grey;
+              }
 
               &:first-child {
-                padding-top: 0;
+                .ps-menu-button {
+                  padding-top: 16px;
+                }
               }
 
               &:last-child {
-                padding-bottom: 0;
-                border-bottom: none;
+                .ps-menu-button {
+                  padding-bottom: 16px;
+                  border-bottom: none;
+                }
+              }
+
+              .ps-menu-button {
+                padding: 12px 0;
+                font-size: 14px;
+                line-height: 108%;
+                border: none;
+                border-bottom: 1px solid $color-grey-deep;
+                border-radius: 0;
+              }
+
+              .ps-menu-button.ps-active {
+                background-color: inherit;
               }
             }
+
 
             .ps-menu-button {
               flex-direction: row;

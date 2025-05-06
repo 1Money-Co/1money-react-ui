@@ -4,6 +4,7 @@ export interface MenuItem {
   key?: string | number;
   label: ReactNode;
   icon?: ReactNode;
+  suffix?: ReactNode;
   link?: string | ReactElement;
   active?: boolean;
   disabled?: boolean;
