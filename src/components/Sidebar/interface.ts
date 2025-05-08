@@ -1,4 +1,4 @@
-import type { ReactNode, ReactElement } from 'react';
+import type { ReactNode, ReactElement, MouseEvent } from 'react';
 
 export interface MenuItem {
   key?: string | number;
@@ -9,6 +9,8 @@ export interface MenuItem {
   active?: boolean;
   disabled?: boolean;
   defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => any;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => any;
   children?: Omit<MenuItem, 'children'>[];
 }
 
@@ -20,6 +22,7 @@ export interface SidebarProps {
   bodyCls?: string;
   collapseCls?: string;
   collapsible?: boolean;
+  defaultCollapsed?: boolean;
   onCollapse?: (collapsed: boolean) => any;
   onLogoClick?: () => any;
   menus: MenuItem[];
