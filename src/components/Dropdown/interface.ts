@@ -10,7 +10,7 @@ export interface DropdownItem {
 export interface DropdownProps extends OverlayPanelProps {
   ref?: RefObject<OverlayPanel | null>;
   items: DropdownItem[];
-  height: CSSProperties['height'];
+  height?: CSSProperties['height'];
   width?: CSSProperties['width'];
   prefixCls?: string;
   className?: string;

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import type { Nullable } from 'primereact/ts-helpers';
-import type { CalendarProps as PrimeCalendarProps } from 'primereact/calendar';
+import type { CalendarProps as PrimeCalendarProps, CalendarSelectionMode } from 'primereact/calendar';
 
-export type CalendarProps = PrimeCalendarProps & {
+export type CalendarProps = PrimeCalendarProps<CalendarSelectionMode> & {
   prefixCls?: string;
   wrapperCls?: string;
   labelCls?: string;

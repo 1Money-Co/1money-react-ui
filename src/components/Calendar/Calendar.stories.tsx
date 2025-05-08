@@ -18,17 +18,41 @@ const meta: Meta<typeof Calendar> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Calendar>;
- 
+
 export const Primary: Story = {
   args: {
     size: 'large',
     disabled: false,
     label: 'Date of Incorporation',
     required: true,
-    appendTo: null
+    appendTo: null,
+  },
+};
+
+
+export const Range: Story = {
+  args: {
+    size: 'large',
+    disabled: false,
+    label: 'Date of Incorporation',
+    required: true,
+    appendTo: null,
+    selectionMode: 'range',
+    numberOfMonths: 2
+  },
+};
+
+export const multiple: Story = {
+  args: {
+    size: 'large',
+    disabled: false,
+    label: 'Date of Incorporation',
+    required: true,
+    appendTo: null,
+    selectionMode: 'multiple',
   },
 };
