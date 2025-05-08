@@ -53,6 +53,17 @@ $component: 'table';
     }
   }
 
+  .p-datatable-header,
+  .p-datatable-footer {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    color: $color-primary-black;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+  }
+
   .p-datatable-table {
     .p-datatable-thead {
       background-color: transparent;
