@@ -15,6 +15,7 @@ import { Modal } from './components/Modal';
 import { Notification } from './components/Notification';
 import { Popup } from './components/Popup';
 import { Progress } from './components/Progress';
+import { Radio } from './components/Radio';
 import { RadioGroup } from './components/RadioGroup';
 import { Select } from './components/Select';
 import { Spinner } from './components/Spinner';
@@ -46,6 +47,7 @@ export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
 export { Popup } from './components/Popup';
 export { Progress } from './components/Progress';
+export { Radio } from './components/Radio';
 export { RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
 export { Spinner } from './components/Spinner';
@@ -78,6 +80,7 @@ export default {
   Notification,
   Popup,
   Progress,
+  Radio,
   RadioGroup,
   Select,
   Spinner,

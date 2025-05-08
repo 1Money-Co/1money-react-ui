@@ -7,6 +7,35 @@ import classnames from '@/utils/classnames';
 import type { FC, PropsWithChildren } from 'react';
 import type { CalendarProps } from './interface';
 
+const isSameDay = (d1?: Date, d2?: Date): boolean => {
+  if (!d1 || !d2) return false;
+  return (
+    d1.getFullYear() === d2.getFullYear() &&
+    d1.getMonth() === d2.getMonth() &&
+    d1.getDate() === d2.getDate()
+  );
+};
+
+const getRangeDateStyles = (params: any, selectedDates: any, classes: any) => {
+  const { context } = params || {};
+  const { date } = context || {};
+
+  if (!date || !Array.isArray(selectedDates)) return '';
+
+  const cellDate = new Date(date.year, date.month, date.day);
+
+  const isStart = selectedDates[0] && isSameDay(cellDate, selectedDates[0]);
+  const isEnd = selectedDates[1] && isSameDay(cellDate, selectedDates[1]);
+  const inRange = selectedDates[0] && selectedDates[1] &&
+                 cellDate > selectedDates[0] && cellDate < selectedDates[1];
+
+  return [
+    isStart && classes('p-start'),
+    isEnd && classes('p-end'),
+    inRange && classes('p-range')
+  ].filter(Boolean).join(' ');
+};
+
 export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
   const {
     prefixCls = 'calendar',
@@ -20,6 +49,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     defaultValue,
     value,
     size = 'large',
+    selectionMode = 'single',
     onChange,
     ...rest
   } = props;
@@ -54,6 +84,12 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
         placeholder={placeholder}
         prevIcon={<Icons name='chevronLeft' size={24} />}
         nextIcon={<Icons name='chevronRight' size={24} />}
+        selectionMode={selectionMode}
+        pt={selectionMode === 'range' ? {
+          day: (params) => ({
+            className: getRangeDateStyles(params, date, classes)
+          })
+        } : undefined}
       />
     </div>
   );

@@ -87,12 +87,12 @@ $component: 'checkbox';
           box-shadow: none;
         }
 
-        &:has(.p-checkbox-input:checked) {
-          .p-checkbox-box {
-            background-color: $color-primary-active;
-            border-color: $color-primary-active;
-          }
-        }
+        // &:has(.p-checkbox-input:checked) {
+        //   .p-checkbox-box {
+        //     // background-color: $color-primary-active;
+        //     // border-color: $color-primary-active;
+        //   }
+        // }
       }
 
       // 选中状态
