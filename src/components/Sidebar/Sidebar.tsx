@@ -13,8 +13,8 @@ import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
 export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
-  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, onCollapse, onLogoClick } = props;
-  const [collapsed, setCollapsed] = useState(false);
+  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, defaultCollapsed, onCollapse, onLogoClick } = props;
+  const [collapsed, setCollapsed] = useState(defaultCollapsed ?? false);
   const classes = classnames(prefixCls);
 
   const handleCollapse = useCallback((_collapsed: boolean) => {
@@ -59,7 +59,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
       >
         {
           menus.map((menu, ind) => {
-            const { key, label, icon, suffix, link, active, disabled, defaultOpen, children } = menu;
+            const { key, label, icon, suffix, link, active, disabled, defaultOpen, onOpenChange, onClick, children } = menu;
             if (children) {
               return <ProSubMenu
                 key={key ?? ind}
@@ -68,6 +68,8 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
                 suffix={suffix}
                 component={link}
                 defaultOpen={defaultOpen}
+                onOpenChange={onOpenChange}
+                onClick={onClick}
                 active={active}
                 disabled={disabled}
               >
@@ -80,6 +82,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
                       component={child.link}
                       active={child.active}
                       disabled={child.disabled}
+                      onClick={child.onClick}
                     >
                       {child.label}
                     </ProMenuItem>;
