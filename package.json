@@ -334,7 +334,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "primereact": "patches/primereact.patch"
+      "primereact": "patches/primereact.patch",
+      "react-pro-sidebar": "patches/react-pro-sidebar.patch"
     }
   }
 }
