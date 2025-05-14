@@ -40,7 +40,6 @@ $cls: #{$prefix}-#{$component};
           color: $color-primary-black;
           font-weight: 500;
           font-size: 16px;
-          line-height: 108%;
           border-radius: 12px;
 
 
@@ -61,7 +60,6 @@ $cls: #{$prefix}-#{$component};
             min-width: 20px;
             height: 20px;
             margin-right: 0;
-            line-height: 20px;
           }
 
           .ps-menu-suffix {
@@ -151,7 +149,6 @@ $cls: #{$prefix}-#{$component};
       color: $color-grey-midnight;
       font-weight: 500;
       font-size: 14px;
-      line-height: 15px;
     }
   }
 
@@ -174,7 +171,6 @@ $cls: #{$prefix}-#{$component};
             height: auto;
             padding: 8px;
             font-size: 10px;
-            line-height: 11px;
 
             .ps-menu-label {
               white-space: pre-line;
@@ -221,7 +217,6 @@ $cls: #{$prefix}-#{$component};
               .ps-menu-button {
                 padding: 12px 0;
                 font-size: 14px;
-                line-height: 108%;
                 border: none;
                 border-bottom: 1px solid $color-grey-deep;
                 border-radius: 0;
