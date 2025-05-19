@@ -6,7 +6,7 @@ exports[`Tab renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-tab"
+        class="om-react-ui-tab om-react-ui-tab-default"
       >
         <div
           class="p-tabmenu p-component"
@@ -85,7 +85,7 @@ exports[`Tab renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-tab"
+      class="om-react-ui-tab om-react-ui-tab-default"
     >
       <div
         class="p-tabmenu p-component"
