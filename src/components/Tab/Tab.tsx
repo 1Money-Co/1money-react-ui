@@ -6,12 +6,12 @@ import type { FC, PropsWithChildren } from 'react';
 import type { TabProps } from './interface';
 
 export const Tab: FC<PropsWithChildren<TabProps>> = props => {
-  const { className, prefixCls = 'tab', model, ...rest } = props;
+  const { className, prefixCls = 'tab', model, type = 'default', ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
     <div
-      className={classes(void 0, className)}
+      className={classes(void 0, [className, classes(type)].join(' ').trim())}
     >
       <TabMenu
         model={model?.map(item => (

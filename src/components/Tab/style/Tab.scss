@@ -77,4 +77,64 @@ $component: 'tab';
       border-radius: 12px;
     }
   }
+
+  &-segment {
+    &::after {
+      display: none;
+    }
+
+    .p-tabmenu {
+      .p-tabmenu-nav {
+        .p-tabmenuitem {
+          padding: 4px;
+          background-color: $color-grey;
+
+          &:nth-child(1) {
+            border-top-left-radius: 64px;
+            border-bottom-left-radius: 64px;
+          }
+
+          &:nth-last-child(2) {
+            border-top-right-radius: 64px;
+            border-bottom-right-radius: 64px;
+          }
+
+          .p-menuitem-link {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 40px;
+
+            .p-menuitem-text {
+              font-weight: 500;
+            }
+
+            &:hover {
+              color: $color-primary-black;
+            }
+          }
+        }
+
+        .p-tabmenuitem.p-highlight {
+          .p-menuitem-link {
+            color: $color-white;
+            background-color: $color-primary-black;
+          }
+        }
+
+        .p-tabmenuitem.p-disabled {
+          opacity: 1;
+
+          .p-menuitem-link {
+            color: $color-grey-dark;
+          }
+        }
+      }
+    }
+
+    .#{$prefix}-#{$component}-item {
+      &-count {
+        background-color: $color-grey-deep;
+      }
+    }
+  }
 }

@@ -7,6 +7,7 @@ const meta: Meta<typeof Tab> = {
   component: Tab,
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
+    type: { control: 'radio', options: ['default', 'segment'] },
     className: { control: 'text' },
     prefixCls: { control: 'text' },
   },
@@ -23,10 +24,12 @@ type Story = StoryObj<typeof Tab>;
 export const Primary: Story = {
   args: {
     prefixCls: 'tab',
+    type: 'default',
     model: [
       { label: 'Password' },
       { label: '2FA settings', count: 10 },
-      { label: 'Limits' },
+      { label: 'Limits', disabled: true },
+      { label: 'Notifications' },
     ]
   },
 };

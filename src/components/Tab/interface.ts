@@ -7,4 +7,5 @@ export interface TabProps extends Exclude<TabMenuProps, 'model'> {
   className?: string;
   prefixCls?: string;
   model?: (TabMenuItem[number] & { count?: number })[];
+  type?: 'default' | 'segment';
 }
