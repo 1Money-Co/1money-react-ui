@@ -18,7 +18,6 @@ $component: 'table';
 
     .p-datatable-table {
       .p-datatable-thead {
-        height: 30px;
         background-color: $color-grey-light;
       }
     }
@@ -30,7 +29,7 @@ $component: 'table';
       left: 0;
       z-index: 1;
       width: 100%;
-      height: 53px;
+      height: 54px;
       background-color: $color-grey-light;
       border-bottom: 1px solid $color-grey-deep;
       border-top-left-radius: 24px;
