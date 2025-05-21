@@ -8,6 +8,7 @@ import { ConfirmPopup } from './components/ConfirmPopup';
 import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
 import { Input } from './components/Input';
+import { InputAmount } from './components/InputAmount';
 import { Loading } from './components/Loading';
 import { Menu } from './components/Menu';
 import { Message } from './components/Message';
@@ -39,6 +40,7 @@ export { Collapse } from './components/Collapse';
 export { ConfirmPopup } from './components/ConfirmPopup';
 export { Drawer } from './components/Drawer';
 export { Input } from './components/Input';
+export { InputAmount } from './components/InputAmount';
 export { Loading } from './components/Loading';
 export { Menu } from './components/Menu';
 export { Message } from './components/Message';
@@ -73,6 +75,7 @@ export default {
   Dropdown,
   Drawer,
   Input,
+  InputAmount,
   Loading,
   Menu,
   Message,

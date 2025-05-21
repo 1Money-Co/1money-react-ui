@@ -1,0 +1,140 @@
+@use '../../../variable.scss'as *;
+
+$component: 'input-amount';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  &-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-grey-bold;
+
+  &:has(.p-inputwrapper-focus:not(.p-invalid)) {
+    border-bottom-color: $color-primary;
+  }
+
+  &-element {
+    display: inline-flex;
+    flex-grow: 0;
+    color: $color-primary;
+    font-weight: 500;
+    font-size: 52px;
+    font-family: var(--font-aeonik), Aeonik;
+    line-height: 56px;
+    letter-spacing: -0.25px;
+
+    input {
+      position: relative;
+      width: var(--input-width);
+      padding: 0;
+      color: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+
+      &::placeholder {
+        color: inherit;
+      }
+    }
+  }
+
+  &-fake {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    z-index: -1;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 52px;
+    font-family: var(--font-aeonik), Aeonik;
+    line-height: 56px;
+    letter-spacing: -0.25px;
+    white-space: pre;
+    visibility: hidden;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+
+  &-prefix,
+  &-currency,
+  &-suffix {
+    display: inline-flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &-prefix {
+    color: $color-primary;
+    font-weight: 500;
+    font-size: 52px;
+    font-family: var(--font-aeonik), Aeonik;
+    line-height: 56px;
+    letter-spacing: -0.25px;
+  }
+
+  &-currency {
+    color: $color-grey-deep;
+    font-weight: 500;
+    font-size: 52px;
+    font-family: var(--font-aeonik), Aeonik;
+    line-height: 56px;
+    letter-spacing: -0.25px;
+  }
+
+  &-suffix {
+    margin-left: auto;
+  }
+
+  &-extra {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &-message {
+    color: $color-primary-black;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: var(--font-inter), Inter;
+    line-height: 140%;
+  }
+
+  &-footnote {
+    color: $color-primary;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: var(--font-inter), Inter;
+    line-height: 140%;
+  }
+
+  &-invalid {
+    .#{$cls} {
+      border-bottom-color: $color-negative;
+    }
+
+    .#{$cls}-prefix,
+    .#{$cls}-element,
+    .#{$cls}-message {
+      color: $color-negative;
+    }
+  }
+}
