@@ -493,6 +493,10 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='chat' />
         <span>Chat</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='swap' />")}>
+        <Icons {...args} name='swap' />
+        <span>Swap</span>
+      </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='usd' />")}>
         <Icons {...args} name='usd' />
         <span>USD</span>
@@ -577,6 +581,7 @@ export const Illustrations: Story = {
     color: '#B31010',
     borderColor: '#1D1D1F',
     size: 50,
+    // @ts-expect-error
     illustrations: true,
     gradientColor: ['#F4C600', 'white'],
   },

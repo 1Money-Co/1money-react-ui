@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.6.4",
+  "version": "1.7.0",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -63,6 +63,11 @@
       "types": "./es/components/Input/index.d.ts",
       "import": "./es/components/Input/index.js",
       "require": "./lib/components/Input/index.js"
+    },
+    "./InputAmount": {
+      "types": "./es/components/InputAmount/index.d.ts",
+      "import": "./es/components/InputAmount/index.js",
+      "require": "./lib/components/InputAmount/index.js"
     },
     "./Loading": {
       "types": "./es/components/Loading/index.d.ts",
@@ -214,6 +219,7 @@
     "classnames": "~2.2.6",
     "lodash.isequal": "^4.5.0",
     "lottie-web": "^5.12.2",
+    "react-number-format": "^5.4.4",
     "react-pro-sidebar": "^1.1.0",
     "react-tooltip": "^5.28.1"
   },
