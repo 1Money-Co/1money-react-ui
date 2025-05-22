@@ -16,6 +16,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     className,
     wrapperCls,
     prefixCls = 'input-amount',
+    messageCls,
+    footnoteCls,
     invalid,
     placeholder = '0',
     prefix,
@@ -24,15 +26,21 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     message,
     footnote,
     onChange,
+    onClick,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
 
   const inputRef = useRef<InputNumberClass>(null);
   const fakeEleRef = useRef<HTMLSpanElement>(null);
+  const prefixRef = useRef<HTMLSpanElement>(null);
+  const suffixRef = useRef<HTMLSpanElement>(null);
+  const currencyRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [_value, setValue] = useState<number | string | null>(null);
   const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
+  const [isMaxWidth, setIsMaxWidth] = useState<boolean>(false);
 
   const handleChange = useCallback((e: InputNumberChangeEvent) => {
     setValue(e.value);
@@ -60,17 +68,34 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   }, [_value]);
 
   useEffect(() => {
-    setWidth(fakeEleRef.current?.offsetWidth || MIN_INPUT_WIDTH);
+    const containerWidth = containerRef.current?.offsetWidth ?? MIN_INPUT_WIDTH;
+    const prefixWidth = prefixRef.current?.offsetWidth ?? 0;
+    const suffixWidth = suffixRef.current?.offsetWidth ?? 0;
+    const currencyWidth = currencyRef.current?.offsetWidth ?? 0;
+    const fakeWidth = fakeEleRef.current?.offsetWidth ?? 0;
+    const gapWidth = prefixWidth && suffixWidth && currencyWidth
+      ? 24
+      : (prefixWidth && suffixWidth) || (prefixWidth && currencyWidth) || (suffixWidth && currencyWidth)
+        ? 16
+        : prefixWidth || suffixWidth || currencyWidth
+          ? 8
+          : 0;
+
+    const maxWidth = containerWidth - prefixWidth - suffixWidth - currencyWidth - gapWidth;
+    setWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
+    setIsMaxWidth(fakeWidth >= maxWidth);
   }, [_value]);
 
   useEffect(() => setValue(value ?? null), [value]);
 
   return <div className={classes('wrapper', [wrapperCls, invalid ? classes('invalid') : undefined].join(' ').trim())}>
     <div
+      ref={containerRef}
       className={classes(void 0, className)}
     >
       {
         prefix && <span
+          ref={prefixRef}
           className={classes('prefix')}
           onClick={() => inputRef.current?.focus()}
         >
@@ -83,20 +108,37 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         ref={inputRef}
         value={value}
         placeholder={placeholder}
-        className={classes('element')}
+        className={classes('element', isMaxWidth ? classes('element-max') : '')}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         style={{ '--input-width': `${_width}px` } as CSSProperties}
+        onClick={(e) => {
+          const target = e.target;
+          if (!(target instanceof HTMLInputElement)) {
+            const input = inputRef.current?.getInput();
+            if (!input) return;
+            // @ts-expect-error
+            const len = input.value?.length;
+            // @ts-expect-error
+            input.setSelectionRange(len, len);
+            // @ts-expect-error
+            input.scrollLeft = input.scrollWidth;
+            // @ts-expect-error
+            input.focus();
+          }
+          onClick?.(e);
+        }}
       />
       {
         currency && <span
+          ref={currencyRef}
           className={classes('currency')}
           onClick={() => inputRef.current?.focus()}
         >
           {currency}
         </span>
       }
-      {suffix && <span className={classes('suffix')}>{suffix}</span>}
+      {suffix && <span ref={suffixRef} className={classes('suffix')}>{suffix}</span>}
       <span
         ref={fakeEleRef}
         className={classes('fake')}
@@ -111,8 +153,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     </div>
     {
       (message || footnote) && <div className={classes('extra')}>
-        {message && <span className={classes('message')}>{message}</span>}
-        {footnote && <span className={classes('footnote')}>{footnote}</span>}
+        {message && <div className={classes('message', messageCls)}>{message}</div>}
+        {footnote && <div className={classes('footnote', footnoteCls)}>{footnote}</div>}
       </div>
     }
   </div>;

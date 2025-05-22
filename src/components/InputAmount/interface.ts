@@ -6,6 +6,8 @@ export interface InputAmountProps extends Omit<InputNumberProps, 'prefix' | 'suf
   className?: string;
   prefixCls?: string;
   wrapperCls?: string;
+  messageCls?: string;
+  footnoteCls?: string;
   invalid?: boolean;
   prefix?: ReactNode;
   currency?: ReactNode;
