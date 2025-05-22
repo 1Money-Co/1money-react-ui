@@ -2,8 +2,10 @@ import React from 'react';
 import { fn } from '@storybook/test';
 import { InputAmount } from './index';
 import Icons from '../Icons';
+import Typography from '../Typography';
 import './style';
 import '../Icons/style';
+import '../Typography/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof InputAmount> = {
@@ -36,7 +38,9 @@ export const Primary: Story = {
     </span>,
     footnote: <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', cursor: 'pointer', color: '#073387' }}>
       <Icons name='swap' color='#073387' size={24} />
-      0 USDT
+      <Typography.Body size='m' bold style={{ color: '#073387' }}>
+        0 USDT
+      </Typography.Body>
     </span>,
   }
 };
