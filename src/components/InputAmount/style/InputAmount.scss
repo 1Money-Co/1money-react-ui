@@ -13,19 +13,14 @@ $cls: #{$prefix}-#{$component};
 }
 
 .#{$cls} {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: start;
-  width: 100%;
-  padding-bottom: 16px;
-  border-bottom: 1px solid $color-grey-bold;
-
-  &-wrapper {
+  & {
     display: inline-flex;
-    flex-direction: column;
-    gap: 16px;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
     width: 100%;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color-grey-bold;
   }
 
   &:has(.p-inputwrapper-focus:not(.p-invalid)) {
@@ -33,6 +28,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-element {
+    position: relative;
     display: inline-flex;
     flex-grow: 0;
 
@@ -41,6 +37,7 @@ $cls: #{$prefix}-#{$component};
     input {
       position: relative;
       width: var(--input-width);
+      max-width: 100%;
       padding: 0;
       color: inherit;
       font-weight: inherit;
@@ -54,6 +51,19 @@ $cls: #{$prefix}-#{$component};
 
       &::placeholder {
         color: inherit;
+      }
+    }
+
+    &-max {
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 98px;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(254, 254, 254, 0%) 0%, rgba(255, 255, 255, 51%) 37.98%, #FFF 84.13%);
+        cursor: text;
+        content: '';
       }
     }
   }
@@ -112,11 +122,7 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-footnote {
-    color: $color-primary;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: var(--font-inter), Inter;
-    line-height: 140%;
+    text-align: left;
   }
 
   &-invalid {
@@ -130,4 +136,11 @@ $cls: #{$prefix}-#{$component};
       color: $color-negative;
     }
   }
+}
+
+.#{$cls}-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
