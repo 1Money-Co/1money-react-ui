@@ -3,14 +3,16 @@
 $component: 'input-amount';
 $cls: #{$prefix}-#{$component};
 
-.#{$cls} {
-  &-wrapper {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-  }
+@mixin input-amount-font($color: $color-primary) {
+  color: $color;
+  font-weight: 500;
+  font-size: 52px;
+  font-family: var(--font-aeonik), Aeonik;
+  line-height: 56px;
+  letter-spacing: -0.25px;
+}
 
+.#{$cls} {
   display: inline-flex;
   gap: 8px;
   align-items: center;
@@ -19,6 +21,13 @@ $cls: #{$prefix}-#{$component};
   padding-bottom: 16px;
   border-bottom: 1px solid $color-grey-bold;
 
+  &-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
   &:has(.p-inputwrapper-focus:not(.p-invalid)) {
     border-bottom-color: $color-primary;
   }
@@ -26,12 +35,8 @@ $cls: #{$prefix}-#{$component};
   &-element {
     display: inline-flex;
     flex-grow: 0;
-    color: $color-primary;
-    font-weight: 500;
-    font-size: 52px;
-    font-family: var(--font-aeonik), Aeonik;
-    line-height: 56px;
-    letter-spacing: -0.25px;
+
+    @include input-amount-font;
 
     input {
       position: relative;
@@ -59,11 +64,9 @@ $cls: #{$prefix}-#{$component};
     left: -9999px;
     z-index: -1;
     display: inline-block;
-    font-weight: 500;
-    font-size: 52px;
-    font-family: var(--font-aeonik), Aeonik;
-    line-height: 56px;
-    letter-spacing: -0.25px;
+
+    @include input-amount-font;
+
     white-space: pre;
     visibility: hidden;
     opacity: 0;
@@ -83,21 +86,11 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-prefix {
-    color: $color-primary;
-    font-weight: 500;
-    font-size: 52px;
-    font-family: var(--font-aeonik), Aeonik;
-    line-height: 56px;
-    letter-spacing: -0.25px;
+    @include input-amount-font;
   }
 
   &-currency {
-    color: $color-grey-deep;
-    font-weight: 500;
-    font-size: 52px;
-    font-family: var(--font-aeonik), Aeonik;
-    line-height: 56px;
-    letter-spacing: -0.25px;
+    @include input-amount-font($color-grey-deep);
   }
 
   &-suffix {
