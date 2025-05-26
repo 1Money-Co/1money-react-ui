@@ -23,7 +23,7 @@ $cls: #{$prefix}-#{$component};
     border-bottom: 1px solid $color-grey-bold;
   }
 
-  &:has(.p-inputwrapper-focus:not(.p-invalid)) {
+  &-focus {
     border-bottom-color: $color-primary;
   }
 
@@ -47,6 +47,7 @@ $cls: #{$prefix}-#{$component};
       letter-spacing: inherit;
       border: none;
       border-radius: 0;
+      outline: none;
       box-shadow: none;
 
       &::placeholder {

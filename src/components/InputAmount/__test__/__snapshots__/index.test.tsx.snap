@@ -9,30 +9,22 @@ exports[`InputAmount renders correctly 1`] = `
         class="om-react-ui-input-amount-wrapper"
       >
         <div
-          class="om-react-ui-input-amount"
+          class="om-react-ui-input-amount om-react-ui-input-amount-focus"
         >
           <span
             class="om-react-ui-input-amount-prefix"
           >
             $
           </span>
-          <span
-            class="om-react-ui-input-amount-element om-react-ui-input-amount-element-max p-inputnumber p-component p-inputwrapper"
-            data-pc-name="inputnumber"
-            data-pc-section="root"
-            style="--input-width: 0px;"
+          <div
+            class="om-react-ui-input-amount-element"
           >
             <input
-              class="p-inputnumber-input p-inputtext p-component"
-              data-pc-name="inputtext"
-              data-pc-section="root"
-              inputmode="numeric"
               placeholder="0"
-              role="spinbutton"
-              type="text"
+              style="--input-width: 0px;"
               value=""
             />
-          </span>
+          </div>
           <span
             class="om-react-ui-input-amount-currency"
           >
@@ -81,30 +73,22 @@ exports[`InputAmount renders correctly 1`] = `
       class="om-react-ui-input-amount-wrapper"
     >
       <div
-        class="om-react-ui-input-amount"
+        class="om-react-ui-input-amount om-react-ui-input-amount-focus"
       >
         <span
           class="om-react-ui-input-amount-prefix"
         >
           $
         </span>
-        <span
-          class="om-react-ui-input-amount-element om-react-ui-input-amount-element-max p-inputnumber p-component p-inputwrapper"
-          data-pc-name="inputnumber"
-          data-pc-section="root"
-          style="--input-width: 0px;"
+        <div
+          class="om-react-ui-input-amount-element"
         >
           <input
-            class="p-inputnumber-input p-inputtext p-component"
-            data-pc-name="inputtext"
-            data-pc-section="root"
-            inputmode="numeric"
             placeholder="0"
-            role="spinbutton"
-            type="text"
+            style="--input-width: 0px;"
             value=""
           />
-        </span>
+        </div>
         <span
           class="om-react-ui-input-amount-currency"
         >
