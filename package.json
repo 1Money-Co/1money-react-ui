@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -216,6 +216,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "bignumber.js": "^9.3.0",
     "classnames": "~2.2.6",
     "lodash.isequal": "^4.5.0",
     "lottie-web": "^5.12.2",
