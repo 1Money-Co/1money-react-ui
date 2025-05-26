@@ -1,8 +1,9 @@
-import type { RefObject, ReactNode } from 'react';
-import type { InputNumberProps, InputNumber } from 'primereact/inputnumber';
+import type { RefObject, ReactNode, MouseEvent, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 
-export interface InputAmountProps extends Omit<InputNumberProps, 'prefix' | 'suffix' | 'currency'> {
-  ref?: RefObject<InputNumber | null>;
+export interface InputAmountProps {
+  ref?: RefObject<HTMLInputElement | null>;
+  value?: string | number | bigint | null;
+  placeholder?: string;
   className?: string;
   prefixCls?: string;
   wrapperCls?: string;
@@ -14,4 +15,10 @@ export interface InputAmountProps extends Omit<InputNumberProps, 'prefix' | 'suf
   suffix?: ReactNode;
   message?: ReactNode;
   footnote?: ReactNode;
+  onClick?: (e: MouseEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  onKeyUp?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
 }
