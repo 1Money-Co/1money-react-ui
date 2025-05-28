@@ -33,7 +33,7 @@ const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' 
           success ? classes('message-success') : '',
           invalid ? classes('message-error') : '',
           messageCls
-        ].join(' '))}
+        ].join(' ').trim())}
       >
         {message}
       </span>
@@ -148,7 +148,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     <div
       ref={selectRef}
       className={selectCls}
-      contentEditable={editable}
+      contentEditable={!disabled ? editable : false}
       autoFocus={editable}
       data-placeholder={placeholder}
       data-value={value}
@@ -170,7 +170,7 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
       }}
     >
       {
-        editable
+        !disabled && editable
           ? null
           : typeof selectedTemplate === 'function'
             ? selectedTemplate(isFocus)
