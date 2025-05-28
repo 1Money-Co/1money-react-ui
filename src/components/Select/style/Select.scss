@@ -479,6 +479,7 @@ $cls: #{$prefix}-#{$component};
     font-weight: 400;
     font-size: 16px;
     line-height: 220%;
+    outline-color: $color-primary;
     cursor: text;
     caret-color: $color-primary-black;
 
@@ -492,6 +493,11 @@ $cls: #{$prefix}-#{$component};
       content: attr(data-placeholder);
       pointer-events: none;
     }
+  }
+
+  &.#{$cls}-invalid {
+    border-color: $color-negative;
+    outline: none;
   }
 }
 
