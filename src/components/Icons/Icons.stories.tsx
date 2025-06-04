@@ -5,9 +5,10 @@ import {
   Icons,
 } from './index';
 import './style';
+import '../Toast/style';
 import type { Meta, StoryObj } from '@storybook/react';
 import clipboard from '../../utils/clipboard';
-import { Toast, ToastClass } from '../Toast';
+import { Toast, type ToastClass } from '../Toast';
 
 
 const meta: Meta<typeof Icons> = {
@@ -81,12 +82,11 @@ export const PrimaryIcons: Story = {
     const toast = useRef<ToastClass>(null);
 
     const handleCopy = (el: string) => {
-      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
-
+      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied`, life: 1500 }));
     };
 
     return <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))' }}>
-      <Toast ref={toast} />
+      <Toast ref={toast} appendTo={null} />
       {/* Primary Icons */}
       <CopyIconBox onClick={() => handleCopy("<Icons name='deposit' />")}>
         <Icons {...args} name='deposit' />
@@ -497,6 +497,14 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='swap' />
         <span>Swap</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='clock' />")}>
+        <Icons {...args} name='clock' />
+        <span>Clock</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='desktop' />")}>
+        <Icons {...args} name='desktop' />
+        <span>Desktop</span>
+      </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='usd' />")}>
         <Icons {...args} name='usd' />
         <span>USD</span>
@@ -516,6 +524,18 @@ export const PrimaryIcons: Story = {
       <CopyIconBox onClick={() => handleCopy("<Icons name='cny' />")}>
         <Icons {...args} name='cny' />
         <span>CNY</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='google' />")}>
+        <Icons {...args} name='google' />
+        <span>Google</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='apple' />")}>
+        <Icons {...args} name='apple' />
+        <span>Apple</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='passkey' />")}>
+        <Icons {...args} name='passkey' />
+        <span>Passkey</span>
       </CopyIconBox>
     </div>;
   },
@@ -540,13 +560,13 @@ export const Logo: Story = {
   render: function Render(args) {
     const toast = useRef<ToastClass>(null);
     const handleCopy = (el: string) => {
-      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
+      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied`, life: 1500 }));
     };
 
     return <div style={{
       display: 'grid', flexDirection: 'row', gap: 24, flexWrap: 'wrap', gridTemplateColumns: 'repeat(auto-fill, minmax(222px, 1fr))'
     }}>
-      <Toast ref={toast} />
+      <Toast ref={toast} appendTo={null} />
       <CopyIconBox onClick={() => handleCopy("<Icons name='logo' />")}>
         <Icons {...args} name='logo' />
         <span>logo</span>
@@ -588,11 +608,11 @@ export const Illustrations: Story = {
   render: function Render(args) {
     const toast = useRef<ToastClass>(null);
     const handleCopy = (el: string) => {
-      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
+      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied`, life: 1500 }));
     };
 
     return <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
-      <Toast ref={toast} />
+      <Toast ref={toast} appendTo={null} />
       <CopyIconBox onClick={() => handleCopy("<Icons name='illusChecked' />")}>
         <Icons {...args} name='illusChecked' />
         <span>illusChecked</span>
@@ -651,11 +671,11 @@ export const OldIcons: Story = {
   render: function Render(args) {
     const toast = useRef<ToastClass>(null);
     const handleCopy = (el: string) => {
-      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied` }));
+      copy(el, () => toast.current?.show({ severity: 'success', summary: `copy successfully`, detail: `already copied`, life: 1500 }));
 
     };
     return <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
-      <Toast ref={toast} />
+      <Toast ref={toast} appendTo={null} />
       <CopyIconBox onClick={() => handleCopy("<Icons name='burger' />")}>
         <Icons {...args} name='burger' />
         <span>burger</span>
