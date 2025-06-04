@@ -147,11 +147,16 @@ import {
   MobileIcon,
   ChatIcon,
   SwapIcon,
+  ClockIcon,
+  DesktopIcon,
   USDIcon,
   EURIcon,
   GBPIcon,
   JPYIcon,
   CNYIcon,
+  GoogleIcon,
+  AppleIcon,
+  PasskeyIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -306,11 +311,20 @@ const IconList = {
   mobile: MobileIcon,
   chat: ChatIcon,
   swap: SwapIcon,
+  clock: ClockIcon,
+  desktop: DesktopIcon,
+
+  /* Currency Icons */
   usd: USDIcon,
   eur: EURIcon,
   gbp: GBPIcon,
   jpy: JPYIcon,
   cny: CNYIcon,
+
+  /* Social Icons */
+  google: GoogleIcon,
+  apple: AppleIcon,
+  passkey: PasskeyIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;
