@@ -11,6 +11,7 @@ const MIN_INPUT_WIDTH = 33;
 export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const {
     value,
+    maxFractionDigits,
     children,
     className,
     wrapperCls,
@@ -37,6 +38,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const suffixRef = useRef<HTMLSpanElement>(null);
   const currencyRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputCaretPositionRef = useRef<number>(0);
 
   const [_value, setValue] = useState<string | null>(null);
   const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
@@ -50,12 +52,15 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     });
   }, [_value]);
 
-  const scrollToEnd = useCallback(() => {
+  const scrollToEnd = useCallback((sticky: boolean = false) => {
     const input = inputRef.current;
     if (!input) return;
     const len = input.value?.length;
-    input.setSelectionRange(len, len);
-    input.scrollLeft = input.scrollWidth;
+    const position = input.scrollLeft;
+    const shouldToEnd = !!position || !sticky;
+    const start = shouldToEnd ? len : inputCaretPositionRef.current;
+    input.setSelectionRange(start, start);
+    input.scrollLeft = shouldToEnd ? input.scrollWidth : position;
     input.focus();
   }, []);
 
@@ -65,9 +70,42 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     const hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
     if (hasDecimalPoint) val = val.slice(0, -1);
     if (isNaN(+val)) return;
-    setValue(val === '' ? null : `${BigNumber(val).toFixed()}${hasDecimalPoint ? '.' : ''}`.trim());
+    if (val === _value && !hasDecimalPoint) return;
+    if (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint') {
+      const [, decimal] = val.split('.');
+      if (decimal != null && decimal.length > Number(maxFractionDigits)) return;
+    }
+    if (inputRef.current) {
+      const formattedNewVal = numericFormatter(val, {
+        thousandSeparator: true,
+        allowNegative: true,
+      });
+
+      const isAdd = val.length > (_value?.length ?? 0);
+      let position = inputRef.current.selectionStart ?? 0;
+      const oldPosVal = formattedValue.slice(0, (position - (isAdd ? 1 : -1)));
+      position = oldPosVal.split(',').join('').length + (isAdd ? 1 : -1);
+      const posVal = val.slice(0, position);
+      formattedNewVal.split('').reduce<string[]>((acc, char, ind) => {
+        if (char === ',') return acc;
+        else acc.push(char);
+        if (acc.join('') === posVal) {
+          position = ind + 1;
+          return acc;
+        }
+        return acc;
+      }, []);
+      inputCaretPositionRef.current = position + (hasDecimalPoint ? 2 : 0);
+    }
+    
+    if (val === '') {
+      setValue(null);
+    } else {
+      const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
+      setValue(`${BigNumber(val).toFixed(decimals)}${hasDecimalPoint ? '.' : ''}`.trim());
+    }
     onChange?.(e);
-  }, [onChange]);
+  }, [onChange, _value, formattedValue, maxFractionDigits]);
 
   useEffect(() => {
     const containerWidth = containerRef.current?.offsetWidth ?? MIN_INPUT_WIDTH;
@@ -85,9 +123,9 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
 
     const maxWidth = containerWidth - prefixWidth - suffixWidth - currencyWidth - gapWidth;
     const isMax = fakeWidth >= maxWidth;
-    if (isMax) scrollToEnd();
     setWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
     setIsMaxWidth(isMax);
+    scrollToEnd(true);
   }, [_value]);
 
   useEffect(() => {

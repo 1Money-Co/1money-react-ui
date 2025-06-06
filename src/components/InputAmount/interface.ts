@@ -3,6 +3,7 @@ import type { RefObject, ReactNode, MouseEvent, ChangeEvent, KeyboardEvent, Focu
 export interface InputAmountProps {
   ref?: RefObject<HTMLInputElement | null>;
   value?: string | number | bigint | null;
+  maxFractionDigits?: number | bigint;
   placeholder?: string;
   className?: string;
   prefixCls?: string;
