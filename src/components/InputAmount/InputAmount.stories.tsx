@@ -15,6 +15,7 @@ const meta: Meta<typeof InputAmount> = {
   argTypes: {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
+    maxFractionDigits: { control: 'number' },
   },
   args: {
     onClick: fn(),
@@ -31,6 +32,7 @@ export const Primary: Story = {
     prefix: '$',
     currency: 'USD',
     invalid: false,
+    maxFractionDigits: 2,
     suffix: <span style={{ padding: '12px', borderRadius: '12px', backgroundColor: '#F0F0F0', color: '#131313', fontSize: '12px', cursor: 'pointer' }}>Max</span>,
     message: <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
       <Icons name='error' color='inherit' size={16} />
