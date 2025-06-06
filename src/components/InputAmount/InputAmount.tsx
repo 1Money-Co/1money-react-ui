@@ -1,4 +1,4 @@
-import { memo, useMemo, useState, useCallback, useRef, useEffect, useLayoutEffect } from 'react';
+import { memo, useMemo, useState, useCallback, useRef, useEffect } from 'react';
 import BigNumber from 'bignumber.js';
 import { numericFormatter } from 'react-number-format';
 import classnames from '@/utils/classnames';
@@ -73,7 +73,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (val === _value && !hasDecimalPoint) return;
     if (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint') {
       const [, decimal] = val.split('.');
-      if (decimal != null && decimal.length > maxFractionDigits) return;
+      if (decimal != null && decimal.length > Number(maxFractionDigits)) return;
     }
     if (inputRef.current) {
       const formattedNewVal = numericFormatter(val, {
