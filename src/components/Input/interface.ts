@@ -24,6 +24,7 @@ export interface InputBaseProps {
   suffixEle?: ReactNode;
   prefixEleCls?: string;
   suffixEleCls?: string;
+  showMessageIcon?: boolean;
 }
 
 export interface InputTextProps extends Omit<PrimeInputTextProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{

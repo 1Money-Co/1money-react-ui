@@ -27,11 +27,11 @@ const meta: Meta<typeof Input> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Input>;
- 
+
 export const Normal: Story = {
   args: {
     type: 'text',
@@ -75,7 +75,7 @@ export const AutoComplete: Story = {
     const search = (event) => {
       setAdvices([...Array(10).keys()].map(item => event.query + '-' + item));
     }
- 
+
     return <Input {...args as any} type='autocomplete' value={value} suggestions={advices} completeMethod={search} onChange={(e) => setValue(e.value)} />;
   },
 };
