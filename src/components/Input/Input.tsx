@@ -34,6 +34,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     prefixEleCls,
     suffixEleCls,
     maxLength,
+    showMessageIcon = false,
     // @ts-ignore
     showCount,
     value,
@@ -136,6 +137,15 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
             messageCls
           ].join(' '))}
         >
+          {
+            showMessageIcon && (
+              success ? (
+                <Icons name='securityCheck' size={16} color='#000' />
+              ) : (
+                <Icons name='error' size={16} color='#AE0000' />
+              )
+            )
+          }
           {message}
         </span>
       }

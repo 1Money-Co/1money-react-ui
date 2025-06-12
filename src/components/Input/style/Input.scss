@@ -285,7 +285,10 @@ $cls: #{$prefix}-#{$component};
 
   // message
   &-message {
-    display: inline-block;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 4px;
     color: $color-grey-midnight;
     font-weight: 400;
