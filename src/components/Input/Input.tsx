@@ -86,7 +86,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     }
   }, [type]);
 
-  useImperativeHandle(ref ?? _ref, () => inputRef.current!, []);
+  useImperativeHandle(ref ?? _ref, () => inputRef.current!);
 
   useEffect(() => {
     if (type === 'textarea' && val !== value && value !== undefined) {
