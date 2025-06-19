@@ -27,13 +27,13 @@ type DisplayStory = StoryObj<typeof Typography.Display>;
  
 export const Display: DisplayStory = {
   render: (props) => <>
-    <Typography.Display {...props} size='xl'>{`${props.children} - extra large`}</Typography.Display>
+    <Typography.Display {...props} style={{ overflow: 'hidden' }} size='xl'>{`${props.children} - extra large- gjpqy`}</Typography.Display>
     <br />
-    <Typography.Display {...props} size='l'>{`${props.children} - large`}</Typography.Display>
+    <Typography.Display {...props} style={{ overflow: 'hidden' }} size='l'>{`${props.children} - large- gjpqy`}</Typography.Display>
     <br />
-    <Typography.Display {...props} size='m'>{`${props.children} - medium`}</Typography.Display>
+    <Typography.Display {...props} style={{ overflow: 'hidden' }} size='m'>{`${props.children} - medium- gjpqy`}</Typography.Display>
     <br />
-    <Typography.Display {...props} size='s'>{`${props.children} - small`}</Typography.Display>
+    <Typography.Display {...props} style={{ overflow: 'hidden' }} size='s'>{`${props.children} - small- gjpqy`}</Typography.Display>
   </>,
   argTypes: {
     prefixCls: { control: 'text' },
@@ -49,13 +49,13 @@ type HeadlineStory = StoryObj<typeof Typography.Headline>;
  
 export const Headline: HeadlineStory = {
   render: (props) => <>
-    <Typography.Headline {...props} size='l'>{`${props.children} - large`}</Typography.Headline>
+    <Typography.Headline {...props} style={{ overflow: 'hidden' }} size='l'>{`${props.children} - large- gjpqy`}</Typography.Headline>
     <br />
-    <Typography.Headline {...props} size='m'>{`${props.children} - medium`}</Typography.Headline>
+    <Typography.Headline {...props} style={{ overflow: 'hidden' }} size='m'>{`${props.children} - medium- gjpqy`}</Typography.Headline>
     <br />
-    <Typography.Headline {...props} size='s'>{`${props.children} - small`}</Typography.Headline>
+    <Typography.Headline {...props} style={{ overflow: 'hidden' }} size='s'>{`${props.children} - small- gjpqy`}</Typography.Headline>
     <br />
-    <Typography.Headline {...props} size='xs'>{`${props.children} - extra small`}</Typography.Headline>
+    <Typography.Headline {...props} style={{ overflow: 'hidden' }} size='xs'>{`${props.children} - extra small- gjpqy`}</Typography.Headline>
   </>,
   argTypes: {
     prefixCls: { control: 'text' },
@@ -71,13 +71,13 @@ type TitleStory = StoryObj<typeof Typography.Title>;
 
 export const Title: TitleStory = {
   render: (props) => <>
-    <Typography.Title {...props} bold size='l'>{`${props.children} - large bold`}</Typography.Title>
+    <Typography.Title {...props} style={{ overflow: 'hidden' }} bold size='l'>{`${props.children} - large bold- gjpqy`}</Typography.Title>
     <br />
-    <Typography.Title {...props} size='l'>{`${props.children} - large`}</Typography.Title>
+    <Typography.Title {...props} style={{ overflow: 'hidden' }} size='l'>{`${props.children} - large - gjpqy`}</Typography.Title>
     <br />
-    <Typography.Title {...props} size='m'>{`${props.children} - medium`}</Typography.Title>
+    <Typography.Title {...props} style={{ overflow: 'hidden' }} size='m'>{`${props.children} - medium - gjpqy`}</Typography.Title>
     <br />
-    <Typography.Title {...props} size='s'>{`${props.children} - small`}</Typography.Title>
+    <Typography.Title {...props} style={{ overflow: 'hidden' }} size='s'>{`${props.children} - small - gjpqy`}</Typography.Title>
   </>,
   argTypes: {
     bold: { control: 'boolean' },
@@ -95,11 +95,11 @@ type BodyStory = StoryObj<typeof Typography.Body>;
 
 export const Body: BodyStory = {
   render: (props) => <>
-    <Typography.Body {...props} size='l'>{`${props.children} - large`}</Typography.Body>
+    <Typography.Body {...props} style={{ overflow: 'hidden' }} size='l'>{`${props.children} - large - gjpqy`}</Typography.Body>
     <br />
-    <Typography.Body {...props} size='m'>{`${props.children} - medium`}</Typography.Body>
+    <Typography.Body {...props} style={{ overflow: 'hidden' }} size='m'>{`${props.children} - medium - gjpqy`}</Typography.Body>
     <br />
-    <Typography.Body {...props} size='s'>{`${props.children} - small`}</Typography.Body>
+    <Typography.Body {...props} style={{ overflow: 'hidden' }} size='s'>{`${props.children} - small - gjpqy`}</Typography.Body>
   </>,
   argTypes: {
     bold: { control: 'boolean' },
@@ -117,9 +117,9 @@ type LinkStory = StoryObj<typeof Typography.Link>;
 
 export const Link: LinkStory = {
   render: (props) => <>
-    <Typography.Link {...props} size='m'>{`${props.children} - medium`}</Typography.Link>
+    <Typography.Link {...props} style={{ overflow: 'hidden' }} size='m'>{`${props.children} - medium - gjpqy`}</Typography.Link>
     <br />
-    <Typography.Link {...props} size='s'>{`${props.children} - small`}</Typography.Link>
+    <Typography.Link {...props} style={{ overflow: 'hidden' }} size='s'>{`${props.children} - small - gjpqy`}</Typography.Link>
   </>,
   argTypes: {
     prefixCls: { control: 'text' },
@@ -135,15 +135,15 @@ type LabelStory = StoryObj<typeof Typography.Label>;
 
 export const Label: LabelStory = {
   render: (props) => <>
-    <Typography.Label {...props} size='xl'>{`${props.children} - extra large`}</Typography.Label>
+    <Typography.Label {...props} style={{ overflow: 'hidden' }} size='xl'>{`${props.children} - extra large - gjpqy`}</Typography.Label>
     <br />
-    <Typography.Label {...props} size='l'>{`${props.children} - large`}</Typography.Label>
+    <Typography.Label {...props} style={{ overflow: 'hidden' }} size='l'>{`${props.children} - large - gjpqy`}</Typography.Label>
     <br />
-    <Typography.Label {...props} size='m'>{`${props.children} - medium`}</Typography.Label>
+    <Typography.Label {...props} style={{ overflow: 'hidden' }} size='m'>{`${props.children} - medium - gjpqy`}</Typography.Label>
     <br />
-    <Typography.Label {...props} size='s'>{`${props.children} - small`}</Typography.Label>
+    <Typography.Label {...props} style={{ overflow: 'hidden' }} size='s'>{`${props.children} - small - gjpqy`}</Typography.Label>
     <br />
-    <Typography.Label {...props} size='xs'>{`${props.children} - extra small`}</Typography.Label>
+    <Typography.Label {...props} style={{ overflow: 'hidden' }} size='xs'>{`${props.children} - extra small - gjpqy`}</Typography.Label>
   </>,
   argTypes: {
     bold: { control: 'boolean' },
