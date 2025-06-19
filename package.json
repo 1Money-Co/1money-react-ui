@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.7.10",
+  "version": "1.7.11",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -239,7 +239,7 @@
     "@chromatic-com/storybook": "^1.9.0",
     "@commitlint/cli": "8.3.5",
     "@eslint/js": "^9.24.0",
-    "@omni-door/cli": "^3.1.0",
+    "@omni-door/cli": "^3.1.1",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.6.12",
