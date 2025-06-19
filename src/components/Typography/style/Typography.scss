@@ -8,7 +8,6 @@ $component: 'typography';
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-aeonik), Aeonik;
-    line-height: 108%;
 
     &-bold {
       font-weight: 700;
@@ -16,20 +15,24 @@ $component: 'typography';
 
     &-xl {
       font-size: 64px;
+      line-height: 69px;
       letter-spacing: -0.25px;
     }
 
     &-l {
       font-size: 52px;
+      line-height: 56px;
       letter-spacing: -0.25px;
     }
 
     &-m {
       font-size: 45px;
+      line-height: 49px;
     }
 
     &-s {
       font-size: 36px;
+      line-height: 39px;
     }
   }
 
@@ -38,26 +41,29 @@ $component: 'typography';
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-aeonik), Aeonik;
-    line-height: 108%;
-    
+
     &-bold {
-        font-weight: 700;
-      }
+      font-weight: 700;
+    }
 
     &-l {
       font-size: 32px;
+      line-height: 35px;
     }
 
     &-m {
       font-size: 28px;
+      line-height: 30px;
     }
 
     &-s {
       font-size: 24px;
+      line-height: 26px;
     }
 
     &-xs {
       font-size: 18px;
+      line-height: 19px;
     }
   }
 
@@ -66,7 +72,6 @@ $component: 'typography';
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-inter), Inter;
-    line-height: 108%;
 
     &-bold {
       font-weight: 700;
@@ -74,15 +79,17 @@ $component: 'typography';
 
     &-l {
       font-size: 18px;
-
+      line-height: 19px;
     }
 
     &-m {
       font-size: 16px;
+      line-height: 17px;
     }
 
     &-s {
       font-size: 14px;
+      line-height: 15px;
     }
   }
 
@@ -91,7 +98,6 @@ $component: 'typography';
     color: $color-primary-black;
     font-weight: 400;
     font-family: var(--font-inter), Inter;
-    line-height: 140%;
 
     &-bold {
       font-weight: 500;
@@ -99,22 +105,25 @@ $component: 'typography';
 
     &-l {
       font-size: 16px;
+      line-height: 22px;
     }
 
     &-m {
       font-size: 14px;
+      line-height: 20px;
     }
 
     &-s {
       font-size: 12px;
+      line-height: 17px;
     }
   }
 
   &-link {
+    display: inline-block;
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-inter), Inter;
-    line-height: 140%;
     cursor: pointer;
     text-decoration-line: underline;
     text-decoration-style: solid;
@@ -125,18 +134,20 @@ $component: 'typography';
 
     &-m {
       font-size: 14px;
+      line-height: 20px;
     }
 
     &-s {
       font-size: 12px;
+      line-height: 17px;
     }
   }
 
   &-label {
+    display: inline-block;
     color: $color-primary-black;
     font-weight: 500;
     font-family: var(--font-inter), Inter;
-    line-height: 108%;
 
     &-bold {
       font-weight: 600;
@@ -144,22 +155,27 @@ $component: 'typography';
 
     &-xl {
       font-size: 18px;
+      line-height: 19px;
     }
 
     &-l {
       font-size: 16px;
+      line-height: 17px;
     }
 
     &-m {
       font-size: 14px;
+      line-height: 15px;
     }
 
     &-s {
       font-size: 12px;
+      line-height: 13px;
     }
 
     &-xs {
       font-size: 10px;
+      line-height: 11px;
     }
   }
 }

@@ -71,7 +71,7 @@ type TitleStory = StoryObj<typeof Typography.Title>;
 
 export const Title: TitleStory = {
   render: (props) => <>
-    <Typography.Title {...props} size='l'>{`${props.children} - large`}</Typography.Title>
+    <Typography.Title {...props} bold size='l'>{`${props.children} - large bold`}</Typography.Title>
     <br />
     <Typography.Title {...props} size='l'>{`${props.children} - large`}</Typography.Title>
     <br />
