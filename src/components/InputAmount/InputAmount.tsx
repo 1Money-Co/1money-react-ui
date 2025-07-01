@@ -137,8 +137,14 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       if (isNaN(+val)) return;
     } else if (val !== null && typeof val !== 'number' && typeof val !== 'bigint') return;
 
+    if ((typeof val === 'string' || typeof val === 'number') && (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')) {
+      const [int, decimal] = ('' + val).split('.');
+      if (decimal != null && decimal.length > Number(maxFractionDigits)) {
+        val = int + '.' + decimal.slice(0, Number(maxFractionDigits));
+      }
+    }
     setValue(val == null ? null : BigNumber(val).toString());
-  }, [value]);
+  }, [value, maxFractionDigits]);
 
   return <div
     className={classes('wrapper', [wrapperCls, invalid ? classes('invalid') : undefined].join(' ').trim())}
