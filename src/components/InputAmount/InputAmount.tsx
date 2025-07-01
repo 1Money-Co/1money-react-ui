@@ -131,10 +131,14 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   useEffect(() => {
     let val = value;
     if (typeof val === 'string') {
-      val = val.split(',').join('');
-      const hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
-      if (hasDecimalPoint) val = val.slice(0, -1);
-      if (isNaN(+val)) return;
+      if (val === '') {
+        val = null;
+      } else {
+        val = val.split(',').join('');
+        const hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
+        if (hasDecimalPoint) val = val.slice(0, -1);
+        if (isNaN(+val)) return;
+      }
     } else if (val !== null && typeof val !== 'number' && typeof val !== 'bigint') return;
 
     if ((typeof val === 'string' || typeof val === 'number') && (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')) {
