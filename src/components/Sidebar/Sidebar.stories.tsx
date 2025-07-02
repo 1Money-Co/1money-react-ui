@@ -48,17 +48,17 @@ const meta: Meta<typeof SidebarComponent> = {
             active: true,
             label: 'Digital wallets',
             icon: <Icons name='wallet' size={20} color='#131313' />,
-            suffix: <Icons name='arrowRight' size={20} color='#131313' />,
+            suffix: <Icons name='arrowRight' size={16} color='#131313' />,
           },
           {
             label: 'Bank accounts',
             icon: <Icons name='bank' size={20} color='#131313' />,
-            suffix: <Icons name='arrowRight' size={20} color='#131313' />,
+            suffix: <Icons name='arrowRight' size={16} color='#131313' />,
           },
           {
             label: 'Web3 addresses',
             icon: <Icons name='fiat' size={20} color='#131313' />,
-            suffix: <Icons name='arrowRight' size={20} color='#131313' />,
+            suffix: <Icons name='arrowRight' size={16} color='#131313' />,
           }
         ]
       }
@@ -79,18 +79,33 @@ export const Sidebar: Story = {
     const { children, ...rest } = args;
     const [collapsed, setCollapsed] = useState(false);
     return <SidebarComponent {...rest} onCollapse={setCollapsed}>
-      <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', marginTop: 'auto', gap: '12px' }}>
-        <i id='help' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
-          <Icons name='help' size={20} color='#646465' />
-        </i>
-        <Tooltip place='top' anchorSelect='#help' >
-          <div style={{ width: '80px', textAlign: 'center' }}>
-            <span>Overlay Data</span>
-            <br />
-            <span>Tooltip</span>
-          </div>
-        </Tooltip>
-        <span style={{ fontSize: collapsed ? '10px' : '14px' }}>Support</span>
+      <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', gap: '12px' }}>
+          <i id='settings' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
+            <Icons name='settings' size={20} color='#646465' />
+          </i>
+          <Tooltip place='top' anchorSelect='#settings' >
+            <div style={{ width: '80px', textAlign: 'center' }}>
+              <span>Overlay Data</span>
+              <br />
+              <span>Settings</span>
+            </div>
+          </Tooltip>
+          <span style={{ fontSize: collapsed ? '10px' : '14px' }}>Settings</span>
+        </div>
+        <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', gap: '12px' }}>
+          <i id='help' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
+            <Icons name='help' size={20} color='#646465' />
+          </i>
+          <Tooltip place='top' anchorSelect='#help' >
+            <div style={{ width: '80px', textAlign: 'center' }}>
+              <span>Overlay Data</span>
+              <br />
+              <span>Supports</span>
+            </div>
+          </Tooltip>
+          <span style={{ fontSize: collapsed ? '10px' : '14px' }}>Support</span>
+        </div>
       </div>
     </SidebarComponent>;
   }

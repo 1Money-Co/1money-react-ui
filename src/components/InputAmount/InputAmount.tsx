@@ -97,15 +97,18 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       }, []);
       inputCaretPositionRef.current = position + (hasDecimalPoint ? 2 : 0);
     }
-    
-    if (val === '') {
-      setValue(null);
-    } else {
-      const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-      setValue(`${BigNumber(val).toFixed(decimals)}${hasDecimalPoint ? '.' : ''}`.trim());
+
+    if (typeof value === 'undefined') {
+      if (val === '') {
+        setValue(null);
+      } else {
+        const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
+        setValue(`${BigNumber(val).toFixed(decimals)}${hasDecimalPoint ? '.' : ''}`.trim());
+      }
     }
+
     onChange?.(e);
-  }, [onChange, _value, formattedValue, maxFractionDigits]);
+  }, [onChange, _value, value, formattedValue, maxFractionDigits]);
 
   useEffect(() => {
     const containerWidth = containerRef.current?.offsetWidth ?? MIN_INPUT_WIDTH;
@@ -147,6 +150,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         val = int + '.' + decimal.slice(0, Number(maxFractionDigits));
       }
     }
+    
     setValue(val == null ? null : BigNumber(val).toString());
   }, [value, maxFractionDigits]);
 
