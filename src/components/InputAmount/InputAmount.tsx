@@ -133,12 +133,13 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
 
   useEffect(() => {
     let val = value;
+    let hasDecimalPoint = false;
     if (typeof val === 'string') {
       if (val === '') {
         val = null;
       } else {
         val = val.split(',').join('');
-        const hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
+        hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
         if (hasDecimalPoint) val = val.slice(0, -1);
         if (isNaN(+val)) return;
       }
@@ -151,7 +152,12 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       }
     }
     
-    setValue(val == null ? null : BigNumber(val).toString());
+    if (val === '' || val == null) {
+      setValue(null);
+    } else {
+      const decimals = ('' + val).match(/\.(\d+)$/)?.[1]?.length ?? 0;
+      setValue(`${BigNumber(val).toFixed(decimals)}${hasDecimalPoint ? '.' : ''}`.trim());
+    }
   }, [value, maxFractionDigits]);
 
   return <div
