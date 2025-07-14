@@ -144,8 +144,8 @@ $cls: #{$prefix}-#{$component};
     box-shadow: none;
   }
 
-  &:not(.#{$cls}-disabled, .#{$cls}-invalid),
-  &:not(.#{$cls}-disabled, .#{$cls}-invalid) {
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid, .#{$cls}-focus, .p-inputwrapper-focus),
+  &:not(.#{$cls}-disabled, .#{$cls}-invalid, .#{$cls}-focus, .p-inputwrapper-focus) {
     &:hover {
       border-color: $color-primary-black;
     }
