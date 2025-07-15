@@ -76,6 +76,7 @@ import {
   PartiesIcon,
   TransactionsIcon,
   FiatIcon,
+  MoneyIcon,
   SendCryptoIcon,
   /* Functional Icons */
   ArrowUpIcon,
@@ -238,6 +239,7 @@ const IconList = {
   parties: PartiesIcon,
   transactions: TransactionsIcon,
   fiat: FiatIcon,
+  money: MoneyIcon,
   sendCrypto: SendCryptoIcon,
 
   /* Functional Icons */
