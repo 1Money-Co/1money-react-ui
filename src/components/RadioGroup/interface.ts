@@ -22,7 +22,7 @@ export interface RadioGroupProps {
   variant?: 'default' | 'card';
   direction?: 'horizontal' | 'vertical';
   labelCls?: string;
-  label?: string;
+  label?: ReactNode;
   required?: boolean;
   onChange?: (selected: RadioItemProps) => any;
   items: RadioItemProps[];

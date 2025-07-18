@@ -234,7 +234,7 @@ $cls: #{$prefix}-#{$component};
         color: $color-grey-dark;
         font-weight: 400;
         font-size: 12px;
-        line-height: 140%;
+        line-height: 15px;
       }
     }
 
@@ -313,5 +313,11 @@ $cls: #{$prefix}-#{$component};
 
   &-suffix {
     margin-left: 8px;
+  }
+
+  &-show-count {
+    min-height: 105px !important;
+    margin-bottom: 15px;
+    resize: none;
   }
 }
