@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { RadioButtonProps } from 'primereact/radiobutton';
 
 export interface RadioProps extends Omit<RadioButtonProps, 'className' | 'inputId' | 'size'> {
@@ -7,7 +8,7 @@ export interface RadioProps extends Omit<RadioButtonProps, 'className' | 'inputI
   radioCls?: string;
   size?: 'sm' | 'md' | 'lg';
   labelCls?: string;
-  label?: string;
+  label?: ReactNode;
   required?: boolean;
   invalid?: boolean;
 }
