@@ -123,6 +123,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
             classes(type),
             classes(`${type}-${size}`),
             success ? classes('success') : '',
+            showCount ? classes('show-count') : '',
             className,
           ].join(' '))}
         />
