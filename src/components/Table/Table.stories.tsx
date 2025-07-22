@@ -23,6 +23,7 @@ const meta: Meta<typeof Table> = {
     prefixCls: { control: 'text' },
     scrollable: { control: 'boolean' },
     rowBorder: { control: 'boolean' },
+    transparent: { control: 'boolean' },
   },
   args: {
     prefixCls: 'table',
@@ -39,6 +40,7 @@ export const Primary: Story = {
     prefixCls: 'table',
     scrollable: true,
     rowBorder: true,
+    transparent: false,
     scrollHeight: '50vh',
     value: [
       {

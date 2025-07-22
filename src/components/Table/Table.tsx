@@ -7,7 +7,7 @@ import type { FC } from 'react';
 import type { TableProps, TableClass } from './interface';
 
 export const Table: FC<TableProps> = props => {
-  const { ref, className, columns = [], prefixCls = 'table', rowBorder, ...rest } = props;
+  const { ref, className, columns = [], prefixCls = 'table', rowBorder, transparent, ...rest } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -17,6 +17,7 @@ export const Table: FC<TableProps> = props => {
       className={classes(void 0, [
         className,
         rowBorder && classes('row-border'),
+        transparent && classes('transparent'),
       ].join(' '))}
     >
       {

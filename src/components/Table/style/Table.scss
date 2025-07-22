@@ -165,4 +165,23 @@ $component: 'table';
       }
     }
   }
+
+  &-transparent {
+    background-color: transparent;
+    border: none;
+
+    &.p-datatable-scrollable {
+      .p-datatable-table {
+        .p-datatable-thead {
+          background-color: transparent;
+        }
+      }
+
+      &::after {
+        background-color: $color-primary-white;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
 }

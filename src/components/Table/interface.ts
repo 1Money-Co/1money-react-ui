@@ -9,6 +9,7 @@ export interface TableBaseProps<T extends DataTableValueArray = DataTableValueAr
   className?: string;
   prefixCls?: string;
   rowBorder?: boolean;
+  transparent?: boolean;
   columns: ColumnProps[];
   value?: T;
 }
