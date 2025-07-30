@@ -86,7 +86,7 @@ import { Button, Input, Checkbox, Radio, Switch, Select } from '@1money/react-ui
     type="text" 
     label="姓名" 
     placeholder="请输入您的姓名"
-    required 
+    required
   />
   
   <Input 
