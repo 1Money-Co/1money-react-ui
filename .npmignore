@@ -3,6 +3,7 @@
 *~
 ~*
 
+.env
 .github
 .vscode
 .cursor

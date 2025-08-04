@@ -11,4 +11,5 @@ es
 umd
 dist*
 
+.env
 *.log
