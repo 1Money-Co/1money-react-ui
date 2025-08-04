@@ -57,7 +57,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (!input) return;
     const len = input.value?.length;
     const position = input.scrollLeft;
-    const shouldToEnd = !!position || !sticky;
+    const shouldToEnd = !sticky;
     const start = shouldToEnd ? len : inputCaretPositionRef.current;
     input.setSelectionRange(start, start);
     input.scrollLeft = shouldToEnd ? input.scrollWidth : position;
