@@ -73,6 +73,26 @@ $component: 'table';
     }
   }
 
+  .p-virtualscroller {
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin: 36px 0 4px;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: $color-grey-bold;
+    }
+  }
+
   .p-datatable-header,
   .p-datatable-footer {
     position: relative;
