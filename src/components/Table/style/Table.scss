@@ -12,6 +12,7 @@ $component: 'table';
 
   &.p-datatable-scrollable {
     .p-datatable-wrapper {
+      z-index: 2;
       padding-right: 6px;
       overflow-x: visible !important;
     }
@@ -21,7 +22,6 @@ $component: 'table';
         background-color: $color-grey-light;
       }
     }
-
 
     &::after {
       position: absolute;
@@ -39,6 +39,18 @@ $component: 'table';
     }
   }
 
+  &:not(.#{$prefix}-#{$component}-transparent).p-datatable-scrollable {
+    .p-datatable-table {
+      .p-datatable-thead {
+        tr {
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
   .p-datatable-wrapper {
     padding: 0 8px 0 0;
 
@@ -47,8 +59,17 @@ $component: 'table';
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: $color-grey-bold;
+      background-color: transparent;
       border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin: 36px 0 4px;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: $color-grey-bold;
     }
   }
 
