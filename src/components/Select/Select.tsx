@@ -220,6 +220,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
   const classes = classnames(prefixCls);
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const selectRef = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
   const _ref = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
@@ -337,7 +338,10 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
           </div>;
         }}
         filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
-        panelClassName={classes('panel', panelClassName)}
+        panelClassName={classes('panel', [
+          panelClassName,
+          isHover && classes('panel-hover'),
+        ].join(' '))}
         onChange={(e) => {
           setSelected(e.value);
           // @ts-expect-error
@@ -352,6 +356,14 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
           onShow?.();
         }}
         dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
+        pt={{
+          panel: {
+            onMouseEnter: () => setIsHover(true),
+            onMouseLeave: () => setIsHover(false),
+            onTouchStart: () => setIsHover(true),
+            onTouchEnd: () => setIsHover(false),
+          }
+        }}
       />
     </SelectWrapper>
   );

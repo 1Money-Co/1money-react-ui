@@ -158,6 +158,12 @@ $cls: #{$prefix}-#{$component};
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
 
+    &-hover {
+      ::-webkit-scrollbar-thumb {
+        background-color: $color-grey-dark !important;
+      }
+    }
+
     ::-webkit-scrollbar {
       width: 2px;
     }
@@ -169,10 +175,6 @@ $cls: #{$prefix}-#{$component};
 
     ::-webkit-scrollbar-track {
       margin: 2px 0;
-    }
-
-    :hover::-webkit-scrollbar-thumb {
-      background-color: $color-grey-dark;
     }
 
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus,
