@@ -51,6 +51,15 @@ $component: 'table';
     }
   }
 
+  &-hover {
+    .p-datatable-wrapper,
+    .p-virtualscroller {
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-grey-bold !important;
+      }
+    }
+  }
+
   .p-datatable-wrapper {
     padding: 0 8px 0 0;
 
@@ -67,10 +76,6 @@ $component: 'table';
     &::-webkit-scrollbar-track {
       margin: 36px 0 4px;
     }
-
-    &:hover::-webkit-scrollbar-thumb {
-      background-color: $color-grey-bold;
-    }
   }
 
   .p-virtualscroller {
@@ -86,10 +91,6 @@ $component: 'table';
 
     &::-webkit-scrollbar-track {
       margin: 36px 0 4px;
-    }
-
-    &:hover::-webkit-scrollbar-thumb {
-      background-color: $color-grey-bold;
     }
   }
 

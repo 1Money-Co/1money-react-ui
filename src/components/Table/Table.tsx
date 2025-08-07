@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import classnames from '@/utils/classnames';
@@ -10,6 +10,8 @@ export const Table: FC<TableProps> = props => {
   const { ref, className, columns = [], prefixCls = 'table', rowBorder, transparent, ...rest } = props;
   const classes = classnames(prefixCls);
 
+  const [isHover, setIsHover] = useState(false);
+
   return (
     <DataTable
       {...rest}
@@ -18,7 +20,12 @@ export const Table: FC<TableProps> = props => {
         className,
         rowBorder && classes('row-border'),
         transparent && classes('transparent'),
+        isHover && classes('hover'),
       ].join(' '))}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      onTouchStart={() => setIsHover(true)}
+      onTouchEnd={() => setIsHover(false)}
     >
       {
         columns.map(column => (
