@@ -260,3 +260,32 @@ export const IllusSend: FC<IconWrapperProps & IllustrationsCustomProps> = ({ bor
   );
 };
 
+export const IllusAccount: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => {
+  const gradientId = useId();
+  return (
+    <IconWrapper viewBox="0 0 75 74" {...rest}>
+      <g clip-path="url(#clip0_14712_157078)">
+      <rect width="74" height="74" transform="translate(0.5)" fill="#FEFEFE"/>
+      <rect x="22.5" y="26" width="30" height="28" fill="url(#paint0_linear_14712_157078)"/>
+      <path d="M37.5 14.5C35.8431 14.5 34.5 15.8431 34.5 17.5C34.5 19.1569 35.8431 20.5 37.5 20.5C39.1569 20.5 40.5 19.1569 40.5 17.5C40.5 15.8431 39.1569 14.5 37.5 14.5Z" fill="#131313"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M60.5 27L64.5 27C66.7091 27 68.5 25.2091 68.5 23L68.5 20.7408C68.5 19.0889 67.4845 17.6069 65.944 17.0106L38.944 6.55896C38.0149 6.19932 36.9851 6.19932 36.056 6.55896L9.05602 17.0106C7.51549 17.6069 6.5 19.0889 6.5 20.7408L6.5 23C6.5 25.2091 8.29086 27 10.5 27L14.5 27L14.5 53L13.5 53C11.2909 53 9.5 54.7909 9.5 57L9.5 59L8.5 59C6.29086 59 4.5 60.7909 4.5 63L4.5 67L70.5 67L70.5 63C70.5 60.7909 68.7091 59 66.5 59L64.5 59L64.5 57C64.5 54.7909 62.7091 53 60.5 53L60.5 27ZM66.5 19.3704L37.5 8.14462L8.5 19.3704L8.5 25L66.5 25L66.5 19.3704ZM58.5 27L53.5 27L53.5 53L58.5 53L58.5 27ZM51.5 53L51.5 27L23.5 27L23.5 53L51.5 53ZM11.5 55L11.5 59L62.5 59L62.5 55L11.5 55ZM21.5 53L16.5 53L16.5 27L21.5 27L21.5 53ZM6.5 61L6.5 65L68.5 65L68.5 61L6.5 61Z" fill="#131313"/>
+      <circle cx="59.8848" cy="59.3848" r="13" transform="rotate(-45 59.8848 59.3848)" fill={`url(#${gradientId})`}/>
+      <circle cx="59.8848" cy="59.3848" r="12" transform="rotate(-45 59.8848 59.3848)" stroke="#131313" stroke-width="2"/>
+      <path d="M60.8828 58.3848H66.8848V60.3848H60.8828V66.3848H58.8828V60.3848H52.8848V58.3848H58.8828V52.3848H60.8828V58.3848Z" fill="#131313"/>
+      </g>
+      <defs>
+      <linearGradient id="paint0_linear_14712_157078" x1="37.5" y1="26" x2="37.5" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stopColor={Array.isArray(gradientColor) ? gradientColor[0] : gradientColor}/>
+      <stop offset="1" stopColor={Array.isArray(gradientColor) ? gradientColor[1] : gradientColor}/>
+      </linearGradient>
+      <linearGradient id={gradientId} x1="59.8848" y1="46.3848" x2="59.8848" y2="72.3848" gradientUnits="userSpaceOnUse">
+      <stop stopColor={Array.isArray(gradientColor) ? gradientColor[0] : gradientColor}/>
+      <stop offset="1" stopColor={Array.isArray(gradientColor) ? gradientColor[1] : gradientColor}/>
+      </linearGradient>
+      <clipPath id="clip0_14712_157078">
+      <rect width="74" height="74" fill="white" transform="translate(0.5)"/>
+      </clipPath>
+      </defs>
+    </IconWrapper>
+  );
+};
