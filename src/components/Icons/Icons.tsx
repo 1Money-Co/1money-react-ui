@@ -61,8 +61,8 @@ import {
   DigitalAssetIcon,
   AddressBookIcon,
   LinkedBankAccountsIcon,
-  ACHIcon,
   WireIcon,
+  SWIFTIcon,
   AccountIcon,
   ProfileIcon,
   SecurityIcon,
@@ -159,6 +159,7 @@ import {
   GoogleIcon,
   AppleIcon,
   PasskeyIcon,
+  ACHIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -225,8 +226,8 @@ const IconList = {
   digitalAsset: DigitalAssetIcon,
   addressBook: AddressBookIcon,
   linkedBankAccounts: LinkedBankAccountsIcon,
-  ach: ACHIcon,
   wire: WireIcon,
+  swift: SWIFTIcon,
   account: AccountIcon,
   profile: ProfileIcon,
   security: SecurityIcon,
@@ -317,6 +318,7 @@ const IconList = {
   swap: SwapIcon,
   clock: ClockIcon,
   desktop: DesktopIcon,
+  ach: ACHIcon,
 
   /* Currency Icons */
   usd: USDIcon,
