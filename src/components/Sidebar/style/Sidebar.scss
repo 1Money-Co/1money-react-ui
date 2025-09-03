@@ -6,8 +6,9 @@ $cls: #{$prefix}-#{$component};
 .#{$cls} {
   height: 100vh;
   padding: 40px 16px 24px;
-  background-color: $color-grey-light;
+  background-color: $color-primary-white;
   border: none !important;
+  border-right: 1px solid $color-grey-deep !important;
 
   &-expand-icon {
     &-open {
@@ -37,7 +38,7 @@ $cls: #{$prefix}-#{$component};
           width: 100%;
           height: 36px;
           padding: 8px 16px;
-          color: $color-primary-black;
+          color: $color-grey-midnight;
           font-weight: 500;
           font-size: 14px;
           border-radius: 12px;
@@ -69,8 +70,8 @@ $cls: #{$prefix}-#{$component};
 
         .ps-menu-button.ps-active {
           color: $color-primary-black;
-          background-color: $color-grey;
-          border-color: $color-grey-deep;
+          background-color: $color-info-light;
+          border-color: transparent;
           border-style: solid;
           border-width: 1px;
 
@@ -85,7 +86,7 @@ $cls: #{$prefix}-#{$component};
         }
 
         .ps-submenu-content {
-          background-color: $color-grey-light;
+          background-color: $color-primary-white;
           border-radius: 8px;
         }
 
@@ -198,7 +199,7 @@ $cls: #{$prefix}-#{$component};
               }
 
               &:has(.ps-menu-button.ps-active) {
-                background-color: $color-grey;
+                background-color: $color-info-light;
               }
 
               &:first-child {

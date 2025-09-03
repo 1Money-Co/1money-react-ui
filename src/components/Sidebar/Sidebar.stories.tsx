@@ -21,43 +21,43 @@ const meta: Meta<typeof SidebarComponent> = {
     menus: [
       {
         label: 'Dashboard',
-        icon: <Icons name='dashboard' size={20} color='#131313' />,
+        icon: <Icons name='dashboard' size={16} color='#131313' />,
         link: <a href='/?path=/docs/components-sidebar--overview' />,
         active: true
       },
       {
         label: 'Transaction history',
-        icon: <Icons name='transferHistory' size={20} color='#131313' />,
+        icon: <Icons name='transferHistory' size={16} color='#131313' />,
       },
       {
         label: 'Address book',
-        icon: <Icons name='addressBook' size={20} color='#131313' />,
+        icon: <Icons name='addressBook' size={16} color='#131313' />,
         disabled: true
       },
       {
         label: 'Banking accounts',
-        icon: <Icons name='bank' size={20} color='#131313' />,
+        icon: <Icons name='bank' size={16} color='#131313' />,
         disabled: true
       },
       {
         label: 'Send addresses',
-        icon: <Icons name='addressBook' size={20} color='#131313' />,
+        icon: <Icons name='addressBook' size={16} color='#131313' />,
         defaultOpen: true,
         children: [
           {
             active: true,
             label: 'Digital wallets',
-            icon: <Icons name='wallet' size={20} color='#131313' />,
+            icon: <Icons name='wallet' size={16} color='#131313' />,
             suffix: <Icons name='arrowRight' size={16} color='#131313' />,
           },
           {
             label: 'Bank accounts',
-            icon: <Icons name='bank' size={20} color='#131313' />,
+            icon: <Icons name='bank' size={16} color='#131313' />,
             suffix: <Icons name='arrowRight' size={16} color='#131313' />,
           },
           {
             label: 'Web3 addresses',
-            icon: <Icons name='fiat' size={20} color='#131313' />,
+            icon: <Icons name='fiat' size={16} color='#131313' />,
             suffix: <Icons name='arrowRight' size={16} color='#131313' />,
           }
         ]
