@@ -382,7 +382,7 @@ exports[`Sidebar renders correctly 1`] = `
             </span>
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+              style="color: rgba(31, 88, 0, 0.2); width: 20px; height: 20px;"
             >
               <svg
                 class="om-react-ui-icons"
@@ -426,7 +426,7 @@ exports[`Sidebar renders correctly 1`] = `
             </span>
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+              style="color: rgba(31, 88, 0, 0.2); width: 20px; height: 20px;"
             >
               <svg
                 class="om-react-ui-icons"
@@ -1207,7 +1207,7 @@ exports[`Sidebar renders correctly 2`] = `
             </span>
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+              style="color: rgba(31, 88, 0, 0.2); width: 20px; height: 20px;"
             >
               <svg
                 class="om-react-ui-icons"
@@ -1251,7 +1251,7 @@ exports[`Sidebar renders correctly 2`] = `
             </span>
             <i
               class="om-react-ui-icons-wrapper"
-              style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+              style="color: rgba(31, 88, 0, 0.2); width: 20px; height: 20px;"
             >
               <svg
                 class="om-react-ui-icons"
@@ -1392,7 +1392,7 @@ exports[`Sidebar renders correctly 2`] = `
           </span>
           <i
             class="om-react-ui-icons-wrapper"
-            style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+            style="color: rgba(31, 88, 0, 0.2); width: 20px; height: 20px;"
           >
             <svg
               class="om-react-ui-icons"
@@ -1436,7 +1436,7 @@ exports[`Sidebar renders correctly 2`] = `
           </span>
           <i
             class="om-react-ui-icons-wrapper"
-            style="color: rgb(31, 88, 0); width: 20px; height: 20px;"
+            style="color: rgba(31, 88, 0, 0.2); width: 20px; height: 20px;"
           >
             <svg
               class="om-react-ui-icons"

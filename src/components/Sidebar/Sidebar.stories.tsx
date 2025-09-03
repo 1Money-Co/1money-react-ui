@@ -118,17 +118,17 @@ export const Stepper: StoryObj<typeof StepperComponent> = {
         steps={[
           {
             key: '1',
-            label: '1.Business Overview',
+            label: '1. Business Overview',
             status: 'done'
           },
           {
             key: '2',
-            label: '2.Business Address',
+            label: '2. Business Address',
             status: 'active'
           },
           {
             key: '3',
-            label: '3.Tax Information',
+            label: '3. Tax Information',
             status: 'done-active'
           },
           {
