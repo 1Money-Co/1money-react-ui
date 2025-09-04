@@ -12,7 +12,9 @@ $cls: #{$prefix}-#{$component};
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
-  border-radius: 16px;
+  background-color: $color-grey-light;
+  border-radius: 12px;
+  box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
 
   &-icon {
     display: inline-flex;
@@ -23,34 +25,32 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-success {
-    background-color: $color-success-background;
-
     .#{$cls}-icon {
-      background-color: $color-success;
+      background-color: $color-success-background;
     }
   }
 
   &-info {
-    background-color: $color-grey-light;
-
     .#{$cls}-icon {
-      background-color: $color-secondary;
+      background-color: $color-info-light;
     }
   }
 
   &-error {
-    background-color: $color-negative-background;
-
     .#{$cls}-icon {
-      background-color: $color-negative;
+      background-color: $color-negative-background;
     }
   }
 
   &-warn {
-    background-color: $color-warning-background;
-
     .#{$cls}-icon {
-      background-color: $color-warning;
+      background-color: $color-warning-background;
     }
+  }
+
+  &-content {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }

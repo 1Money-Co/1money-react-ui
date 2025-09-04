@@ -14,32 +14,32 @@ $component: 'badge';
   border-radius: 12px;
 
   &-neutral {
-    color: $color-primary-black;
-    background-color: $color-grey-deep;
+    color: $color-grey-midnight;
+    background-color: $color-grey;
   }
 
   &-warning {
-    color: $color-primary-black;
-    background-color: $color-warning;
+    color: $color-warning-dark;
+    background-color: $color-warning-background;
   }
 
   &-negative {
-    color: $color-primary-white;
-    background-color: $color-negative;
+    color: $color-negative;
+    background-color: $color-negative-background;
   }
 
   &-success {
-    color: $color-primary-white;
-    background-color: $color-success;
+    color: $color-success;
+    background-color: $color-success-background;
   }
 
   &-recommend {
-    color: $color-primary-white;
-    background-color: $color-info;
+    color: $color-info;
+    background-color: $color-info-light;
   }
 
   &-black {
-    color: $color-primary-white;
-    background-color: $color-primary-black;
+    color: $color-primary-black;
+    background-color: $color-grey-deep;
   }
 }

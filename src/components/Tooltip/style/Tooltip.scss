@@ -11,7 +11,7 @@ $cls: #{$prefix}-#{$component};
   font-family: var(--font-inter), Inter;
   line-height: 140%;
   background-color: $color-primary-black;
-  border-radius: 8px;
+  border-radius: 4px;
 
   .#{$cls}-arrow {
     background-color: transparent;

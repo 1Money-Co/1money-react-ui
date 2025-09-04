@@ -2,6 +2,7 @@ import { fn } from '@storybook/test';
 import { Notification } from './index';
 import './style';
 import '../Icons/style';
+import '../Typography/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Notification> = {
@@ -27,6 +28,7 @@ type Story = StoryObj<typeof Notification>;
 export const Primary: Story = {
   args: {
     prefixCls: 'notification',
-    children: `Include your account identifier in the bank's "memo" or "instructions" field to avoid delays or returns.`
+    title: 'Notification Title',
+    description: 'You can now link multiple accounts to manage your finances all in one place.',
   },
 };
