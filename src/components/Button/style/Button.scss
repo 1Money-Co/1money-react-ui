@@ -10,7 +10,7 @@ $component: 'button';
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: none;
 
   &-medium {
@@ -25,7 +25,7 @@ $component: 'button';
     padding: 12px;
     font-size: 12px;
     line-height: 8px;
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   &.p-disabled {
