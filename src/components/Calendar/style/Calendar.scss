@@ -95,7 +95,7 @@ $size: 36px;
   }
 
   .p-datepicker-group-container {
-    gap:24px;
+    gap: 24px;
 
     .p-datepicker-group {
       display: flex;
@@ -138,7 +138,7 @@ $size: 36px;
       }
 
       .p-datepicker-calendar-container {
-        table{
+        table {
           width: calc($size * 7);
           margin: 0;
           table-layout: fixed;
@@ -305,10 +305,10 @@ $size: 36px;
 }
 
 .#{$cls}-p-start {
-  background-color: $color-secondary !important;
+  background-color: $color-info-light !important;
   border-radius: 50% 0 0 50% !important;
 
-  &:last-child{
+  &:last-child {
     border-radius: 50% !important;
   }
 
@@ -320,10 +320,10 @@ $size: 36px;
 }
 
 .#{$cls}-p-end {
-  background-color: $color-secondary !important;
+  background-color: $color-info-light !important;
   border-radius: 0 50% 50% 0 !important;
 
-  &:first-child{
+  &:first-child {
     border-radius: 50% !important;
   }
 
@@ -336,10 +336,10 @@ $size: 36px;
 
 .#{$cls}-p-range {
   color: $color-primary-white !important;
-  background-color: $color-secondary !important;
+  background-color: $color-info-light !important;
 
-  span{
-    &.p-highlight{
+  span {
+    &.p-highlight {
       color: $color-primary-black !important;
       background-color: transparent !important;
     }

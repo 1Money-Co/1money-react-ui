@@ -36,7 +36,7 @@ export const Stepper: FC<StepperProps> = props => {
             >
               <span className={classes('step-label')}>{label}</span>
               {
-                (step.status === 'done' || step.status === 'done-active') && <Icons name='statusSuccess' size={20} color='#1F5800' />
+                (step.status === 'done' || step.status === 'done-active') && <Icons name='statusSuccess' size={20} color='#1F580033' />
               }
             </li>;
           })
