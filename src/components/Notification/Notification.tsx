@@ -40,11 +40,7 @@ export const Notification: FC<PropsWithChildren<NotificationProps>> = props => {
       <span className={classes('icon')}>
         <Icons name={iconData.name} color={iconData.color} size={16} />
       </span>
-      <div className={classes('content')}>
-        { title && <Typography.Title size='s' bold>{title}</Typography.Title> }
-        { description && <Typography.Body size='m'>{description}</Typography.Body> }
-        { children }
-      </div>
+      { children }
     </div>
   );
 };
