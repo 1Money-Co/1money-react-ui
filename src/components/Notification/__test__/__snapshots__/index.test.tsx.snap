@@ -40,9 +40,6 @@ exports[`Notification renders correctly 1`] = `
             </svg>
           </i>
         </span>
-        <div
-          class="om-react-ui-notification-content"
-        />
       </div>
     </div>
   </body>,
@@ -82,9 +79,6 @@ exports[`Notification renders correctly 1`] = `
           </svg>
         </i>
       </span>
-      <div
-        class="om-react-ui-notification-content"
-      />
     </div>
   </div>,
   "debug": [Function],

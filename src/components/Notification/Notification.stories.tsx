@@ -28,7 +28,6 @@ type Story = StoryObj<typeof Notification>;
 export const Primary: Story = {
   args: {
     prefixCls: 'notification',
-    title: 'Notification Title',
-    description: 'You can now link multiple accounts to manage your finances all in one place.',
+    children: `Include your account identifier in the bank's "memo" or "instructions" field to avoid delays or returns.`
   },
 };
