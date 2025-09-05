@@ -6,7 +6,7 @@ exports[`Table renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-table    false p-datatable p-component p-datatable-responsive-scroll"
+        class="om-react-ui-table    false false p-datatable p-component p-datatable-responsive-scroll"
         data-pc-name="datatable"
         data-pc-section="root"
         data-scrollselectors=".p-datatable-wrapper"
@@ -485,7 +485,7 @@ exports[`Table renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-table    false p-datatable p-component p-datatable-responsive-scroll"
+      class="om-react-ui-table    false false p-datatable p-component p-datatable-responsive-scroll"
       data-pc-name="datatable"
       data-pc-section="root"
       data-scrollselectors=".p-datatable-wrapper"

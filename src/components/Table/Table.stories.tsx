@@ -361,7 +361,7 @@ export const Primary: Story = {
           style={{
             margin: '0',
             padding: '0 12px 0 40px',
-            backgroundColor: '#F0F0F0',
+            backgroundColor: '#F8F8F8',
             display: 'flex',
             flexDirection: 'column',
             listStyle: 'none',
