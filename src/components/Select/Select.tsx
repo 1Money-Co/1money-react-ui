@@ -1,5 +1,6 @@
 import { memo, useRef, useMemo, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import isEqual from 'lodash.isequal';
+import debounce from 'lodash.debounce';
 import { Dropdown, type DropdownProps } from 'primereact/dropdown';
 import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
 import classnames from '@/utils/classnames';
@@ -71,7 +72,6 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   const dataIdRef = useRef(dataId);
   const lastFocusRef = useRef(false);
   const selectRef = useRef<HTMLDivElement>(null);
-
 
   const [value, setValue] = useState('');
   const [isFocus, setIsFocus] = useState(false);
@@ -221,6 +221,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
   const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
   const [isOpen, setIsOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const selectRef = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
   const _ref = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
@@ -234,6 +235,8 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
     className
   ].join(' ')), [size, isOpen, success, selected, invalid, disabled, className]);
+
+  const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
 
   const SelectComponent = useCallback(
     (props: MultiSelectProps & DropdownProps) => multiple
@@ -341,6 +344,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         panelClassName={classes('panel', [
           panelClassName,
           isHover && classes('panel-hover'),
+          isScrolling && classes('panel-scrolling'),
         ].join(' '))}
         onChange={(e) => {
           setSelected(e.value);
@@ -357,6 +361,13 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         }}
         dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
         pt={{
+          wrapper: {
+            onScroll: () => {
+              debouncedHandleScroll.cancel();
+              setIsScrolling(true);
+              debouncedHandleScroll();
+            }
+          },
           panel: {
             onMouseEnter: () => setIsHover(true),
             onMouseLeave: () => setIsHover(false),
