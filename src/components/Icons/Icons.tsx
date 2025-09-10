@@ -19,7 +19,9 @@ import {
   IllusVerification,
   IllusTransfer,
   IllusSend,
-  IllusAccount
+  IllusAccount,
+  IllusPending,
+
 } from './Illustrations';
 
 import {
@@ -180,6 +182,7 @@ const IconList = {
   illusTransfer:IllusTransfer,
   illusSend:IllusSend,
   illusAccount:IllusAccount,
+  illusPending:IllusPending,
   /* Logo */
   logo: Logo,
   logoWord: LogoWord,
