@@ -153,13 +153,13 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='linkedBankAccounts' />
         <span>Linked Bank Accounts</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='ach' />")}>
-        <Icons {...args} name='ach' />
-        <span>ACH</span>
-      </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='wire' />")}>
         <Icons {...args} name='wire' />
         <span>Wire</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='swift' />")}>
+        <Icons {...args} name='swift' />
+        <span>Swift</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='account' />")}>
         <Icons {...args} name='account' />
@@ -541,6 +541,10 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='passkey' />
         <span>Passkey</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='ach' />")}>
+        <Icons {...args} name='ach' />
+        <span>ACH</span>
+      </CopyIconBox>
     </div>;
   },
 };
@@ -664,6 +668,10 @@ export const Illustrations: Story = {
       <CopyIconBox onClick={() => handleCopy("<Icons name='illusAccount' />")}>
         <Icons {...args} name='illusAccount' />
         <span>illusAccount</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='illusPending' />")}>
+        <Icons {...args} name='illusPending' />
+        <span>illusPending</span>
       </CopyIconBox>
     </div>;
   }

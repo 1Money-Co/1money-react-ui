@@ -19,7 +19,9 @@ import {
   IllusVerification,
   IllusTransfer,
   IllusSend,
-  IllusAccount
+  IllusAccount,
+  IllusPending,
+
 } from './Illustrations';
 
 import {
@@ -61,8 +63,8 @@ import {
   DigitalAssetIcon,
   AddressBookIcon,
   LinkedBankAccountsIcon,
-  ACHIcon,
   WireIcon,
+  SWIFTIcon,
   AccountIcon,
   ProfileIcon,
   SecurityIcon,
@@ -159,6 +161,7 @@ import {
   GoogleIcon,
   AppleIcon,
   PasskeyIcon,
+  ACHIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -179,6 +182,7 @@ const IconList = {
   illusTransfer:IllusTransfer,
   illusSend:IllusSend,
   illusAccount:IllusAccount,
+  illusPending:IllusPending,
   /* Logo */
   logo: Logo,
   logoWord: LogoWord,
@@ -225,8 +229,8 @@ const IconList = {
   digitalAsset: DigitalAssetIcon,
   addressBook: AddressBookIcon,
   linkedBankAccounts: LinkedBankAccountsIcon,
-  ach: ACHIcon,
   wire: WireIcon,
+  swift: SWIFTIcon,
   account: AccountIcon,
   profile: ProfileIcon,
   security: SecurityIcon,
@@ -317,6 +321,7 @@ const IconList = {
   swap: SwapIcon,
   clock: ClockIcon,
   desktop: DesktopIcon,
+  ach: ACHIcon,
 
   /* Currency Icons */
   usd: USDIcon,
