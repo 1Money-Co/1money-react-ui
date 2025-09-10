@@ -58,7 +58,8 @@ $component: 'table';
     }
   }
 
-  &-hover {
+  &-hover,
+  &-scrolling {
     .p-datatable-wrapper,
     .p-virtualscroller {
       &::-webkit-scrollbar-thumb {

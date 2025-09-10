@@ -1,4 +1,5 @@
 import { memo, useRef, useState, useEffect, useImperativeHandle } from 'react';
+import debounce from 'lodash.debounce';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import classnames from '@/utils/classnames';
@@ -14,11 +15,16 @@ export const Table: FC<TableProps> = props => {
 
   const [isHover, setIsHover] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
+    const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
     const handleScroll = (e: Event) => {
       const target = e.target as HTMLElement;
       setScrollTop(target.scrollTop);
+      debouncedHandleScroll.cancel();
+      setIsScrolling(true);
+      debouncedHandleScroll();
     };
     const tableEle = tableRef.current?.getElement()?.querySelector('.p-datatable-wrapper');
     if (tableEle) {
@@ -43,6 +49,7 @@ export const Table: FC<TableProps> = props => {
         rowBorder && classes('row-border'),
         transparent && classes('transparent'),
         isHover && classes('hover'),
+        isScrolling && classes('scrolling'),
         scrollTop > 0 && classes('scrolled'),
       ].join(' '))}
       onMouseEnter={() => setIsHover(true)}
