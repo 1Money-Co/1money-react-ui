@@ -15,7 +15,8 @@ $cls: #{$prefix}-#{$component};
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
 
-  &-hover {
+  &-hover,
+  &-scrolling {
     .p-overlaypanel-content {
       &::-webkit-scrollbar-thumb {
         background-color: $color-grey-dark !important;
