@@ -158,7 +158,8 @@ $cls: #{$prefix}-#{$component};
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
 
-    &-hover {
+    &-hover,
+    &-scrolling {
       ::-webkit-scrollbar-thumb {
         background-color: $color-grey-dark !important;
       }

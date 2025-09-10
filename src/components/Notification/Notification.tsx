@@ -1,5 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Icons } from '../Icons';
+import { Typography } from '../Typography';
 import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
@@ -8,7 +9,7 @@ import type { NotificationProps } from './interface';
 const SeverityIconMap = {
   success: {
     name: 'check' as const,
-    color: '#FEFEFE',
+    color: '#1F5800',
   },
   info: {
     name: 'fail' as const,
@@ -16,16 +17,16 @@ const SeverityIconMap = {
   },
   warn: {
     name: 'error' as const,
-    color: '#131313',
+    color: '#DB8600',
   },
   error: {
     name: 'cross' as const,
-    color: '#FEFEFE',
+    color: '#AE0000',
   },
 };
 
 export const Notification: FC<PropsWithChildren<NotificationProps>> = props => {
-  const { children, className, severity = 'info', onClick, prefixCls = 'notification', ...rest } = props;
+  const { children, className, severity = 'info', onClick, prefixCls = 'notification', title, description, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const iconData = useMemo(() => SeverityIconMap[severity], [severity]);

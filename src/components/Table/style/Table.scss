@@ -3,22 +3,28 @@
 $component: 'table';
 
 .#{$prefix}-#{$component} {
-  padding: 24px 6px 8px 16px;
-  background-color: $color-grey-light;
+  padding: 12px 8px 8px 16px;
+  overflow: hidden;
+  background-color: $color-primary-white;
   border-color: $color-grey-deep;
   border-style: solid;
   border-width: 1px;
-  border-radius: 24px;
+  border-radius: 12px;
 
   &.p-datatable-scrollable {
     .p-datatable-wrapper {
       z-index: 2;
-      padding-right: 6px;
+      padding-right: 8px;
       overflow-x: visible !important;
     }
 
     .p-datatable-table {
+      &::before {
+        content: none;
+      }
+
       .p-datatable-thead {
+        position: sticky;
         background-color: $color-grey-light;
       }
     }
@@ -29,12 +35,13 @@ $component: 'table';
       left: 0;
       z-index: 1;
       width: 100%;
-      height: 54px;
+      height: 39px;
       background-color: $color-grey-light;
       border-bottom: 1px solid transparent;
-      border-top-left-radius: 24px;
-      border-top-right-radius: 24px;
-      box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+
+      // box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
       content: '';
     }
   }
@@ -51,7 +58,8 @@ $component: 'table';
     }
   }
 
-  &-hover {
+  &-hover,
+  &-scrolling {
     .p-datatable-wrapper,
     .p-virtualscroller {
       &::-webkit-scrollbar-thumb {
@@ -105,13 +113,37 @@ $component: 'table';
     border: none;
   }
 
+  &-scrolled {
+    .p-datatable-table {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
   .p-datatable-table {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 40px;
+      background-color: $color-grey-light;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      content: '';
+    }
+
     .p-datatable-thead {
+      position: relative;
+      z-index: 2;
       background-color: transparent;
 
       tr {
         th {
-          padding: 0 0 16px;
+          padding: 0 0 12px;
           background-color: transparent;
           border-bottom: 1px solid $color-grey-deep;
 
@@ -157,7 +189,6 @@ $component: 'table';
           font-size: 14px;
           font-family: var(--font-inter), Inter;
           font-style: normal;
-          line-height: 140%;
           border-bottom: none;
 
           &:first-child {

@@ -10,23 +10,23 @@ import type { ToastRef, ToastProps, ToastMessage } from './interface';
 const SeverityIconMap = {
   success: {
     name: 'check' as const,
-    color: '#FEFEFE',
-    bgColor: '#1F5800',
+    color: '#1F5800',
+    bgColor: '#1F580033',
   },
   info: {
     name: 'fail' as const,
     color: '#073387',
-    bgColor: '#DDE6F4',
+    bgColor: '#EDF2F9',
   },
   warn: {
     name: 'error' as const,
-    color: '#131313',
-    bgColor: '#F4C600',
+    color: '#DB8600',
+    bgColor: '#F4C60033',
   },
   error: {
     name: 'cross' as const,
-    color: '#FEFEFE',
-    bgColor: '#AE0000',
+    color: '#AE0000',
+    bgColor: '#AE00001A',
   },
 };
 

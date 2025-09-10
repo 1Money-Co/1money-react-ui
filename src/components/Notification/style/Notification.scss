@@ -12,13 +12,13 @@ $cls: #{$prefix}-#{$component};
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
-  border-radius: 16px;
+  border-radius: 12px;
 
   &-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
+    padding: 8px;
     border-radius: 50%;
   }
 
@@ -26,7 +26,7 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-success-background;
 
     .#{$cls}-icon {
-      background-color: $color-success;
+      background-color: $color-success-background;
     }
   }
 
@@ -34,7 +34,7 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-grey-light;
 
     .#{$cls}-icon {
-      background-color: $color-secondary;
+      background-color: $color-info-light;
     }
   }
 
@@ -42,7 +42,7 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-negative-background;
 
     .#{$cls}-icon {
-      background-color: $color-negative;
+      background-color: $color-negative-background;
     }
   }
 
@@ -50,7 +50,7 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-warning-background;
 
     .#{$cls}-icon {
-      background-color: $color-warning;
+      background-color: $color-warning-background;
     }
   }
 }

@@ -24,6 +24,8 @@ const Configuration = {
       'modify',
       'merge',
       'optimize',
+      'revamp',
+      'refine',
       'chore'
     ]]
   },

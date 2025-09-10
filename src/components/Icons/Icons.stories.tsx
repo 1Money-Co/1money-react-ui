@@ -128,12 +128,12 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='error' />
         <span>Error</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='statusSuccess' />")}>
-        <Icons {...args} name='statusSuccess' />
+      <CopyIconBox onClick={() => handleCopy("<Icons name='statusSuccess' color='#1F580033' />")}>
+        <Icons {...args} name='statusSuccess' color='#1F580033' />
         <span>Status Success</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='statusFail' />")}>
-        <Icons {...args} name='statusFail' />
+      <CopyIconBox onClick={() => handleCopy("<Icons name='statusFail' color='#AE00001A' />")}>
+        <Icons {...args} name='statusFail' color='#AE00001A' />
         <span>Status Fail</span>
       </CopyIconBox>
       {/* Menu Icons */}
