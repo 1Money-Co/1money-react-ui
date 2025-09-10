@@ -289,3 +289,23 @@ export const IllusAccount: FC<IconWrapperProps & IllustrationsCustomProps> = ({ 
     </IconWrapper>
   );
 };
+
+
+export const IllusPending: FC<IconWrapperProps & IllustrationsCustomProps> = ({ borderColor = '#1D1D1F', gradientColor = ['#B9CCE4', 'white'], ...rest }) => {
+  const gradientId = useId();
+  return (
+    <IconWrapper viewBox="0 0 75 74" {...rest}>
+    <circle cx="30.9972" cy="30.9981" r="29.5909" fill="white"/>
+    <circle cx="31" cy="31" r="30" stroke={borderColor} strokeWidth="2"/>
+    <circle cx="31" cy="31" r="24" fill={`url(#${gradientId})`}/>
+    <circle cx="31" cy="31" r="23.5" stroke={borderColor}/>
+    <path d="M30 20V32L42 38" stroke={borderColor} strokeWidth="2"/>
+    <defs>
+    <linearGradient id={gradientId} x1="31" y1="7" x2="31" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stopColor={Array.isArray(gradientColor) ? gradientColor[0] : gradientColor}/>
+      <stop offset="1" stopColor={Array.isArray(gradientColor) ? gradientColor[1] : gradientColor}/>
+    </linearGradient>
+    </defs>
+    </IconWrapper>
+  );
+};
