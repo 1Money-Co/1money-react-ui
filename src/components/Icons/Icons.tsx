@@ -81,6 +81,8 @@ import {
   FiatIcon,
   MoneyIcon,
   SendCryptoIcon,
+  BusinessPortfolioIcon,
+  IdentityIcon,
   /* Functional Icons */
   ArrowUpIcon,
   ArrowDownIcon,
@@ -247,6 +249,8 @@ const IconList = {
   fiat: FiatIcon,
   money: MoneyIcon,
   sendCrypto: SendCryptoIcon,
+  businessPortfolio: BusinessPortfolioIcon,
+  identity: IdentityIcon,
 
   /* Functional Icons */
   arrowUp: ArrowUpIcon,
