@@ -20,6 +20,9 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     direction = 'horizontal',
     labelCls,
     cardCls,
+    cardCheckedCls,
+    cardDisabledCls,
+    cardInvalidCls,
     label,
     required,
   } = props;
@@ -57,9 +60,9 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     return (
       <div id={id} key={key} className={[
         classes('card-inner'),
-        isSelected(item) && classes('card-checked'),
-        disabled && classes('card-disabled'),
-        invalid && classes('card-invalid'),
+        isSelected(item) && classes('card-checked', cardCheckedCls),
+        disabled && classes('card-disabled', cardDisabledCls),
+        invalid && classes('card-invalid', cardInvalidCls),
         cardCls
       ].filter(Boolean).join(' ')}
         onClick={() => {
