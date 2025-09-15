@@ -18,6 +18,9 @@ export interface RadioGroupProps {
   radioCls?: string;
   prefixCls?: string;
   cardCls?: string;
+  cardCheckedCls?: string;
+  cardDisabledCls?: string;
+  cardInvalidCls?: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'default' | 'card';
   direction?: 'horizontal' | 'vertical';

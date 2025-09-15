@@ -225,12 +225,12 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='sendCrypto' />
         <span>Send Crypto</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='businessPortfolio' />")}>
-        <Icons {...args} name='businessPortfolio' />
+      <CopyIconBox onClick={() => handleCopy("<Icons name='businessAccount' />")}>
+        <Icons {...args} name='businessAccount' />
         <span>Business Portfolio</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='identity' />")}>
-        <Icons {...args} name='identity' />
+      <CopyIconBox onClick={() => handleCopy("<Icons name='individualAccount' />")}>
+        <Icons {...args} name='individualAccount' />
         <span>Identity</span>
       </CopyIconBox>
 
