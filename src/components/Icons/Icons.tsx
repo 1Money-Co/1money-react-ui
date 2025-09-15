@@ -81,8 +81,7 @@ import {
   FiatIcon,
   MoneyIcon,
   SendCryptoIcon,
-  BusinessPortfolioIcon,
-  IdentityIcon,
+
   /* Functional Icons */
   ArrowUpIcon,
   ArrowDownIcon,
@@ -164,6 +163,8 @@ import {
   AppleIcon,
   PasskeyIcon,
   ACHIcon,
+  BusinessAccountIcon,
+  IndividualAccountIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -249,8 +250,6 @@ const IconList = {
   fiat: FiatIcon,
   money: MoneyIcon,
   sendCrypto: SendCryptoIcon,
-  businessPortfolio: BusinessPortfolioIcon,
-  identity: IdentityIcon,
 
   /* Functional Icons */
   arrowUp: ArrowUpIcon,
@@ -326,6 +325,8 @@ const IconList = {
   clock: ClockIcon,
   desktop: DesktopIcon,
   ach: ACHIcon,
+  businessAccount: BusinessAccountIcon,
+  individualAccount: IndividualAccountIcon,
 
   /* Currency Icons */
   usd: USDIcon,
