@@ -171,7 +171,7 @@ import {
 /* import types */
 import type { FC } from 'react';
 import type { IconsProps, IconWrapperProps } from './interface';
-import type { LogoWithWordsCustomProps } from './Logo';
+import type { LogoWithWordsCustomProps, LogoWithBetaCustomProps } from './Logo';
 import type { IllustrationsCustomProps } from './Illustrations';
 
 const IconList = {
@@ -354,6 +354,10 @@ export interface StatusIconsProps extends IconsProps {
 
 export interface LogoWithWordsProps extends IconsProps, LogoWithWordsCustomProps {
   name: 'logoWithWords';
+}
+
+export interface LogoWithBetaProps extends IconsProps, LogoWithBetaCustomProps {
+  name: 'logoWithBeta';
 }
 
 export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps {
