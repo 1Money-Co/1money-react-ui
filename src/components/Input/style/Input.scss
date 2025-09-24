@@ -179,6 +179,14 @@ $cls: #{$prefix}-#{$component};
       }
     }
 
+    &-readonly {
+      border-color: $color-grey-bold !important;
+
+      input{
+        cursor: default !important;
+      }
+    }
+
     &-disabled.#{$cls}-inner-filled {
       background-color: $color-grey !important;
       border-color: $color-grey !important;
@@ -238,7 +246,7 @@ $cls: #{$prefix}-#{$component};
       }
     }
 
-    &:focus-within:not(.#{$cls}-inner-invalid, .#{$cls}-inner-success):not(:has(.#{$cls}-otp)) {
+    &:focus-within:not(.#{$cls}-inner-invalid, .#{$cls}-inner-success, .#{$cls}-inner-readonly):not(:has(.#{$cls}-otp)) {
       padding: 11px 15px;
       border-color: $color-primary;
       border-width: 2px;
