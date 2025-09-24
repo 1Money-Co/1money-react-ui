@@ -50,7 +50,8 @@ $component: 'icons';
 
     i:nth-of-type(3) {
       align-self: flex-end;
-      margin-bottom: 2.5px;
+      margin-bottom: calc(var(--logo-height) * 0.125);
+      padding-left: 1px;
     }
   }
 }
