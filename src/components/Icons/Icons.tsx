@@ -364,7 +364,7 @@ export interface IllustrationsProps extends IconsProps, IllustrationsCustomProps
   name: 'illusLocked' | 'illusChecked' | 'illusError' | 'illusEmailError' | 'illusLinkExpired' | 'illus2FA' | 'illusIDCard' | 'illusVerification' | 'illusRegionNotSupported';
 }
 
-export const Icons: FC<(IconsProps & { name: IconName }) | StatusIconsProps | LogoWithWordsProps | IllustrationsProps> = ({ name, ...rest }) => {
+export const Icons: FC<(IconsProps & { name: IconName }) | StatusIconsProps | LogoWithWordsProps | LogoWithBetaProps | IllustrationsProps> = ({ name, ...rest }) => {
   const Icon = useMemo(() => IconList[name], [name]);
   return Icon ? <Icon {...rest} /> : null;
 };
