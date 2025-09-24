@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import classnames from '@/utils/classnames';
 import IconWrapper from './Wrapper';
 /* import types */
-import type { FC } from 'react';
+import type { FC, CSSProperties } from 'react';
 import type { IconWrapperProps } from './interface';
 
 export const Logo: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0 248 248" {...props}>
@@ -144,11 +144,15 @@ export const LogoWithBeta: FC<IconWrapperProps & LogoWithBetaCustomProps> = (pro
       className={betaCls}
       width={
         width && height
-          ? ((+width) - (+height) - ((+width) * 0.04) - ((+width) * 0.618))
+          ? ((+width) - (+height) - ((+width) * 0.04) - ((+width) * 0.618) - 1)
           : size
       }
       height={h ? +h / 2.5 : void 0}
       {...rest}
+      style={{
+        ...rest.style,
+        '--logo-height': `${h ?? 23}px`,
+      } as CSSProperties}
     />
   </i>;
 };
