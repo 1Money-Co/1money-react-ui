@@ -38,4 +38,19 @@ $component: 'icons';
       }
     }
   }
+
+  &-logo-with-beta {
+    display: inline-flex;
+    align-items: center;
+    font-style: normal;
+
+    i:nth-of-type(2) {
+      padding-left: 4%;
+    }
+
+    i:nth-of-type(3) {
+      align-self: flex-end;
+      margin-bottom: 2.5px;
+    }
+  }
 }

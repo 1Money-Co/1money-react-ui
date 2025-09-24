@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import classnames from '@/utils/classnames';
 import IconWrapper from './Wrapper';
 /* import types */
@@ -44,6 +45,13 @@ export const LogoBg: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0
       <stop offset="1" stopColor="#F9F9F9"/>
     </radialGradient>
   </defs>
+</IconWrapper>;
+
+export const LogoBeta: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0 30 9" {...props}>
+  <path d="M23.0053 8.8669H21.3594L24.3561 0.354614H26.2598L29.2607 8.8669H27.6147L25.3412 2.1003H25.2747L23.0053 8.8669ZM23.0593 5.52932H27.5482V6.76792H23.0593V5.52932Z" />
+  <path d="M14.8438 1.64725V0.354614H21.6353V1.64725H19.0043V8.8669H17.4747V1.64725H14.8438Z" />
+  <path d="M8.11328 8.8669V0.354614H13.6496V1.64725H9.6553V3.9582H13.3628V5.25084H9.6553V7.57426H13.6828V8.8669H8.11328Z" />
+  <path d="M0.417969 8.8669V0.354614H3.67658C4.29172 0.354614 4.80296 0.451597 5.21029 0.645561C5.62038 0.836755 5.92657 1.09861 6.12885 1.43112C6.3339 1.76363 6.43642 2.14048 6.43642 2.56166C6.43642 2.90802 6.36992 3.20451 6.23691 3.45112C6.10391 3.69497 5.92518 3.89309 5.70074 4.04549C5.47629 4.19789 5.22553 4.30734 4.94843 4.37384V4.45697C5.25046 4.4736 5.54003 4.56642 5.81712 4.73545C6.09698 4.9017 6.32558 5.13723 6.50292 5.44203C6.68026 5.74684 6.76893 6.11537 6.76893 6.54763C6.76893 6.98821 6.66225 7.38445 6.44889 7.73636C6.23553 8.0855 5.9141 8.36121 5.48461 8.56348C5.05511 8.76576 4.51478 8.8669 3.86362 8.8669H0.417969ZM1.95999 7.57842H3.61839C4.17812 7.57842 4.58129 7.47174 4.8279 7.25838C5.07728 7.04224 5.20197 6.76515 5.20197 6.4271C5.20197 6.17494 5.13963 5.94773 5.01494 5.74545C4.89024 5.5404 4.7129 5.37969 4.48292 5.26331C4.25293 5.14416 3.97861 5.08459 3.65995 5.08459H1.95999V7.57842ZM1.95999 3.97483H3.48538C3.75139 3.97483 3.99108 3.92634 4.20444 3.82936C4.4178 3.7296 4.58544 3.58967 4.70736 3.40956C4.83205 3.22668 4.8944 3.01055 4.8944 2.76116C4.8944 2.43142 4.77802 2.15987 4.54526 1.94651C4.31528 1.73315 3.97307 1.62647 3.51864 1.62647H1.95999V3.97483Z" />
 </IconWrapper>;
 
 export interface LogoWithWordsCustomProps {
@@ -99,10 +107,58 @@ export const LogoWithWords: FC<IconWrapperProps & LogoWithWordsCustomProps> = (p
 };
 
 
+export interface LogoWithBetaCustomProps {
+  logoColor?: string;
+  logoCls?: string;
+  wordColor?: string;
+  wordCls?: string;
+  betaColor?: string;
+  betaCls?: string;
+}
+export const LogoWithBeta: FC<IconWrapperProps & LogoWithBetaCustomProps> = (props) => {
+  const { logoColor, wordColor, logoCls, wordCls, betaColor, betaCls, color, className, width, height, size, ...rest } = props;
+  const classes = classnames('icons');
+  const h = useMemo(() => height || size, [height, size]);
+
+  return <i className={[classes('logo-with-beta'), className].join(' ')}>
+    <Logo
+      color={logoColor || color}
+      width={h}
+      height={h}
+      className={logoCls}
+      {...rest}
+    />
+    <LogoWord
+      color={wordColor || color}
+      width={
+        width && height
+          ? ((+width) - (+height) - ((+width) * 0.04) - ((+width) * 0.197))
+          : size
+      }
+      height={h}
+      className={wordCls}
+      {...rest}
+    />
+    <LogoBeta
+      color={betaColor || color}
+      className={betaCls}
+      width={
+        width && height
+          ? ((+width) - (+height) - ((+width) * 0.04) - ((+width) * 0.618))
+          : size
+      }
+      height={h ? +h / 2.5 : void 0}
+      {...rest}
+    />
+  </i>;
+};
+
 export default {
   Logo,
   LogoWord,
   LogoNetwork,
   LogoWithWords,
   LogoBg,
+  LogoBeta,
+  LogoWithBeta,
 };
