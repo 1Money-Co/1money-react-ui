@@ -40,6 +40,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     value,
     defaultValue,
     onChange,
+    readOnly,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
@@ -104,6 +105,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           success ? classes('inner-success') : '',
           invalid ? classes('inner-invalid') : '',
           disabled ? classes('inner-disabled') : '',
+          readOnly ? classes('inner-readonly') : '',
           val ? classes('inner-filled') : '',
         ].join(' '))}
       >
@@ -118,6 +120,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           disabled={disabled}
           required={required}
           maxLength={maxLength}
+          readOnly={readOnly}
           className={classes(void 0, [
             classes(size),
             classes(type),
