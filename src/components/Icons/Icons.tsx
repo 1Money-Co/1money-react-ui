@@ -5,6 +5,8 @@ import {
   LogoNetwork,
   LogoWithWords,
   LogoBg,
+  LogoBeta,
+  LogoWithBeta,
 } from './Logo';
 
 import {
@@ -192,6 +194,8 @@ const IconList = {
   logoNetwork: LogoNetwork,
   logoWithWords: LogoWithWords,
   logoBg: LogoBg,
+  logoBeta: LogoBeta,
+  logoWithBeta: LogoWithBeta,
 
   /* Old Icons */
   burger: BurgerIcon,
