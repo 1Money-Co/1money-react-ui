@@ -16,15 +16,16 @@ const meta: Meta<typeof Tab> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Tab>;
- 
+
 export const Primary: Story = {
   args: {
     prefixCls: 'tab',
-    type: 'default',
+    // type: 'segment',
+    lableClassName: 'yyyy',
     model: [
       { label: 'Password' },
       { label: '2FA settings', count: 10 },
