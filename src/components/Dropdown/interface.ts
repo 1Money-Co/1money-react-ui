@@ -9,7 +9,8 @@ export interface DropdownItem {
 
 export interface DropdownProps extends OverlayPanelProps {
   ref?: RefObject<OverlayPanel | null>;
-  items: DropdownItem[];
+  items?: DropdownItem[];
+  renderList?: (items: DropdownItem[]) => ReactNode;
   height?: CSSProperties['height'];
   width?: CSSProperties['width'];
   prefixCls?: string;
