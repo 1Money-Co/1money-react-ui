@@ -39,15 +39,17 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
     >
       <div className={classes('wrapper', wrapperCls)}>
         {prefixEle}
-        <ul className={classes('list', listCls)}>
-          {
-            renderList?.(items) ?? items.map((item, ind) => (
-              <li key={item.key ?? ind} className={classes('list-item', [itemCls, item.active ? itemActiveCls : void 0].join(' '))}>
-                {item.children}
-              </li>
-            ))
-          }
-        </ul>
+        {
+          renderList?.(items) ?? <ul className={classes('list', listCls)}>
+            {
+              items.map((item, ind) => (
+                <li key={item.key ?? ind} className={classes('list-item', [itemCls, item.active ? itemActiveCls : void 0].join(' '))}>
+                  {item.children}
+                </li>
+              ))
+            }
+          </ul>
+        }
         {suffixEle}
       </div>
     </OverlayPanel>
