@@ -26,9 +26,9 @@ $cls: #{$prefix}-#{$component};
 
   .p-overlaypanel-content {
     width: var(--dropdown-width);
-    max-width: calc(100vw - 48px);
+    max-width: var(--dropdown-max-width);
     height: var(--dropdown-height);
-    max-height: calc(100vh - 48px);
+    max-height: var(--dropdown-max-height);
     padding: 0 4px;
     overflow-y: scroll;
     border: none;
