@@ -7,7 +7,7 @@ import type { FC, PropsWithChildren, CSSProperties } from 'react';
 import type { DropdownProps } from './interface';
 
 export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
-  const { prefixEle, suffixEle, items = [], renderList, width, height, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, itemActiveCls, onScroll, ...rest } = props;
+  const { prefixEle, suffixEle, items = [], renderList, width, height, maxWidth, maxHeight, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, itemActiveCls, onScroll, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const [isHover, setIsHover] = useState(false);
@@ -25,6 +25,8 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
       style={{
         '--dropdown-width': width || 'auto',
         '--dropdown-height': height || 'auto',
+        '--dropdown-max-width': maxWidth || 'calc(100vw - 48px)',
+        '--dropdown-max-height': maxHeight || 'calc(100vh - 48px)',
       } as CSSProperties}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}

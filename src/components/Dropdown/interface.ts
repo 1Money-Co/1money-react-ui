@@ -13,6 +13,8 @@ export interface DropdownProps extends OverlayPanelProps {
   renderList?: (items: DropdownItem[]) => ReactNode;
   height?: CSSProperties['height'];
   width?: CSSProperties['width'];
+  maxWidth?: CSSProperties['maxWidth'];
+  maxHeight?: CSSProperties['maxHeight'];
   prefixCls?: string;
   className?: string;
   wrapperCls?: string;
