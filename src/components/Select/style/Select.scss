@@ -17,6 +17,12 @@ $cls: #{$prefix}-#{$component};
   border-radius: 12px;
   transition: none;
 
+  &.p-multiselect {
+    height: auto;
+    min-height: 56px;
+    padding: 11px 16px;
+  }
+
   &.#{$cls}-small {
     height: 44px;
     line-height: 18px;
@@ -29,6 +35,11 @@ $cls: #{$prefix}-#{$component};
     .p-dropdown-label {
       padding: 4px 8px 4px 0;
     }
+  }
+
+  &.p-multiselect.#{$cls}-small {
+    height: auto;
+    min-height: 44px;
   }
 
   &.p-multiselect.#{$cls}-small.#{$cls}-filled {
@@ -129,10 +140,6 @@ $cls: #{$prefix}-#{$component};
   .p-dropdown-trigger,
   .p-multiselect-trigger {
     width: auto;
-  }
-
-  &.p-multiselect {
-    padding: 12px 16px;
   }
 
   &:not(.#{$cls}-disabled, .#{$cls}-invalid).p-focus,
