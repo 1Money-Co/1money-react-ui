@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { Upload, UploadFileBar } from './index';
 import './style';
+import '../Icons/style';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Upload> = {

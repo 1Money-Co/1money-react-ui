@@ -23,7 +23,7 @@ export const UploadFileBar: FC<UploadFileBarProps> = props => {
           wrapperCls={classes('icon-status')}
           name={status === 0 ? 'statusSuccess' : 'statusFail'}
           size={20}
-          color={status === 0 ? '#1F5800' : '#AE0000'}
+          color={status === 0 ? '#1F580033' : '#AE00001A'}
         />
         {
           message && <span className={classes('message')}>
