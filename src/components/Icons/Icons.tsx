@@ -167,6 +167,7 @@ import {
   ACHIcon,
   BusinessAccountIcon,
   IndividualAccountIcon,
+  KeyIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -331,6 +332,7 @@ const IconList = {
   ach: ACHIcon,
   businessAccount: BusinessAccountIcon,
   individualAccount: IndividualAccountIcon,
+  key: KeyIcon,
 
   /* Currency Icons */
   usd: USDIcon,

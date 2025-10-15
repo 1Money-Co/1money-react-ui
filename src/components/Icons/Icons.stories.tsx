@@ -552,6 +552,10 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='ach' />
         <span>ACH</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons fill name='key' />")}>
+        <Icons {...args} fill name='key' />
+        <span>Key</span>
+      </CopyIconBox>
     </div>;
   },
 };
