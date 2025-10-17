@@ -23,7 +23,6 @@ import {
   IllusSend,
   IllusAccount,
   IllusPending,
-
 } from './Illustrations';
 
 import {
@@ -167,7 +166,8 @@ import {
   ACHIcon,
   BusinessAccountIcon,
   IndividualAccountIcon,
-  KeyIcon,
+  APIKeyIcon,
+  BrokenLinkIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -332,7 +332,8 @@ const IconList = {
   ach: ACHIcon,
   businessAccount: BusinessAccountIcon,
   individualAccount: IndividualAccountIcon,
-  key: KeyIcon,
+  apiKey: APIKeyIcon,
+  brokenLink: BrokenLinkIcon,
 
   /* Currency Icons */
   usd: USDIcon,
