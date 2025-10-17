@@ -16,7 +16,7 @@ const meta: Meta<typeof Button> = {
     loading: { control: 'boolean' },
     rounded: { control: 'boolean' },
     size: { control: 'radio', options: ['small', 'medium', 'large'] },
-    severity: { control: 'radio', options: ['primary', 'secondary', 'grey', 'black', 'white', 'danger', 'primary-landing', 'secondary-landing', 'primary-outline', 'secondary-outline'] },
+    severity: { control: 'radio', options: ['primary', 'secondary', 'grey', 'black', 'white', 'danger', 'danger-light', 'primary-landing', 'secondary-landing', 'primary-outline', 'secondary-outline'] },
     prefixCls: { control: 'text' },
   },
   args: {
@@ -53,6 +53,9 @@ export const Primary: Story = {
     <Button {...args} severity='white' />
     <br />
     <Button {...args} severity='danger'/>
+    <br />
+    <br />
+    <Button {...args} severity='danger-light'/>
     </>
   },
   args: {

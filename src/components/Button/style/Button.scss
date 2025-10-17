@@ -83,6 +83,12 @@ $component: 'button';
         stroke: $color-grey-dark !important;
       }
     }
+
+    &-danger-light {
+      svg circle {
+        stroke: $color-negative !important;
+      }
+    }
   }
 
   &-primary {
@@ -224,6 +230,28 @@ $component: 'button';
     }
 
     &.p-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  &-danger-light {
+    color: $color-negative;
+    background-color: rgba($color-negative, 0.1);
+    border: none;
+
+    &:hover {
+      color: $color-negative-hover;
+      background-color: rgba($color-negative, 0.2);
+    }
+
+    &-active {
+      color: $color-negative-active;
+      background-color: rgba($color-negative, 0.30);
+    }
+
+    &.p-disabled {
+      color: $color-negative;
+      background-color: rgba($color-negative, 0.1);
       opacity: 0.4;
     }
   }
