@@ -36,10 +36,8 @@ exports[`Switch renders correctly 1`] = `
       >
         <input
           aria-invalid="false"
-          aria-pressed="false"
           class="p-togglebutton-input"
           data-pc-section="input"
-          role="switch"
           tabindex="0"
           type="checkbox"
           value="false"
@@ -171,10 +169,8 @@ exports[`Switch renders correctly 2`] = `
       >
         <input
           aria-invalid="false"
-          aria-pressed="false"
           class="p-togglebutton-input"
           data-pc-section="input"
-          role="switch"
           tabindex="0"
           type="checkbox"
           value="false"
@@ -202,10 +198,8 @@ exports[`Switch renders correctly 2`] = `
     >
       <input
         aria-invalid="false"
-        aria-pressed="false"
         class="p-togglebutton-input"
         data-pc-section="input"
-        role="switch"
         tabindex="0"
         type="checkbox"
         value="false"
