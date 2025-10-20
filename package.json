@@ -312,7 +312,7 @@
     "lint-staged": "15.4.3",
     "prettier": "~3.5.3",
     "primeicons": "^7.0.0",
-    "primereact": "^10.9.4",
+    "primereact": "^10.9.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sass": "~1.84.0",
@@ -343,8 +343,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "primereact": "patches/primereact.patch",
-      "react-pro-sidebar": "patches/react-pro-sidebar.patch"
+      "react-pro-sidebar": "patches/react-pro-sidebar.patch",
+      "primereact": "patches/primereact.patch"
     }
   }
 }

@@ -38,10 +38,10 @@ index acaafb239f641c85de193743aad9ec715a1c9686..95f0d3a6b3d770a462d42c4a434aa429
       * Custom header template of the panel.
       */
 diff --git a/treeselect/treeselect.d.ts b/treeselect/treeselect.d.ts
-index fe90a2ff709719a055e8d07accef731f5b953ef0..fecd2e36e052a1aadd4ea3cf912666fdb26a1fc6 100644
+index d5cb2fa62a0240d017030bf8b40a07a4f3be6882..53fcc0505c4cfa3e67b3aee8c975157470696c34 100644
 --- a/treeselect/treeselect.d.ts
 +++ b/treeselect/treeselect.d.ts
-@@ -363,7 +363,7 @@ interface TreeSelectFilterOptions {
+@@ -386,7 +386,7 @@ interface TreeSelectNodeDoubleClickEvent extends TreeSelectNodeClickEvent {}
   * Defines valid properties in TreeSelect component. In addition to these, all properties of HTMLDivElement can be used in this component.
   * @group Properties
   */
