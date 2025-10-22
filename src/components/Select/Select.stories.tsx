@@ -47,6 +47,19 @@ const cities = [
   { label: 'Seoul', value: 'SE' },
 ];
 
+export const Test: Story = {
+  render: (props) => <div style={{width:320}}>
+    <Select {...props} options={cities} label='Cities' appendTo="self" />
+    <Select {...props} options={cities} label='Cities1' />
+  </div>,
+  args: {
+    placeholder: 'Select City',
+    defaultValue: 'IST',
+    label: 'Cities',
+  },
+  tags: ['!autodocs', 'dev'],
+};
+
 export const Single: Story = {
   render: (props) => <div style={{ width: '320px' }}>
     <Select {...props} />

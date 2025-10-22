@@ -345,6 +345,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
           panelClassName,
           isHover && classes('panel-hover'),
           isScrolling && classes('panel-scrolling'),
+          rest.appendTo === 'self' && classes('panel-append-self'),
         ].join(' '))}
         onChange={(e) => {
           setSelected(e.value);
