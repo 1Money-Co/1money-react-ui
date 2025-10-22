@@ -6,7 +6,7 @@ import type { FC } from 'react';
 import type { StepperProps } from './interface';
 
 export const Stepper: FC<StepperProps> = props => {
-  const { id, steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, onLogoClick, footer } = props;
+  const { id, steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, betaLogo, onLogoClick, footer } = props;
   const classes = classnames(prefixCls);
 
   return (
@@ -16,11 +16,15 @@ export const Stepper: FC<StepperProps> = props => {
     >
       <div className={classes('header', headerCls)}>
         <Icons
-          name='logoWithWords'
+          name={betaLogo ? 'logoWithBeta' : 'logoWithWords'}
+          // @ts-ignore
           logoColor='#073387'
+          // @ts-ignore
           wordColor='#131313'
-          width={131}
-          height={24}
+          // @ts-ignore
+          betaColor='#073387'
+          width={betaLogo ? 152 : 131}
+          height={betaLogo ? 22 : 24}
           onClick={onLogoClick}
           wrapperCls={classes('header-logo', logoCls)}
         />
