@@ -18,6 +18,7 @@ const meta: Meta<typeof SidebarComponent> = {
   args: {
     prefixCls: 'sidebar',
     collapsible: true,
+    betaLogo: true,
     menus: [
       {
         label: 'Dashboard',
@@ -115,6 +116,7 @@ export const Stepper: StoryObj<typeof StepperComponent> = {
   render: () => {
     return <div style={{ backgroundColor: '#F8F8F8', padding: '16px' }}>
       <StepperComponent
+        betaLogo
         steps={[
           {
             key: '1',
