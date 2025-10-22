@@ -1,5 +1,6 @@
 @use '../../../variable'as *;
 
+$border-width-active: 2px;
 $component: 'select';
 $cls: #{$prefix}-#{$component};
 
@@ -147,7 +148,7 @@ $cls: #{$prefix}-#{$component};
   &-focus:not(.#{$cls}-disabled, .#{$cls}-invalid) {
     padding: 7px 15px;
     border-color: $color-primary;
-    border-width: 2px;
+    border-width: $border-width-active;
     box-shadow: none;
   }
 
@@ -164,6 +165,15 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-primary-white;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
+
+    // Fix position and width when appendTo="self"
+    // PrimeReact sets min-width: 100% based on clientWidth (excludes border)
+    // Input border is $border-width-active (4px total), so we need to compensate
+    &-append-self {
+      left: -$border-width-active !important;
+      box-sizing: border-box !important;
+      min-width: calc(100% + $border-width-active * 2) !important;
+    }
 
     &-hover,
     &-scrolling {
@@ -271,7 +281,7 @@ $cls: #{$prefix}-#{$component};
             &.p-inputtext:enabled:focus {
               padding: 11px 15px 11px 43px;
               border-color: $color-primary;
-              border-width: 2px;
+              border-width: $border-width-active;
               box-shadow: none;
             }
 
@@ -350,7 +360,7 @@ $cls: #{$prefix}-#{$component};
       &:enabled:focus:not(.p-invalid) {
         padding: 11px 15px 11px 43px;
         border-color: $color-primary;
-        border-width: 2px;
+        border-width: $border-width-active;
         box-shadow: none;
       }
 
