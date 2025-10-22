@@ -12,8 +12,8 @@ import Icons from '../Icons';
 import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
-export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
-  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, defaultCollapsed, onCollapse, onLogoClick } = props;
+export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
+  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, defaultCollapsed, betaLogo, onCollapse, onLogoClick } = props;
   const [collapsed, setCollapsed] = useState(defaultCollapsed ?? false);
   const classes = classnames(prefixCls);
 
@@ -42,14 +42,22 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
           onClick={onLogoClick}
         >
           <Icons
-            name={collapsed ? 'logo' : 'logoWithWords'}
+            name={
+              collapsed
+                ? 'logo'
+                : betaLogo
+                  ? 'logoWithBeta'
+                  : 'logoWithWords'
+            }
             // @ts-ignore
             logoColor='#073387'
             // @ts-ignore
             wordColor='#131313'
+            // @ts-ignore
+            betaColor='#073387'
             color='#073387'
-            width={collapsed ? 24 : 131}
-            height={24}
+            width={collapsed ? 24 : betaLogo ? 152 : 131}
+            height={betaLogo ? 22 : 24}
           />
         </span>
       </div>
@@ -109,7 +117,7 @@ export const Sidebar= forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps
           <span className={classes('collapse-text')}>Collapse</span>
         </span>
       }
-      { children }
+      {children}
     </ProSidebar>
   );
 });
