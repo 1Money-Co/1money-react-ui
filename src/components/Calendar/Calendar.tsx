@@ -50,6 +50,8 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     value,
     size = 'large',
     selectionMode = 'single',
+    contentWidth,
+    panelStyle,
     onChange,
     ...rest
   } = props;
@@ -74,6 +76,11 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
           onChange?.(e);
           const event = new Event('change', { bubbles: true });
           e.originalEvent?.target?.dispatchEvent(event);
+        }}
+        panelStyle={{
+          ...panelStyle,
+          // @ts-ignore
+          '--content-width': contentWidth,
         }}
         className={classes(void 0, [
           className,

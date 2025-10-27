@@ -14,7 +14,8 @@ const meta: Meta<typeof Calendar> = {
     disabled: { control: 'boolean' },
     showButtonBar: { control: 'boolean' },
     invalid: { control: 'boolean' },
-    appendTo: { control: 'radio', options: ['self', null]}
+    appendTo: { control: 'radio', options: ['self', null]},
+    contentWidth: { control: 'text' },
   },
   tags: ['autodocs'],
 };
