@@ -29,7 +29,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
       setCheckedItems(_state);
     }
     onChange?.(_state as any);
-  }, [tristate, itemsState, checkedItems]);
+  }, [onChange, tristate, itemsState, checkedItems]);
 
   return <div className={classes('wrapper', wrapperCls)}>
     {items.map(item => {
@@ -47,7 +47,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
           {children}
           {label}
         </label>;
-      }, [label, handleLabelClick]);
+      }, [label, labelCls, handleLabelClick]);
 
       return <div key={key} className={[classes('inner', innerCls), sizeClass].join(' ')}>
         <LabelWrapper>
