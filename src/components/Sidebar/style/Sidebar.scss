@@ -26,7 +26,7 @@ $cls: #{$prefix}-#{$component};
       >ul {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
       }
 
       .ps-menuitem-root {
@@ -59,6 +59,11 @@ $cls: #{$prefix}-#{$component};
             color: inherit;
           }
 
+          .ps-submenu-expand-icon {
+            display: inline-flex;
+            align-items: center;
+          }
+
           .ps-menu-suffix {
             height: 16px;
             margin: 0 0 0 auto;
@@ -68,9 +73,7 @@ $cls: #{$prefix}-#{$component};
         .ps-menu-button.ps-active {
           color: $color-primary-black;
           background-color: $color-info-light;
-          border-color: transparent;
-          border-style: solid;
-          border-width: 1px;
+          border: none;
         }
 
         .ps-menu-button.ps-disabled {
@@ -157,6 +160,14 @@ $cls: #{$prefix}-#{$component};
         padding: 0;
       }
 
+      .#{$cls}-menu {
+        margin-top: 32px;
+
+        >ul {
+          gap: 8px;
+        }
+      }
+
       .ps-menu-root {
         .ps-menuitem-root {
           .ps-menu-button {
@@ -167,6 +178,7 @@ $cls: #{$prefix}-#{$component};
             font-size: 10px;
 
             .ps-menu-label {
+              line-height: 108%;
               white-space: pre-line;
               text-align: center;
             }
@@ -177,7 +189,7 @@ $cls: #{$prefix}-#{$component};
           .ps-submenu-content {
             padding: 0;
             background-color: $color-grey-light;
-            border-radius: 16px;
+            border-radius: 12px;
             box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
 
             >ul {

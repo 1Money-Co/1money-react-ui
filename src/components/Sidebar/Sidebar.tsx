@@ -57,13 +57,13 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
             betaColor='#073387'
             color='#073387'
             width={collapsed ? 24 : betaLogo ? 152 : 131}
-            height={betaLogo ? 22 : 24}
+            height={collapsed ? 24 : betaLogo ? 22 : 24}
           />
         </span>
       </div>
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={18} color='#646465' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
+        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={16} color='#646465' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
       >
         {
           menus.map((menu, ind) => {
