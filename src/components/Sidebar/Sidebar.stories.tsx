@@ -82,8 +82,8 @@ export const Sidebar: Story = {
     return <SidebarComponent {...rest} onCollapse={setCollapsed}>
       <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', gap: '12px' }}>
-          <i id='settings' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
-            <Icons name='settings' size={20} color='#646465' />
+          <i id='settings' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icons name='settings' size={16} color='#646465' />
           </i>
           <Tooltip place='top' anchorSelect='#settings' >
             <div style={{ width: '80px', textAlign: 'center' }}>
@@ -95,8 +95,8 @@ export const Sidebar: Story = {
           <span style={{ fontSize: collapsed ? '10px' : '14px' }}>Settings</span>
         </div>
         <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', gap: '12px' }}>
-          <i id='help' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px' }}>
-            <Icons name='help' size={20} color='#646465' />
+          <i id='help' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icons name='help' size={16} color='#646465' />
           </i>
           <Tooltip place='top' anchorSelect='#help' >
             <div style={{ width: '80px', textAlign: 'center' }}>
