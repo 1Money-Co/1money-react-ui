@@ -139,7 +139,7 @@ $size: 36px;
 
       .p-datepicker-calendar-container {
         table {
-          width: calc($size * 7);
+          width: var(--content-width, 332px);
           margin: 0;
           table-layout: fixed;
           border-collapse: separate;
