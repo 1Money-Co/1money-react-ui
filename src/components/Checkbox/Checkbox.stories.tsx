@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { fn } from '@storybook/test';
 import { Checkbox } from './index';
 import './style';
@@ -14,6 +14,10 @@ const meta: Meta<typeof Checkbox> = {
     checkboxCls: { control: 'text' },
     prefixCls: { control: 'text' },
     size: { control: 'radio', options: ['sm', 'md', 'lg'] },
+    tristate: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    required: { control: 'boolean' },
+    invalid: { control: 'boolean' },
   },
   args: {
     prefixCls: 'checkbox',
@@ -26,96 +30,126 @@ export default meta;
 
 type Story = StoryObj<typeof Checkbox>;
 
-export const Single: Story = {
+// Wrapper component for controlled checkbox
+const ControlledCheckbox = (props: any) => {
+  const [checked, setChecked] = useState(props.checked || false);
+  return <Checkbox {...props} checked={checked} onChange={(value) => {
+    setChecked(value);
+    props.onChange?.(value);
+  }} />;
+};
+
+// Wrapper component for controlled tristate checkbox
+const ControlledTristateCheckbox = (props: any) => {
+  const [value, setValue] = useState<boolean | null>(props.value ?? null);
+  return <Checkbox {...props} value={value} onChange={(newValue) => {
+    setValue(newValue);
+    props.onChange?.(newValue);
+  }} />;
+};
+
+export const Basic: Story = {
+  render: (args) => <ControlledCheckbox {...args} />,
   args: {
-    items: [
-      { name: 'Agree', key: 'Agree',label: <>
+    label: <>
       I am over 18 years old and I have read, understand and agree to the
-      <a href='https://github.com/1Money-Co'>1Money Terms of Use</a>
+      <a href='https://github.com/1Money-Co'> 1Money Terms of Use</a>
       , <a href='https://github.com/1Money-Co'>Privacy Policy</a>.
-      </> },
-    ],
+    </>,
     prefixCls: 'checkbox',
   },
   tags: ['!autodocs', 'dev'],
 };
 
 export const NoLabel: Story = {
+  render: (args) => <ControlledCheckbox {...args} />,
   args: {
-    items: [
-      { name: 'NoLabel', key: 'NoLabel' },
-    ],
+    prefixCls: 'checkbox',
+  },
+};
+
+export const Checked: Story = {
+  render: (args) => <ControlledCheckbox {...args} />,
+  args: {
+    label: 'Checked',
+    checked: true,
     prefixCls: 'checkbox',
   },
 };
 
 export const Invalid: Story = {
+  render: (args) => <ControlledTristateCheckbox {...args} />,
   args: {
     tristate: true,
-    items: [
-      { name: 'invalid', key: 'invalid', invalid:true, label:'invalid'  },
-      { name: 'checked', key: 'checked',  invalid:true, label:'checked ' , defaultValue: true },
-      { name: 'notChecked', key: 'notChecked', invalid:true,label:'Not checked', defaultValue: false }],
+    invalid: true,
+    label: 'Invalid',
     prefixCls: 'checkbox',
   }
-}
+};
 
-export const Size: Story = {
+export const Small: Story = {
+  render: (args) => <ControlledCheckbox {...args} />,
   args: {
     size: 'sm',
-    items: [
-      { name: 'small', key: 'small', label: 'small' },
-    ],
+    label: 'Small size',
     prefixCls: 'checkbox',
   }
-}
+};
+
+export const Medium: Story = {
+  render: (args) => <ControlledCheckbox {...args} />,
+  args: {
+    size: 'md',
+    label: 'Medium size',
+    prefixCls: 'checkbox',
+  }
+};
+
+export const Large: Story = {
+  render: (args) => <ControlledCheckbox {...args} />,
+  args: {
+    size: 'lg',
+    label: 'Large size',
+    prefixCls: 'checkbox',
+  }
+};
 
 export const Disabled: Story = {
   args: {
-    tristate: true,
-    items: [
-      { name: 'disabled', key: 'disabled', label: 'Empty value',   disabled: true, },
-      { name: 'Achecked', key: 'Achecked',   label:'Checked ', disabled:true,   defaultValue: true },
-      { name: 'BnotChecked', key: 'BnotChecked',  label:'Not checked ', disabled:true,  defaultValue: false }
-    ],
-    prefixCls: 'checkbox',
-  }
-}
-export const SingleTristate: Story = {
-  args: {
-    tristate: true,
-    items: [
-      { name: 'State', key: 'Status', label: 'Change State' },
-    ],
+    label: 'Disabled',
+    disabled: true,
+    checked: false,
     prefixCls: 'checkbox',
   }
 };
 
-export const Multiple: Story = {
+export const DisabledChecked: Story = {
   args: {
-    items: [
-      { name: 'C', key: 'Cheese', label: 'Cheese' },
-      { name: 'M', key: 'Mushroom', label: 'Mushroom',  autoFocus: true },
-      { name: 'P', key: 'Pepper', label: 'Pepper' },
-      { name: 'O', key: 'Onion', label: 'Onion' },
-    ],
+    label: 'Disabled & Checked',
+    disabled: true,
+    checked: true,
     prefixCls: 'checkbox',
-  },
+  }
 };
 
-export const MultipleTristate: Story = {
+export const Tristate: Story = {
+  render: (args) => <ControlledTristateCheckbox {...args} />,
   args: {
     tristate: true,
-    size:'lg',
-    items: [
-      { name: 'A', key: 'Audi', label: 'Audi' },
-      { name: 'B', key: 'BWM', label: 'BWM' },
-      { name: 'B', key: 'Benz', label: 'Mercedes-Benz', defaultValue: true },
-      { name: 'L', key: 'Lexus', label: 'Lexus' },
-    ],
-    onChange(itemsState) {
-      console.info('itemsState', itemsState);
+    label: 'Change State',
+    prefixCls: 'checkbox',
+  }
+};
+
+export const TristateChecked: Story = {
+  render: (args) => <ControlledTristateCheckbox {...args} />,
+  args: {
+    tristate: true,
+    label: 'Tristate with initial true',
+    value: true,
+    prefixCls: 'checkbox',
+    onChange(state) {
+      console.info('state', state);
     },
-    prefixCls: 'checkbox',
-  },
+  }
 };
