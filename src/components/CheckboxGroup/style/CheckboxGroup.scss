@@ -8,7 +8,7 @@ $checkbox-border-radius: (sm: 4px,
 $checkbox-size: (sm: 16px,
   md: 20px,
   lg: 24px);
-$component: 'checkbox';
+$component: 'checkboxgroup';
 
 .#{$prefix}-#{$component} {
   &-wrapper {
@@ -35,7 +35,7 @@ $component: 'checkbox';
 
     @each $size,
     $dimension in $checkbox-size {
-      &.ckb-#{$size} {
+      &.ckbg-#{$size} {
         .p-checkbox {
           width: $dimension;
           height: $dimension;
@@ -63,21 +63,10 @@ $component: 'checkbox';
     .p-checkbox {
       // 悬停状态
       &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
-        .p-checkbox-box{
+        .p-checkbox-box {
           background-color: $color-grey;
           border-color: $color-primary-black;
         }
-
-        // // 不是选中悬停状态
-        // &:has(.p-checkbox-input:checked),
-        // &:has(.p-checkbox-input:indeterminate),
-        // &:has(.p-checkbox-input[value="false"]) {
-        //   .p-checkbox-box{
-        //     background-color: $color-grey;
-        //     border-color: $color-primary-hover;
-        //   }
-        // }
-
       }
 
       // 聚焦状态
@@ -89,8 +78,8 @@ $component: 'checkbox';
 
         // &:has(.p-checkbox-input:checked) {
         //   .p-checkbox-box {
-        //     background-color: $color-primary-active;
-        //     border-color: $color-primary-active;
+        //     // background-color: $color-primary-active;
+        //     // border-color: $color-primary-active;
         //   }
         // }
       }
@@ -99,7 +88,7 @@ $component: 'checkbox';
       // 无效状态
       &.p-invalid {
         .p-checkbox-box {
-          border: 1px solid $color-negative;
+          border: 1px solid $color-negative ;
         }
       }
 
@@ -110,6 +99,7 @@ $component: 'checkbox';
           border-color: $color-primary;
         }
 
+        // hover
         &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
           .p-checkbox-box {
             background-color: $color-primary-black;

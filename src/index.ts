@@ -3,6 +3,7 @@ import { Badge } from './components/Badge';
 import { Button } from './components/Button';
 import { Calendar } from './components/Calendar';
 import { Checkbox } from './components/Checkbox';
+import { CheckboxGroup } from './components/CheckboxGroup';
 import { Collapse } from './components/Collapse';
 import { ConfirmPopup } from './components/ConfirmPopup';
 import { Dropdown } from './components/Dropdown';
@@ -36,6 +37,7 @@ export { Badge } from './components/Badge';
 export { Button } from './components/Button';
 export { Calendar } from './components/Calendar';
 export { Checkbox } from './components/Checkbox';
+export { CheckboxGroup } from './components/CheckboxGroup';
 export { Collapse } from './components/Collapse';
 export { ConfirmPopup } from './components/ConfirmPopup';
 export { Drawer } from './components/Drawer';
@@ -70,6 +72,7 @@ export default {
   Button,
   Calendar,
   Checkbox,
+  CheckboxGroup,
   Collapse,
   ConfirmPopup,
   Dropdown,

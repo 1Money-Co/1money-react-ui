@@ -10,29 +10,23 @@ interface CheckboxBaseProps {
   prefixCls?: string;
   labelCls?: string;
   size?: 'sm' | 'md' | 'lg';
+  label?: ReactNode;
+  disabled?: boolean;
+  required?: boolean;
+  name?: string;
+  invalid?: boolean;
 }
 
 interface CheckboxNormalProps extends CheckboxBaseProps {
   tristate?: false;
-  onChange?: (checkedList: string[]) => any;
-  items: ({
-    key: string;
-    label?: ReactNode;
-    checked?: boolean;
-    onChange?: (checked: boolean) => any;
-  } & Omit<PrimeCheckboxProps, 'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange'>)[];
+  checked?: boolean;
+  onChange?: (checked: boolean) => any;
 }
 
 interface CheckboxTriStateProps extends CheckboxBaseProps {
   tristate: true;
-  onChange?: (itemsState: Record<string, boolean | null>) => any;
-  items: ({
-    key: string;
-    label?: ReactNode;
-    checked?: boolean;
-    defaultValue?: boolean | null;
-    onChange?: (state: boolean | null) => any;
-  } & Omit<TriStateCheckboxProps, 'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange' | 'defaultValue'>)[];
+  value?: boolean | null;
+  onChange?: (state: boolean | null) => any;
 }
 
 export type CheckboxProps = CheckboxNormalProps | CheckboxTriStateProps;

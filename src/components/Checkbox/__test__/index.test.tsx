@@ -18,94 +18,133 @@ console.error = (message, ...optionalParams) => {
 };
 
 describe('Checkbox', () => {
-  it('single renders correctly', async () => {
+  it('basic renders correctly', async () => {
     const onCheckboxChange = jest.fn();
-    const single =render(
+    const basic = render(
       <Checkbox
-        items={[
-          { name: 'Agree', key: 'Agree', label: <>
+        label={<>
           I am over 18 years old and I have read, understand and agree to the
           <a href='https://github.com/1Money-Co'>1Money Terms of Use</a>
           , <a href='https://github.com/1Money-Co'>Privacy Policy</a>.
-          </> },
-        ]}
+        </>}
+        checked={false}
         onChange={onCheckboxChange}
       />
     );
     const user = userEvent.setup();
     const checkbox = screen.getByRole('checkbox');
-    await user.click(checkbox)
+    await user.click(checkbox);
     expect(onCheckboxChange).toHaveBeenCalled();
-    expect(checkbox).toBeChecked();
-    expect(single).toMatchSnapshot();
+    expect(basic).toMatchSnapshot();
   });
-  it('size renders correctly', async () => {
-    const Invalid = render(
+
+  it('checked renders correctly', async () => {
+    const checked = render(
       <Checkbox
-        tristate={true}
-        items={[
-          { name: 'invalid', key: 'invalid', invalid: true, label: 'invalid' },
-          { name: 'checked', key: 'checked', invalid: true, label: 'checked', defaultValue: true },
-          { name: 'notChecked', key: 'notChecked', invalid: true, label: 'Not checked', defaultValue: false }
-        ]}
+        label="Checked"
+        checked={true}
       />
     );
-    expect(Invalid).toMatchSnapshot();
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).toBeChecked();
+    expect(checked).toMatchSnapshot();
   });
-  it('size renders correctly', async () => {
+
+  it('invalid renders correctly', async () => {
+    const invalid = render(
+      <Checkbox
+        tristate={true}
+        invalid={true}
+        label='Invalid'
+        value={null}
+      />
+    );
+    expect(invalid).toMatchSnapshot();
+  });
+
+  it('size small renders correctly', async () => {
     const size = render(
-      <Checkbox size='sm' items={[
-        { name: 'C', key: 'Cheese', label: 'Cheese' },
-      ]} />
+      <Checkbox
+        size='sm'
+        label='Small size'
+        checked={false}
+      />
     );
     expect(size).toMatchSnapshot();
   });
+
+  it('size large renders correctly', async () => {
+    const size = render(
+      <Checkbox
+        size='lg'
+        label='Large size'
+        checked={false}
+      />
+    );
+    expect(size).toMatchSnapshot();
+  });
+
   it('disabled renders correctly', async () => {
     const disabled = render(
-      <Checkbox  tristate={true}  items={[
-        { name: 'disabled', key: 'disabled', label: 'disabled',   disabled: true, },
-      { name: 'Achecked', key: 'Achecked',   label:'checked ', disabled:true,   defaultValue: true },
-      { name: 'BnotChecked', key: 'BnotChecked',  label:'Not checked ', disabled:true,  defaultValue: false }
-      ]} />
+      <Checkbox
+        label='Disabled'
+        disabled={true}
+        checked={false}
+      />
     );
     expect(disabled).toMatchSnapshot();
   });
-  it('singleTristate renders correctly', async () => {
-    const singleTristate = render(
+
+  it('disabled checked renders correctly', async () => {
+    const disabledChecked = render(
       <Checkbox
-        tristate={true}
-        items={[
-          { name: 'State', key: 'Status', label: 'Change State' },
-        ]}
+        label='Disabled & Checked'
+        disabled={true}
+        checked={true}
       />
     );
-    expect(singleTristate).toMatchSnapshot();
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).toBeChecked();
+    expect(disabledChecked).toMatchSnapshot();
   });
-  it('multiple renders correctly', async () => {
-    const multiple = render(
-      <Checkbox items={[
-        { name: 'C', key: 'Cheese', label: 'Cheese' },
-        { name: 'M', key: 'Mushroom', label: 'Mushroom', autoFocus: true },
-        { name: 'P', key: 'Pepper', label: 'Pepper' },
-        { name: 'O', key: 'Onion', label: 'Onion' },
-      ]} />
-    );
 
-    expect(multiple).toMatchSnapshot();
-  });
-  it('multipleTristate renders correctly', async () => {
-    const multipleTristate = render(
+  it('tristate renders correctly', async () => {
+    const tristate = render(
       <Checkbox
         tristate={true}
-        items={[
-          { name: 'A', key: 'Audi', label: 'Audi' },
-          { name: 'B', key: 'BWM', label: 'BWM' },
-          { name: 'B', key: 'Benz', label: 'Mercedes-Benz', defaultValue: true },
-          { name: 'L', key: 'Lexus', label: 'Lexus' },
-        ]}
+        label='Change State'
+        value={null}
       />
     );
+    expect(tristate).toMatchSnapshot();
+  });
 
-    expect(multipleTristate).toMatchSnapshot();
+  it('tristate with true value renders correctly', async () => {
+    const tristateTrue = render(
+      <Checkbox
+        tristate={true}
+        label='Tristate True'
+        value={true}
+      />
+    );
+    expect(tristateTrue).toMatchSnapshot();
+  });
+
+  it('tristate with false value renders correctly', async () => {
+    const tristateFalse = render(
+      <Checkbox
+        tristate={true}
+        label='Tristate False'
+        value={false}
+      />
+    );
+    expect(tristateFalse).toMatchSnapshot();
+  });
+
+  it('no label renders correctly', async () => {
+    const noLabel = render(
+      <Checkbox checked={false} />
+    );
+    expect(noLabel).toMatchSnapshot();
   });
 });

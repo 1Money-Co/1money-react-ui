@@ -1,0 +1,1706 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox disabled renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-disabled"
+              data-p-disabled="true"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="disabled"
+              name="disabled"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                disabled=""
+                type="checkbox"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="disabled_box"
+                role="checkbox"
+                tabindex="-1"
+              />
+            </div>
+            disabled
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
+              data-p-disabled="true"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Achecked"
+              name="Achecked"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                disabled=""
+                type="checkbox"
+                value="true"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                True
+              </span>
+              <div
+                aria-checked="true"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="Achecked_box"
+                role="checkbox"
+                tabindex="-1"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            checked 
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
+              data-p-disabled="true"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="BnotChecked"
+              name="BnotChecked"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                disabled=""
+                type="checkbox"
+                value="false"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                False
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="BnotChecked_box"
+                role="checkbox"
+                tabindex="-1"
+              >
+                <i
+                  class="pi pi-minus"
+                />
+              </div>
+            </div>
+            Not checked 
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-disabled"
+            data-p-disabled="true"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="disabled"
+            name="disabled"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              disabled=""
+              type="checkbox"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="disabled_box"
+              role="checkbox"
+              tabindex="-1"
+            />
+          </div>
+          disabled
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
+            data-p-disabled="true"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="Achecked"
+            name="Achecked"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              disabled=""
+              type="checkbox"
+              value="true"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              True
+            </span>
+            <div
+              aria-checked="true"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="Achecked_box"
+              role="checkbox"
+              tabindex="-1"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
+          </div>
+          checked 
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-disabled"
+            data-p-disabled="true"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="BnotChecked"
+            name="BnotChecked"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              disabled=""
+              type="checkbox"
+              value="false"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              False
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="BnotChecked_box"
+              role="checkbox"
+              tabindex="-1"
+            >
+              <i
+                class="pi pi-minus"
+              />
+            </div>
+          </div>
+          Not checked 
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Checkbox multiple renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+              data-p-highlight="false"
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="C"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
+            Cheese
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component p-highlight"
+              data-p-highlight="true"
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                checked=""
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="M"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="true"
+                data-pc-section="box"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            Mushroom
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+              data-p-highlight="false"
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="P"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
+            Pepper
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+              data-p-highlight="false"
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="O"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
+            Onion
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+            data-p-highlight="false"
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="C"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
+          Cheese
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component p-highlight"
+            data-p-highlight="true"
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              checked=""
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="M"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="true"
+              data-pc-section="box"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
+          </div>
+          Mushroom
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+            data-p-highlight="false"
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="P"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
+          Pepper
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+            data-p-highlight="false"
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="O"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
+          Onion
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Checkbox multipleTristate renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Audi"
+              name="A"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="Audi_box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            Audi
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="BWM"
+              name="B"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="BWM_box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            BWM
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Benz"
+              name="B"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value="true"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                True
+              </span>
+              <div
+                aria-checked="true"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="Benz_box"
+                role="checkbox"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            Mercedes-Benz
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Lexus"
+              name="L"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="Lexus_box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            Lexus
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="Audi"
+            name="A"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="Audi_box"
+              role="checkbox"
+              tabindex="0"
+            />
+          </div>
+          Audi
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="BWM"
+            name="B"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="BWM_box"
+              role="checkbox"
+              tabindex="0"
+            />
+          </div>
+          BWM
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="Benz"
+            name="B"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+              value="true"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              True
+            </span>
+            <div
+              aria-checked="true"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="Benz_box"
+              role="checkbox"
+              tabindex="0"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
+          </div>
+          Mercedes-Benz
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="Lexus"
+            name="L"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="Lexus_box"
+              role="checkbox"
+              tabindex="0"
+            />
+          </div>
+          Lexus
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Checkbox single renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component p-highlight"
+              data-p-highlight="true"
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="Agree"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="true"
+                data-pc-section="box"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            I am over 18 years old and I have read, understand and agree to the
+            <a
+              href="https://github.com/1Money-Co"
+            >
+              1Money Terms of Use
+            </a>
+            , 
+            <a
+              href="https://github.com/1Money-Co"
+            >
+              Privacy Policy
+            </a>
+            .
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component p-highlight"
+            data-p-highlight="true"
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="Agree"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="true"
+              data-pc-section="box"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
+          </div>
+          I am over 18 years old and I have read, understand and agree to the
+          <a
+            href="https://github.com/1Money-Co"
+          >
+            1Money Terms of Use
+          </a>
+          , 
+          <a
+            href="https://github.com/1Money-Co"
+          >
+            Privacy Policy
+          </a>
+          .
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Checkbox singleTristate renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="Status"
+              name="State"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="Status_box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            Change State
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="Status"
+            name="State"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="Status_box"
+              role="checkbox"
+              tabindex="0"
+            />
+          </div>
+          Change State
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Checkbox size renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="invalid"
+              name="invalid"
+            >
+              <input
+                aria-invalid="true"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                Not Selected
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="invalid_box"
+                role="checkbox"
+                tabindex="0"
+              />
+            </div>
+            invalid
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="checked"
+              name="checked"
+            >
+              <input
+                aria-invalid="true"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value="true"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                True
+              </span>
+              <div
+                aria-checked="true"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="checked_box"
+                role="checkbox"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-check"
+                />
+              </div>
+            </div>
+            checked
+          </label>
+        </div>
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-md"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
+              data-pc-name="tristatecheckbox"
+              data-pc-section="root"
+              id="notChecked"
+              name="notChecked"
+            >
+              <input
+                aria-invalid="true"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                type="checkbox"
+                value="false"
+              />
+              <span
+                aria-live="polite"
+                class="p-hidden-accessible"
+                data-pc-section="sronlyaria"
+              >
+                False
+              </span>
+              <div
+                aria-checked="false"
+                class="p-checkbox-box"
+                data-pc-section="box"
+                id="notChecked_box"
+                role="checkbox"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-minus"
+                />
+              </div>
+            </div>
+            Not checked
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="invalid"
+            name="invalid"
+          >
+            <input
+              aria-invalid="true"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              Not Selected
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="invalid_box"
+              role="checkbox"
+              tabindex="0"
+            />
+          </div>
+          invalid
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="checked"
+            name="checked"
+          >
+            <input
+              aria-invalid="true"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+              value="true"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              True
+            </span>
+            <div
+              aria-checked="true"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="checked_box"
+              role="checkbox"
+              tabindex="0"
+            >
+              <i
+                class="pi pi-check"
+              />
+            </div>
+          </div>
+          checked
+        </label>
+      </div>
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-md"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight p-invalid"
+            data-pc-name="tristatecheckbox"
+            data-pc-section="root"
+            id="notChecked"
+            name="notChecked"
+          >
+            <input
+              aria-invalid="true"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              type="checkbox"
+              value="false"
+            />
+            <span
+              aria-live="polite"
+              class="p-hidden-accessible"
+              data-pc-section="sronlyaria"
+            >
+              False
+            </span>
+            <div
+              aria-checked="false"
+              class="p-checkbox-box"
+              data-pc-section="box"
+              id="notChecked_box"
+              role="checkbox"
+              tabindex="0"
+            >
+              <i
+                class="pi pi-minus"
+              />
+            </div>
+          </div>
+          Not checked
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Checkbox size renders correctly 2`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="om-react-ui-checkboxgroup-wrapper"
+      >
+        <div
+          class="om-react-ui-checkboxgroup-inner ckbg-sm"
+        >
+          <label>
+            <div
+              class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+              data-p-highlight="false"
+              data-pc-name="checkbox"
+              data-pc-section="root"
+            >
+              <input
+                aria-invalid="false"
+                class="p-checkbox-input"
+                data-pc-section="input"
+                name="C"
+                type="checkbox"
+              />
+              <div
+                class="p-checkbox-box"
+                data-p-highlight="false"
+                data-pc-section="box"
+              />
+            </div>
+            Cheese
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-checkboxgroup-wrapper"
+    >
+      <div
+        class="om-react-ui-checkboxgroup-inner ckbg-sm"
+      >
+        <label>
+          <div
+            class="om-react-ui-checkboxgroup-inner-checkbox p-checkbox p-component"
+            data-p-highlight="false"
+            data-pc-name="checkbox"
+            data-pc-section="root"
+          >
+            <input
+              aria-invalid="false"
+              class="p-checkbox-input"
+              data-pc-section="input"
+              name="C"
+              type="checkbox"
+            />
+            <div
+              class="p-checkbox-box"
+              data-p-highlight="false"
+              data-pc-section="box"
+            />
+          </div>
+          Cheese
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
