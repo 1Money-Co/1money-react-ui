@@ -25,25 +25,6 @@ $component: 'table';
       .p-datatable-thead {
         position: sticky;
         background-color: $color-grey-light;
-
-        &::before,
-        &::after {
-          position: absolute;
-          top: 0;
-          height: 100%;
-          background-color: $color-grey-light;
-          content: '';
-        }
-
-        &::before {
-          left: -16px;
-          width: 16px;
-        }
-
-        &::after {
-          right: -12px;
-          width: 12px;
-        }
       }
     }
 
@@ -90,34 +71,17 @@ $component: 'table';
         &.p-selectable-row:not(.p-highlight, .p-datatable-emptymessage):hover {
           background-color: $color-grey;
 
-          td {
-            &:first-child {
-              position: relative;
-
-              &::before {
-                position: absolute;
-                top: 0;
-                left: -16px;
-                width: 16px;
-                height: 100%;
-                background-color: $color-grey;
-                content: '';
-              }
+          &+ {
+            tr::before,
+            tr::after {
+              border-color: $color-grey;
             }
+          }
 
-            &:last-child {
-              position: relative;
-
-              &::after {
-                position: absolute;
-                top: 0;
-                right: -16px;
-                width: 16px;
-                height: 100%;
-                background-color: $color-grey;
-                content: '';
-              }
-            }
+          &::before,
+          &::after {
+            background-color: $color-grey;
+            border-color: $color-grey;
           }
         }
       }
@@ -181,8 +145,6 @@ $component: 'table';
   }
 
   .p-datatable-table {
-    padding: 0 12px 0 16px;
-
     &::before {
       position: absolute;
       top: 0;
@@ -225,6 +187,14 @@ $component: 'table';
             line-height: 15px;
           }
         }
+
+        &::before,
+        &::after {
+          display: table-cell;
+          width: 16px;
+          height: 100%;
+          content: '';
+        }
       }
     }
 
@@ -232,40 +202,24 @@ $component: 'table';
       border: none;
 
       tr {
+        position: relative;
         color: $color-primary-black;
         background-color: transparent;
 
         &.p-highlight {
           background-color: $color-grey;
 
-          td {
-            &:first-child {
-              position: relative;
-
-              &::before {
-                position: absolute;
-                top: 0;
-                left: -16px;
-                width: 16px;
-                height: 100%;
-                background-color: $color-grey;
-                content: '';
-              }
+          &+ {
+            tr::before,
+            tr::after {
+              border-color: $color-grey;
             }
+          }
 
-            &:last-child {
-              position: relative;
-
-              &::after {
-                position: absolute;
-                top: 0;
-                right: -16px;
-                width: 16px;
-                height: 100%;
-                background-color: $color-grey;
-                content: '';
-              }
-            }
+          &::before,
+          &::after {
+            background-color: $color-grey;
+            border-color: $color-grey;
           }
         }
 
@@ -286,10 +240,33 @@ $component: 'table';
             padding-right: 8px;
           }
         }
+
+        &::before,
+        &::after {
+          position: relative;
+          top: -1px;
+          display: table-cell;
+          box-sizing: content-box;
+          width: 16px;
+          height: 100%;
+          background-color: transparent;
+          border-top: 1px solid transparent;
+          content: '';
+        }
       }
 
-      .p-datatable-row-expansion td {
-        padding: 0 !important;
+      .p-datatable-row-expansion {
+        background-color: $color-grey-light;
+
+        &::after,
+        &::before {
+          background-color: $color-grey-light;
+          border-color: $color-grey-light;
+        }
+
+        td {
+          padding: 0 !important;
+        }
       }
     }
   }

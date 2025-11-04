@@ -321,15 +321,18 @@ export const Primary: Story = {
         onSelectionChange={e => setSelectedRow(e.value)}
         onRowToggle={e => setExpandedRow(e.data)}
         columns={[
-          { expander: rowData => rowData.dataKey <= 1, body: (data, options) => {
-            if (data.dataKey > 1) return null;
-            const isExpanded = expandedRow?.some(item => item.dataKey === data.dataKey);
-            const { expander } = options;
-            const { onClick } = expander || {};
-            return <span onClick={e => e.stopPropagation()} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px' }}>
-              <Icons name='chevronDown' size='16' onClick={onClick} style={{ cursor: 'pointer', transform: isExpanded ? 'rotate(180deg)' : '' }} />
-            </span>;
-          } },
+          {
+            expander: rowData => rowData.dataKey <= 1,
+            body: (data, options) => {
+              if (data.dataKey > 1) return null;
+              const isExpanded = expandedRow?.some(item => item.dataKey === data.dataKey);
+              const { expander } = options;
+              const { onClick } = expander || {};
+              return <span onClick={e => e.stopPropagation()} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px' }}>
+                <Icons name='chevronDown' size='16' onClick={onClick} style={{ cursor: 'pointer', transform: isExpanded ? 'rotate(180deg)' : '' }} />
+              </span>;
+            },
+          },
           { field: 'nickname', header: 'Wallet nickname' },
           { field: 'asset', header: 'Asset' },
           { field: 'network', header: 'Network' },
