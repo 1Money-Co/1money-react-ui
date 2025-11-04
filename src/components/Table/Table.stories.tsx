@@ -24,6 +24,7 @@ const meta: Meta<typeof Table> = {
     scrollable: { control: 'boolean' },
     rowBorder: { control: 'boolean' },
     transparent: { control: 'boolean' },
+    hoverEffect: { control: 'boolean' },
   },
   args: {
     prefixCls: 'table',
@@ -41,6 +42,7 @@ export const Primary: Story = {
     scrollable: true,
     rowBorder: true,
     transparent: false,
+    hoverEffect: true,
     scrollHeight: '50vh',
     value: [
       {

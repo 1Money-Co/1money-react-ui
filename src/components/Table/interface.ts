@@ -10,6 +10,7 @@ export interface TableBaseProps<T extends DataTableValueArray = DataTableValueAr
   prefixCls?: string;
   rowBorder?: boolean;
   transparent?: boolean;
+  hoverEffect?: boolean;
   columns: ColumnProps[];
   value?: T;
 }

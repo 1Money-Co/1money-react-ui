@@ -8,7 +8,7 @@ import type { FC, CSSProperties } from 'react';
 import type { TableProps, TableClass } from './interface';
 
 export const Table: FC<TableProps> = props => {
-  const { ref, className, columns = [], prefixCls = 'table', rowBorder, transparent, ...rest } = props;
+  const { ref, className, columns = [], prefixCls = 'table', rowBorder, transparent, hoverEffect = true, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const tableRef = useRef<TableClass | null>(null);
@@ -51,7 +51,8 @@ export const Table: FC<TableProps> = props => {
         isHover && classes('hover'),
         isScrolling && classes('scrolling'),
         scrollTop > 0 && classes('scrolled'),
-      ].join(' '))}
+        hoverEffect && classes('hover-effect'),
+      ].filter(Boolean).join(' '))}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onTouchStart={() => setIsHover(true)}
