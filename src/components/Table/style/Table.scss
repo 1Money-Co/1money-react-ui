@@ -244,7 +244,7 @@ $component: 'table';
         &::before,
         &::after {
           position: relative;
-          top: -1px;
+          top: 0;
           display: table-cell;
           box-sizing: content-box;
           width: 16px;
@@ -262,6 +262,7 @@ $component: 'table';
         &::before {
           background-color: $color-grey-light;
           border-color: $color-grey-light;
+          border-bottom: 1px solid transparent;
         }
 
         td {
