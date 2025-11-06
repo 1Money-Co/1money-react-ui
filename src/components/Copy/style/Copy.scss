@@ -1,0 +1,20 @@
+@use '../../../variable.scss'as *;
+
+$component: 'copy';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  flex-shrink: 0;
+  padding: 8px;
+  background-color: $color-grey;
+  border-radius: 12px;
+  cursor: pointer;
+
+  &:not(&-success):hover {
+    background-color: $color-grey-deep;
+  }
+
+  &-success {
+    background-color: $color-success-background;
+  }
+}

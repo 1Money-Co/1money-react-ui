@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,6 +48,11 @@
       "types": "./es/components/ConfirmPopup/index.d.ts",
       "import": "./es/components/ConfirmPopup/index.js",
       "require": "./lib/components/ConfirmPopup/index.js"
+    },
+    "./Copy": {
+      "types": "./es/components/Copy/index.d.ts",
+      "import": "./es/components/Copy/index.js",
+      "require": "./lib/components/Copy/index.js"
     },
     "./Dropdown": {
       "types": "./es/components/Dropdown/index.d.ts",
