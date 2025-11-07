@@ -11,6 +11,7 @@ export interface InputAmountProps {
   messageCls?: string;
   footnoteCls?: string;
   invalid?: boolean;
+  negative?: boolean;
   prefix?: ReactNode;
   currency?: ReactNode;
   suffix?: ReactNode;
