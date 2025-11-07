@@ -14,6 +14,10 @@ export interface MenuItem {
   children?: Omit<MenuItem, 'children'>[];
 }
 
+export interface SimpleMenuItem extends MenuItem {
+  children?: SimpleMenuItem[];
+}
+
 export interface SidebarProps {
   id?: string;
   className?: string;
@@ -26,7 +30,7 @@ export interface SidebarProps {
   betaLogo?: boolean;
   onCollapse?: (collapsed: boolean) => any;
   onLogoClick?: () => any;
-  menus: MenuItem[];
+  menus: (MenuItem | SimpleMenuItem)[];
 }
 
 export interface SidebarHandlers {

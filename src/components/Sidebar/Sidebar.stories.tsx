@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sidebar as SidebarComponent, Stepper as StepperComponent } from './index';
+import { Sidebar as SidebarComponent, SimplySidebar as SimplySidebarComponent, Stepper as StepperComponent } from './index';
 import { Icons } from '../Icons';
 import { Tooltip } from '../Tooltip';
 import './style';
@@ -109,6 +109,113 @@ export const Sidebar: Story = {
         </div>
       </div>
     </SidebarComponent>;
+  }
+};
+
+export const SimplySidebar: StoryObj<typeof SimplySidebarComponent> = {
+  args: {
+    prefixCls: 'simply-sidebar',
+    betaLogo: true,
+    menus: [
+      {
+        key: 'licenses',
+        label: 'LICENSES',
+        icon: <Icons name='card' size={16} color='inherit' />,
+        defaultOpen: true,
+        children: [
+          {
+            key: 'us-licenses',
+            label: 'US Licenses',
+            active: true,
+          },
+          {
+            key: 'non-us-licenses',
+            label: 'Non-US Licenses',
+          }
+        ]
+      },
+      {
+        key: 'legal-privacy',
+        label: 'LEAGAL & PRIVACY',
+        icon: <Icons name='document' size={16} color='inherit' />,
+        defaultOpen: true,
+        children: [
+          {
+            key: 'terms-conditions',
+            label: 'Terms and Conditions',
+            defaultOpen: true,
+            children: [
+              {
+                key: '1money-usa-customers',
+                label: '1Money USA, Inc Customers',
+                active: true,
+              },
+              {
+                key: '1money-bermuda-customers',
+                label: '1Money Bermuda Ltd Customers',
+              },
+              {
+                key: 'customer-onboarding',
+                label: 'Customer Onboarding Disclosure',
+              }
+            ]
+          },
+          {
+            key: 'acceptable-use',
+            label: 'Acceptable Use',
+          },
+          {
+            key: 'privacy-policy',
+            label: 'Privacy Policy',
+          },
+          {
+            key: 'cookie-policy',
+            label: 'Cookie Policy',
+          },
+          {
+            key: 'e-consent',
+            label: 'E-Consent',
+          },
+          {
+            key: 'developer-terms',
+            label: 'Developer Terms of Service',
+          }
+        ]
+      }
+    ]
+  },
+  render: (args) => {
+    const { children, ...rest } = args;
+    return <SimplySidebarComponent {...rest}>
+      <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <i id='simply-settings' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icons name='settings' size={16} color='#646465' />
+          </i>
+          <Tooltip place='top' anchorSelect='#simply-settings' >
+            <div style={{ width: '80px', textAlign: 'center' }}>
+              <span>Overlay Data</span>
+              <br />
+              <span>Settings</span>
+            </div>
+          </Tooltip>
+          <span style={{ fontSize: '14px' }}>Settings</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <i id='simply-help' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icons name='help' size={16} color='#646465' />
+          </i>
+          <Tooltip place='top' anchorSelect='#simply-help' >
+            <div style={{ width: '80px', textAlign: 'center' }}>
+              <span>Overlay Data</span>
+              <br />
+              <span>Supports</span>
+            </div>
+          </Tooltip>
+          <span style={{ fontSize: '14px' }}>Support</span>
+        </div>
+      </div>
+    </SimplySidebarComponent>;
   }
 };
 
