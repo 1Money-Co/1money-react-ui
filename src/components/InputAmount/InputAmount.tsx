@@ -20,6 +20,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     footnoteCls,
     invalid,
     placeholder = '0',
+    negative,
     prefix,
     currency,
     suffix,
@@ -48,9 +49,9 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const formattedValue = useMemo(() => {
     return numericFormatter('' + (_value == null ? '' : _value), {
       thousandSeparator: true,
-      allowNegative: true,
+      allowNegative: negative,
     });
-  }, [_value]);
+  }, [_value, negative]);
 
   const scrollToEnd = useCallback((sticky: boolean = false) => {
     const input = inputRef.current;
@@ -67,9 +68,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
     if (val != null) val = val.split(',').join('');
-    const hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
+    const hasDecimalPoint = !!val && val.endsWith('.');
     if (hasDecimalPoint) val = val.slice(0, -1);
-    if (isNaN(+val)) return;
+    if (!negative && val?.includes('-')) return;
+    const isStandaloneMinus = negative && val === '-';
+    if (!isStandaloneMinus && isNaN(+val)) return;
     if (val === _value && !hasDecimalPoint) return;
     if (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint') {
       const [, decimal] = val.split('.');
@@ -78,7 +81,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (inputRef.current) {
       const formattedNewVal = numericFormatter(val, {
         thousandSeparator: true,
-        allowNegative: true,
+        allowNegative: negative,
       });
 
       const isAdd = val.length > (_value?.length ?? 0);
@@ -101,14 +104,21 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (typeof value === 'undefined') {
       if (val === '') {
         setValue(null);
+      } else if (isStandaloneMinus) {
+        setValue('-');
       } else {
         const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-        setValue(`${BigNumber(val).toFixed(decimals)}${hasDecimalPoint ? '.' : ''}`.trim());
+        const bn = BigNumber(val);
+        let normalized = bn.toFixed(decimals);
+        if (negative && val.trim().startsWith('-') && bn.isZero()) {
+          normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+        }
+        setValue(`${normalized}${hasDecimalPoint ? '.' : ''}`.trim());
       }
     }
 
     onChange?.(e);
-  }, [onChange, _value, value, formattedValue, maxFractionDigits]);
+  }, [onChange, _value, value, formattedValue, maxFractionDigits, negative]);
 
   useEffect(() => {
     const containerWidth = containerRef.current?.offsetWidth ?? MIN_INPUT_WIDTH;
@@ -128,8 +138,20 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     const isMax = fakeWidth >= maxWidth;
     setWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
     setIsMaxWidth(isMax);
-    scrollToEnd(true);
-  }, [_value]);
+    if (isFocus) scrollToEnd(true);
+  }, [_value, prefix, suffix, currency, isFocus]);
+
+  useEffect(() => {
+    // clear negative sign if not allowed
+    if (negative) return;
+    if (typeof value !== 'undefined') return;
+    if (_value == null) return;
+    if (_value === '-') {
+      setValue(null);
+      return;
+    }
+    if (_value.startsWith('-')) setValue(_value.slice(1));
+  }, [negative, value, _value]);
 
   useEffect(() => {
     let val = value;
@@ -139,11 +161,25 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         val = null;
       } else {
         val = val.split(',').join('');
-        hasDecimalPoint = val.lastIndexOf('.') === val.length - 1;
+        hasDecimalPoint = !!val && val.endsWith('.');
         if (hasDecimalPoint) val = val.slice(0, -1);
+        if (!negative) val = val.replace(/-/g, '');
+        if (negative && val === '-') {
+          setValue('-');
+          return;
+        }
         if (isNaN(+val)) return;
       }
     } else if (val !== null && typeof val !== 'number' && typeof val !== 'bigint') return;
+
+    if (!negative) {
+      if (typeof val === 'number') {
+        val = Math.abs(val);
+      } else if (typeof val === 'bigint') {
+        const zero = BigInt(0);
+        val = val < zero ? -val : val;
+      }
+    }
 
     if ((typeof val === 'string' || typeof val === 'number') && (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')) {
       const [int, decimal] = ('' + val).split('.');
@@ -155,10 +191,16 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (val === '' || val == null) {
       setValue(null);
     } else {
-      const decimals = ('' + val).match(/\.(\d+)$/)?.[1]?.length ?? 0;
-      setValue(`${BigNumber(val).toFixed(decimals)}${hasDecimalPoint ? '.' : ''}`.trim());
+      const strVal = '' + val;
+      const decimals = strVal.match(/\.(\d+)$/)?.[1]?.length ?? 0;
+      const bn = BigNumber(strVal);
+      let normalized = bn.toFixed(decimals);
+      if (negative && strVal.trim().startsWith('-') && bn.isZero()) {
+        normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+      }
+      setValue(`${normalized}${hasDecimalPoint ? '.' : ''}`.trim());
     }
-  }, [value, maxFractionDigits]);
+  }, [value, maxFractionDigits, negative]);
 
   return <div
     className={classes('wrapper', [wrapperCls, invalid ? classes('invalid') : undefined].join(' ').trim())}
@@ -217,7 +259,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         {
           numericFormatter('' + (_value == null ? '' : _value), {
             thousandSeparator: true,
-            allowNegative: true,
+            allowNegative: negative,
           })
         }
       </span>

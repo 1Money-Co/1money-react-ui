@@ -9,7 +9,7 @@ exports[`InputAmount renders correctly 1`] = `
         class="om-react-ui-input-amount-wrapper"
       >
         <div
-          class="om-react-ui-input-amount om-react-ui-input-amount-focus"
+          class="om-react-ui-input-amount"
         >
           <span
             class="om-react-ui-input-amount-prefix"
@@ -17,7 +17,7 @@ exports[`InputAmount renders correctly 1`] = `
             $
           </span>
           <div
-            class="om-react-ui-input-amount-element"
+            class="om-react-ui-input-amount-element om-react-ui-input-amount-element-max"
           >
             <input
               placeholder="0"
@@ -73,7 +73,7 @@ exports[`InputAmount renders correctly 1`] = `
       class="om-react-ui-input-amount-wrapper"
     >
       <div
-        class="om-react-ui-input-amount om-react-ui-input-amount-focus"
+        class="om-react-ui-input-amount"
       >
         <span
           class="om-react-ui-input-amount-prefix"
@@ -81,7 +81,7 @@ exports[`InputAmount renders correctly 1`] = `
           $
         </span>
         <div
-          class="om-react-ui-input-amount-element"
+          class="om-react-ui-input-amount-element om-react-ui-input-amount-element-max"
         >
           <input
             placeholder="0"

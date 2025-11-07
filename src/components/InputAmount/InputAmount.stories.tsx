@@ -31,6 +31,7 @@ export const Primary: Story = {
   args: {
     prefix: '$',
     currency: 'USD',
+    negative: true,
     invalid: false,
     maxFractionDigits: 2,
     suffix: <span style={{ padding: '12px', borderRadius: '12px', backgroundColor: '#F0F0F0', color: '#131313', fontSize: '12px', cursor: 'pointer' }}>Max</span>,
