@@ -1,0 +1,304 @@
+@use '../../../variable.scss'as *;
+
+$component: 'simply-sidebar';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  height: 100vh;
+  padding: 40px 16px 24px;
+  background-color: $color-primary-white;
+  border-right: 1px solid $color-grey-deep;
+
+  &-expand-icon {
+    &-open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-group-label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    height: 40px;
+    padding: 16px 12px;
+  }
+
+  &-group-icon {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+  }
+
+  &-group-label-text {
+    color: $color-grey-night;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 108%;
+  }
+
+  &-hr-line {
+    width: 100%;
+    height: 1px;
+    margin: 4px 0;
+    background-color: $color-grey-deep;
+  }
+
+  .ps-sidebar-container {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+
+    .#{$cls}-menu {
+      margin-top: 32px;
+
+      >ul {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ps-menuitem-root {
+        .ps-menu-button {
+          display: inline-flex;
+          gap: 8px;
+          align-items: center;
+          width: 100%;
+          height: 40px;
+          padding: 8px 12px 8px 40px;
+          color: $color-grey-night;
+          font-weight: 500;
+          font-size: 14px;
+          font-family: Inter;
+          font-style: normal;
+          line-height: 108%;
+
+          &:hover {
+            color: $color-primary;
+            background-color: #fff;
+          }
+
+          &.ps-active {
+            color: $color-primary;
+          }
+
+          .ps-menu-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: start;
+            width: 16px;
+            min-width: 16px;
+            height: 16px;
+            margin-right: 0;
+            color: inherit;
+          }
+
+          .ps-submenu-expand-icon {
+            display: inline-flex;
+            align-items: center;
+          }
+
+          .ps-menu-suffix {
+            height: 16px;
+            margin: 0 0 0 auto;
+          }
+        }
+
+        .ps-menu-button.ps-disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
+        }
+
+        .ps-submenu-content {
+          background-color: $color-primary-white;
+          border-radius: 8px;
+        }
+
+        .ps-submenu-content.ps-open {
+          padding: 4px 0 8px;
+        }
+      }
+
+      .ps-menuitem-root.ps-submenu-root {
+        .ps-submenu-content ul {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .ps-menu-button {
+            height: 36px;
+            padding: 8px 16px 8px 64px;
+            color: $color-grey-night;
+
+            &.ps-active {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    padding: 0 0 8px 8px;
+  }
+
+  &-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &-collapse {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 32px auto 0;
+    padding: 8px 12px;
+    background-color: $color-grey;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &-collapsed {
+      width: 36px;
+      height: 36px;
+
+      .#{$cls}-collapse-text {
+        display: none;
+      }
+    }
+
+    &-text {
+      color: $color-grey-midnight;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+
+  &.ps-collapsed {
+    padding: 40px 8px 24px;
+
+    .ps-sidebar-container {
+      align-items: center;
+      overflow: visible;
+
+      .#{$cls}-header {
+        padding: 0;
+      }
+
+      .#{$cls}-menu {
+        margin-top: 32px;
+
+        >ul {
+          gap: 8px;
+        }
+      }
+
+      .ps-menu-root {
+        .ps-menuitem-root {
+          .ps-menu-button {
+            flex-direction: column;
+            gap: 4px;
+            height: auto;
+            padding: 8px;
+            color: red;
+            font-size: 10px;
+
+            .ps-menu-label {
+              line-height: 108%;
+              white-space: pre-line;
+              text-align: center;
+            }
+          }
+        }
+
+        .ps-menuitem-root.ps-submenu-root {
+          .ps-submenu-content {
+            padding: 0;
+            background-color: $color-grey-light;
+            border-radius: 12px;
+            box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
+
+            >ul {
+              gap: 0;
+            }
+
+            .ps-menuitem-root {
+              padding: 0 12px;
+
+              &:hover {
+                background-color: $color-grey;
+              }
+
+              &:has(.ps-menu-button.ps-active) {
+                background-color: $color-info-light;
+              }
+
+              &:first-child {
+                .ps-menu-button {
+                  margin-top: 4px;
+                }
+              }
+
+              &:last-child {
+                .ps-menu-button {
+                  margin-bottom: 4px;
+                  border-bottom: none;
+                }
+              }
+
+              .ps-menu-button {
+                height: 40px;
+                padding: 12px 0;
+                color: green;
+                font-size: 14px;
+                border: none;
+                border-bottom: 1px solid $color-grey-deep;
+                border-radius: 0;
+              }
+
+              .ps-menu-button.ps-active {
+                background-color: inherit;
+              }
+            }
+
+
+            .ps-menu-button {
+              flex-direction: row;
+              gap: 8px;
+
+              span {
+                flex-grow: 0;
+              }
+
+              span:only-child {
+                padding-left: 28px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .#{$cls}-header {
+      padding-left: 22px;
+    }
+
+    .#{$cls}-footer {
+      padding-left: 16px;
+
+      &-logout-text {
+        display: none;
+      }
+    }
+  }
+}
