@@ -6,6 +6,7 @@ import { Checkbox } from './components/Checkbox';
 import { CheckboxGroup } from './components/CheckboxGroup';
 import { Collapse } from './components/Collapse';
 import { ConfirmPopup } from './components/ConfirmPopup';
+import { Copy } from './components/Copy';
 import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
 import { Input } from './components/Input';
@@ -40,6 +41,7 @@ export { Checkbox } from './components/Checkbox';
 export { CheckboxGroup } from './components/CheckboxGroup';
 export { Collapse } from './components/Collapse';
 export { ConfirmPopup } from './components/ConfirmPopup';
+export { Copy } from './components/Copy';
 export { Drawer } from './components/Drawer';
 export { Input } from './components/Input';
 export { InputAmount } from './components/InputAmount';
@@ -75,6 +77,7 @@ export default {
   CheckboxGroup,
   Collapse,
   ConfirmPopup,
+  Copy,
   Dropdown,
   Drawer,
   Input,
