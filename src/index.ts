@@ -23,7 +23,7 @@ import { RadioGroup } from './components/RadioGroup';
 import { Select } from './components/Select';
 import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
-import { Icons, IconWrapper } from './components/Icons';
+import { Icons, IconWrapper, IconHover } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar, SimplySidebar, Stepper } from './components/Sidebar';
 import { Tab } from './components/Tab';
@@ -58,7 +58,7 @@ export { RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
 export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
-export { Icons, IconWrapper } from './components/Icons';
+export { Icons, IconWrapper, IconHover } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar, SimplySidebar, Stepper } from './components/Sidebar';
 export { Tab } from './components/Tab';
@@ -96,6 +96,7 @@ export default {
   Switch,
   Icons,
   IconWrapper,
+  IconHover,
   Clipboard,
   Sidebar,
   SimplySidebar,

@@ -58,7 +58,7 @@ $component: 'icons';
 
 
 
-.#{$prefix}-icon-hover {
+.#{$prefix}-#{$component}-hover-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
