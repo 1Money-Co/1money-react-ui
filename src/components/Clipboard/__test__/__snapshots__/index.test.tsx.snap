@@ -23,7 +23,7 @@ exports[`Clipboard renders correctly 1`] = `
             class="false "
           >
             <i
-              class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+              class="om-react-ui-icons-wrapper om-react-ui-copy om-react-ui-clipboard-content-icon"
               style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
             >
               <svg
@@ -71,7 +71,7 @@ exports[`Clipboard renders correctly 1`] = `
           class="false "
         >
           <i
-            class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+            class="om-react-ui-icons-wrapper om-react-ui-copy om-react-ui-clipboard-content-icon"
             style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
           >
             <svg
