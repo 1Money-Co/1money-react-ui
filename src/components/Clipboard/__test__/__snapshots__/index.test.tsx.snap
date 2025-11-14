@@ -19,6 +19,57 @@ exports[`Clipboard renders correctly 1`] = `
           >
             复制 copy
           </p>
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M7 4C7 2.34315 8.34315 1 10 1H20C21.6569 1 23 2.34315 23 4V14C23 15.6569 21.6569 17 20 17H10C8.34315 17 7 15.6569 7 14V4ZM10 3C9.44772 3 9 3.44772 9 4V14C9 14.5523 9.44772 15 10 15H20C20.5523 15 21 14.5523 21 14V4C21 3.44772 20.5523 3 20 3H10Z"
+                  fill-rule="evenodd"
+                />
+                <path
+                  clip-rule="evenodd"
+                  d="M4 9C3.44772 9 3 9.44772 3 10V20C3 20.5523 3.44772 21 4 21H14C14.5523 21 15 20.5523 15 20V16H17V20C17 21.6569 15.6569 23 14 23H4C2.34315 23 1 21.6569 1 20V10C1 8.34315 2.34315 7 4 7H8V9H4Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="om-react-ui-clipboard"
+    >
+      <strong
+        class="om-react-ui-typography-label om-react-ui-typography-label-l om-react-ui-typography-label-bold om-react-ui-clipboard-label"
+      />
+      <div
+        class="om-react-ui-clipboard-content"
+      >
+        <p
+          class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
+        >
+          复制 copy
+        </p>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
             style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
@@ -45,49 +96,6 @@ exports[`Clipboard renders correctly 1`] = `
             </svg>
           </i>
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-clipboard"
-    >
-      <strong
-        class="om-react-ui-typography-label om-react-ui-typography-label-l om-react-ui-typography-label-bold om-react-ui-clipboard-label"
-      />
-      <div
-        class="om-react-ui-clipboard-content"
-      >
-        <p
-          class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
-        >
-          复制 copy
-        </p>
-        <i
-          class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
-          style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="20"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M7 4C7 2.34315 8.34315 1 10 1H20C21.6569 1 23 2.34315 23 4V14C23 15.6569 21.6569 17 20 17H10C8.34315 17 7 15.6569 7 14V4ZM10 3C9.44772 3 9 3.44772 9 4V14C9 14.5523 9.44772 15 10 15H20C20.5523 15 21 14.5523 21 14V4C21 3.44772 20.5523 3 20 3H10Z"
-              fill-rule="evenodd"
-            />
-            <path
-              clip-rule="evenodd"
-              d="M4 9C3.44772 9 3 9.44772 3 10V20C3 20.5523 3.44772 21 4 21H14C14.5523 21 15 20.5523 15 20V16H17V20C17 21.6569 15.6569 23 14 23H4C2.34315 23 1 21.6569 1 20V10C1 8.34315 2.34315 7 4 7H8V9H4Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
   </div>,

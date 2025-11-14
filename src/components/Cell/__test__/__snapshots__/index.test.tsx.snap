@@ -11,6 +11,39 @@ exports[`Cell renders correctly 1`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -26,37 +59,12 @@ exports[`Cell renders correctly 1`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
     <div>
@@ -66,6 +74,39 @@ exports[`Cell renders correctly 1`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -81,37 +122,12 @@ exports[`Cell renders correctly 1`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
     <div>
@@ -121,6 +137,39 @@ exports[`Cell renders correctly 1`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -136,37 +185,12 @@ exports[`Cell renders correctly 1`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
   </body>,
@@ -177,6 +201,39 @@ exports[`Cell renders correctly 1`] = `
       <div
         class="om-react-ui-cell-inner"
       >
+        <div
+          class="false "
+        >
+          <i
+            class="om-react-ui-icons-wrapper"
+            style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="24"
+              stroke="none"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </div>
+        <h3
+          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+        >
+          Authenticator
+        </h3>
+      </div>
+      <div
+        class="false "
+      >
         <i
           class="om-react-ui-icons-wrapper"
           style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -192,37 +249,12 @@ exports[`Cell renders correctly 1`] = `
           >
             <path
               clip-rule="evenodd"
-              d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
               fill-rule="evenodd"
             />
           </svg>
         </i>
-        <h3
-          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-        >
-          Authenticator
-        </h3>
       </div>
-      <i
-        class="om-react-ui-icons-wrapper"
-        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-      >
-        <svg
-          class="om-react-ui-icons"
-          fill="none"
-          height="24"
-          stroke="none"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </i>
     </div>
   </div>,
   "debug": [Function],
@@ -290,6 +322,39 @@ exports[`Cell renders correctly 2`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -305,37 +370,12 @@ exports[`Cell renders correctly 2`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
     <div>
@@ -345,6 +385,39 @@ exports[`Cell renders correctly 2`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -360,37 +433,12 @@ exports[`Cell renders correctly 2`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
     <div>
@@ -400,6 +448,39 @@ exports[`Cell renders correctly 2`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -415,37 +496,12 @@ exports[`Cell renders correctly 2`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
   </body>,
@@ -456,6 +512,39 @@ exports[`Cell renders correctly 2`] = `
       <div
         class="om-react-ui-cell-inner"
       >
+        <div
+          class="false "
+        >
+          <i
+            class="om-react-ui-icons-wrapper"
+            style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="24"
+              stroke="none"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </div>
+        <h3
+          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+        >
+          Authenticator
+        </h3>
+      </div>
+      <div
+        class="false "
+      >
         <i
           class="om-react-ui-icons-wrapper"
           style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -471,37 +560,12 @@ exports[`Cell renders correctly 2`] = `
           >
             <path
               clip-rule="evenodd"
-              d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
               fill-rule="evenodd"
             />
           </svg>
         </i>
-        <h3
-          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-        >
-          Authenticator
-        </h3>
       </div>
-      <i
-        class="om-react-ui-icons-wrapper"
-        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-      >
-        <svg
-          class="om-react-ui-icons"
-          fill="none"
-          height="24"
-          stroke="none"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </i>
     </div>
   </div>,
   "debug": [Function],
@@ -569,6 +633,39 @@ exports[`Cell renders correctly 3`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -584,37 +681,12 @@ exports[`Cell renders correctly 3`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
     <div>
@@ -624,6 +696,39 @@ exports[`Cell renders correctly 3`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -639,37 +744,12 @@ exports[`Cell renders correctly 3`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
     <div>
@@ -679,6 +759,39 @@ exports[`Cell renders correctly 3`] = `
         <div
           class="om-react-ui-cell-inner"
         >
+          <div
+            class="false "
+          >
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+            >
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="24"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+          <h3
+            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          >
+            Authenticator
+          </h3>
+        </div>
+        <div
+          class="false "
+        >
           <i
             class="om-react-ui-icons-wrapper"
             style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -694,37 +807,12 @@ exports[`Cell renders correctly 3`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
                 fill-rule="evenodd"
               />
             </svg>
           </i>
-          <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-          >
-            Authenticator
-          </h3>
         </div>
-        <i
-          class="om-react-ui-icons-wrapper"
-          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-        >
-          <svg
-            class="om-react-ui-icons"
-            fill="none"
-            height="24"
-            stroke="none"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </i>
       </div>
     </div>
   </body>,
@@ -735,6 +823,39 @@ exports[`Cell renders correctly 3`] = `
       <div
         class="om-react-ui-cell-inner"
       >
+        <div
+          class="false "
+        >
+          <i
+            class="om-react-ui-icons-wrapper"
+            style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+          >
+            <svg
+              class="om-react-ui-icons"
+              fill="none"
+              height="24"
+              stroke="none"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </div>
+        <h3
+          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+        >
+          Authenticator
+        </h3>
+      </div>
+      <div
+        class="false "
+      >
         <i
           class="om-react-ui-icons-wrapper"
           style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
@@ -750,37 +871,12 @@ exports[`Cell renders correctly 3`] = `
           >
             <path
               clip-rule="evenodd"
-              d="M4 3H12H20V7.58561C20 13.1323 16.9099 18.2095 12 20.7619C7.09012 18.2095 4 13.1323 4 7.58561V3ZM2 3C2 1.89543 2.89543 1 4 1H12H20C21.1046 1 22 1.89543 22 3V7.58561C22 13.9682 18.3939 19.8031 12.6851 22.6575C12.2538 22.8731 11.7462 22.8731 11.3149 22.6575C5.60612 19.8031 2 13.9682 2 7.58561V3ZM12 8.49976C12.5523 8.49976 13 8.05204 13 7.49976C13 6.94747 12.5523 6.49976 12 6.49976C11.4477 6.49976 11 6.94747 11 7.49976C11 8.05204 11.4477 8.49976 12 8.49976ZM15 7.49976C15 8.80597 14.1652 9.91721 13 10.3291V12.9998H15V14.9998H13V16.9998H11V10.3291C9.83481 9.91721 9 8.80597 9 7.49976C9 5.8429 10.3431 4.49976 12 4.49976C13.6569 4.49976 15 5.8429 15 7.49976Z"
+              d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
               fill-rule="evenodd"
             />
           </svg>
         </i>
-        <h3
-          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
-        >
-          Authenticator
-        </h3>
       </div>
-      <i
-        class="om-react-ui-icons-wrapper"
-        style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
-      >
-        <svg
-          class="om-react-ui-icons"
-          fill="none"
-          height="24"
-          stroke="none"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M12.7071 4.29291L20.4142 12L12.7071 19.7071L11.2929 18.2929L16.5858 13H4V11L16.5858 11L11.2929 5.70712L12.7071 4.29291Z"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </i>
     </div>
   </div>,
   "debug": [Function],

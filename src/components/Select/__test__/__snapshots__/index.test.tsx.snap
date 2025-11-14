@@ -55,26 +55,30 @@ exports[`Select renders correctly 1`] = `
             data-pc-section="trigger"
             role="button"
           >
-            <i
-              class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            <div
+              class="false "
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="20"
-                stroke="none"
-                viewBox="0 0 24 24"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </i>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="20"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </div>
           </div>
         </div>
       </div>
@@ -119,26 +123,30 @@ exports[`Select renders correctly 1`] = `
             class="p-multiselect-trigger"
             data-pc-section="trigger"
           >
-            <i
-              class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            <div
+              class="false "
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="20"
-                stroke="none"
-                viewBox="0 0 24 24"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </i>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="20"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </div>
           </div>
         </div>
       </div>
@@ -195,26 +203,30 @@ exports[`Select renders correctly 1`] = `
           data-pc-section="trigger"
           role="button"
         >
-          <i
-            class="om-react-ui-icons-wrapper"
-            style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+          <div
+            class="false "
           >
-            <svg
-              class="om-react-ui-icons"
-              fill="none"
-              height="20"
-              stroke="none"
-              viewBox="0 0 24 24"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
             >
-              <path
-                clip-rule="evenodd"
-                d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </i>
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
         </div>
       </div>
     </div>
@@ -328,26 +340,30 @@ exports[`Select renders correctly 2`] = `
             data-pc-section="trigger"
             role="button"
           >
-            <i
-              class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            <div
+              class="false "
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="20"
-                stroke="none"
-                viewBox="0 0 24 24"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </i>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="20"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </div>
           </div>
         </div>
       </div>
@@ -392,26 +408,30 @@ exports[`Select renders correctly 2`] = `
             class="p-multiselect-trigger"
             data-pc-section="trigger"
           >
-            <i
-              class="om-react-ui-icons-wrapper"
-              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+            <div
+              class="false "
             >
-              <svg
-                class="om-react-ui-icons"
-                fill="none"
-                height="20"
-                stroke="none"
-                viewBox="0 0 24 24"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                class="om-react-ui-icons-wrapper"
+                style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </i>
+                <svg
+                  class="om-react-ui-icons"
+                  fill="none"
+                  height="20"
+                  stroke="none"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+            </div>
           </div>
         </div>
       </div>
@@ -457,26 +477,30 @@ exports[`Select renders correctly 2`] = `
           class="p-multiselect-trigger"
           data-pc-section="trigger"
         >
-          <i
-            class="om-react-ui-icons-wrapper"
-            style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+          <div
+            class="false "
           >
-            <svg
-              class="om-react-ui-icons"
-              fill="none"
-              height="20"
-              stroke="none"
-              viewBox="0 0 24 24"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
+            <i
+              class="om-react-ui-icons-wrapper"
+              style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
             >
-              <path
-                clip-rule="evenodd"
-                d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </i>
+              <svg
+                class="om-react-ui-icons"
+                fill="none"
+                height="20"
+                stroke="none"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M4.92969 10.1336L6.30019 8.67145L12.0143 14.0276L17.728 8.67278L19.0984 10.135L12.0142 16.7742L4.92969 10.1336Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
         </div>
       </div>
     </div>
