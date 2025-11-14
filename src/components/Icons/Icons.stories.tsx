@@ -39,13 +39,13 @@ const CopyIconBox = styled.div`
   text-align: center;
   &:hover{
     cursor: pointer;
-    background-color: #029cfd;
+    /* background-color: #029cfd; */
     border-radius: 8px;
     svg{
       fill: transparent;
     }
     span{
-      color: #fff;
+      /* color: #fff; */
     }
   }
 `;
@@ -89,7 +89,7 @@ export const PrimaryIcons: Story = {
       <Toast ref={toast} appendTo={null} />
       {/* Primary Icons */}
       <CopyIconBox onClick={() => handleCopy("<Icons name='deposit' />")}>
-        <Icons {...args} name='deposit' />
+        <Icons {...args} name='deposit'/>
         <span>Deposit</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='withdrawal' />")}>

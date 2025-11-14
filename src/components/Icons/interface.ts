@@ -17,6 +17,8 @@ export interface IconWrapperProps {
   stroke?: boolean;
   ariaLabel?: string;
   tabIndex?: number;
+  hoverable?: boolean;
+  hoverableCls?: string;
   onClick?: (e: MouseEvent<HTMLElement>) => any;
   onKeyDown?: (e: KeyboardEvent<HTMLElement>) => any;
 }

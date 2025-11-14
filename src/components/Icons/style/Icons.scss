@@ -10,6 +10,16 @@ $component: 'icons';
     font-style: normal;
   }
 
+  &-hoverable-wrapper {
+    padding: 12px;
+    background-color: $color-grey-light;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: $color-grey-deep;
+    }
+  }
+
   *:not(g, defs, clipPath, linearGradient, [fill], [stroke], [stroke-width]) {
     fill: currentcolor;
   }

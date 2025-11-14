@@ -18,29 +18,33 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
     prefixCls = 'icons',
     viewBox = '0 0 24 24',
     style,
+    hoverable = false,
+    hoverableCls,
     onClick,
     onKeyDown,
   } = props;
   const classes = classnames(prefixCls);
 
-  return <i
-    style={{ color, width: width ?? size, height: height ?? size, ...style }}
-    className={classes('wrapper', wrapperCls)}
-    onClick={onClick}
-    onKeyDown={onKeyDown}
-  >
-    <svg
-      width={width ?? size}
-      height={height ?? size}
-      viewBox={viewBox}
-      xmlns="http://www.w3.org/2000/svg"
-      className={classes(void 0, className)}
-      fill={fill ? 'currentColor' : 'none'}
-      stroke={stroke ? 'currentColor' : 'none'}
+  return <div className={[hoverable && classes('hoverable-wrapper'), hoverableCls].join(' ')}>
+      <i
+      style={{ color, width: width ?? size, height: height ?? size, ...style }}
+      className={classes('wrapper', wrapperCls)}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
     >
-      { children }
-    </svg>
-  </i>;
+      <svg
+        width={width ?? size}
+        height={height ?? size}
+        viewBox={viewBox}
+        xmlns="http://www.w3.org/2000/svg"
+        className={classes(void 0, className)}
+        fill={fill ? 'currentColor' : 'none'}
+        stroke={stroke ? 'currentColor' : 'none'}
+      >
+        { children }
+      </svg>
+    </i>
+  </div>;
 };
 
 export default memo(IconWrapper);
