@@ -21,4 +21,9 @@ export interface IconWrapperProps {
   onKeyDown?: (e: KeyboardEvent<HTMLElement>) => any;
 }
 
+export interface IconHoverProps {
+  className?: string;
+  prefixCls?: string;
+}
+
 export type { IconName } from './Icons';
