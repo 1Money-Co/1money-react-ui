@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {
   IconWrapper,
   Icons,
+  IconHover,
 } from './index';
 import './style';
 import '../Toast/style';
@@ -89,7 +90,9 @@ export const PrimaryIcons: Story = {
       <Toast ref={toast} appendTo={null} />
       {/* Primary Icons */}
       <CopyIconBox onClick={() => handleCopy("<Icons name='deposit' />")}>
-        <Icons {...args} name='deposit' />
+        <IconHover>
+          <Icons {...args} name='deposit' />
+        </IconHover>
         <span>Deposit</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='withdrawal' />")}>
