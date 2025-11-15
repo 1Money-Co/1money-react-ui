@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useRef, useState, useEffect, useImperativeHandle } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import debounce from 'lodash.debounce';
 import classnames from '@/utils/classnames';
@@ -7,16 +7,29 @@ import type { FC, PropsWithChildren, CSSProperties } from 'react';
 import type { DropdownProps } from './interface';
 
 export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
-  const { prefixEle, suffixEle, items = [], renderList, width, height, maxWidth, maxHeight, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, itemActiveCls, onScroll, ...rest } = props;
+  const { ref, prefixEle, suffixEle, items = [], renderList, width, height, maxWidth, maxHeight, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, itemActiveCls, onScroll, ...rest } = props;
   const classes = classnames(prefixCls);
+
+  const _ref = useRef<OverlayPanel | null>(null);
 
   const [isHover, setIsHover] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const overlayRef = ref ?? _ref;
+      if (!overlayRef?.current || !overlayRef?.current.isVisible()) return;
+      overlayRef?.current.align?.();
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <OverlayPanel
       {...rest}
+      ref={ref ?? _ref}
       className={classes(void 0, [
         className,
         isHover && classes('hover'),
