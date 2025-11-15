@@ -10,7 +10,7 @@ overrides:
 
 patchedDependencies:
   primereact:
-    hash: 33980054ac056b234d2e3305c42b577bf770b314795b7fc8ba08f1323dbae45a
+    hash: 8de101862dd63d0ff06a09eeeffeacfda7deaf50cdb2a9cce2d7a72904237247
     path: patches/primereact.patch
   react-pro-sidebar:
     hash: 336ea53416e00088e507a7ce0dd32b2ebbd3c475e6e7dc29215c63f8e3af85bf
@@ -293,7 +293,7 @@ importers:
         version: 7.0.0
       primereact:
         specifier: ^10.9.7
-        version: 10.9.7(patch_hash=33980054ac056b234d2e3305c42b577bf770b314795b7fc8ba08f1323dbae45a)(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 10.9.7(patch_hash=8de101862dd63d0ff06a09eeeffeacfda7deaf50cdb2a9cce2d7a72904237247)(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -17098,7 +17098,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primereact@10.9.7(patch_hash=33980054ac056b234d2e3305c42b577bf770b314795b7fc8ba08f1323dbae45a)(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  primereact@10.9.7(patch_hash=8de101862dd63d0ff06a09eeeffeacfda7deaf50cdb2a9cce2d7a72904237247)(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@types/react-transition-group': 4.4.12(@types/react@19.1.2)
       react: 19.1.0
