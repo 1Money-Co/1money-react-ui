@@ -1,4 +1,4 @@
-import { memo, useRef, useState, useEffect, useImperativeHandle } from 'react';
+import { memo, useRef, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import debounce from 'lodash.debounce';
 import classnames from '@/utils/classnames';
@@ -22,6 +22,7 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
     listCls,
     itemCls,
     itemActiveCls,
+    onShow,
     onScroll,
     refreshAfterShow = true,
     ...rest
@@ -29,10 +30,24 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
   const classes = classnames(prefixCls);
 
   const overlayRef = useRef<OverlayPanel | null>(null);
+  const handlerCalledRef = useRef(false);
 
   const [isHover, setIsHover] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
+
+  const refreshDOM = useCallback(() => {
+    const ele = overlayRef.current?.getElement?.();
+    const visible = overlayRef.current?.isVisible?.();
+    if (!visible || !ele) return;
+    const originZIndex = ele.style.zIndex;
+    if (originZIndex != undefined) {
+      ele.style.zIndex = `${parseInt(originZIndex) + 1}`;
+      setTimeout(() => {
+        ele.style.zIndex = originZIndex;
+      }, 0);
+    }
+  }, []);
 
   // @ts-expect-error
   useImperativeHandle(ref, () => ({
@@ -47,14 +62,8 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
     ) => {
       overlayRef.current?.show?.(event, target);
       if (!refreshAfterShow) return;
-      setTimeout(() => {
-        const ele = overlayRef.current?.getElement?.();
-        if (!ele) return;
-        const originZIndex = ele.style.zIndex;
-        if (originZIndex != undefined) {
-          ele.style.zIndex = `${parseInt(originZIndex) + 1}`;
-        }
-      }, 0);
+      handlerCalledRef.current = true;
+      setTimeout(() => refreshDOM(), 0);
     },
     toggle: (
       event: SyntheticEvent | undefined | null,
@@ -62,15 +71,8 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
     ) => {
       overlayRef.current?.toggle?.(event, target);
       if (!refreshAfterShow) return;
-      setTimeout(() => {
-        const ele = overlayRef.current?.getElement?.();
-        const visible = overlayRef.current?.isVisible?.();
-        if (!visible || !ele) return;
-        const originZIndex = ele.style.zIndex;
-        if (originZIndex != undefined) {
-          ele.style.zIndex = `${parseInt(originZIndex) + 1}`;
-        }
-      }, 0);
+      handlerCalledRef.current = true;
+      setTimeout(() => refreshDOM(), 0);
     },
   }), [refreshAfterShow]);
 
@@ -107,6 +109,15 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
         debouncedHandleScroll.cancel();
         setIsScrolling(true);
         debouncedHandleScroll();
+      }}
+      onShow={() => {
+        onShow?.();
+        if (!refreshAfterShow) return;
+        if (handlerCalledRef.current) {
+          handlerCalledRef.current = false;
+        } else {
+          setTimeout(() => refreshDOM(), 0);
+        }
       }}
     >
       <div className={classes('wrapper', wrapperCls)}>

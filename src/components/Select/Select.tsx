@@ -202,6 +202,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     value,
     size = 'large',
     success,
+    refreshAfterShow = true,
     invalid,
     disabled,
     placeholder,
@@ -223,8 +224,8 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
   const [isHover, setIsHover] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
-  const selectRef = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
-  const _ref = useRef<Dropdown | MultiSelect | HTMLDivElement | null>(null);
+  const selectRef = useRef<Dropdown | MultiSelect | null>(null);
+  const _ref = useRef<Dropdown | MultiSelect | null>(null);
 
   const selectCls = useMemo(() => classes(void 0, [
     classes(size),
@@ -237,6 +238,18 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
   ].join(' ')), [size, isOpen, success, selected, invalid, disabled, className]);
 
   const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
+
+  const refreshDOM = useCallback(() => {
+    const ele = selectRef.current?.getOverlay?.();
+    if (!ele) return;
+    const originZIndex = ele.style.zIndex;
+    if (originZIndex != undefined) {
+      ele.style.zIndex = `${parseInt(originZIndex) + 1}`;
+      setTimeout(() => {
+        ele.style.zIndex = originZIndex;
+      }, 0);
+    }
+  }, []);
 
   const SelectComponent = useCallback(
     (props: MultiSelectProps & DropdownProps) => multiple
@@ -298,7 +311,27 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     }
   }, [value]);
 
-  useImperativeHandle(ref ?? _ref, () => selectRef.current!);
+  // @ts-expect-error
+  useImperativeHandle(ref ?? _ref, () => (multiple ? {
+    props: selectRef.current?.props!,
+    focus: () => selectRef.current?.focus?.(),
+    hide: () => selectRef.current?.hide?.(),
+    show: () => selectRef.current?.show?.(),
+    getElement: () => selectRef.current?.getElement?.(),
+    getInput: () => selectRef.current?.getInput?.(),
+    getOverlay: () => selectRef.current?.getOverlay?.(),
+  } : {
+    props: selectRef.current?.props!,
+    clear: () => (selectRef.current as Dropdown)?.clear?.(),
+    focus: () => selectRef.current?.focus?.(),
+    hide: () => selectRef.current?.hide?.(),
+    show: () => selectRef.current?.show?.(),
+    getElement: () => selectRef.current?.getElement?.(),
+    getInput: () => selectRef.current?.getInput?.(),
+    getOverlay: () => selectRef.current?.getOverlay?.(),
+    getFocusInput: () => (selectRef.current as Dropdown)?.getFocusInput?.(),
+    getVirtualScroller: () => (selectRef.current as Dropdown)?.getVirtualScroller?.(),
+  }), [multiple]);
 
   return (
     <SelectWrapper
@@ -359,6 +392,8 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         onShow={() => {
           setIsOpen(true);
           onShow?.();
+          if (!refreshAfterShow) return;
+          setTimeout(() => refreshDOM(), 0);
         }}
         dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
         pt={{

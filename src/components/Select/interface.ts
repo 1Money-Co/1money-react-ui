@@ -13,6 +13,7 @@ interface BaseProps {
   value?: any;
   size?: 'large' | 'small';
   success?: boolean;
+  refreshAfterShow?: boolean;
   itemTemplate?: (option: any) => ReactNode;
 }
 
