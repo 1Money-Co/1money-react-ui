@@ -3,24 +3,81 @@ import { OverlayPanel } from 'primereact/overlaypanel';
 import debounce from 'lodash.debounce';
 import classnames from '@/utils/classnames';
 /* import types */
-import type { FC, PropsWithChildren, CSSProperties } from 'react';
+import type { FC, PropsWithChildren, CSSProperties, SyntheticEvent } from 'react';
 import type { DropdownProps } from './interface';
 
 export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
-  const { ref, prefixEle, suffixEle, items = [], renderList, width, height, maxWidth, maxHeight, prefixCls = 'dropdown', className, wrapperCls, listCls, itemCls, itemActiveCls, onScroll, ...rest } = props;
+  const {
+    ref,
+    prefixEle,
+    suffixEle,
+    items = [],
+    renderList,
+    width,
+    height,
+    maxWidth,
+    maxHeight,
+    prefixCls = 'dropdown',
+    className, wrapperCls,
+    listCls,
+    itemCls,
+    itemActiveCls,
+    onScroll,
+    refreshAfterShow = true,
+    ...rest
+  } = props;
   const classes = classnames(prefixCls);
 
-  const _ref = useRef<OverlayPanel | null>(null);
+  const overlayRef = useRef<OverlayPanel | null>(null);
 
   const [isHover, setIsHover] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
 
+  // @ts-expect-error
+  useImperativeHandle(ref, () => ({
+    props: overlayRef.current?.props!,
+    hide: () => overlayRef.current?.hide?.(),
+    getElement: () => overlayRef.current?.getElement?.() as HTMLDivElement,
+    isVisible: () => overlayRef.current?.isVisible?.() ?? false,
+    align: () => overlayRef.current?.align?.(),
+    show: (
+      event: SyntheticEvent | undefined | null,
+      target?: HTMLElement | EventTarget | undefined | null,
+    ) => {
+      overlayRef.current?.show?.(event, target);
+      if (!refreshAfterShow) return;
+      setTimeout(() => {
+        const ele = overlayRef.current?.getElement?.();
+        if (!ele) return;
+        const originZIndex = ele.style.zIndex;
+        if (originZIndex != undefined) {
+          ele.style.zIndex = `${parseInt(originZIndex) + 1}`;
+        }
+      }, 0);
+    },
+    toggle: (
+      event: SyntheticEvent | undefined | null,
+      target?: HTMLElement | EventTarget | undefined | null,
+    ) => {
+      overlayRef.current?.toggle?.(event, target);
+      if (!refreshAfterShow) return;
+      setTimeout(() => {
+        const ele = overlayRef.current?.getElement?.();
+        const visible = overlayRef.current?.isVisible?.();
+        if (!visible || !ele) return;
+        const originZIndex = ele.style.zIndex;
+        if (originZIndex != undefined) {
+          ele.style.zIndex = `${parseInt(originZIndex) + 1}`;
+        }
+      }, 0);
+    },
+  }), [refreshAfterShow]);
+
   useEffect(() => {
     const handleResize = () => {
-      const overlayRef = ref ?? _ref;
-      if (!overlayRef?.current || !overlayRef?.current.isVisible()) return;
-      overlayRef?.current.align?.();
+      if (!overlayRef.current || !overlayRef.current.isVisible()) return;
+      overlayRef.current.align?.();
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -29,7 +86,7 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
   return (
     <OverlayPanel
       {...rest}
-      ref={ref ?? _ref}
+      ref={overlayRef}
       className={classes(void 0, [
         className,
         isHover && classes('hover'),
