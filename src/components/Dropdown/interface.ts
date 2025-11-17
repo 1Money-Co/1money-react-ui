@@ -23,6 +23,7 @@ export interface DropdownProps extends OverlayPanelProps {
   itemActiveCls?: string;
   prefixEle?: ReactNode;
   suffixEle?: ReactNode;
+  refreshAfterShow?: boolean;
 }
 
 export type DropdownHandler = OverlayPanel;
