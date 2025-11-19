@@ -6,8 +6,10 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { InputOtp } from 'primereact/inputotp';
 import { Password } from 'primereact/password';
 import { AutoComplete } from 'primereact/autocomplete';
+import { Skeleton } from 'primereact/skeleton';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
+import Spinner from '../Spinner';
 
 /* import types */
 import type { FC, PropsWithChildren, ChangeEvent } from 'react';
@@ -35,12 +37,13 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     suffixEleCls,
     maxLength,
     showMessageIcon = false,
-    // @ts-ignore
+    // @ts-expect-error
     showCount,
     value,
     defaultValue,
     onChange,
     readOnly,
+    loading,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
@@ -48,13 +51,16 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
   const [val, setVal] = useState(value || defaultValue || '');
 
   const handleChange = useCallback((e: Parameters<Exclude<InputProps['onChange'], undefined>>[0]) => {
+    if (loading || disabled) return;
     const _val = 'target' in e ? e.target.value : e.value;
     setVal((type === 'textarea' ? _val?.slice(0, maxLength) : _val) || '');
     onChange?.(e as any);
-  }, [onChange, maxLength, type]);
+  }, [onChange, maxLength, type, loading, disabled]);
 
   const inputRef = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
   const _ref = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
+
+  const suffixLoading = useMemo(() => loading && type !== 'otp', [loading, type]);
 
   const InputComponent = useMemo(() => {
     switch (type) {
@@ -76,8 +82,8 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       case 'password':
         return (_props: Omit<InputPwdProps, 'size' | 'prefix' | 'suffix'>) => <Password
           feedback={false}
-          showIcon={({ iconProps }) => <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
-          hideIcon={({ iconProps }) => <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
+          showIcon={({ iconProps }) => suffixLoading ? null : <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
+          hideIcon={({ iconProps }) => suffixLoading ? null : <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
           {..._props}
         />;
       case 'autocomplete':
@@ -85,7 +91,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
       default:
         return InputText;
     }
-  }, [type]);
+  }, [type, suffixLoading]);
 
   useImperativeHandle(ref ?? _ref, () => inputRef.current!);
 
@@ -97,9 +103,12 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', [required ? classes('label-required') : '', labelCls].join(' '))}>{label}</span>}
+      {label && loading ? <Skeleton width='72px' height='18px' className={classes('label-loading')} /> : <span className={classes('label', [required ? classes('label-required') : '', labelCls].join(' '))}>{label}</span>}
       <div
-        onClick={() => type !== 'otp' && inputRef.current?.focus()}
+        onClick={() => {
+          if (loading || disabled) return;
+          type !== 'otp' && inputRef.current?.focus();
+        }}
         className={classes('inner', [
           classes(`inner-${size}`),
           success ? classes('inner-success') : '',
@@ -117,7 +126,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           defaultValue={type === 'textarea' ? undefined : defaultValue}
           onChange={handleChange}
           invalid={invalid}
-          disabled={disabled}
+          disabled={disabled || loading}
           required={required}
           maxLength={maxLength}
           readOnly={readOnly}
@@ -130,7 +139,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
             className,
           ].join(' '))}
         />
-        {suffixEle && <div onClick={e => e.stopPropagation()} className={classes('suffix', suffixEleCls)}>{suffixEle}</div>}
+        {suffixLoading ? <Spinner className={classes('loading')} strokeWidth='4' /> : suffixEle ? <div onClick={e => e.stopPropagation()} className={classes('suffix', suffixEleCls)}>{suffixEle}</div> : null}
         {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${val.length}/${maxLength}`}</div>}
       </div>
       {

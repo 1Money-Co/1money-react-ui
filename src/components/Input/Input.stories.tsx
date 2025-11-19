@@ -13,6 +13,7 @@ const meta: Meta<typeof Input> = {
     size: { control: 'radio', options: ['large', 'small'] },
     type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp'] },
     disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
     success: { control: 'boolean' },
     invalid: { control: 'boolean' },
     message: { control: 'text' },
@@ -21,6 +22,7 @@ const meta: Meta<typeof Input> = {
   args: {
     size: 'large',
     disabled: false,
+    loading: false,
     success: false,
     invalid: false,
     required: false,
