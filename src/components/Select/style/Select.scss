@@ -139,9 +139,12 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-loading {
-    .p-dropdown-trigger {
-      svg {
-        color: $color-grey-dark !important;
+    &-icon {
+      width: 16px;
+      height: 16px;
+
+      svg circle {
+        stroke: $color-grey-dark !important;
       }
     }
   }
