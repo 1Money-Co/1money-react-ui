@@ -157,6 +157,7 @@ $opt-width: 54px;
 
   // inner
   &-inner {
+    position: relative;
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -184,7 +185,7 @@ $opt-width: 54px;
     &-readonly {
       border-color: $color-grey-bold !important;
 
-      input{
+      input {
         cursor: default !important;
       }
     }
@@ -264,8 +265,8 @@ $opt-width: 54px;
       }
 
       &:-internal-autofill-selected {
-        -webkit-text-fill-color: $color-primary-black !important;
         transition: background-color 600000s 0s, color 600000s 0s !important;
+        -webkit-text-fill-color: $color-primary-black !important;
       }
     }
   }
@@ -290,6 +291,10 @@ $opt-width: 54px;
         line-height: 120%;
         content: '*';
       }
+    }
+
+    &-loading {
+      margin-bottom: 8px;
     }
   }
 
@@ -323,6 +328,20 @@ $opt-width: 54px;
 
   &-suffix {
     margin-left: 8px;
+  }
+
+  &-loading {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    margin: auto 0;
+
+    svg circle {
+      stroke: $color-grey-dark !important;
+    }
   }
 
   &-show-count {

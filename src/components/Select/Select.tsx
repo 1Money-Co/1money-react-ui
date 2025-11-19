@@ -3,13 +3,15 @@ import isEqual from 'lodash.isequal';
 import debounce from 'lodash.debounce';
 import { Dropdown, type DropdownProps } from 'primereact/dropdown';
 import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
+import { Skeleton } from 'primereact/skeleton';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
+import { Spinner } from '../Spinner';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { SelectProps, CustomDropdownProps } from './interface';
 
-const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' | 'required' | 'prefixCls' | 'wrapperCls' | 'labelCls' | 'messageCls' | 'success' | 'invalid' | 'disabled'>>> = memo(props => {
+const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' | 'required' | 'prefixCls' | 'wrapperCls' | 'labelCls' | 'messageCls' | 'success' | 'invalid' | 'disabled' | 'loading'>>> = memo(props => {
   const {
     label,
     message,
@@ -21,12 +23,13 @@ const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' 
     success,
     invalid,
     disabled,
+    loading,
     children,
   } = props;
   const classes = classnames(prefixCls);
 
   return <div className={classes('wrapper', wrapperCls)}>
-    {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+    {label && loading ? <Skeleton width='72px' height='18px' className={classes('label-loading')} /> : <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
     {children}
     {
       message && <span
@@ -216,6 +219,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     onHide,
     onShow,
     unselectable,
+    loading,
     ...rest
   } = props;
   const classes = classnames(prefixCls);
@@ -233,9 +237,10 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     success ? classes('success') : '',
     invalid ? classes('invalid') : '',
     disabled ? classes('disabled') : '',
+    loading ? classes('loading') : '',
     (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
     className
-  ].join(' ')), [size, isOpen, success, selected, invalid, disabled, className]);
+  ].filter(Boolean).join(' ')), [size, isOpen, success, selected, invalid, disabled, loading, className]);
 
   const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
 
@@ -345,12 +350,14 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
       success={success}
       invalid={invalid}
       disabled={disabled}
+      loading={loading}
     >
       <SelectComponent
         {...rest as any}
         id={id}
         ref={selectRef}
         name={name}
+        loading={loading}
         filterPlaceholder='Search'
         required={required}
         disabled={disabled}
@@ -374,6 +381,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
           </div>;
         }}
         filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
+        loadingIcon={<Spinner className={classes('loading-icon')} strokeWidth='4' />}
         panelClassName={classes('panel', [
           panelClassName,
           isHover && classes('panel-hover'),

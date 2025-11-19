@@ -24,6 +24,7 @@ export interface InputBaseProps {
   suffixEle?: ReactNode;
   prefixEleCls?: string;
   suffixEleCls?: string;
+  loading?: boolean;
   showMessageIcon?: boolean;
 }
 
