@@ -14,6 +14,7 @@ const meta: Meta<typeof Select> = {
     appendTo: { control: 'radio', options: [null, 'self'] },
     size: { control: 'radio', options: ['large', 'small'] },
     disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
     success: { control: 'boolean' },
     invalid: { control: 'boolean' },
     filter: { control: 'boolean' },
@@ -23,6 +24,7 @@ const meta: Meta<typeof Select> = {
   args: {
     size: 'large',
     disabled: false,
+    loading: false,
     success: false,
     invalid: false,
     required: false,
@@ -49,8 +51,11 @@ const cities = [
 
 export const Test: Story = {
   render: (props) => <div style={{width:320}}>
-    <Select {...props} options={cities} label='Cities' appendTo="self" />
-    <Select {...props} options={cities} label='Cities1' />
+    <Select {...props} options={cities} label='Cities (appendTo self)' appendTo="self" />
+    <br />
+    <br />
+    <br />
+    <Select {...props} options={cities} label='Cities (default)' />
   </div>,
   args: {
     placeholder: 'Select City',

@@ -138,6 +138,14 @@ $cls: #{$prefix}-#{$component};
     line-height: inherit;
   }
 
+  &-loading {
+    .p-dropdown-trigger {
+      svg {
+        color: $color-grey-dark !important;
+      }
+    }
+  }
+
   .p-dropdown-trigger,
   .p-multiselect-trigger {
     width: auto;
@@ -444,6 +452,10 @@ $cls: #{$prefix}-#{$component};
       line-height: 120%;
       content: '*';
     }
+  }
+
+  &-loading {
+    margin-bottom: 8px;
   }
 }
 
