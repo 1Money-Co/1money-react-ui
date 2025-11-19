@@ -23,10 +23,11 @@ export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<Sideba
 
   // Render child items (non-top-level)
   const renderChildMenuItem = (menu: MenuItem | SimpleMenuItem, index: number): ReactElement => {
-    const { key, label, icon, suffix, link, active, disabled, onClick } = menu;
+    const { key, label, icon, suffix, link, active, disabled, hidden, onClick } = menu;
 
     if (isSimpleMenuItem(menu)) {
       const { defaultOpen, onOpenChange, children } = menu;
+
       return (
         <ProSubMenu
           key={key ?? index}
@@ -39,6 +40,7 @@ export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<Sideba
           onClick={onClick}
           active={active}
           disabled={disabled}
+          className={hidden ? classes('hidden') : ''}
         >
           {children?.map((child, childIndex) => renderChildMenuItem(child, childIndex))}
         </ProSubMenu>
@@ -54,6 +56,7 @@ export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<Sideba
         active={active}
         disabled={disabled}
         onClick={onClick}
+        className={hidden ? classes('hidden') : ''}
       >
         {label}
       </ProMenuItem>
@@ -65,9 +68,10 @@ export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<Sideba
     if (!isSimpleMenuItem(menu)) {
       return renderChildMenuItem(menu, index);
     }
-    const { key, label, icon, children } = menu;
+    const { key, label, icon, children, hidden } = menu;
+
     return (
-      <div key={key ?? index}>
+      <div key={key ?? index} className={hidden ? classes('hidden') : ''}>
         {index > 0 && <div className={classes('hr-line')}></div>}
         <div className={classes('group-label')}>
           {icon && <span className={classes('group-icon')}>{icon}</span>}
