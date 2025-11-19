@@ -6,6 +6,7 @@ import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
 import { Skeleton } from 'primereact/skeleton';
 import classnames from '@/utils/classnames';
 import { Icons } from '../Icons';
+import { Spinner } from '../Spinner';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { SelectProps, CustomDropdownProps } from './interface';
@@ -380,6 +381,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
           </div>;
         }}
         filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
+        loadingIcon={<Spinner className={classes('loading-icon')} strokeWidth='4' />}
         panelClassName={classes('panel', [
           panelClassName,
           isHover && classes('panel-hover'),
