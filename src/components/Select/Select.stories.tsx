@@ -51,11 +51,11 @@ const cities = [
 
 export const Test: Story = {
   render: (props) => <div style={{width:320}}>
-    <Select {...props} options={cities} label='Cities (appendTo self)' appendTo="self" />
+    <Select {...props} options={cities} appendTo="self" />
     <br />
     <br />
     <br />
-    <Select {...props} options={cities} label='Cities (default)' />
+    <Select {...props} options={cities} />
   </div>,
   args: {
     placeholder: 'Select City',

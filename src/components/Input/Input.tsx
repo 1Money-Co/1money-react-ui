@@ -103,7 +103,13 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
-      {label && loading ? <Skeleton width='72px' height='18px' className={classes('label-loading')} /> : <span className={classes('label', [required ? classes('label-required') : '', labelCls].join(' '))}>{label}</span>}
+      {
+        label
+          ? loading
+            ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
+            : <span className={classes('label', [required ? classes('label-required') : '', labelCls].join(' '))}>{label}</span>
+          : null
+      }
       <div
         onClick={() => {
           if (loading || disabled) return;

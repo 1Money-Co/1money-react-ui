@@ -29,7 +29,13 @@ const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' 
   const classes = classnames(prefixCls);
 
   return <div className={classes('wrapper', wrapperCls)}>
-    {label && loading ? <Skeleton width='72px' height='18px' className={classes('label-loading')} /> : <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+    {
+      label ?
+        loading
+          ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
+          : <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>
+        : null
+    }
     {children}
     {
       message && <span
