@@ -563,6 +563,10 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='brokenLink' />
         <span>Broken Link</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='pause' />")}>
+        <Icons {...args} name='pause' />
+        <span>Pause</span>
+      </CopyIconBox>
     </div>;
   },
 };
