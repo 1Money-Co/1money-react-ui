@@ -15,4 +15,6 @@ export const classnames = (_prefix_: string) => (_prefix?: string) => (
   );
 };
 
+export const joinCls = (...classes: (string | number | null | undefined | boolean)[]) => classes.filter(Boolean).join(' ');
+
 export default classnames('om-react-ui');

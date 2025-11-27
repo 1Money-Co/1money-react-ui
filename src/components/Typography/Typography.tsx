@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, MouseEventHandler, PropsWithChildren } from 'react';
 import type { DisplayProps, HeadlineProps, TitleProps, BodyProps, LinkProps, LabelProps } from './interface';
@@ -19,11 +19,11 @@ const Display: FC<PropsWithChildren<DisplayProps>> = memo(props => {
 
   return <h1
     {...rest}
-    className={classes(void 0, [
+    className={classes(void 0, joinCls(
       classes(size),
-      bold ? classes('bold') : '',
+      bold && classes('bold'),
       className
-    ].join(' '))}
+    ))}
   >
     { children }
   </h1>;
@@ -35,11 +35,11 @@ const Headline: FC<PropsWithChildren<HeadlineProps>> = memo(props => {
 
   return <h2
     {...rest}
-    className={classes(void 0, [
+    className={classes(void 0, joinCls(
       classes(size),
-      bold ? classes('bold') : '',
+      bold && classes('bold'),
       className
-    ].join(' '))}
+    ))}
   >
     { children }
   </h2>;
@@ -51,11 +51,11 @@ const Title: FC<PropsWithChildren<TitleProps>> = memo(props => {
 
   return <h3
     {...rest}
-    className={classes(void 0, [
+    className={classes(void 0, joinCls(
       classes(size),
-      bold ? classes('bold') : '',
+      bold && classes('bold'),
       className
-    ].join(' '))}
+    ))}
   >
     { children }
   </h3>;
@@ -67,11 +67,11 @@ const Body: FC<PropsWithChildren<BodyProps>> = memo(props => {
 
   return <p
     {...rest}
-    className={classes(void 0, [
+    className={classes(void 0, joinCls(
       classes(size),
-      bold ? classes('bold') : '',
+      bold && classes('bold'),
       className
-    ].join(' '))}
+    ))}
   >
     { children }
   </p>;
@@ -83,7 +83,7 @@ const Link: FC<PropsWithChildren<LinkProps>> = memo(props => {
 
   return <a
     {...rest}
-    className={classes(void 0, [classes(size), className].join(' '))}
+    className={classes(void 0, joinCls(classes(size), className))}
   >
     { children }
   </a>;
@@ -95,11 +95,11 @@ const Label: FC<PropsWithChildren<LabelProps>> = memo(props => {
 
   return <strong
     {...rest}
-    className={classes(void 0, [
+    className={classes(void 0, joinCls(
       classes(size),
-      bold ? classes('bold') : '',
+      bold && classes('bold'),
       className
-    ].join(' '))}
+    ))}
   >
     { children }
   </strong>;

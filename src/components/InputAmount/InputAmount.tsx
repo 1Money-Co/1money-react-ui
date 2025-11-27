@@ -1,7 +1,7 @@
 import { memo, useMemo, useState, useCallback, useRef, useEffect } from 'react';
 import BigNumber from 'bignumber.js';
 import { numericFormatter } from 'react-number-format';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren, CSSProperties, KeyboardEvent, ChangeEvent } from 'react';
 import type { InputAmountProps } from './interface';
@@ -203,11 +203,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   }, [value, maxFractionDigits, negative]);
 
   return <div
-    className={classes('wrapper', [wrapperCls, invalid ? classes('invalid') : undefined].join(' ').trim())}
+    className={classes('wrapper', joinCls(wrapperCls, invalid && classes('invalid')))}
   >
     <div
       ref={containerRef}
-      className={classes(void 0, [className, isFocus ? classes('focus') : ''].join(' ').trim())}
+      className={classes(void 0, joinCls(className, isFocus && classes('focus')))}
       onClick={(e) => {
         if (e.target instanceof HTMLInputElement) return;
         inputRef.current?.focus();

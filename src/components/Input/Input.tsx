@@ -7,7 +7,7 @@ import { InputOtp } from 'primereact/inputotp';
 import { Password } from 'primereact/password';
 import { AutoComplete } from 'primereact/autocomplete';
 import { Skeleton } from 'primereact/skeleton';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import { Icons } from '../Icons';
 import Spinner from '../Spinner';
 
@@ -107,7 +107,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
         label
           ? loading
             ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
-            : <span className={classes('label', [required ? classes('label-required') : '', labelCls].join(' '))}>{label}</span>
+            : <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>
           : null
       }
       <div
@@ -115,14 +115,14 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           if (loading || disabled) return;
           type !== 'otp' && inputRef.current?.focus();
         }}
-        className={classes('inner', [
+        className={classes('inner', joinCls(
           classes(`inner-${size}`),
-          success ? classes('inner-success') : '',
-          invalid ? classes('inner-invalid') : '',
-          disabled ? classes('inner-disabled') : '',
-          readOnly ? classes('inner-readonly') : '',
-          val ? classes('inner-filled') : '',
-        ].join(' '))}
+          success && classes('inner-success'),
+          invalid && classes('inner-invalid'),
+          disabled && classes('inner-disabled'),
+          readOnly && classes('inner-readonly'),
+          val && classes('inner-filled'),
+        ))}
       >
         {prefixEle && <div onClick={e => e.stopPropagation()} className={classes('prefix', prefixEleCls)}>{prefixEle}</div>}
         <InputComponent
@@ -136,25 +136,25 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           required={required}
           maxLength={maxLength}
           readOnly={readOnly}
-          className={classes(void 0, [
+          className={classes(void 0, joinCls(
             classes(size),
             classes(type),
             classes(`${type}-${size}`),
-            success ? classes('success') : '',
-            showCount ? classes('show-count') : '',
+            success && classes('success'),
+            showCount && classes('show-count'),
             className,
-          ].join(' '))}
+          ))}
         />
         {suffixLoading ? <Spinner className={classes('loading')} strokeWidth='4' /> : suffixEle ? <div onClick={e => e.stopPropagation()} className={classes('suffix', suffixEleCls)}>{suffixEle}</div> : null}
         {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${val.length}/${maxLength}`}</div>}
       </div>
       {
         message && <span
-          className={classes('message', [
-            success ? classes('message-success') : '',
-            invalid ? classes('message-error') : '',
+          className={classes('message', joinCls(
+            success && classes('message-success'),
+            invalid && classes('message-error'),
             messageCls
-          ].join(' '))}
+          ))}
         >
           {
             showMessageIcon && (

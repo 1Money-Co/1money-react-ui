@@ -2,7 +2,7 @@
 import { memo } from 'react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { TooltipProps } from './interface';
@@ -16,7 +16,7 @@ export const Tooltip: FC<PropsWithChildren<TooltipProps>> = props => {
     place={place}
     role='tooltip'
     className={classes(void 0, className)}
-    classNameArrow={classes('arrow', [classes(`arrow-${place}`), arrowCls].join(' '))}
+    classNameArrow={classes('arrow', joinCls(classes(`arrow-${place}`), arrowCls))}
   >
     { children }
   </ReactTooltip>;

@@ -1,6 +1,6 @@
 import { memo, forwardRef } from 'react';
 import { Menu as PrimeMenu } from 'primereact/menu';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { MenuProps } from './interface';
 
@@ -12,7 +12,7 @@ export const Menu = forwardRef<PrimeMenu, MenuProps>((props, ref) => {
     <PrimeMenu
       {...rest}
       ref={ref}
-      className={classes(void 0, [classes(type), className].join(' '))}
+      className={classes(void 0, joinCls(classes(type), className))}
     />
   );
 });

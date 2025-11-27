@@ -1,5 +1,5 @@
 import { memo, useState, useCallback } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
 /* import types */
 import type { FC } from 'react';
@@ -35,7 +35,7 @@ export const Stepper: FC<StepperProps> = props => {
             const { key, label, status, disabled, onClick } = step;
             return <li
               key={key}
-              className={classes('step', [classes(`step-${status}`), disabled && classes('step-disabled')].join(' '))}
+              className={classes('step', joinCls(classes(`step-${status}`), disabled && classes('step-disabled')))}
               onClick={() => onClick?.(step)}
             >
               <span className={classes('step-label')}>{label}</span>

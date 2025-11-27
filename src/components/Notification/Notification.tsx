@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Icons } from '../Icons';
 import { Typography } from '../Typography';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { NotificationProps } from './interface';
@@ -34,7 +34,7 @@ export const Notification: FC<PropsWithChildren<NotificationProps>> = props => {
   return (
     <div
       {...rest}
-      className={classes(void 0, [classes(severity), className].join(' '))}
+      className={classes(void 0, joinCls(classes(severity), className))}
       onClick={onClick}
     >
       <span className={classes('icon')}>

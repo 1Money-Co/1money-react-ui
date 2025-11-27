@@ -6,7 +6,7 @@ import {
   MenuItem as ProMenuItem,
   SubMenu as ProSubMenu
 } from 'react-pro-sidebar';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
 /* import types */
 import type { PropsWithChildren, ReactElement } from 'react';
@@ -109,7 +109,7 @@ export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<Sideba
       </div>
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => <Icons name='chevronDown' size={16} color='#646465' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
+        renderExpandIcon={({ open }) => <Icons name='chevronDown' size={16} color='#646465' wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />}
       >
         {menus.map((menu, index) => renderTopLevelMenu(menu, index))}
       </ProMenu>

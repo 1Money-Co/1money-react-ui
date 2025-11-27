@@ -9,16 +9,16 @@ exports[`RadioGroup Large renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
         >
           <div
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-lg"
+                class="om-react-ui-radio-inner rd-lg"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -55,10 +55,10 @@ exports[`RadioGroup Large renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-lg"
+                class="om-react-ui-radio-inner rd-lg"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -96,10 +96,10 @@ exports[`RadioGroup Large renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-lg"
+                class="om-react-ui-radio-inner rd-lg"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
@@ -136,10 +136,10 @@ exports[`RadioGroup Large renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-lg"
+                class="om-react-ui-radio-inner rd-lg"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -182,16 +182,16 @@ exports[`RadioGroup Large renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
       >
         <div
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-lg"
+              class="om-react-ui-radio-inner rd-lg"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -228,10 +228,10 @@ exports[`RadioGroup Large renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-lg"
+              class="om-react-ui-radio-inner rd-lg"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -269,10 +269,10 @@ exports[`RadioGroup Large renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-lg"
+              class="om-react-ui-radio-inner rd-lg"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
@@ -309,10 +309,10 @@ exports[`RadioGroup Large renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-lg"
+              class="om-react-ui-radio-inner rd-lg"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -412,16 +412,16 @@ exports[`RadioGroup Medium renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
         >
           <div
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -458,10 +458,10 @@ exports[`RadioGroup Medium renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -499,10 +499,10 @@ exports[`RadioGroup Medium renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
@@ -539,10 +539,10 @@ exports[`RadioGroup Medium renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -585,16 +585,16 @@ exports[`RadioGroup Medium renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
       >
         <div
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -631,10 +631,10 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -672,10 +672,10 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
@@ -712,10 +712,10 @@ exports[`RadioGroup Medium renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -815,16 +815,16 @@ exports[`RadioGroup disabled renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
         >
           <div
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -862,10 +862,10 @@ exports[`RadioGroup disabled renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
@@ -909,16 +909,16 @@ exports[`RadioGroup disabled renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
       >
         <div
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -956,10 +956,10 @@ exports[`RadioGroup disabled renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight p-disabled"
@@ -1060,16 +1060,16 @@ exports[`RadioGroup renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
         >
           <div
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1106,10 +1106,10 @@ exports[`RadioGroup renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -1147,10 +1147,10 @@ exports[`RadioGroup renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1187,10 +1187,10 @@ exports[`RadioGroup renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-md"
+                class="om-react-ui-radio-inner rd-md"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1232,16 +1232,16 @@ exports[`RadioGroup renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
       >
         <div
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1278,10 +1278,10 @@ exports[`RadioGroup renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -1319,10 +1319,10 @@ exports[`RadioGroup renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1359,10 +1359,10 @@ exports[`RadioGroup renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-md"
+              class="om-react-ui-radio-inner rd-md"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1461,16 +1461,16 @@ exports[`RadioGroup size renders correctly 1`] = `
         class="om-react-ui-radiogroup-wrapper"
       >
         <div
-          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+          class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
         >
           <div
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-sm"
+                class="om-react-ui-radio-inner rd-sm"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1507,10 +1507,10 @@ exports[`RadioGroup size renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-sm"
+                class="om-react-ui-radio-inner rd-sm"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -1548,10 +1548,10 @@ exports[`RadioGroup size renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-sm"
+                class="om-react-ui-radio-inner rd-sm"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
@@ -1588,10 +1588,10 @@ exports[`RadioGroup size renders correctly 1`] = `
             class="om-react-ui-radiogroup-default-inner"
           >
             <div
-              class="om-react-ui-radio-wrapper "
+              class="om-react-ui-radio-wrapper"
             >
               <div
-                class="om-react-ui-radio-inner  rd-sm"
+                class="om-react-ui-radio-inner rd-sm"
               >
                 <div
                   class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"
@@ -1634,16 +1634,16 @@ exports[`RadioGroup size renders correctly 1`] = `
       class="om-react-ui-radiogroup-wrapper"
     >
       <div
-        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal "
+        class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
       >
         <div
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-sm"
+              class="om-react-ui-radio-inner rd-sm"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
@@ -1680,10 +1680,10 @@ exports[`RadioGroup size renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-sm"
+              class="om-react-ui-radio-inner rd-sm"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
@@ -1721,10 +1721,10 @@ exports[`RadioGroup size renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-sm"
+              class="om-react-ui-radio-inner rd-sm"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-invalid"
@@ -1761,10 +1761,10 @@ exports[`RadioGroup size renders correctly 1`] = `
           class="om-react-ui-radiogroup-default-inner"
         >
           <div
-            class="om-react-ui-radio-wrapper "
+            class="om-react-ui-radio-wrapper"
           >
             <div
-              class="om-react-ui-radio-inner  rd-sm"
+              class="om-react-ui-radio-inner rd-sm"
             >
               <div
                 class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-disabled"

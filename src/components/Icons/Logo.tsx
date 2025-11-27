@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import IconWrapper from './Wrapper';
 /* import types */
 import type { FC, CSSProperties } from 'react';
@@ -67,7 +67,11 @@ export const LogoWithWords: FC<IconWrapperProps & LogoWithWordsCustomProps> = (p
   const { logoColor, wordColor, logoCls, wordCls, color, className, width, height, size, networkLogo, networkCls, networkColor, ...rest } = props;
   const classes = classnames('icons');
 
-  return <i className={[classes('logo-with-words'), networkLogo ? classes('logo-with-words-with-network') : '', className].join(' ')}>
+  return <i className={joinCls(
+    classes('logo-with-words'),
+    networkLogo && classes('logo-with-words-with-network'),
+    className
+  )}>
     <Logo
       color={logoColor || color}
       width={height || size}
@@ -120,7 +124,7 @@ export const LogoWithBeta: FC<IconWrapperProps & LogoWithBetaCustomProps> = (pro
   const classes = classnames('icons');
   const h = useMemo(() => height || size, [height, size]);
 
-  return <i className={[classes('logo-with-beta'), className].join(' ')}>
+  return <i className={joinCls(classes('logo-with-beta'), className)}>
     <Logo
       color={logoColor || color}
       width={h}

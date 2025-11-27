@@ -6,7 +6,7 @@ exports[`Cell renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-cell   "
+        class="om-react-ui-cell"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -32,7 +32,7 @@ exports[`Cell renders correctly 1`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -61,7 +61,7 @@ exports[`Cell renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-cell om-react-ui-cell-active  "
+        class="om-react-ui-cell om-react-ui-cell-active"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -87,7 +87,7 @@ exports[`Cell renders correctly 1`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -116,7 +116,7 @@ exports[`Cell renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-cell  om-react-ui-cell-disabled "
+        class="om-react-ui-cell om-react-ui-cell-disabled"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -142,7 +142,7 @@ exports[`Cell renders correctly 1`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -172,7 +172,7 @@ exports[`Cell renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-cell   "
+      class="om-react-ui-cell"
     >
       <div
         class="om-react-ui-cell-inner"
@@ -198,7 +198,7 @@ exports[`Cell renders correctly 1`] = `
           </svg>
         </i>
         <h3
-          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          class="om-react-ui-typography-title om-react-ui-typography-title-l"
         >
           Authenticator
         </h3>
@@ -285,7 +285,7 @@ exports[`Cell renders correctly 2`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-cell   "
+        class="om-react-ui-cell"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -311,7 +311,7 @@ exports[`Cell renders correctly 2`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -340,7 +340,7 @@ exports[`Cell renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-cell om-react-ui-cell-active  "
+        class="om-react-ui-cell om-react-ui-cell-active"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -366,7 +366,7 @@ exports[`Cell renders correctly 2`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -395,7 +395,7 @@ exports[`Cell renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-cell  om-react-ui-cell-disabled "
+        class="om-react-ui-cell om-react-ui-cell-disabled"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -421,7 +421,7 @@ exports[`Cell renders correctly 2`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -451,7 +451,7 @@ exports[`Cell renders correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-cell om-react-ui-cell-active  "
+      class="om-react-ui-cell om-react-ui-cell-active"
     >
       <div
         class="om-react-ui-cell-inner"
@@ -477,7 +477,7 @@ exports[`Cell renders correctly 2`] = `
           </svg>
         </i>
         <h3
-          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          class="om-react-ui-typography-title om-react-ui-typography-title-l"
         >
           Authenticator
         </h3>
@@ -564,7 +564,7 @@ exports[`Cell renders correctly 3`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-cell   "
+        class="om-react-ui-cell"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -590,7 +590,7 @@ exports[`Cell renders correctly 3`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -619,7 +619,7 @@ exports[`Cell renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-cell om-react-ui-cell-active  "
+        class="om-react-ui-cell om-react-ui-cell-active"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -645,7 +645,7 @@ exports[`Cell renders correctly 3`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -674,7 +674,7 @@ exports[`Cell renders correctly 3`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-cell  om-react-ui-cell-disabled "
+        class="om-react-ui-cell om-react-ui-cell-disabled"
       >
         <div
           class="om-react-ui-cell-inner"
@@ -700,7 +700,7 @@ exports[`Cell renders correctly 3`] = `
             </svg>
           </i>
           <h3
-            class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+            class="om-react-ui-typography-title om-react-ui-typography-title-l"
           >
             Authenticator
           </h3>
@@ -730,7 +730,7 @@ exports[`Cell renders correctly 3`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-cell  om-react-ui-cell-disabled "
+      class="om-react-ui-cell om-react-ui-cell-disabled"
     >
       <div
         class="om-react-ui-cell-inner"
@@ -756,7 +756,7 @@ exports[`Cell renders correctly 3`] = `
           </svg>
         </i>
         <h3
-          class="om-react-ui-typography-title om-react-ui-typography-title-l  "
+          class="om-react-ui-typography-title om-react-ui-typography-title-l"
         >
           Authenticator
         </h3>

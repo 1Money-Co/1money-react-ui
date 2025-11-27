@@ -1,7 +1,7 @@
 import { memo, useState, useMemo, useCallback } from 'react';
 import { Checkbox as PrimeCheckbox, type CheckboxChangeEvent } from 'primereact/checkbox';
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { CheckboxProps } from './interface';
@@ -48,7 +48,7 @@ export const Checkbox: FC<PropsWithChildren<CheckboxProps>> = props => {
   }, [label, labelCls, handleLabelClick]);
 
   return <div className={classes('wrapper', wrapperCls)}>
-    <div className={[classes('inner', innerCls), sizeClass].join(' ')}>
+    <div className={joinCls(classes('inner', innerCls), sizeClass)}>
       <LabelWrapper>
         <CheckBoxComponent
           {...rest as any}

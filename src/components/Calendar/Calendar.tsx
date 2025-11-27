@@ -2,7 +2,7 @@ import { memo, useState, useEffect } from 'react';
 import isEqual from 'lodash.isequal';
 import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import Icons from '@/components/Icons';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { CalendarProps } from './interface';
@@ -29,11 +29,11 @@ const getRangeDateStyles = (params: any, selectedDates: any, classes: any) => {
   const inRange = selectedDates[0] && selectedDates[1] &&
                  cellDate > selectedDates[0] && cellDate < selectedDates[1];
 
-  return [
+  return joinCls(
     isStart && classes('p-start'),
     isEnd && classes('p-end'),
     inRange && classes('p-range')
-  ].filter(Boolean).join(' ');
+  );
 };
 
 export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
@@ -67,7 +67,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+      {label && <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>}
       <PrimeCalendar
         {...rest}
         value={date as any}
@@ -82,11 +82,11 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
           // @ts-ignore
           '--content-width': contentWidth,
         }}
-        className={classes(void 0, [
+        className={classes(void 0, joinCls(
           className,
           classes(size),
           date && classes('filled'),
-        ].join(' '))}
+        ))}
         panelClassName={classes('panel', panelClassName)}
         placeholder={placeholder}
         prevIcon={<Icons name='chevronLeft' size={24} />}

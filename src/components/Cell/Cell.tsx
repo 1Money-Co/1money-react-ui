@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 
 import type { FC, PropsWithChildren } from 'react';
 import type { CellProps } from './interface';
@@ -20,11 +20,11 @@ export const Cell: FC<PropsWithChildren<CellProps>> = (props) => {
   const classes = classnames(prefixCls);
 
 
-  return <div className={classes(void 0, [
-    active ? classes('active') : '',
-    disabled ? classes('disabled') : '',
+  return <div className={classes(void 0, joinCls(
+    active && classes('active'),
+    disabled && classes('disabled'),
     className
-  ].join(' '))} {...rest}>
+  ))} {...rest}>
       <div className={classes('inner')}>
         {typeof prefixIcon === 'string' ? <Icons name={prefixIcon as IconName} /> : prefixIcon}
         <Typography.Title size="l">{title}</Typography.Title>
