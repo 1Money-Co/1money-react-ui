@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { FileUpload } from 'primereact/fileupload';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC } from 'react';
 import type { UploadProps } from './interface';
@@ -16,15 +16,15 @@ export const Upload: FC<UploadProps> = props => {
       className={classes(void 0, className)}
       uploadOptions={{
         ...uploadOptions,
-        className: classes('btn', [classes(`btn-${btnSize}`), classes('btn-upload'), uploadOptions?.className].join(' '))
+        className: classes('btn', joinCls(classes(`btn-${btnSize}`), classes('btn-upload'), uploadOptions?.className))
       }}
       chooseOptions={{
         ...chooseOptions,
-        className: classes('btn', [classes(`btn-${btnSize}`), classes('btn-choose'), chooseOptions?.className].join(' '))
+        className: classes('btn', joinCls(classes(`btn-${btnSize}`), classes('btn-choose'), chooseOptions?.className))
       }}
       cancelOptions={{
         ...cancelOptions,
-        className: classes('btn', [classes(`btn-${btnSize}`), classes('btn-cancel'), cancelOptions?.className].join(' '))
+        className: classes('btn', joinCls(classes(`btn-${btnSize}`), classes('btn-cancel'), cancelOptions?.className))
       }}
     />
   );

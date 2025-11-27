@@ -1,7 +1,7 @@
 import { memo, useMemo, useState, useCallback, useImperativeHandle } from 'react';
 // import { RadioButton } from 'primereact/radiobutton';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import { Radio } from '../Radio';
-import classnames from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { RadioGroupProps, RadioItemProps } from './interface';
@@ -36,7 +36,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const renderDefaultRadio = (item: RadioItemProps) => {
     const { key, label, required, children, ...rest } = item;
     return (
-      <div key={key} className={[classes('default-inner')].join(' ')}>
+      <div key={key} className={classes('default-inner')}>
         <Radio
           {...rest}
           required={required}
@@ -58,13 +58,13 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const renderCardRadio = (item: RadioItemProps) => {
     const { id, key, disabled, invalid, children } = item;
     return (
-      <div id={id} key={key} className={[
+      <div id={id} key={key} className={joinCls(
         classes('card-inner'),
         isSelected(item) && classes('card-checked', cardCheckedCls),
         disabled && classes('card-disabled', cardDisabledCls),
         invalid && classes('card-invalid', cardInvalidCls),
         cardCls
-      ].filter(Boolean).join(' ')}
+      )}
         onClick={() => {
           if (disabled || selected?.key === item.key) return;
           onChange?.(item);
@@ -80,14 +80,14 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     reset: () => setSelected(void 0),
   }), []);
 
-  return <div className={classes('wrapper', [wrapperCls].join(''))}>
-    {label && <label className={classes('label', [required && 'label-required', labelCls].join(''))}>{label}</label>}
-    <div className={[
+  return <div className={classes('wrapper', wrapperCls)}>
+    {label && <label className={classes('label', joinCls(required && 'label-required', labelCls))}>{label}</label>}
+    <div className={joinCls(
       classes('inner'),
       variant === 'card' ? classes('card') : classes('default'),
       direction === 'horizontal' ? 'horizontal' : 'vertical',
       innerCls,
-    ].join(' ')}>
+    )}>
       {items.map(item => variant === 'card' ? renderCardRadio(item) : renderDefaultRadio(item))}
     </div>
   </div>;

@@ -15,7 +15,7 @@ exports[`Clipboard renders correctly 1`] = `
           class="om-react-ui-clipboard-content"
         >
           <p
-            class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
+            class="om-react-ui-typography-body om-react-ui-typography-body-l om-react-ui-clipboard-content-text"
           >
             复制 copy
           </p>
@@ -59,7 +59,7 @@ exports[`Clipboard renders correctly 1`] = `
         class="om-react-ui-clipboard-content"
       >
         <p
-          class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
+          class="om-react-ui-typography-body om-react-ui-typography-body-l om-react-ui-clipboard-content-text"
         >
           复制 copy
         </p>

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { RadioButton } from 'primereact/radiobutton';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC } from 'react';
 import type { RadioProps } from './interface';
@@ -28,8 +28,8 @@ export const Radio: FC<RadioProps> = props => {
   const sizeClass = `rd-${size}`;
 
   return (
-    <div className={[classes('wrapper'), wrapperCls].join(' ')}>
-      <div className={[classes('inner'), innerCls, sizeClass].join(' ')}>
+    <div className={joinCls(classes('wrapper'), wrapperCls)}>
+      <div className={joinCls(classes('inner'), innerCls, sizeClass)}>
         <RadioButton
           inputId={id}
           name={name}
@@ -39,9 +39,9 @@ export const Radio: FC<RadioProps> = props => {
           disabled={disabled}
           invalid={invalid}
           required={required}
-          className={[classes('radio', radioCls)].join(' ')}
+          className={classes('radio', radioCls)}
         />
-        {label && <label htmlFor={id} className={[classes('label', labelCls)].join(' ')}>{label}</label>}
+        {label && <label htmlFor={id} className={classes('label', labelCls)}>{label}</label>}
       </div>
     </div>
   );

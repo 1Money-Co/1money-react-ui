@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Button as PrimeButton } from 'primereact/button';
 import Spinner from '@/components/Spinner';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { ButtonProps } from './interface';
@@ -24,17 +24,17 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = props => {
       // @ts-ignore
       severity={severity}
       loadingIcon={
-        <Spinner strokeWidth="5" className={classes('loading-icon', [
+        <Spinner strokeWidth="5" className={classes('loading-icon', joinCls(
           classes(`loading-icon-${severity}`),
           classes(`loading-icon-${size}`)
-        ].join(' '))} />
+        ))} />
       }
-      className={classes(void 0, [
+      className={classes(void 0, joinCls(
         classes(severity),
         classes(size),
-        active ? classes(`${severity}-active`) : '',
+        active && classes(`${severity}-active`),
         className
-      ].join(' '))}
+      ))}
     >
       { children }
     </PrimeButton>

@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useRef, useState, useEffect } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '@/components/Icons';
 import clipboard from '@/utils/clipboard';
 /* import types */
@@ -26,10 +26,10 @@ export const Copy: FC<CopyProps> = props => {
     name={copied ? 'check' : 'copy'}
     size={iconSize}
     color={color}
-    wrapperCls={classes(void 0, [
+    wrapperCls={classes(void 0, joinCls(
       copied && classes('success'),
       className,
-    ].filter(Boolean).join(' '))}
+    ))}
     onClick={(e) => {
       e.stopPropagation();
       e.preventDefault();

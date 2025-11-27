@@ -7,7 +7,7 @@ exports[`Switch renders correctly 1`] = `
     <div>
       <div
         aria-checked="false"
-        class="om-react-ui-switch om-react-ui-switch  p-inputswitch p-component"
+        class="om-react-ui-switch om-react-ui-switch p-inputswitch p-component"
         data-p-disabled="false"
         data-p-highlight="false"
         data-pc-name="inputswitch"
@@ -29,7 +29,7 @@ exports[`Switch renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-switch om-react-ui-switch-button  p-togglebutton p-component"
+        class="om-react-ui-switch om-react-ui-switch-button p-togglebutton p-component"
         data-p-highlight="false"
         data-pc-name="togglebutton"
         data-pc-section="root"
@@ -43,7 +43,7 @@ exports[`Switch renders correctly 1`] = `
           value="false"
         />
         <div
-          class="om-react-ui-switch om-react-ui-switch-button  p-button p-component"
+          class="om-react-ui-switch om-react-ui-switch-button p-button p-component"
           data-pc-section="box"
         >
           <span
@@ -59,7 +59,7 @@ exports[`Switch renders correctly 1`] = `
   "container": <div>
     <div
       aria-checked="false"
-      class="om-react-ui-switch om-react-ui-switch  p-inputswitch p-component"
+      class="om-react-ui-switch om-react-ui-switch p-inputswitch p-component"
       data-p-disabled="false"
       data-p-highlight="false"
       data-pc-name="inputswitch"
@@ -140,7 +140,7 @@ exports[`Switch renders correctly 2`] = `
     <div>
       <div
         aria-checked="false"
-        class="om-react-ui-switch om-react-ui-switch  p-inputswitch p-component"
+        class="om-react-ui-switch om-react-ui-switch p-inputswitch p-component"
         data-p-disabled="false"
         data-p-highlight="false"
         data-pc-name="inputswitch"
@@ -162,7 +162,7 @@ exports[`Switch renders correctly 2`] = `
     </div>
     <div>
       <div
-        class="om-react-ui-switch om-react-ui-switch-button  p-togglebutton p-component"
+        class="om-react-ui-switch om-react-ui-switch-button p-togglebutton p-component"
         data-p-highlight="false"
         data-pc-name="togglebutton"
         data-pc-section="root"
@@ -176,7 +176,7 @@ exports[`Switch renders correctly 2`] = `
           value="false"
         />
         <div
-          class="om-react-ui-switch om-react-ui-switch-button  p-button p-component"
+          class="om-react-ui-switch om-react-ui-switch-button p-button p-component"
           data-pc-section="box"
         >
           <span
@@ -191,7 +191,7 @@ exports[`Switch renders correctly 2`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-switch om-react-ui-switch-button  p-togglebutton p-component"
+      class="om-react-ui-switch om-react-ui-switch-button p-togglebutton p-component"
       data-p-highlight="false"
       data-pc-name="togglebutton"
       data-pc-section="root"
@@ -205,7 +205,7 @@ exports[`Switch renders correctly 2`] = `
         value="false"
       />
       <div
-        class="om-react-ui-switch om-react-ui-switch-button  p-button p-component"
+        class="om-react-ui-switch om-react-ui-switch-button p-button p-component"
         data-pc-section="box"
       >
         <span

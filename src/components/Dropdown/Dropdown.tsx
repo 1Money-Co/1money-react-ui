@@ -1,7 +1,7 @@
 import { memo, useRef, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import debounce from 'lodash.debounce';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren, CSSProperties, SyntheticEvent } from 'react';
 import type { DropdownProps } from './interface';
@@ -89,11 +89,11 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
     <OverlayPanel
       {...rest}
       ref={overlayRef}
-      className={classes(void 0, [
+      className={classes(void 0, joinCls(
         className,
         isHover && classes('hover'),
         isScrolling && classes('scrolling'),
-      ].join(' '))}
+      ))}
       style={{
         '--dropdown-width': width || 'auto',
         '--dropdown-height': height || 'auto',
@@ -126,7 +126,7 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = props => {
           renderList?.(items) ?? <ul className={classes('list', listCls)}>
             {
               items.map((item, ind) => (
-                <li key={item.key ?? ind} className={classes('list-item', [itemCls, item.active ? itemActiveCls : void 0].join(' '))}>
+                <li key={item.key ?? ind} className={classes('list-item', joinCls(itemCls, item.active ? itemActiveCls : void 0))}>
                   {item.children}
                 </li>
               ))

@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce';
 import { Dropdown, type DropdownProps } from 'primereact/dropdown';
 import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
 import { Skeleton } from 'primereact/skeleton';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import { Icons } from '../Icons';
 import { Spinner } from '../Spinner';
 /* import types */
@@ -33,17 +33,17 @@ const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' 
       label ?
         loading
           ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
-          : <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>
+          : <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>
         : null
     }
     {children}
     {
       message && <span
-        className={classes('message', [
-          success ? classes('message-success') : '',
-          invalid ? classes('message-error') : '',
+        className={classes('message', joinCls(
+          success && classes('message-success'),
+          invalid && classes('message-error'),
           messageCls
-        ].join(' ').trim())}
+        ))}
       >
         {message}
       </span>
@@ -85,16 +85,16 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   const [value, setValue] = useState('');
   const [isFocus, setIsFocus] = useState(false);
 
-  const selectCls = useMemo(() => classes(void 0, [
+  const selectCls = useMemo(() => classes(void 0, joinCls(
     classes(size),
     classes('custom'),
-    isFocus ? classes('focus') : '',
-    success ? classes('success') : '',
-    invalid ? classes('invalid') : '',
-    disabled ? classes('disabled') : '',
-    editable ? classes('editable') : '',
+    isFocus && classes('focus'),
+    success && classes('success'),
+    invalid && classes('invalid'),
+    disabled && classes('disabled'),
+    editable && classes('editable'),
     className
-  ].join(' ')), [size, isFocus, success, invalid, disabled, editable, className]);
+  )), [size, isFocus, success, invalid, disabled, editable, className]);
 
   useImperativeHandle(ref, () => ({
     focus: () => setIsFocus(true),
@@ -237,16 +237,16 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
   const selectRef = useRef<Dropdown | MultiSelect | null>(null);
   const _ref = useRef<Dropdown | MultiSelect | null>(null);
 
-  const selectCls = useMemo(() => classes(void 0, [
+  const selectCls = useMemo(() => classes(void 0, joinCls(
     classes(size),
-    isOpen ? classes('show') : '',
-    success ? classes('success') : '',
-    invalid ? classes('invalid') : '',
-    disabled ? classes('disabled') : '',
-    loading ? classes('loading') : '',
-    (Array.isArray(selected) ? selected.length : selected) ? classes('filled') : '',
+    isOpen && classes('show'),
+    success && classes('success'),
+    invalid && classes('invalid'),
+    disabled && classes('disabled'),
+    loading && classes('loading'),
+    (Array.isArray(selected) ? !!selected.length : !!selected) && classes('filled'),
     className
-  ].filter(Boolean).join(' ')), [size, isOpen, success, selected, invalid, disabled, loading, className]);
+  )), [size, isOpen, success, selected, invalid, disabled, loading, className]);
 
   const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
 
@@ -388,12 +388,12 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         }}
         filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
         loadingIcon={<Spinner className={classes('loading-icon')} strokeWidth='4' />}
-        panelClassName={classes('panel', [
+        panelClassName={classes('panel', joinCls(
           panelClassName,
           isHover && classes('panel-hover'),
           isScrolling && classes('panel-scrolling'),
           rest.appendTo === 'self' && classes('panel-append-self'),
-        ].join(' '))}
+        ))}
         onChange={(e) => {
           setSelected(e.value);
           // @ts-expect-error

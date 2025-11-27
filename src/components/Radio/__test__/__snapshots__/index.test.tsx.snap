@@ -6,10 +6,10 @@ exports[`Radio renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-radio-wrapper "
+        class="om-react-ui-radio-wrapper"
       >
         <div
-          class="om-react-ui-radio-inner  rd-md"
+          class="om-react-ui-radio-inner rd-md"
         >
           <div
             class="om-react-ui-radio-radio p-radiobutton p-component"
@@ -44,10 +44,10 @@ exports[`Radio renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-radio-wrapper "
+      class="om-react-ui-radio-wrapper"
     >
       <div
-        class="om-react-ui-radio-inner  rd-md"
+        class="om-react-ui-radio-inner rd-md"
       >
         <div
           class="om-react-ui-radio-radio p-radiobutton p-component"

@@ -2,7 +2,7 @@ import { memo, useRef, useState, useEffect, useImperativeHandle } from 'react';
 import debounce from 'lodash.debounce';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, CSSProperties } from 'react';
 import type { TableProps, TableClass } from './interface';
@@ -44,7 +44,7 @@ export const Table: FC<TableProps> = props => {
     <DataTable
       {...rest}
       ref={tableRef}
-      className={classes(void 0, [
+      className={classes(void 0, joinCls(
         className,
         rowBorder && classes('row-border'),
         transparent && classes('transparent'),
@@ -52,7 +52,7 @@ export const Table: FC<TableProps> = props => {
         isScrolling && classes('scrolling'),
         scrollTop > 0 && classes('scrolled'),
         hoverEffect && classes('hover-effect'),
-      ].filter(Boolean).join(' '))}
+      ))}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onTouchStart={() => setIsHover(true)}

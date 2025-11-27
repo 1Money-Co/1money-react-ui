@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
 /* import types */
 import type { FC } from 'react';
@@ -10,7 +10,7 @@ export const UploadFileBar: FC<UploadFileBarProps> = props => {
   const classes = classnames(prefixCls);
 
   return (
-    <div className={classes(void 0, [classes(status === 0 ? 'success' : 'failure'), className].join(' '))}>
+    <div className={classes(void 0, joinCls(classes(status === 0 ? 'success' : 'failure'), className))}>
       <div className={classes('inner')}>
         <Icons
           wrapperCls={classes('icon-file')}
