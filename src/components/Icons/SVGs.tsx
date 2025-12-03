@@ -616,6 +616,9 @@ export const PauseIcon: FC<IconWrapperProps> = (props) => <IconWrapper {...props
   <path d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM10.125 17H8.125V7H10.125V17ZM15.875 17H13.875V7H15.875V17Z"/>
 </IconWrapper>;
 
+export const AutoConversionRulesIcon: FC<IconWrapperProps> = (props) => <IconWrapper  {...props}>
+  <path d="M13.4824 10.5713H20.1963L9.76758 22V13.4287H3.05371L13.4824 2V10.5713Z"  strokeWidth="2" strokeLinejoin="round"/>
+</IconWrapper>;
 
 export default {
   /* Primary Icons */
@@ -733,6 +736,7 @@ export default {
   BusinessAccountIcon,
   APIKeyIcon,
   BrokenLinkIcon,
+  AutoConversionRulesIcon,
   /* filled icons */
   GoogleIcon,
   AppleIcon,
