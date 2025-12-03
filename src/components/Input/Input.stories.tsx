@@ -49,6 +49,7 @@ export const Normal: Story = {
 export const Number: Story = {
   args: {
     type: 'number',
+    maxFractionDigits: 8,
     prefixEle: <i style={{ backgroundColor: '#DDE6F4', borderRadius: '50%', padding: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
       <Icons name='logo' size={20} color='#073387' />
     </i>,
