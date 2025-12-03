@@ -23,6 +23,7 @@ const meta: Meta<typeof Select> = {
   },
   args: {
     size: 'large',
+    filter: true,
     disabled: false,
     loading: false,
     success: false,
