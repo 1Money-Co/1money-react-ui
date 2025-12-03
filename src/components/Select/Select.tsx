@@ -362,7 +362,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         {...(() => {
           const { filterIcon, filter, ...others } = rest as any;
           const extraProps = filter ? { filterIcon: filterIcon ?? <Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} /> } : null;
-          return { ...others, ...(extraProps || {}) };
+          return { ...others, filter, ...(extraProps || {}) };
         })()}
         id={id}
         ref={selectRef}
