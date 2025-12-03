@@ -169,6 +169,7 @@ import {
   APIKeyIcon,
   BrokenLinkIcon,
   PauseIcon,
+  AutoConversionRulesIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -335,6 +336,7 @@ const IconList = {
   individualAccount: IndividualAccountIcon,
   apiKey: APIKeyIcon,
   brokenLink: BrokenLinkIcon,
+  autoConversionRules: AutoConversionRulesIcon,
 
   /* Currency Icons */
   usd: USDIcon,
