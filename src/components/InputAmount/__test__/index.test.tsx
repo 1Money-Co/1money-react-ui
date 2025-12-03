@@ -45,4 +45,26 @@ describe('InputAmount', () => {
     await user.click(screen.getByTestId('id-input-amount'))
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('handles fullwidth decimal point input', async () => {
+    const user = userEvent.setup();
+    render(<InputAmount />);
+    const input = screen.getByRole('textbox');
+
+    await user.type(input, '12。34');
+    expect(input).toHaveValue('12.34');
+
+    await user.clear(input);
+    await user.type(input, '56．');
+    expect(input).toHaveValue('56.');
+  });
+
+  it('normalizes fullwidth comma separators', async () => {
+    const user = userEvent.setup();
+    render(<InputAmount />);
+    const input = screen.getByRole('textbox');
+
+    await user.type(input, '1，234。56');
+    expect(input).toHaveValue('1,234.56');
+  });
 });

@@ -87,7 +87,6 @@ exports[`Select renders correctly 1`] = `
           class="om-react-ui-select om-react-ui-select-large p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
-          filtericon="[object Object]"
         >
           <div
             class="p-hidden-accessible"
@@ -360,7 +359,6 @@ exports[`Select renders correctly 2`] = `
           class="om-react-ui-select om-react-ui-select-large p-multiselect p-component p-inputwrapper"
           data-pc-name="multiselect"
           data-pc-section="root"
-          filtericon="[object Object]"
         >
           <div
             class="p-hidden-accessible"
@@ -425,7 +423,6 @@ exports[`Select renders correctly 2`] = `
         class="om-react-ui-select om-react-ui-select-large p-multiselect p-component p-inputwrapper"
         data-pc-name="multiselect"
         data-pc-section="root"
-        filtericon="[object Object]"
       >
         <div
           class="p-hidden-accessible"
