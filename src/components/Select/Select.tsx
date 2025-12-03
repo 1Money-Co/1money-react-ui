@@ -359,7 +359,11 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
       loading={loading}
     >
       <SelectComponent
-        {...rest as any}
+        {...(() => {
+          const { filterIcon, filter, ...others } = rest as any;
+          const extraProps = filter ? { filterIcon: filterIcon ?? <Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} /> } : null;
+          return { ...others, ...(extraProps || {}) };
+        })()}
         id={id}
         ref={selectRef}
         name={name}
@@ -386,7 +390,6 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
             <Icons name='check' size={16} color='#073387' />
           </div>;
         }}
-        filterIcon={<Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} />}
         loadingIcon={<Spinner className={classes('loading-icon')} strokeWidth='4' />}
         panelClassName={classes('panel', joinCls(
           panelClassName,

@@ -3,10 +3,15 @@ import BigNumber from 'bignumber.js';
 import { numericFormatter } from 'react-number-format';
 import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
-import type { FC, PropsWithChildren, CSSProperties, KeyboardEvent, ChangeEvent } from 'react';
+import type { FC, PropsWithChildren, CSSProperties, ChangeEvent } from 'react';
 import type { InputAmountProps } from './interface';
 
 const MIN_INPUT_WIDTH = 33;
+
+const normalizeNumberInput = (val: string) =>
+  val
+    .replace(/[\u3002\uff0e\uff61]/g, '.')
+    .replace(/[\uFF0C]/g, ',');
 
 export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const {
@@ -67,7 +72,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
-    if (val != null) val = val.split(',').join('');
+    if (val != null) val = normalizeNumberInput(val).split(',').join('');
     const hasDecimalPoint = !!val && val.endsWith('.');
     if (hasDecimalPoint) val = val.slice(0, -1);
     if (!negative && val?.includes('-')) return;
@@ -160,7 +165,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       if (val === '') {
         val = null;
       } else {
-        val = val.split(',').join('');
+        val = normalizeNumberInput(val).split(',').join('');
         hasDecimalPoint = !!val && val.endsWith('.');
         if (hasDecimalPoint) val = val.slice(0, -1);
         if (!negative) val = val.replace(/-/g, '');
