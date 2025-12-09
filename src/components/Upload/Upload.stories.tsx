@@ -20,11 +20,11 @@ const meta: Meta<typeof Upload> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof Upload>;
- 
+
 export const Primary: Story = {
   args: {
     prefixCls: 'upload'
@@ -44,7 +44,7 @@ export const Basic: Story = {
 
 export const FileBar: Story = {
   render: () => <div style={{ width: '300px' }}>
-    <UploadFileBar fileName='test.png' />
+    <UploadFileBar fileName='testtesttesttesttesttesttesttesttesttesttesttesttest.png' />
     <br />
     <br />
     <UploadFileBar fileName='test.png' status={1} message='system error' />
