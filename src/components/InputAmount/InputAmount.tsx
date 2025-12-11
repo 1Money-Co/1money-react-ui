@@ -157,7 +157,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       const [int, decimal] = val.split('.');
       const maxDecimals = Number(maxFractionDigits);
       if (decimal != null && decimal.length > maxDecimals) {
-        const [oldInt, ] = formattedValue.split('.');
+        const [oldInt,] = formattedValue.split('.');
         if (oldInt.split(',').join('') == int) return;
         val = `${int}.${decimal.slice(0, maxDecimals)}`;
       }
@@ -167,14 +167,18 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       val = calcValueInRange(val, min, max);
     }
 
-    if (val !== '' && !isStandaloneMinus)  {
-      const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-      const bn = BigNumber(val);
-      let normalized = bn.toFixed(decimals);
-      if (negative && val.trim().startsWith('-') && bn.isZero()) {
-        normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+    if (val !== '') {
+      if (isStandaloneMinus) {
+        val = '-';
+      } else {
+        const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
+        const bn = BigNumber(val);
+        let normalized = bn.toFixed(decimals);
+        if (negative && val.trim().startsWith('-') && bn.isZero()) {
+          normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+        }
+        val = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
       }
-      val =`${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
     }
 
     if (typeof value === 'undefined') {
@@ -185,7 +189,6 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       e.stopPropagation();
       e.preventDefault();
     }
-
     onChange?.(e, val);
   }, [onChange, disabled, readOnly]);
 
@@ -234,7 +237,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   useLayoutEffect(() => {
     let val = value;
     let hasDecimalPoint = false;
-    const { _value, formattedValue } = valueRef.current;
+    const { formattedValue } = valueRef.current;
+    let isStandaloneMinus = false;
     if (typeof val === 'string') {
       if (val === '') {
         val = null;
@@ -243,11 +247,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         hasDecimalPoint = !!val && val.endsWith('.');
         if (hasDecimalPoint) val = val.slice(0, -1);
         if (!negative) val = val.replace(/-/g, '');
-        if (negative && val === '-') {
-          setValue('-');
-          return;
-        }
-        if (isNaN(+val)) return;
+        isStandaloneMinus = !!negative && val === '-';
+        if (!isStandaloneMinus && isNaN(+val)) return;
       }
     } else if (val !== null && typeof val !== 'number' && typeof val !== 'bigint') return;
 
@@ -264,7 +265,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       const [int, decimal] = ('' + val).split('.');
       const maxDecimals = Number(maxFractionDigits);
       if (decimal != null && decimal.length > maxDecimals) {
-        const [oldInt, ] = formattedValue.split('.');
+        const [oldInt,] = formattedValue.split('.');
         if (oldInt.split(',').join('') == int) return;
         val = `${int}.${decimal.slice(0, maxDecimals)}`;
       }
@@ -277,17 +278,20 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (val === '' || val == null) {
       setValue(null);
     } else {
-      const strVal = '' + val;
-      const decimals = strVal.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-      const bn = BigNumber(strVal);
-      let normalized = bn.toFixed(decimals);
-      if (negative && strVal.trim().startsWith('-') && bn.isZero()) {
-        normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+      if (isStandaloneMinus) {
+        val = '-';
+      } else {
+        const strVal = '' + val;
+        const decimals = strVal.match(/\.(\d+)$/)?.[1]?.length ?? 0;
+        const bn = BigNumber(strVal);
+        let normalized = bn.toFixed(decimals);
+        if (negative && strVal.trim().startsWith('-') && bn.isZero()) {
+          normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+        }
+        val = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
       }
-      const res = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
-      setValue(res);
+      setValue(val);
     }
-
     calcCaretPos(val ?? '', hasDecimalPoint ? 2 : 0, Math.max(inputCaretPositionRef.current, 0));
     ignoreSelectRef.current = true;
   }, [value, maxFractionDigits, min, max, negative]);
@@ -376,7 +380,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         className={classes('fake')}
         onClick={e => e.stopPropagation()}
       >
-        { formattedValue }
+        {formattedValue}
       </span>
     </div>
     {

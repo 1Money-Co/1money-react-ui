@@ -27,13 +27,13 @@ const meta: Meta<typeof InputAmount> = {
   },
   args: {
     type: 'primary',
-    min: -500,
+    min: -Infinity,
     max: Infinity,
     disabled: false,
     loading: false,
     success: false,
     invalid: false,
-    negative: false,
+    negative: true,
   },
   tags: ['autodocs'],
 };
