@@ -20,7 +20,7 @@ $cls: #{$prefix}-#{$component};
     height: 44px;
     padding: 12px;
     padding: 12px 16px;
-    overflow-x: hidden;
+    overflow: hidden;
     color: $color-primary;
     background-color: $color-primary-white;
     border-color: $color-grey-bold;
