@@ -1,1 +1,2 @@
-import './InputAmount.scss';
+import './normal.scss';
+import './primary.scss';

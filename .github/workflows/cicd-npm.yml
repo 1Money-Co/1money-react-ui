@@ -1,5 +1,5 @@
 name: NPM CICD
-on: 
+on:
   push:
     tags:
       - v*
@@ -8,6 +8,9 @@ jobs:
   Build-Publish:
     runs-on: ubuntu-latest
     if: github.repository_owner == '1Money-Co'
+    permissions:
+      contents: read
+      id-token: write
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -23,9 +26,10 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('./pnpm-lock.yaml') }}
 
     - name: Setup node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '20.16'
+        registry-url: 'https://registry.npmjs.org'
 
     - run: npm install --global pnpm@10
     - run: pnpm i --frozen-lockfile
@@ -51,10 +55,7 @@ jobs:
           echo "tag=latest" >> $GITHUB_OUTPUT
         fi
 
-    - name: Deploy Npm
-      uses: JS-DevTools/npm-publish@v3
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
-        package: ./package.json
-        access: 'public'
-        tag: ${{ steps.set_tag.outputs.tag }}
+    - name: Publish to NPM
+      run: npm publish --provenance --access public --tag ${{ steps.set_tag.outputs.tag }}
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

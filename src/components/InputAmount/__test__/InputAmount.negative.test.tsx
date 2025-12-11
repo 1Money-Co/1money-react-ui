@@ -52,13 +52,13 @@ describe('InputAmount negative behaviour', () => {
     const user = userEvent.setup();
     const Controlled = () => {
       const [val, setVal] = useState('');
-      return <InputAmount negative value={val} onChange={(e) => setVal(e.target.value)} />;
+      return <InputAmount negative value={val} onChange={(_, val) => setVal(val)} />;
     };
     render(<Controlled />);
     const input = screen.getByRole('textbox');
 
-    await user.type(input, '-0.45');
+    await user.type(input, '-0.65');
 
-    expect(input).toHaveValue('-0.45');
+    expect(input).toHaveValue('-0.65');
   });
 });

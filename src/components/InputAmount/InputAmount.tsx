@@ -1,6 +1,8 @@
-import { memo, useMemo, useState, useCallback, useRef, useEffect } from 'react';
+import { memo, useMemo, useState, useCallback, useRef, useEffect, useLayoutEffect } from 'react';
 import BigNumber from 'bignumber.js';
 import { numericFormatter } from 'react-number-format';
+import { Skeleton } from 'primereact/skeleton';
+import Spinner from '../Spinner';
 import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren, CSSProperties, ChangeEvent } from 'react';
@@ -13,30 +15,50 @@ const normalizeNumberInput = (val: string) =>
     .replace(/[\u3002\uff0e\uff61]/g, '.')
     .replace(/[\uFF0C]/g, ',');
 
+const calcValueInRange = (
+  val: string,
+  min?: boolean | number | bigint,
+  max?: boolean | number | bigint,
+) => {
+  if (val === '' || val === '-' || isNaN(+val)) return val;
+
+  let calcVal = val;
+  const bnVal = BigNumber(val);
+
+  if (typeof min === 'number' || typeof min === 'bigint') {
+    const minBn = BigNumber(min);
+    if (bnVal.lt(minBn)) {
+      calcVal = '' + min;
+    }
+  }
+
+  if (typeof max === 'number' || typeof max === 'bigint') {
+    const maxBn = BigNumber(max);
+    if (bnVal.gt(maxBn)) {
+      calcVal = '' + max;
+    }
+  }
+
+  return calcVal;
+};
+
 export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const {
     value,
+    type = 'primary',
     maxFractionDigits,
     children,
-    className,
-    wrapperCls,
-    prefixCls = 'input-amount',
-    messageCls,
-    footnoteCls,
-    invalid,
     placeholder = '0',
-    negative,
-    prefix,
-    currency,
-    suffix,
-    message,
-    footnote,
-    onChange,
-    onBlur,
-    onFocus,
+    min, max,
+    // @ts-expect-error
+    size = 'large', footnote, footnoteCls,
+    className, wrapperCls, labelCls, prefixCls = 'input-amount', messageCls, prefixEleCls, suffixEleCls,
+    invalid, negative, required, loading, success, disabled, readOnly,
+    label, prefix, suffix, currency, message,
+    onChange, onBlur, onFocus,
     ...rest
   } = props;
-  const classes = classnames(prefixCls);
+  const classes = classnames(`${prefixCls}-${type}`);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const fakeEleRef = useRef<HTMLSpanElement>(null);
@@ -45,6 +67,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const currencyRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputCaretPositionRef = useRef<number>(0);
+  const ignoreSelectRef = useRef<boolean>(false);
 
   const [_value, setValue] = useState<string | null>(null);
   const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
@@ -58,6 +81,16 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     });
   }, [_value, negative]);
 
+  const valueRef = useRef({
+    value,
+    _value,
+    formattedValue,
+    min,
+    max,
+    negative,
+    maxFractionDigits,
+  });
+
   const scrollToEnd = useCallback((sticky: boolean = false) => {
     const input = inputRef.current;
     if (!input) return;
@@ -70,30 +103,28 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     input.focus();
   }, []);
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    let val = e.target.value;
-    if (val != null) val = normalizeNumberInput(val).split(',').join('');
-    const hasDecimalPoint = !!val && val.endsWith('.');
-    if (hasDecimalPoint) val = val.slice(0, -1);
-    if (!negative && val?.includes('-')) return;
-    const isStandaloneMinus = negative && val === '-';
-    if (!isStandaloneMinus && isNaN(+val)) return;
-    if (val === _value && !hasDecimalPoint) return;
-    if (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint') {
-      const [, decimal] = val.split('.');
-      if (decimal != null && decimal.length > Number(maxFractionDigits)) return;
-    }
+  const calcCaretPos = useCallback((
+    val: string,
+    offset = 0,
+    currPos?: number,
+  ) => {
     if (inputRef.current) {
+      const { _value, negative, formattedValue } = valueRef.current;
       const formattedNewVal = numericFormatter(val, {
         thousandSeparator: true,
         allowNegative: negative,
       });
 
-      const isAdd = val.length > (_value?.length ?? 0);
-      let position = inputRef.current.selectionStart ?? 0;
-      const oldPosVal = formattedValue.slice(0, (position - (isAdd ? 1 : -1)));
-      position = oldPosVal.split(',').join('').length + (isAdd ? 1 : -1);
-      const posVal = val.slice(0, position);
+      const originOffset = val.length - (_value?.length ?? 0);
+      const isAdd = originOffset > 0;
+      const directionOffset = isAdd ? 1 : -1;
+      const ignoreOldPos = isAdd ? val.length - (_value?.length ?? 0) > 1 : false;
+      let position = currPos ?? inputRef.current.selectionEnd ?? 0;
+      if (!ignoreOldPos) {
+        const oldPosVal = formattedValue.slice(0, Math.max(position, 0));
+        position = oldPosVal.split(',').join('').length;
+      }
+      const posVal = val.slice(0, (position + directionOffset));
       formattedNewVal.split('').reduce<string[]>((acc, char, ind) => {
         if (char === ',') return acc;
         else acc.push(char);
@@ -103,14 +134,42 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         }
         return acc;
       }, []);
-      inputCaretPositionRef.current = position + (hasDecimalPoint ? 2 : 0);
+      const formatOffset = formattedNewVal.length - formattedValue.length;
+      const isPasteBehavior = !_value && originOffset > 1;
+      inputCaretPositionRef.current = position + offset + (isPasteBehavior ? formatOffset : 0);
+    }
+  }, []);
+
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    if (disabled || readOnly) return;
+
+    const { value, _value, formattedValue, min, max, negative, maxFractionDigits } = valueRef.current;
+    let val = e.target.value;
+    if (val != null) val = normalizeNumberInput(val).split(',').join('');
+    const hasDecimalPoint = !!val && val.endsWith('.');
+    if (hasDecimalPoint) val = val.slice(0, -1);
+    if (!negative && val?.includes('-')) return;
+    const isStandaloneMinus = negative && val === '-';
+    if (!isStandaloneMinus && isNaN(+val)) return;
+    if (val === _value && !hasDecimalPoint) return;
+
+    if (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint') {
+      const [int, decimal] = val.split('.');
+      const maxDecimals = Number(maxFractionDigits);
+      if (decimal != null && decimal.length > maxDecimals) {
+        const [oldInt,] = formattedValue.split('.');
+        if (oldInt.split(',').join('') == int) return;
+        val = `${int}.${decimal.slice(0, maxDecimals)}`;
+      }
     }
 
-    if (typeof value === 'undefined') {
-      if (val === '') {
-        setValue(null);
-      } else if (isStandaloneMinus) {
-        setValue('-');
+    if ((typeof min === 'number' || typeof min === 'bigint') || (typeof max === 'number' || typeof max === 'bigint')) {
+      val = calcValueInRange(val, min, max);
+    }
+
+    if (val !== '') {
+      if (isStandaloneMinus) {
+        val = '-';
       } else {
         const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
         const bn = BigNumber(val);
@@ -118,14 +177,31 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         if (negative && val.trim().startsWith('-') && bn.isZero()) {
           normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
         }
-        setValue(`${normalized}${hasDecimalPoint ? '.' : ''}`.trim());
+        val = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
       }
     }
 
-    onChange?.(e);
-  }, [onChange, _value, value, formattedValue, maxFractionDigits, negative]);
+    if (typeof value === 'undefined') {
+      setValue(val === '' ? null : val);
+      calcCaretPos(val, hasDecimalPoint ? 2 : 0, Math.max(inputCaretPositionRef.current, 0));
+      ignoreSelectRef.current = true;
+    } else {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    onChange?.(e, val);
+  }, [onChange, disabled, readOnly]);
 
-  useEffect(() => {
+  const handleSelect = useCallback(() => {
+    if (ignoreSelectRef.current) {
+      ignoreSelectRef.current = false;
+      return;
+    }
+    const currPos = inputRef.current?.selectionEnd;
+    if (typeof currPos === 'number') inputCaretPositionRef.current = currPos;
+  }, []);
+
+  useLayoutEffect(() => {
     const containerWidth = containerRef.current?.offsetWidth ?? MIN_INPUT_WIDTH;
     const prefixWidth = prefixRef.current?.offsetWidth ?? 0;
     const suffixWidth = suffixRef.current?.offsetWidth ?? 0;
@@ -146,21 +222,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     if (isFocus) scrollToEnd(true);
   }, [_value, prefix, suffix, currency, isFocus]);
 
-  useEffect(() => {
-    // clear negative sign if not allowed
-    if (negative) return;
-    if (typeof value !== 'undefined') return;
-    if (_value == null) return;
-    if (_value === '-') {
-      setValue(null);
-      return;
-    }
-    if (_value.startsWith('-')) setValue(_value.slice(1));
-  }, [negative, value, _value]);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     let val = value;
     let hasDecimalPoint = false;
+    const { formattedValue } = valueRef.current;
+    let isStandaloneMinus = false;
     if (typeof val === 'string') {
       if (val === '') {
         val = null;
@@ -169,11 +235,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         hasDecimalPoint = !!val && val.endsWith('.');
         if (hasDecimalPoint) val = val.slice(0, -1);
         if (!negative) val = val.replace(/-/g, '');
-        if (negative && val === '-') {
-          setValue('-');
-          return;
-        }
-        if (isNaN(+val)) return;
+        isStandaloneMinus = !!negative && val === '-';
+        if (!isStandaloneMinus && isNaN(+val)) return;
       }
     } else if (val !== null && typeof val !== 'number' && typeof val !== 'bigint') return;
 
@@ -188,28 +251,69 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
 
     if ((typeof val === 'string' || typeof val === 'number') && (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')) {
       const [int, decimal] = ('' + val).split('.');
-      if (decimal != null && decimal.length > Number(maxFractionDigits)) {
-        val = int + '.' + decimal.slice(0, Number(maxFractionDigits));
+      const maxDecimals = Number(maxFractionDigits);
+      if (decimal != null && decimal.length > maxDecimals) {
+        const [oldInt,] = formattedValue.split('.');
+        if (oldInt.split(',').join('') == int) return;
+        val = `${int}.${decimal.slice(0, maxDecimals)}`;
       }
     }
-    
+
+    if (typeof val === 'string' || typeof val === 'number' || typeof val === 'bigint') {
+      val = calcValueInRange('' + val, min, max);
+    }
+
     if (val === '' || val == null) {
       setValue(null);
     } else {
-      const strVal = '' + val;
-      const decimals = strVal.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-      const bn = BigNumber(strVal);
-      let normalized = bn.toFixed(decimals);
-      if (negative && strVal.trim().startsWith('-') && bn.isZero()) {
-        normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+      if (isStandaloneMinus) {
+        val = '-';
+      } else {
+        const strVal = '' + val;
+        const decimals = strVal.match(/\.(\d+)$/)?.[1]?.length ?? 0;
+        const bn = BigNumber(strVal);
+        let normalized = bn.toFixed(decimals);
+        if (negative && strVal.trim().startsWith('-') && bn.isZero()) {
+          normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
+        }
+        val = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
       }
-      setValue(`${normalized}${hasDecimalPoint ? '.' : ''}`.trim());
+      setValue(val);
     }
-  }, [value, maxFractionDigits, negative]);
+    calcCaretPos(val ?? '', hasDecimalPoint ? 2 : 0, Math.max(inputCaretPositionRef.current, 0));
+    ignoreSelectRef.current = true;
+  }, [value, maxFractionDigits, min, max, negative]);
+
+  useEffect(() => {
+    valueRef.current = {
+      value,
+      _value,
+      formattedValue,
+      min,
+      max,
+      negative,
+      maxFractionDigits
+    };
+  }, [_value, value, formattedValue, min, max, negative, maxFractionDigits]);
 
   return <div
-    className={classes('wrapper', joinCls(wrapperCls, invalid && classes('invalid')))}
+    className={classes('wrapper', joinCls(
+      wrapperCls,
+      classes(size),
+      invalid && classes('invalid'),
+      success && classes('success'),
+      disabled && classes('disabled'),
+      readOnly && classes('readonly'),
+      _value && classes('filled'),
+    ))}
   >
+    {
+      label
+        ? loading
+          ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
+          : <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>
+        : null
+    }
     <div
       ref={containerRef}
       className={classes(void 0, joinCls(className, isFocus && classes('focus')))}
@@ -222,7 +326,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       {
         prefix && <span
           ref={prefixRef}
-          className={classes('prefix')}
+          className={classes('prefix', prefixEleCls)}
         >
           {prefix}
         </span>
@@ -235,8 +339,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
           ref={inputRef}
           value={formattedValue}
           placeholder={placeholder}
+          readOnly={readOnly}
+          disabled={disabled}
           style={{ '--input-width': `${_width}px` } as CSSProperties}
           onChange={handleChange}
+          onSelect={handleSelect}
           onFocus={e => {
             setIsFocus(true);
             onFocus?.(e);
@@ -255,18 +362,13 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
           {currency}
         </span>
       }
-      {suffix && <span ref={suffixRef} className={classes('suffix')}>{suffix}</span>}
+      {loading ? <Spinner className={classes('suffix-loading')} strokeWidth='4' /> : suffix ? <span ref={suffixRef} className={classes('suffix', suffixEleCls)}>{suffix}</span> : null}
       <span
         ref={fakeEleRef}
         className={classes('fake')}
         onClick={e => e.stopPropagation()}
       >
-        {
-          numericFormatter('' + (_value == null ? '' : _value), {
-            thousandSeparator: true,
-            allowNegative: negative,
-          })
-        }
+        {formattedValue}
       </span>
     </div>
     {
