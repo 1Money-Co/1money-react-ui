@@ -210,7 +210,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   render: function Render(args) {
     const [value, setValue] = useState('');
     const [advices, setAdvices] = useState<string[]>([]);
-    const search = event => {
+    const search = (event: any) => {
       setAdvices([...Array(10).keys()].map(item => event.query + '-' + item));
     };
     return <Input {...args as any} type='autocomplete' value={value} suggestions={advices} completeMethod={search} onChange={e => setValue(e.value)} />;
