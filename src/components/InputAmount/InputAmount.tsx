@@ -109,7 +109,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     currPos?: number,
   ) => {
     if (inputRef.current) {
-      const { _value, formattedValue } = valueRef.current;
+      const { _value, negative, formattedValue } = valueRef.current;
       const formattedNewVal = numericFormatter(val, {
         thousandSeparator: true,
         allowNegative: negative,
@@ -221,18 +221,6 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     setIsMaxWidth(isMax);
     if (isFocus) scrollToEnd(true);
   }, [_value, prefix, suffix, currency, isFocus]);
-
-  useEffect(() => {
-    // clear negative sign if not allowed
-    if (negative) return;
-    if (typeof value !== 'undefined') return;
-    if (_value == null) return;
-    if (_value === '-') {
-      setValue(null);
-      return;
-    }
-    if (_value.startsWith('-')) setValue(_value.slice(1));
-  }, [negative, value, _value]);
 
   useLayoutEffect(() => {
     let val = value;
