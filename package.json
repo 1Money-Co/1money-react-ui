@@ -212,6 +212,10 @@
   },
   "keywords": [],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1Money-Co/1money-react-ui"
+  },
   "peerDependencies": {
     "primeicons": ">=7",
     "primereact": ">=10.9.0",
