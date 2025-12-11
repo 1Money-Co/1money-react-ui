@@ -75,7 +75,7 @@ export const AutoComplete: Story = {
     const [value, setValue] = useState('');
     const [advices, setAdvices] = useState<string[]>([]);
 
-    const search = (event) => {
+    const search = (event: any) => {
       setAdvices([...Array(10).keys()].map(item => event.query + '-' + item));
     }
 
