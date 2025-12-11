@@ -68,6 +68,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputCaretPositionRef = useRef<number>(0);
   const ignoreSelectRef = useRef<boolean>(false);
+  const onChangeRef = useRef(onChange);
 
   const [_value, setValue] = useState<string | null>(null);
   const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
@@ -117,14 +118,13 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
 
       const originOffset = val.length - (_value?.length ?? 0);
       const isAdd = originOffset > 0;
-      const directionOffset = isAdd ? 1 : -1;
       const ignoreOldPos = isAdd ? val.length - (_value?.length ?? 0) > 1 : false;
       let position = currPos ?? inputRef.current.selectionEnd ?? 0;
       if (!ignoreOldPos) {
         const oldPosVal = formattedValue.slice(0, Math.max(position, 0));
         position = oldPosVal.split(',').join('').length;
       }
-      const posVal = val.slice(0, (position + directionOffset));
+      const posVal = val.slice(0, (position + originOffset));
       formattedNewVal.split('').reduce<string[]>((acc, char, ind) => {
         if (char === ',') return acc;
         else acc.push(char);
@@ -134,9 +134,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         }
         return acc;
       }, []);
-      const formatOffset = formattedNewVal.length - formattedValue.length;
-      const isPasteBehavior = !_value && originOffset > 1;
-      inputCaretPositionRef.current = position + offset + (isPasteBehavior ? formatOffset : 0);
+      inputCaretPositionRef.current = position + offset;
     }
   }, []);
 
@@ -157,9 +155,10 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       const [int, decimal] = val.split('.');
       const maxDecimals = Number(maxFractionDigits);
       if (decimal != null && decimal.length > maxDecimals) {
+        const truncatedDecimals = decimal.slice(0, maxDecimals);
         const [oldInt,] = formattedValue.split('.');
         if (oldInt.split(',').join('') == int) return;
-        val = `${int}.${decimal.slice(0, maxDecimals)}`;
+        val = `${int}.${truncatedDecimals}`;
       }
     }
 
@@ -186,11 +185,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       calcCaretPos(val, hasDecimalPoint ? 2 : 0, Math.max(inputCaretPositionRef.current, 0));
       ignoreSelectRef.current = true;
     } else {
-      e.stopPropagation();
       e.preventDefault();
+      e.stopPropagation();
     }
-    onChange?.(e, val);
-  }, [onChange, disabled, readOnly]);
+    onChangeRef.current?.(e, val);
+  }, [disabled, readOnly]);
 
   const handleSelect = useCallback(() => {
     if (ignoreSelectRef.current) {
@@ -223,9 +222,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   }, [_value, prefix, suffix, currency, isFocus]);
 
   useLayoutEffect(() => {
-    let val = value;
+    let val = typeof value === 'undefined' ? _value : value;
     let hasDecimalPoint = false;
-    const { formattedValue } = valueRef.current;
     let isStandaloneMinus = false;
     if (typeof val === 'string') {
       if (val === '') {
@@ -249,13 +247,22 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       }
     }
 
-    if ((typeof val === 'string' || typeof val === 'number') && (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')) {
+    if (
+      (typeof val === 'string' || typeof val === 'number') &&
+      (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')
+    ) {
       const [int, decimal] = ('' + val).split('.');
       const maxDecimals = Number(maxFractionDigits);
       if (decimal != null && decimal.length > maxDecimals) {
-        const [oldInt,] = formattedValue.split('.');
-        if (oldInt.split(',').join('') == int) return;
-        val = `${int}.${decimal.slice(0, maxDecimals)}`;
+        const truncatedDecimals = decimal.slice(0, maxDecimals);
+        val = `${int}.${truncatedDecimals}`;
+        if (typeof value === 'undefined') {
+          setValue(val);
+        } else {
+          // @ts-expect-error
+          onChangeRef.current?.({ target: inputRef.current! }, val ?? '');
+        }
+        return;
       }
     }
 
@@ -285,6 +292,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   }, [value, maxFractionDigits, min, max, negative]);
 
   useEffect(() => {
+    onChangeRef.current = onChange;
     valueRef.current = {
       value,
       _value,
@@ -294,7 +302,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       negative,
       maxFractionDigits
     };
-  }, [_value, value, formattedValue, min, max, negative, maxFractionDigits]);
+  }, [_value, value, formattedValue, min, max, negative, maxFractionDigits, onChange]);
 
   return <div
     className={classes('wrapper', joinCls(
