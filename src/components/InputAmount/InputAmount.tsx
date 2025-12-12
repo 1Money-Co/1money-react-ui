@@ -68,7 +68,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputCaretPositionRef = useRef<number>(0);
   const ignoreSelectRef = useRef<boolean>(false);
-  const onChangeRef = useRef(onChange);
+  const onChangeRef = useRef<InputAmountProps['onChange']>(onChange);
 
   const [_value, setValue] = useState<string | null>(null);
   const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
@@ -259,8 +259,10 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
         if (typeof value === 'undefined') {
           setValue(val);
         } else {
-          // @ts-expect-error
-          onChangeRef.current?.({ target: inputRef.current! }, val ?? '');
+          const syntheticEvent = {
+            target: inputRef.current,
+          } as unknown as ChangeEvent<HTMLInputElement>;
+          onChangeRef.current?.(syntheticEvent, val ?? '');
         }
         return;
       }
