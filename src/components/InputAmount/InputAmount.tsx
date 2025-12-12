@@ -74,6 +74,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
   const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
   const [isMaxWidth, setIsMaxWidth] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
+  const isFocusRef = useRef(isFocus);
 
   const formattedValue = useMemo(() => {
     return numericFormatter('' + (_value == null ? '' : _value), {
@@ -91,6 +92,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     negative,
     maxFractionDigits,
   });
+
+  const changeFocus = useCallback((focus: boolean) => {
+    setIsFocus(focus);
+    isFocusRef.current = focus;
+  }, []);
 
   const scrollToEnd = useCallback((sticky: boolean = false) => {
     const input = inputRef.current;
@@ -216,8 +222,8 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     const isMax = fakeWidth >= maxWidth;
     setWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
     setIsMaxWidth(isMax);
-    if (isFocus) scrollToEnd(true);
-  }, [_value, prefix, suffix, currency, isFocus]);
+    if (isFocusRef.current) scrollToEnd(true);
+  }, [_value, prefix, suffix, currency]);
 
   useLayoutEffect(() => {
     let val = typeof value === 'undefined' ? _value : value;
@@ -353,11 +359,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
           onChange={handleChange}
           onSelect={handleSelect}
           onFocus={e => {
-            setIsFocus(true);
+            changeFocus(true);
             onFocus?.(e);
           }}
           onBlur={e => {
-            setIsFocus(false);
+            changeFocus(false);
             onBlur?.(e);
           }}
         />
