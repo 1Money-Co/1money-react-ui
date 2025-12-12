@@ -117,13 +117,11 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       });
 
       const originOffset = val.length - (_value?.length ?? 0);
-      const isAdd = originOffset > 0;
-      const ignoreOldPos = isAdd ? val.length - (_value?.length ?? 0) > 1 : false;
       let position = currPos ?? inputRef.current.selectionEnd ?? 0;
-      if (!ignoreOldPos) {
-        const oldPosVal = formattedValue.slice(0, Math.max(position, 0));
-        position = oldPosVal.split(',').join('').length;
-      }
+      
+      const oldPosVal = formattedValue.slice(0, Math.max(position, 0));
+      position = oldPosVal.split(',').join('').length;
+
       const posVal = val.slice(0, (position + originOffset));
       formattedNewVal.split('').reduce<string[]>((acc, char, ind) => {
         if (char === ',') return acc;
