@@ -183,6 +183,7 @@
   "scripts": {
     "start": "omni dev",
     "dev": "omni dev",
+    "dev:mcp": "node scripts/mcp-server/index.mjs",
     "test": "jest --passWithNoTests",
     "test:snapshot": "jest --updateSnapshot",
     "lint": "npm run lint:prettier && npm run lint:es && npm run lint:style",
@@ -249,6 +250,7 @@
     "@chromatic-com/storybook": "^1.9.0",
     "@commitlint/cli": "8.3.5",
     "@eslint/js": "^9.24.0",
+    "@modelcontextprotocol/sdk": "^1.25.0",
     "@omni-door/cli": "^3.1.1",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-console": "^3.0.0",

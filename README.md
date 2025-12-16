@@ -403,6 +403,20 @@ pnpm test
 pnpm lint
 ```
 
+### MCP Server (Claude/agents)
+
+The repo ships a lightweight MCP server that exposes all `src/components` files as resources for tools like Claude Desktop/CLI.
+
+1. Start the server (defaults to `http://127.0.0.1:8686/mcp`):
+   ```bash
+   MCP_HOST=127.0.0.1 MCP_PORT=8686 pnpm dev:mcp
+   ```
+2. Point your MCP client to the endpoint URL above.
+
+Notes:
+- Resources are auto-registered from `src/components/*` with per-file `file://` URIs and MIME types.
+- Restart the server after adding/removing component files so the list refreshes.
+
 ### Project Structure
 
 ```
