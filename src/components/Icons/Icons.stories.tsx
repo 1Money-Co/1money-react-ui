@@ -617,9 +617,9 @@ export const Logo: Story = {
         <Icons {...args} name='logoWithWords' width={180} height={36} />
         <span>logoWithWords</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' />")}>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' networkLogo />")}>
         <Icons {...args} name='logoWithWords' width={320} height={36} networkLogo />
-        <span>logoWithWords</span>
+        <span>logoWithWordsAndNetwork</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoBg' />")}>
         <Icons {...args} name='logoBg' width={56} height={57} />
