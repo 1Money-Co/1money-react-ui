@@ -47,8 +47,8 @@ $cls: #{$prefix}-#{$component};
   }
 
   &-warn {
+    color: $color-grey-midnight;
     background-color: $color-warning-background;
-
     .#{$cls}-icon {
       background-color: $color-warning-background;
     }
