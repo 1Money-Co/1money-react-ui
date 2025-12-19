@@ -23,14 +23,14 @@ $component: 'icons';
     align-items: center;
     font-style: normal;
 
-    svg {
+    i {
       &:nth-last-child(1) {
         padding-left: 5%;
       }
     }
 
     &-with-network {
-      svg {
+      i {
         &:nth-child(2),
         &:nth-child(3) {
           padding-left: 2.5%;
