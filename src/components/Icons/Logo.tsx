@@ -21,7 +21,7 @@ export const LogoWord: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0
   <path d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z" />
 </IconWrapper>;
 
-export const LogoNetwork: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0 558 86" {...props}>
+export const LogoNetwork: FC<IconWrapperProps> = (props) => <IconWrapper viewBox="0 0 557 85" {...props}>
   <path d="M64.6309 1.3502V84.6497H54.8806L9.8606 16.5821V84.6497H0.230591V1.3502H9.9809L55.001 69.2988V1.3502H64.6309Z" />
   <path d="M136.745 9.68015H91.1227V38.121H125.429V46.4509H91.1227V76.3198H136.745V84.6497H81.4928V1.3502H136.745V9.68015Z" />
   <path d="M146.179 1.3502H209.376V9.68015H182.653V84.6497H173.023V9.68015H146.179V1.3502Z" />
@@ -84,7 +84,7 @@ export const LogoWithWords: FC<IconWrapperProps & LogoWithWordsCustomProps> = (p
       width={
         width && height
           ? networkLogo
-            ? ((+width) - (+height) - ((+width) * 0.05) - ((+width) * 0.393))
+            ? ((+width) - (+height) - ((+width) * 0.025) - ((+width) * 0.46374))
             : ((+width) - (+height))
           : size
       }
@@ -98,7 +98,7 @@ export const LogoWithWords: FC<IconWrapperProps & LogoWithWordsCustomProps> = (p
         width={
           width && height
             ? networkLogo
-              ? ((+width) - (+height) - ((+width) * 0.05) - ((+width) * 0.464))
+              ? ((+width) - (+height) - ((+width) * 0.025) - ((+width) * 0.39287))
               : ((+width) - (+height))
             : size
         }
