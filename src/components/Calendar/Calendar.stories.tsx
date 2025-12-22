@@ -29,7 +29,10 @@ export const Primary: Story = {
     size: 'large',
     disabled: false,
     label: 'Date of Incorporation',
+    message: '',
     required: true,
+    invalid: false,
+    success: false,
     appendTo: null,
   },
 };

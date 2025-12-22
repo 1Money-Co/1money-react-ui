@@ -41,10 +41,14 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     prefixCls = 'calendar',
     wrapperCls,
     labelCls,
+    messageCls,
     className,
     panelClassName,
     label,
+    message,
     required,
+    success,
+    invalid,
     placeholder = 'MM/DD/YYYY',
     defaultValue,
     value,
@@ -70,6 +74,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
       {label && <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>}
       <PrimeCalendar
         {...rest}
+        invalid={invalid}
         value={date as any}
         onChange={(e: any) => {
           setDate(e.value);
@@ -86,6 +91,7 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
           className,
           classes(size),
           date && classes('filled'),
+          success && classes('success'),
         ))}
         panelClassName={classes('panel', panelClassName)}
         placeholder={placeholder}
@@ -98,6 +104,17 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
           })
         } : undefined}
       />
+      {
+        message && <span
+          className={classes('message', joinCls(
+            success && classes('message-success'),
+            invalid && classes('message-error'),
+            messageCls
+          ))}
+        >
+          {message}
+        </span>
+      }
     </div>
   );
 };
