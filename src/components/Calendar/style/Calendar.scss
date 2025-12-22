@@ -22,6 +22,16 @@ $size: 36px;
     }
   }
 
+  &.#{$cls}-success input {
+    color: $color-success;
+    border-color: $color-success;
+    box-shadow: none;
+
+    &:hover {
+      border-color: $color-success;
+    }
+  }
+
   &.p-calendar-disabled {
     cursor: not-allowed;
 
@@ -60,7 +70,7 @@ $size: 36px;
     }
   }
 
-  &.p-calendar:not(.p-calendar-disabled, .p-invalid).p-focus>.p-inputtext {
+  &.p-calendar:not(.p-calendar-disabled, .p-invalid, .#{$cls}-success).p-focus>.p-inputtext {
     padding: 7px 15px;
     border-color: $color-primary;
     border-width: 2px;
@@ -301,6 +311,29 @@ $size: 36px;
       line-height: 120%;
       content: '*';
     }
+  }
+}
+
+.#{$cls}-message {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 4px;
+  color: $color-grey-midnight;
+  font-weight: 400;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 17px;
+  word-wrap: break-word;
+  word-break: keep-all;
+
+  &-success {
+    color: $color-success;
+  }
+
+  &-error {
+    color: $color-negative;
   }
 }
 
