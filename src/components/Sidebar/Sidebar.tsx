@@ -13,7 +13,7 @@ import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
 
 export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProps>>((props, ref) => {
-  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, defaultCollapsed, betaLogo, onCollapse, onLogoClick } = props;
+  const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, defaultCollapsed, betaLogo, onCollapse, onLogoClick, menuPrefixCls, menuPrefix } = props;
   const [collapsed, setCollapsed] = useState(defaultCollapsed ?? false);
   const classes = classnames(prefixCls);
 
@@ -61,6 +61,11 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
           />
         </span>
       </div>
+      {menuPrefix && (
+        <div className={classes('menu-prefix', menuPrefixCls)}>
+          {menuPrefix}
+        </div>
+      )}
       <ProMenu
         className={classes('menu', bodyCls)}
         renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={16} color='#646465' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
