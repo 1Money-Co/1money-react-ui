@@ -1,0 +1,255 @@
+@use '../../../variable.scss'as *;
+
+$component: 'input-amount';
+$cls: #{$prefix}-#{$component};
+$cls-normal: #{$cls}-normal;
+
+.#{$cls-normal}-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.#{$cls-normal} {
+  & {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 56px;
+    max-height: 56px;
+    padding: 12px 16px;
+    background-color: $color-grey-light;
+    border-color: $color-grey-bold;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
+    cursor: text;
+
+    &:hover {
+      border-color: $color-primary;
+    }
+  }
+
+  &-focus {
+    border-color: $color-primary;
+    border-width: 2px;
+  }
+
+  &-element {
+    width: 100%;
+
+    input {
+      width: 100%;
+      height: 52px;
+      padding: 0;
+      color: $color-primary-black;
+      font-weight: 400;
+      font-size: 16px;
+      font-family: inherit;
+      font-style: normal;
+      line-height: 22px;
+      background-color: inherit;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      transition: none;
+
+      &::placeholder {
+        color: $color-grey-dark;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &-fake {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    z-index: -1;
+    display: inline-block;
+    white-space: pre;
+    visibility: hidden;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+
+  &-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 18px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    &-required {
+      &::after {
+        margin-left: 4px;
+        color: $color-negative;
+        font-size: 16px;
+        font-style: normal;
+        line-height: 120%;
+        content: '*';
+      }
+    }
+
+    &-loading {
+      margin-bottom: 8px;
+    }
+  }
+
+  &-prefix,
+  &-currency,
+  &-suffix {
+    display: inline-flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &-suffix {
+    margin-left: auto;
+
+    &-loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin: 0 8px 0 auto;
+
+      svg circle {
+        stroke: $color-grey-dark !important;
+      }
+    }
+  }
+
+  &-message {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 4px;
+    color: $color-grey-midnight;
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 17px;
+    word-wrap: break-word;
+    word-break: keep-all;
+
+    &-success {
+      color: $color-success;
+    }
+
+    &-error {
+      color: $color-negative;
+    }
+  }
+
+  &-footnote {
+    margin-top: 4px;
+    text-align: left;
+  }
+
+  &-readonly {
+    .#{$cls-normal} {
+      border-color: $color-grey-bold;
+      border-width: 1px;
+    }
+
+    .#{$cls-normal}-element {
+      input {
+        cursor: default;
+      }
+    }
+  }
+
+  &-disabled {
+    .#{$cls-normal} {
+      background-color: $color-grey-deep;
+      border-color: $color-grey-deep;
+      border-width: 1px;
+      cursor: not-allowed;
+    }
+
+    .#{$cls-normal}-element {
+      input {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-disabled.#{$cls-normal}-filled {
+    .#{$cls-normal} {
+      background-color: $color-grey;
+      border-color: $color-grey;
+      cursor: text;
+    }
+
+    .#{$cls-normal}-element {
+      input {
+        cursor: text;
+        user-select: text;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &-success {
+    .#{$cls-normal} {
+      border-color: $color-success;
+      border-width: 1px;
+    }
+
+    .#{$cls-normal}-prefix,
+    .#{$cls-normal}-element,
+    .#{$cls-normal}-message {
+      color: $color-success;
+    }
+
+    .#{$cls-normal}-element {
+      input {
+        color: $color-success;
+      }
+    }
+  }
+
+  &-invalid {
+    .#{$cls-normal} {
+      border-color: $color-negative;
+      border-width: 1px;
+    }
+
+    .#{$cls-normal}-prefix,
+    .#{$cls-normal}-element,
+    .#{$cls-normal}-message {
+      color: $color-negative;
+    }
+
+    .#{$cls-normal}-element {
+      input {
+        color: $color-negative;
+      }
+    }
+  }
+}
+
+.#{$cls-normal}-small {
+  .#{$cls-normal} {
+    height: 44px;
+    max-height: 44px;
+
+    &-element {
+      input {
+        height: 40px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}

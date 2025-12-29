@@ -168,6 +168,8 @@ import {
   IndividualAccountIcon,
   APIKeyIcon,
   BrokenLinkIcon,
+  PauseIcon,
+  AutoConversionRulesIcon,
 } from './SVGs';
 /* import types */
 import type { FC } from 'react';
@@ -334,6 +336,7 @@ const IconList = {
   individualAccount: IndividualAccountIcon,
   apiKey: APIKeyIcon,
   brokenLink: BrokenLinkIcon,
+  autoConversionRules: AutoConversionRulesIcon,
 
   /* Currency Icons */
   usd: USDIcon,
@@ -346,6 +349,7 @@ const IconList = {
   google: GoogleIcon,
   apple: AppleIcon,
   passkey: PasskeyIcon,
+  pause: PauseIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;

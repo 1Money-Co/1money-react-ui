@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {
   IconWrapper,
   Icons,
+  IconHover,
 } from './index';
 import './style';
 import '../Toast/style';
@@ -89,7 +90,9 @@ export const PrimaryIcons: Story = {
       <Toast ref={toast} appendTo={null} />
       {/* Primary Icons */}
       <CopyIconBox onClick={() => handleCopy("<Icons name='deposit' />")}>
-        <Icons {...args} name='deposit' />
+        <IconHover>
+          <Icons {...args} name='deposit' />
+        </IconHover>
         <span>Deposit</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='withdrawal' />")}>
@@ -560,6 +563,14 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='brokenLink' />
         <span>Broken Link</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='pause' />")}>
+        <Icons {...args} name='pause' />
+        <span>Pause</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='autoConversionRules' />")}>
+        <Icons {...args} name='autoConversionRules' />
+        <span>Auto Conversion Rules</span>
+      </CopyIconBox>
     </div>;
   },
 };
@@ -606,9 +617,9 @@ export const Logo: Story = {
         <Icons {...args} name='logoWithWords' width={180} height={36} />
         <span>logoWithWords</span>
       </CopyIconBox>
-      <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' />")}>
-        <Icons {...args} name='logoWithWords' width={320} height={36} networkLogo />
-        <span>logoWithWords</span>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='logoWithWords' networkLogo />")}>
+        <Icons {...args} name='logoWithWords' width={320} height={30} networkLogo />
+        <span>logoWithWordsAndNetwork</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='logoBg' />")}>
         <Icons {...args} name='logoBg' width={56} height={57} />

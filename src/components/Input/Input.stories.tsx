@@ -13,6 +13,7 @@ const meta: Meta<typeof Input> = {
     size: { control: 'radio', options: ['large', 'small'] },
     type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp'] },
     disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
     success: { control: 'boolean' },
     invalid: { control: 'boolean' },
     message: { control: 'text' },
@@ -21,6 +22,7 @@ const meta: Meta<typeof Input> = {
   args: {
     size: 'large',
     disabled: false,
+    loading: false,
     success: false,
     invalid: false,
     required: false,
@@ -47,6 +49,7 @@ export const Normal: Story = {
 export const Number: Story = {
   args: {
     type: 'number',
+    maxFractionDigits: 8,
     prefixEle: <i style={{ backgroundColor: '#DDE6F4', borderRadius: '50%', padding: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
       <Icons name='logo' size={20} color='#073387' />
     </i>,
@@ -72,7 +75,7 @@ export const AutoComplete: Story = {
     const [value, setValue] = useState('');
     const [advices, setAdvices] = useState<string[]>([]);
 
-    const search = (event) => {
+    const search = (event: any) => {
       setAdvices([...Array(10).keys()].map(item => event.query + '-' + item));
     }
 

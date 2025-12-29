@@ -6,6 +6,7 @@ import { Checkbox } from './components/Checkbox';
 import { CheckboxGroup } from './components/CheckboxGroup';
 import { Collapse } from './components/Collapse';
 import { ConfirmPopup } from './components/ConfirmPopup';
+import { Copy } from './components/Copy';
 import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
 import { Input } from './components/Input';
@@ -22,7 +23,7 @@ import { RadioGroup } from './components/RadioGroup';
 import { Select } from './components/Select';
 import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
-import { Icons, IconWrapper } from './components/Icons';
+import { Icons, IconWrapper, IconHover } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar, SimplySidebar, Stepper } from './components/Sidebar';
 import { Tab } from './components/Tab';
@@ -40,6 +41,7 @@ export { Checkbox } from './components/Checkbox';
 export { CheckboxGroup } from './components/CheckboxGroup';
 export { Collapse } from './components/Collapse';
 export { ConfirmPopup } from './components/ConfirmPopup';
+export { Copy } from './components/Copy';
 export { Drawer } from './components/Drawer';
 export { Input } from './components/Input';
 export { InputAmount } from './components/InputAmount';
@@ -56,7 +58,7 @@ export { RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
 export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
-export { Icons, IconWrapper } from './components/Icons';
+export { Icons, IconWrapper, IconHover } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar, SimplySidebar, Stepper } from './components/Sidebar';
 export { Tab } from './components/Tab';
@@ -75,6 +77,7 @@ export default {
   CheckboxGroup,
   Collapse,
   ConfirmPopup,
+  Copy,
   Dropdown,
   Drawer,
   Input,
@@ -93,6 +96,7 @@ export default {
   Switch,
   Icons,
   IconWrapper,
+  IconHover,
   Clipboard,
   Sidebar,
   SimplySidebar,

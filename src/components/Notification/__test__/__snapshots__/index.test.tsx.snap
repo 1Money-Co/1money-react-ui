@@ -6,7 +6,7 @@ exports[`Notification renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-notification om-react-ui-notification-info "
+        class="om-react-ui-notification om-react-ui-notification-info"
       >
         <span
           class="om-react-ui-notification-icon"
@@ -45,7 +45,7 @@ exports[`Notification renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-notification om-react-ui-notification-info "
+      class="om-react-ui-notification om-react-ui-notification-info"
     >
       <span
         class="om-react-ui-notification-icon"

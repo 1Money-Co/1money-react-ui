@@ -21,7 +21,7 @@ exports[`Sidebar renders correctly 1`] = `
               class="om-react-ui-sidebar-logo"
             >
               <i
-                class="om-react-ui-icons-logo-with-words  "
+                class="om-react-ui-icons-logo-with-words"
               >
                 <i
                   class="om-react-ui-icons-wrapper"
@@ -303,7 +303,7 @@ exports[`Sidebar renders correctly 1`] = `
           class="om-react-ui-stepper-header"
         >
           <i
-            class="om-react-ui-icons-logo-with-words  "
+            class="om-react-ui-icons-logo-with-words"
           >
             <i
               class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
@@ -373,7 +373,7 @@ exports[`Sidebar renders correctly 1`] = `
           class="om-react-ui-stepper-steps"
         >
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-done "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -408,7 +408,7 @@ exports[`Sidebar renders correctly 1`] = `
             </i>
           </li>
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-active "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-active"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -417,7 +417,7 @@ exports[`Sidebar renders correctly 1`] = `
             </span>
           </li>
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -452,7 +452,7 @@ exports[`Sidebar renders correctly 1`] = `
             </i>
           </li>
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -497,7 +497,7 @@ exports[`Sidebar renders correctly 1`] = `
             class="om-react-ui-sidebar-logo"
           >
             <i
-              class="om-react-ui-icons-logo-with-words  "
+              class="om-react-ui-icons-logo-with-words"
             >
               <i
                 class="om-react-ui-icons-wrapper"
@@ -846,7 +846,7 @@ exports[`Sidebar renders correctly 2`] = `
               class="om-react-ui-sidebar-logo"
             >
               <i
-                class="om-react-ui-icons-logo-with-words  "
+                class="om-react-ui-icons-logo-with-words"
               >
                 <i
                   class="om-react-ui-icons-wrapper"
@@ -1128,7 +1128,7 @@ exports[`Sidebar renders correctly 2`] = `
           class="om-react-ui-stepper-header"
         >
           <i
-            class="om-react-ui-icons-logo-with-words  "
+            class="om-react-ui-icons-logo-with-words"
           >
             <i
               class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
@@ -1198,7 +1198,7 @@ exports[`Sidebar renders correctly 2`] = `
           class="om-react-ui-stepper-steps"
         >
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-done "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -1233,7 +1233,7 @@ exports[`Sidebar renders correctly 2`] = `
             </i>
           </li>
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-active "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-active"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -1242,7 +1242,7 @@ exports[`Sidebar renders correctly 2`] = `
             </span>
           </li>
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -1277,7 +1277,7 @@ exports[`Sidebar renders correctly 2`] = `
             </i>
           </li>
           <li
-            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo "
+            class="om-react-ui-stepper-step om-react-ui-stepper-step-todo"
           >
             <span
               class="om-react-ui-stepper-step-label"
@@ -1313,7 +1313,7 @@ exports[`Sidebar renders correctly 2`] = `
         class="om-react-ui-stepper-header"
       >
         <i
-          class="om-react-ui-icons-logo-with-words  "
+          class="om-react-ui-icons-logo-with-words"
         >
           <i
             class="om-react-ui-icons-wrapper om-react-ui-stepper-header-logo"
@@ -1383,7 +1383,7 @@ exports[`Sidebar renders correctly 2`] = `
         class="om-react-ui-stepper-steps"
       >
         <li
-          class="om-react-ui-stepper-step om-react-ui-stepper-step-done "
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-done"
         >
           <span
             class="om-react-ui-stepper-step-label"
@@ -1418,7 +1418,7 @@ exports[`Sidebar renders correctly 2`] = `
           </i>
         </li>
         <li
-          class="om-react-ui-stepper-step om-react-ui-stepper-step-active "
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-active"
         >
           <span
             class="om-react-ui-stepper-step-label"
@@ -1427,7 +1427,7 @@ exports[`Sidebar renders correctly 2`] = `
           </span>
         </li>
         <li
-          class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active "
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-done-active"
         >
           <span
             class="om-react-ui-stepper-step-label"
@@ -1462,7 +1462,7 @@ exports[`Sidebar renders correctly 2`] = `
           </i>
         </li>
         <li
-          class="om-react-ui-stepper-step om-react-ui-stepper-step-todo "
+          class="om-react-ui-stepper-step om-react-ui-stepper-step-todo"
         >
           <span
             class="om-react-ui-stepper-step-label"

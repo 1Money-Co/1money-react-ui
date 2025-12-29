@@ -165,6 +165,7 @@ export const SimplySidebar: StoryObj<typeof SimplySidebarComponent> = {
           {
             key: 'acceptable-use',
             label: 'Acceptable Use',
+            hidden: true,
           },
           {
             key: 'privacy-policy',

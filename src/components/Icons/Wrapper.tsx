@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { IconWrapperProps } from './interface';
+import type { IconWrapperProps, IconHoverProps } from './interface';
 
 export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
   const {
@@ -41,6 +41,16 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
       { children }
     </svg>
   </i>;
+};
+
+
+export const IconHover: FC<PropsWithChildren<IconHoverProps>> = (props) => {
+  const { children, prefixCls = 'icons-hover', className, ...rest } = props;
+  const classes = classnames(prefixCls);
+
+  return <div className={joinCls(classes('wrapper'), classes(void 0, className))} {...rest}>
+    { children }
+  </div>;
 };
 
 export default memo(IconWrapper);

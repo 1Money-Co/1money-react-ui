@@ -9,7 +9,7 @@ exports[`Calendar renders correctly 1`] = `
         class="om-react-ui-calendar-wrapper"
       >
         <span
-          class="om-react-ui-calendar  om-react-ui-calendar-large  p-calendar p-component p-inputwrapper"
+          class="om-react-ui-calendar om-react-ui-calendar-large p-calendar p-component p-inputwrapper"
           data-pc-name="calendar"
           data-pc-section="root"
         >
@@ -36,7 +36,7 @@ exports[`Calendar renders correctly 1`] = `
       class="om-react-ui-calendar-wrapper"
     >
       <span
-        class="om-react-ui-calendar  om-react-ui-calendar-large  p-calendar p-component p-inputwrapper"
+        class="om-react-ui-calendar om-react-ui-calendar-large p-calendar p-component p-inputwrapper"
         data-pc-name="calendar"
         data-pc-section="root"
       >

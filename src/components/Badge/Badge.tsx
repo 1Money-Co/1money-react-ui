@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Badge as PrimeBadge } from 'primereact/badge';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { BadgeProps } from './interface';
@@ -12,7 +12,7 @@ export const Badge: FC<PropsWithChildren<BadgeProps>> = props => {
   return (
     <PrimeBadge
       {...rest}
-      className={classes(void 0, [classes(severity || 'neutral'), className].join(' '))}
+      className={classes(void 0, joinCls(classes(severity || 'neutral'), className))}
     />
   );
 };

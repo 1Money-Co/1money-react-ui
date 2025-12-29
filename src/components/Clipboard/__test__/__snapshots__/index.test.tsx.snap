@@ -15,12 +15,12 @@ exports[`Clipboard renders correctly 1`] = `
           class="om-react-ui-clipboard-content"
         >
           <p
-            class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
+            class="om-react-ui-typography-body om-react-ui-typography-body-l om-react-ui-clipboard-content-text"
           >
             复制 copy
           </p>
           <i
-            class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+            class="om-react-ui-icons-wrapper om-react-ui-copy om-react-ui-clipboard-content-icon"
             style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
           >
             <svg
@@ -59,12 +59,12 @@ exports[`Clipboard renders correctly 1`] = `
         class="om-react-ui-clipboard-content"
       >
         <p
-          class="om-react-ui-typography-body om-react-ui-typography-body-l  om-react-ui-clipboard-content-text"
+          class="om-react-ui-typography-body om-react-ui-typography-body-l om-react-ui-clipboard-content-text"
         >
           复制 copy
         </p>
         <i
-          class="om-react-ui-icons-wrapper om-react-ui-clipboard-content-icon"
+          class="om-react-ui-icons-wrapper om-react-ui-copy om-react-ui-clipboard-content-icon"
           style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
         >
           <svg

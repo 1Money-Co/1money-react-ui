@@ -1,4 +1,4 @@
-import type { MouseEvent, KeyboardEvent, CSSProperties } from 'react';
+import type { MouseEvent, KeyboardEvent, CSSProperties, HTMLAttributes } from 'react';
 
 export interface IconsProps extends IconWrapperProps {}
 
@@ -19,6 +19,11 @@ export interface IconWrapperProps {
   tabIndex?: number;
   onClick?: (e: MouseEvent<HTMLElement>) => any;
   onKeyDown?: (e: KeyboardEvent<HTMLElement>) => any;
+}
+
+export interface IconHoverProps extends Omit<HTMLAttributes<HTMLDivElement>, 'prefix'> {
+  className?: string;
+  prefixCls?: string;
 }
 
 export type { IconName } from './Icons';

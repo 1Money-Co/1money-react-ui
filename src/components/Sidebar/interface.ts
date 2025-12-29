@@ -8,6 +8,7 @@ export interface MenuItem {
   link?: string | ReactElement;
   active?: boolean;
   disabled?: boolean;
+  hidden?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => any;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => any;

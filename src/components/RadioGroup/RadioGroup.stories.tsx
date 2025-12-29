@@ -83,7 +83,7 @@ export const GroupVariantCard: Story = {
         ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <rect y="-7.62939e-06" width="32" height="32" rx="16" fill="#073387"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
           </svg>
         )
         : (<svg xmlns="http://www.w3.org/2000/svg" data-name="86977684-12db-4850-8f30-233a7c267d11" viewBox="0 0 2000 2000" width="32" height="32">
@@ -98,7 +98,7 @@ export const GroupVariantCard: Story = {
         ?(
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <rect y="-7.62939e-06" width="32" height="32" rx="16" fill="#073387"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
           </svg>
         )
         :(<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="32" height="32">
@@ -113,7 +113,7 @@ export const GroupVariantCard: Story = {
         ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <rect y="-7.62939e-06" width="32" height="32" rx="16" fill="#073387"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
           </svg>
         )
         :(<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="32" height="32">
@@ -131,7 +131,7 @@ export const GroupVariantCard: Story = {
         ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <rect y="-7.62939e-06" width="32" height="32" rx="16" fill="#073387"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
           </svg>
         )
         : (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="32" height="32">
@@ -159,7 +159,7 @@ export const PaymentMethod: Story = {
         ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <rect y="-7.62939e-06" width="32" height="32" rx="16" fill="#073387"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
           </svg>
         )
         : (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="32" height="32">
@@ -180,7 +180,7 @@ export const PaymentMethod: Story = {
         ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <rect y="-7.62939e-06" width="32" height="32" rx="16" fill="#073387"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M22.339 12.2667L14.7457 21.1419L9.69922 16.1984L10.6323 15.2459L14.6598 19.1913L21.3258 11.3999L22.339 12.2667Z" fill="#FEFEFE"/>
           </svg>
         )
         :(<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="32" height="32">

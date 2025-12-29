@@ -2,7 +2,7 @@ import { memo, useState, useEffect } from 'react';
 import isEqual from 'lodash.isequal';
 import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import Icons from '@/components/Icons';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
 import type { CalendarProps } from './interface';
@@ -29,11 +29,11 @@ const getRangeDateStyles = (params: any, selectedDates: any, classes: any) => {
   const inRange = selectedDates[0] && selectedDates[1] &&
                  cellDate > selectedDates[0] && cellDate < selectedDates[1];
 
-  return [
+  return joinCls(
     isStart && classes('p-start'),
     isEnd && classes('p-end'),
     inRange && classes('p-range')
-  ].filter(Boolean).join(' ');
+  );
 };
 
 export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
@@ -41,10 +41,14 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
     prefixCls = 'calendar',
     wrapperCls,
     labelCls,
+    messageCls,
     className,
     panelClassName,
     label,
+    message,
     required,
+    success,
+    invalid,
     placeholder = 'MM/DD/YYYY',
     defaultValue,
     value,
@@ -67,9 +71,10 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
-      {label && <span className={classes('label', [required && classes('label-required'), labelCls].join(' '))}>{label}</span>}
+      {label && <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>}
       <PrimeCalendar
         {...rest}
+        invalid={invalid}
         value={date as any}
         onChange={(e: any) => {
           setDate(e.value);
@@ -82,11 +87,12 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
           // @ts-ignore
           '--content-width': contentWidth,
         }}
-        className={classes(void 0, [
+        className={classes(void 0, joinCls(
           className,
           classes(size),
           date && classes('filled'),
-        ].join(' '))}
+          success && classes('success'),
+        ))}
         panelClassName={classes('panel', panelClassName)}
         placeholder={placeholder}
         prevIcon={<Icons name='chevronLeft' size={24} />}
@@ -98,6 +104,17 @@ export const Calendar: FC<PropsWithChildren<CalendarProps>> = props => {
           })
         } : undefined}
       />
+      {
+        message && <span
+          className={classes('message', joinCls(
+            success && classes('message-success'),
+            invalid && classes('message-error'),
+            messageCls
+          ))}
+        >
+          {message}
+        </span>
+      }
     </div>
   );
 };

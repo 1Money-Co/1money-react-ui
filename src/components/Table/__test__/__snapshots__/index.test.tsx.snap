@@ -271,7 +271,7 @@ exports[`Table renders correctly 1`] = `
                   role="cell"
                 >
                   <span
-                    class="om-react-ui-badge om-react-ui-badge-success  p-badge p-component"
+                    class="om-react-ui-badge om-react-ui-badge-success p-badge p-component"
                     data-pc-name="badge"
                     data-pc-section="root"
                   >
@@ -413,7 +413,7 @@ exports[`Table renders correctly 1`] = `
                   role="cell"
                 >
                   <span
-                    class="om-react-ui-badge om-react-ui-badge-warning  p-badge p-component"
+                    class="om-react-ui-badge om-react-ui-badge-warning p-badge p-component"
                     data-pc-name="badge"
                     data-pc-section="root"
                   >
@@ -750,7 +750,7 @@ exports[`Table renders correctly 1`] = `
                 role="cell"
               >
                 <span
-                  class="om-react-ui-badge om-react-ui-badge-success  p-badge p-component"
+                  class="om-react-ui-badge om-react-ui-badge-success p-badge p-component"
                   data-pc-name="badge"
                   data-pc-section="root"
                 >
@@ -892,7 +892,7 @@ exports[`Table renders correctly 1`] = `
                 role="cell"
               >
                 <span
-                  class="om-react-ui-badge om-react-ui-badge-warning  p-badge p-component"
+                  class="om-react-ui-badge om-react-ui-badge-warning p-badge p-component"
                   data-pc-name="badge"
                   data-pc-section="root"
                 >

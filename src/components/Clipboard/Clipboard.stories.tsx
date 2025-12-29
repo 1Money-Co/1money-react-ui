@@ -1,6 +1,8 @@
 import { Clipboard } from './index';
 import './style';
 import '../Icons/style';
+import '../Copy/style';
+import '../Typography/style';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Clipboard> = {

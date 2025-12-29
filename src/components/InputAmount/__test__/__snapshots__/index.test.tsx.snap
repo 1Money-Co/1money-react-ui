@@ -6,18 +6,18 @@ exports[`InputAmount renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="om-react-ui-input-amount-wrapper"
+        class="om-react-ui-input-amount-primary-wrapper om-react-ui-input-amount-primary-large"
       >
         <div
-          class="om-react-ui-input-amount om-react-ui-input-amount-focus"
+          class="om-react-ui-input-amount-primary"
         >
           <span
-            class="om-react-ui-input-amount-prefix"
+            class="om-react-ui-input-amount-primary-prefix"
           >
             $
           </span>
           <div
-            class="om-react-ui-input-amount-element"
+            class="om-react-ui-input-amount-primary-element om-react-ui-input-amount-primary-element-max"
           >
             <input
               placeholder="0"
@@ -26,12 +26,12 @@ exports[`InputAmount renders correctly 1`] = `
             />
           </div>
           <span
-            class="om-react-ui-input-amount-currency"
+            class="om-react-ui-input-amount-primary-currency"
           >
             USD
           </span>
           <span
-            class="om-react-ui-input-amount-suffix"
+            class="om-react-ui-input-amount-primary-suffix"
           >
             <span
               style="padding: 12px; border-radius: 12px; background-color: rgb(240, 240, 240); color: rgb(19, 19, 19); font-size: 12px; cursor: pointer;"
@@ -40,14 +40,14 @@ exports[`InputAmount renders correctly 1`] = `
             </span>
           </span>
           <span
-            class="om-react-ui-input-amount-fake"
+            class="om-react-ui-input-amount-primary-fake"
           />
         </div>
         <div
-          class="om-react-ui-input-amount-extra"
+          class="om-react-ui-input-amount-primary-extra"
         >
           <div
-            class="om-react-ui-input-amount-message"
+            class="om-react-ui-input-amount-primary-message"
           >
             <span
               style="display: inline-flex; align-items: center; gap: 4px;"
@@ -56,7 +56,7 @@ exports[`InputAmount renders correctly 1`] = `
             </span>
           </div>
           <div
-            class="om-react-ui-input-amount-footnote"
+            class="om-react-ui-input-amount-primary-footnote"
           >
             <span
               style="display: inline-flex; align-items: center; gap: 4px; cursor: pointer; color: rgb(7, 51, 135);"
@@ -70,18 +70,18 @@ exports[`InputAmount renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="om-react-ui-input-amount-wrapper"
+      class="om-react-ui-input-amount-primary-wrapper om-react-ui-input-amount-primary-large"
     >
       <div
-        class="om-react-ui-input-amount om-react-ui-input-amount-focus"
+        class="om-react-ui-input-amount-primary"
       >
         <span
-          class="om-react-ui-input-amount-prefix"
+          class="om-react-ui-input-amount-primary-prefix"
         >
           $
         </span>
         <div
-          class="om-react-ui-input-amount-element"
+          class="om-react-ui-input-amount-primary-element om-react-ui-input-amount-primary-element-max"
         >
           <input
             placeholder="0"
@@ -90,12 +90,12 @@ exports[`InputAmount renders correctly 1`] = `
           />
         </div>
         <span
-          class="om-react-ui-input-amount-currency"
+          class="om-react-ui-input-amount-primary-currency"
         >
           USD
         </span>
         <span
-          class="om-react-ui-input-amount-suffix"
+          class="om-react-ui-input-amount-primary-suffix"
         >
           <span
             style="padding: 12px; border-radius: 12px; background-color: rgb(240, 240, 240); color: rgb(19, 19, 19); font-size: 12px; cursor: pointer;"
@@ -104,14 +104,14 @@ exports[`InputAmount renders correctly 1`] = `
           </span>
         </span>
         <span
-          class="om-react-ui-input-amount-fake"
+          class="om-react-ui-input-amount-primary-fake"
         />
       </div>
       <div
-        class="om-react-ui-input-amount-extra"
+        class="om-react-ui-input-amount-primary-extra"
       >
         <div
-          class="om-react-ui-input-amount-message"
+          class="om-react-ui-input-amount-primary-message"
         >
           <span
             style="display: inline-flex; align-items: center; gap: 4px;"
@@ -120,7 +120,7 @@ exports[`InputAmount renders correctly 1`] = `
           </span>
         </div>
         <div
-          class="om-react-ui-input-amount-footnote"
+          class="om-react-ui-input-amount-primary-footnote"
         >
           <span
             style="display: inline-flex; align-items: center; gap: 4px; cursor: pointer; color: rgb(7, 51, 135);"

@@ -6,7 +6,7 @@ import {
   MenuItem as ProMenuItem,
   SubMenu as ProSubMenu
 } from 'react-pro-sidebar';
-import classnames from '@/utils/classnames';
+import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
 /* import types */
 import type { PropsWithChildren } from 'react';
@@ -68,7 +68,7 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
       )}
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={16} color='#646465' wrapperCls={[classes('expand-icon'), open ? classes('expand-icon-open') : ''].join(' ')} />}
+        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={16} color='#646465' wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />}
       >
         {
           menus.map((menu, ind) => {
@@ -117,7 +117,7 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
         }
       </ProMenu>
       {
-        collapsible && <span className={classes('collapse', [collapsed ? classes('collapse-collapsed') : '', collapseCls].join(' '))} onClick={() => handleCollapse(!collapsed)}>
+        collapsible && <span className={classes('collapse', joinCls(collapsed && classes('collapse-collapsed'), collapseCls))} onClick={() => handleCollapse(!collapsed)}>
           <Icons name={collapsed ? 'extend' : 'collapse'} wrapperCls={classes('collapse-icon')} size={16} />
           <span className={classes('collapse-text')}>Collapse</span>
         </span>

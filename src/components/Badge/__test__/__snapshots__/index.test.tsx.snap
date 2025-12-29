@@ -6,7 +6,7 @@ exports[`Badge renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <span
-        class="om-react-ui-badge om-react-ui-badge-neutral  p-badge p-component p-badge-dot"
+        class="om-react-ui-badge om-react-ui-badge-neutral p-badge p-component p-badge-dot"
         data-pc-name="badge"
         data-pc-section="root"
       />
@@ -14,7 +14,7 @@ exports[`Badge renders correctly 1`] = `
   </body>,
   "container": <div>
     <span
-      class="om-react-ui-badge om-react-ui-badge-neutral  p-badge p-component p-badge-dot"
+      class="om-react-ui-badge om-react-ui-badge-neutral p-badge p-component p-badge-dot"
       data-pc-name="badge"
       data-pc-section="root"
     />

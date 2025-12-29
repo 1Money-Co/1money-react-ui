@@ -2,6 +2,7 @@
 
 $component: 'input';
 $cls: #{$prefix}-#{$component};
+$opt-width: 54px;
 
 .#{$cls} {
   display: inline-flex;
@@ -76,7 +77,8 @@ $cls: #{$prefix}-#{$component};
     }
 
     .p-inputotp {
-      gap: 8px;
+      gap: calc((100% - $opt-width * 6) / 5);
+      width: 100%;
     }
 
     &-small input {
@@ -87,7 +89,7 @@ $cls: #{$prefix}-#{$component};
     }
 
     input {
-      width: 54px;
+      width: $opt-width;
       height: 56px;
       padding: 12px 16px;
       color: inherit;
@@ -155,6 +157,7 @@ $cls: #{$prefix}-#{$component};
 
   // inner
   &-inner {
+    position: relative;
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -182,7 +185,7 @@ $cls: #{$prefix}-#{$component};
     &-readonly {
       border-color: $color-grey-bold !important;
 
-      input{
+      input {
         cursor: default !important;
       }
     }
@@ -262,8 +265,8 @@ $cls: #{$prefix}-#{$component};
       }
 
       &:-internal-autofill-selected {
-        -webkit-text-fill-color: $color-primary-black !important;
         transition: background-color 600000s 0s, color 600000s 0s !important;
+        -webkit-text-fill-color: $color-primary-black !important;
       }
     }
   }
@@ -288,6 +291,10 @@ $cls: #{$prefix}-#{$component};
         line-height: 120%;
         content: '*';
       }
+    }
+
+    &-loading {
+      margin-bottom: 8px;
     }
   }
 
@@ -321,6 +328,20 @@ $cls: #{$prefix}-#{$component};
 
   &-suffix {
     margin-left: 8px;
+  }
+
+  &-loading {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    margin: auto 0;
+
+    svg circle {
+      stroke: $color-grey-dark !important;
+    }
   }
 
   &-show-count {
