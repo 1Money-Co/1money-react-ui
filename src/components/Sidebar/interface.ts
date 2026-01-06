@@ -32,6 +32,8 @@ export interface SidebarProps {
   onCollapse?: (collapsed: boolean) => any;
   onLogoClick?: () => any;
   menus: (MenuItem | SimpleMenuItem)[];
+  menuPrefixCls?: string;
+  menuPrefix?: ReactNode;
 }
 
 export interface SidebarHandlers {

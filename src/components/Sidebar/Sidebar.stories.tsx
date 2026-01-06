@@ -79,7 +79,9 @@ export const Sidebar: Story = {
   render: (args) => {
     const { children, ...rest } = args;
     const [collapsed, setCollapsed] = useState(false);
-    return <SidebarComponent {...rest} onCollapse={setCollapsed}>
+    return <SidebarComponent {...rest}
+     menuPrefix={<span>Menu Prefix</span>}
+     onCollapse={setCollapsed}>
       <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ display: 'flex', flexDirection: collapsed ? 'column' : 'row', alignItems: 'center', gap: '12px' }}>
           <i id='settings' style={{ cursor: 'pointer', width: '20px', height: '20px', lineHeight: '20px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>

@@ -122,6 +122,11 @@ $cls: #{$prefix}-#{$component};
     cursor: pointer;
   }
 
+  &-menu-prefix {
+    margin-top: 24px;
+    margin-bottom: -8px;
+  }
+
   &-collapse {
     display: inline-flex;
     gap: 8px;
@@ -187,6 +192,7 @@ $cls: #{$prefix}-#{$component};
 
         .ps-menuitem-root.ps-submenu-root {
           .ps-submenu-content {
+            margin-left: 2px !important;
             padding: 0;
             background-color: $color-grey-light;
             border-radius: 12px;
