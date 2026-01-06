@@ -45,10 +45,17 @@ export const IconWrapper: FC<PropsWithChildren<IconWrapperProps>> = (props) => {
 
 
 export const IconHover: FC<PropsWithChildren<IconHoverProps>> = (props) => {
-  const { children, prefixCls = 'icons-hover', className, ...rest } = props;
+  const { children, prefixCls = 'icons-hover', className, disabled, ...rest } = props;
   const classes = classnames(prefixCls);
 
-  return <div className={joinCls(classes('wrapper'), classes(void 0, className))} {...rest}>
+  return <div
+    className={joinCls(
+      classes('wrapper'),
+      disabled && classes('wrapper-disabled'),
+      classes(void 0, className)
+    )}
+    {...rest}
+  >
     { children }
   </div>;
 };
