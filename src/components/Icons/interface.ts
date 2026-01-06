@@ -24,6 +24,7 @@ export interface IconWrapperProps {
 export interface IconHoverProps extends Omit<HTMLAttributes<HTMLDivElement>, 'prefix'> {
   className?: string;
   prefixCls?: string;
+  disabled?: boolean;
 }
 
 export type { IconName } from './Icons';

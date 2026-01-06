@@ -69,4 +69,13 @@ $component: 'icons';
   &:hover {
     background-color: $color-grey-deep;
   }
+
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $color-grey-light;
+    }
+  }
 }
