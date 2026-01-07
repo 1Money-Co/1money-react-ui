@@ -325,7 +325,7 @@ export const Primary: Story = {
             expander: rowData => rowData.dataKey <= 1,
             body: (data, options) => {
               if (data.dataKey > 1) return null;
-              const isExpanded = expandedRow?.some(item => item.dataKey === data.dataKey);
+              const isExpanded = expandedRow?.some((item: any) => item.dataKey === data.dataKey);
               const { expander } = options;
               const { onClick } = expander || {};
               return <span onClick={e => e.stopPropagation()} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginRight: '12px' }}>

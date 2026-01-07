@@ -230,6 +230,7 @@ $component: 'table';
           font-size: 14px;
           font-family: var(--font-inter), Inter;
           font-style: normal;
+          line-height: 20px;
           border-bottom: none;
 
           &:first-child {
@@ -329,5 +330,14 @@ $component: 'table';
         box-shadow: none;
       }
     }
+  }
+
+  &-content-wrapper {
+    display: flex;
+    align-items: center;
+    max-height: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
   }
 }
