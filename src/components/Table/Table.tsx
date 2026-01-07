@@ -8,7 +8,7 @@ import type { FC, CSSProperties } from 'react';
 import type { TableProps, TableClass } from './interface';
 
 export const Table: FC<TableProps> = props => {
-  const { ref, className, columns = [], prefixCls = 'table', rowBorder, transparent, hoverEffect = true, ...rest } = props;
+  const { ref, className, columns = [], columnsWrapperCls, prefixCls = 'table', rowBorder, transparent, hoverEffect = true, ...rest } = props;
   const classes = classnames(prefixCls);
 
   const tableRef = useRef<TableClass | null>(null);
@@ -59,12 +59,27 @@ export const Table: FC<TableProps> = props => {
       onTouchEnd={() => setIsHover(false)}
     >
       {
-        columns.map(column => (
-          <Column
-            key={column.field}
-            {...column}
-          />
-        ))
+        columns.map(column => {
+          const { body, field, wrapperCls,...rest } = column;
+          return <Column
+            key={field}
+            {...rest}
+            body={
+              (data, options) => (
+                <div className={classes('content-wrapper', joinCls(columnsWrapperCls, wrapperCls))}>
+                  {
+                    body
+                      ?
+                      typeof body === 'function' ? body(data, options) : body
+                      : field
+                        ? data[field]
+                        : null
+                  }
+                </div>
+              )
+            }
+          />;
+        })
       }
     </DataTable>
   );

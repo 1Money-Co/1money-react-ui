@@ -210,73 +210,11 @@ exports[`Table renders correctly 1`] = `
                   data-pc-section="bodycell"
                   role="cell"
                 >
-                  My income address 1
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  USD1
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  Ethereum
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  0x7c4b****25s2
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  25 Jan 2025, 12:30
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  <span
-                    class="om-react-ui-badge om-react-ui-badge-success p-badge p-component"
-                    data-pc-name="badge"
-                    data-pc-section="root"
+                  <div
+                    class="om-react-ui-table-content-wrapper"
                   >
-                    Completed
-                  </span>
+                    My income address 1
+                  </div>
                 </td>
                 <td
                   data-p-cell-editing="false"
@@ -288,51 +226,141 @@ exports[`Table renders correctly 1`] = `
                   data-pc-section="bodycell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 12px;"
+                  <div
+                    class="om-react-ui-table-content-wrapper"
                   >
-                    <i
-                      class="om-react-ui-icons-wrapper"
-                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                    USD1
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    Ethereum
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    0x7c4b****25s2
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    25 Jan 2025, 12:30
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    <span
+                      class="om-react-ui-badge om-react-ui-badge-success p-badge p-component"
+                      data-pc-name="badge"
+                      data-pc-section="root"
                     >
-                      <svg
-                        class="om-react-ui-icons"
-                        fill="none"
-                        height="20"
-                        stroke="none"
-                        viewBox="0 0 24 24"
-                        width="20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
-                          stroke-width="2"
-                        />
-                        <path
-                          d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
-                          stroke-width="2"
-                        />
-                      </svg>
-                    </i>
-                    <i
-                      class="om-react-ui-icons-wrapper"
-                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                      Completed
+                    </span>
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    <span
+                      style="display: inline-flex; align-items: center; gap: 12px;"
                     >
-                      <svg
-                        class="om-react-ui-icons"
-                        fill="none"
-                        height="20"
-                        stroke="none"
-                        viewBox="0 0 24 24"
-                        width="20"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <i
+                        class="om-react-ui-icons-wrapper"
+                        style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
                       >
-                        <path
-                          d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
-                        />
-                      </svg>
-                    </i>
-                  </span>
+                        <svg
+                          class="om-react-ui-icons"
+                          fill="none"
+                          height="20"
+                          stroke="none"
+                          viewBox="0 0 24 24"
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </i>
+                      <i
+                        class="om-react-ui-icons-wrapper"
+                        style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                      >
+                        <svg
+                          class="om-react-ui-icons"
+                          fill="none"
+                          height="20"
+                          stroke="none"
+                          viewBox="0 0 24 24"
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
+                          />
+                        </svg>
+                      </i>
+                    </span>
+                  </div>
                 </td>
               </tr>
               <tr
@@ -352,73 +380,11 @@ exports[`Table renders correctly 1`] = `
                   data-pc-section="bodycell"
                   role="cell"
                 >
-                  My income address 2
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  USDC
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  Polygon
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  0x7c4b****25s2
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  25 Jan 2025, 12:30
-                </td>
-                <td
-                  data-p-cell-editing="false"
-                  data-p-editable-column="true"
-                  data-p-frozen-column="false"
-                  data-p-selectable-cell="false"
-                  data-p-selection-column="false"
-                  data-pc-name="datatable"
-                  data-pc-section="bodycell"
-                  role="cell"
-                >
-                  <span
-                    class="om-react-ui-badge om-react-ui-badge-warning p-badge p-component"
-                    data-pc-name="badge"
-                    data-pc-section="root"
+                  <div
+                    class="om-react-ui-table-content-wrapper"
                   >
-                    In Progress
-                  </span>
+                    My income address 2
+                  </div>
                 </td>
                 <td
                   data-p-cell-editing="false"
@@ -430,51 +396,141 @@ exports[`Table renders correctly 1`] = `
                   data-pc-section="bodycell"
                   role="cell"
                 >
-                  <span
-                    style="display: inline-flex; align-items: center; gap: 12px;"
+                  <div
+                    class="om-react-ui-table-content-wrapper"
                   >
-                    <i
-                      class="om-react-ui-icons-wrapper"
-                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                    USDC
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    Polygon
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    0x7c4b****25s2
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    25 Jan 2025, 12:30
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    <span
+                      class="om-react-ui-badge om-react-ui-badge-warning p-badge p-component"
+                      data-pc-name="badge"
+                      data-pc-section="root"
                     >
-                      <svg
-                        class="om-react-ui-icons"
-                        fill="none"
-                        height="20"
-                        stroke="none"
-                        viewBox="0 0 24 24"
-                        width="20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
-                          stroke-width="2"
-                        />
-                        <path
-                          d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
-                          stroke-width="2"
-                        />
-                      </svg>
-                    </i>
-                    <i
-                      class="om-react-ui-icons-wrapper"
-                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                      In Progress
+                    </span>
+                  </div>
+                </td>
+                <td
+                  data-p-cell-editing="false"
+                  data-p-editable-column="true"
+                  data-p-frozen-column="false"
+                  data-p-selectable-cell="false"
+                  data-p-selection-column="false"
+                  data-pc-name="datatable"
+                  data-pc-section="bodycell"
+                  role="cell"
+                >
+                  <div
+                    class="om-react-ui-table-content-wrapper"
+                  >
+                    <span
+                      style="display: inline-flex; align-items: center; gap: 12px;"
                     >
-                      <svg
-                        class="om-react-ui-icons"
-                        fill="none"
-                        height="20"
-                        stroke="none"
-                        viewBox="0 0 24 24"
-                        width="20"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <i
+                        class="om-react-ui-icons-wrapper"
+                        style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
                       >
-                        <path
-                          d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
-                        />
-                      </svg>
-                    </i>
-                  </span>
+                        <svg
+                          class="om-react-ui-icons"
+                          fill="none"
+                          height="20"
+                          stroke="none"
+                          viewBox="0 0 24 24"
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </i>
+                      <i
+                        class="om-react-ui-icons-wrapper"
+                        style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                      >
+                        <svg
+                          class="om-react-ui-icons"
+                          fill="none"
+                          height="20"
+                          stroke="none"
+                          viewBox="0 0 24 24"
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
+                          />
+                        </svg>
+                      </i>
+                    </span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -689,73 +745,11 @@ exports[`Table renders correctly 1`] = `
                 data-pc-section="bodycell"
                 role="cell"
               >
-                My income address 1
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                USD1
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                Ethereum
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                0x7c4b****25s2
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                25 Jan 2025, 12:30
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                <span
-                  class="om-react-ui-badge om-react-ui-badge-success p-badge p-component"
-                  data-pc-name="badge"
-                  data-pc-section="root"
+                <div
+                  class="om-react-ui-table-content-wrapper"
                 >
-                  Completed
-                </span>
+                  My income address 1
+                </div>
               </td>
               <td
                 data-p-cell-editing="false"
@@ -767,51 +761,141 @@ exports[`Table renders correctly 1`] = `
                 data-pc-section="bodycell"
                 role="cell"
               >
-                <span
-                  style="display: inline-flex; align-items: center; gap: 12px;"
+                <div
+                  class="om-react-ui-table-content-wrapper"
                 >
-                  <i
-                    class="om-react-ui-icons-wrapper"
-                    style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                  USD1
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  Ethereum
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  0x7c4b****25s2
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  25 Jan 2025, 12:30
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  <span
+                    class="om-react-ui-badge om-react-ui-badge-success p-badge p-component"
+                    data-pc-name="badge"
+                    data-pc-section="root"
                   >
-                    <svg
-                      class="om-react-ui-icons"
-                      fill="none"
-                      height="20"
-                      stroke="none"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
-                        stroke-width="2"
-                      />
-                      <path
-                        d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </i>
-                  <i
-                    class="om-react-ui-icons-wrapper"
-                    style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                    Completed
+                  </span>
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 12px;"
                   >
-                    <svg
-                      class="om-react-ui-icons"
-                      fill="none"
-                      height="20"
-                      stroke="none"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <i
+                      class="om-react-ui-icons-wrapper"
+                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
                     >
-                      <path
-                        d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
-                      />
-                    </svg>
-                  </i>
-                </span>
+                      <svg
+                        class="om-react-ui-icons"
+                        fill="none"
+                        height="20"
+                        stroke="none"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </i>
+                    <i
+                      class="om-react-ui-icons-wrapper"
+                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                    >
+                      <svg
+                        class="om-react-ui-icons"
+                        fill="none"
+                        height="20"
+                        stroke="none"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
+                        />
+                      </svg>
+                    </i>
+                  </span>
+                </div>
               </td>
             </tr>
             <tr
@@ -831,73 +915,11 @@ exports[`Table renders correctly 1`] = `
                 data-pc-section="bodycell"
                 role="cell"
               >
-                My income address 2
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                USDC
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                Polygon
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                0x7c4b****25s2
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                25 Jan 2025, 12:30
-              </td>
-              <td
-                data-p-cell-editing="false"
-                data-p-editable-column="true"
-                data-p-frozen-column="false"
-                data-p-selectable-cell="false"
-                data-p-selection-column="false"
-                data-pc-name="datatable"
-                data-pc-section="bodycell"
-                role="cell"
-              >
-                <span
-                  class="om-react-ui-badge om-react-ui-badge-warning p-badge p-component"
-                  data-pc-name="badge"
-                  data-pc-section="root"
+                <div
+                  class="om-react-ui-table-content-wrapper"
                 >
-                  In Progress
-                </span>
+                  My income address 2
+                </div>
               </td>
               <td
                 data-p-cell-editing="false"
@@ -909,51 +931,141 @@ exports[`Table renders correctly 1`] = `
                 data-pc-section="bodycell"
                 role="cell"
               >
-                <span
-                  style="display: inline-flex; align-items: center; gap: 12px;"
+                <div
+                  class="om-react-ui-table-content-wrapper"
                 >
-                  <i
-                    class="om-react-ui-icons-wrapper"
-                    style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                  USDC
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  Polygon
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  0x7c4b****25s2
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  25 Jan 2025, 12:30
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  <span
+                    class="om-react-ui-badge om-react-ui-badge-warning p-badge p-component"
+                    data-pc-name="badge"
+                    data-pc-section="root"
                   >
-                    <svg
-                      class="om-react-ui-icons"
-                      fill="none"
-                      height="20"
-                      stroke="none"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
-                        stroke-width="2"
-                      />
-                      <path
-                        d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </i>
-                  <i
-                    class="om-react-ui-icons-wrapper"
-                    style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                    In Progress
+                  </span>
+                </div>
+              </td>
+              <td
+                data-p-cell-editing="false"
+                data-p-editable-column="true"
+                data-p-frozen-column="false"
+                data-p-selectable-cell="false"
+                data-p-selection-column="false"
+                data-pc-name="datatable"
+                data-pc-section="bodycell"
+                role="cell"
+              >
+                <div
+                  class="om-react-ui-table-content-wrapper"
+                >
+                  <span
+                    style="display: inline-flex; align-items: center; gap: 12px;"
                   >
-                    <svg
-                      class="om-react-ui-icons"
-                      fill="none"
-                      height="20"
-                      stroke="none"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <i
+                      class="om-react-ui-icons-wrapper"
+                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
                     >
-                      <path
-                        d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
-                      />
-                    </svg>
-                  </i>
-                </span>
+                      <svg
+                        class="om-react-ui-icons"
+                        fill="none"
+                        height="20"
+                        stroke="none"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 2H7C5.89543 2 5 2.89543 5 4V6M14 2L21 9M14 2V8C14 8.55228 14.4477 9 15 9H21M21 9V20C21 21.1046 20.1046 22 19 22H17.5"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M13.8681 21.8681L10.9872 21.548L2.37974 12.0345L4.96376 9.45045L13.5418 18.9314L13.8681 21.8681Z"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </i>
+                    <i
+                      class="om-react-ui-icons-wrapper"
+                      style="color: rgb(19, 19, 19); width: 20px; height: 20px;"
+                    >
+                      <svg
+                        class="om-react-ui-icons"
+                        fill="none"
+                        height="20"
+                        stroke="none"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.5001 4.5H16.8751V3.375C16.8751 2.67881 16.5985 2.01113 16.1063 1.51884C15.614 1.02656 14.9463 0.75 14.2501 0.75H9.7501C9.05391 0.75 8.38623 1.02656 7.89395 1.51884C7.40167 2.01113 7.1251 2.67881 7.1251 3.375V4.5H2.5V6.75H4.1251V19.5C4.1251 19.9973 4.32265 20.4742 4.67428 20.8258C5.02591 21.1775 5.50282 21.375 6.0001 21.375H18.0001C18.4974 21.375 18.9743 21.1775 19.3259 20.8258C19.6776 20.4742 19.8751 19.9973 19.8751 19.5V6.75H21.5001V4.5ZM9.3751 3.375C9.3751 3.27554 9.41461 3.18016 9.48494 3.10984C9.55527 3.03951 9.65065 3 9.7501 3H14.2501C14.3496 3 14.4449 3.03951 14.5153 3.10984C14.5856 3.18016 14.6251 3.27554 14.6251 3.375V4.5H9.3751V3.375ZM17.6251 19.125H6.3751V6.75H17.6251V19.125ZM10.8751 8.94057V17.1906H8.6251V8.94057H10.8751ZM15.3751 8.94057V17.1906H13.1251V8.94057H15.3751Z"
+                        />
+                      </svg>
+                    </i>
+                  </span>
+                </div>
               </td>
             </tr>
           </tbody>
