@@ -206,6 +206,10 @@ $cls: #{$prefix}-#{$component};
       margin: 2px 0;
     }
 
+    &.p-dropdown-panel .p-dropdown-items {
+      padding: 0;
+    }
+
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus,
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
       background-color: $color-grey-light;

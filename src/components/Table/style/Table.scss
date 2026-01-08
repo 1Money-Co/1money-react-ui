@@ -339,5 +339,12 @@ $component: 'table';
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
+
+    &-clamp {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
   }
 }

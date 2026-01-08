@@ -60,7 +60,7 @@ export const Primary: Story = {
       },
       {
         dataKey: 2,
-        nickname: 'My income address 2',
+        nickname: 'My income address 2 very long address you should adapt otherwise it will exceed the height',
         asset: 'USDC',
         network: 'Polygon',
         address: '0x7c4b****25s2',
