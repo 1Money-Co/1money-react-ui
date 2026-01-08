@@ -60,23 +60,28 @@ export const Table: FC<TableProps> = props => {
     >
       {
         columns.map(column => {
-          const { body, field, wrapperCls,...rest } = column;
+          const { body, field, wrapperCls, ...rest } = column;
           return <Column
             key={field}
             {...rest}
             body={
-              (data, options) => (
-                <div className={classes('content-wrapper', joinCls(columnsWrapperCls, wrapperCls))}>
+              (data, options) => {
+                const Content = body
+                  ? typeof body === 'function' ? body(data, options) : body
+                  : field
+                    ? data[field]
+                    : null;
+
+                return <div className={classes('content-wrapper', joinCls(columnsWrapperCls, wrapperCls))}>
                   {
-                    body
-                      ?
-                      typeof body === 'function' ? body(data, options) : body
-                      : field
-                        ? data[field]
-                        : null
+                    (typeof Content === 'string' || typeof Content === 'number' || typeof Content === 'bigint')
+                      ? <span className={classes('content-wrapper-clamp')}>
+                        {Content}
+                      </span>
+                      : Content
                   }
-                </div>
-              )
+                </div>;
+              }
             }
           />;
         })
