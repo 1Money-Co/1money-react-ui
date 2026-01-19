@@ -11,6 +11,7 @@ export interface TableBaseProps<T extends DataTableValueArray = DataTableValueAr
   rowBorder?: boolean;
   transparent?: boolean;
   hoverEffect?: boolean;
+  compactRow?: boolean;
   columns: (ColumnProps & { wrapperCls?: string })[];
   columnsWrapperCls?: string;
   value?: T;
