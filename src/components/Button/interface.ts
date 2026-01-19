@@ -10,6 +10,7 @@ export interface ButtonProps extends Omit<PrimeButtonProps, 'label' | 'severity'
     | PrimeButtonProps['severity']
     | 'primary'
     | 'secondary'
+    | 'warning'
     | 'grey'
     | 'black'
     | 'white'
