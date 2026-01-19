@@ -251,7 +251,7 @@
     "@commitlint/cli": "8.3.5",
     "@eslint/js": "^9.24.0",
     "@modelcontextprotocol/sdk": "^1.25.0",
-    "@omni-door/cli": "^3.2.0",
+    "@omni-door/cli": "^3.2.2",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.6.12",
