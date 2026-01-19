@@ -66,6 +66,12 @@ $component: 'button';
       }
     }
 
+    &-warning {
+      svg circle {
+        stroke: $color-primary-black !important;
+      }
+    }
+
     &-grey {
       svg circle {
         stroke: $color-grey-dark !important;
@@ -125,6 +131,24 @@ $component: 'button';
 
   &-secondary.p-disabled {
     opacity: 0.4;
+  }
+
+  &-warning {
+    color: $color-primary-black;
+    background-color: $color-warning;
+    border: none;
+
+    &:hover {
+      background-color: $color-warning-hover;
+    }
+
+    &-active {
+      background-color: $color-warning-active;
+    }
+
+    &.p-disabled {
+      opacity: 0.3;
+    }
   }
 
   &-grey {
