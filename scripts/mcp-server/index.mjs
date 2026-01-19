@@ -15,6 +15,16 @@ async function main() {
     version: '0.1.0'
   });
 
+  server.registerTool(
+    'noop',
+    {
+      description: 'No-op tool to satisfy MCP tools/list.'
+    },
+    async () => ({
+      content: []
+    })
+  );
+
   console.info('[mcp] Starting 1money-react-ui MCP server...');
 
   const registeredCount = await registerComponentResources(server);
