@@ -347,4 +347,18 @@ $component: 'table';
       -webkit-line-clamp: 2;
     }
   }
+
+  &-compact-row {
+    .p-datatable-table {
+      .p-datatable-thead,
+      .p-datatable-tbody {
+        tr {
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
