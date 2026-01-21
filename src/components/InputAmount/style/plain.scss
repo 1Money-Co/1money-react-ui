@@ -1,0 +1,214 @@
+@use '../../../variable.scss'as *;
+
+$component: 'input-amount';
+$cls: #{$prefix}-#{$component};
+$cls-plain: #{$cls}-plain;
+
+@mixin input-amount-plain-font($color: $color-primary-black) {
+  color: $color;
+  font-weight: 500;
+  font-size: 32px;
+  font-family: var(--font-aeonik), Aeonik;
+  line-height: 34px;
+  letter-spacing: 0;
+}
+
+.#{$cls-plain}-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.#{$cls-plain} {
+  & {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: text;
+  }
+
+  &-element {
+    position: relative;
+    display: inline-flex;
+    flex-grow: 0;
+
+    @include input-amount-plain-font;
+
+    input {
+      position: relative;
+      width: var(--input-width);
+      max-width: 100%;
+      padding: 0;
+      color: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &-zero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+
+    @include input-amount-plain-font($color-grey-bold);
+  }
+
+  &-element-max {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 98px;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(254, 254, 254, 0%) 0%, rgba(255, 255, 255, 51%) 37.98%, #FFF 84.13%);
+      cursor: text;
+      content: '';
+    }
+  }
+
+  &-fake {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    z-index: -1;
+    display: inline-block;
+
+    @include input-amount-plain-font;
+
+    white-space: pre;
+    visibility: hidden;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+
+  &-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: $color-primary-black;
+    font-weight: 600;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 18px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+    &-required {
+      &::after {
+        margin-left: 4px;
+        color: $color-negative;
+        font-size: 16px;
+        font-style: normal;
+        line-height: 120%;
+        content: '*';
+      }
+    }
+
+    &-loading {
+      margin-bottom: 8px;
+    }
+  }
+
+  &-prefix,
+  &-currency,
+  &-suffix {
+    display: inline-flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &-prefix {
+    @include input-amount-plain-font;
+  }
+
+  &-currency {
+    @include input-amount-plain-font($color-grey-deep);
+  }
+
+  &-suffix {
+    margin-left: auto;
+
+    &-loading {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 0 8px 0 auto;
+
+      svg circle {
+        stroke: $color-grey-dark !important;
+      }
+    }
+  }
+
+  &-extra {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &-message {
+    color: $color-primary-black;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: var(--font-inter), Inter;
+    line-height: 140%;
+  }
+
+  &-footnote {
+    text-align: left;
+  }
+
+  &-readonly {
+    .#{$cls-plain}-prefix,
+    .#{$cls-plain}-element,
+    .#{$cls-plain}-message {
+      color: $color-grey-bold;
+    }
+  }
+
+  &-disabled {
+    .#{$cls-plain}-prefix,
+    .#{$cls-plain}-element,
+    .#{$cls-plain}-message {
+      color: $color-grey-deep;
+    }
+
+    .#{$cls-plain}-zero {
+      color: $color-grey-deep;
+    }
+  }
+
+  &-success {
+    .#{$cls-plain}-prefix,
+    .#{$cls-plain}-element,
+    .#{$cls-plain}-message {
+      color: $color-success;
+    }
+  }
+
+  &-invalid {
+    .#{$cls-plain}-prefix,
+    .#{$cls-plain}-element,
+    .#{$cls-plain}-message {
+      color: $color-negative;
+    }
+  }
+}

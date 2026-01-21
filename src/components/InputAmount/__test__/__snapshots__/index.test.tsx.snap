@@ -41,7 +41,9 @@ exports[`InputAmount renders correctly 1`] = `
           </span>
           <span
             class="om-react-ui-input-amount-primary-fake"
-          />
+          >
+            0
+          </span>
         </div>
         <div
           class="om-react-ui-input-amount-primary-extra"
@@ -105,7 +107,9 @@ exports[`InputAmount renders correctly 1`] = `
         </span>
         <span
           class="om-react-ui-input-amount-primary-fake"
-        />
+        >
+          0
+        </span>
       </div>
       <div
         class="om-react-ui-input-amount-primary-extra"

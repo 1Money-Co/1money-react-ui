@@ -64,7 +64,7 @@ const [amount, setAmount] = useState('');
 | ref | Reference to the input element | RefObject<HTMLInputElement \| null> | - |
 | value | Current value of the input | string \| number \| bigint \| null | - |
 | maxFractionDigits | Maximum number of decimal places allowed | number \| bigint | - |
-| placeholder | Placeholder text for the input | string | "0" |
+| placeholder | Placeholder text for the input (defaults to "0" for non-plain types) | string | - |
 | className | Additional CSS classes for the input element | string | - |
 | prefixCls | The classname prefix for component styling | string | "input-amount" |
 | wrapperCls | Additional classes for the wrapper element | string | - |
@@ -201,7 +201,7 @@ const BudgetExample = () => {
   return (
     <div className="budget-form">
       <h3>Monthly Budget</h3>
-      
+
       {categories.map(category => (
         <div key={category.key} className="budget-item">
           <label>{category.label}</label>
@@ -215,7 +215,7 @@ const BudgetExample = () => {
           />
         </div>
       ))}
-      
+
       <div className="budget-total">
         <strong>
           Total Budget: ${getTotalBudget().toLocaleString()}
@@ -239,7 +239,7 @@ const InvestmentExample = () => {
     const principal = parseFloat(investment.principal) || 0;
     const rate = parseFloat(investment.rate) || 0;
     const years = parseFloat(investment.years) || 0;
-    
+
     return principal * Math.pow(1 + rate / 100, years);
   };
 
@@ -253,7 +253,7 @@ const InvestmentExample = () => {
   return (
     <div className="investment-calculator">
       <h3>Investment Calculator</h3>
-      
+
       <div className="input-group">
         <label>Initial Investment</label>
         <InputAmount
@@ -326,7 +326,7 @@ const MultiCurrencyExample = () => {
   return (
     <div className="currency-inputs">
       <h3>Multi-Currency Amounts</h3>
-      
+
       {currencies.map(currency => (
         <div key={currency.code} className="currency-input">
           <label>{currency.name}</label>
@@ -357,11 +357,11 @@ const FormExample = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.salary || parseFloat(formData.salary) <= 0) {
       newErrors.salary = 'Salary is required and must be positive';
     }
-    
+
     if (formData.expenses && parseFloat(formData.expenses) < 0) {
       newErrors.expenses = 'Expenses cannot be negative';
     }
@@ -382,7 +382,7 @@ const FormExample = () => {
       ...prev,
       [field]: e.target.value
     }));
-    
+
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({

@@ -124,7 +124,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
 
       const originOffset = val.length - (_value?.length ?? 0);
       let position = currPos ?? inputRef.current.selectionEnd ?? 0;
-      
+
       const oldPosVal = formattedValue.slice(0, Math.max(position, 0));
       position = oldPosVal.split(',').join('').length;
 

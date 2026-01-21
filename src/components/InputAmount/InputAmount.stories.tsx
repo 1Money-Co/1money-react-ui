@@ -16,7 +16,7 @@ const meta: Meta<typeof InputAmount> = {
     className: { control: 'text' },
     prefixCls: { control: 'text' },
     label: { control: 'text' },
-    type: { control: 'radio', options: ['primary', 'normal'] },
+    type: { control: 'radio', options: ['primary', 'normal', 'plain'] },
     size: { control: 'radio', options: ['small', 'large'] },
     disabled: { control: 'boolean' },
     loading: { control: 'boolean' },
@@ -37,11 +37,11 @@ const meta: Meta<typeof InputAmount> = {
   },
   tags: ['autodocs'],
 };
- 
+
 export default meta;
 
 type Story = StoryObj<typeof InputAmount>;
- 
+
 export const Primary: Story = {
   args: {
     prefix: '$',
@@ -90,6 +90,26 @@ export const Normal: Story = {
   },
   render: props => {
     return <InputAmount
+      {...props}
+    />
+  }
+};
+
+export const Plain: Story = {
+  args: {
+    type: 'plain',
+    label: 'Convert',
+    placeholder: '0',
+    maxFractionDigits: 2,
+  },
+  render: props => {
+    const [value, setValue] = React.useState<null | string>(null);
+
+    return <InputAmount
+      value={value}
+      onChange={(_, _val) => {
+        setValue(_val);
+      }}
       {...props}
     />
   }

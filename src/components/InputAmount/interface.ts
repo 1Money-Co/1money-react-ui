@@ -46,4 +46,10 @@ export interface InputAmountNormalProps extends InputAmountBaseProps {
   size?: 'small' | 'large';
 }
 
-export type InputAmountProps = InputAmountPrimaryProps | InputAmountNormalProps;
+export interface InputAmountPlainProps extends InputAmountBaseProps {
+  type: 'plain';
+  footnote?: ReactNode;
+  footnoteCls?: string;
+}
+
+export type InputAmountProps = InputAmountPrimaryProps | InputAmountNormalProps | InputAmountPlainProps;
