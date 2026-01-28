@@ -36,7 +36,9 @@ export interface LinkProps extends BaseProps {
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   href?: string;
   target?: HTMLAttributeAnchorTarget;
+  rel?: string;
   download?: string;
+  role?: string;
 }
 
 export interface LabelProps extends BaseProps {
