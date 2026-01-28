@@ -19,6 +19,8 @@ A notification component that displays inline status messages with custom icons 
 - Custom content support through children
 - Accessibility-friendly design
 - Customizable styling and theming
+- Support for title, description, links, and custom actions
+- Closable option
 
 ## Usage Scenarios
 
@@ -50,16 +52,32 @@ Inherits from: None (Custom Component).
 | --- | --- | --- | --- |
 | id | Unique identifier | `string` | - |
 | className | Additional CSS classes | `string` | - |
-| prefixCls | Component class prefix | `string` | `"notification"` |
-| severity | Status severity | `'info' \| 'success' \| 'warn' \| 'error'` | - |
+| prefixCls | Component class prefix | `string` | `'notification'` |
+| severity | Status severity | `'info' \| 'success' \| 'warn' \| 'error'` | `'info'` |
 | title | Title content | `ReactNode` | - |
 | description | Description content | `ReactNode` | - |
-| onClick | Click handler | `MouseEventHandler<HTMLDivElement>` | - |
+| link | Link configuration object | `NotificationLink` | - |
+| action | Custom action content | `ReactNode` | - |
+| closable | Whether the notification can be closed | `boolean` | `false` |
+| onClose | Handler for close button click | `MouseEventHandler<HTMLButtonElement>` | - |
+| showIcon | Whether to show the severity icon | `boolean` | `true` |
+| onClick | Click handler for the container | `MouseEventHandler<HTMLDivElement>` | - |
+
+#### NotificationLink Interface
+```typescript
+interface NotificationLink {
+  label: ReactNode;
+  href?: string;
+  target?: string;
+  rel?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+}
+```
 
 ## Examples
 
 ```tsx
-import { Notification } from '@1money/react-ui';
+import { Notification, Button } from '@1money/react-ui';
 
 // 1. Basic Info
 <Notification>
@@ -67,17 +85,46 @@ import { Notification } from '@1money/react-ui';
 </Notification>
 
 // 2. Severity Variants
-<Notification severity="success">Operation Successful</Notification>
-<Notification severity="error">Unexpected Error</Notification>
+<Notification severity="success" title="Success">Operation Successful</Notification>
+<Notification severity="error" title="Error">Unexpected Error</Notification>
 
-// 3. With Title and Description (if supported by implementation)
+// 3. With Title and Description
 <Notification
     severity="warn"
     title="Session Expiring"
     description="Please save your work."
 />
 
-// 4. Clickable
+// 4. With Link
+<Notification
+    severity="info"
+    title="Update Available"
+    description="A new version is available."
+    link={{
+        label: 'Download now',
+        href: '/downloads',
+        target: '_blank'
+    }}
+/>
+
+// 5. With Custom Action and Closable
+<Notification
+    severity="info"
+    title="Cookie Policy"
+    description="We use cookies to improve your experience."
+    closable
+    onClose={() => console.log('closed')}
+    action={<Button size="s">Accept</Button>}
+/>
+
+// 6. Without Icon
+<Notification
+    showIcon={false}
+    title="Notice"
+    description="This is a simple notification without an icon."
+/>
+
+// 7. Clickable Container
 <Notification onClick={() => openLog()}>
     Click to view logs
 </Notification>
@@ -88,9 +135,12 @@ const AccountNotifications = ({ user }) => {
   return (
     <div className="notifications-container">
       {!user.isVerified && (
-        <Notification severity="warn">
-          Please verify your email address to access all features.
-        </Notification>
+        <Notification
+            severity="warn"
+            title="Verification Needed"
+            description="Please verify your email address to access all features."
+            link={{ label: 'Verify Email', href: '/verify' }}
+        />
       )}
 
       {user.hasUnreadMessages && (
