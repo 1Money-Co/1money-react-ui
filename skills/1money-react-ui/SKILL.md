@@ -38,6 +38,7 @@ required_output:
 # 1money-react-ui
 
 ## Trigger
+
 Activate this Skill when the user is involved in the following scenarios:
 - Generating or modifying React-based UI interfaces
 - Explicitly requesting to use the 1Money component library or forbidding PrimeReact native components
@@ -46,39 +47,41 @@ Activate this Skill when the user is involved in the following scenarios:
 
 ## Core Principles
 
-1.  **Strict Encapsulation**
+1. **Strict Encapsulation**
     - **PROHIBITED**: `import { Button } from 'primereact/button'`
     - **REQUIRED**: `import { Button } from '@1money/react-ui'`
     - Always use the encapsulated library unless explicitly instructed otherwise.
 
-2.  **Interface Contract**
+2. **Interface Contract**
     - Do not guess props. Strictly consult the `references/` documentation.
     - **PROHIBITED**: Using PrimeReact props not explicitly documented or inherited in `interface.ts`.
 
-3.  **Polymorphic Handling**
+3. **Polymorphic Handling**
     - **Input**: Do not hallucinate `<Password>` or `<InputNumber>`. Use `<Input type="password" />` or `<Input type="number" />`.
     - **InputAmount**: Use `<InputAmount />` specifically for currency/monetary fields.
     - **Select**: Distinguish `multiple` prop usage (Dropdown vs MultiSelect).
 
-4.  **Design Compliance**
+4. **Design Compliance**
     - **Layout**: Prioritize `Layout/*` components (Drawer, Collapse) over raw divs.
     - **Styling**: Prioritize component props (`severity`, `size`, `variant`) over `style={{...}}`.
     - **Tokens**: Consult `references/Foundation/DesignTokens.md`. **PROHIBIT** hardcoded Hex values.
 
 ## Workflow
 
-1.  **检索 (Audit)**
-    - 查阅 `references/README.md` 确定组件归属。
-    - 读取对应组件文档 `references/<Category>/<Component>.md`。
+1. **Audit**
+    - Consult `references/README.md` to determine component classification.
+    - Read the corresponding component documentation in `references/<Category>/<Component>.md`.
 
-2.  **决策 (Decision)**
-    - 确定组件变体（Token / Variant）。
-    - 检查是否为“多态组件”并选择正确的 Props 组合。
+2. **Decision**
+    - Determine component variants (Token / Variant).
+    - Check for "polymorphic components" and select the correct combination of Props.
 
-3.  **验证 (Verification)**
-    - 对照 `interface.ts` (如果有上下文) 确认属性存在。
-    - 检查 Markdown 示例代码。
+3. **Verification**
+    - Verify property existence against `interface.ts` (if context is available).
+    - Review Markdown example code.
 
 ## Output Notes
-- **代码输出**：仅在明确要求或需要展示实现时输出 TSX。
-- **纯粹性**：生成的代码应尽量减少非 UI 库的外部依赖，确保可运行。- 确保生成的代码完全符合 references 中的 TypeScript 接口定义。
+
+- **Code Output**: Output TSX only when explicitly requested or required to demonstrate implementation.
+- **Purity**: Generated code should minimize external dependencies outside the UI library to ensure executability.
+- **Compliance**: Ensure generated code fully adheres to the TypeScript interface definitions in references.
