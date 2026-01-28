@@ -4,37 +4,102 @@ $component: 'notification';
 $cls: #{$prefix}-#{$component};
 
 .#{$cls} {
-  display: inline-flex;
+  display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: space-between;
   padding: 12px;
   color: $color-grey-night;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
+  background-color: $color-grey-light;
   border-radius: 12px;
+
+  &-left {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 12px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  &-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  &-title,
+  &-body {
+    color: $color-grey-night;
+  }
+
+  &-link {
+    color: $color-primary;
+  }
 
   &-icon {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    width: 32px;
+    height: 32px;
+    background-color: $color-info-light;
     border-radius: 50%;
   }
 
+  &-right {
+    display: inline-flex;
+    flex-shrink: 0;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &-action {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
   &-success {
-    background-color: $color-success-background;
+    background-color: $color-primary-white;
+    border: 1px solid $color-grey;
 
     .#{$cls}-icon {
-      background-color: $color-success-background;
+      background-color: $color-grey;
+    }
+
+    .#{$cls}-action {
+      color: $color-primary-white;
     }
   }
 
   &-info {
-    background-color: $color-grey-light;
+    background-color: $color-primary-white;
+    border: 1px solid $color-grey;
 
     .#{$cls}-icon {
-      background-color: $color-info-light;
+      background-color: $color-grey;
+    }
+
+    .#{$cls}-action {
+      color: $color-primary;
     }
   }
 
@@ -44,13 +109,22 @@ $cls: #{$prefix}-#{$component};
     .#{$cls}-icon {
       background-color: $color-negative-background;
     }
+
+    .#{$cls}-action {
+      color: $color-negative;
+    }
   }
 
   &-warn {
     color: $color-grey-midnight;
     background-color: $color-warning-background;
+
     .#{$cls}-icon {
-      background-color: $color-warning-background;
+      background-color: $color-info-light;
+    }
+
+    .#{$cls}-action {
+      color: $color-warning;
     }
   }
 }
