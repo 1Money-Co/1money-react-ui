@@ -1,43 +1,44 @@
 # Notification
 
-A notification component that displays inline status messages with custom icons and styling. Notifications are typically used for persistent status information that doesn't auto-dismiss like toast messages.
+A notification component that displays inline status messages with optional title, description, link, and action content. Notifications are typically used for persistent status information that doesn't auto-dismiss like toast messages.
 
 ## Features
 
-- Four severity levels with custom icons (success, info, warn, error)
-- Inline display with content wrapping
+- Four severity levels with icons (success, info, warn, error)
+- Optional title and description content
+- Link and action slots for follow-up actions
+- Optional close button and icon visibility toggle
 - Clickable interaction support
-- Custom content support through children
-- Accessibility-friendly design
 - Customizable styling and theming
 
 ## Basic Usage
 
 ```tsx
-import { Notification } from '@1money/react-ui';
+import { Button, Notification } from '@1money/react-ui';
 
-// Basic notification
+// Basic notification (uses children as body content)
 <Notification severity="info">
   Your account verification is in progress.
 </Notification>
 
-// Success notification
-<Notification severity="success">
-  Payment completed successfully!
-</Notification>
+// With title + description
+<Notification
+  severity="success"
+  title="Payment completed"
+  description="Your transfer has been scheduled."
+/>
 
-// Warning notification
-<Notification severity="warn">
-  Your session will expire in 5 minutes.
-</Notification>
-
-// Error notification
-<Notification severity="error">
-  Unable to process payment. Please try again.
-</Notification>
+// With link and action
+<Notification
+  severity="warn"
+  title="Session expiring"
+  description="Save your work to avoid data loss."
+  link={{ label: 'Review session policy', href: '/help/session' }}
+  action={<Button size="small">Extend</Button>}
+/>
 
 // Clickable notification
-<Notification 
+<Notification
   severity="info"
   onClick={() => console.log('Notification clicked')}
 >
@@ -49,51 +50,61 @@ import { Notification } from '@1money/react-ui';
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| children | Notification content | ReactNode | - |
+| children | Body content (used when `description` is not provided) | ReactNode | - |
 | severity | Notification severity level | 'success' \| 'info' \| 'warn' \| 'error' | 'info' |
+| title | Title content | ReactNode | - |
+| description | Body content (takes precedence over `children`) | ReactNode | - |
+| link | Optional link content and behavior | NotificationLink | - |
+| action | Action slot (usually a button) | ReactNode | - |
+| closable | Shows a close button on the right | boolean | false |
+| onClose | Close button click handler | MouseEventHandler<HTMLButtonElement> | - |
+| showIcon | Shows the leading icon | boolean | true |
 | className | Additional CSS class for styling | string | - |
 | prefixCls | The classname prefix for component styling | string | 'notification' |
 | onClick | Click event handler for interactive notifications | MouseEventHandler<HTMLDivElement> | - |
 | id | HTML id attribute | string | - |
 
+## NotificationLink
+
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| label | Link label content | ReactNode | - |
+| href | Link href (omit to render button-like link) | string | - |
+| target | Link target | string | - |
+| rel | Link rel attribute | string | - |
+| onClick | Link click handler | MouseEventHandler<HTMLAnchorElement> | - |
+
 ## Severity Levels
 
 ### Success
-- **Icon**: Check mark with white color
 - **Use for**: Successful operations, confirmations, positive outcomes
 - **Examples**: Payment successful, account verified, settings saved
 
 ### Info
-- **Icon**: Information icon with blue color
 - **Use for**: General information, neutral updates, tips
 - **Examples**: Account verification in progress, new features available
 
 ### Warning
-- **Icon**: Warning triangle with black color
 - **Use for**: Cautions, potential issues, important reminders
 - **Examples**: Session expiring, incomplete profile, pending actions
 
 ### Error
-- **Icon**: Cross with white color
 - **Use for**: Errors, failures, issues requiring immediate attention
 - **Examples**: Payment failed, validation errors, system issues
 
 ## Styling
 
-The Notification component uses SCSS modules with BEM-like naming conventions. Customize through:
+The Notification component uses SCSS with a prefixed BEM-style class structure. Customize through:
 
 1. `className` prop for additional styles
 2. `prefixCls` override for complete style control
-3. CSS custom properties for theme customization
-4. Severity-specific styling classes
+3. Severity-specific styling classes
 
 ## Accessibility
 
-- Proper semantic structure with div wrapper
-- Icon descriptions for screen readers
-- Keyboard navigation support for clickable notifications
-- Color contrast compliance for all severity levels
-- ARIA attributes where appropriate
+- Close button includes `aria-label="Close notification"`
+- Link renders with button role when `href` is omitted
+- Keyboard navigation supported for clickable elements
 
 ## Examples
 
@@ -104,20 +115,20 @@ const AccountNotifications = ({ user }) => {
   return (
     <div className="notifications-container">
       {!user.isVerified && (
-        <Notification severity="warn">
+        <Notification severity="warn" title="Verify your email">
           Please verify your email address to access all features.
         </Notification>
       )}
-      
+
       {user.hasUnreadMessages && (
-        <Notification 
+        <Notification
           severity="info"
           onClick={() => navigateToMessages()}
-        >
-          You have {user.unreadCount} unread messages.
-        </Notification>
+          title="Unread messages"
+          description={`You have ${user.unreadCount} unread messages.`}
+        />
       )}
-      
+
       {user.subscription?.isExpiring && (
         <Notification severity="warn">
           Your subscription expires in {user.subscription.daysLeft} days.
@@ -167,19 +178,19 @@ const FormNotifications = ({ errors, warnings, success }) => {
   return (
     <div className="form-notifications">
       {success && (
-        <Notification severity="success">
+        <Notification severity="success" title="Success">
           {success}
         </Notification>
       )}
-      
+
       {warnings.map((warning, index) => (
         <Notification key={index} severity="warn">
           {warning}
         </Notification>
       ))}
-      
+
       {errors.map((error, index) => (
-        <Notification key={index} severity="error">
+        <Notification key={index} severity="error" title="Error">
           {error}
         </Notification>
       ))}
@@ -194,21 +205,21 @@ const FormNotifications = ({ errors, warnings, success }) => {
 const SystemNotifications = () => {
   return (
     <div className="system-notifications">
-      <Notification 
+      <Notification
         severity="info"
         onClick={() => window.open('/help', '_blank')}
       >
         New help center available. Click to explore.
       </Notification>
-      
-      <Notification 
+
+      <Notification
         severity="warn"
         onClick={() => window.location.href = '/settings/security'}
       >
         Update your security settings for better protection.
       </Notification>
-      
-      <Notification 
+
+      <Notification
         severity="success"
         onClick={() => window.location.href = '/features'}
       >
@@ -219,35 +230,25 @@ const SystemNotifications = () => {
 };
 ```
 
-### Custom Styled Notifications
+### Closable Notification
 
 ```tsx
-<Notification 
-  severity="info"
-  className="custom-notification"
-  prefixCls="custom-notify"
->
-  This notification uses custom styling.
-</Notification>
-
-// With custom CSS
-.custom-notification {
-  border-radius: 8px;
-  padding: 16px;
-  margin: 8px 0;
-}
+<Notification
+  severity="error"
+  title="Payment failed"
+  description="Please update your payment method."
+  closable
+  onClose={() => console.log('Dismissed')}
+/>
 ```
 
-### Notification with Rich Content
+### Notification with Hidden Icon
 
 ```tsx
-<Notification severity="success">
-  <div>
-    <strong>Payment Successful!</strong>
-    <br />
-    Amount: $250.00
-    <br />
-    Reference: TXN-123456789
-  </div>
-</Notification>
+<Notification
+  severity="info"
+  showIcon={false}
+  title="Minimal notice"
+  description="This notification hides the leading icon."
+/>
 ```

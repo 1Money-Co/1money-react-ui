@@ -23,13 +23,30 @@ describe('Notification', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('simulate events', async () => {
-    const onClick = jest.fn(); 
+  it('renders banner content and handles action/close/root click', async () => {
+    const onAction = jest.fn();
+    const onClose = jest.fn();
+    const onLink = jest.fn();
+    const onRoot = jest.fn();
     render(
-      <Notification data-testid='id-notification' onClick={onClick} />
+      <Notification
+        title='Title'
+        description='Body text'
+        link={{ label: 'Link', onClick: onLink }}
+        action={<button type='button' onClick={onAction}>Label</button>}
+        closable
+        onClose={onClose}
+        onClick={onRoot}
+      />
     );
     const user = userEvent.setup();
-    await user.click(screen.getByTestId('id-notification'))
-    expect(onClick).toHaveBeenCalled();
+    await user.click(screen.getByText('Label'));
+    await user.click(screen.getByText('Link'));
+    await user.click(screen.getByText('Body text'));
+    await user.click(screen.getByLabelText('Close notification'));
+    expect(onAction).toHaveBeenCalled();
+    expect(onLink).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalled();
+    expect(onRoot).toHaveBeenCalled();
   });
 });
