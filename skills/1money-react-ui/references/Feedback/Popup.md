@@ -7,7 +7,7 @@ source: src/components/Popup
 
 # Popup
 
-## 组件概述
+## Component Overview
 
 A contextual popup component that displays confirmation dialogs and action prompts positioned relative to trigger elements, built on top of PrimeReact's ConfirmPopup with enhanced styling and functionality.
 
@@ -22,77 +22,79 @@ A contextual popup component that displays confirmation dialogs and action promp
 - Accessible keyboard navigation
 - Imperative API for programmatic control
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 需要阻塞式确认/输入（Modal）或侧边流程（Drawer）
-- 需要就地确认/二次确认（Popup/ConfirmPopup）
+### When to use
+- Need blocking confirmation/input (Modal) or side flow (Drawer)
+- Need in-place confirmation/double confirmation (Popup/ConfirmPopup)
 
-### 不适用
-- 频繁提示（考虑 Toast/Notification/Message）
+### When not to use
+- Frequent notifications (consider Toast/Notification/Message)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Inherits from: [PrimeReact ConfirmPopup](https://primereact.org/confirmpopup/).
+
+### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| id | Unique identifier for the popup | string | - |
-| prefixCls | The classname prefix for component styling | string | "popup" |
+| prefixCls | Component class prefix | `string` | `"popup"` |
+| id | HTML id | `string` | - |
 
-### PopupHandlers
+> Inherits standard props like `visible`, `onHide`, `target`, but typically used via `ref`.
+
+### Ref API (PopupHandlers)
+
 | Method | Description | Parameters |
 | --- | --- | --- |
-| show | Show the popup | (params: ConfirmPopupProps) => any |
+| show | Trigger popup at target | `(params: ConfirmPopupProps) => void` |
 
-### Show Method Parameters (ConfirmPopupProps)
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| target | The target element to position the popup relative to | HTMLElement \| EventTarget | - |
-| message | The confirmation message to display | ReactNode | - |
-| accept | Callback function when user confirms | () => void | - |
-| reject | Callback function when user cancels | () => void | - |
-| icon | Icon to display in the popup | string | - |
-| acceptLabel | Label for the accept button | string | "Yes" |
-| rejectLabel | Label for the reject button | string | "No" |
-| acceptIcon | Icon for the accept button | string | - |
-| rejectIcon | Icon for the reject button | string | - |
-| acceptClassName | CSS class for accept button | string | - |
-| rejectClassName | CSS class for reject button | string | - |
-| position | Position of the popup relative to target | 'top' \| 'bottom' \| 'left' \| 'right' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right' | 'top' |
-| defaultFocus | Which button to focus by default | 'accept' \| 'reject' | 'accept' |
-| dismissable | Whether clicking outside dismisses popup | boolean | true |
-| onShow | Callback when popup is shown | () => void | - |
-| onHide | Callback when popup is hidden | () => void | - |
+### Show Parameters (ConfirmPopupProps)
 
-> 其余属性继承 PrimeReact ConfirmPopup。
+| Property | Description |
+| --- | --- |
+| target | Target element (e.g., button) to attach to |
+| message | Message content |
+| accept | Callback on Confirm |
+| reject | Callback on Cancel |
+| icon | Icon class or node |
+| acceptLabel | Label for confirm button |
+| rejectLabel | Label for cancel button |
 
-## 示例
+## Examples
 
 ```tsx
-import { Popup, PopupHandlers } from '@1money/react-ui';
-import { useRef } from 'react';
+import { Popup } from '@1money/react-ui';
 
-// Basic popup with ref
-const popupRef = useRef<PopupHandlers>(null);
+const MyPage = () => {
+    const popupRef = useRef(null);
 
-<Button 
-  onClick={(e) => popupRef.current?.show({
-    target: e.currentTarget,
-    message: 'Are you sure you want to delete this item?',
-    accept: () => handleDelete(),
-    reject: () => console.log('Cancelled')
-  })}
->
-  Delete Item
-</Button>
+    const deleteItem = (event) => {
+        popupRef.current.show({
+            target: event.currentTarget,
+            message: 'Confirm delete?',
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => console.log('Deleted'),
+            reject: () => console.log('Cancelled')
+        });
+    };
 
-<Popup ref={popupRef} />
+    return (
+        <>
+            <Popup ref={popupRef} />
+            <Button onClick={deleteItem} label="Delete" />
+        </>
+    );
+};
 ```
 
 ```tsx
@@ -149,13 +151,9 @@ const DeleteButton = ({ onDelete, itemName }) => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Popup } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Imperative Only**: **MUST** use `ref.current.show()` to display the popup.
+- **Reference Management**: Always initialize `useRef<PopupHandlers>(null)` to ensure type safety.
+- **Targeting**: The `target` property in `show()` is critical; blindly passing null/undefined will cause the popup to appear incorrectly (often at top-left).
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

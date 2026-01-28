@@ -1,39 +1,47 @@
 ---
 name: Spacing
 category: Foundation
-description: 间距与尺寸规范（针对组件库与业务侧生成代码的约束）
+description: Spacing and sizing specifications (constraints for component library and business code generation)
 ---
 
 # Spacing
 
-## 目标
+## Goals
 
-- 让代码助手在生成页面/组件时保持一致的留白与对齐。
-- 避免业务侧散落 magic numbers；需要新间距时优先沉淀到 tokens。
+- Ensure Code Assistants maintain consistent whitespace and alignment when generating pages/components.
+- Avoid scattered magic numbers in business code; prioritize consolidating new spacings into tokens.
 
-## 当前现状（从源码观察）
+## Current Status (Observed from Source)
 
-- 组件样式中存在直接使用 `px` 的 padding/margin/height（详见各组件 `style/*.scss`）。
-- `src/variable.scss` 当前未定义 spacing tokens。
+- Component styles contain direct `px` usage for padding/margin/height (see individual component `style/*.scss`).
+- `src/variable.scss` currently does not define spacing tokens.
 
-## 代码助手生成规则（建议）
+## Core Principles
 
-1. **优先使用组件库 props**（如 `size`、`variant` 等）来获得一致的尺寸。
-2. 需要布局间距时：优先通过 **容器布局**（flex/grid）与 **现有组件的 spacing 能力** 实现。
-3. 如果必须新增统一间距：在 `src/variable.scss` 新增 spacing tokens，并在组件 `style/*.scss` 中复用；不要在业务代码里硬编码颜色/间距。
+Although spacing tokens are not yet predefined in `variable.scss`, when generating or modifying styles, **you MUST strictly follow the 4px grid system**.
 
-## 建议的 token 形态（可作为后续迭代目标）
+### 1. Prioritize Component Props
+Prioritize using component built-in props (like `gap`, `gutter`, `size`) over custom CSS margin/padding.
 
-> 以下为建议形态，不代表当前仓库已存在。落地前请与 Design/FE 对齐。
+### 2. 4px Grid Multiples Principle
+When writing custom CSS is unavoidable, values **MUST** be multiples of 4.
 
-- `$space-1: 4px;`
-- `$space-2: 8px;`
-- `$space-3: 12px;`
-- `$space-4: 16px;`
-- `$space-5: 24px;`
-- `$space-6: 32px;`
+| Recommended Token (Virtual) | Value (px) | Common Scenarios |
+| --- | --- | --- |
+| `$spacing-xs` | **4px** | Internal fine-tuning, icon spacing |
+| `$spacing-sm` | **8px** | Small component internal spacing, compact lists |
+| `$spacing-md` | **12px** | Standard component padding, card padding |
+| `$spacing-lg` | **16px** | Module spacing, card margins |
+| `$spacing-xl` | **24px** | Section separation |
+| `$spacing-2xl` | **32px** | Large module separation |
+| `$spacing-3xl` | **48px**+ | Page-level whitespace |
 
-## 校验清单
+### 3. Prohibit Magic Numbers
+- ❌ `margin-top: 3px`, `padding: 15px`
+- ✅ `margin-top: 4px`, `padding: 16px`
 
-- [ ] PR 中业务侧没有新增随机的 margin/padding magic numbers（除非有明确设计依据）
-- [ ] 新间距需求已通过 tokens 或组件库能力沉淀，而不是一次性 hack
+
+## Checklist
+
+- [ ] All margin/padding values are multiples of 4
+- [ ] No unnecessary custom CSS (prioritize Flex/Grid gap)

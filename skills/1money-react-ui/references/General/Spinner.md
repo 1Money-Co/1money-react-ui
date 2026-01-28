@@ -6,7 +6,7 @@ description: A loading spinner component built on top of PrimeReact's ProgressSp
 
 # Spinner
 
-## 组件概述
+## Component Overview
 
 A loading spinner component built on top of PrimeReact's ProgressSpinner with enhanced styling. Spinners are used to indicate loading states, background processes, or waiting periods to provide visual feedback to users.
 
@@ -20,82 +20,63 @@ A loading spinner component built on top of PrimeReact's ProgressSpinner with en
 - Full PrimeReact ProgressSpinner compatibility
 - Lightweight and performant
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 展示加载/执行进度（Progress）或加载占位（Loading/Spinner）
-- 网络请求、异步任务等待时提供反馈
+### When to use
+- Display loading/execution progress (Progress) or loading placeholder (Loading/Spinner)
+- Provide feedback during network requests or asynchronous task waiting
 
-### 不适用
-- 长时间任务需要更完整的任务状态/历史（考虑专用页面/日志）
+### When not to use
+- Long-running tasks that require more complete task status/history (consider dedicated page/logs)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Inherits from: [PrimeReact ProgressSpinner](https://primereact.org/progressspinner/).
+
+### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | 'spinner' |
+| prefixCls | Component class prefix | `string` | `"spinner"` |
 
-> 其余属性继承 PrimeReact ProgressSpinner（如 `style`、`strokeWidth`、`animationDuration` 等）。
+> Common inherited props: `style`, `className`, `strokeWidth`, `fill`, `animationDuration`.
 
-### Common Styling Props
+### Common Styling Props (Inherited)
 | Property | Description | Example |
 | --- | --- | --- |
-| width/height | Spinner size | `{ width: '30px', height: '30px' }` |
-| stroke | Spinner color | `"#3D73F2"` |
-| fill | Background color | `"transparent"` |
+| style | Inline styles (width/height) | `{ width: '30px', height: '30px' }` |
 | strokeWidth | Line thickness | `"2"` |
+| fill | Background color | `"transparent"` |
 | animationDuration | Spin speed | `"2s"` |
 
-## 示例
+## Examples
 
 ```tsx
 import { Spinner } from '@1money/react-ui';
 
-// Basic spinner
+// 1. Basic usage
 <Spinner />
 
-// Small spinner
+// 2. Custom Size
 <Spinner style={{ width: '20px', height: '20px' }} />
 
-// Large spinner with custom color
-<Spinner
-  style={{
-    width: '60px',
-    height: '60px'
-  }}
-  stroke="#4CAF50"
-  fill="#E8F5E8"
-/>
-
-// Custom animation duration
-<Spinner animationDuration="1s" />
-
-// Spinner with custom stroke width
-<Spinner strokeWidth="3" />
+// 3. Custom Styling (Thickness & Speed)
+<Spinner strokeWidth="4" animationDuration=".5s" />
 ```
 
 ```tsx
-const LoadingButton = ({ loading, onClick, children }) => {
-  return (
-    <button onClick={onClick} disabled={loading}>
-      {loading ? (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Spinner style={{ width: '16px', height: '16px' }} />
-          <span>Loading...</span>
-        </div>
-      ) : (
-        children
-      )}
-    </button>
-  );
-};
+// Inside a button
+<Button disabled>
+    <Spinner style={{width: '1rem', height: '1rem'}} strokeWidth="4" />
+</Button>
 ```
 
 ```tsx
@@ -110,7 +91,7 @@ const PageLoader = ({ isLoading }) => {
             width: '50px',
             height: '50px'
           }}
-          stroke="#3D73F2"
+          className="text-blue-500"
           strokeWidth="3"
         />
         <p>Loading your data...</p>
@@ -142,13 +123,9 @@ const PageLoader = ({ isLoading }) => {
 }
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Spinner } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Usage Priority**: Use `Spinner` for undetermined wait times. Use `Progress` if the time is known.
+- **Styling**: Control size via `style={{ width, height }}`. Control color via CSS (e.g., `.p-progress-spinner-circle { stroke: red }`) or `className`. **Do not** assume arbitrary SVG props (like `stroke`) work directly unless confirmed.
+- **Accessibility**: Implicitly handled, but ensure the parent container has appropriate aria roles if needed.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

@@ -6,7 +6,7 @@ description: A versatile menu component built on top of PrimeReact's Menu with e
 
 # Menu
 
-## 组件概述
+## Component Overview
 
 A versatile menu component built on top of PrimeReact's Menu with enhanced styling and support for different menu types including standard menus and selectors for dropdown navigation, context menus, and item selection.
 
@@ -23,102 +23,96 @@ A versatile menu component built on top of PrimeReact's Menu with enhanced styli
 - Custom styling and templates
 - Ref-based imperative API for programmatic control
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 页面/模块导航与信息架构展示（Menu/Sidebar/Tab）
-- 可点击的列表项/菜单项/设置项展示（Cell）
+### When to use
 
-### 不适用
-- 需要承载复杂表单录入（考虑单独页面或 Drawer/Modal）
+- Page/Module navigation and information architecture display (Menu/Sidebar/Tab)
+- Clickable list items/menu items/settings display (Cell)
 
-## 设计规范
+### When not to use
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-light`, `$color-primary-black`, `$color-primary-white`
-- 圆角（px，源码样式提取）：12, 16
-- 字号（px，源码样式提取）：16
-- padding 数值（px，源码样式提取）：8, 12, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Need to host complex form entry (consider separate page or Drawer/Modal)
+
+## Design Specifications
+
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-light`, `$color-primary-black`, `$color-primary-white`
+- Border radius (px, extracted from source style): 12, 16
+- Font size (px, extracted from source style): 16
+- Padding values (px, extracted from source style): 8, 12, 16
+- For detailed visual and interaction specifications, refer to the component source code `style/*.scss`. New or adjusted styles should be consolidated into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: [PrimeReact Menu](https://primereact.org/menu/).
+
 ### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| className | Additional CSS class for the menu | string | - |
-| prefixCls | The classname prefix for component styling | string | "menu" |
-| type | Menu style variant | 'menu' \| 'selector' | 'menu' |
+| className | Additional CSS classes | `string` | - |
+| prefixCls | Component class prefix | `string` | `"menu"` |
+| type | Visual variant | `'menu' \| 'selector'` | - |
 
-> 其余属性继承 PrimeReact Menu（如 `model`、`popup` 等）。
+> Common inherited props: `model`, `popup`, `onShow`, `onHide`, `id`.
 
-### MenuItem Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| label | Display text for the menu item | string | - |
-| icon | Icon CSS class or ReactNode | string \| ReactNode | - |
-| command | Callback when item is clicked | (event: MenuItemCommandEvent) => void | - |
-| url | URL for navigation | string | - |
-| items | Submenu items | MenuItem[] | - |
-| disabled | Whether the item is disabled | boolean | false |
-| visible | Whether the item is visible | boolean | true |
-| target | Link target attribute | string | - |
-| separator | Whether item is a separator | boolean | false |
-| style | Inline styles for the item | CSSProperties | - |
-| className | CSS class for the item | string | - |
-| template | Custom template function | Function | - |
+### MenuItem Interface
+
+Inherits from PrimeReact `MenuItem`.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| label | Display text | `string \| ReactNode` |
+| icon | Icon element/class | `string \| ReactNode` |
+| command | Click handler | `(e) => void` |
+| disabled | Disabled state | `boolean` |
+| items | Sub-menus | `MenuItem[]` |
+| separator | Is separator? | `boolean` |
 
 ### Ref API
-| Method | Description | Parameters |
-| --- | --- | --- |
-| show | Show the popup menu | event: Event |
-| hide | Hide the popup menu | - |
-| toggle | Toggle popup menu visibility | event: Event |
 
-## 示例
+| Method | Description | Type |
+| --- | --- | --- |
+| toggle | Toggle visibility | `(event) => void` |
+| show | Show popup | `(event) => void` |
+| hide | Hide popup | `() => void` |
+
+## Examples
 
 ```tsx
 import { Menu } from '@1money/react-ui';
+import { useRef } from 'react';
 
-// Basic menu
-const menuItems = [
-  {
-    label: 'File',
-    icon: 'pi pi-file',
-    items: [
-      { label: 'New', icon: 'pi pi-plus', command: () => createNew() },
-      { label: 'Open', icon: 'pi pi-folder-open', command: () => openFile() },
-      { separator: true },
-      { label: 'Quit', icon: 'pi pi-times', command: () => quit() }
-    ]
-  },
-  {
-    label: 'Edit',
-    icon: 'pi pi-pencil',
-    items: [
-      { label: 'Copy', icon: 'pi pi-copy', command: () => copy() },
-      { label: 'Paste', icon: 'pi pi-clone', command: () => paste() }
-    ]
-  }
+// 1. Static Inline Menu
+const simpleItems = [
+  { label: 'Profile', icon: 'pi pi-user' },
+  { label: 'Settings', icon: 'pi pi-cog' }
 ];
 
-<Menu model={menuItems} />
+<Menu model={simpleItems} />
 
-// Selector type menu
-<Menu
-  model={menuItems}
-  type="selector"
-  popup
-  ref={menuRef}
-/>
+// 2. Popup Menu (controlled via Ref)
+const MyComponent = () => {
+    const menuRef = useRef(null);
 
-// Context menu
-<Menu
-  model={contextMenuItems}
-  popup
-  ref={contextMenuRef}
-/>
+    const items = [
+        { label: 'Edit', command: () => console.log('Edit') },
+        { separator: true },
+        { label: 'Delete', className: 'text-red-500' }
+    ];
+
+    return (
+        <>
+            <button onClick={(e) => menuRef.current.toggle(e)}>Options</button>
+            <Menu model={items} popup ref={menuRef} />
+        </>
+    );
+};
+
+// 3. Selector Variant (Dropdown-like)
+<Menu model={items} type="selector" />
 ```
 
 ```tsx
@@ -277,13 +271,8 @@ const handleRightClick = (event, item) => {
 </div>
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Menu } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。
+- **Mode Selection**: Use `popup={true}` with a `ref` for context menus or dropdown triggers. Use default (inline) for sidebars or static lists.
+- **Model-Driven**: **MUST** define menu items via the `model` prop array. Avoid manually rendering children unless the component specifically supports smooth composition (which PrimeReact wrappers often don't).
+- **Type Safety**: Strictly adhere to the `MenuItem` interface for the model to ensure commands and icons render correctly.

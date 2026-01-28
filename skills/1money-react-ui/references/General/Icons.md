@@ -6,7 +6,7 @@ description: A comprehensive icon system providing access to custom SVG icons, l
 
 # Icons
 
-## 组件概述
+## Component Overview
 
 A comprehensive icon system providing access to custom SVG icons, logos, illustrations, and deprecated icons with consistent styling and accessibility features.
 
@@ -21,89 +21,78 @@ A comprehensive icon system providing access to custom SVG icons, logos, illustr
 - Color customization support
 - Accessibility attributes
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 统一使用组件库的图标/排版规范，避免自行引入不一致的 icon/font
-- 保证文本层级、字号、字重与设计一致
+### When to use
+- Use the component library's icon/typography specifications uniformly to avoid introducing inconsistent icon/font yourself
+- Ensure text hierarchy, font size, and font weight consistent with design
 
-### 不适用
-- 需要完全自定义字体体系（应先更新 Foundation/Typography）
+### When not to use
+- Need a completely custom font system (should update Foundation/Typography first)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey-deep`, `$color-grey-light`
-- 圆角（px，源码样式提取）：8
-- padding 数值（px，源码样式提取）：8
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey-deep`, `$color-grey-light`
+- Border radius (px, extracted from source style): 8
+- Padding values (px, extracted from source style): 8
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Renders SVG icons from the internal library.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "icons" |
-| name | Icon name from the available icon set | IconName | - |
-| id | HTML id attribute | string | - |
-| size | Icon size (px) | number \| `${number}` | 24 |
-| width | Explicit width (overrides size) | number \| `${number}` | - |
-| height | Explicit height (overrides size) | number \| `${number}` | - |
-| color | Icon color (CSS color value) | string | '#131313' |
-| viewBox | SVG viewBox | string | '0 0 24 24' |
-| fill | Use currentColor for fill | boolean | false |
-| stroke | Use currentColor for stroke | boolean | false |
-| className | Additional CSS classes for svg | string | - |
-| wrapperCls | Additional CSS classes for wrapper | string | - |
-| style | Inline styles for wrapper | CSSProperties | - |
-| ariaLabel | Accessible label | string | - |
-| tabIndex | Tab index | number | - |
-| onClick | Click handler | (e: MouseEvent<HTMLElement>) => any | - |
-| onKeyDown | Keydown handler | (e: KeyboardEvent<HTMLElement>) => any | - |
+| name | Icon name identifier | `IconName` | - |
+| size | Icon size (width/height) | number \| string | 24 |
+| color | Icon fill/stroke color | string | '#131313' |
+| className | Class for the SVG element | string | - |
+| wrapperCls | Class for the wrapper div | string | - |
+| onClick | Click handler | `MouseEventHandler` | - |
+
+> Also supports standard SVG attributes: `viewBox`, `fill`, `stroke`, `width`, `height`.
 
 ### IconWrapper Props
+
+Wrapper component for custom SVG content.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "icons" |
-| id | HTML id attribute | string | - |
-| size | Icon size (px) | number \| `${number}` | 24 |
-| width | Explicit width (overrides size) | number \| `${number}` | - |
-| height | Explicit height (overrides size) | number \| `${number}` | - |
-| color | Icon color (CSS color value) | string | '#131313' |
-| viewBox | SVG viewBox | string | '0 0 24 24' |
-| fill | Use currentColor for fill | boolean | false |
-| stroke | Use currentColor for stroke | boolean | false |
-| className | Additional CSS classes for svg | string | - |
-| wrapperCls | Additional CSS classes for wrapper | string | - |
-| style | Inline styles for wrapper | CSSProperties | - |
-| ariaLabel | Accessible label | string | - |
-| tabIndex | Tab index | number | - |
-| onClick | Click handler | (e: MouseEvent<HTMLElement>) => any | - |
-| onKeyDown | Keydown handler | (e: KeyboardEvent<HTMLElement>) => any | - |
-| children | Icon content to wrap | ReactNode | - |
+| children | SVG or content to wrap | ReactNode | - |
+| size | Wrapper size | number \| string | 24 |
 
-### IconHover Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "icons-hover" |
-| className | Additional CSS classes | string | - |
-| disabled | Whether hover state is disabled | boolean | false |
-
-## 示例
+## Examples
 
 ```tsx
 import { Icons, IconWrapper } from '@1money/react-ui';
 
-// Basic icon
+// 1. Standard Icon
 <Icons name="arrow-right" />
 
-// Icon with wrapper
+// 2. Custom Size & Color
+<Icons
+    name="check"
+    size={32}
+    color="green"
+/>
+
+// 3. Interactive Icon
+<Icons
+    name="close"
+    className="cursor-pointer"
+    onClick={handleClose}
+/>
+
+// 4. Icon with wrapper
 <IconWrapper size={32}>
   <Icons name="user" />
 </IconWrapper>
 
-// Custom size and styling
+// 5. Custom size and styling
 <Icons
   name="settings"
   className="text-primary"
@@ -139,13 +128,10 @@ const NavigationMenu = () => (
 );
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Icons } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Unified Icon System**: **MUST** use `Icons` component for all iconography. **PROHIBIT** importing raw primitives (e.g., `<svg>`, `<img>` for icons) or third-party libraries (e.g., `react-icons`, FontAwesome) unless strictly authorized.
+- **Styling**: Use the `size` and `color` props for customization. Do not use CSS to override SVG path fills directly unless necessary (use `color="currentColor"` if inheriting).
+- **Interaction**: If an icon is clickable, pass `onClick` directly to `Icons`, or wrap it in a `Button` if it requires focus states.
+- **Naming**: Use string literals for `name` prop (e.g., `name="arrow-right"`) to ensure type safety.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

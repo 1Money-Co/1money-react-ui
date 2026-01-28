@@ -6,7 +6,7 @@ description: A powerful data table component built on top of PrimeReact's DataTa
 
 # Table
 
-## 组件概述
+## Component Overview
 
 A powerful data table component built on top of PrimeReact's DataTable with enhanced styling and configuration options. Supports advanced features like row selection, expansion, pagination, sorting, and custom column rendering.
 
@@ -22,75 +22,110 @@ A powerful data table component built on top of PrimeReact's DataTable with enha
 - Scrollable tables with fixed headers
 - Full TypeScript support with generic typing
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 展示结构化数据列表，并需要排序/分页/自定义列渲染（按组件支持）
-- 与 Toolbar / Filter / Pagination 组合的列表页
+### When to use
+- Display structured list data, requiring sort/pagination/custom columns (as supported)
+- List pages combined with Toolbar / Filter / Pagination
 
-### 不适用
-- 只展示少量 key-value 信息（考虑 Cell / Typography 组合）
+### When not to use
+- Only display small amount of key-value info (consider Cell / Typography combination)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-deep`, `$color-grey-light`, `$color-primary-black`, `$color-primary-white`
-- 圆角（px，源码样式提取）：4, 12
-- 字号（px，源码样式提取）：14
-- 行高（px，源码样式提取）：15, 20
-- 高度/最大高度（px，源码样式提取）：20, 39, 40
-- padding 数值（px，源码样式提取）：12, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-deep`, `$color-grey-light`, `$color-primary-black`, `$color-primary-white`
+- Border radius (px, extracted from source style): 4, 12
+- Font size (px, extracted from source style): 14
+- Line height (px, extracted from source style): 15, 20
+- Height/Max Height (px, extracted from source style): 20, 39, 40
+- Padding values (px, extracted from source style): 12, 16
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: [PrimeReact DataTable](https://primereact.org/datatable/).
+
 ### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| className | Additional CSS class for the table | string | - |
-| prefixCls | The classname prefix for component styling | string | "table" |
-| columns | Column configuration array | ColumnProps[] | [] |
-| columnsWrapperCls | Additional CSS class for column wrapper | string | - |
-| ref | Reference to DataTable methods | RefObject<DataTable> | - |
-| wrapperCls | Additional CSS class for wrapper | string | - |
-| rowBorder | Whether to show borders between rows | boolean | false |
-| transparent | Whether to use transparent background | boolean | false |
-| hoverEffect | Whether to enable hover effect | boolean | false |
-| compactRow | Whether to use compact row height | boolean | false |
-| value | Table data | DataTableValueArray | - |
+| ref | Reference to Table | `RefObject<dataTable>` | - |
+| columns | Column definitions | `(ColumnProps & { wrapperCls?: string })[]` | `[]` |
+| value | Data array | `T[]` | - |
+| prefixCls | Component class prefix | `string` | `"table"` |
+| rowBorder | Show row dividers | `boolean` | `false` |
+| transparent | Transparent background | `boolean` | `false` |
+| hoverEffect | Enable row hover | `boolean` | `false` |
+| compactRow | Reduced row height | `boolean` | `false` |
+| columnsWrapperCls | Columns wrapper class | `string` | - |
+| className | Additional CSS classes | `string` | - |
 
-> 其余属性继承 PrimeReact DataTable（如 `paginator`、`selection`、`sortMode` 等）。
+> Inherits common props: `selection`, `selectionMode`, `onSelectionChange`, `paginator`, `rows`, `sortField`, `sortOrder`.
+| columnsWrapperCls | Class for column wrappers | `string` | - |
+| wrapperCls | Class for table wrapper | `string` | - |
 
-## 示例
+> Common inherited props: `selection`, `onSelectionChange`, `expandedRows`, `onRowToggle`, `filters`, `sortField`, `sortOrder`, `paginator`, `rows`, `loading`.
+
+### Column Configuration
+
+Columns are configured via the `columns` prop, which accepts an array of objects extending PrimeReact's `ColumnProps`.
 
 ```tsx
-import { Table } from '@1money/react-ui';
+const columns = [
+  {
+    field: 'name',
+    header: 'Name',
+    sortable: true,
+    filter: true,
+  },
+  {
+    field: 'status',
+    header: 'Status',
+    // Custom body template
+    body: (data) => <Badge severity={data.status} value={data.status} />,
+    // Additional wrapper class supported by 1Money Table
+    wrapperCls: 'custom-status-col'
+  },
+  {
+    header: 'Actions',
+    align: 'right', // 'left' | 'right' | 'center'
+    body: (data) => <Button icon="pi pi-pencil" onClick={() => editRow(data)} />
+  }
+];
+```
 
-// Basic table with columns
-<Table
-  value={data}
-  columns={[
-    { field: 'name', header: 'Name' },
-    { field: 'email', header: 'Email' },
-    { field: 'role', header: 'Role' },
-  ]}
-/>
+## Examples
 
-// Table with row borders
-<Table
-  value={data}
-  columns={columns}
-  rowBorder
-/>
+```tsx
+import { Table, Badge, Button } from '@1money/react-ui';
 
-// Scrollable table
-<Table
-  value={data}
-  columns={columns}
-  scrollable
-  scrollHeight="400px"
-/>
+// Data interface
+interface Product {
+    id: string;
+    code: string;
+    name: string;
+    category: string;
+    quantity: number;
+}
+
+// Basic usage
+const ProductTable = ({ products }: { products: Product[] }) => {
+    return (
+        <Table
+            value={products}
+            rowBorder
+            hoverEffect
+            columns={[
+                { field: 'code', header: 'Code', sortable: true },
+                { field: 'name', header: 'Name', sortable: true },
+                { field: 'category', header: 'Category' },
+                { field: 'quantity', header: 'Quantity', align: 'right' }
+            ]}
+        />
+    );
+};
 ```
 
 ```tsx
@@ -137,13 +172,9 @@ const data = [
 />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Table } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Configuration**: Always use the `columns` prop (array of objects) to define table structure. Do not use `Column` children directly.
+- **Typing**: Use the generic `Table<T>` to ensure type safety for `value` and column templates.
+- **Styling**: Prefer built-in props like `rowBorder` and `transparent` over custom CSS overrides.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

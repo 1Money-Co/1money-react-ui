@@ -7,7 +7,7 @@ source: src/components/Tooltip
 
 # Tooltip
 
-## 组件概述
+## Component Overview
 
 A contextual help component that displays informative content when users hover over or interact with trigger elements, built on top of react-tooltip with enhanced styling and accessibility features.
 
@@ -23,93 +23,99 @@ A contextual help component that displays informative content when users hover o
 - Accessibility compliance (ARIA attributes)
 - Mobile-friendly touch support
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 给用户反馈（成功/失败/告警/信息），不打断主流程（Toast/Notification）
-- 表单或区域内的状态提示（Message）
-- 对图标/按钮提供补充说明（Tooltip）
+### When to use
 
-### 不适用
-- 必须用户确认才能继续（考虑 Modal/ConfirmPopup）
+- Give user feedback (success/failure/warning/info) without interrupting main flow (Toast/Notification)
+- Status hints within form or area (Message)
+- Provide supplementary explanation for icons/buttons (Tooltip)
 
-## 设计规范
+### When not to use
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-primary-black`, `$color-primary-white`
-- 圆角（px，源码样式提取）：4
-- 字号（px，源码样式提取）：12
-- 高度/最大高度（px，源码样式提取）：9
-- padding 数值（px，源码样式提取）：10
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Must require user confirmation to continue (consider Modal/ConfirmPopup)
+
+## Design Specifications
+
+- Global class prefix: `om-react-ui` (derived from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-primary-black`, `$color-primary-white`
+- Border radius (px, extracted from source style): 4
+- Font size (px, extracted from source style): 12
+- Height/Max-height (px, extracted from source style): 9
+- Padding value (px, extracted from source style): 10
+- Detailed visuals and interactions are based on the component source code in `style/*.scss`. New or adjusted styles should be consolidated into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: [react-tooltip](https://react-tooltip.com/).
+
 ### Component Props
+
+Inherits `ITooltip` from `react-tooltip`.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "tooltip" |
-| arrowCls | Additional CSS classes for the tooltip arrow | string | - |
-| children | Content to display inside the tooltip | ReactNode | - |
+| anchorSelect | CSS selector for trigger | `string` | - |
+| content | Tooltip text content | `string` | - |
+| place | Position | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` |
+| variant | Visual style | `'dark' \| 'light' \| 'success' \| 'warning' \| 'error' \| 'info'` | `'dark'` |
+| prefixCls | Component class prefix | `string` | `"tooltip"` |
+| arrowCls | Custom arrow class | `string` | - |
 
-> 注意：`classNameArrow` 与 `role` 会被组件内部覆盖；请使用 `arrowCls` 自定义箭头样式。
-
-### Core Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| content | Text content to display in tooltip | string | - |
-| anchorSelect | CSS selector for target elements | string | - |
-| place | Position of tooltip relative to anchor | 'top' \| 'bottom' \| 'left' \| 'right' \| 'top-start' \| 'top-end' \| 'bottom-start' \| 'bottom-end' \| 'left-start' \| 'left-end' \| 'right-start' \| 'right-end' | 'top' |
-| offset | Distance between tooltip and anchor element | number | 10 |
-| variant | Visual style preset | 'dark' \| 'light' \| 'warning' \| 'error' \| 'success' \| 'info' | 'dark' |
-
-### Interaction Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| openOnClick | Whether tooltip opens on click instead of hover | boolean | false |
-| clickable | Whether tooltip content can be interacted with | boolean | false |
-| delayShow | Delay before showing tooltip (ms) | number | 0 |
-| delayHide | Delay before hiding tooltip (ms) | number | 0 |
-| float | Whether tooltip follows mouse within anchor | boolean | false |
-| hidden | Whether to prevent tooltip from showing | boolean | false |
-
-### Control Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| isOpen | Controlled open state | boolean | - |
-| setIsOpen | Function to control open state | (isOpen: boolean) => void | - |
-| defaultIsOpen | Default open state (uncontrolled) | boolean | false |
-
-### Event Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| openEvents | Events that trigger tooltip open | object | {mouseover: true, focus: true} |
-| closeEvents | Events that trigger tooltip close | object | {mouseleave: true, blur: true} |
-| globalCloseEvents | Global events that close tooltip | object | {escape: true, scroll: true, resize: true} |
-
-### Styling Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| className | CSS classes for tooltip element | string | - |
-| style | Inline styles for tooltip | CSSProperties | - |
-| border | Tooltip border configuration | string \| object | - |
-| opacity | Tooltip opacity | number | 1 |
-| arrowColor | Color of tooltip arrow | string | - |
+> Common standard props: `id`, `clickable`, `openOnClick`, `isOpen`, `setIsOpen`, `offset`, `place`, `delayShow`, `delayHide`.
 
 ### Callback Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| afterShow | Callback after tooltip is shown | () => void | - |
-| afterHide | Callback after tooltip is hidden | () => void | - |
+| afterShow | Callback after tooltip is shown | `() => void` | - |
+| afterHide | Callback after tooltip is hidden | `() => void` | - |
 
 ### Accessibility Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| role | ARIA role for tooltip（内部固定为 'tooltip'） | 'tooltip' \| 'dialog' | 'tooltip' |
-| disableTooltip | Function to conditionally disable tooltip | (anchorElement: Element) => boolean | - |
+| role | ARIA role | `'tooltip' \| 'dialog'` | `'tooltip'` |
+| disableTooltip | Function to conditionally disable tooltip | `(anchorElement: Element) => boolean` | - |
 
-## 示例
+## Examples
+
+```tsx
+import { Tooltip } from '@1money/react-ui';
+
+// Basic tooltip via CSS selector ID
+<>
+  <button id="my-button" data-tooltip-content="Hello World">
+    Hover Me
+  </button>
+  <Tooltip anchorSelect="#my-button" />
+</>
+
+// Layout specific tooltip
+<>
+  <span className="info-icon" data-tooltip-id="info-tooltip">ℹ️</span>
+  <Tooltip
+    id="info-tooltip"
+    anchorSelect=".info-icon"
+    place="right"
+    variant="info"
+    content="This is helpful information"
+  />
+</>
+
+// Clickable tooltip
+<Tooltip
+  anchorSelect="#clickable-trigger"
+  clickable
+  openOnClick
+>
+  <div>
+    <h4>Custom Content</h4>
+    <a href="#">Link inside tooltip</a>
+  </div>
+</Tooltip>
+```
 
 ```tsx
 import { Tooltip } from '@1money/react-ui';
@@ -127,7 +133,7 @@ import { Tooltip } from '@1money/react-ui';
   <span data-tooltip-id="info-tooltip">
     More info
   </span>
-  <Tooltip 
+  <Tooltip
     anchorSelect="[data-tooltip-id='info-tooltip']"
     place="right"
     content="Additional details about this feature"
@@ -188,7 +194,7 @@ const [isOpen, setIsOpen] = useState(false);
 ```tsx
 const HelpIcon = ({ helpText }) => (
   <>
-    <i 
+    <i
       className="pi pi-question-circle cursor-pointer"
       data-tooltip-id="help-icon"
       style={{ color: '#6B7280' }}
@@ -205,13 +211,8 @@ const HelpIcon = ({ helpText }) => (
 <HelpIcon helpText="This field is required for account verification" />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Tooltip } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。
+- **Selector Usage**: Use `anchorSelect` with ID or data-attribute selectors. **PROHIBIT** broad selector targeting (e.g., `anchorSelect="div"`) that could accidentally attach tooltips to unwanted elements.
+- **Content Security**: If using HTML content/children, ensure it is sanitized.
+- **Accessibility**: When adding tooltips to non-interactive elements (like `div` or `span`), ensure they are keyboard accessible if important.

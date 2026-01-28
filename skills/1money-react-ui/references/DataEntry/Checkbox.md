@@ -6,7 +6,7 @@ description: A customizable checkbox component built on top of PrimeReact's Chec
 
 # Checkbox
 
-## 组件概述
+## Component Overview
 
 A customizable checkbox component built on top of PrimeReact's Checkbox with enhanced styling and additional features.
 
@@ -20,58 +20,93 @@ A customizable checkbox component built on top of PrimeReact's Checkbox with enh
 - Accessible keyboard navigation
 - Full PrimeReact Checkbox compatibility
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 显式开关或少量选项选择（Checkbox/Radio）
-- 需要在表单中表达布尔值（Switch）或多选/单选（Group）
+### When to use
+- Explicit switch or selection from few options (Checkbox/Radio)
+- Need to express boolean value (Switch) or multi/single selection (Group) in forms
 
-### 不适用
-- 选项很多且需要筛选（考虑 Select/Dropdown）
+### When not to use
+- Large number of options and filtering is required (consider Select/Dropdown)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-midnight`, `$color-negative`, `$color-primary`, `$color-primary-active`, `$color-primary-black`, `$color-primary-hover`
-- 字号（px，源码样式提取）：14
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-midnight`, `$color-negative`, `$color-primary`, `$color-primary-active`, `$color-primary-black`, `$color-primary-hover`
+- Font size (px, extracted from source style): 14
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: None (Custom Wrapper). Wraps [PrimeReact Checkbox](https://primereact.org/checkbox/) or [TriStateCheckbox](https://primereact.org/tristatecheckbox/).
+
 ### Component Props
 
-### Base Props
+#### Base Props (All Modes)
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| id | HTML id attribute | string | - |
-| prefixCls | The classname prefix for component styling | string | "checkbox" |
-| wrapperCls | Additional classes for wrapper | string | - |
-| innerCls | Additional classes for inner container | string | - |
-| checkboxCls | Additional classes for checkbox element | string | - |
-| labelCls | Additional classes for label | string | - |
-| size | Size variant | 'sm' \| 'md' \| 'lg' | 'md' |
-| label | Label text or element | ReactNode | - |
-| disabled | Whether the checkbox is disabled | boolean | false |
-| required | Whether the checkbox is required | boolean | false |
-| name | Name attribute for the input | string | - |
-| invalid | Whether the checkbox is in invalid state | boolean | false |
+| id | Unique identifier | `string` | - |
+| wrapperCls | Wrapper class | `string` | - |
+| innerCls | Inner container class | `string` | - |
+| checkboxCls | Checkbox element class | `string` | - |
+| prefixCls | Component class prefix | `string` | `"checkbox"` |
+| labelCls | Label class | `string` | - |
+| size | Size variant | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| label | Label content | `ReactNode` | - |
+| disabled | Disabled state | `boolean` | - |
+| required | Show required indicator | `boolean` | - |
+| name | Input name | `string` | - |
+| invalid | Invalid state | `boolean` | - |
 
-### Normal Mode (tristate = false)
+#### Normal Mode
+`tristate` is undefined or false.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| tristate | Mode flag | `false` |
+| checked | Checked state | `boolean` |
+| onChange | Change handler | `(checked: boolean) => void` |
+
+#### TriState Mode
+`tristate` is true.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| tristate | Mode flag | `true` |
+| value | Current value | `boolean \| null` |
+| onChange | Change handler | `(state: boolean \| null) => void` |
+| label | Label content | `ReactNode` | - |
+| size | Component size | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| prefixCls | Component class prefix | `string` | `"checkbox"` |
+| wrapperCls | Class for outer wrapper | `string` | - |
+| innerCls | Class for item container | `string` | - |
+| checkboxCls | Class for checkbox element | `string` | - |
+| labelCls | Class for label | `string` | - |
+| message | Validation/Help message | `ReactNode` | - |
+| invalid | Invalid state | `boolean` | `false` |
+| required | Required state | `boolean` | `false` |
+
+#### Normal Mode (tristate=false)
+Inherits from [PrimeReact Checkbox](https://primereact.org/checkbox/) (via `CheckboxNormalProps`).
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| tristate | Enable tristate mode | false | false |
-| checked | Whether the checkbox is checked | boolean | false |
-| onChange | Callback when checkbox state changes | (checked: boolean) => any | - |
+| tristate | Mode indicator | `false` | - |
+| checked | Checked state | `boolean` | - |
+| onChange | Check handler | `(checked: boolean) => void` | - |
 
-### TriState Mode (tristate = true)
+#### TriState Mode (tristate=true)
+Inherits from [PrimeReact TriStateCheckbox](https://primereact.org/tristatecheckbox/) (via `CheckboxTriStateProps`).
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| tristate | Enable tristate mode | true | - |
-| value | Tristate value | boolean \| null | - |
-| onChange | Callback when state changes | (state: boolean \| null) => any | - |
+| tristate | Mode indicator | `true` | - |
+| value | Current state | `boolean \| null` | - |
+| onChange | State change handler | `(state: boolean \| null) => void` | - |
 
-## 示例
+## Examples
 
 ```tsx
 import { Checkbox } from '@1money/react-ui';
@@ -88,9 +123,9 @@ const [checked, setChecked] = useState(false);
 
 // With label
 <Checkbox
-  checked={accepted}
+  checked={checked}
   label="I accept the terms and conditions"
-  onChange={(next) => setAccepted(next)}
+  onChange={(next) => setChecked(next)}
 />
 
 // Disabled state
@@ -98,6 +133,13 @@ const [checked, setChecked] = useState(false);
 
 // TriState mode
 const [state, setState] = useState<boolean | null>(null);
+<Checkbox
+  tristate
+  value={state}
+  onChange={(e) => setState(e)}
+  label="TriState Checkbox"
+/>
+```
 <Checkbox
   tristate
   value={state}
@@ -154,13 +196,9 @@ const FormExample = () => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Checkbox } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Mode Consistency**: Explicitly set `tristate` prop (`true`/`false`) to match your data model. Do not mix boolean and null values in normal mode.
+- **Grouping**: For multiple options, **MUST** use `CheckboxGroup` instead of multiple individual `Checkbox` components.
+- **Input Association**: Ensure `id` and `label` are correctly associated if not using the built-in `label` prop.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

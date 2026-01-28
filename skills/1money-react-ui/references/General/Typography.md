@@ -6,7 +6,7 @@ description: A comprehensive typography system providing semantic text component
 
 # Typography
 
-## 组件概述
+## Component Overview
 
 A comprehensive typography system providing semantic text components with consistent styling across your application. Includes Display, Headline, Title, Body, Link, and Label components with multiple size variants.
 
@@ -21,82 +21,107 @@ A comprehensive typography system providing semantic text components with consis
 - Customizable styling through className and prefixCls
 - Full TypeScript support
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 统一使用组件库的图标/排版规范，避免自行引入不一致的 icon/font
-- 保证文本层级、字号、字重与设计一致
+### When to use
+- Use the component library's icon/typography specifications uniformly to avoid introducing inconsistent icon/font yourself
+- Ensure text hierarchy, font size, and font weight consistent with design
 
-### 不适用
-- 需要完全自定义字体体系（应先更新 Foundation/Typography）
+### When not to use
+- Need a completely custom font system (should update Foundation/Typography first)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-primary-black`
-- 字号（px，源码样式提取）：10, 12, 14, 16, 18, 24, 28, 32, 36, 45, 52, 64
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-primary-black`
+- Font sizes (px, extracted from source style): 10, 12, 14, 16, 18, 24, 28, 32, 36, 45, 52, 64
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: None (Custom Component grouping).
+
 ### Component Props
+
+Root component that simply groups the semantic text components. Use the sub-components directly.
+
+### Typography.Display
+For large, high-impact headings.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| id | HTML id attribute | string | - |
-| className | Additional CSS classes | string | - |
-| style | Inline styles | CSSProperties | - |
-| prefixCls | Component class prefix | string | varies by variant |
-| children | Text/content | ReactNode | - |
+| size | Font size variant | 'xl' \| 'l' \| 'm' \| 's' | - |
+| bold | Bold weight | boolean | false |
+| children | Text content | ReactNode | - |
 
-### Display
+### Typography.Headline
+For section headings.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| size | Text size variant | 'xl' \| 'l' \| 'm' \| 's' | - |
-| bold | Whether text should be bold | boolean | false |
-| onClick | Click event handler | MouseEventHandler<HTMLHeadingElement> | - |
+| size | Font size variant | 'l' \| 'm' \| 's' \| 'xs' | - |
+| bold | Bold weight | boolean | false |
 
-### Headline
+### Typography.Title
+For card or item titles.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| size | Text size variant | 'l' \| 'm' \| 's' \| 'xs' | - |
-| bold | Whether text should be bold | boolean | false |
-| onClick | Click event handler | MouseEventHandler<HTMLHeadingElement> | - |
+| size | Font size variant | 'l' \| 'm' \| 's' | - |
+| bold | Bold weight | boolean | false |
 
-### Title
+### Typography.Body
+For standard body text.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| size | Text size variant | 'l' \| 'm' \| 's' | - |
-| bold | Whether text should be bold | boolean | false |
-| onClick | Click event handler | MouseEventHandler<HTMLHeadingElement> | - |
+| size | Font size variant | 'l' \| 'm' \| 's' | - |
+| bold | Bold weight | boolean | false |
 
-### Body
+### Typography.Label
+For small labels or metadata.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| size | Text size variant | 'l' \| 'm' \| 's' | - |
-| bold | Whether text should be bold | boolean | false |
-| onClick | Click event handler | MouseEventHandler<HTMLParagraphElement> | - |
+| size | Font size variant | 'xl' \| 'l' \| 'm' \| 's' \| 'xs' | - |
+| bold | Bold weight | boolean | false |
 
-### Link
+### Typography.Link
+For hyperlinks.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| size | Text size variant | 'm' \| 's' | - |
-| href | Link URL | string | - |
-| target | Link target | HTMLAttributeAnchorTarget | - |
-| download | Download attribute | string | - |
-| onClick | Click event handler | MouseEventHandler<HTMLAnchorElement> | - |
+| size | Font size variant | 'm' \| 's' | - |
+| href | URL destination | string | - |
+| target | Link target attribute | `HTMLAttributeAnchorTarget` | - |
+| download | Download filename | string | - |
+| onClick | Click handler | `MouseEventHandler` | - |
 
-### Label
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| size | Text size variant | 'xl' \| 'l' \| 'm' \| 's' \| 'xs' | - |
-| bold | Whether text should be bold | boolean | false |
-| onClick | Click event handler | MouseEventHandler<HTMLSpanElement> | - |
+> All components accept `className`, `style`, `id`.
 
-## 示例
+## Examples
 
 ```tsx
 import { Typography } from '@1money/react-ui';
+
+const { Display, Headline, Title, Body, Label, Link } = Typography;
+
+// 1. Heading Hierarchy
+<Display size="xl">Main Hero Title</Display>
+<Headline size="l">Section Heading</Headline>
+<Title size="m">Card Title</Title>
+
+// 2. Body Text
+<Body size="m">
+    Regular body text with <Link href="#">inline link</Link>.
+</Body>
+
+// 3. Metadata Label
+<Label size="s" className="text-gray-500">
+    Last updated: Today
+</Label>
+```
 
 // Display text
 <Typography.Display size="xl">Welcome to 1Money</Typography.Display>
@@ -157,13 +182,10 @@ import { Typography } from '@1money/react-ui';
 </section>
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Typography } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Semantic Hierarchy**: **MUST** use the specific sub-component (`Typography.Display`, `Headline`, `Title`, `Body`) that matches the content's structural role.
+- **No Manual Styling**: **PROHIBIT** standard HTML headings (`<h1>`-`<h6>`) or paragraphs (`<p>`) without these wrappers. **NEVER** set `font-size`, `font-weight`, or `line-height` manually in `style` or `className`; rely solely on the `size` and `bold` props.
+- **Link Usage**: Use `Typography.Link` for text-based navigation. For button-like navigation, use `Button`.
+- **Composition**: Text components can be composed (e.g., `Label` inside a flex container), but do not nest semantic text components (e.g., no `Headline` inside a `Body`).
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

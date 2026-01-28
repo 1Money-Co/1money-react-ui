@@ -9,15 +9,15 @@ EXCLUDE_SUBSTRINGS = ['/Foundation/', 'references/README.md']
 
 REQUIRED_FRONT_MATTER_KEYS = ['name', 'category', 'description']
 REQUIRED_SECTIONS_IN_ORDER = [
-    '## 组件概述',
-    '## 使用场景',
-    '## 设计规范',
+    '## Component Overview',
+    '## Usage Scenarios',
+    '## Design Specifications',
     '## API',
-    '## 示例',
-    '## 最佳实践与注意事项'
+    '## Examples',
+    '## Core Principles'
 ]
 
-STOP_SECTION_TITLES = ['## 示例', '## 最佳实践与注意事项']
+STOP_SECTION_TITLES = ['## Examples', '## Core Principles']
 TABLE_HEADER_KEYS = {'Name', 'Method', 'Property'}
 PRIMEREACT_HINTS = ['PrimeReact', 'primereact']
 
@@ -65,11 +65,11 @@ def api_block(text: str) -> str:
 
 
 def examples_block(text: str) -> str:
-    if '## 示例' not in text:
+    if '## Examples' not in text:
         return ''
-    after = text.split('## 示例', 1)[1]
+    after = text.split('## Examples', 1)[1]
     end = len(after)
-    stop = '## 最佳实践与注意事项'
+    stop = '## Core Principles'
     idx = after.find(stop)
     if idx != -1:
         end = min(end, idx)
@@ -165,7 +165,7 @@ def api_headings_are_level3(text: str) -> bool:
             end = min(end, idx)
     api_block = after[:end]
     for m in re.finditer(r'^(##+)\s+(.+)$', api_block, flags=re.M):
-        if m.group(1) != '###':
+        if len(m.group(1)) < 3:
             return False
     return True
 

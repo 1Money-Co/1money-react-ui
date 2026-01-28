@@ -6,7 +6,7 @@ description: A copy-to-clipboard component that displays content with a convenie
 
 # Clipboard
 
-## 组件概述
+## Component Overview
 
 A copy-to-clipboard component that displays content with a convenient copy button. Features automatic clipboard copying with success/error callback handling.
 
@@ -19,103 +19,63 @@ A copy-to-clipboard component that displays content with a convenient copy butto
 - Built-in Typography integration for consistent text styling
 - Responsive design with proper text wrapping
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 展示一段可复制内容（地址、交易哈希、邀请码等）并提供一键复制
-- 需要复制成功/失败回调处理
+### When to use
+- Display copyable content (address, transaction hash, invite code, etc.) and provide one-click copy
+- Need success/failure callback handling
 
-### 不适用
-- 需要复杂格式复制或富文本（需要定制实现）
+### When not to use
+- Need complex format replication or rich text (requires custom implementation)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey-deep`, `$color-grey-light`, `$color-grey-midnight`
-- 圆角（px，源码样式提取）：12
-- padding 数值（px，源码样式提取）：8, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey-deep`, `$color-grey-light`, `$color-grey-midnight`
+- Border radius (px, extracted from source style): 12
+- Padding values (px, extracted from source style): 8, 16
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| content | The text content to be copied to clipboard | string | - |
-| id | Optional ID attribute for the component | string | - |
-| className | Additional CSS class name for the component | string | - |
-| prefixCls | The classname prefix for component styling | string | "clipboard" |
-| label | Optional label text displayed above the content | string | - |
-| labelCls | Additional CSS class name for the label | string | - |
-| onSuccess | Callback function called when copy operation succeeds | (content: string) => any | - |
-| onError | Callback function called when copy operation fails | (error: any) => any | - |
+| content | Text content to copy | `string` | - |
+| label | Label text displayed above the button | `string` | - |
+| onSuccess | Callback on successful copy | `(val: string) => void` | - |
+| onError | Callback on clipboard failure | `(err: any) => void` | - |
+| prefixCls | Component class prefix | `string` | `"clipboard"` |
+| labelCls | CSS class for the label | `string` | - |
+| className | CSS class for main container | `string` | - |
+| id | HTML id attribute | `string` | - |
 
-## 示例
+## Examples
 
 ```tsx
 import { Clipboard } from '@1money/react-ui';
 
-// Basic clipboard with content
-<Clipboard content="Hello World" />
+// 1. Basic usage
+<Clipboard content="0x123...abc" />
 
-// With label
+// 2. With Label
 <Clipboard
-  label="API Key"
-  content="sk-1234567890abcdef"
+    label="Wallet Address"
+    content="0x71C...9A"
 />
 
-// With callbacks
+// 3. With Success Callback
 <Clipboard
-  label="Setup Key"
-  content="GWKLDLVE25dfLIJOHUD578JPIHD24JLJGHGOUH27HLIHOUGOLIKHJ547HOU"
-  onSuccess={(content) => console.log('Copied:', content)}
-  onError={(error) => console.error('Copy failed:', error)}
+    content="SECRET_KEY"
+    onSuccess={() => toast.success('Copied!')}
 />
 ```
 
-```tsx
-const apiKey = "sk-1234567890abcdefghijklmnopqrstuvwxyz";
+## Core Principles
 
-<Clipboard
-  label="API Key"
-  content={apiKey}
-  onSuccess={() => {
-    // Show toast notification
-    toast.success('API key copied to clipboard!');
-  }}
-  onError={() => {
-    toast.error('Failed to copy API key');
-  }}
-/>
-```
+- **Usage Priority**: Use `Clipboard` when you need to display the text *and* provide a copy button.
+- **Feedback Loop**: **MUST** provide `onSuccess` or `onError` callbacks if you want custom feedback (toast, etc.). The component handles the clipboard interaction logic internally.
+- **Avoid Duplication**: Do not implement `navigator.clipboard.writeText` manually in components; always wrap with this component or use `copy` utility for invisible actions.
 
-```tsx
-const configData = JSON.stringify({
-  endpoint: "https://api.1money.co",
-  version: "v1",
-  timeout: 30000
-}, null, 2);
-
-<Clipboard
-  label="Configuration"
-  content={configData}
-  className="tw-w-full tw-max-w-md"
-  onSuccess={(content) => {
-    analytics.track('config_copied', {
-      contentLength: content.length
-    });
-  }}
-/>
-```
-
-## 最佳实践与注意事项
-
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Clipboard } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

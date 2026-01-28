@@ -6,7 +6,7 @@ description: A versatile button component built on top of PrimeReact's Button wi
 
 # Button
 
-## 组件概述
+## Component Overview
 
 A versatile button component built on top of PrimeReact's Button with enhanced styling and customization options.
 
@@ -19,43 +19,46 @@ A versatile button component built on top of PrimeReact's Button with enhanced s
 - Full PrimeReact Button compatibility
 - Built-in accessibility features
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 触发主要/次要操作（提交、确认、保存、继续等）
-- 表单提交或工具栏操作
-- 与 Modal / Popup / Drawer 的 action 区配合使用
+### When to use
+- Trigger primary/secondary actions (submit, confirm, save, continue, etc.)
+- Form submission or toolbar actions
+- Use with Modal / Popup / Drawer action areas
 
-### 不适用
-- 仅用于展示信息（请使用 Typography / Badge 等）
-- 需要导航跳转但语义是链接（优先用 <a> 或 Link 组件/封装）
+### When not to use
+- Purely for displaying information (please use Typography / Badge etc.)
+- Need navigation link but semantic is link (prioritize `<a>` or Link component/wrapper)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-midnight`, `$color-grey-night`, `$color-negative`, `$color-negative-active`, `$color-negative-hover`, `$color-primary`, `$color-primary-active`, `$color-primary-black`, `$color-primary-hover`, `$color-primary-white`, `$color-secondary`, `$color-secondary-active`, `$color-secondary-hover`, `$color-warning`, `$color-warning-active`, `$color-warning-hover`
-- 圆角（px，源码样式提取）：8, 12, 36
-- 字号（px，源码样式提取）：12, 14, 16
-- 行高（px，源码样式提取）：8, 16, 20, 26
-- 高度/最大高度（px，源码样式提取）：14, 16, 20, 32, 40, 52
-- padding 数值（px，源码样式提取）：10, 12, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-midnight`, `$color-grey-night`, `$color-negative`, `$color-negative-active`, `$color-negative-hover`, `$color-primary`, `$color-primary-active`, `$color-primary-black`, `$color-primary-hover`, `$color-primary-white`, `$color-secondary`, `$color-secondary-active`, `$color-secondary-hover`, `$color-warning`, `$color-warning-active`, `$color-warning-hover`
+- Border radius (px, extracted from source style): 8, 12, 36
+- Font size (px, extracted from source style): 12, 14, 16
+- Line height (px, extracted from source style): 8, 16, 20, 26
+- Height/Max-height (px, extracted from source style): 14, 16, 20, 32, 40, 52
+- Padding values (px, extracted from source style): 10, 12, 16
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Inherits from: [PrimeReact Button](https://primereact.org/button/).
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "button" |
-| ref | Reference to button element | RefObject<HTMLButtonElement> | - |
-| active | Whether the button is in an active state | boolean | false |
-| size | Button size variant | 'small' \| 'medium' \| 'large' | 'large' |
-| severity | Button style variant | 'primary' \| 'secondary' \| 'warning' \| 'grey' \| 'black' \| 'white' \| 'danger' \| 'danger-light' \| 'primary-landing' \| 'secondary-landing' \| 'primary-outline' \| 'secondary-outline' \| PrimeButtonProps['severity'] | 'primary' |
+| severity | Button style variant | `'primary' \| 'secondary' \| 'grey' \| 'black' \| 'white' \| 'danger' \| 'danger-light' \| 'primary-landing' \| 'secondary-landing' \| 'primary-outline' \| 'secondary-outline' \| PrimeSeverity` | `'primary'` |
+| size | Button size variant | `'small' \| 'medium' \| 'large'` | `'large'` |
+| active | Active state | `boolean` | `false` |
+| prefixCls | Component class prefix | `string` | `"button"` |
+| ref | Reference to HTML button | `RefObject<HTMLButtonElement>` | - |
 
-> 支持 `ref` 获取按钮实例（`RefObject<HTMLButtonElement>`）。
+> Common inherited props: `onClick`, `disabled`, `loading`, `icon`, `iconPos`, `rounded`, `text`, `outlined`, `link`, `tooltip`.
 
-## 示例
+## Examples
 
 ```tsx
 import { Button } from '@1money/react-ui';
@@ -93,13 +96,10 @@ import { Button } from '@1money/react-ui';
 </Button>
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Button } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Strict Component Usage**: Always import `Button` from `@1money/react-ui`. **NEVER** import directly from `primereact/button`.
+- **Styling Integrity**: Do not override button colors or dimensions via `style` or `className`. Use the `severity` and `size` props.
+- **Loading State**: Use the `loading` prop; do not manually swap the button label or icon for a spinner.
+- **Accessibility**: Ensure `onClick` handlers are present for interactive buttons (unless type="submit").
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

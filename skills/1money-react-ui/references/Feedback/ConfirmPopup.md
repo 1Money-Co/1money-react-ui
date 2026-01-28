@@ -7,171 +7,203 @@ source: src/components/ConfirmPopup
 
 # ConfirmPopup
 
-## 组件概述
+## Component Overview
 
-A contextual confirmation dialog component that displays confirmation prompts positioned relative to trigger elements, built on top of PrimeReact's ConfirmPopup with enhanced styling and functionality. This component provides both declarative and imperative APIs for maximum flexibility.
+A contextual confirmation dialog component that displays confirmation prompts positioned relative to trigger elements. Built on top of PrimeReact's ConfirmPopup, it features enhanced styling and functionality. This component offers both declarative and imperative APIs to ensure maximum flexibility in implementation.
 
 ### Features
 
-- Context-aware positioning (auto-adjusts based on available space)
-- Declarative and imperative API support
-- Customizable accept/reject actions
-- Icon support for visual context
-- Focus management with default focus options
-- Backdrop click to dismiss
-- Escape key handling
-- Accessible keyboard navigation
-- Built-in confirmation dialogs
+- Context-aware positioning (automatically adjusts based on available space)
+- Support for both declarative and imperative APIs
+- Customizable accept/reject actions via callbacks
+- Icon support for added visual context
+- Built-in focus management and keyboard navigation
+- Support for backdrop click dismissal and Escape key handling
+- Accessible defaults for screen readers
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 需要阻塞式确认/输入（Modal）或侧边流程（Drawer）
-- 需要就地确认/二次确认（Popup/ConfirmPopup）
+### When to use
 
-### 不适用
-- 频繁提示（考虑 Toast/Notification/Message）
+- When you need a blocking confirmation or input request in a specific context (unlike a Modal or Drawer).
+- For in-place confirmation, such as "Are you sure?" checks directly attached to a button.
 
-## 设计规范
+### When not to use
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- padding 数值（px，源码样式提取）：6, 12
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- For transient, non-blocking notifications. Consider using **Toast**, **Notification**, or **Message** components instead.
+
+## Design Specifications
+
+- **Global Class Prefix**: `om-react-ui` (derived from `$prefix` in `src/variable.scss`)
+- **Standard Padding**: `6px`, `12px` (extracted from source styles)
+- **Styling**: Detailed visual and interaction styles are defined in `style/*.scss`.
+  - *Note*: Prioritize consolidating new or adjusted styles into Foundation tokens to avoid scattered "magic numbers".
+- **References**:
+  - [`DesignTokens`](../Foundation/DesignTokens.md)
+  - [`Spacing`](../Foundation/Spacing.md)
+  - [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: [PrimeReact ConfirmPopup](https://primereact.org/confirmpopup/).
+
 ### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| id | Unique identifier for the popup | string | - |
-| className | Additional CSS classes | string | - |
-| prefixCls | The classname prefix for component styling | string | "confirm-popup" |
+| prefixCls | Component class prefix | `string` | `"confirm-popup"` |
+| id | Unique ID | `string` | - |
+| className | Additional CSS classes | `string` | - |
 
-> 其余属性继承 PrimeReact ConfirmPopup。
+> **Common Inherited Props**: `target`, `visible`, `onHide`, `message`, `accept`, `reject`, `icon`, `acceptLabel`, `rejectLabel`.
 
-### Core Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| target | The target element to position popup relative to | HTMLElement \| EventTarget | - |
-| visible | Whether the popup is visible (declarative API) | boolean | false |
-| onHide | Callback when popup should be hidden | () => void | - |
-| message | The confirmation message to display | ReactNode | - |
-| accept | Callback function when user confirms | () => void | - |
-| reject | Callback function when user cancels | () => void | - |
+### Imperative API (Recommended)
 
-### Customization Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| icon | Icon to display in the popup | string | - |
-| acceptLabel | Label for the accept button | string | "Yes" |
-| rejectLabel | Label for the reject button | string | "No" |
-| acceptIcon | Icon for the accept button | string | - |
-| rejectIcon | Icon for the reject button | string | - |
-| acceptClassName | CSS class for accept button | string | - |
-| rejectClassName | CSS class for reject button | string | - |
+The `confirmPopup` function is the primary method for triggering the popup.
 
-### Positioning Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| position | Position of popup relative to target | 'top' \| 'bottom' \| 'left' \| 'right' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right' | 'top' |
-| defaultFocus | Which button to focus by default | 'accept' \| 'reject' | 'accept' |
+```typescript
+import { confirmPopup } from '@1money/react-ui';
 
-### Behavior Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| dismissable | Whether clicking outside dismisses popup | boolean | true |
-| closeOnEscape | Whether escape key closes popup | boolean | true |
-
-### Callback Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| onShow | Callback when popup is shown | () => void | - |
-| beforeShow | Callback before popup is shown | () => void | - |
-| beforeHide | Callback before popup is hidden | () => void | - |
-
-## 示例
-
-```tsx
-import { ConfirmPopup, confirmPopup } from '@1money/react-ui';
-
-// Using the imperative API
-const handleDelete = (event) => {
-  confirmPopup({
-    target: event.currentTarget,
-    message: 'Are you sure you want to delete this item?',
-    accept: () => {
-      // Handle deletion
-      console.log('Item deleted');
-    },
-    reject: () => {
-      // Handle cancellation
-      console.log('Deletion cancelled');
-    }
-  });
-};
-
-// Component setup
-<>
-  <Button severity="danger" onClick={handleDelete}>
-    Delete Item
-  </Button>
-  <ConfirmPopup />
-</>
+confirmPopup(options: ConfirmPopupOptions);
 ```
 
+**ConfirmPopupOptions:**
+
+| Name | Description | Type |
+| --- | --- | --- |
+| target | The target element (trigger) | `HTMLElement` |
+| message | Message content | `ReactNode` |
+| icon | Icon class name | `string` |
+| accept | Callback function for acceptance | `() => void` |
+| reject | Callback function for rejection | `() => void` |
+| acceptLabel | Label text for the accept button | `string` |
+| rejectLabel | Label text for the reject button | `string` |
+
+## Examples
+
+### 1. Basic Imperative Usage
+
+This is the standard pattern. Ensure `<ConfirmPopup />` is rendered once in your application root or container.
+
 ```tsx
-import { ConfirmPopup } from '@1money/react-ui';
+import { ConfirmPopup, confirmPopup, Button } from '@1money/react-ui';
+
+const MyComponent = () => {
+  const confirm = (event: React.MouseEvent) => {
+    confirmPopup({
+      target: event.currentTarget,
+      message: 'Are you sure you want to proceed?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => console.log('Accepted'),
+      reject: () => console.log('Rejected'),
+      acceptLabel: 'Yes, do it',
+      rejectLabel: 'Cancel'
+    });
+  };
+
+  return (
+    <>
+      {/* Ensure this is present in the tree */}
+      <ConfirmPopup />
+      <Button onClick={confirm} icon="pi pi-check" label="Confirm" />
+    </>
+  );
+};
+```
+
+### 2. Action Confirmation (Deletion)
+
+Example showing a destructive action confirmation flow.
+
+```tsx
+import { ConfirmPopup, confirmPopup, Button } from '@1money/react-ui';
+
+const ItemList = () => {
+  const handleDelete = (event: React.MouseEvent) => {
+    confirmPopup({
+      target: event.currentTarget,
+      message: 'Are you sure you want to delete this item?',
+      accept: () => {
+        // Handle deletion logic
+        console.log('Item deleted');
+      },
+      reject: () => {
+        // Handle cancellation logic
+        console.log('Deletion cancelled');
+      }
+    });
+  };
+
+  return (
+    <>
+      <Button severity="danger" onClick={handleDelete}>
+        Delete Item
+      </Button>
+      <ConfirmPopup />
+    </>
+  );
+};
+```
+
+### 3. Declarative Usage
+
+Use this approach when you need to control the `visible` state manually.
+
+```tsx
+import { ConfirmPopup, Button } from '@1money/react-ui';
 import { useState } from 'react';
 
-const [visible, setVisible] = useState(false);
-const [target, setTarget] = useState(null);
+const DeclarativeExample = () => {
+  const [visible, setVisible] = useState(false);
+  const [target, setTarget] = useState<any>(null);
 
-const showConfirm = (event) => {
-  setTarget(event.currentTarget);
-  setVisible(true);
+  const showConfirm = (event: React.MouseEvent) => {
+    setTarget(event.currentTarget);
+    setVisible(true);
+  };
+
+  return (
+    <>
+      <Button onClick={showConfirm}>
+        Show Confirmation
+      </Button>
+      <ConfirmPopup
+        target={target}
+        visible={visible}
+        onHide={() => setVisible(false)}
+        message="Are you sure you want to proceed?"
+        accept={() => {
+          console.log('Accepted');
+          setVisible(false);
+        }}
+        reject={() => {
+          console.log('Rejected');
+          setVisible(false);
+        }}
+      />
+    </>
+  );
 };
-
-<>
-  <Button onClick={showConfirm}>
-    Show Confirmation
-  </Button>
-  <ConfirmPopup
-    target={target}
-    visible={visible}
-    onHide={() => setVisible(false)}
-    message="Are you sure you want to proceed?"
-    accept={() => {
-      console.log('Accepted');
-      setVisible(false);
-    }}
-    reject={() => {
-      console.log('Rejected');
-      setVisible(false);
-    }}
-  />
-</>
 ```
+
+### 4. Minimal Imperative Call
 
 ```tsx
 import { confirmPopup } from '@1money/react-ui';
 
+// Call within an event handler
 confirmPopup({
   target: buttonElement,
   message: 'Confirmation message',
   accept: () => {}, // Accept callback
   reject: () => {}, // Reject callback
-  // ... other options
 });
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { ConfirmPopup } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Imperative Preference**: Prefer the `confirmPopup` imperative API for standard "ask and act" flows. Reserve the declarative approach for scenarios requiring complex state synchronization.
+- **Single Instance**: Typically, a single `<ConfirmPopup />` instance in the root or a high-level container is sufficient for imperative calls throughout the application.
+- **Contextual Target**: You **MUST** provide a valid `target` (usually `event.currentTarget`). This is required to position the popup correctly relative to the trigger element.
+- **Iconography**: Maintain consistency in icon usage. If integrating with strict design tokens, ensure the icon class strings match the approved icon set (e.g., standard `pi` classes or custom font classes).
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

@@ -6,7 +6,7 @@ description: A flexible date picker component built on top of PrimeReact's Calen
 
 # Calendar
 
-## 组件概述
+## Component Overview
 
 A flexible date picker component built on top of PrimeReact's Calendar with enhanced styling and 1Money-specific features.
 
@@ -20,48 +20,70 @@ A flexible date picker component built on top of PrimeReact's Calendar with enha
 - Full PrimeReact Calendar compatibility
 - Built-in accessibility features
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 选择日期/时间范围（按组件能力）
-- 表单中需要标准化日期输入
+### When to use
 
-### 不适用
-- 仅展示日期文本（Typography 即可）
+- Select date/time range (depending on component capability)
+- Standardized date input needed in form
 
-## 设计规范
+### When not to use
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-light`, `$color-grey-midnight`, `$color-info-light`, `$color-negative`, `$color-primary`, `$color-primary-black`, `$color-primary-white`, `$color-success`
-- 圆角（px，源码样式提取）：12
-- 字号（px，源码样式提取）：12, 14, 16, 18
-- 行高（px，源码样式提取）：17, 18, 20, 22
-- 高度/最大高度（px，源码样式提取）：44, 56
-- padding 数值（px，源码样式提取）：4, 7, 8, 15, 16, 24
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Only display date text (Typography is sufficient)
+
+## Design Specifications
+
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-light`, `$color-grey-midnight`, `$color-info-light`, `$color-negative`, `$color-primary`, `$color-primary-black`, `$color-primary-white`, `$color-success`
+- Border radius (px, extracted from source style): 12
+- Font size (px, extracted from source style): 12, 14, 16, 18
+- Line height (px, extracted from source style): 17, 18, 20, 22
+- Height/Max-height (px, extracted from source style): 44, 56
+- Padding values (px, extracted from source style): 4, 7, 8, 15, 16, 24
+- Detailed visual and interaction specifications are based on the component source code `style/*.scss`; new or adjusted styles should be prioritized for consolidation into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: [PrimeReact Calendar](https://primereact.org/calendar/).
+
 ### Component Props
+
+#### Base Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "calendar" |
-| wrapperCls | Additional wrapper class name | string | - |
-| labelCls | Additional label class name | string | - |
-| messageCls | Additional message class name | string | - |
-| label | Label text displayed above the calendar | ReactNode | - |
-| message | Help text or error message | ReactNode | - |
-| required | Whether the field is required (adds asterisk to label) | boolean | false |
-| size | Calendar size variant | 'large' \| 'small' | 'large' |
-| success | Whether to show success state | boolean | false |
-| invalid | Whether to show invalid state | boolean | false |
-| defaultValue | Default selected date(s) | Date \| Date[] \| null | - |
-| contentWidth | Panel content width | CSSProperties['width'] | - |
+| prefixCls | Component class prefix | `string` | `"calendar"` |
+| wrapperCls | Wrapper class | `string` | - |
+| labelCls | Label class | `string` | - |
+| messageCls | Message class | `string` | - |
+| label | Label content | `ReactNode` | - |
+| message | Message content | `ReactNode` | - |
+| required | Show required indicator | `boolean` | - |
+| success | Show success state | `boolean` | - |
+| size | Size variant | `'large' \| 'small'` | `'large'` |
+| defaultValue | Default value | `Nullable<Date \| (Date \| null)[] \| Date[]>` | - |
+| contentWidth | Input width | `CSSProperties['width']` | - |
 
-> 其余属性继承 PrimeReact Calendar（如 `value`、`selectionMode`、`placeholder` 等）。
+> Inherits common props: `value`, `onChange`, `selectionMode`, `pladeholder`, `disabled`, `showIcon`.
 
-## 示例
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| label | Label text | `ReactNode` | - |
+| message | Validation/Help message | `ReactNode` | - |
+| size | Component size | `'large' \| 'small'` | `'large'` |
+| prefixCls | Component class prefix | `string` | `"calendar"` |
+| wrapperCls | Class for wrapper | `string` | - |
+| labelCls | Class for label | `string` | - |
+| messageCls | Class for message | `string` | - |
+| required | Required state | `boolean` | `false` |
+| success | Success state | `boolean` | `false` |
+| defaultValue | Initial value (uncontrolled) | `Date \| Date[] \| null` | - |
+| contentWidth | Width of the overlay panel | `CSSProperties['width']` | - |
+
+> Common inherited props: `value`, `onChange`, `selectionMode` ('single', 'multiple', 'range'), `maxDate`, `minDate`, `dateFormat`, `showTime`, `disabled`.
+
+## Examples
 
 ```tsx
 import { Calendar } from '@1money/react-ui';
@@ -69,20 +91,25 @@ import { Calendar } from '@1money/react-ui';
 // Basic single date picker
 <Calendar />
 
-// With label
-<Calendar label="Date of Birth" />
-
-// Required field
-<Calendar label="Date of Incorporation" required />
+// With label and validation
+<Calendar
+  label="Date of Birth"
+  required
+  invalid={hasError}
+  message={hasError ? "Date is required" : null}
+/>
 
 // Small size
 <Calendar size="small" />
 
 // Date range picker
-<Calendar selectionMode="range" numberOfMonths={2} />
+<Calendar selectionMode="range" numberOfMonths={2} placeholder="Start - End" />
 
 // Multiple date selection
 <Calendar selectionMode="multiple" />
+
+// With time (inherited from PrimeReact)
+<Calendar showTime hourFormat="24" />
 ```
 
 ```tsx
@@ -110,13 +137,8 @@ const [selectedDates, setSelectedDates] = useState<Date[]>([]);
 />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Calendar } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。
+- **Date Handling**: Always ensure `value` type corresponds to `selectionMode` (single `Date`, `Date[]`, or `[Date, Date]` for range).
+- **Styling**: **PROHIBIT** overriding internal calendar panel styles via global CSS. Use `panelClassName` or `className` with scoped styling if strictly necessary.
+- **Validation**: Use the component's `invalid` and `message` props for error states instead of external validation messages.

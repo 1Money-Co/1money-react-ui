@@ -6,7 +6,7 @@ description: A versatile switch component that supports both traditional toggle 
 
 # Switch
 
-## 组件概述
+## Component Overview
 
 A versatile switch component that supports both traditional toggle switches and button-style toggles, built on top of PrimeReact's InputSwitch and ToggleButton components with enhanced functionality.
 
@@ -20,68 +20,87 @@ A versatile switch component that supports both traditional toggle switches and 
 - Accessible keyboard navigation
 - Full PrimeReact compatibility for both variants
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 显式开关或少量选项选择（Checkbox/Radio）
-- 需要在表单中表达布尔值（Switch）或多选/单选（Group）
+### When to use
+- Explicit switch or selection from few options (Checkbox/Radio)
+- Need to express boolean value (Switch) or multi/single selection (Group) in forms
 
-### 不适用
-- 选项很多且需要筛选（考虑 Select/Dropdown）
+### When not to use
+- Large number of options and filtering is required (consider Select/Dropdown)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-info`, `$color-primary`
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-info`, `$color-primary`
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Inherits from: [PrimeReact InputSwitch](https://primereact.org/inputswitch/) (Normal) or [PrimeReact ToggleButton](https://primereact.org/togglebutton/) (Button).
+
+#### Base Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "switch" |
-| type | Switch variant type | 'normal' \| 'button' | 'normal' |
-| defaultChecked | Default checked state for uncontrolled mode | boolean | false |
-| className | Additional CSS classes | string | - |
-| onChange | Callback when switch state changes | (e: SwitchChangeEvent) => void | - |
+| prefixCls | Component class prefix | `string` | - |
 
-> 说明：Switch 内部管理 `checked` 状态，外部请使用 `defaultChecked` 设定初始值，并通过 `onChange` 获取变更。
+#### Normal Mode
+`type` is undefined or `'normal'`. Inherits `InputSwitchProps`.
 
-## 示例
+| Name | Description | Type |
+| --- | --- | --- |
+| type | Switch type | `'normal'` |
+
+#### Button Mode
+`type` is `'button'`. Inherits `ToggleButtonProps`.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| type | Switch type | `'button'` |
+| defaultChecked | Initial checked state | `boolean` | `false` |
+| prefixCls | Component class prefix | `string` | `"switch"` |
+
+#### Normal Switch (default)
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| type | Variant type | `'normal'` | `'normal'` |
+| onChange | Change handler | `(e: InputSwitchChangeEvent) => void` | - |
+
+#### Button Switch (`type="button"`)
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| type | Variant type | `'button'` | - |
+| onLabel | Label when ON | `string` | - |
+| offLabel | Label when OFF | `string` | - |
+| onChange | Change handler | `(e: ToggleButtonChangeEvent) => void` | - |
+
+## Examples
 
 ```tsx
 import { Switch } from '@1money/react-ui';
 
-// Basic normal switch (default)
+// Basic normal switch
 <Switch />
+
+// With initial state
+<Switch defaultChecked />
 
 // Button-style toggle
 <Switch
   type="button"
-  onLabel="ON"
-  offLabel="OFF"
+  onLabel="Enabled"
+  offLabel="Disabled"
   onChange={(e) => console.log('Toggled:', e.value)}
 />
-
-// With default checked state
-<Switch
-  defaultChecked
-  onChange={(e) => console.log('State:', e.value)}
-/>
-
-// Disabled switch
-<Switch disabled />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Switch } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Semantics**: Use `type="normal"` (default) for settings/preferences (On/Off). Use `type="button"` for state toggles that look like buttons (e.g., "Monthly/Yearly" toggle).
+- **Labeling**: For accessibility, always provide an `aria-label` or link to a label via `id` if the visible label is ambiguous.
+- **State**: Can be uncontrolled (`defaultChecked`) or controlled (`checked` + `onChange`). Prefer controlled for form integrations.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

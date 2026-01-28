@@ -6,7 +6,7 @@ description: A comprehensive file upload component built on top of PrimeReact's 
 
 # Upload
 
-## 组件概述
+## Component Overview
 
 A comprehensive file upload component built on top of PrimeReact's FileUpload with enhanced styling and additional file status display capabilities. Includes both the main Upload component and a companion UploadFileBar component for showing upload status.
 
@@ -23,50 +23,60 @@ A comprehensive file upload component built on top of PrimeReact's FileUpload wi
 - Custom styling and theming support
 - Full TypeScript support
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 用户需要上传文件（图片/附件），并需要统一的交互与校验
-- 与表单提交联动的附件上传
+### When to use
 
-### 不适用
-- 大文件分片、断点续传等高级上传（需要专项实现/封装）
+- User needs to upload files (images/attachments) with unified interaction and validation
+- Attachment upload linked with form submission
 
-## 设计规范
+### When not to use
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey-bold`, `$color-negative`, `$color-primary`, `$color-primary-hover`, `$color-primary-white`
-- 圆角（px，源码样式提取）：12
-- 字号（px，源码样式提取）：12, 14, 16
-- 行高（px，源码样式提取）：12, 16, 20
-- 高度/最大高度（px，源码样式提取）：12, 32, 44
-- padding 数值（px，源码样式提取）：12, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Advanced upload like large file chunking or resumable upload (requires special implementation/wrapping)
+
+## Design Specifications
+
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey-bold`, `$color-negative`, `$color-primary`, `$color-primary-hover`, `$color-primary-white`
+- Border radius (px, extracted from source style): 12
+- Font size (px, extracted from source style): 12, 14, 16
+- Line height (px, extracted from source style)：12, 16, 20
+- Height/Max Height (px, extracted from source style)：12, 32, 44
+- Padding values (px, extracted from source style)：12, 16
+- Detailed visuals and interactions are based on component source code `style/*.scss`. Additions or adjustments to styles should be consolidated into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: [PrimeReact FileUpload](https://primereact.org/fileupload/).
+
 ### Component Props
+
+#### Upload Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| ref | Reference to FileUpload methods | RefObject<FileUpload> | - |
-| className | Additional CSS classes | string | - |
-| prefixCls | Component class prefix | string | "upload" |
-| btnSize | Size of upload buttons | 'small' \| 'medium' \| 'large' | 'medium' |
+| ref | Reference to FileUpload methods | `RefObject<FileUpload>` | - |
+| className | Additional CSS classes | `string` | - |
+| prefixCls | Component class prefix | `string` | `"upload"` |
+| btnSize | Button size | `'small' \| 'medium' \| 'large'` | `'large'` |
 
-> 其余属性继承 PrimeReact FileUpload（如 `mode`、`customUpload`、`uploadHandler` 等）。
+> Common inherited props: `name`, `url`, `mode`, `accept`, `maxFileSize`, `auto`, `customUpload`, `uploadHandler`.
 
 ### UploadFileBar Props
+
+Standalone component for displaying file status.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| fileName | Name of the uploaded file | string | - |
-| status | Upload status indicator | 0 \| 1 | 0 |
-| message | Status message to display | string | - |
-| className | Additional CSS classes | string | - |
-| prefixCls | Component class prefix | string | "upload-file-bar" |
-| onClickRemove | Remove file callback | () => void | - |
+| fileName | Name of file | `string` | - |
+| status | Upload status | `0` (Success) \| `1` (Error) | `0` |
+| message | State message | `string` | - |
+| className | Additional CSS classes | `string` | - |
+| prefixCls | Component class prefix | `string` | `"upload-file-bar"` |
+| onClickRemove | Remove handler | `() => void` | - |
 
-## 示例
+## Examples
 
 ```tsx
 import { Upload, UploadFileBar } from '@1money/react-ui';
@@ -87,12 +97,21 @@ import { Upload, UploadFileBar } from '@1money/react-ui';
   accept=".pdf,.doc,.docx"
 />
 
-// Upload file status bar
+// Custom Upload Handler Example
+<Upload
+  customUpload
+  uploadHandler={(e) => {
+      // Handle file upload manually
+      console.log(e.files);
+  }}
+/>
+
+// UploadFileBar usage (for custom file lists)
 <UploadFileBar
   fileName="document.pdf"
   status={0}
   message="Upload successful"
-  onClickRemove={() => removeFile()}
+  onClickRemove={() => console.log('Remove file')}
 />
 ```
 
@@ -145,13 +164,8 @@ const customUploader = async (event) => {
 />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Upload } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。
+- **Component Separation**: Use `<Upload>` for the actionable dropzone/button. Use `<UploadFileBar>` to display the *resulting* file list items. Do not try to force the `Upload` component to render custom file list UI internally if it doesn't support it.
+- **Handler Logic**: When using `customUpload`, the `uploadHandler` must handle the entire XHR/Fetch process and update the parent state.
+- **Validation**: Use `maxFileSize` and `accept` props for client-side validation first; backend validation is a fallback.

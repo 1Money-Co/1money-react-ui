@@ -1,8 +1,8 @@
-# @1money/react-ui — References 文档索引
+# @1money/react-ui — References Index
 
-本目录以“**按组件类型分类 + 单组件单文档**”的方式组织 References，用于代码助手（Codex / Claude Code / 自研 Agent）在生成 UI 代码时快速检索：**用什么组件、怎么用、有哪些 props、有哪些状态与设计约束**。
+This directory organizes References by "**Category + Single Component Document**", enabling Code Assistants (Codex / Claude Code / Internal Agents) to quickly retrieve information when generating UI code: **which component to use, how to use it, what props are available, and what states/design constraints exist**.
 
-## 目录结构
+## Directory Structure
 
 ```text
 references/
@@ -15,11 +15,13 @@ references/
   Feedback/
 ```
 
-## 使用方式（给代码助手）
+## Usage Guidelines (For Code Agent)
 
-- 先根据场景选择目录（如 DataEntry / Feedback）。
-- 打开对应组件文档（如 `DataEntry/Input.md`），按 **API + 示例** 生成/修改代码。
-- 新增/调整视觉规范优先更新 `Foundation/*`，避免业务侧散落样式。
+- **Locate**: Identify the correct category (e.g., DataEntry) and component (e.g., Input.md).
+- **Adhere**: Strictly follow the **Core Principles** defined in each document. These are MUST-DO rules.
+- **Implement**: Use the provided API and Examples to generate type-safe, consistent code.
+- **Style**: Use `Foundation/*` tokens. Do not introduce magic numbers or arbitrary hex colors.
+
 
 ## Foundation
 

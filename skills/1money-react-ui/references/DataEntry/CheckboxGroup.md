@@ -6,7 +6,7 @@ description: A grouped checkbox component that manages multiple selections with 
 
 # CheckboxGroup
 
-## 组件概述
+## Component Overview
 
 A grouped checkbox component that manages multiple selections with consistent styling and behavior. Supports normal mode and tristate mode for complex selection scenarios.
 
@@ -18,55 +18,106 @@ A grouped checkbox component that manages multiple selections with consistent st
 - Custom label and class hooks
 - Form-friendly API
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 需要在一组选项中多选
-- 需要批量表达布尔/三态状态
+### When to use
+- Need multiple selection from a group of options
+- Need to express boolean/tristate status in batch
 
-### 不适用
-- 选项很多且需要筛选（考虑 Select/Dropdown）
+### When not to use
+- Large number of options and filtering is required (consider Select/Dropdown)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-midnight`, `$color-negative`, `$color-primary`, `$color-primary-active`, `$color-primary-black`
-- 字号（px，源码样式提取）：14
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-midnight`, `$color-negative`, `$color-primary`, `$color-primary-active`, `$color-primary-black`
+- Font size (px, extracted from source style): 14
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: None (Custom Component).
+
 ### Component Props
 
-### Base Props
+#### Base Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| id | HTML id attribute | string | - |
-| prefixCls | The classname prefix for component styling | string | "checkboxgroup" |
-| wrapperCls | Additional classes for wrapper | string | - |
-| innerCls | Additional classes for inner container | string | - |
-| checkboxGroupCls | Additional classes for group container | string | - |
-| labelCls | Additional classes for label | string | - |
-| size | Size variant | 'sm' \| 'md' \| 'lg' | 'md' |
+| id | HTML id attribute | `string` | - |
+| prefixCls | Component class prefix | `string` | `"checkboxgroup"` |
+| wrapperCls | Additional classes for wrapper | `string` | - |
+| innerCls | Additional classes for inner container | `string` | - |
+| checkboxGroupCls | Additional classes for group container | `string` | - |
+| labelCls | Additional classes for label | `string` | - |
+| size | Size variant | `'sm' \| 'md' \| 'lg'` | - |
+
+#### Normal Mode
+`tristate` is undefined or false.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| tristate | Mode flag | `false` |
+| onChange | Change handler | `(checkedList: string[]) => void` |
+| items | Checkbox items | `(CheckboxItemProps)[]` |
+
+#### TriState Mode
+`tristate` is true.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| tristate | Mode flag | `true` |
+| onChange | Change handler | `(itemsState: Record<string, boolean \| null>) => void` |
+| items | TriState Items | `(TriStateItemProps)[]` |
+Inherits from: None (Custom Container).
+Renders a group of [Checkbox](https://primereact.org/checkbox/) or [TriStateCheckbox](https://primereact.org/tristatecheckbox/) components.
+
+### Common Props
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| size | Component size | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| wrapperCls | Class for outer wrapper | `string` | - |
+| innerCls | Class for item container | `string` | - |
+| checkboxGroupCls | Class for group container | `string` | - |
+| labelCls | Class for label | `string` | - |
+| prefixCls | Prefix for CSS classes | `string` | - |
+| id | DOM ID | `string` | - |
 
 ### Normal Mode (tristate = false)
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| tristate | Enable tristate mode | false | false |
-| items | Checkbox items | Array<{ key: string; label?: ReactNode; onChange?: (checked: boolean) => any; ...PrimeCheckboxProps }> | - |
-| onChange | Callback when selection changes | (checkedList: string[]) => any | - |
+| tristate | Mode indicator | `false` | `false` |
+| items | Array of checkbox items | `CheckboxItemNormal[]` | `[]` |
+| onChange | Callback when selection list changes | `(checkedList: string[]) => void` | - |
+
+#### CheckboxItemNormal
+Inherits from [PrimeReact CheckboxProps](https://primereact.org/checkbox/#api) (omitting `checked`, `value`, `onChange`).
+| Name | Description | Type |
+| --- | --- | --- |
+| key | Unique identifier | `string` |
+| label | Label content | `ReactNode` |
+| checked | Controlled check state | `boolean` |
+| onChange | Item specific change handler | `(checked: boolean) => void` |
 
 ### TriState Mode (tristate = true)
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| tristate | Enable tristate mode | true | - |
-| items | Checkbox items | Array<{ key: string; label?: ReactNode; defaultValue?: boolean \| null; onChange?: (state: boolean \| null) => any; ...TriStateCheckboxProps }> | - |
+| tristate | Mode indicator | `true` | - |
+| items | Array of tristate items | `CheckboxItemTriState[]` | `[]` |
+| onChange | Callback when state map changes | `(itemsState: Record<string, boolean \| null>) => void` | - |
 
-> Normal 模式下可通过 item 的 `autoFocus` 设定默认选中项。
-| onChange | Callback when selection changes | (itemsState: Record<string, boolean \| null>) => any | - |
+#### CheckboxItemTriState
+Inherits from [PrimeReact TriStateCheckboxProps](https://primereact.org/tristatecheckbox/#api) (omitting `value`, `onChange`).
+| Name | Description | Type |
+| --- | --- | --- |
+| key | Unique identifier | `string` |
+| label | Label content | `ReactNode` |
+| checked | **Deprecated**? Use `defaultValue` or state map | `boolean` |
+| defaultValue | Initial state | `boolean \| null` |
+| onChange | Item specific change handler | `(state: boolean \| null) => void` |
 
-## 示例
+## Examples
 
 ```tsx
 import { CheckboxGroup } from '@1money/react-ui';
@@ -130,13 +181,9 @@ const FormExample = () => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { CheckboxGroup } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Data Driven**: **MUST** use the `items` prop to define checkboxes. Avoid manually iterating `Checkbox` children.
+- **State Management**: The `onChange` callback provides the *entire* new state (array of IDs or record of states), not just the changed item.
+- **Layout**: Use `checkboxGroupCls` to control the layout (flex/grid) of the items if the default stacking is insufficient.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

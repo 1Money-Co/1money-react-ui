@@ -1,91 +1,120 @@
 ---
 name: Input
 category: DataEntry
-description: A comprehensive input component that supports multiple input types including text, number, mask, textarea, OTP, password, and autocomplete with enhanced styling and validation features.
+description: A comprehensive input component that supports multiple input types including text, number, mask, textarea, OTP, password, and autocomplete, with enhanced styling and validation capabilities.
 ---
 
 # Input
 
-## 组件概述
+## Component Overview
 
-A comprehensive input component that supports multiple input types including text, number, mask, textarea, OTP, password, and autocomplete with enhanced styling and validation features.
+A comprehensive input component that supports multiple input types—including text, number, mask, textarea, OTP, password, and autocomplete—featuring enhanced styling and validation capabilities.
 
 ### Features
 
-- Multiple input types (text, number, mask, textarea, OTP, password, autocomplete)
-- Built-in label and message support
-- Prefix and suffix elements
-- Size variants (large, small)
-- Success and error states
-- Character count for textarea
-- Rounded corners option
-- Required field indication
-- Full PrimeReact compatibility
+- **Versatile Input Types**: Supports text, number, mask, textarea, OTP, password, and autocomplete.
+- **Integrated Labeling**: Built-in support for labels and validation messages.
+- **Adornments**: Support for prefix and suffix elements.
+- **Size Variants**: Available in large and small sizes.
+- **Validation States**: Visual indicators for success and error states.
+- **Textarea Features**: Character counting support for textarea inputs.
+- **Styling Options**: Toggleable rounded corners.
+- **Required Fields**: Visual indication for mandatory fields.
+- **PrimeReact Compatibility**: Fully compatible with PrimeReact functionality.
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 表单输入（文本、数字、金额等）并需要统一的 label / message / 校验状态
-- 需要前缀/后缀元素（如币种、单位、icon）
-- 需要 success/error/disabled 等状态一致性
+### When to use
+- **Standard Data Entry**: For forms requiring unified labels, messages, or validation statuses (e.g., text, numbers, amounts).
+- **Decorated Inputs**: When prefix/suffix elements are needed (e.g., currency symbols, units, icons).
+- **State Feedback**: When consistent success, error, or disabled states are required.
 
-### 不适用
-- 大段富文本编辑（应使用专用富文本编辑器）
-- 需要复杂筛选/远程搜索且选项很多（考虑组合 Autocomplete/Select 方案）
+### When not to use
+- **Complex Rich Text**: For extensive text formatting, use a dedicated Rich Text Editor.
+- **Advanced Filtering**: For complex filtering or remote search with extensive options, consider a specialized Autocomplete or Select solution.
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-light`, `$color-grey-midnight`, `$color-negative`, `$color-primary`, `$color-primary-black`, `$color-success`
-- 圆角（px，源码样式提取）：8, 12
-- 字号（px，源码样式提取）：12, 14, 16
-- 行高（px，源码样式提取）：15, 17, 18, 20, 22
-- 高度/最大高度（px，源码样式提取）：16, 40, 44, 52, 56, 105, 120
-- padding 数值（px，源码样式提取）：8, 11, 12, 15, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- **Global Class Prefix**: `om-react-ui` (derived from `$prefix` in `src/variable.scss`).
+- **Color Tokens**: `$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-grey-deep`, `$color-grey-light`, `$color-grey-midnight`, `$color-negative`, `$color-primary`, `$color-primary-black`, `$color-success`.
+- **Border Radius**: 8px, 12px.
+- **Font Size**: 12px, 14px, 16px.
+- **Line Height**: 15px, 17px, 18px, 20px, 22px.
+- **Height/Max Height**: 16px, 40px, 44px, 52px, 56px, 105px, 120px.
+- **Padding**: 8px, 11px, 12px, 15px, 16px.
+- **Source of Truth**: Please refer to `style/*.scss` in the component source for detailed visual and interaction specifications. New or adjusted styles should be defined in Foundation tokens to avoid scattered magic numbers.
+- **References**: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md).
 
 ## API
 
+Inherits functionality from the following PrimeReact components based on the `type` prop:
+- [PrimeReact InputText](https://primereact.org/inputtext/) (`type="text"`)
+- [PrimeReact InputNumber](https://primereact.org/inputnumber/) (`type="number"`)
+- [PrimeReact InputMask](https://primereact.org/inputmask/) (`type="mask"`)
+- [PrimeReact InputTextarea](https://primereact.org/inputtextarea/) (`type="textarea"`)
+- [PrimeReact InputOtp](https://primereact.org/inputotp/) (`type="otp"`)
+- [PrimeReact Password](https://primereact.org/password/) (`type="password"`)
+- [PrimeReact AutoComplete](https://primereact.org/autocomplete/) (`type="auto"`)
+
 ### Component Props
+
+#### Base Props (All Types)
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "input" |
-| wrapperCls | Additional classes for the wrapper element | string | - |
-| labelCls | Additional classes for the label | string | - |
-| messageCls | Additional classes for the message | string | - |
-| label | Label text or element | ReactNode | - |
-| message | Help text or error message | ReactNode | - |
-| required | Whether the field is required | boolean | false |
-| rounded | Whether to use rounded corners | boolean | false |
-| size | Input size variant | 'large' \| 'small' | 'large' |
-| success | Whether to show success state | boolean | false |
-| prefixEle | Element to show before the input | ReactNode | - |
-| suffixEle | Element to show after the input | ReactNode | - |
-| prefixEleCls | Classes for prefix element | string | - |
-| suffixEleCls | Classes for suffix element | string | - |
-| loading | Whether to show loading state | boolean | false |
-| showMessageIcon | Whether to show message icon | boolean | true |
-| type | Input type | 'text' \| 'number' \| 'mask' \| 'textarea' \| 'otp' \| 'password' \| 'autocomplete' | 'text' |
-| ref | Input instance ref (varies by type) | RefObject<...> | - |
+| prefixCls | The classname prefix for component styling. | `string` | `"input"` |
+| wrapperCls | Additional classes for the wrapper element. | `string` | - |
+| labelCls | Additional classes for the label. | `string` | - |
+| messageCls | Additional classes for the message. | `string` | - |
+| label | Label content (text or element). | `ReactNode` | - |
+| message | Validation or help message content. | `ReactNode` | - |
+| required | Indicates if the field is mandatory. | `boolean` | `false` |
+| rounded | Applies rounded corners logic. | `boolean` | `false` |
+| size | Input size variant. | `'large' \| 'small'` | `'large'` |
+| success | Visual indicator for success state. | `boolean` | `false` |
+| prefixEle | Element rendered before the input (e.g., icon). | `ReactNode` | - |
+| suffixEle | Element rendered after the input. | `ReactNode` | - |
+| prefixEleCls | CSS class for the prefix element. | `string` | - |
+| suffixEleCls | CSS class for the suffix element. | `string` | - |
+| loading | Indicates a loading state. | `boolean` | `false` |
+| showMessageIcon | Displays an icon within the validation message. | `boolean` | `true` |
+| type | Specifies the input variant. | `'text' \| 'number' \| 'mask' \| 'textarea' \| 'otp' \| 'password' \| 'autocomplete'` | `'text'` |
+| ref | Reference to the underlying input instance. | `RefObject<...>` | - |
 
-> `ref` 类型会随 `type` 变化（如 text/otp 为 `HTMLInputElement`，number 为 `InputNumber`，mask 为 `InputMask`，password 为 `Password`，autocomplete 为 `AutoComplete`，textarea 为 `HTMLTextAreaElement`）。各类型还继承对应 PrimeReact input props。
+> **Note**: The `ref` type varies by `type` (e.g., `HTMLInputElement` for text/otp, `InputNumber` for number, `InputMask` for mask, `Password` for password, `AutoComplete` for autocomplete, `HTMLTextAreaElement` for textarea).
 
-### Textarea Props
+#### Variant-Specific Considerations
+
+Each variant inherits standard props from its corresponding PrimeReact component (e.g., `value`, `onChange`, `placeholder`, `disabled`).
+
+| Type | Corresponding Props Interface |
+| --- | --- |
+| `'text'` (default) | `InputTextProps` |
+| `'number'` | `InputNumberProps` |
+| `'mask'` | `InputMaskProps` |
+| `'textarea'` | `InputTextareaProps` |
+| `'otp'` | `InputOtpProps` |
+| `'password'` | `InputPwdProps` |
+| `'auto'` | `AutoCompleteProps` |
+
+> Inherited props such as `toggleMask` and `feedback` are available specifically when `type="password"`.
+
+### Textarea Specific Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| maxLength | Max length for textarea | number | - |
-| showCount | Whether to show character count | boolean | false |
+| maxLength | Maximum character length. | `number` | - |
+| showCount | Displays the current character count. | `boolean` | `false` |
 
-## 示例
+## Examples
 
 ```tsx
 import { Input } from '@1money/react-ui';
 
-// Text input
+// Basic text input
 <Input type="text" placeholder="Enter text" />
 
-// With label
+// Text input with label and required indicator
 <Input
   type="text"
   label="Username"
@@ -93,7 +122,7 @@ import { Input } from '@1money/react-ui';
   required
 />
 
-// Number input
+// Number input with constraints
 <Input
   type="number"
   label="Amount"
@@ -102,7 +131,7 @@ import { Input } from '@1money/react-ui';
   max={1000}
 />
 
-// Textarea with character count
+// Textarea with character counter
 <Input
   type="textarea"
   label="Description"
@@ -111,7 +140,7 @@ import { Input } from '@1money/react-ui';
   rows={4}
 />
 
-// Password input
+// Password input with toggle mask
 <Input
   type="password"
   label="Password"
@@ -128,6 +157,7 @@ import { Input } from '@1money/react-ui';
 ```
 
 ```tsx
+// Controlled input with validation state
 const [value, setValue] = useState('');
 const [error, setError] = useState('');
 
@@ -144,6 +174,7 @@ const [error, setError] = useState('');
 ```
 
 ```tsx
+// Search input with icons
 <Input
   type="text"
   label="Search"
@@ -153,13 +184,8 @@ const [error, setError] = useState('');
 />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Input } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。
+- **Unified Component**: **MUST** use the single `Input` component with the logical `type` prop (e.g., `type="number"`) instead of importing individual sub-components like `InputNumber`.
+- **Layout Encapsulation**: Utilize the built-in `label`, `message`, and `prefixEle`/`suffixEle` props for layout structure. **DO NOT** wrap the input in redundant divs purely for adding labels or icons.
+- **Controlled State**: Always implement inputs as controlled components by providing distinct `value` and `onChange` props.

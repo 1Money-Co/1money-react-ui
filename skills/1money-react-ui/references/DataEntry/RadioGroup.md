@@ -6,7 +6,7 @@ description: A comprehensive radio group component that provides grouped radio b
 
 # RadioGroup
 
-## 组件概述
+## Component Overview
 
 A comprehensive radio group component that provides grouped radio button functionality with support for default and card variants, multiple layout directions, and advanced customization options.
 
@@ -22,64 +22,106 @@ A comprehensive radio group component that provides grouped radio button functio
 - Accessible keyboard navigation
 - Full control over styling with multiple className props
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 显式开关或少量选项选择（Checkbox/Radio）
-- 需要在表单中表达布尔值（Switch）或多选/单选（Group）
+### When to use
+- Explicit switch or selection from few options (Checkbox/Radio)
+- Need to express boolean value (Switch) or multi/single selection (Group) in forms
 
-### 不适用
-- 选项很多且需要筛选（考虑 Select/Dropdown）
+### When not to use
+- Large number of options and filtering is required (consider Select/Dropdown)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-light`, `$color-negative`, `$color-primary`, `$color-primary-black`, `$color-primary-hover`
-- 圆角（px，源码样式提取）：12
-- 字号（px，源码样式提取）：16
-- padding 数值（px，源码样式提取）：8, 16
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-light`, `$color-negative`, `$color-primary`, `$color-primary-black`, `$color-primary-hover`
+- Border radius (px, extracted from source style): 12
+- Font size (px, extracted from source style): 16
+- Padding values (px, extracted from source style): 8, 16
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: None (Custom Component).
+
 ### Component Props
+
+#### Base Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| ref | Reference to RadioGroupHandlers for programmatic control | RefObject<RadioGroupHandlers \| null> | - |
-| prefixCls | The classname prefix for component styling | string | "radiogroup" |
-| wrapperCls | Additional classes for the wrapper element | string | - |
-| innerCls | Additional classes for the inner container | string | - |
-| radioCls | Additional classes for radio buttons | string | - |
-| cardCls | Additional classes for card variant items | string | - |
-| cardCheckedCls | Additional classes for checked card items | string | - |
-| cardDisabledCls | Additional classes for disabled card items | string | - |
-| cardInvalidCls | Additional classes for invalid card items | string | - |
-| labelCls | Additional classes for the group label | string | - |
-| size | Size variant for radio buttons | 'sm' \| 'md' \| 'lg' | 'md' |
-| variant | Display variant | 'default' \| 'card' | 'default' |
-| direction | Layout direction | 'horizontal' \| 'vertical' | 'horizontal' |
-| label | Group label text or element | ReactNode | - |
-| required | Whether the group is required | boolean | false |
-| items | Array of radio button items | RadioItemProps[] | [] |
-| onChange | Callback when selection changes | (selected: RadioItemProps) => any | - |
+| ref | Reference to RadioGroupHandlers | `RefObject<RadioGroupHandlers \| null>` | - |
+| prefixCls | Component class prefix | `string` | `"radiogroup"` |
+| wrapperCls | Outer wrapper class | `string` | - |
+| innerCls | Inner container class | `string` | - |
+| radioCls | Radio items container class | `string` | - |
+| cardCls | Card variant class | `string` | - |
+| cardCheckedCls | Card checked class | `string` | - |
+| cardDisabledCls | Card disabled class | `string` | - |
+| cardInvalidCls | Card invalid class | `string` | - |
+| labelCls | Label class | `string` | - |
+| size | Size variant | `'sm' \| 'md' \| 'lg'` | - |
+| variant | Visual variant | `'default' \| 'card'` | `'default'` |
+| direction | Layout direction | `'horizontal' \| 'vertical'` | `'horizontal'` |
+| label | Group label | `ReactNode` | - |
+| required | Required indicator | `boolean` | - |
+| onChange | Change handler | `(selected: RadioItemProps) => void` | - |
+| items | Radio items | `RadioItemProps[]` | - |
+
+### RadioItemProps
+Extends `RadioButtonProps`.
+
+| Name | Description | Type |
+| --- | --- | --- |
+| key | Unique identifier | `string` |
+| label | Item label | `string` |
+| children | Item content | `ReactNode \| ((selected: boolean) => ReactNode)` |
 
 ### RadioGroupHandlers
-| Method | Description | Parameters |
+| Name | Description | Type |
 | --- | --- | --- |
-| reset | Clear current selection | () => void |
+| reset | Reset selection | `() => void` |
+Inherits from: None (Custom Container).
+Renders a group of [RadioButton](https://primereact.org/radiobutton/) components.
 
-### RadioItem Props
+### RadioGroup Props
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| key | Unique identifier for the item | string | - |
-| label | Label text for default variant | string | - |
-| children | Content for card variant (can be function) | ReactNode \| ((selected: boolean) => ReactNode) | - |
-| disabled | Whether the item is disabled | boolean | false |
-| invalid | Whether the item is in invalid state | boolean | false |
-| autoFocus | Whether this item should be selected by default | boolean | false |
+| items | Array of radio items | `RadioItemProps[]` | `[]` |
+| variant | Visual style variant | `'default' \| 'card'` | `'default'` |
+| direction | Layout direction | `'horizontal' \| 'vertical'` | `'horizontal'` |
+| size | Component size | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| label | Group label content | `ReactNode` | - |
+| required | Whether selection is mandatory | `boolean` | `false` |
+| wrapperCls | Class for the outer wrapper | `string` | - |
+| innerCls | Class for the item container | `string` | - |
+| radioCls | Class for radio buttons | `string` | - |
+| cardCls | Class for card item wrapper | `string` | - |
+| cardCheckedCls | Class for checked card item | `string` | - |
+| cardDisabledCls | Class for disabled card item | `string` | - |
+| cardInvalidCls | Class for invalid card item | `string` | - |
+| labelCls | Class for the group label | `string` | - |
+| ref | Ref to access handlers | `Ref<RadioGroupHandlers>` | - |
+| onChange | Callback when selection changes | `(selected: RadioItemProps) => void` | - |
 
-## 示例
+### RadioItemProps
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| key | Unique identifier | `string` | - |
+| label | Label text (default variant) | `string` | - |
+| children | Content for card variant | `ReactNode \| ((selected: boolean) => ReactNode)` | - |
+| disabled | Whether item is disabled | `boolean` | `false` |
+| invalid | Whether item is invalid | `boolean` | `false` |
+| autoFocus | Whether to focus/select by default? | `boolean` | `false` |
+| ... | Other `RadioButtonProps` | | |
+
+### RadioGroupHandlers
+| Name | Description | Type |
+| --- | --- | --- |
+| reset | Clears the current selection | `() => void` |
+
+## Examples
 
 ```tsx
 import { RadioGroup } from '@1money/react-ui';
@@ -154,13 +196,9 @@ const FormExample = () => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { RadioGroup } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Variant Usage**: Use the `variant="card"` style for high-priority choices (like subscription tier selection) and `default` for standard forms.
+- **Controlled Mode**: Treat `RadioGroup` as a controlled component; always provide `onChange` to handle selection updates.
+- **Direction**: Use `direction="vertical"` for long labels to improve readability; use `horizontal` for short options (Yes/No).
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

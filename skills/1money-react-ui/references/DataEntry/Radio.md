@@ -6,7 +6,7 @@ description: A customizable radio button component built on top of PrimeReact's 
 
 # Radio
 
-## 组件概述
+## Component Overview
 
 A customizable radio button component built on top of PrimeReact's RadioButton with enhanced styling and additional features.
 
@@ -20,48 +20,54 @@ A customizable radio button component built on top of PrimeReact's RadioButton w
 - Accessible keyboard navigation
 - Full PrimeReact RadioButton compatibility
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 显式开关或少量选项选择（Checkbox/Radio）
-- 需要在表单中表达布尔值（Switch）或多选/单选（Group）
+### When to use
+- Explicit switch or selection from few options (Checkbox/Radio)
+- Need to express boolean value (Switch) or multi/single selection (Group) in forms
 
-### 不适用
-- 选项很多且需要筛选（考虑 Select/Dropdown）
+### When not to use
+- Large number of options and filtering is required (consider Select/Dropdown)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-negative`, `$color-primary`, `$color-primary-active`, `$color-primary-black`, `$color-primary-hover`
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-bold`, `$color-grey-dark`, `$color-negative`, `$color-primary`, `$color-primary-active`, `$color-primary-black`, `$color-primary-hover`
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Inherits from: [PrimeReact RadioButton](https://primereact.org/radiobutton/).
+
+### Component Props
+
+#### Base Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "radio" |
-| wrapperCls | Additional classes for the wrapper element | string | - |
-| innerCls | Additional classes for the inner container | string | - |
-| radioCls | Additional classes for the radio button | string | - |
-| labelCls | Additional classes for the label | string | - |
-| size | Radio button size variant | 'sm' \| 'md' \| 'lg' | 'md' |
-| label | Label text or element | ReactNode | - |
-| required | Whether the radio button is required | boolean | false |
-| invalid | Whether the radio button is in invalid state | boolean | false |
-| id | Identifier for the input element | string | - |
-| name | Name attribute for grouping radio buttons | string | - |
-| value | Value of the radio button | any | - |
-| checked | Whether the radio button is checked | boolean | false |
-| disabled | Whether the radio button is disabled | boolean | false |
-| onChange | Callback when radio button state changes | (e: RadioButtonChangeEvent) => void | - |
-| onFocus | Callback when radio button receives focus | (e: FocusEvent) => void | - |
-| onBlur | Callback when radio button loses focus | (e: FocusEvent) => void | - |
+| prefixCls | Component class prefix | `string` | `"radio"` |
+| wrapperCls | Outer wrapper class | `string` | - |
+| innerCls | Inner container class | `string` | - |
+| radioCls | Radio element class | `string` | - |
+| labelCls | Label element class | `string` | - |
+| label | Label content | `ReactNode` | - |
+| size | Component size | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| required | Required indicator | `boolean` | - |
+| invalid | Invalid state | `boolean` | - |
 
-> 其余属性继承 PrimeReact RadioButton。
+> Inherits common props: `value`, `name`, `disabled`, `tooltip`, `checked`.
+| innerCls | Class for container | `string` | - |
+| radioCls | Class for radio element | `string` | - |
+| labelCls | Class for label | `string` | - |
+| invalid | Invalid state | `boolean` | `false` |
+| required | Required state | `boolean` | `false` |
 
-## 示例
+> Common inherited props: `value`, `checked`, `onChange`, `disabled`, `name`, `id`.
+
+## Examples
 
 ```tsx
 import { Radio } from '@1money/react-ui';
@@ -163,13 +169,9 @@ const RadioExample = () => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Radio } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Grouping**: Prefer **`RadioGroup`** over individual `Radio` buttons for standard mutually exclusive options. Use `Radio` only when custom layout requirements prevent grouping.
+- **Accessibility**: When using standalone `Radio` components, ensure they share the same `name` attribute to function as a group.
+- **Labeling**: Use the `label` prop instead of external `<label>` tags to ensure click targets are correctly sized and accessible.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

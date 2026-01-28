@@ -7,7 +7,7 @@ source: src/components/Message
 
 # Message
 
-## 组件概述
+## Component Overview
 
 A message component built on top of PrimeReact's Message with enhanced styling. Messages are used to display inline information, warnings, errors, or success messages within forms or content areas.
 
@@ -21,67 +21,65 @@ A message component built on top of PrimeReact's Message with enhanced styling. 
 - Customizable styling and theming
 - Full PrimeReact Message compatibility
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 给用户反馈（成功/失败/告警/信息），不打断主流程（Toast/Notification）
-- 表单或区域内的状态提示（Message）
-- 对图标/按钮提供补充说明（Tooltip）
+### When to use
 
-### 不适用
-- 必须用户确认才能继续（考虑 Modal/ConfirmPopup）
+- Give user feedback (success/failure/warning/info) without interrupting main flow (Toast/Notification)
+- Status hints within form or area (Message)
+- Provide supplementary explanation for icons/buttons (Tooltip)
 
-## 设计规范
+### When not to use
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 圆角（px，源码样式提取）：6
-- 字号（px，源码样式提取）：14
-- 高度/最大高度（px，源码样式提取）：14
-- padding 数值（px，源码样式提取）：10
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Must require user confirmation to continue (consider Modal/ConfirmPopup)
+
+## Design Specifications
+
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Border radius (px, extracted from source style): 6
+- Font size (px, extracted from source style): 14
+- Height/Max-height (px, extracted from source style): 14
+- Padding values (px, extracted from source style): 10
+- For detailed visual and interaction specifications, refer to the component source code in `style/*.scss`. New or adjusted styles should prioritize consolidation into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
 ### Component Props
+
+Inherits from: [PrimeReact Message](https://primereact.org/message/).
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | 'message' |
-| children | Custom content (overrides text prop) | ReactNode | - |
+| prefixCls | Component class prefix | `string` | `"message"` |
 
-> 其余属性继承 PrimeReact Message（如 `severity`、`text`、`closable` 等）。
+> Common inherited props: `severity` ('success'\|'info'\|'warn'\|'error'), `text`, `closable`, `icon`.
 
-## 示例
+## Examples
 
 ```tsx
 import { Message } from '@1money/react-ui';
 
-// Basic info message
+// Basic messages with text prop
 <Message severity="info" text="This is an informational message" />
-
-// Success message
 <Message severity="success" text="Operation completed successfully!" />
-
-// Warning message
 <Message severity="warn" text="Please review your input before proceeding" />
-
-// Error message
 <Message severity="error" text="An error occurred while processing your request" />
 
-// Message with custom content
+// Message with custom content (children)
 <Message severity="info">
-  <div>
+  <div className="flex flex-column">
     <strong>Account Update</strong>
-    <p>Your profile information has been updated successfully.</p>
+    <span>Your profile information has been updated.</span>
   </div>
 </Message>
 
 // Closable message
-<Message 
-  severity="warn" 
+<Message
+  severity="warn"
   text="Your session will expire soon"
   closable
-  onClose={() => console.log('Message dismissed')}
+  style={{ width: '100%' }}
 />
 ```
 
@@ -90,17 +88,17 @@ const FormValidation = ({ errors, success }) => {
   return (
     <div className="form-messages">
       {success && (
-        <Message 
-          severity="success" 
+        <Message
+          severity="success"
           text="Form submitted successfully!"
           closable
         />
       )}
-      
+
       {errors.map((error, index) => (
-        <Message 
+        <Message
           key={index}
-          severity="error" 
+          severity="error"
           text={error.message}
         />
       ))}
@@ -121,11 +119,11 @@ const AccountMessages = ({ user }) => {
           </div>
         </Message>
       )}
-      
+
       {user.subscription?.isPremium && (
         <Message severity="success" text="You have premium access to all features!" />
       )}
-      
+
       {user.profile?.isIncomplete && (
         <Message severity="info">
           <div>
@@ -139,13 +137,9 @@ const AccountMessages = ({ user }) => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Message } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。
+- **Usage Priority**: `Message` is for *inline* content (e.g., forms, lists). For global overlay messages, MUST use `Toast`.
+- **Content Structure**: Use `text` prop for simple strings. For complex layouts (e.g., text with links/buttons), nest elements as `children`.
+- **Visibility Control**: If `closable` is true, ensure the layout handles the component removal gracefully (or controls it via state if fully controlled).
+- **Semantics**: **MUST** match `severity` to the message type (e.g., error for blocking issues, warn for non-blocking).

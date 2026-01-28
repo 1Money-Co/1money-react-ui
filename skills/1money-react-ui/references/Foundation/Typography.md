@@ -1,57 +1,62 @@
 ---
 name: Typography
 category: Foundation
-description: 排版规范与字号/行高参考（从组件样式提取）
+description: Mandatory typography specifications. All text must use the `<Typography>` component or follow strict font-size/line-height tokens. Custom definitions of font-size are prohibited.
 ---
 
 # Typography
 
-## 概述
+## Core Principles
 
-该组件库同时提供 `Typography` 组件与一组在各组件样式中实际出现过的字号/行高。代码助手生成文本时应优先使用 `Typography` 组件，避免业务侧直接写 `font-size`。
+**Code Agent MUST prioritize `<Typography>` component variants.**
+Only use custom CSS when strictly necessary (e.g. inside SVG, Canvas), and it MUST follow the defined tokens.
 
-## 字号参考（px，来自组件样式提取）
+### 1. Component Mapping
 
-| Font Size (px) | Notes |
+| Context | Recommended Variant | Font Size Range |
+| --- | --- | --- |
+| **Micro / Aux** | `<Typography.Label size="xs" />` | 10px - 12px |
+| **Body / Standard** | `<Typography.Body />` | 14px - 16px |
+| **Subtitle / Emphasis** | `<Typography.Title />` | 16px - 18px |
+| **Headline / Section** | `<Typography.Headline />` | 20px - 24px |
+| **Display / Page** | `<Typography.Display />` | 32px+ |
+
+### 2. Font Size Token Reference (Extracted from Source)
+
+If custom CSS is mandatory (e.g., in complex Canvas or SVG), use only the following stepped values:
+
+**Functional Groups:**
+
+* **Micro**: `10px`, `12px`
+* **Body**: `14px`, `16px`
+* **Heading**: `18px`, `20px`, `24px`
+* **Display**: `32px`, `36px`, `52px`
+
+| Size (px) | Usage Context |
 | --- | --- |
-| 10 | 特殊场景（大号展示/图标等） |
-| 12 | 常用正文/控件字号 |
-| 14 | 常用正文/控件字号 |
-| 16 | 常用正文/控件字号 |
-| 18 | 标题/强调 |
-| 20 | 标题/强调 |
-| 24 | 标题/强调 |
-| 28 | 特殊场景（大号展示/图标等） |
-| 32 | 特殊场景（大号展示/图标等） |
-| 36 | 特殊场景（大号展示/图标等） |
-| 45 | 特殊场景（大号展示/图标等） |
-| 52 | 特殊场景（大号展示/图标等） |
-| 64 | 特殊场景（大号展示/图标等） |
+| 10 | Tiny Label (Badge, Subscript) |
+| 12 | Auxiliary Info, Tooltip |
+| 14 | **Standard Body (Default)** |
+| 16 | Emphasized Body, Button Text, Subtitle |
+| 18 | Card Title |
+| 20 | Modal Title |
+| 24 | Module/Section Title |
 
-## 行高参考（px，来自组件样式提取）
+### 3. Line Height Reference
 
-| Line Height (px) | Notes |
-| --- | --- |
-| 8 | 特殊场景 |
-| 12 | 特殊场景 |
-| 13 | 特殊场景 |
-| 15 | 特殊场景 |
-| 16 | 常用行高 |
-| 17 | 特殊场景 |
-| 18 | 特殊场景 |
-| 20 | 常用行高 |
-| 22 | 特殊场景 |
-| 24 | 常用行高 |
-| 26 | 特殊场景 |
-| 28 | 特殊场景 |
-| 56 | 特殊场景 |
+Line height should generally be 1.25 - 1.5 times the font size.
 
-## 代码助手生成规则
+* **Compact**: `16px`, `20px` (Dense Lists)
+* **Standard**: `24px` (Body Text)
+* **Relaxed**: `28px`+
 
-1. 文本优先使用 `Typography` 组件的语义/变体（如 heading/body/caption 等，按组件 API 支持）。
-2. 若业务需要新的排版层级，先扩展 `Typography` 组件与 Foundation tokens，再在业务侧使用。
+## Verification Checklist
 
-## 相关链接
+* [ ] Prioritize TypeScript components (e.g., `<Typography.Body>`) over raw HTML/CSS (e.g., `<div className="text-sm">`).
+* [ ] Ensure custom CSS font sizes appear strictly within the allowed list above.
 
-- 组件：`../General/Typography.md`
-- Tokens：`./DesignTokens.md`
+## Related Links
+
+* Components: `../General/Typography.md`
+* Tokens: `./DesignTokens.md`
+

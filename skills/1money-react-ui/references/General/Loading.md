@@ -6,7 +6,7 @@ description: An animated loading component powered by Lottie animations. Provide
 
 # Loading
 
-## 组件概述
+## Component Overview
 
 An animated loading component powered by Lottie animations. Provides smooth, professional loading indicators with two distinct animation styles.
 
@@ -20,79 +20,67 @@ An animated loading component powered by Lottie animations. Provides smooth, pro
 - Memory-safe cleanup on unmount
 - SVG rendering for crisp visuals
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 展示加载/执行进度（Progress）或加载占位（Loading/Spinner）
-- 网络请求、异步任务等待时提供反馈
+### When to use
+- Display loading/execution progress (Progress) or loading placeholder (Loading/Spinner)
+- Provide feedback during network requests or asynchronous task waiting
 
-### 不适用
-- 长时间任务需要更完整的任务状态/历史（考虑专用页面/日志）
+### When not to use
+- Long-running tasks that require more complete task status/history (consider dedicated page/logs)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: None (Custom Lottie Implementation).
+
 ### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| id | Unique identifier for the loading element | string | - |
-| className | Additional CSS classes for styling | string | - |
-| prefixCls | The classname prefix for component styling | string | "loading" |
-| type | Animation type to display | 'pure' \| 'pattern' | 'pure' |
+| id | Unique identifier | `string` | - |
+| className | Additional CSS classes | `string` | - |
+| prefixCls | The classname prefix for component styling | `string` | `"loading"` |
+| type | Animation type to display | `'pure' \| 'pattern'` | `'pure'` |
 
-## 示例
+## Examples
 
 ```tsx
 import { Loading } from '@1money/react-ui';
 
-// Basic loading with pure animation
+// 1. Pure Animation (Default) - Standard loading indicator
 <Loading />
 
-// Loading with pattern animation
+// 2. Pattern Animation - stylized background animation
 <Loading type="pattern" />
 
-// Loading with custom styling
-<Loading className="my-loading" />
-
-// Loading with custom ID
-<Loading id="page-loader" />
+// 3. Custom ID/Class
+<Loading id="page-loader" className="my-loading-overlay" />
 ```
 
 ```tsx
-const [loading, setLoading] = useState(true);
-
-return (
-  <div className="page-container">
-    {loading ? (
-      <div className="loading-overlay">
-        <Loading type="pure" />
-      </div>
-    ) : (
-      <PageContent />
-    )}
-  </div>
+const DataPanel = ({ isReady }) => (
+    <div className="panel">
+        {!isReady ? (
+            // Centered loading pure animation
+            <div className="flex justify-content-center">
+                <Loading type="pure" />
+            </div>
+        ) : (
+            <Content />
+        )}
+    </div>
 );
 ```
 
-```tsx
-<div className="content-section">
-  <h2>Loading Data...</h2>
-  <Loading type="pattern" className="inline-loading" />
-</div>
-```
+## Core Principles
 
-## 最佳实践与注意事项
+- **Usage Priority**: Use `Loading` for page-level or section-level loading states. For button states, use `Button`'s `loading` prop.
+- **Type Selection**: Use `type="pure"` for standard context and `type="pattern"` for branded/landing contexts.
+- **Implementation**: **PROHIBIT** creating custom Lottie implementations or importing Lottie libraries directly.
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Loading } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
-
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

@@ -6,7 +6,7 @@ description: A flexible progress component that supports both ring (circular) an
 
 # Progress
 
-## 组件概述
+## Component Overview
 
 A flexible progress component that supports both ring (circular) and bar (linear) progress indicators. Built with customizable styling and theming options for displaying task completion, loading states, and progress tracking.
 
@@ -21,83 +21,80 @@ A flexible progress component that supports both ring (circular) and bar (linear
 - Built-in accessibility features
 - Full PrimeReact ProgressBar compatibility for bar type
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 展示加载/执行进度（Progress）或加载占位（Loading/Spinner）
-- 网络请求、异步任务等待时提供反馈
+### When to use
+- Display loading/execution progress (Progress) or loading placeholder (Loading/Spinner)
+- Provide feedback during network requests or asynchronous task waiting
 
-### 不适用
-- 长时间任务需要更完整的任务状态/历史（考虑专用页面/日志）
+### When not to use
+- Long-running tasks that require more complete task status/history (consider dedicated page/logs)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
 
 ## API
 
+Inherits from: Custom SVG (Ring) or [PrimeReact ProgressBar](https://primereact.org/progressbar/) (Bar).
+
 ### Component Props
+
+**Common Props:**
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| children | Content to display within the progress indicator | ReactNode | - |
-| className | Additional CSS class for styling | string | - |
-| prefixCls | The classname prefix for component styling | string | 'progress' |
-| wrapperCls | Additional CSS class for wrapper element | string | - |
-| trailColor | Color of the progress track/background | string | '#E0E2EE' |
-| fillColor | Color of the progress fill/indicator | string | '#3D73F2' |
-| id | HTML id attribute | string | - |
+| prefixCls | Component class prefix | `string` | `"progress"` |
+| id | HTML id | `string` | - |
+| className | Container class | `string` | - |
+| wrapperCls | Wrapper class | `string` | - |
+| trailColor | Track color | `string` | `'#E0E2EE'` |
+| fillColor | Indicator color | `string` | `'#3D73F2'` |
 
-### Ring Progress Props (type="ring")
+### Ring Progress (Default)
+`type="ring"`
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| type | Progress indicator type | 'ring' | 'ring' |
-| value | Progress value (0-100) | number \| `${number}` | 0 |
-| size | Diameter of the ring in pixels | number \| `${number}` | 106 |
-| stroke | Width of the ring stroke in pixels | number \| `${number}` | 6 |
-| bgColor | Background color of the ring container | string | '#FAFAFC' |
+| value | Progress value (0-100) | `number \| string` | `0` |
+| size | Diameter in pixels | `number \| string` | `106` |
+| stroke | Stroke width in pixels | `number \| string` | `6` |
+| bgColor | Inner background color | `string` | `'#FAFAFC'` |
 
-### Bar Progress Props (type="bar")
+### Bar Progress
+`type="bar"`. Inherits from **ProgressBar**.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| type | Progress indicator type | 'bar' | - |
-| labelColor | Color of the progress label text | string | '#FFFFFF' |
+| labelColor | Label text color | `string` | `'#FFFFFF'` |
 
-## 示例
+> Inherits `unit`, `displayValueTemplate`, `mode` from PrimeReact.
+
+## Examples
 
 ```tsx
 import { Progress } from '@1money/react-ui';
 
-// Ring progress (default)
+// 1. Ring Progress (Default)
 <Progress value={65} />
 
-// Bar progress
-<Progress type="bar" value={45} />
-
-// Ring with custom size and content
-<Progress
-  type="ring"
-  value={80}
-  size={120}
-  stroke={8}
->
-  <div style={{ textAlign: 'center' }}>
-    <strong>80%</strong>
-    <br />
-    Complete
+// 2. Ring with customized size and centered content
+<Progress type="ring" value={75} size={120} stroke={8}>
+  <div className="text-center">
+    <strong>75%</strong>
+    <div>Loading</div>
   </div>
 </Progress>
 
-// Bar with label
-<Progress
-  type="bar"
-  value={60}
-  showValue
-  displayValueTemplate={(value) => `${value}% Complete`}
-/>
+// 3. Bar Progress (Linear)
+<Progress type="bar" value={45} />
 
-// Custom colors
+// 4. Bar with Label
+<Progress type="bar" value={60} showValue unit="%" />
+
+// 5. Custom colors
 <Progress
   type="ring"
   value={75}
@@ -171,13 +168,9 @@ const TaskDashboard = ({ tasks }) => {
 };
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Progress } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Usage Priority**: Use `Progress` for quantified tasks (0-100%). For indeterminate waiting, use `Spinner` or `Loading`.
+- **Variant Consistency**: Stick to `type="ring"` for dashboard widgets and `type="bar"` for file uploads or linear steps.
+- **Customization**: Use `stroke` and colors via props, **PROHIBIT** overriding internal SVG paths via CSS.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

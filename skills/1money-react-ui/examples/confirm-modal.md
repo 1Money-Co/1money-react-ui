@@ -6,19 +6,31 @@
 - Message (error)
 
 ## States
-- visible: show/hide modal
+- visible: controlled via `ref.current.show()` / `ref.current.hide()`
 - loading: confirm button loading + disable actions
 - error: inline message in modal
 
 ## Code
 ```tsx
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Modal, Button, Message } from '@1money/react-ui';
+import type { ModalHandlers } from '@1money/react-ui/es/components/Modal/interface';
 
 export function DeleteConfirmDemo() {
-  const [visible, setVisible] = useState(false);
+  const modalRef = useRef<ModalHandlers>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string>('');
+
+  const onShow = () => {
+    setError('');
+    modalRef.current?.show();
+  };
+
+  const onHide = () => {
+    if (!submitting) {
+      modalRef.current?.hide();
+    }
+  };
 
   const onConfirm = async () => {
     setError('');
@@ -26,7 +38,7 @@ export function DeleteConfirmDemo() {
       setSubmitting(true);
       // TODO: call API
       await new Promise((r) => setTimeout(r, 600));
-      setVisible(false);
+      modalRef.current?.hide();
     } catch (e) {
       setError('Delete failed. Please retry.');
     } finally {
@@ -36,19 +48,18 @@ export function DeleteConfirmDemo() {
 
   return (
     <div>
-      <Button severity="danger" onClick={() => setVisible(true)}>
+      <Button severity="danger" onClick={onShow}>
         Delete
       </Button>
 
       <Modal
-        visible={visible}
-        onHide={() => (submitting ? null : setVisible(false))}
+        ref={modalRef}
         header="Delete item"
         dismissableMask={false}
         closeOnEscape={!submitting}
         footer={
           <div>
-            <Button severity="secondary" onClick={() => setVisible(false)} disabled={submitting}>
+            <Button severity="secondary" onClick={onHide} disabled={submitting}>
               Cancel
             </Button>
             <Button severity="danger" onClick={onConfirm} loading={submitting} disabled={submitting}>

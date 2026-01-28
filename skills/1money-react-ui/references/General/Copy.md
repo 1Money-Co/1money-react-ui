@@ -6,67 +6,71 @@ description: `Copy` renders a clipboard icon that copies a provided string to th
 
 # Copy
 
-## 组件概述
+## Component Overview
 
 `Copy` renders a clipboard icon that copies a provided string to the user’s clipboard and gives instant visual feedback. Once copied, the icon flashes to a checkmark for 1.5 seconds.
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 展示一段可复制内容（地址、交易哈希、邀请码等）并提供一键复制
-- 需要复制成功/失败回调处理
+### When to use
+- Display copyable content (address, transaction hash, invite code, etc.) and provide one-click copy
+- Need success/failure callback handling
 
-### 不适用
-- 需要复杂格式复制或富文本（需要定制实现）
+### When not to use
+- Need complex format replication or rich text (requires custom implementation)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 该组件在源码样式中使用到的颜色 tokens：`$color-grey`, `$color-grey-deep`, `$color-success-background`
-- 圆角（px，源码样式提取）：12
-- padding 数值（px，源码样式提取）：8
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Color tokens used in source style: `$color-grey`, `$color-grey-deep`, `$color-success-background`
+- Border radius (px, extracted from source style): 12
+- Padding values (px, extracted from source style): 8
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
+
+Inherits from: None (Custom Component).
 
 ## API
 
 ### Component Props
+
+Renders a copy icon that provides visual feedback (checkmark) on interaction.
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| value | Text that will be written to the clipboard. Component is inert if empty. | string | - |
-| iconSize | Icon pixel size passed to the shared `Icons` component. | number | 32 |
-| color | Icon color (CSS color value). | string | - |
-| className | Additional wrapper class names. | string | - |
-| prefixCls | BEM-style class prefix to theme the component. | string | 'copy' |
-| onSuccess | Callback invoked when copy succeeds; receives the copied value. | (val: string) => void | - |
-| onError | Callback invoked when the clipboard write fails. | (val: string) => void | - |
+| value | Text content to copy | `string` | - |
+| iconSize | Icon size (px) | `number` | `32` |
+| color | Icon color | `string` | - |
+| onSuccess | Success callback | `(val: string) => void` | - |
+| onError | Error callback | `(val: string) => void` | - |
+| prefixCls | Component class prefix | `string` | `'copy'` |
+| className | Additional CSS class | `string` | - |
 
-## 示例
+## Examples
 
 ```tsx
 import { Copy } from '@1money/react-ui';
 
-export const CopyAccountId = () => {
-  const accountId = 'ACCT-4721-8891';
+// 1. Basic Icon
+<Copy value="text-to-copy" />
 
-  return (
-    <Copy
-      value={accountId}
-      iconSize={24}
-      onSuccess={() => toast.success('Account ID copied')}
-      onError={() => toast.error('Copy failed, try again')}
-    />
-  );
-};
+// 2. Custom Size & Color
+<Copy
+    value="text-to-copy"
+    iconSize={24}
+    color="#3D73F2"
+/>
+
+// 3. With Callbacks
+<Copy
+    value="text"
+    onSuccess={() => toast.success('Copied')}
+/>
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Copy } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Usage Priority**: Use `Copy` when you only need the *icon action* (e.g., inside a table cell or next to an existing title), not the text display itself.
+- **Visual Feedback**: The component provides built-in icon transitions (copy to checkmark). Do not add external visual feedback unless for global notifications (via `onSuccess`).
+- **Styling**: Size and color should match the surrounding text context manually if not default.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

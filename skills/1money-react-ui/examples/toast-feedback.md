@@ -11,9 +11,10 @@
 ```tsx
 import { useRef } from 'react';
 import { Toast, Button } from '@1money/react-ui';
+import type { ToastClass } from '@1money/react-ui/es/components/Toast/interface';
 
 export function ToastDemo() {
-  const toastRef = useRef<any>(null);
+  const toastRef = useRef<ToastClass>(null);
 
   return (
     <div>

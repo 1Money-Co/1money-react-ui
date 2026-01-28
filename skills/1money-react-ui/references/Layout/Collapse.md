@@ -6,7 +6,7 @@ description: A collapsible accordion component built on top of PrimeReact's Acco
 
 # Collapse
 
-## 组件概述
+## Component Overview
 
 A collapsible accordion component built on top of PrimeReact's Accordion with enhanced styling and customization options for organizing content in expandable sections.
 
@@ -20,76 +20,79 @@ A collapsible accordion component built on top of PrimeReact's Accordion with en
 - Smooth transitions and animations
 - Single or multiple active panels support
 
-## 使用场景
+## Usage Scenarios
 
-### 何时使用
-- 需要折叠/展开信息块（FAQ、过滤器、设置项）以节省空间
+### When to use
+- Need to collapse/expand info blocks (FAQ, filters, settings) to save space
 
-### 不适用
-- 核心内容需要默认可见（避免把主内容藏在折叠里）
+### When not to use
+- Core content needs to be visible by default (avoid hiding main content in collapse)
 
-## 设计规范
+## Design Specifications
 
-- 全局 class 前缀：`om-react-ui`（来自 `src/variable.scss` 的 `$prefix`）
-- 字号（px，源码样式提取）：16, 20
-- 行高（px，源码样式提取）：24, 28
-- 高度/最大高度（px，源码样式提取）：24
-- padding 数值（px，源码样式提取）：16, 24, 28
-- 详细视觉与交互以组件源码 `style/*.scss` 为准；新增/调整样式优先沉淀到 Foundation tokens，避免散落 magic numbers。
-- 参考：[`DesignTokens`](../Foundation/DesignTokens.md)、[`Spacing`](../Foundation/Spacing.md)、[`Typography`](../Foundation/Typography.md)
+- Global class prefix: `om-react-ui` (from `$prefix` in `src/variable.scss`)
+- Font size (px, extracted from source style): 16, 20
+- Line height (px, extracted from source style): 24, 28
+- Height/Max-height (px, extracted from source style): 24
+- Padding values (px, extracted from source style): 16, 24, 28
+- Detailed visual and interaction based on component source `style/*.scss`; prioritize consolidating new/adjusted styles into Foundation tokens to avoid scattered magic numbers.
+- References: [`DesignTokens`](../Foundation/DesignTokens.md), [`Spacing`](../Foundation/Spacing.md), [`Typography`](../Foundation/Typography.md)
+
+Inherits from: [PrimeReact Accordion](https://primereact.org/accordion/).
 
 ## API
 
 ### Component Props
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| items | Array of collapsible items | ItemProps[] | - |
-| wrapperCls | Additional CSS class for the wrapper | string | - |
-| itemCls | Additional CSS class for each item | string | - |
-| contentCls | Additional CSS class for item content | string | - |
-| prefixCls | The classname prefix for component styling | string | "collapse" |
+| items | Panel items | `ItemProps[]` | - |
+| prefixCls | Component class prefix | `string` | `"collapse"` |
+| wrapperCls | Main container class | `string` | - |
+| itemCls | Panel container class | `string` | - |
+| contentCls | Panel content class | `string` | - |
 
-> 其余属性继承 PrimeReact Accordion（如 `multiple`、`activeIndex` 等）。
+> Inherits: `activeIndex`, `multiple`, `onTabChange`, `expandIcon`, `collapseIcon`.
 
-### Item Props
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| key | Unique identifier for the item | string | - |
-| header | Header content for the accordion tab | ReactNode | - |
-| children | Content to display when expanded | ReactNode | - |
-| headerTemplate | Custom header template | Function | - |
-| disabled | Whether the item is disabled | boolean | false |
+### ItemProps Interface
+Extends `AccordionTabProps`.
+| Name | Description | Type |
+| --- | --- | --- |
+| key | Unique identifier | `string` |
+| header | Header content | `ReactNode` |
+| children | Body content | `ReactNode` |
+| disabled | Disabled state | `boolean` |
 
-## 示例
+## Examples
 
 ```tsx
 import { Collapse } from '@1money/react-ui';
 
-// Basic collapse
 const items = [
   {
-    key: 'panel1',
-    header: 'What is React?',
-    children: <p>React is a JavaScript library for building user interfaces.</p>
+    key: '1',
+    header: 'Section 1',
+    children: <div>Content for section 1</div>
   },
   {
-    key: 'panel2',
-    header: 'Why use TypeScript?',
-    children: <p>TypeScript adds static typing to JavaScript for better development experience.</p>
+    key: '2',
+    header: 'Section 2',
+    children: <div>Content for section 2</div>,
+    disabled: true
   }
 ];
 
+// 1. Basic Usage
 <Collapse items={items} />
 
-// Multiple panels can be open
+// 2. Multiple Expansion
 <Collapse items={items} multiple />
 
-// Custom styling
+// 3. Controlled State
 <Collapse
-  items={items}
-  wrapperCls="custom-collapse"
-  itemCls="custom-item"
-  contentCls="custom-content"
+    items={items}
+    activeIndex={[0]}
+    onTabChange={(e) => console.log(e.index)}
 />
 ```
 
@@ -155,13 +158,9 @@ const settingsItems = [
 <Collapse items={settingsItems} multiple />
 ```
 
-## 最佳实践与注意事项
+## Core Principles
 
-✅ Do
-- 始终从 `@1money/react-ui` 进行命名导入：`import { Collapse } from '@1money/react-ui'`
-- 先用组件 props 表达状态（disabled/loading/severity/size 等），不要在业务层重复造样式。
-- 需要新增能力时，优先扩展组件库而不是在业务侧写一次性 hack。
+- **Data Structure**: **MUST** pass an array of `ItemProps` objects (with distinct `key`s) to the `items` prop. Do not try to render `<Collapse.Panel>` or similar primitive children directly inside `<Collapse>`.
+- **State Management**: Can be uncontrolled (default) or controlled (via `activeIndex` + `onTabChange`). Use controlled mode for complex interactions (e.g., "accordion" behavior where only one stays open).
+- **Semantics**: Use proper heading levels within the content if the `header` itself isn't sufficient for the document outline.
 
-❌ Don't
-- 不要直接从 `primereact/*` 引入同名组件绕过二次封装。
-- 不要在业务代码里硬编码颜色值；优先使用组件库既有的 props / tokens。

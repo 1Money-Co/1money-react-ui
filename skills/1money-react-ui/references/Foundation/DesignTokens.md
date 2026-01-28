@@ -1,55 +1,94 @@
 ---
 name: DesignTokens
 category: Foundation
-description: 组件库的全局设计令牌（从 src/variable.scss 自动提取）
+description: Global design tokens (automatically extracted from src/variable.scss)
 ---
 
 # Design Tokens
 
-## 概述
+## Overview
 
-本文件从组件库源码 `src/variable.scss` 自动提取，用于代码助手在生成/修改 UI 时遵循一致的颜色与命名前缀。
+This file is automatically extracted from the component library source `src/variable.scss` to ensure Code Assistants follow consistent color and naming prefixes when generating/modifying UI.
 
-> 备注：当前仓库主要沉淀了颜色相关 tokens；如需间距/字号等体系化 tokens，建议在后续迭代补齐（见 `Spacing` / `Typography`）。
+> Note: The current repository mainly consolidates color-related tokens; for systematic tokens like spacing/font-size, it is recommended to supplement them in future iterations (see `Spacing` / `Typography`).
 
 ## Prefix
 
-| Token | Value | Notes |
+| Token | Value | Description |
 | --- | --- | --- |
-| `$prefix` | `'om-react-ui'` | CSS class 命名前缀（生成的 class 通常形如 `.om-react-ui-<component>`） |
+| `$prefix` | `'om-react-ui'` | CSS class namespace (e.g., `.om-react-ui-btn`) |
 
-## Color
+## Palette
 
-| Token | Value | Notes |
+### Primary (Brand)
+Used for main actions, active states, and brand identity.
+
+| Token | Value | Description |
 | --- | --- | --- |
-| `$color-primary` | `#073387` | 基础色 |
-| `$color-primary-active` | `#03163A` | active/pressed 状态 |
-| `$color-primary-hover` | `#052561` | hover 状态 |
-| `$color-primary-black` | `#131313` | 基础色 |
-| `$color-primary-white` | `#FEFEFE` | 基础色 |
-| `$color-secondary` | `#DDE6F4` | 基础色 |
-| `$color-secondary-active` | `#A4BBE1` | active/pressed 状态 |
-| `$color-secondary-hover` | `#C1D0EB` | hover 状态 |
-| `$color-grey-light` | `#F8F8F8` | 基础色 |
-| `$color-grey` | `#F0F0F0` | 基础色 |
-| `$color-grey-deep` | `#E3E4E4` | 基础色 |
-| `$color-grey-bold` | `#D1D2D2` | 基础色 |
-| `$color-grey-dark` | `#9FA3A3` | 基础色 |
-| `$color-grey-midnight` | `#646465` | 基础色 |
-| `$color-grey-night` | `#404042` | 基础色 |
-| `$color-black` | `#000` | 基础色 |
-| `$color-white` | `#FFF` | 基础色 |
-| `$color-info` | `#3D7CF5` | 基础色 |
-| `$color-info-light` | `#EDF2F9` | 基础色 |
-| `$color-success` | `#1F5800` | 基础色 |
-| `$color-success-background` | `#1F580033` | 背景色/弱化背景 |
-| `$color-warning` | `#F4C600` | 基础色 |
-| `$color-warning-hover` | `#FFB300` | hover 状态 |
-| `$color-warning-active` | `#FFA000` | active/pressed 状态 |
-| `$color-warning-dark` | `#DB8600` | 基础色 |
-| `$color-warning-background` | `#F4C60033` | 背景色/弱化背景 |
-| `$color-negative` | `#AE0000` | 基础色 |
-| `$color-negative-hover` | `#920000` | hover 状态 |
-| `$color-negative-active` | `#780000` | active/pressed 状态 |
-| `$color-negative-background` | `#AE00001A` | 背景色/弱化背景 |
-| `$color-dimmer-dark` | `#1F2531` | 基础色 |
+| `$color-primary` | `#073387` | Main brand color |
+| `$color-primary-hover` | `#052561` | Hover state |
+| `$color-primary-active` | `#03163A` | Active/Pressed state |
+| `$color-primary-black` | `#131313` | Dark text emphasis |
+| `$color-primary-white` | `#FEFEFE` | Primary background white |
+
+### Secondary
+Used for secondary actions and backgrounds.
+
+| Token | Value | Description |
+| --- | --- | --- |
+| `$color-secondary` | `#DDE6F4` | Base secondary |
+| `$color-secondary-hover` | `#C1D0EB` | Hover state |
+| `$color-secondary-active` | `#A4BBE1` | Active/Pressed state |
+
+### Neutral / Greyscale
+Used for borders, backgrounds, dividers, and disabled states.
+
+| Token | Value | Description |
+| --- | --- | --- |
+| `$color-white` | `#FFF` | Pure White |
+| `$color-grey-light` | `#F8F8F8` | Lightest background |
+| `$color-grey` | `#F0F0F0` | Light background |
+| `$color-grey-deep` | `#E3E4E4` | Borders / Dividers |
+| `$color-grey-bold` | `#D1D2D2` | Stronger borders |
+| `$color-grey-dark` | `#9FA3A3` | Disabled text / Placeholder |
+| `$color-grey-midnight` | `#646465` | Secondary text |
+| `$color-grey-night` | `#404042` | Primary text |
+| `$color-black` | `#000` | Pure Black |
+| `$color-dimmer-dark` | `#1F2531` | Overlay background |
+
+### Status / Feedback
+
+#### Info (Blue)
+| Token | Value | Description |
+| --- | --- | --- |
+| `$color-info` | `#3D7CF5` | Info text / icon |
+| `$color-info-light` | `#EDF2F9` | Info background |
+
+#### Success (Green)
+| Token | Value | Description |
+| --- | --- | --- |
+| `$color-success` | `#1F5800` | Success text / icon |
+| `$color-success-background` | `#1F580033` | Success background (Alpha) |
+
+#### Warning (Yellow)
+| Token | Value | Description |
+| --- | --- | --- |
+| `$color-warning` | `#F4C600` | Warning base |
+| `$color-warning-hover` | `#FFB300` | Hover state |
+| `$color-warning-active` | `#FFA000` | Active state |
+| `$color-warning-dark` | `#DB8600` | Darker warning text |
+| `$color-warning-background` | `#F4C60033` | Warning background (Alpha) |
+
+#### Negative / Error (Red)
+| Token | Value | Description |
+| --- | --- | --- |
+| `$color-negative` | `#AE0000` | Error text / icon |
+| `$color-negative-hover` | `#920000` | Hover state |
+| `$color-negative-active` | `#780000` | Active state |
+| `$color-negative-background` | `#AE00001A` | Error background (Alpha) |
+
+## Core Principles
+
+- **Usage**: Always use the SCSS variables (e.g., `$color-primary`) or their corresponding mapped JS tokens/props, never hardcode hex values.
+- **Consistency**: Stick to the defined palette. If a design requires a new color, it must be added to `variable.scss` first.
+- **Context**: Use semantic colors (Info, Success, Warning, Negative) for their intended purpose only, not just for aesthetic preference.
