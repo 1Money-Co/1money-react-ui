@@ -82,7 +82,7 @@ $cls: #{$prefix}-#{$component};
     border: 1px solid $color-grey;
 
     .#{$cls}-icon {
-      background-color: $color-grey;
+      background-color: $color-success-background;
     }
 
     .#{$cls}-action {
@@ -95,7 +95,7 @@ $cls: #{$prefix}-#{$component};
     border: 1px solid $color-grey;
 
     .#{$cls}-icon {
-      background-color: $color-grey;
+      background-color: $color-primary-light;
     }
 
     .#{$cls}-action {
@@ -120,7 +120,7 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-warning-background;
 
     .#{$cls}-icon {
-      background-color: $color-info-light;
+      background-color: $color-warning-background;
     }
 
     .#{$cls}-action {
