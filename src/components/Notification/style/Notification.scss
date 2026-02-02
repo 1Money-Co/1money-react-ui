@@ -32,12 +32,12 @@ $cls: #{$prefix}-#{$component};
     min-width: 0;
   }
 
-  &-title,
-  &-body {
+  & &-title,
+  & &-body {
     color: $color-grey-night;
   }
 
-  &-link {
+  & &-link {
     color: $color-primary;
   }
 
