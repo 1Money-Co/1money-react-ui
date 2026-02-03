@@ -1,0 +1,112 @@
+@use '../../../variable.scss' as *;
+
+$component: 'form';
+$cls: #{$prefix}-#{$component};
+
+.#{$cls} {
+  &-root {
+    width: 100%;
+  }
+
+  &-layout-horizontal .#{$prefix}-form-item-root {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &-layout-vertical .#{$prefix}-form-item-root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-layout-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &-label-left .#{$prefix}-form-item-label {
+    text-align: left;
+  }
+}
+
+$item: 'form-item';
+$item-cls: #{$prefix}-#{$item};
+
+.#{$item-cls} {
+  &-root {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &-label {
+    flex: 0 0 var(--om-form-label-width, 25%);
+    max-width: var(--om-form-label-width, 25%);
+    padding-right: 12px;
+    color: $color-primary-black;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+  }
+
+  &-label-required::before {
+    margin-right: 4px;
+    color: $color-negative;
+    content: '*';
+  }
+
+  &-colon {
+    margin-left: 4px;
+  }
+
+  &-control {
+    flex: 1 1 auto;
+    max-width: var(--om-form-wrapper-width, 75%);
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &-content-disabled {
+    opacity: 0.6;
+  }
+
+  &-help {
+    color: $color-grey-midnight;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &-help-error {
+    color: $color-negative;
+  }
+
+  &-extra {
+    color: $color-grey-dark;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.#{$prefix}-form-layout-vertical {
+  .#{$item-cls}-label {
+    flex: 0 0 auto;
+    max-width: 100%;
+    margin-bottom: 8px;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .#{$item-cls}-control {
+    max-width: 100%;
+  }
+}
+
+.#{$prefix}-form-layout-inline {
+  .#{$item-cls}-root {
+    width: auto;
+    margin-bottom: 0;
+  }
+}

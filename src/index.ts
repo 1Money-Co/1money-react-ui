@@ -9,6 +9,7 @@ import { ConfirmPopup } from './components/ConfirmPopup';
 import { Copy } from './components/Copy';
 import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
+import { Form, FormItem } from './components/Form';
 import { Input } from './components/Input';
 import { InputAmount } from './components/InputAmount';
 import { Loading } from './components/Loading';
@@ -51,6 +52,7 @@ export { Message } from './components/Message';
 export { Dropdown } from './components/Dropdown';
 export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
+export { Form, FormItem } from './components/Form';
 export { Popup } from './components/Popup';
 export { Progress } from './components/Progress';
 export { Radio } from './components/Radio';
@@ -80,6 +82,8 @@ export default {
   Copy,
   Dropdown,
   Drawer,
+  Form,
+  FormItem,
   Input,
   InputAmount,
   Loading,
