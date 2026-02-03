@@ -11,11 +11,14 @@ const meta: Meta<typeof Input> = {
   // https://storybook.js.org/docs/api/arg-types#controltype
   argTypes: {
     size: { control: 'radio', options: ['large', 'small'] },
-    type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp'] },
+    type: { control: 'select', options: ['text', 'number', 'mask', 'textarea', 'otp', 'password', 'autocomplete'] },
     disabled: { control: 'boolean' },
     loading: { control: 'boolean' },
     success: { control: 'boolean' },
     invalid: { control: 'boolean' },
+    required: { control: 'boolean' },
+    rounded: { control: 'boolean' },
+    showMessageIcon: { control: 'boolean' },
     message: { control: 'text' },
     label: { control: 'text' },
   },
@@ -44,6 +47,48 @@ export const Normal: Story = {
     placeholder: 'Enter your email',
   },
   tags: ['!autodocs'],
+};
+
+export const ApiCoverage: Story = {
+  args: {
+    type: 'text',
+    prefixCls: 'input',
+    wrapperCls: 'input-story-wrapper',
+    labelCls: 'input-story-label',
+    messageCls: 'input-story-message',
+    label: 'Account',
+    message: 'This account is verified.',
+    required: true,
+    rounded: true,
+    size: 'small',
+    success: true,
+    prefixEle: <span style={{ display: 'inline-flex', alignItems: 'center', fontWeight: 600 }}>USD</span>,
+    suffixEle: <span style={{ display: 'inline-flex', alignItems: 'center', fontWeight: 600 }}>Max</span>,
+    prefixEleCls: 'input-story-prefix',
+    suffixEleCls: 'input-story-suffix',
+    showMessageIcon: true,
+    placeholder: 'Enter amount',
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    type: 'text',
+    label: 'Loading state',
+    loading: true,
+    placeholder: 'Loading...',
+  },
+};
+
+export const ErrorMessage: Story = {
+  args: {
+    type: 'text',
+    label: 'Email',
+    message: 'Please enter a valid email address.',
+    showMessageIcon: true,
+    invalid: true,
+    placeholder: 'you@company.com',
+  },
 };
 
 export const Number: Story = {

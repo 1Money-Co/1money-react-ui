@@ -27,7 +27,7 @@ export interface FormContextValue {
   disabled?: boolean;
   colon: boolean;
   requiredMark: boolean;
-  control: Control<any>;
+  control: Control<FieldValues>;
 }
 
 export interface FormProps<TFieldValues extends FieldValues = FieldValues>
@@ -36,6 +36,7 @@ export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   form?: UseFormReturn<TFieldValues>;
   onFinish?: (values: TFieldValues) => void | Promise<void>;
   onFinishFailed?: (errors: FieldErrors<TFieldValues>) => void;
+  onValuesChange?: (values: TFieldValues, info: { name?: FieldPath<TFieldValues>; type?: string }) => void;
   scrollToFirstError?: boolean | {
     behavior?: ScrollBehavior;
     block?: ScrollLogicalPosition;
@@ -56,7 +57,10 @@ export interface FormProps<TFieldValues extends FieldValues = FieldValues>
 }
 
 export interface FormItemRenderProps<TFieldValues extends FieldValues = FieldValues> {
-  field?: ControllerRenderProps<TFieldValues, FieldPath<TFieldValues>>;
+  field?: ControllerRenderProps<TFieldValues, FieldPath<TFieldValues>> & {
+    invalid?: boolean;
+    success?: boolean;
+  };
   fieldState?: ControllerFieldState;
   form: UseFormReturn<TFieldValues>;
   values: TFieldValues;

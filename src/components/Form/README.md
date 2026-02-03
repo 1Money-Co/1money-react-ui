@@ -82,6 +82,7 @@ export default function AdvancedExample() {
 - `defaultValues?: DefaultValues`
 - `onFinish?: (values) => void`
 - `onFinishFailed?: (errors) => void`
+- `onValuesChange?: (values, info) => void`
 
 ### FormItem
 - `name?: FieldPath`
@@ -147,6 +148,21 @@ import { Form, FormItem, Input } from '@1money/react-ui';
 ```tsx
 <Form scrollToFirstError={{ block: 'start', offset: 72 }}>
   <FormItem name='email' label='Email' rules={{ required: 'Email is required' }}>
+    {({ field }) => <Input type='text' {...field} />}
+  </FormItem>
+</Form>
+```
+
+### onValuesChange
+
+```tsx
+<Form
+  defaultValues={{ email: '' }}
+  onValuesChange={(values, info) => {
+    console.log(info?.name, values);
+  }}
+>
+  <FormItem name='email' label='Email'>
     {({ field }) => <Input type='text' {...field} />}
   </FormItem>
 </Form>

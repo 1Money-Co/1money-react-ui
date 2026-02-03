@@ -1,72 +1,33 @@
-import React, { createContext, useMemo } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useRef } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import type { FieldErrors } from 'react-hook-form';
+import type { Control, FieldErrors, FieldPath, FieldValues } from 'react-hook-form';
+import {
+  DEFAULT_LABEL_ALIGN,
+  DEFAULT_LABEL_COL,
+  DEFAULT_LAYOUT,
+  DEFAULT_SIZE,
+  DEFAULT_WRAPPER_COL,
+} from './constants';
+import { getFirstErrorPath, scrollToField } from './helper';
 import type { FormContextValue, FormProps } from './interface';
 
 export const FormContext = createContext<FormContextValue | null>(null);
 
-const isFieldError = (value: any) => !!value && (typeof value.type === 'string' || typeof value.message === 'string' || value.ref);
-
-const getFirstErrorPath = (errors: FieldErrors): string | null => {
-  for (const key of Object.keys(errors)) {
-    const value: any = (errors as any)[key];
-    if (!value) continue;
-    if (isFieldError(value)) return key;
-    if (Array.isArray(value)) {
-      for (let i = 0; i < value.length; i += 1) {
-        const item = value[i];
-        if (!item) continue;
-        if (isFieldError(item)) return `${key}.${i}`;
-        const child = getFirstErrorPath(item);
-        if (child) return `${key}.${i}.${child}`;
-      }
-    } else if (typeof value === 'object') {
-      const child = getFirstErrorPath(value);
-      if (child) return `${key}.${child}`;
-    }
-  }
-  return null;
-};
-
-const escapeAttr = (value: string) => value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-
-const scrollToField = (name: string, options?: FormProps['scrollToFirstError']) => {
-  if (typeof document === 'undefined') return;
-  const config = typeof options === 'object' ? options : {};
-  const attrName = escapeAttr(name);
-  const selectorByName = `[name="${attrName}"]`;
-  const selectorByData = `[data-form-item-name="${attrName}"]`;
-  const el = (document.querySelector(selectorByName) || document.querySelector(selectorByData)) as HTMLElement | null;
-  if (!el) return;
-  const behavior = config.behavior ?? 'smooth';
-  if (typeof config.offset === 'number') {
-    const rect = el.getBoundingClientRect();
-    window.scrollTo({
-      top: rect.top + window.pageYOffset - config.offset,
-      behavior,
-    });
-    return;
-  }
-  el.scrollIntoView({
-    behavior,
-    block: config.block ?? 'center',
-    inline: config.inline ?? 'nearest',
-  });
-};
-
-export function Form<TFieldValues extends Record<string, any> = Record<string, any>>(props: FormProps<TFieldValues>) {
+export function Form<TFieldValues extends FieldValues = FieldValues>(props: FormProps<TFieldValues>) {
+  // Form is a thin wrapper over react-hook-form with layout + UX helpers.
   const {
     form,
     defaultValues,
     onFinish,
     onFinishFailed,
+    onValuesChange,
     scrollToFirstError,
-    layout = 'horizontal',
-    labelAlign = 'right',
-    labelCol = 3,
-    wrapperCol = 9,
-    size = 'middle',
+    layout = DEFAULT_LAYOUT,
+    labelAlign = DEFAULT_LABEL_ALIGN,
+    labelCol = DEFAULT_LABEL_COL,
+    wrapperCol = DEFAULT_WRAPPER_COL,
+    size = DEFAULT_SIZE,
     disabled,
     colon = true,
     requiredMark = true,
@@ -76,8 +37,11 @@ export function Form<TFieldValues extends Record<string, any> = Record<string, a
     ...useFormProps
   } = props;
 
+  // Use provided form methods when controlled; otherwise create new form state.
   const methods = form ?? useForm<TFieldValues>({ defaultValues, ...useFormProps });
+  const valuesChangeRef = useRef<FormProps<TFieldValues>['onValuesChange']>(onValuesChange);
 
+  // Provide layout + disabled state to FormItem via context.
   const ctx = useMemo<FormContextValue>(() => ({
     layout,
     labelAlign,
@@ -87,8 +51,42 @@ export function Form<TFieldValues extends Record<string, any> = Record<string, a
     disabled,
     colon,
     requiredMark,
-    control: methods.control,
+    control: methods.control as Control<FieldValues>,
   }), [layout, labelAlign, labelCol, wrapperCol, size, disabled, colon, requiredMark, methods.control]);
+
+  // Keep onValuesChange callback current without resubscribing.
+  useEffect(() => {
+    valuesChangeRef.current = onValuesChange;
+  }, [onValuesChange]);
+
+  // Subscribe to all value changes when handler provided.
+  useEffect(() => {
+    if (!onValuesChange) return;
+    const subscription = methods.watch((values, info) => {
+      valuesChangeRef.current?.(
+        values as TFieldValues,
+        { name: info.name as FieldPath<TFieldValues> | undefined, type: info.type }
+      );
+    });
+    return () => subscription.unsubscribe();
+  }, [methods, onValuesChange]);
+
+  // Submit success handler.
+  const handleFinish = useCallback(async (values: TFieldValues) => {
+    await onFinish?.(values);
+  }, [onFinish]);
+
+  // Submit failure handler with optional scroll-to-error.
+  const handleFinishFailed = useCallback((errors: FieldErrors<TFieldValues>) => {
+    if (scrollToFirstError) {
+      const first = getFirstErrorPath(errors);
+      if (first) {
+        methods.setFocus?.(first as FieldPath<TFieldValues>);
+        scrollToField(first, scrollToFirstError);
+      }
+    }
+    onFinishFailed?.(errors);
+  }, [scrollToFirstError, methods, onFinishFailed]);
 
   const classes = classnames('form');
 
@@ -103,19 +101,7 @@ export function Form<TFieldValues extends Record<string, any> = Record<string, a
             labelAlign === 'left' && classes('label-left')
           ))}
           style={style}
-          onSubmit={methods.handleSubmit(
-            async (values) => { await onFinish?.(values); },
-            (errors) => {
-              if (scrollToFirstError) {
-                const first = getFirstErrorPath(errors);
-                if (first) {
-                  methods.setFocus?.(first as any);
-                  scrollToField(first, scrollToFirstError);
-                }
-              }
-              onFinishFailed?.(errors);
-            }
-          )}
+          onSubmit={methods.handleSubmit(handleFinish, handleFinishFailed)}
           noValidate
         >
           {children}
