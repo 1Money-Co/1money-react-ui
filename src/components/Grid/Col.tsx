@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import classnames, { joinCls } from '@/utils/classnames';
 import { GRID_BREAKPOINTS, GRID_CLASS, GRID_COL_PREFIX, GRID_CSS_VARS } from './constants';
 import { normalizeColSize, normalizeFlex } from './helper';
@@ -25,41 +25,40 @@ export const Col: FC<PropsWithChildren<GridColProps>> = props => {
 
   const classes = classnames(prefixCls);
   const responsive = { sm, md, lg } as Record<GridBreakpoint, GridColSize | undefined>;
-  const { responsiveClasses, responsiveFlexVars } = useMemo(() => {
-    const classList: string[] = [];
-    const flexVars: Record<string, string> = {};
+  const classList: string[] = [];
+  const flexVars: Record<string, string> = {};
 
-    const addClass = (value: number | undefined, build: (value: number) => string) => {
-      if (value !== undefined) {
-        classList.push(classes(build(value)));
+  const addClass = (value: number | undefined, build: (value: number) => string) => {
+    if (value !== undefined) {
+      classList.push(classes(build(value)));
+    }
+  };
+
+  const applyBreakpoint = (breakpoint: GridBreakpoint, size?: GridColSize) => {
+    if (!size) return;
+
+    const normalized = normalizeColSize(size);
+    const hasFlex = normalized.flex !== undefined;
+
+    if (normalized.span !== undefined && !hasFlex) {
+      addClass(normalized.span, value => `${breakpoint}-${value}`);
+    }
+    addClass(normalized.offset, value => `${breakpoint}-${GRID_CLASS.offset}-${value}`);
+    addClass(normalized.order, value => `${breakpoint}-${GRID_CLASS.order}-${value}`);
+    addClass(normalized.pull, value => `${breakpoint}-${GRID_CLASS.pull}-${value}`);
+    addClass(normalized.push, value => `${breakpoint}-${GRID_CLASS.push}-${value}`);
+    if (normalized.flex !== undefined) {
+      const flexValue = normalizeFlex(normalized.flex);
+      if (flexValue) {
+        flexVars[`${GRID_CSS_VARS.colFlexPrefix}${breakpoint}`] = flexValue;
       }
-    };
+    }
+  };
 
-    const applyBreakpoint = (breakpoint: GridBreakpoint, size?: GridColSize) => {
-      if (!size) return;
+  GRID_BREAKPOINTS.forEach((breakpoint) => applyBreakpoint(breakpoint, responsive[breakpoint]));
 
-      const normalized = normalizeColSize(size);
-      const hasFlex = normalized.flex !== undefined;
-
-      if (normalized.span !== undefined && !hasFlex) {
-        addClass(normalized.span, value => `${breakpoint}-${value}`);
-      }
-      addClass(normalized.offset, value => `${breakpoint}-${GRID_CLASS.offset}-${value}`);
-      addClass(normalized.order, value => `${breakpoint}-${GRID_CLASS.order}-${value}`);
-      addClass(normalized.pull, value => `${breakpoint}-${GRID_CLASS.pull}-${value}`);
-      addClass(normalized.push, value => `${breakpoint}-${GRID_CLASS.push}-${value}`);
-      if (normalized.flex !== undefined) {
-        const flexValue = normalizeFlex(normalized.flex);
-        if (flexValue) {
-          flexVars[`${GRID_CSS_VARS.colFlexPrefix}${breakpoint}`] = flexValue;
-        }
-      }
-    };
-
-    GRID_BREAKPOINTS.forEach((breakpoint) => applyBreakpoint(breakpoint, responsive[breakpoint]));
-
-    return { responsiveClasses: classList, responsiveFlexVars: flexVars };
-  }, [responsive, classes]);
+  const responsiveClasses = classList;
+  const responsiveFlexVars = flexVars;
 
   const flexValue = normalizeFlex(flex);
 

@@ -1,4 +1,4 @@
-import type { GridBreakpoint, GridJustifyBreakpoint, GridJustify } from './interface';
+import type { GridBreakpoint, GridJustify } from './interface';
 
 export const GRID_ALIGN = {
   top: 'top',
@@ -25,26 +25,11 @@ export const GRID_DEFAULT_GUTTER: [number, number] = [0, 0];
 export const GRID_FLEX_AUTO = 'auto';
 
 export const GRID_BREAKPOINTS: GridBreakpoint[] = ['sm', 'md', 'lg'];
-export const GRID_GUTTER_BREAKPOINT = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg'
-} as const;
 export const GRID_JUSTIFY_BREAKPOINT = {
   sm: 'sm',
   md: 'md',
   lg: 'lg'
 } as const;
-export const GRID_JUSTIFY_BREAKPOINTS: GridJustifyBreakpoint[] = [
-  GRID_JUSTIFY_BREAKPOINT.lg,
-  GRID_JUSTIFY_BREAKPOINT.md,
-  GRID_JUSTIFY_BREAKPOINT.sm
-];
-export const GRID_JUSTIFY_BASE_ORDER: GridJustifyBreakpoint[] = [
-  GRID_JUSTIFY_BREAKPOINT.lg,
-  GRID_JUSTIFY_BREAKPOINT.md,
-  GRID_JUSTIFY_BREAKPOINT.sm
-];
 export const GRID_JUSTIFY_CSS: Record<GridJustify, string> = {
   start: 'flex-start',
   end: 'flex-end',

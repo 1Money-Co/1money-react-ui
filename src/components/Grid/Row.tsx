@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import classnames, { joinCls } from '@/utils/classnames';
-import { GRID_CLASS, GRID_CSS_VARS, GRID_DEFAULT_WRAP, GRID_JUSTIFY_BASE_ORDER, GRID_JUSTIFY_BREAKPOINT, GRID_JUSTIFY_CSS, GRID_ROW_PREFIX } from './constants';
+import { GRID_CLASS, GRID_CSS_VARS, GRID_DEFAULT_WRAP, GRID_JUSTIFY_BREAKPOINT, GRID_JUSTIFY_CSS, GRID_ROW_PREFIX } from './constants';
 import { normalizeGutter, toCssLength } from './helper';
 import type { FC, PropsWithChildren, CSSProperties } from 'react';
 import type { GridJustify, GridJustifyResponsive, GridRowProps } from './interface';
@@ -24,10 +24,7 @@ export const Row: FC<PropsWithChildren<GridRowProps>> = props => {
   const isJustifyResponsive = typeof justify === 'object' && justify !== null;
   const justifyValue = !isJustifyResponsive ? (justify as GridJustify | undefined) : undefined;
   const justifyMap = (isJustifyResponsive ? justify : {}) as GridJustifyResponsive;
-  const baseJustify = justifyValue ?? GRID_JUSTIFY_BASE_ORDER.reduce<GridJustify | undefined>((acc, key) => {
-    if (acc) return acc;
-    return justifyMap[key];
-  }, undefined);
+  const baseJustify = justifyValue ?? justifyMap[GRID_JUSTIFY_BREAKPOINT.lg];
 
   const justifyVars = {
     ...(baseJustify ? { [GRID_CSS_VARS.justify]: GRID_JUSTIFY_CSS[baseJustify] } : {}),
