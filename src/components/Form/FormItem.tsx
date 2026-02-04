@@ -39,6 +39,7 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     extra,
     validateStatus,
     dependencies,
+    watchNames,
     shouldUpdate,
     validateTrigger,
     validateFirst,
@@ -63,25 +64,37 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
 
   const isRenderFn = typeof children === 'function';
   const depNames = (dependencies?.length ? dependencies : []) as FieldPath<TFieldValues>[];
+  const shouldWatchDeps = !!(name && depNames.length);
   // Watch dependencies for re-validation.
-  const depValues = useWatch({ control, name: depNames });
-  const shouldWatchAllValues = !!shouldUpdate || isRenderFn;
-  const emptyNames = useMemo(() => [] as FieldPath<TFieldValues>[], []);
+  const depValues = useWatch({ control, name: depNames, disabled: !shouldWatchDeps });
+  const isShouldUpdateFn = typeof shouldUpdate === 'function';
+  const watchNamesList = (watchNames?.length ? watchNames : undefined) as FieldPath<TFieldValues>[] | undefined;
+  const shouldWatchNames = !!watchNamesList?.length;
+  const shouldWatchAllValues = isShouldUpdateFn;
   // Watch all values only when necessary to reduce render pressure.
-  const watchedAllValues = useWatch({ control });
-  const watchedFieldValues = useWatch({
-    control,
-    name: name ? [name] : emptyNames,
-  });
+  const watchedAllValues = useWatch({ control, disabled: !shouldWatchAllValues });
+  const watchedNamesValues = useWatch({ control, name: watchNamesList, disabled: !shouldWatchNames });
+
   const allValues = useMemo(
-    () => (shouldWatchAllValues ? (watchedAllValues as TFieldValues) : methods.getValues()),
-    [shouldWatchAllValues, watchedAllValues, watchedFieldValues, methods]
+    () => (shouldWatchAllValues
+      ? ((watchedAllValues ?? methods.getValues()) as TFieldValues)
+      : methods.getValues()),
+    [shouldWatchAllValues, watchedAllValues, shouldWatchNames, watchedNamesValues, methods]
   );
+
   const prevValuesRef = useRef<TFieldValues>(allValues);
+  const prevDepValuesRef = useRef<unknown[] | null>(null);
   const triggerTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (name && dependencies?.length) {
+      const nextDeps = Array.isArray(depValues) ? depValues : [depValues];
+      const prevDeps = prevDepValuesRef.current;
+      const isSame = !!prevDeps
+        && prevDeps.length === nextDeps.length
+        && nextDeps.every((value, index) => Object.is(value, prevDeps[index]));
+      if (isSame) return;
+      prevDepValuesRef.current = nextDeps;
       if (validateDebounce && validateDebounce > DEBOUNCE_MIN) {
         if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
         triggerTimerRef.current = setTimeout(() => {
@@ -106,6 +119,7 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   }, [shouldUpdate, allValues]);
 
   const triggerModes = useMemo(() => normalizeValidateTrigger(validateTrigger), [validateTrigger]);
+
   const shouldTrigger = useCallback((mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR) => triggerModes.includes(mode), [triggerModes]);
   // Trigger validation with optional debounce.
   const scheduleTrigger = useCallback(() => {
@@ -119,12 +133,14 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
       void trigger?.(name as FieldPath<TFieldValues>);
     }
   }, [name, validateDebounce, trigger]);
+
   const wrapOnChange = useCallback((fn?: (...args: unknown[]) => void) => (...args: unknown[]) => {
     fn?.(...args);
     if (name && shouldTrigger(TRIGGER_CHANGE)) {
       scheduleTrigger();
     }
   }, [name, scheduleTrigger, shouldTrigger]);
+
   const wrapOnBlur = useCallback((fn?: (...args: unknown[]) => void) => (...args: unknown[]) => {
     fn?.(...args);
     if (name && shouldTrigger(TRIGGER_BLUR)) {

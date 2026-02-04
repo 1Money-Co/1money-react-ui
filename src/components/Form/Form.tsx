@@ -22,6 +22,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
     onFinish,
     onFinishFailed,
     onValuesChange,
+    watchNames,
     scrollToFirstError,
     layout = DEFAULT_LAYOUT,
     labelAlign = DEFAULT_LABEL_ALIGN,
@@ -37,9 +38,13 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
     ...useFormProps
   } = props;
 
-  // Use provided form methods when controlled; otherwise create new form state.
-  const methods = form ?? useForm<TFieldValues>({ defaultValues, ...useFormProps });
+  // Always create an internal form to keep hook ordering stable.
+  const internalMethods = useForm<TFieldValues>({ defaultValues, ...useFormProps });
+  // Use provided form methods when controlled; otherwise use internal form state.
+  const methods = form ?? internalMethods;
   const valuesChangeRef = useRef<FormProps<TFieldValues>['onValuesChange']>(onValuesChange);
+  const watchNamesRef = useRef<Set<FieldPath<TFieldValues>> | null>(null);
+  const hasValuesChange = !!onValuesChange;
 
   // Provide layout + disabled state to FormItem via context.
   const ctx = useMemo<FormContextValue>(() => ({
@@ -59,17 +64,28 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
     valuesChangeRef.current = onValuesChange;
   }, [onValuesChange]);
 
+  useEffect(() => {
+    watchNamesRef.current = watchNames?.length
+      ? new Set(watchNames as Array<FieldPath<TFieldValues>>)
+      : null;
+  }, [watchNames]);
+
   // Subscribe to all value changes when handler provided.
   useEffect(() => {
-    if (!onValuesChange) return;
+    if (!hasValuesChange) return;
     const subscription = methods.watch((values, info) => {
+      const watchSet = watchNamesRef.current;
+      if (watchSet) {
+        const name = info.name as FieldPath<TFieldValues> | undefined;
+        if (!name || !watchSet.has(name)) return;
+      }
       valuesChangeRef.current?.(
         values as TFieldValues,
         { name: info.name as FieldPath<TFieldValues> | undefined, type: info.type }
       );
     });
     return () => subscription.unsubscribe();
-  }, [methods, onValuesChange]);
+  }, [methods, hasValuesChange]);
 
   // Submit success handler.
   const handleFinish = useCallback(async (values: TFieldValues) => {

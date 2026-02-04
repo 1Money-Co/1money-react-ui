@@ -96,7 +96,7 @@ describe('Form', () => {
         <FormItem name='first' label='First'>
           {({ field }) => <Input type='text' {...field} />}
         </FormItem>
-        <FormItem shouldUpdate>
+        <FormItem shouldUpdate watchNames={['first']}>
           {({ values }) => <div>Preview: {values.first}</div>}
         </FormItem>
       </Form>
@@ -105,6 +105,32 @@ describe('Form', () => {
     const [firstInput] = screen.getAllByRole('textbox');
     await user.type(firstInput, 'Ada');
     expect(screen.getByText('Preview: Ada')).toBeInTheDocument();
+  });
+
+  it('filters onValuesChange when watchNames is set', async () => {
+    const user = userEvent.setup();
+    const onValuesChange = jest.fn();
+    render(
+      <Form
+        defaultValues={{ email: '', name: '' }}
+        onValuesChange={onValuesChange}
+        watchNames={['email']}
+      >
+        <FormItem name='email' label='Email'>
+          {({ field }) => <Input type='text' {...field} />}
+        </FormItem>
+        <FormItem name='name' label='Name'>
+          {({ field }) => <Input type='text' {...field} />}
+        </FormItem>
+      </Form>
+    );
+
+    const inputs = screen.getAllByRole('textbox');
+    await user.type(inputs[1], 'Ada');
+    expect(onValuesChange).not.toHaveBeenCalled();
+
+    await user.type(inputs[0], 'a');
+    expect(onValuesChange).toHaveBeenCalled();
   });
 
   it('validateFirst stops at first validator', async () => {

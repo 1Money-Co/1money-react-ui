@@ -37,6 +37,7 @@ export interface FormProps<TFieldValues extends FieldValues = FieldValues>
   onFinish?: (values: TFieldValues) => void | Promise<void>;
   onFinishFailed?: (errors: FieldErrors<TFieldValues>) => void;
   onValuesChange?: (values: TFieldValues, info: { name?: FieldPath<TFieldValues>; type?: string }) => void;
+  watchNames?: Array<FieldPath<TFieldValues>>;
   scrollToFirstError?: boolean | {
     behavior?: ScrollBehavior;
     block?: ScrollLogicalPosition;
@@ -76,6 +77,7 @@ export interface FormItemProps<TFieldValues extends FieldValues = FieldValues> {
   extra?: ReactNode;
   validateStatus?: FormValidateStatus;
   dependencies?: Array<FieldPath<TFieldValues>>;
+  watchNames?: Array<FieldPath<TFieldValues>>;
   shouldUpdate?: boolean | ((prev: TFieldValues, next: TFieldValues) => boolean);
   validateTrigger?: 'onChange' | 'onBlur' | Array<'onChange' | 'onBlur'>;
   validateFirst?: boolean | 'parallel';

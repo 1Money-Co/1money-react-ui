@@ -82,7 +82,7 @@ export const AdvancedBehaviors: Story = {
       >
         {({ field }) => <Input type='text' {...field} placeholder='retype email' />}
       </FormItem>
-      <FormItem shouldUpdate>
+      <FormItem shouldUpdate watchNames={['first', 'last']}>
         {({ values }) => (
           <Typography.Body size='m'>Preview: {values.first} {values.last}</Typography.Body>
         )}
@@ -123,7 +123,7 @@ export const Example: Story = {
       >
         {({ field }) => <Input type='text' {...field} placeholder='retype email' />}
       </FormItem>
-      <FormItem shouldUpdate>
+      <FormItem shouldUpdate watchNames={['first', 'last']}>
         {({ values }) => (
           <Typography.Body size='m'>Preview: {values.first} {values.last}</Typography.Body>
         )}
@@ -253,7 +253,7 @@ export const Complex: Story = {
           </div>
         )}
       </FormItem>
-      <FormItem shouldUpdate>
+      <FormItem shouldUpdate watchNames={['first', 'last', 'plan']}>
         {({ values }) => (
           <Typography.Body size='m'>Summary: {values.first} {values.last} ({values.plan})</Typography.Body>
         )}
@@ -339,7 +339,7 @@ export const ShouldUpdate: Story = {
       <FormItem name='last' label='Last'>
         {({ field }) => <Input type='text' {...field} />}
       </FormItem>
-      <FormItem shouldUpdate>
+      <FormItem shouldUpdate watchNames={['first', 'last']}>
         {({ values }) => (
           <Typography.Body size='m'>Preview: {values.first} {values.last}</Typography.Body>
         )}

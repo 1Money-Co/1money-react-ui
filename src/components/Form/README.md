@@ -47,7 +47,7 @@ export default function AdvancedExample() {
       >
         {({ field }) => <Input type='text' {...field} placeholder='retype email' />}
       </FormItem>
-      <FormItem shouldUpdate>
+      <FormItem shouldUpdate watchNames={['first', 'last']}>
         {({ values }) => (
           <Typography.Body size='m'>Preview: {values.first} {values.last}</Typography.Body>
         )}
@@ -67,7 +67,8 @@ export default function AdvancedExample() {
 
 ### Render Props
 - `FormItem` render function receives `{ field, fieldState, form, values }`.
-- When `shouldUpdate` is set and no `name` is provided, use `values` to render dependent UI.
+- `values` updates when `shouldUpdate` is a function or when `watchNames` is provided.
+  - For full re-render on any change, use `shouldUpdate={() => true}`.
 
 ### Form
 - `layout?: 'horizontal' | 'vertical' | 'inline'`
@@ -83,6 +84,7 @@ export default function AdvancedExample() {
 - `onFinish?: (values) => void`
 - `onFinishFailed?: (errors) => void`
 - `onValuesChange?: (values, info) => void`
+- `watchNames?: FieldPath[]` (filter `onValuesChange` to specific fields)
 
 ### FormItem
 - `name?: FieldPath`
@@ -90,6 +92,7 @@ export default function AdvancedExample() {
 - `required?: boolean`
 - `rules?: RegisterOptions`
 - `dependencies?: FieldPath[]`
+- `watchNames?: FieldPath[]` (re-render when these fields change)
 - `shouldUpdate?: boolean | ((prev, next) => boolean)`
 - `validateTrigger?: 'onChange' | 'onBlur' | Array<'onChange' | 'onBlur'>`
 - `validateFirst?: boolean | 'parallel'`
@@ -200,7 +203,7 @@ import { Typography } from '@1money/react-ui';
   <FormItem name='last' label='Last'>
     {({ field }) => <Input type='text' {...field} />}
   </FormItem>
-  <FormItem shouldUpdate>
+  <FormItem shouldUpdate watchNames={['first', 'last']}>
     {({ values }) => (
       <Typography.Body size='m'>Preview: {values.first} {values.last}</Typography.Body>
     )}
