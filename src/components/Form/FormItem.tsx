@@ -70,10 +70,15 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   const isShouldUpdateFn = typeof shouldUpdate === 'function';
   const watchNamesList = (watchNames?.length ? watchNames : undefined) as FieldPath<TFieldValues>[] | undefined;
   const shouldWatchNames = !!watchNamesList?.length;
+  const emptyNames = useMemo(() => [] as FieldPath<TFieldValues>[], []);
   const shouldWatchAllValues = isShouldUpdateFn;
   // Watch all values only when necessary to reduce render pressure.
   const watchedAllValues = useWatch({ control, disabled: !shouldWatchAllValues });
-  const watchedNamesValues = useWatch({ control, name: watchNamesList, disabled: !shouldWatchNames });
+  const watchedNamesValues = useWatch({
+    control,
+    name: shouldWatchNames ? watchNamesList : emptyNames,
+    disabled: !shouldWatchNames
+  });
 
   const allValues = useMemo(
     () => (shouldWatchAllValues
