@@ -60,7 +60,6 @@ export const Test: Story = {
   </div>,
   args: {
     placeholder: 'Select City',
-    defaultValue: 'IST',
     label: 'Cities',
   },
   tags: ['!autodocs', 'dev'],
