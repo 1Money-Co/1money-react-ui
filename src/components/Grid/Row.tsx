@@ -21,22 +21,20 @@ export const Row: FC<PropsWithChildren<GridRowProps>> = props => {
   const classes = classnames(prefixCls);
   const { x: gutterX, y: gutterY, baseX: baseGutterX, baseY: baseGutterY } = normalizeGutter(gutter);
 
-  const justifyResponsive = typeof justify === 'object' && justify !== null;
-  const justifyValue = !justifyResponsive ? (justify as GridJustify | undefined) : undefined;
-  const justifyMap = (justifyResponsive ? justify as GridJustifyResponsive : {}) as GridJustifyResponsive;
-  const baseJustifyStyle = justifyValue ? { [GRID_CSS_VARS.justify]: GRID_JUSTIFY_CSS[justifyValue] } : {};
-
-  const baseJustify = GRID_JUSTIFY_BASE_ORDER.reduce<GridJustify | undefined>((acc, key) => {
+  const isJustifyResponsive = typeof justify === 'object' && justify !== null;
+  const justifyValue = !isJustifyResponsive ? (justify as GridJustify | undefined) : undefined;
+  const justifyMap = (isJustifyResponsive ? justify : {}) as GridJustifyResponsive;
+  const baseJustify = justifyValue ?? GRID_JUSTIFY_BASE_ORDER.reduce<GridJustify | undefined>((acc, key) => {
     if (acc) return acc;
     return justifyMap[key];
   }, undefined);
 
-  const justifyVars = justifyResponsive ? {
+  const justifyVars = {
     ...(baseJustify ? { [GRID_CSS_VARS.justify]: GRID_JUSTIFY_CSS[baseJustify] } : {}),
     ...(justifyMap[GRID_JUSTIFY_BREAKPOINT.sm] ? { [GRID_CSS_VARS.justifySm]: GRID_JUSTIFY_CSS[justifyMap[GRID_JUSTIFY_BREAKPOINT.sm] as GridJustify] } : {}),
     ...(justifyMap[GRID_JUSTIFY_BREAKPOINT.md] ? { [GRID_CSS_VARS.justifyMd]: GRID_JUSTIFY_CSS[justifyMap[GRID_JUSTIFY_BREAKPOINT.md] as GridJustify] } : {}),
     ...(justifyMap[GRID_JUSTIFY_BREAKPOINT.lg] ? { [GRID_CSS_VARS.justifyLg]: GRID_JUSTIFY_CSS[justifyMap[GRID_JUSTIFY_BREAKPOINT.lg] as GridJustify] } : {})
-  } : {};
+  };
 
   const mergedStyle = ({
     ...style,
@@ -48,21 +46,22 @@ export const Row: FC<PropsWithChildren<GridRowProps>> = props => {
     ...(gutterY.md !== undefined ? { [GRID_CSS_VARS.gutterYMd]: toCssLength(gutterY.md) } : {}),
     ...(gutterX.lg !== undefined ? { [GRID_CSS_VARS.gutterXLg]: toCssLength(gutterX.lg) } : {}),
     ...(gutterY.lg !== undefined ? { [GRID_CSS_VARS.gutterYLg]: toCssLength(gutterY.lg) } : {}),
-    ...baseJustifyStyle,
     ...justifyVars
   } as unknown) as CSSProperties;
+
+  const classNameValue = classes(void 0, joinCls(
+    align && classes(`${GRID_CLASS.align}-${align}`),
+    justifyValue && classes(`${GRID_CLASS.justify}-${justifyValue}`),
+    wrap === false && classes(GRID_CLASS.noWrap),
+    className
+  ));
 
   return (
     <div
       {...rest}
       style={mergedStyle}
-        className={classes(void 0, joinCls(
-          align && classes(`${GRID_CLASS.align}-${align}`),
-          justifyValue && classes(`${GRID_CLASS.justify}-${justifyValue}`),
-          wrap === false && classes(GRID_CLASS.noWrap),
-          className
-        ))}
-      >
+      className={classNameValue}
+    >
       {children}
     </div>
   );

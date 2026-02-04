@@ -10,7 +10,7 @@ export type GridGutterValue = number | string;
 export type GridGutterResponsive = Partial<Record<GridGutterBreakpoint, GridGutterValue>>;
 export type GridGutter = GridGutterValue | [GridGutterValue, GridGutterValue] | GridGutterResponsive | [GridGutterResponsive, GridGutterResponsive];
 
-export type GridColSize = number | {
+export type GridColSizeConfig = {
   span?: number;
   offset?: number;
   order?: number;
@@ -18,6 +18,8 @@ export type GridColSize = number | {
   push?: number;
   flex?: number | string;
 };
+
+export type GridColSize = number | GridColSizeConfig;
 
 export interface GridRowProps extends HTMLAttributes<HTMLDivElement> {
   gutter?: GridGutter;

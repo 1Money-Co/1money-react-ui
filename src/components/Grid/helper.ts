@@ -1,16 +1,14 @@
-import type { GridColSize, GridGutter, GridGutterResponsive, GridGutterValue } from './interface';
+import type { GridColSize, GridColSizeConfig, GridGutter, GridGutterResponsive, GridGutterValue } from './interface';
 import { GRID_FLEX_AUTO, GRID_GUTTER_FALLBACK } from './constants';
 
 const normalizeGutterAxis = (value?: GridGutterValue | GridGutterResponsive): GridGutterResponsive => {
   if (value === undefined || value === null) return {};
-  if (typeof value === 'number' || typeof value === 'string') return {};
-  return value;
+  return typeof value === 'object' ? value : {};
 };
 
 const resolveBaseGutter = (value?: GridGutterValue | GridGutterResponsive) => {
   if (value === undefined || value === null) return GRID_GUTTER_FALLBACK;
-  if (typeof value === 'number' || typeof value === 'string') return value;
-  return GRID_GUTTER_FALLBACK;
+  return typeof value === 'number' || typeof value === 'string' ? value : GRID_GUTTER_FALLBACK;
 };
 
 export const normalizeGutter = (gutter?: GridGutter) => {
@@ -38,10 +36,9 @@ export const toCssLength = (value?: GridGutterValue) => {
   return value;
 };
 
-export const normalizeColSize = (size?: GridColSize) => {
-  if (size === undefined || size === null) return {} as Required<Exclude<GridColSize, number>>;
-  if (typeof size === 'number') return { span: size };
-  return size;
+export const normalizeColSize = (size?: GridColSize): GridColSizeConfig => {
+  if (size === undefined || size === null) return {};
+  return typeof size === 'number' ? { span: size } : size;
 };
 
 export const normalizeFlex = (flex?: number | string): string | undefined => {

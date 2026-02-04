@@ -33,23 +33,26 @@ export const Flex: FC<PropsWithChildren<FlexProps>> = props => {
   const classes = classnames(prefixCls);
   const gapValue = normalizeGap(gap);
   const wrapValue = normalizeWrap(wrap);
+  const wrapClass = wrapValue ? classes(`${FLEX_CLASS.wrap}-${wrapValue}`) : undefined;
 
   const mergedStyle = {
     ...style,
     [FLEX_CSS_VARS.gap]: `${gapValue}px`
   } as CSSProperties;
 
+  const classNameValue = classes(void 0, joinCls(
+    vertical && classes(FLEX_CLASS.vertical),
+    wrapClass,
+    align && classes(`${FLEX_CLASS.align}-${align}`),
+    justify && classes(`${FLEX_CLASS.justify}-${justify}`),
+    className
+  ));
+
   return (
     <div
       {...rest}
       style={mergedStyle}
-      className={classes(void 0, joinCls(
-        vertical && classes(FLEX_CLASS.vertical),
-        wrapValue && classes(`${FLEX_CLASS.wrap}-${wrapValue}`),
-        align && classes(`${FLEX_CLASS.align}-${align}`),
-        justify && classes(`${FLEX_CLASS.justify}-${justify}`),
-        className
-      ))}
+      className={classNameValue}
     >
       {children}
     </div>

@@ -29,27 +29,25 @@ export const Col: FC<PropsWithChildren<GridColProps>> = props => {
     const classList: string[] = [];
     const flexVars: Record<string, string> = {};
 
-    const applyBreakpoint = (breakpoint: string, size?: GridColSize) => {
+    const addClass = (value: number | undefined, build: (value: number) => string) => {
+      if (value !== undefined) {
+        classList.push(classes(build(value)));
+      }
+    };
+
+    const applyBreakpoint = (breakpoint: GridBreakpoint, size?: GridColSize) => {
       if (!size) return;
 
       const normalized = normalizeColSize(size);
       const hasFlex = normalized.flex !== undefined;
 
       if (normalized.span !== undefined && !hasFlex) {
-        classList.push(classes(`${breakpoint}-${normalized.span}`));
+        addClass(normalized.span, value => `${breakpoint}-${value}`);
       }
-      if (normalized.offset !== undefined) {
-        classList.push(classes(`${breakpoint}-${GRID_CLASS.offset}-${normalized.offset}`));
-      }
-      if (normalized.order !== undefined) {
-        classList.push(classes(`${breakpoint}-${GRID_CLASS.order}-${normalized.order}`));
-      }
-      if ((normalized as GridColSize & { pull?: number }).pull !== undefined) {
-        classList.push(classes(`${breakpoint}-${GRID_CLASS.pull}-${(normalized as GridColSize & { pull?: number }).pull}`));
-      }
-      if ((normalized as GridColSize & { push?: number }).push !== undefined) {
-        classList.push(classes(`${breakpoint}-${GRID_CLASS.push}-${(normalized as GridColSize & { push?: number }).push}`));
-      }
+      addClass(normalized.offset, value => `${breakpoint}-${GRID_CLASS.offset}-${value}`);
+      addClass(normalized.order, value => `${breakpoint}-${GRID_CLASS.order}-${value}`);
+      addClass(normalized.pull, value => `${breakpoint}-${GRID_CLASS.pull}-${value}`);
+      addClass(normalized.push, value => `${breakpoint}-${GRID_CLASS.push}-${value}`);
       if (normalized.flex !== undefined) {
         const flexValue = normalizeFlex(normalized.flex);
         if (flexValue) {
@@ -71,19 +69,21 @@ export const Col: FC<PropsWithChildren<GridColProps>> = props => {
     ...responsiveFlexVars
   } as CSSProperties;
 
+  const classNameValue = classes(void 0, joinCls(
+    span !== undefined && !flexValue && classes(`${span}`),
+    offset !== undefined && classes(`${GRID_CLASS.offset}-${offset}`),
+    order !== undefined && classes(`${GRID_CLASS.order}-${order}`),
+    push !== undefined && classes(`${GRID_CLASS.push}-${push}`),
+    pull !== undefined && classes(`${GRID_CLASS.pull}-${pull}`),
+    ...responsiveClasses,
+    className
+  ));
+
   return (
     <div
       {...rest}
       style={mergedStyle}
-      className={classes(void 0, joinCls(
-        span !== undefined && !flexValue && classes(`${span}`),
-        offset !== undefined && classes(`${GRID_CLASS.offset}-${offset}`),
-        order !== undefined && classes(`${GRID_CLASS.order}-${order}`),
-        push !== undefined && classes(`${GRID_CLASS.push}-${push}`),
-        pull !== undefined && classes(`${GRID_CLASS.pull}-${pull}`),
-        ...responsiveClasses,
-        className
-      ))}
+      className={classNameValue}
     >
       {children}
     </div>

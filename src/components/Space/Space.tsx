@@ -43,6 +43,12 @@ export const Space: FC<PropsWithChildren<SpaceProps>> = props => {
   const isVertical = direction === SPACE_DIRECTION.vertical;
   const [gapX, gapY] = normalizeSize(size);
   const shouldWrap = wrap && !isVertical;
+  const classNameValue = classes(void 0, joinCls(
+    isVertical && classes(SPACE_CLASS.vertical),
+    align && classes(`${SPACE_CLASS.align}-${align}`),
+    shouldWrap && classes(SPACE_CLASS.wrap),
+    className
+  ));
 
   const mergedStyle = {
     ...style,
@@ -70,12 +76,7 @@ export const Space: FC<PropsWithChildren<SpaceProps>> = props => {
     <div
       {...rest}
       style={mergedStyle}
-      className={classes(void 0, joinCls(
-        isVertical && classes(SPACE_CLASS.vertical),
-        align && classes(`${SPACE_CLASS.align}-${align}`),
-        shouldWrap && classes(SPACE_CLASS.wrap),
-        className
-      ))}
+      className={classNameValue}
     >
       {content}
     </div>

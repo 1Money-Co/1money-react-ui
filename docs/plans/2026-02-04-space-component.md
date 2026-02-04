@@ -1,6 +1,6 @@
 # Space Component Implementation Plan
 
-**Goal:** Add a Space layout component modeled after Ant Design Space, including size, direction, align, wrap, and split support with docs, stories, tests, and exports.
+**Goal:** Add a Space layout component, including size, direction, align, wrap, and split support with docs, stories, tests, and exports.
 
 **Architecture:** Build a lightweight wrapper that normalizes size tokens into numeric gaps, applies CSS variables for horizontal/vertical spacing, and wraps each child in an item container (so split elements can be inserted between items). SCSS defines the flex layout, align classes, and wrap behavior while following the 4px spacing grid.
 
@@ -439,7 +439,7 @@ export const ApiExamples: Story = {
 ```md
 # Space
 
-A layout helper component modeled after Ant Design's Space. It wraps each child and applies consistent spacing, optional alignment, wrapping, and split separators.
+A layout helper component. It wraps each child and applies consistent spacing, optional alignment, wrapping, and split separators.
 
 ## Features
 
