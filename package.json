@@ -64,6 +64,16 @@
       "import": "./es/components/Drawer/index.js",
       "require": "./lib/components/Drawer/index.js"
     },
+    "./Grid": {
+      "types": "./es/components/Grid/index.d.ts",
+      "import": "./es/components/Grid/index.js",
+      "require": "./lib/components/Grid/index.js"
+    },
+    "./Flex": {
+      "types": "./es/components/Flex/index.d.ts",
+      "import": "./es/components/Flex/index.js",
+      "require": "./lib/components/Flex/index.js"
+    },
     "./Input": {
       "types": "./es/components/Input/index.d.ts",
       "import": "./es/components/Input/index.js",
@@ -123,6 +133,11 @@
       "types": "./es/components/Select/index.d.ts",
       "import": "./es/components/Select/index.js",
       "require": "./lib/components/Select/index.js"
+    },
+    "./Space": {
+      "types": "./es/components/Space/index.d.ts",
+      "import": "./es/components/Space/index.js",
+      "require": "./lib/components/Space/index.js"
     },
     "./Spinner": {
       "types": "./es/components/Spinner/index.d.ts",
