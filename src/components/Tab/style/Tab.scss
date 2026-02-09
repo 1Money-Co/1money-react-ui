@@ -87,6 +87,8 @@ $component: 'tab';
 
     .p-tabmenu {
       .p-tabmenu-nav {
+        border: 0;
+
         .p-tabmenuitem {
           box-sizing: content-box;
           height: 36px;
