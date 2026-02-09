@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import classnames, { joinCls } from '@/utils/classnames';
 import { GRID_BREAKPOINTS, GRID_CLASS, GRID_COL_PREFIX, GRID_CSS_VARS } from './constants';
 import { normalizeColSize, normalizeFlex } from './helper';
@@ -23,62 +23,66 @@ export const Col: FC<PropsWithChildren<GridColProps>> = props => {
     ...rest
   } = props;
 
-  const classes = classnames(prefixCls);
-  const responsive = { sm, md, lg } as Record<GridBreakpoint, GridColSize | undefined>;
-  const classList: string[] = [];
-  const flexVars: Record<string, string> = {};
+  const { classNameValue, flexValue, flexVars } = useMemo(() => {
+    const classes = classnames(prefixCls);
+    const responsive = { sm, md, lg } as Record<GridBreakpoint, GridColSize | undefined>;
+    const classList: string[] = [];
+    const nextFlexVars: Record<string, string> = {};
 
-  const addClass = (value: number | undefined | null, build: (value: number) => string) => {
-    if (value !== undefined && value !== null) {
-      classList.push(classes(build(value)));
-    }
-  };
-
-  const applyBreakpoint = (breakpoint: GridBreakpoint, size?: GridColSize) => {
-    if (size === undefined || size === null) return;
-
-    const normalized = normalizeColSize(size);
-    const hasFlex = normalized.flex !== undefined && normalized.flex !== null;
-
-    if (normalized.span !== undefined && normalized.span !== null && !hasFlex) {
-      addClass(normalized.span, value => `${breakpoint}-${value}`);
-    }
-    addClass(normalized.offset, value => `${breakpoint}-${GRID_CLASS.offset}-${value}`);
-    addClass(normalized.order, value => `${breakpoint}-${GRID_CLASS.order}-${value}`);
-    addClass(normalized.pull, value => `${breakpoint}-${GRID_CLASS.pull}-${value}`);
-    addClass(normalized.push, value => `${breakpoint}-${GRID_CLASS.push}-${value}`);
-    if (normalized.flex !== undefined && normalized.flex !== null) {
-      const flexValue = normalizeFlex(normalized.flex);
-      if (flexValue !== undefined) {
-        flexVars[`${GRID_CSS_VARS.colFlexPrefix}${breakpoint}`] = flexValue;
+    const addClass = (value: number | undefined | null, build: (value: number) => string) => {
+      if (value !== undefined && value !== null) {
+        classList.push(classes(build(value)));
       }
-    }
-  };
+    };
 
-  GRID_BREAKPOINTS.forEach((breakpoint) => {
-    applyBreakpoint(breakpoint, responsive[breakpoint]);
-  });
+    const applyBreakpoint = (breakpoint: GridBreakpoint, size?: GridColSize) => {
+      if (size === undefined || size === null) return;
 
-  const responsiveClasses = classList;
-  const responsiveFlexVars = flexVars;
+      const normalized = normalizeColSize(size);
+      const hasFlex = normalized.flex !== undefined && normalized.flex !== null;
 
-  const flexValue = normalizeFlex(flex);
+      if (normalized.span !== undefined && normalized.span !== null && !hasFlex) {
+        addClass(normalized.span, value => `${breakpoint}-${value}`);
+      }
+      addClass(normalized.offset, value => `${breakpoint}-${GRID_CLASS.offset}-${value}`);
+      addClass(normalized.order, value => `${breakpoint}-${GRID_CLASS.order}-${value}`);
+      addClass(normalized.pull, value => `${breakpoint}-${GRID_CLASS.pull}-${value}`);
+      addClass(normalized.push, value => `${breakpoint}-${GRID_CLASS.push}-${value}`);
+      if (normalized.flex !== undefined && normalized.flex !== null) {
+        const responsiveFlexValue = normalizeFlex(normalized.flex);
+        if (responsiveFlexValue !== undefined) {
+          nextFlexVars[`${GRID_CSS_VARS.colFlexPrefix}${breakpoint}`] = responsiveFlexValue;
+        }
+      }
+    };
+
+    GRID_BREAKPOINTS.forEach((breakpoint) => {
+      applyBreakpoint(breakpoint, responsive[breakpoint]);
+    });
+
+    const normalizedFlexValue = normalizeFlex(flex);
+    const nextClassNameValue = classes(void 0, joinCls(
+      span !== null && span !== undefined && !normalizedFlexValue && classes(`${span}`),
+      offset !== null && offset !== undefined && classes(`${GRID_CLASS.offset}-${offset}`),
+      order !== null && order !== undefined && classes(`${GRID_CLASS.order}-${order}`),
+      push !== null && push !== undefined && classes(`${GRID_CLASS.push}-${push}`),
+      pull !== null && pull !== undefined && classes(`${GRID_CLASS.pull}-${pull}`),
+      ...classList,
+      className
+    ));
+
+    return {
+      classNameValue: nextClassNameValue,
+      flexValue: normalizedFlexValue,
+      flexVars: nextFlexVars
+    };
+  }, [className, flex, lg, md, offset, order, prefixCls, pull, push, sm, span]);
 
   const mergedStyle = {
     ...style,
     ...(flexValue ? { [GRID_CSS_VARS.colFlex]: flexValue } : {}),
-    ...responsiveFlexVars
+    ...flexVars
   } as CSSProperties;
-
-  const classNameValue = classes(void 0, joinCls(
-    span !== undefined && !flexValue && classes(`${span}`),
-    offset !== undefined && classes(`${GRID_CLASS.offset}-${offset}`),
-    order !== undefined && classes(`${GRID_CLASS.order}-${order}`),
-    push !== undefined && classes(`${GRID_CLASS.push}-${push}`),
-    pull !== undefined && classes(`${GRID_CLASS.pull}-${pull}`),
-    ...responsiveClasses,
-    className
-  ));
 
   return (
     <div

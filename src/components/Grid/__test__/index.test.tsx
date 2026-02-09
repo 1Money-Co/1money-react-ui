@@ -64,4 +64,21 @@ describe('Grid', () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('keeps Grid.Col rendered when span is 0', () => {
+    const { getByTestId, container } = render(
+      <Grid>
+        <Grid.Col span={0} data-testid="grid-col-zero">Zero Span</Grid.Col>
+      </Grid>
+    );
+
+    const col = getByTestId('grid-col-zero');
+    const row = container.firstElementChild;
+
+    expect(row).not.toBeNull();
+    expect(col).toBeInTheDocument();
+    expect(col).toHaveTextContent('Zero Span');
+    expect(col.className).toContain('grid-col');
+    expect(col.className).toContain('grid-col-0');
+  });
 });

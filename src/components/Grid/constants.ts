@@ -41,7 +41,7 @@ export const GRID_JUSTIFY_CSS: Record<GridJustify, string> = {
 export const GRID_BREAKPOINT_MIN_WIDTH: Record<GridBreakpoint, number> = {
   sm: 768,
   md: 1024,
-  lg: 1025
+  lg: 1280
 };
 
 export const GRID_CSS_VARS = {
