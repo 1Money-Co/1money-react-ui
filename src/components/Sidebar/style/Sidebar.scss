@@ -51,7 +51,7 @@ $cls: #{$prefix}-#{$component};
           .ps-menu-icon {
             display: inline-flex;
             align-items: center;
-            justify-content: start;
+            justify-content: flex-start;
             width: 16px;
             min-width: 16px;
             height: 16px;

@@ -9,11 +9,13 @@ import { ConfirmPopup } from './components/ConfirmPopup';
 import { Copy } from './components/Copy';
 import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
+import { Grid, Row, Col } from './components/Grid';
 import { Input } from './components/Input';
 import { InputAmount } from './components/InputAmount';
 import { Loading } from './components/Loading';
 import { Menu } from './components/Menu';
 import { Message } from './components/Message';
+import { Flex } from './components/Flex';
 import { Modal } from './components/Modal';
 import { Notification } from './components/Notification';
 import { Popup } from './components/Popup';
@@ -21,6 +23,7 @@ import { Progress } from './components/Progress';
 import { Radio } from './components/Radio';
 import { RadioGroup } from './components/RadioGroup';
 import { Select } from './components/Select';
+import { Space } from './components/Space';
 import { Spinner } from './components/Spinner';
 import { Switch } from './components/Switch';
 import { Icons, IconWrapper, IconHover } from './components/Icons';
@@ -43,12 +46,14 @@ export { Collapse } from './components/Collapse';
 export { ConfirmPopup } from './components/ConfirmPopup';
 export { Copy } from './components/Copy';
 export { Drawer } from './components/Drawer';
+export { Grid, Row, Col } from './components/Grid';
 export { Input } from './components/Input';
 export { InputAmount } from './components/InputAmount';
 export { Loading } from './components/Loading';
 export { Menu } from './components/Menu';
 export { Message } from './components/Message';
 export { Dropdown } from './components/Dropdown';
+export { Flex } from './components/Flex';
 export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
 export { Popup } from './components/Popup';
@@ -56,6 +61,7 @@ export { Progress } from './components/Progress';
 export { Radio } from './components/Radio';
 export { RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
+export { Space } from './components/Space';
 export { Spinner } from './components/Spinner';
 export { Switch } from './components/Switch';
 export { Icons, IconWrapper, IconHover } from './components/Icons';
@@ -80,11 +86,15 @@ export default {
   Copy,
   Dropdown,
   Drawer,
+  Grid,
+  Row,
+  Col,
   Input,
   InputAmount,
   Loading,
   Menu,
   Message,
+  Flex,
   Modal,
   Notification,
   Popup,
@@ -92,6 +102,7 @@ export default {
   Radio,
   RadioGroup,
   Select,
+  Space,
   Spinner,
   Switch,
   Icons,

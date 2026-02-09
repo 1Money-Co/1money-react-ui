@@ -26,7 +26,7 @@ $cls-primary: #{$cls}-primary;
     display: inline-flex;
     gap: 8px;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     width: 100%;
     padding-bottom: 16px;
     border-bottom: 1px solid $color-grey-bold;
