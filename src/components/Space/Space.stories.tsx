@@ -13,6 +13,11 @@ const DEMO_BORDER = '1px dashed currentColor';
 const DEMO_BOX_STYLE = { padding: DEMO_PADDING, border: DEMO_BORDER };
 const DEMO_SECTION_GAP = 16;
 const DEMO_SECTION_STYLE = { display: 'grid', gap: DEMO_SECTION_GAP };
+const DEMO_PAGE_STYLE = { ...DEMO_SECTION_STYLE, padding: 16, border: DEMO_BORDER, borderRadius: 8 };
+const DEMO_INLINE_ITEM_STYLE = { ...DEMO_BOX_STYLE, display: 'inline-flex', alignItems: 'center' as const };
+const DEMO_CHIP_ITEM_STYLE = { ...DEMO_BOX_STYLE, padding: '4px 12px', display: 'inline-flex' };
+const DEMO_PANEL_STYLE = { ...DEMO_BOX_STYLE, minHeight: 44, width: '100%' };
+const DEMO_COLUMN_STYLE = { ...DEMO_BOX_STYLE, minWidth: 220 };
 
 const meta: Meta<typeof Space> = {
   title: 'Components/Space',
@@ -89,6 +94,89 @@ export const ApiExamples: Story = {
       <Space direction={SPACE_DIRECTION.vertical} size={SPACE_SIZE.large}>
         <div style={DEMO_BOX_STYLE}>Vertical</div>
         <div style={DEMO_BOX_STYLE}>Large</div>
+      </Space>
+    </div>
+  )
+};
+
+export const ToolbarSpacing: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Toolbar layout with left filter group and right action group, using Space to keep consistent in-group spacing.'
+      }
+    }
+  },
+  render: () => (
+    <div style={DEMO_PAGE_STYLE}>
+      <div style={{ ...DEMO_PANEL_STYLE, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Space size={SPACE_SIZE.small} align={SPACE_ALIGN.center}>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Date Range</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Status</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Currency</div>
+        </Space>
+        <Space size={SPACE_SIZE.small} align={SPACE_ALIGN.center}>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Export</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Refresh</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Create</div>
+        </Space>
+      </div>
+    </div>
+  )
+};
+
+export const FilterWrapSpacing: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Filter wrapping layout: Space + wrap for tags and variable-length multi-filter items.'
+      }
+    }
+  },
+  render: () => (
+    <div style={DEMO_PAGE_STYLE}>
+      <Space size={[8, 12]} wrap style={{ maxWidth: 640 }}>
+        <div style={DEMO_CHIP_ITEM_STYLE}>All</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>High Risk</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>KYC Pending</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>Manual Review</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>Today</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>This Week</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>Large Amount</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>USDT</div>
+        <div style={DEMO_CHIP_ITEM_STYLE}>USD</div>
+      </Space>
+    </div>
+  )
+};
+
+export const DetailPanelSpacing: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Detail panel composition: vertical field group on the left and vertical status group on the right with layered spacing.'
+      }
+    }
+  },
+  render: () => (
+    <div style={DEMO_PAGE_STYLE}>
+      <Space size={SPACE_SIZE.large} align={SPACE_ALIGN.start} style={{ width: '100%' }}>
+        <Space direction={SPACE_DIRECTION.vertical} size={SPACE_SIZE.middle} style={DEMO_COLUMN_STYLE}>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Business Name</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Registration Number</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Country</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Created At</div>
+        </Space>
+
+        <Space direction={SPACE_DIRECTION.vertical} size={SPACE_SIZE.middle} style={DEMO_COLUMN_STYLE}>
+          <Space split={<span>|</span>} size={SPACE_SIZE.small}>
+            <span>Risk: Medium</span>
+            <span>KYB: Reviewing</span>
+            <span>AML: Passed</span>
+          </Space>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Operator: Derrick</div>
+          <div style={DEMO_INLINE_ITEM_STYLE}>Last Updated: 2026-02-09</div>
+        </Space>
       </Space>
     </div>
   )

@@ -21,6 +21,32 @@ const DEMO_BORDER = '1px dashed currentColor';
 const DEMO_BOX_STYLE = { padding: DEMO_PADDING, border: DEMO_BORDER };
 const DEMO_SECTION_GAP = 16;
 const DEMO_SECTION_STYLE = { display: 'grid', gap: DEMO_SECTION_GAP };
+const DEMO_PAGE_STYLE = {
+  display: 'grid',
+  gap: DEMO_SECTION_GAP,
+  padding: DEMO_PADDING,
+  border: DEMO_BORDER,
+  borderRadius: 8
+};
+const DEMO_BLOCK_STYLE = {
+  padding: DEMO_PADDING,
+  border: DEMO_BORDER,
+  borderRadius: 8,
+  minHeight: 48,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+const DEMO_HEADER_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 56 };
+const DEMO_SIDEBAR_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 300, alignItems: 'flex-start' as const };
+const DEMO_MAIN_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 200, alignItems: 'flex-start' as const };
+const DEMO_FOOTER_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 56 };
+const DEMO_WIDGET_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 96 };
+const DEMO_CHART_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 220 };
+const DEMO_TABLE_BLOCK_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 180 };
+const DEMO_FORM_LABEL_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 44 };
+const DEMO_FORM_FIELD_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 44, justifyContent: 'flex-start' as const };
+const DEMO_FORM_ACTION_STYLE = { ...DEMO_BLOCK_STYLE, minHeight: 44, justifyContent: 'flex-end' as const };
 const SPAN_THIRD = 4;
 const SPAN_BASE = 12;
 const SPAN_SM = 6;
@@ -169,6 +195,176 @@ export const ApiExamples: Story = {
         </Col>
       </Row>
 
+    </div>
+  )
+};
+
+export const DashboardLayout: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Complete dashboard layout: top navigation, sidebar menu, KPI cards, chart area, and table area.'
+      }
+    }
+  },
+  render: () => (
+    <div style={DEMO_PAGE_STYLE}>
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24}>
+          <div style={DEMO_HEADER_BLOCK_STYLE}>Header (24/24)</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24} md={6} lg={5}>
+          <div style={DEMO_SIDEBAR_BLOCK_STYLE}>Sidebar (24 → 6 → 5)</div>
+        </Col>
+        <Col span={24} md={18} lg={19}>
+          <Row gutter={GRID_GUTTER_SPACED}>
+            <Col span={12} lg={6}>
+              <div style={DEMO_WIDGET_BLOCK_STYLE}>KPI 1</div>
+            </Col>
+            <Col span={12} lg={6}>
+              <div style={DEMO_WIDGET_BLOCK_STYLE}>KPI 2</div>
+            </Col>
+            <Col span={12} lg={6}>
+              <div style={DEMO_WIDGET_BLOCK_STYLE}>KPI 3</div>
+            </Col>
+            <Col span={12} lg={6}>
+              <div style={DEMO_WIDGET_BLOCK_STYLE}>KPI 4</div>
+            </Col>
+          </Row>
+
+          <Row gutter={GRID_GUTTER_SPACED}>
+            <Col span={24} lg={16}>
+              <div style={DEMO_CHART_BLOCK_STYLE}>Main Chart (24 → 16)</div>
+            </Col>
+            <Col span={24} lg={8}>
+              <div style={DEMO_CHART_BLOCK_STYLE}>Side Panel (24 → 8)</div>
+            </Col>
+          </Row>
+
+          <Row gutter={GRID_GUTTER_SPACED}>
+            <Col span={24}>
+              <div style={DEMO_TABLE_BLOCK_STYLE}>Table Section (24/24)</div>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24}>
+          <div style={DEMO_FOOTER_BLOCK_STYLE}>Footer (24/24)</div>
+        </Col>
+      </Row>
+    </div>
+  )
+};
+
+export const MarketingPageLayout: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Marketing landing page layout: hero section, feature cards, split content blocks, FAQ area, and footer.'
+      }
+    }
+  },
+  render: () => (
+    <div style={DEMO_PAGE_STYLE}>
+      <Row gutter={GRID_GUTTER_SPACED} justify={GRID_JUSTIFY.center}>
+        <Col span={24} md={20} lg={16}>
+          <div style={DEMO_CHART_BLOCK_STYLE}>Hero Section</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24} sm={12} lg={8}>
+          <div style={DEMO_WIDGET_BLOCK_STYLE}>Feature Card A</div>
+        </Col>
+        <Col span={24} sm={12} lg={8}>
+          <div style={DEMO_WIDGET_BLOCK_STYLE}>Feature Card B</div>
+        </Col>
+        <Col span={24} sm={12} lg={8}>
+          <div style={DEMO_WIDGET_BLOCK_STYLE}>Feature Card C</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED} align={GRID_ALIGN.middle}>
+        <Col span={24} md={12}>
+          <div style={DEMO_MAIN_BLOCK_STYLE}>Image / Illustration</div>
+        </Col>
+        <Col span={24} md={12}>
+          <div style={DEMO_MAIN_BLOCK_STYLE}>Value Description</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24}>
+          <div style={DEMO_TABLE_BLOCK_STYLE}>FAQ / Timeline</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24}>
+          <div style={DEMO_FOOTER_BLOCK_STYLE}>Footer Links</div>
+        </Col>
+      </Row>
+    </div>
+  )
+};
+
+export const FormLayoutPatterns: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Form layout patterns: label/input columns, offset alignment, and action button alignment for admin pages.'
+      }
+    }
+  },
+  render: () => (
+    <div style={DEMO_PAGE_STYLE}>
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24}>
+          <div style={DEMO_HEADER_BLOCK_STYLE}>Form Header</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24} md={6}>
+          <div style={DEMO_FORM_LABEL_STYLE}>Label: Company Name</div>
+        </Col>
+        <Col span={24} md={18}>
+          <div style={DEMO_FORM_FIELD_STYLE}>Input Field (span 18)</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24} md={6}>
+          <div style={DEMO_FORM_LABEL_STYLE}>Label: Email</div>
+        </Col>
+        <Col span={24} md={18}>
+          <div style={DEMO_FORM_FIELD_STYLE}>Input Field (span 18)</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24} md={{ span: 18, offset: 6 }}>
+          <div style={DEMO_FORM_FIELD_STYLE}>Inline Help / Validation Message (offset 6)</div>
+        </Col>
+      </Row>
+
+      <Row gutter={GRID_GUTTER_SPACED}>
+        <Col span={24} md={{ span: 18, offset: 6 }}>
+          <Row gutter={GRID_GUTTER_COMPACT} justify={GRID_JUSTIFY.end}>
+            <Col span={12} md={8} lg={6}>
+              <div style={DEMO_FORM_ACTION_STYLE}>Secondary Action</div>
+            </Col>
+            <Col span={12} md={8} lg={6}>
+              <div style={DEMO_FORM_ACTION_STYLE}>Primary Action</div>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>
   )
 };

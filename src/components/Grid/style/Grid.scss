@@ -36,7 +36,7 @@ $grid-justify-breakpoint-lg: $grid-breakpoint-lg;
 $grid-justify-fallback: flex-start;
 
 @function grid-max-width($value, $step: $grid-breakpoint-step) {
-  @return $value - ($step / 100);
+  @return $value - math.div($step, 100);
 }
 
 .#{$prefix}-#{$component-row} {
@@ -122,12 +122,12 @@ $grid-justify-fallback: flex-start;
 @mixin make-col-classes($infix: '') {
   @for $i from $grid-index-start through $grid-columns {
     .#{$prefix}-#{$component-col}#{$infix}-#{$i} {
-      flex: 0 0 math.percentage($i / $grid-columns);
-      max-width: math.percentage($i / $grid-columns);
+      flex: 0 0 math.percentage(math.div($i, $grid-columns));
+      max-width: math.percentage(math.div($i, $grid-columns));
     }
 
     .#{$prefix}-#{$component-col}#{$infix}-offset-#{$i} {
-      margin-left: math.percentage($i / $grid-columns);
+      margin-left: math.percentage(math.div($i, $grid-columns));
     }
 
     .#{$prefix}-#{$component-col}#{$infix}-order-#{$i} {
@@ -135,11 +135,11 @@ $grid-justify-fallback: flex-start;
     }
 
     .#{$prefix}-#{$component-col}#{$infix}-push-#{$i} {
-      left: math.percentage($i / $grid-columns);
+      left: math.percentage(math.div($i, $grid-columns));
     }
 
     .#{$prefix}-#{$component-col}#{$infix}-pull-#{$i} {
-      right: math.percentage($i / $grid-columns);
+      right: math.percentage(math.div($i, $grid-columns));
     }
   }
 }
