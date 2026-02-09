@@ -12,9 +12,9 @@ A responsive 12-column layout system modeled after Ant Design's Row/Col, built w
 
 ## Breakpoints
 
-- `sm`: max-width 767.99px
-- `md`: max-width 1023.99px
-- `lg`: max-width 1024.99px (\"lg\" > 1024)
+- `sm`: max-width 767.98px
+- `md`: max-width 1023.98px
+- `lg`: max-width 1279.98px (`lg` is > 1024px and < 1280px)
 - `justify` responsive keys: `sm` / `md` / `lg` (desktop-first, max-width)
 
 ## Basic Usage

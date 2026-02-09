@@ -7,7 +7,7 @@ $grid-columns: 12;
 $grid-index-start: 1;
 $grid-breakpoint-sm: 768px;
 $grid-breakpoint-md: 1024px;
-$grid-breakpoint-lg: 1025px;
+$grid-breakpoint-lg: 1280px;
 $grid-breakpoint-step: 1px;
 $grid-col-min-height: 1px;
 $grid-col-max-width: 100%;
@@ -35,8 +35,9 @@ $grid-justify-breakpoint-md: $grid-breakpoint-md;
 $grid-justify-breakpoint-lg: $grid-breakpoint-lg;
 $grid-justify-fallback: flex-start;
 
+// Use a 0.02px offset to avoid overlapping max-width boundaries while reducing sub-pixel rounding inconsistencies.
 @function grid-max-width($value, $step: $grid-breakpoint-step) {
-  @return $value - math.div($step, 100);
+  @return $value - math.div($step, 50);
 }
 
 .#{$prefix}-#{$component-row} {

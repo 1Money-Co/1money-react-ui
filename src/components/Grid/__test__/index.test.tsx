@@ -6,15 +6,24 @@ import { Grid, Row, Col } from '../index';
 import { GRID_CSS_VARS, GRID_ROW_PREFIX, GRID_ALIGN, GRID_JUSTIFY } from '../constants';
 
 const originalConsoleError = console.error;
-console.error = (message, ...optionalParams) => {
-  if (
-    message.includes('Could not parse CSS stylesheet') ||
-    message.includes('findDOMNode is deprecated and will be removed')
-  ) {
-    return;
-  }
-  originalConsoleError(message, ...optionalParams);
-};
+beforeAll(() => {
+  console.error = (message, ...optionalParams) => {
+    if (
+      typeof message === 'string' &&
+      (
+        message.includes('Could not parse CSS stylesheet') ||
+        message.includes('findDOMNode is deprecated and will be removed')
+      )
+    ) {
+      return;
+    }
+    originalConsoleError(message, ...optionalParams);
+  };
+});
+
+afterAll(() => {
+  console.error = originalConsoleError;
+});
 
 describe('Grid', () => {
   it('renders row/col with gutter + alignment', () => {

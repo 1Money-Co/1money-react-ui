@@ -78,11 +78,11 @@ export const Col: FC<PropsWithChildren<GridColProps>> = props => {
     };
   }, [className, flex, lg, md, offset, order, prefixCls, pull, push, sm, span]);
 
-  const mergedStyle = {
+  const mergedStyle = useMemo(() => ({
     ...style,
     ...(flexValue ? { [GRID_CSS_VARS.colFlex]: flexValue } : {}),
     ...flexVars
-  } as CSSProperties;
+  } as CSSProperties), [style, flexValue, flexVars]);
 
   return (
     <div
