@@ -149,6 +149,8 @@ $grid-justify-fallback: flex-start;
 @media (max-width: grid-max-width($grid-breakpoint-lg)) {
   .#{$prefix}-#{$component-col} {
     flex: var(#{$grid-var-col-flex-lg}, var(#{$grid-var-col-flex}, #{$grid-col-flex-fallback}));
+    padding-right: calc(var(#{$grid-var-gutter-x-lg}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
+    padding-left: calc(var(#{$grid-var-gutter-x-lg}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
   }
 
   .#{$prefix}-#{$component-row} {
@@ -157,17 +159,14 @@ $grid-justify-fallback: flex-start;
     row-gap: var(#{$grid-var-gutter-y-lg}, var(#{$grid-var-gutter-y}, #{$grid-gutter-fallback}));
   }
 
-  .#{$prefix}-#{$component-col} {
-    padding-right: calc(var(#{$grid-var-gutter-x-lg}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
-    padding-left: calc(var(#{$grid-var-gutter-x-lg}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
-  }
-
   @include make-col-classes('-lg');
 }
 
 @media (max-width: grid-max-width($grid-breakpoint-md)) {
   .#{$prefix}-#{$component-col} {
     flex: var(#{$grid-var-col-flex-md}, var(#{$grid-var-col-flex}, #{$grid-col-flex-fallback}));
+    padding-right: calc(var(#{$grid-var-gutter-x-md}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
+    padding-left: calc(var(#{$grid-var-gutter-x-md}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
   }
 
   .#{$prefix}-#{$component-row} {
@@ -176,28 +175,20 @@ $grid-justify-fallback: flex-start;
     row-gap: var(#{$grid-var-gutter-y-md}, var(#{$grid-var-gutter-y}, #{$grid-gutter-fallback}));
   }
 
-  .#{$prefix}-#{$component-col} {
-    padding-right: calc(var(#{$grid-var-gutter-x-md}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
-    padding-left: calc(var(#{$grid-var-gutter-x-md}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
-  }
-
   @include make-col-classes('-md');
 }
 
 @media (max-width: grid-max-width($grid-breakpoint-sm)) {
   .#{$prefix}-#{$component-col} {
     flex: var(#{$grid-var-col-flex-sm}, var(#{$grid-var-col-flex}, #{$grid-col-flex-fallback}));
+    padding-right: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
+    padding-left: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
   }
 
   .#{$prefix}-#{$component-row} {
     margin-right: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / -#{$grid-gutter-divisor});
     margin-left: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / -#{$grid-gutter-divisor});
     row-gap: var(#{$grid-var-gutter-y-sm}, var(#{$grid-var-gutter-y}, #{$grid-gutter-fallback}));
-  }
-
-  .#{$prefix}-#{$component-col} {
-    padding-right: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
-    padding-left: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
   }
 
   @include make-col-classes('-sm');

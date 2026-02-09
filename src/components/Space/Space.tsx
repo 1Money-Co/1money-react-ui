@@ -56,8 +56,7 @@ export const Space: FC<PropsWithChildren<SpaceProps>> = props => {
     [SPACE_CSS_VARS.gapY]: `${gapY}px`
   } as CSSProperties;
 
-  const childrenArray = Children.toArray(children)
-    .filter(child => child !== null && child !== undefined);
+  const childrenArray = Children.toArray(children);
 
   const content = childrenArray.map((child, index) => {
     const isLast = index === childrenArray.length - 1;
