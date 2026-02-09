@@ -3,8 +3,8 @@
 $component: 'message';
 
 .#{$prefix}-#{$component} {
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 10px;
   border-radius: 6px;
 
