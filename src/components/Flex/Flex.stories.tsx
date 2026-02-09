@@ -1,8 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Flex } from './index';
-import { FLEX_ALIGN, FLEX_GAP, FLEX_JUSTIFY, FLEX_WRAP } from './constants';
-import { FLEX_PREFIX } from './constants';
+import { FLEX_ALIGN, FLEX_GAP, FLEX_JUSTIFY, FLEX_PREFIX, FLEX_WRAP } from './constants';
 import './style';
 
 const FLEX_ALIGN_OPTIONS = Object.values(FLEX_ALIGN);

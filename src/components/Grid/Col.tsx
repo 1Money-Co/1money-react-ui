@@ -28,34 +28,36 @@ export const Col: FC<PropsWithChildren<GridColProps>> = props => {
   const classList: string[] = [];
   const flexVars: Record<string, string> = {};
 
-  const addClass = (value: number | undefined, build: (value: number) => string) => {
-    if (value !== undefined) {
+  const addClass = (value: number | undefined | null, build: (value: number) => string) => {
+    if (value !== undefined && value !== null) {
       classList.push(classes(build(value)));
     }
   };
 
   const applyBreakpoint = (breakpoint: GridBreakpoint, size?: GridColSize) => {
-    if (!size) return;
+    if (size === undefined || size === null) return;
 
     const normalized = normalizeColSize(size);
-    const hasFlex = normalized.flex !== undefined;
+    const hasFlex = normalized.flex !== undefined && normalized.flex !== null;
 
-    if (normalized.span !== undefined && !hasFlex) {
+    if (normalized.span !== undefined && normalized.span !== null && !hasFlex) {
       addClass(normalized.span, value => `${breakpoint}-${value}`);
     }
     addClass(normalized.offset, value => `${breakpoint}-${GRID_CLASS.offset}-${value}`);
     addClass(normalized.order, value => `${breakpoint}-${GRID_CLASS.order}-${value}`);
     addClass(normalized.pull, value => `${breakpoint}-${GRID_CLASS.pull}-${value}`);
     addClass(normalized.push, value => `${breakpoint}-${GRID_CLASS.push}-${value}`);
-    if (normalized.flex !== undefined) {
+    if (normalized.flex !== undefined && normalized.flex !== null) {
       const flexValue = normalizeFlex(normalized.flex);
-      if (flexValue) {
+      if (flexValue !== undefined) {
         flexVars[`${GRID_CSS_VARS.colFlexPrefix}${breakpoint}`] = flexValue;
       }
     }
   };
 
-  GRID_BREAKPOINTS.forEach((breakpoint) => applyBreakpoint(breakpoint, responsive[breakpoint]));
+  GRID_BREAKPOINTS.forEach((breakpoint) => {
+    applyBreakpoint(breakpoint, responsive[breakpoint]);
+  });
 
   const responsiveClasses = classList;
   const responsiveFlexVars = flexVars;

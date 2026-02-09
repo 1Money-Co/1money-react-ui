@@ -32,6 +32,7 @@ describe('Grid', () => {
     );
 
     const row = container.querySelector(`.${ROW_CLASS}`);
+    expect(row).not.toBeNull();
     expect(row).toHaveStyle(`${GRID_CSS_VARS.gutterX}: ${GUTTER_X}px`);
     expect(row).toHaveStyle(`${GRID_CSS_VARS.gutterY}: ${GUTTER_Y}px`);
     expect(container.firstChild).toMatchSnapshot();
