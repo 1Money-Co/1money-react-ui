@@ -39,6 +39,8 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
   } = props;
 
   // Always create an internal form to keep hook ordering stable.
+  // When an external `form` is passed, this instance is unused but must remain
+  // so that React's hook call order is consistent across renders.
   const internalMethods = useForm<TFieldValues>({ defaultValues, ...useFormProps });
   // Use provided form methods when controlled; otherwise use internal form state.
   const methods = form ?? internalMethods;

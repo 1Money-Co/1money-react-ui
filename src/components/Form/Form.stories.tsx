@@ -6,6 +6,7 @@ import { Typography } from '../Typography';
 import { Select } from '../Select';
 import { Radio } from '../Radio';
 import { Checkbox } from '../Checkbox';
+import { action } from '@storybook/addon-actions';
 import './style';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -32,7 +33,7 @@ export const Basic: Story = {
     <Form
       layout='vertical'
       defaultValues={{ email: '', password: '' }}
-      onFinish={(values) => console.info('submit', values)}
+      onFinish={action('onFinish')}
     >
       <FormItem name='email' label='Email' rules={{ required: 'Email is required' }}>
         {({ field }) => <Input type='text' {...field} placeholder='you@company.com' />}
@@ -103,7 +104,7 @@ export const Example: Story = {
       layout='vertical'
       defaultValues={{ email: '', confirmEmail: '', first: '', last: '' }}
       scrollToFirstError
-      onFinish={(values) => console.info('submit', values)}
+      onFinish={action('onFinish')}
     >
       <FormItem name='email' label='Email' rules={{ required: 'Email is required' }}>
         {({ field }) => <Input type='text' {...field} placeholder='you@company.com' />}
@@ -146,7 +147,7 @@ export const SelectAndRadio: Story = {
     <Form
       layout='vertical'
       defaultValues={{ city: 'NY', plan: 'basic' }}
-      onFinish={(values) => console.info('submit', values)}
+      onFinish={action('onFinish')}
     >
       <FormItem name='city' label='City' rules={{ required: 'City is required' }}>
         {({ field }) => (
@@ -202,7 +203,7 @@ export const Complex: Story = {
         first: '',
         last: '',
       }}
-      onFinish={(values) => console.info('submit', values)}
+      onFinish={action('onFinish')}
     >
       <FormItem name='email' label='Email' rules={{ required: 'Email is required' }}>
         {({ field }) => <Input type='text' {...field} placeholder='you@company.com' />}

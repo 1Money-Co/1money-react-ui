@@ -62,7 +62,10 @@ export const getFirstErrorPath = (errors: FieldErrors): string | null => {
 };
 
 // Escape attribute values for querySelector.
-export const escapeAttr = (value: string) => value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+export const escapeAttr = (value: string) =>
+  typeof CSS !== 'undefined' && CSS.escape
+    ? CSS.escape(value)
+    : value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 
 // Scroll to the first invalid field by name or data attribute.
 export const scrollToField = (name: string, options?: FormProps['scrollToFirstError']) => {

@@ -58,6 +58,10 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   const trigger = methods?.trigger;
   const classes = classnames('form-item');
 
+  if (name && !control) {
+    console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
+  }
+
   // Resolve per-item layout widths.
   const labelWidth = useMemo(() => toPercent(labelCol ?? ctx?.labelCol), [labelCol, ctx?.labelCol]);
   const wrapperWidth = useMemo(() => toPercent(wrapperCol ?? ctx?.wrapperCol), [wrapperCol, ctx?.wrapperCol]);
@@ -80,11 +84,12 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     disabled: !shouldWatchNames
   });
 
+  const getValues = methods.getValues;
   const allValues = useMemo(
     () => (shouldWatchAllValues
-      ? ((watchedAllValues ?? methods.getValues()) as TFieldValues)
-      : methods.getValues()),
-    [shouldWatchAllValues, watchedAllValues, shouldWatchNames, watchedNamesValues, methods]
+      ? ((watchedAllValues ?? getValues()) as TFieldValues)
+      : getValues()),
+    [shouldWatchAllValues, watchedAllValues, shouldWatchNames, watchedNamesValues, getValues]
   );
 
   const prevValuesRef = useRef<TFieldValues>(allValues);
@@ -186,7 +191,7 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     </div>
   ), [classes, ctx?.disabled, extra, help]);
 
-  const renderField = (
+  const renderField = useCallback((
     field: ControllerRenderProps<TFieldValues, FieldPath<TFieldValues>>,
     fieldState: ControllerFieldState
   ) => {
@@ -224,7 +229,7 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
         : children;
 
     return renderWithMeta(content, status, fieldState.error?.message);
-  };
+  }, [validateStatus, wrapOnChange, wrapOnBlur, isRenderFn, children, methods, allValues, ctx?.disabled, valuePropName, renderWithMeta]);
 
   if (noStyle) {
     return name ? (

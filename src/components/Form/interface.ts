@@ -13,6 +13,11 @@ import type {
   Control,
 } from 'react-hook-form';
 
+export type FormItemRules<TFieldValues extends FieldValues = FieldValues> = Pick<
+  RegisterOptions<TFieldValues>,
+  'required' | 'min' | 'max' | 'minLength' | 'maxLength' | 'pattern' | 'validate' | 'deps'
+>;
+
 export type FormLayout = 'horizontal' | 'vertical' | 'inline';
 export type FormLabelAlign = 'left' | 'right';
 export type FormSize = 'small' | 'middle' | 'large';
@@ -71,7 +76,7 @@ export interface FormItemProps<TFieldValues extends FieldValues = FieldValues> {
   name?: FieldPath<TFieldValues>;
   label?: ReactNode;
   required?: boolean;
-  rules?: RegisterOptions<TFieldValues>;
+  rules?: FormItemRules<TFieldValues>;
   defaultValue?: FieldPathValue<TFieldValues, FieldPath<TFieldValues>>;
   help?: ReactNode;
   extra?: ReactNode;

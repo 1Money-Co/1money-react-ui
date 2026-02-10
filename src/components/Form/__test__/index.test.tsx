@@ -6,19 +6,28 @@ import '@testing-library/jest-dom';
 import { Form, FormItem } from '../index';
 import { Input } from '../../Input';
 
-const originalConsoleError = console.error;
-console.error = (message, ...optionalParams) => {
-  if (
-    message.includes('Could not parse CSS stylesheet') ||
-    message.includes('findDOMNode is deprecated and will be removed') ||
-    message.includes('should not be null')
-  ) {
-    return;
-  }
-  originalConsoleError(message, ...optionalParams);
-};
-
 describe('Form', () => {
+  let consoleErrorSpy: jest.SpyInstance;
+
+  beforeAll(() => {
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
+      if (
+        typeof message === 'string' && (
+          message.includes('Could not parse CSS stylesheet') ||
+          message.includes('findDOMNode is deprecated and will be removed') ||
+          message.includes('should not be null')
+        )
+      ) {
+        return;
+      }
+      // eslint-disable-next-line no-console
+      console.log(message, ...optionalParams);
+    });
+  });
+
+  afterAll(() => {
+    consoleErrorSpy.mockRestore();
+  });
   it('renders labels and help text', () => {
     const view = render(
       <Form layout='vertical'>
