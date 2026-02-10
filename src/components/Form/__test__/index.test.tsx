@@ -8,6 +8,7 @@ import { Input } from '../../Input';
 
 describe('Form', () => {
   let consoleErrorSpy: jest.SpyInstance;
+  let consoleWarnSpy: jest.SpyInstance;
 
   beforeAll(() => {
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
@@ -23,10 +24,12 @@ describe('Form', () => {
       // eslint-disable-next-line no-console
       console.log(message, ...optionalParams);
     });
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
   });
 
   afterAll(() => {
     consoleErrorSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
   it('renders labels and help text', () => {
     const view = render(
@@ -114,6 +117,37 @@ describe('Form', () => {
     const [firstInput] = screen.getAllByRole('textbox');
     await user.type(firstInput, 'Ada');
     expect(screen.getByText('Preview: Ada')).toBeInTheDocument();
+  });
+
+  it('re-renders when shouldUpdate is true', async () => {
+    const user = userEvent.setup();
+    render(
+      <Form defaultValues={{ first: '' }}>
+        <FormItem name='first' label='First'>
+          {({ field }) => <Input type='text' {...field} />}
+        </FormItem>
+        <FormItem shouldUpdate>
+          {({ values }) => <div>Mirror: {values.first}</div>}
+        </FormItem>
+      </Form>
+    );
+
+    const [firstInput] = screen.getAllByRole('textbox');
+    await user.type(firstInput, 'Ada');
+    expect(screen.getByText('Mirror: Ada')).toBeInTheDocument();
+  });
+
+  it('does not crash when FormItem has name without Form context', () => {
+    render(
+      <FormItem name='email' label='Email'>
+        <Input type='text' />
+      </FormItem>
+    );
+
+    expect(screen.getByText('Email')).toBeInTheDocument();
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      '[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.'
+    );
   });
 
   it('filters onValuesChange when watchNames is set', async () => {

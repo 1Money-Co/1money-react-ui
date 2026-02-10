@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef } from 'react';
-import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { Controller, useForm, useFormContext, useWatch } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Typography from '../Typography';
 import { FormContext } from './Form';
-import type { Control, ControllerFieldState, ControllerRenderProps, FieldPath, FieldValues } from 'react-hook-form';
+import type { Control, ControllerFieldState, ControllerRenderProps, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import {
   CSS_VAR_LABEL_WIDTH,
   CSS_VAR_WRAPPER_WIDTH,
@@ -53,12 +53,15 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   } = props;
 
   const ctx = useContext(FormContext);
-  const methods = useFormContext<TFieldValues>();
-  const control = (methods?.control ?? ctx?.control) as Control<TFieldValues> | undefined;
-  const trigger = methods?.trigger;
+  const formMethods = useFormContext<TFieldValues>() as UseFormReturn<TFieldValues> | undefined;
+  const fallbackMethods = useForm<TFieldValues>();
+  const methods = formMethods ?? fallbackMethods;
+  const control = (formMethods?.control ?? ctx?.control ?? fallbackMethods.control) as Control<TFieldValues>;
+  const trigger = formMethods?.trigger ?? fallbackMethods.trigger;
   const classes = classnames('form-item');
+  const hasExternalControl = !!(formMethods?.control || ctx?.control);
 
-  if (name && !control) {
+  if (name && !hasExternalControl) {
     console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
   }
 
@@ -75,7 +78,7 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   const watchNamesList = (watchNames?.length ? watchNames : undefined) as FieldPath<TFieldValues>[] | undefined;
   const shouldWatchNames = !!watchNamesList?.length;
   const emptyNames = useMemo(() => [] as FieldPath<TFieldValues>[], []);
-  const shouldWatchAllValues = isShouldUpdateFn;
+  const shouldWatchAllValues = isShouldUpdateFn || shouldUpdate === true;
   // Watch all values only when necessary to reduce render pressure.
   const watchedAllValues = useWatch({ control, disabled: !shouldWatchAllValues });
   const watchedNamesValues = useWatch({
@@ -84,11 +87,14 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     disabled: !shouldWatchNames
   });
 
-  const getValues = methods.getValues;
+  const getValues = methods?.getValues;
   const allValues = useMemo(
-    () => (shouldWatchAllValues
-      ? ((watchedAllValues ?? getValues()) as TFieldValues)
-      : getValues()),
+    () => {
+      if (!getValues) return {} as TFieldValues;
+      return shouldWatchAllValues
+        ? ((watchedAllValues ?? getValues()) as TFieldValues)
+        : getValues();
+    },
     [shouldWatchAllValues, watchedAllValues, shouldWatchNames, watchedNamesValues, getValues]
   );
 
