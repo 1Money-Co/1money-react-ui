@@ -9,17 +9,11 @@ import {
   CSS_VAR_WRAPPER_WIDTH,
   DEBOUNCE_MIN,
   DEFAULT_VALUE_PROP,
+  STATUS_ERROR,
   TRIGGER_BLUR,
-  TRIGGER_CHANGE,
-  STATUS_ERROR
+  TRIGGER_CHANGE
 } from './constants';
-import {
-  getStatusProps,
-  normalizeValidateTrigger,
-  resolveStatus,
-  toPercent,
-  wrapValidate
-} from './helper';
+import { getStatusProps, normalizeValidateTrigger, resolveStatus, toPercent, wrapValidate } from './helper';
 import type { FormItemProps, FormItemRenderProps, FormValidateStatus } from './interface';
 
 type FormItemStyle = React.CSSProperties & {
@@ -27,8 +21,23 @@ type FormItemStyle = React.CSSProperties & {
   ['--om-form-wrapper-width']?: string;
 };
 
+/**
+ * Render-prop signature supported by `FormItem` children.
+ */
+type RenderFn<TFieldValues extends FieldValues> =
+  (props: FormItemRenderProps<TFieldValues>) => React.ReactNode;
+
+/**
+ * Runtime type guard for render-prop children.
+ */
+const isRenderFnChild = <TFieldValues extends FieldValues>(
+  child: FormItemProps<TFieldValues>['children']
+): child is RenderFn<TFieldValues> => typeof child === 'function';
+
+/**
+ * Bridges RHF Controller with Form layout, status, and validation trigger behavior.
+ */
 export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: FormItemProps<TFieldValues>) {
-  // FormItem binds RHF Controller to layout + metadata rendering.
   const {
     name,
     label,
@@ -53,33 +62,32 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   } = props;
 
   const ctx = useContext(FormContext);
+  const classes = classnames('form-item');
   const formMethods = useFormContext<TFieldValues>() as UseFormReturn<TFieldValues> | undefined;
   const fallbackMethods = useForm<TFieldValues>();
   const methods = formMethods ?? fallbackMethods;
   const control = (formMethods?.control ?? ctx?.control ?? fallbackMethods.control) as Control<TFieldValues>;
   const trigger = formMethods?.trigger ?? fallbackMethods.trigger;
-  const classes = classnames('form-item');
   const hasExternalControl = !!(formMethods?.control || ctx?.control);
 
   if (name && !hasExternalControl) {
     console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
   }
 
-  // Resolve per-item layout widths.
-  const labelWidth = useMemo(() => toPercent(labelCol ?? ctx?.labelCol), [labelCol, ctx?.labelCol]);
-  const wrapperWidth = useMemo(() => toPercent(wrapperCol ?? ctx?.wrapperCol), [wrapperCol, ctx?.wrapperCol]);
-
-  const isRenderFn = typeof children === 'function';
+  const renderFn = isRenderFnChild(children) ? children : null;
+  const isRequired = required ?? !!rules?.required;
+  const showRequired = ctx?.requiredMark !== false;
+  const triggerModes = useMemo(() => normalizeValidateTrigger(validateTrigger), [validateTrigger]);
+  const shouldWatchAllValues = shouldUpdate === true || typeof shouldUpdate === 'function';
   const depNames = (dependencies?.length ? dependencies : []) as FieldPath<TFieldValues>[];
   const shouldWatchDeps = !!(name && depNames.length);
-  // Watch dependencies for re-validation.
-  const depValues = useWatch({ control, name: depNames, disabled: !shouldWatchDeps });
-  const isShouldUpdateFn = typeof shouldUpdate === 'function';
   const watchNamesList = (watchNames?.length ? watchNames : undefined) as FieldPath<TFieldValues>[] | undefined;
   const shouldWatchNames = !!watchNamesList?.length;
   const emptyNames = useMemo(() => [] as FieldPath<TFieldValues>[], []);
-  const shouldWatchAllValues = isShouldUpdateFn || shouldUpdate === true;
-  // Watch all values only when necessary to reduce render pressure.
+  const labelWidth = useMemo(() => toPercent(labelCol ?? ctx?.labelCol), [labelCol, ctx?.labelCol]);
+  const wrapperWidth = useMemo(() => toPercent(wrapperCol ?? ctx?.wrapperCol), [wrapperCol, ctx?.wrapperCol]);
+
+  const depValues = useWatch({ control, name: depNames, disabled: !shouldWatchDeps });
   const watchedAllValues = useWatch({ control, disabled: !shouldWatchAllValues });
   const watchedNamesValues = useWatch({
     control,
@@ -87,91 +95,60 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     disabled: !shouldWatchNames
   });
 
-  const getValues = methods?.getValues;
-  const allValues = useMemo(
-    () => {
-      if (!getValues) return {} as TFieldValues;
-      return shouldWatchAllValues
-        ? ((watchedAllValues ?? getValues()) as TFieldValues)
-        : getValues();
-    },
-    [shouldWatchAllValues, watchedAllValues, shouldWatchNames, watchedNamesValues, getValues]
-  );
+  const watchedMarker = shouldWatchAllValues ? watchedAllValues : watchedNamesValues;
+  const allValues = useMemo(() => {
+    const getValues = methods.getValues;
+    if (!getValues) return {} as TFieldValues;
+    if (shouldWatchAllValues) return (watchedAllValues ?? getValues()) as TFieldValues;
+    void watchedMarker;
+    return getValues();
+  }, [methods, shouldWatchAllValues, watchedAllValues, watchedMarker]);
 
   const prevValuesRef = useRef<TFieldValues>(allValues);
   const prevDepValuesRef = useRef<unknown[] | null>(null);
   const triggerTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    if (name && dependencies?.length) {
-      const nextDeps = Array.isArray(depValues) ? depValues : [depValues];
-      const prevDeps = prevDepValuesRef.current;
-      const isSame = !!prevDeps
-        && prevDeps.length === nextDeps.length
-        && nextDeps.every((value, index) => Object.is(value, prevDeps[index]));
-      if (isSame) return;
-      prevDepValuesRef.current = nextDeps;
-      if (validateDebounce && validateDebounce > DEBOUNCE_MIN) {
-        if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
-        triggerTimerRef.current = setTimeout(() => {
-          void trigger?.(name as FieldPath<TFieldValues>);
-        }, validateDebounce);
-      } else {
-        void trigger?.(name as FieldPath<TFieldValues>);
-      }
-    }
-  }, [depValues, dependencies?.length, name, trigger, validateDebounce]);
-
-  const shouldRender = useMemo(() => {
-    if (!shouldUpdate) return true;
-    if (shouldUpdate === true) return true;
-    return shouldUpdate(prevValuesRef.current, allValues);
-  }, [shouldUpdate, allValues]);
-
-  useEffect(() => {
-    if (shouldUpdate) {
-      prevValuesRef.current = allValues;
-    }
-  }, [shouldUpdate, allValues]);
-
-  const triggerModes = useMemo(() => normalizeValidateTrigger(validateTrigger), [validateTrigger]);
-
-  const shouldTrigger = useCallback((mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR) => triggerModes.includes(mode), [triggerModes]);
-  // Trigger validation with optional debounce.
-  const scheduleTrigger = useCallback(() => {
+  /**
+   * Triggers current field validation immediately or via debounce.
+   */
+  const triggerValidation = useCallback(() => {
     if (!name) return;
+    const run = () => {
+      void trigger?.(name as FieldPath<TFieldValues>);
+    };
     if (validateDebounce && validateDebounce > DEBOUNCE_MIN) {
       if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
-      triggerTimerRef.current = setTimeout(() => {
-        void trigger?.(name as FieldPath<TFieldValues>);
-      }, validateDebounce);
-    } else {
-      void trigger?.(name as FieldPath<TFieldValues>);
+      triggerTimerRef.current = setTimeout(run, validateDebounce);
+      return;
     }
-  }, [name, validateDebounce, trigger]);
-
-  const wrapOnChange = useCallback((fn?: (...args: unknown[]) => void) => (...args: unknown[]) => {
-    fn?.(...args);
-    if (name && shouldTrigger(TRIGGER_CHANGE)) {
-      scheduleTrigger();
-    }
-  }, [name, scheduleTrigger, shouldTrigger]);
-
-  const wrapOnBlur = useCallback((fn?: (...args: unknown[]) => void) => (...args: unknown[]) => {
-    fn?.(...args);
-    if (name && shouldTrigger(TRIGGER_BLUR)) {
-      scheduleTrigger();
-    }
-  }, [name, scheduleTrigger, shouldTrigger]);
+    run();
+  }, [name, trigger, validateDebounce]);
 
   useEffect(() => {
-    return () => {
-      if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
-    };
+    if (!name || !dependencies?.length) return;
+    const nextDeps = Array.isArray(depValues) ? depValues : [depValues];
+    const prevDeps = prevDepValuesRef.current;
+    const isSame = !!prevDeps
+      && prevDeps.length === nextDeps.length
+      && nextDeps.every((value, index) => Object.is(value, prevDeps[index]));
+    if (isSame) return;
+    prevDepValuesRef.current = nextDeps;
+    triggerValidation();
+  }, [depValues, dependencies?.length, name, triggerValidation]);
+
+  useEffect(() => () => {
+    if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
   }, []);
 
-  const isRequired = required ?? !!rules?.required;
-  const showRequired = ctx?.requiredMark !== false;
+  const shouldRender = useMemo(() => {
+    if (!shouldUpdate || shouldUpdate === true) return true;
+    return shouldUpdate(prevValuesRef.current, allValues);
+  }, [allValues, shouldUpdate]);
+
+  useEffect(() => {
+    if (!shouldUpdate) return;
+    prevValuesRef.current = allValues;
+  }, [allValues, shouldUpdate]);
 
   const mergedRules = useMemo(() => {
     if (!rules?.validate || !validateFirst) return rules;
@@ -180,73 +157,109 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     return { ...rules, validate };
   }, [rules, validateFirst]);
 
-  // Render content with help/error/extra meta.
-  const renderWithMeta = useCallback((content: React.ReactNode, status?: FormValidateStatus, errorMessage?: React.ReactNode) => (
-    <div
-      className={classes('content', joinCls(
-        status && classes(`content-${status}`),
-        ctx?.disabled && classes('content-disabled')
-      ))}
-    >
-      {content}
-      {errorMessage && !help && (
-        <div className={classes('help', classes('help-error'))}>{errorMessage}</div>
-      )}
-      {help && <div className={classes('help')}>{help}</div>}
-      {extra && <div className={classes('extra')}>{extra}</div>}
-    </div>
-  ), [classes, ctx?.disabled, extra, help]);
+  const shouldTrigger = useCallback(
+    (mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR) => triggerModes.includes(mode),
+    [triggerModes]
+  );
 
-  const renderField = useCallback((
-    field: ControllerRenderProps<TFieldValues, FieldPath<TFieldValues>>,
-    fieldState: ControllerFieldState
-  ) => {
-    // Inject status props and wire validation triggers.
-    const status = resolveStatus(validateStatus, fieldState);
-    const statusProps = getStatusProps(status);
-    const patchedField = {
-      ...field,
-      onChange: wrapOnChange(field.onChange),
-      onBlur: wrapOnBlur(field.onBlur),
-      ...statusProps,
-    };
-    const content = isRenderFn
-      ? (children as (props: FormItemRenderProps<TFieldValues>) => React.ReactNode)({
-        field: patchedField,
-        fieldState,
-        form: methods,
-        values: allValues,
-      })
-      : React.isValidElement(children)
-        ? (() => {
-          const childElement = children as React.ReactElement<Record<string, unknown>>;
-          const isDomElement = typeof childElement.type === 'string';
-          const isDisabled = ctx?.disabled || childElement.props?.disabled;
-          const childOnChange = childElement.props?.onChange as ((...args: unknown[]) => void) | undefined;
-          const childOnBlur = childElement.props?.onBlur as ((...args: unknown[]) => void) | undefined;
-          return React.cloneElement(childElement, {
-            [valuePropName]: patchedField.value,
-            onChange: (...args: unknown[]) => {
-              patchedField.onChange(...args);
-              childOnChange?.(...args);
-            },
-            onBlur: (...args: unknown[]) => {
-              patchedField.onBlur(...args);
-              childOnBlur?.(...args);
-            },
-            disabled: isDisabled,
-            'aria-invalid': status === STATUS_ERROR || undefined,
-            ref: childElement.props?.ref ?? field.ref,
-            ...(isDomElement ? {} : statusProps),
-          });
-        })()
-        : children;
+  const withTrigger = useCallback(
+    (mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR, fn?: (...args: unknown[]) => void) =>
+      (...args: unknown[]) => {
+        fn?.(...args);
+        if (name && shouldTrigger(mode)) triggerValidation();
+      },
+    [name, shouldTrigger, triggerValidation]
+  );
 
-    return renderWithMeta(content, status, fieldState.error?.message);
-  }, [validateStatus, wrapOnChange, wrapOnBlur, isRenderFn, children, methods, allValues, ctx?.disabled, valuePropName, renderWithMeta]);
+  const renderFnChildNode = useCallback(
+    (field?: FormItemRenderProps<TFieldValues>['field'], fieldState?: ControllerFieldState) => (
+      renderFn?.({ field, fieldState, form: methods, values: allValues }) ?? null
+    ),
+    [allValues, methods, renderFn]
+  );
 
-  if (noStyle) {
-    return name ? (
+  /**
+   * Wraps field content with help/error/extra metadata region.
+   */
+  const renderWithMeta = useCallback(
+    (content: React.ReactNode, status?: FormValidateStatus, errorMessage?: React.ReactNode) => (
+      <div
+        className={classes('content', joinCls(
+          status && classes(`content-${status}`),
+          ctx?.disabled && classes('content-disabled')
+        ))}
+      >
+        {content}
+        {errorMessage && !help && (
+          <div className={classes('help', classes('help-error'))}>{errorMessage}</div>
+        )}
+        {help && <div className={classes('help')}>{help}</div>}
+        {extra && <div className={classes('extra')}>{extra}</div>}
+      </div>
+    ),
+    [classes, ctx?.disabled, extra, help]
+  );
+
+  const renderClonedChild = useCallback(
+    (
+      field: ControllerRenderProps<TFieldValues, FieldPath<TFieldValues>>,
+      status: FormValidateStatus | undefined,
+      statusProps: ReturnType<typeof getStatusProps>
+    ) => {
+      /**
+       * For element children, inject RHF bindings while preserving user handlers.
+       */
+      if (!React.isValidElement(children)) return children as React.ReactNode;
+      const childElement = children as React.ReactElement<Record<string, unknown>>;
+      const isDomElement = typeof childElement.type === 'string';
+      const childOnChange = childElement.props?.onChange as ((...args: unknown[]) => void) | undefined;
+      const childOnBlur = childElement.props?.onBlur as ((...args: unknown[]) => void) | undefined;
+
+      return React.cloneElement(childElement, {
+        [valuePropName]: field.value,
+        onChange: (...args: unknown[]) => {
+          field.onChange(...args);
+          childOnChange?.(...args);
+        },
+        onBlur: (...args: unknown[]) => {
+          field.onBlur();
+          childOnBlur?.(...args);
+        },
+        disabled: ctx?.disabled || childElement.props?.disabled,
+        'aria-invalid': status === STATUS_ERROR || undefined,
+        ref: childElement.props?.ref ?? field.ref,
+        ...(isDomElement ? {} : statusProps),
+      });
+    },
+    [children, ctx?.disabled, valuePropName]
+  );
+
+  const renderField = useCallback(
+    (
+      field: ControllerRenderProps<TFieldValues, FieldPath<TFieldValues>>,
+      fieldState: ControllerFieldState
+    ) => {
+      const status = resolveStatus(validateStatus, fieldState);
+      const statusProps = getStatusProps(status);
+      const patchedField = {
+        ...field,
+        onChange: withTrigger(TRIGGER_CHANGE, field.onChange),
+        onBlur: withTrigger(TRIGGER_BLUR, field.onBlur),
+        ...statusProps,
+      };
+
+      const content = renderFn
+        ? renderFnChildNode(patchedField, fieldState)
+        : renderClonedChild(patchedField, status, statusProps);
+
+      return renderWithMeta(content, status, fieldState.error?.message);
+    },
+    [renderClonedChild, renderFn, renderFnChildNode, renderWithMeta, validateStatus, withTrigger]
+  );
+
+  const renderController = useCallback(() => {
+    if (!name) return null;
+    return (
       <Controller
         name={name}
         control={control}
@@ -254,23 +267,29 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
         defaultValue={defaultValue}
         render={({ field, fieldState }) => renderField(field, fieldState)}
       />
-    ) : isRenderFn ? (
-      shouldUpdate
-        ? (shouldRender ? <>{(children as (props: FormItemRenderProps<TFieldValues>) => React.ReactNode)({ form: methods, values: allValues })}</> : null)
-        : <>{(children as (props: FormItemRenderProps<TFieldValues>) => React.ReactNode)({ form: methods, values: allValues })}</>
-    ) : (
-      <>{children}</>
     );
+  }, [control, defaultValue, mergedRules, name, renderField]);
+
+  const renderFreeChild = useCallback(() => {
+    if (!renderFn) return children as React.ReactNode;
+    if (shouldUpdate && !shouldRender) return null;
+    return renderFnChildNode();
+  }, [children, renderFn, renderFnChildNode, shouldRender, shouldUpdate]);
+
+  if (noStyle) {
+    return name ? renderController() : <>{renderFreeChild()}</>;
   }
+
+  const rootStyle = {
+    [CSS_VAR_LABEL_WIDTH]: labelWidth,
+    [CSS_VAR_WRAPPER_WIDTH]: wrapperWidth,
+  } as FormItemStyle;
 
   return (
     <div
       className={classes('root', joinCls(className, ctx?.layout && classes(`layout-${ctx.layout}`)))}
       data-form-item-name={name ? String(name) : undefined}
-      style={{
-        [CSS_VAR_LABEL_WIDTH]: labelWidth,
-        [CSS_VAR_WRAPPER_WIDTH]: wrapperWidth,
-      } as FormItemStyle}
+      style={rootStyle}
     >
       {label && (
         <div className={classes('label', joinCls(showRequired && isRequired && classes('label-required')))}>
@@ -279,24 +298,9 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
         </div>
       )}
       <div className={classes('control')}>
-        {name ? (
-          <Controller
-            name={name}
-            control={control}
-            rules={mergedRules}
-            defaultValue={defaultValue}
-            render={({ field, fieldState }) => renderField(field, fieldState)}
-          />
-        ) : isRenderFn ? (
-          renderWithMeta(
-            shouldUpdate
-              ? (shouldRender ? (children as (props: FormItemRenderProps<TFieldValues>) => React.ReactNode)({ form: methods, values: allValues }) : null)
-              : (children as (props: FormItemRenderProps<TFieldValues>) => React.ReactNode)({ form: methods, values: allValues }),
-            resolveStatus(validateStatus)
-          )
-        ) : (
-          renderWithMeta(children, resolveStatus(validateStatus))
-        )}
+        {name
+          ? renderController()
+          : renderWithMeta(renderFreeChild(), resolveStatus(validateStatus))}
       </div>
     </div>
   );
