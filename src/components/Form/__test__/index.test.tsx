@@ -247,4 +247,37 @@ describe('Form', () => {
     expect(await screen.findByText('Too short')).toBeInTheDocument();
     jest.useRealTimers();
   });
+
+  it('preserves child onChange and onBlur handlers for direct child usage', async () => {
+    const user = userEvent.setup();
+    const onChange = jest.fn();
+    const onBlur = jest.fn();
+    render(
+      <Form defaultValues={{ email: '' }}>
+        <FormItem name='email' label='Email'>
+          <Input type='text' onChange={onChange} onBlur={onBlur} />
+        </FormItem>
+        <button type='button'>Outside</button>
+      </Form>
+    );
+
+    const [emailInput] = screen.getAllByRole('textbox');
+    await user.type(emailInput, 'a');
+    expect(onChange).toHaveBeenCalled();
+
+    await user.click(screen.getByText('Outside'));
+    expect(onBlur).toHaveBeenCalled();
+  });
+
+  it('keeps child disabled when form disabled is false', () => {
+    render(
+      <Form disabled={false} defaultValues={{ email: '' }}>
+        <FormItem name='email' label='Email'>
+          <Input type='text' disabled />
+        </FormItem>
+      </Form>
+    );
+
+    expect(screen.getByRole('textbox')).toBeDisabled();
+  });
 });

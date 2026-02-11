@@ -221,11 +221,19 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
         ? (() => {
           const childElement = children as React.ReactElement<Record<string, unknown>>;
           const isDomElement = typeof childElement.type === 'string';
-          const isDisabled = ctx?.disabled ?? childElement.props?.disabled;
+          const isDisabled = ctx?.disabled || childElement.props?.disabled;
+          const childOnChange = childElement.props?.onChange as ((...args: unknown[]) => void) | undefined;
+          const childOnBlur = childElement.props?.onBlur as ((...args: unknown[]) => void) | undefined;
           return React.cloneElement(childElement, {
             [valuePropName]: patchedField.value,
-            onChange: patchedField.onChange,
-            onBlur: patchedField.onBlur,
+            onChange: (...args: unknown[]) => {
+              patchedField.onChange(...args);
+              childOnChange?.(...args);
+            },
+            onBlur: (...args: unknown[]) => {
+              patchedField.onBlur(...args);
+              childOnBlur?.(...args);
+            },
             disabled: isDisabled,
             'aria-invalid': status === STATUS_ERROR || undefined,
             ref: childElement.props?.ref ?? field.ref,
