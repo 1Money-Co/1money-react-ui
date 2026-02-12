@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactElement, ReactNode } from 'react';
 import type {
   DefaultValues,
   FieldErrors,
@@ -70,6 +70,14 @@ export interface FormItemRenderProps<TFieldValues extends FieldValues = FieldVal
   form: UseFormReturn<TFieldValues>;
   values: TFieldValues;
 }
+
+export type FormItemStyle = CSSProperties & {
+  ['--om-form-label-width']?: string;
+  ['--om-form-wrapper-width']?: string;
+};
+
+export type FormItemRenderFn<TFieldValues extends FieldValues> =
+  (props: FormItemRenderProps<TFieldValues>) => ReactNode;
 
 export interface FormItemProps<TFieldValues extends FieldValues = FieldValues> {
   name?: FieldPath<TFieldValues>;
