@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef } from 'react';
-import { Controller, useForm, useFormContext, useWatch } from 'react-hook-form';
+import { Controller, useForm, useWatch } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Typography from '../Typography';
 import { FormContext } from './Form';
-import type { Control, ControllerFieldState, ControllerRenderProps, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
+import type { ControllerFieldState, ControllerRenderProps, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import {
   CSS_VAR_LABEL_WIDTH,
   CSS_VAR_WRAPPER_WIDTH,
@@ -63,14 +63,14 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
 
   const ctx = useContext(FormContext);
   const classes = classnames('form-item');
-  const formMethods = useFormContext<TFieldValues>() as UseFormReturn<TFieldValues> | undefined;
+  // Always call useForm to keep hook ordering stable across renders.
+  // When inside <Form>, ctx.methods is used and this instance is unused.
   const fallbackMethods = useForm<TFieldValues>();
-  const methods = formMethods ?? fallbackMethods;
-  const control = (formMethods?.control ?? ctx?.control ?? fallbackMethods.control) as Control<TFieldValues>;
-  const trigger = formMethods?.trigger ?? fallbackMethods.trigger;
-  const hasExternalControl = !!(formMethods?.control || ctx?.control);
+  const methods = (ctx?.methods as UseFormReturn<TFieldValues> | undefined) ?? fallbackMethods;
+  const control = methods.control;
+  const trigger = methods.trigger;
 
-  if (name && !hasExternalControl) {
+  if (name && !ctx?.methods) {
     console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
   }
 
@@ -96,11 +96,13 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
   });
 
   const watchedMarker = shouldWatchAllValues ? watchedAllValues : watchedNamesValues;
+  // `watchedMarker` is included in the dependency array so that useMemo
+  // recomputes whenever watched field values change (even though getValues()
+  // is the actual data source).
   const allValues = useMemo(() => {
     const getValues = methods.getValues;
     if (!getValues) return {} as TFieldValues;
     if (shouldWatchAllValues) return (watchedAllValues ?? getValues()) as TFieldValues;
-    void watchedMarker;
     return getValues();
   }, [methods, shouldWatchAllValues, watchedAllValues, watchedMarker]);
 
@@ -140,6 +142,9 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
   }, []);
 
+  // prevValuesRef is updated in the effect below (post-commit), so during
+  // render it holds the values from the previous committed render — the
+  // standard "previous value" pattern. This is intentional.
   const shouldRender = useMemo(() => {
     if (!shouldUpdate || shouldUpdate === true) return true;
     return shouldUpdate(prevValuesRef.current, allValues);
@@ -193,7 +198,9 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
         {errorMessage && !help && (
           <div className={classes('help', classes('help-error'))}>{errorMessage}</div>
         )}
-        {help && <div className={classes('help')}>{help}</div>}
+        {help && (
+          <div className={classes('help', joinCls(status && classes(`help-${status}`)))}>{help}</div>
+        )}
         {extra && <div className={classes('extra')}>{extra}</div>}
       </div>
     ),
@@ -225,7 +232,9 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
           field.onBlur();
           childOnBlur?.(...args);
         },
-        disabled: ctx?.disabled || childElement.props?.disabled,
+        // Use `||` intentionally: form disabled=false should NOT override the
+        // child's own disabled prop, allowing per-field disable control.
+        disabled: ctx?.disabled || (childElement.props?.disabled as boolean),
         'aria-invalid': status === STATUS_ERROR || undefined,
         ref: childElement.props?.ref ?? field.ref,
         ...(isDomElement ? {} : statusProps),

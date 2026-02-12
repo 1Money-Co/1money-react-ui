@@ -10,7 +10,6 @@ import type {
   UseFormReturn,
   ControllerRenderProps,
   ControllerFieldState,
-  Control,
 } from 'react-hook-form';
 
 export type FormItemRules<TFieldValues extends FieldValues = FieldValues> = Pick<
@@ -32,7 +31,7 @@ export interface FormContextValue {
   disabled?: boolean;
   colon: boolean;
   requiredMark: boolean;
-  control: Control<FieldValues>;
+  methods: UseFormReturn<FieldValues>;
 }
 
 export interface FormProps<TFieldValues extends FieldValues = FieldValues>

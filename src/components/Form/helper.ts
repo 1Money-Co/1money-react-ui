@@ -62,10 +62,12 @@ export const getFirstErrorPath = (errors: FieldErrors): string | null => {
 };
 
 // Escape attribute values for querySelector.
+// Fallback handles CSS selector special characters for SSR or environments
+// without CSS.escape (e.g. nested field names like "address.city").
 export const escapeAttr = (value: string) =>
   typeof CSS !== 'undefined' && CSS.escape
     ? CSS.escape(value)
-    : value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    : value.replace(/([^\w-])/g, '\\$1');
 
 // Scroll to the first invalid field by name or data attribute.
 export const scrollToField = (name: string, options?: FormProps['scrollToFirstError']) => {

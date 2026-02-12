@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import type { Control, FieldErrors, FieldPath, FieldValues } from 'react-hook-form';
+import type { FieldErrors, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import {
   DEFAULT_LABEL_ALIGN,
   DEFAULT_LABEL_COL,
@@ -48,7 +48,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
   const watchNamesRef = useRef<Set<FieldPath<TFieldValues>> | null>(null);
   const hasValuesChange = !!onValuesChange;
 
-  // Provide layout + disabled state to FormItem via context.
+  // Provide layout + disabled state + form methods to FormItem via context.
   const ctx = useMemo<FormContextValue>(() => ({
     layout,
     labelAlign,
@@ -58,8 +58,8 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
     disabled,
     colon,
     requiredMark,
-    control: methods.control as Control<FieldValues>,
-  }), [layout, labelAlign, labelCol, wrapperCol, size, disabled, colon, requiredMark, methods.control]);
+    methods: methods as UseFormReturn<FieldValues>,
+  }), [layout, labelAlign, labelCol, wrapperCol, size, disabled, colon, requiredMark, methods]);
 
   // Keep onValuesChange callback current without resubscribing.
   useEffect(() => {

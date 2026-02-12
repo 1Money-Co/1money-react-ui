@@ -24,7 +24,12 @@ describe('Form', () => {
       // eslint-disable-next-line no-console
       console.log(message, ...optionalParams);
     });
-    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    // Only suppress known FormItem warnings; let unexpected warns surface.
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
+      if (typeof message === 'string' && message.includes('[FormItem]')) return;
+      // eslint-disable-next-line no-console
+      console.log(message, ...optionalParams);
+    });
   });
 
   afterAll(() => {
