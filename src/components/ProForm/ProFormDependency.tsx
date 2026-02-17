@@ -4,7 +4,7 @@ import type { FC, ReactNode } from 'react';
 
 export interface ProFormDependencyProps {
   name: string[];
-  children: (values: Record<string, any>) => ReactNode;
+  children: (values: Record<string, unknown>) => ReactNode;
 }
 
 export const ProFormDependency: FC<ProFormDependencyProps> = memo((props) => {
@@ -16,7 +16,7 @@ export const ProFormDependency: FC<ProFormDependencyProps> = memo((props) => {
     const names = Array.isArray(name) ? name : [];
     const list = Array.isArray(watchedValues) ? watchedValues : [watchedValues];
 
-    return names.reduce<Record<string, any>>((acc, key, index) => {
+    return names.reduce<Record<string, unknown>>((acc, key, index) => {
       acc[key] = list[index];
       return acc;
     }, {});

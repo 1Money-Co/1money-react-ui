@@ -111,6 +111,35 @@ describe('ProForm', () => {
     expect(screen.queryByRole('button', { name: 'Submit' })).not.toBeInTheDocument();
   });
 
+  it('executes form submit flow from custom submitter render', async () => {
+    const user = userEvent.setup();
+    const onFinish = jest.fn();
+
+    render(
+      <ProForm
+        defaultValues={{ firstName: '' }}
+        onFinish={onFinish}
+        submitter={{
+          render: ({ submit }) => (
+            <button type='button' onClick={submit}>Custom Submit</button>
+          ),
+        }}
+      >
+        <ProFormText name='firstName' label='First Name' rules={{ required: 'First Name is required' }} />
+      </ProForm>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Custom Submit' }));
+    expect(await screen.findByText('First Name is required')).toBeInTheDocument();
+
+    await user.type(screen.getByRole('textbox'), 'Ada');
+    await user.click(screen.getByRole('button', { name: 'Custom Submit' }));
+
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalledWith({ firstName: 'Ada' });
+    });
+  });
+
   it('uses external form instance when provided', async () => {
     const user = userEvent.setup();
 

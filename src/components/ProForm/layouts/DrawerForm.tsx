@@ -2,10 +2,11 @@ import { memo } from 'react';
 import { Drawer } from '../../Drawer';
 import ProForm from '../ProForm';
 import { useOverlayForm } from './useOverlayForm';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
+import type { FieldValues } from 'react-hook-form';
 import type { DrawerFormProps } from '../interface';
 
-export const DrawerForm: FC<DrawerFormProps<any>> = memo((props) => {
+export const DrawerForm: FC<DrawerFormProps<FieldValues>> = memo((props) => {
   const {
     open,
     onOpenChange,
@@ -21,7 +22,7 @@ export const DrawerForm: FC<DrawerFormProps<any>> = memo((props) => {
     ...formProps
   } = props;
 
-  const drawerPropsObj = (drawerProps ?? {}) as Record<string, any>;
+  const drawerPropsObj = (drawerProps ?? {}) as Record<string, unknown>;
 
   const {
     mergedOpen,
@@ -30,7 +31,7 @@ export const DrawerForm: FC<DrawerFormProps<any>> = memo((props) => {
     handleFinish,
     handleHide,
     mergedStyle,
-  } = useOverlayForm({
+  } = useOverlayForm<FieldValues>({
     open,
     onOpenChange,
     trigger,
@@ -50,7 +51,7 @@ export const DrawerForm: FC<DrawerFormProps<any>> = memo((props) => {
         <Drawer
           {...drawerProps}
           visible={mergedOpen}
-          header={drawerPropsObj.header ?? title}
+          header={(drawerPropsObj.header as ReactNode | undefined) ?? title}
           style={mergedStyle}
           onHide={handleHide}
         >

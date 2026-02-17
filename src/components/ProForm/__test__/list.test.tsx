@@ -131,4 +131,18 @@ describe('ProForm list', () => {
 
     expect(move).toHaveBeenCalledWith(0, 1);
   });
+
+  it('marks action rows as sortable when sortable is enabled', () => {
+    render(
+      <ProForm defaultValues={{ users: [{ name: 'Ada' }] }}>
+        <ProFormList name='users' sortable>
+          {(fields) => fields.map((field, index) => (
+            <ProFormText key={field.key} name={`users.${index}.name`} label={`Name ${index}`} />
+          ))}
+        </ProFormList>
+      </ProForm>
+    );
+
+    expect(document.querySelectorAll('[data-sortable=\"true\"]').length).toBeGreaterThan(0);
+  });
 });

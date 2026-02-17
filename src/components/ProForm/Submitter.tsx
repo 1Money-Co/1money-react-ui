@@ -1,13 +1,15 @@
 import { memo } from 'react';
 import { Button } from '../Button';
-import type { FC, ReactElement } from 'react';
+import type { MouseEvent, ReactElement } from 'react';
+import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import type { SubmitterProps } from './interface';
 
-type InnerSubmitterProps = SubmitterProps & {
-  form?: any;
+type InnerSubmitterProps<TFieldValues extends FieldValues = FieldValues> = SubmitterProps<TFieldValues> & {
+  form?: UseFormReturn<TFieldValues>;
+  onSubmitForm?: () => void;
 };
 
-export const Submitter: FC<InnerSubmitterProps> = memo(props => {
+function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: InnerSubmitterProps<TFieldValues>) {
   const {
     submitText = 'Submit',
     resetText = 'Reset',
@@ -17,16 +19,25 @@ export const Submitter: FC<InnerSubmitterProps> = memo(props => {
     submitButtonProps,
     resetButtonProps,
     form,
+    onSubmitForm,
   } = props;
 
-  const handleSubmit = (event?: any) => {
+  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
     submitButtonProps?.onClick?.(event);
     onSubmit?.();
   };
 
-  const handleReset = (event?: any) => {
+  const handleReset = (event: MouseEvent<HTMLButtonElement>) => {
     resetButtonProps?.onClick?.(event);
     onReset?.();
+  };
+
+  const handleRenderSubmit = () => {
+    if (onSubmitForm) {
+      onSubmitForm();
+      return;
+    }
+    onSubmit?.();
   };
 
   const submitDom = (
@@ -54,7 +65,7 @@ export const Submitter: FC<InnerSubmitterProps> = memo(props => {
 
   const dom = [submitDom, resetDom];
   const renderedDom = render
-    ? render({ form, submit: () => onSubmit?.(), reset: () => onReset?.() }, dom as ReactElement[])
+    ? render({ form, submit: handleRenderSubmit, reset: () => onReset?.() }, dom as ReactElement[])
     : dom;
 
   return (
@@ -62,6 +73,8 @@ export const Submitter: FC<InnerSubmitterProps> = memo(props => {
       {renderedDom}
     </div>
   );
-});
+}
+
+export const Submitter = memo(SubmitterBase) as typeof SubmitterBase;
 
 export default Submitter;

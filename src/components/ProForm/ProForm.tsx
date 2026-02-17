@@ -61,6 +61,8 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
   const form = externalForm ?? internalForm;
   const paramsKey = useMemo(() => stableSerialize(params), [params]);
   const stableParams = useMemo(() => params, [paramsKey]);
+  const formRest = rest as Omit<FormProps<TFieldValues>, 'onFinish' | 'form' | 'disabled' | 'defaultValues'>;
+  const { onFinishFailed, ...forwardedFormProps } = formRest;
 
   useEffect(() => {
     let cancelled = false;
@@ -105,6 +107,13 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     }
   }, [submitter]);
 
+  const handleSubmitFromRender = useCallback(() => {
+    if (submitter !== false && submitter != null) {
+      submitter.onSubmit?.();
+    }
+    void form.handleSubmit(handleFinish, onFinishFailed)(undefined);
+  }, [form, handleFinish, onFinishFailed, submitter]);
+
   const mergedDisabled = rest.disabled ?? loading;
 
   const content = useMemo(() => {
@@ -117,16 +126,15 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     );
   }, [children, grid, rowProps?.gutter]);
 
-  const formRest = rest as Omit<FormProps<TFieldValues>, 'onFinish' | 'form' | 'disabled' | 'defaultValues'>;
-
   return (
     <ProFormContext.Provider value={ctx}>
       <Form<TFieldValues>
-        {...formRest}
+        {...forwardedFormProps}
         form={form}
         disabled={mergedDisabled}
         defaultValues={defaultValues}
         onFinish={handleFinish}
+        onFinishFailed={onFinishFailed}
       >
         {content}
         {submitter !== false && (
@@ -143,6 +151,7 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
               disabled: submitter?.resetButtonProps?.disabled ?? loading,
             }}
             onSubmit={handleSubmitClick}
+            onSubmitForm={handleSubmitFromRender}
             onReset={handleReset}
           />
         )}

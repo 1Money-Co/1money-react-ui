@@ -5,7 +5,7 @@ import type { CSSProperties, FC } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
 
-export const QueryFilter: FC<QueryFilterProps<any>> = memo((props) => {
+export const QueryFilter: FC<QueryFilterProps<FieldValues>> = memo((props) => {
   const {
     defaultCollapsed = true,
     collapsed,
@@ -67,7 +67,7 @@ export const QueryFilter: FC<QueryFilterProps<any>> = memo((props) => {
         submitter?.onReset?.();
         onReset?.();
       },
-      render: (renderProps: SubmitterRenderProps) => {
+      render: (renderProps: SubmitterRenderProps<FieldValues>) => {
         const customDom = [
           <Button key='search' type='submit'>
             {submitter?.submitText ?? 'Search'}

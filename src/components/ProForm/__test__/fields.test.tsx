@@ -1,6 +1,7 @@
 import 'jsdom-global/register';
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ProForm } from '../ProForm';
 import { ProFormSwitch, ProFormText } from '../fields';
@@ -64,5 +65,22 @@ describe('ProForm fields', () => {
     );
 
     expect(screen.getByText('Ada')).toBeInTheDocument();
+  });
+
+  it('composes fieldProps onBlur with form blur handling', async () => {
+    const user = userEvent.setup();
+    const onBlur = jest.fn();
+
+    render(
+      <ProForm defaultValues={{ email: '' }}>
+        <ProFormText name='email' label='Email' fieldProps={{ onBlur }} />
+        <button type='button'>Outside</button>
+      </ProForm>
+    );
+
+    await user.click(screen.getByRole('textbox'));
+    await user.click(screen.getByRole('button', { name: 'Outside' }));
+
+    expect(onBlur).toHaveBeenCalled();
   });
 });

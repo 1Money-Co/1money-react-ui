@@ -3,6 +3,7 @@ import { FormItem } from '../../Form';
 import { Col } from '../../Grid';
 import { ProFormContext } from '../ProForm';
 import type { ComponentType, ReactNode } from 'react';
+import type { ProFormFieldProps } from '../interface';
 
 const WIDTH_MAP: Record<string, number> = {
   sm: 160,
@@ -11,25 +12,29 @@ const WIDTH_MAP: Record<string, number> = {
   xl: 420,
 };
 const TEXT_LIKE_INPUT_TYPES = new Set(['text', 'password', 'textarea', 'mask', 'otp', 'autocomplete']);
+type UnknownRecord = Record<string, unknown>;
 
-const getEventValue = (valuePropName: string, event: any) => {
+const getEventValue = (valuePropName: string, event: unknown) => {
   if (valuePropName === 'checked') {
     if (typeof event === 'boolean') return event;
     if (event && typeof event === 'object') {
-      if ('checked' in event) return event.checked;
-      if ('value' in event) return event.value;
-      if (event.target && typeof event.target === 'object') {
-        if ('checked' in event.target) return event.target.checked;
-        if ('value' in event.target) return event.target.value;
+      const eventRecord = event as UnknownRecord;
+      if ('checked' in eventRecord) return eventRecord.checked;
+      if ('value' in eventRecord) return eventRecord.value;
+      if (eventRecord.target && typeof eventRecord.target === 'object') {
+        const targetRecord = eventRecord.target as UnknownRecord;
+        if ('checked' in targetRecord) return targetRecord.checked;
+        if ('value' in targetRecord) return targetRecord.value;
       }
     }
     return event;
   }
 
   if (event && typeof event === 'object') {
-    if ('value' in event) return event.value;
-    if (event.target && typeof event.target === 'object' && 'value' in event.target) {
-      return event.target.value;
+    const eventRecord = event as UnknownRecord;
+    if ('value' in eventRecord) return eventRecord.value;
+    if (eventRecord.target && typeof eventRecord.target === 'object' && 'value' in (eventRecord.target as UnknownRecord)) {
+      return (eventRecord.target as UnknownRecord).value;
     }
   }
 
@@ -50,15 +55,20 @@ const normalizeFieldValue = (
   return null;
 };
 
-export function createProFormField<FieldProps>(config: {
+interface CreateProFormFieldConfig<FieldProps> {
   component: ComponentType<FieldProps>;
   valuePropName?: string;
-  mapProps?: (props: any) => Record<string, any>;
-  renderReadonly?: (value: any, props: any) => ReactNode;
-}) {
-  const { component: Component, valuePropName = 'value', mapProps, renderReadonly } = config;
+  mapProps?: (props: UnknownRecord) => UnknownRecord;
+  renderReadonly?: (value: unknown, props: Partial<FieldProps> | undefined) => unknown;
+}
 
-  const Field = (props: any) => {
+type ProFormFieldComponentProps<FieldProps> = ProFormFieldProps<FieldProps> & UnknownRecord;
+
+export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<FieldProps>) {
+  const { component: Component, valuePropName = 'value', mapProps, renderReadonly } = config;
+  const FieldComponent = Component as ComponentType<UnknownRecord>;
+
+  const Field = (props: ProFormFieldComponentProps<FieldProps>) => {
     const {
       name,
       label,
@@ -102,25 +112,26 @@ export function createProFormField<FieldProps>(config: {
         valuePropName={valuePropName}
       >
         {({ field }) => {
+          const currentFieldProps = (fieldProps ?? {}) as Partial<FieldProps> & UnknownRecord;
           if (mergedReadonly) {
             const readonlyValue = renderReadonly
-              ? renderReadonly(field?.value, fieldProps as FieldProps)
+              ? renderReadonly(field?.value, fieldProps as Partial<FieldProps> | undefined)
               : (field?.value ?? '-');
-            return <span>{readonlyValue}</span>;
+            return <span>{readonlyValue as ReactNode}</span>;
           }
 
-          const mapped = mapProps ? mapProps(rest) : {};
-          const inputType = (mapped as any)?.type ?? (fieldProps as any)?.type;
-          const isMultiple = !!(mapped as any)?.multiple;
-          const nextProps: any = {
+          const mapped = mapProps ? mapProps(rest as UnknownRecord) : {};
+          const inputType = mapped.type ?? currentFieldProps.type;
+          const isMultiple = Boolean(mapped.multiple);
+          const nextProps: UnknownRecord = {
             ...mapped,
-            ...(fieldProps || {}),
+            ...currentFieldProps,
             ...(placeholder !== undefined ? { placeholder } : {}),
             ...(disabled !== undefined ? { disabled } : {}),
             ...(width !== undefined
               ? {
                 style: {
-                  ...(fieldProps as any)?.style,
+                  ...((currentFieldProps.style as UnknownRecord | undefined) || {}),
                   width: typeof width === 'number' ? width : WIDTH_MAP[width] ?? width,
                 },
               }
@@ -128,17 +139,19 @@ export function createProFormField<FieldProps>(config: {
           };
 
           if (field?.name) nextProps.name = field.name;
-          if (field?.onBlur) nextProps.onBlur = field.onBlur;
-
-          nextProps[valuePropName] = normalizeFieldValue(field?.value, valuePropName, inputType, isMultiple);
-          nextProps.onChange = (...args: any[]) => {
-            const value = getEventValue(valuePropName, args[0]);
-            field?.onChange?.(value);
-            (fieldProps as any)?.onChange?.(...args);
+          nextProps.onBlur = (...args: unknown[]) => {
+            field?.onBlur?.();
+            (currentFieldProps.onBlur as ((...eventArgs: unknown[]) => void) | undefined)?.(...args);
           };
 
-          const ComponentAny = Component as any;
-          return <ComponentAny {...nextProps} />;
+          nextProps[valuePropName] = normalizeFieldValue(field?.value, valuePropName, inputType, isMultiple);
+          nextProps.onChange = (...args: unknown[]) => {
+            const value = getEventValue(valuePropName, args[0]);
+            field?.onChange?.(value);
+            (currentFieldProps.onChange as ((...eventArgs: unknown[]) => void) | undefined)?.(...args);
+          };
+
+          return <FieldComponent {...nextProps} />;
         }}
       </FormItem>
     );
@@ -150,7 +163,8 @@ export function createProFormField<FieldProps>(config: {
     return node;
   };
 
-  Field.displayName = `ProFormField(${(Component as any).displayName || (Component as any).name || 'Unknown'})`;
+  const componentMeta = Component as ComponentType<FieldProps> & { displayName?: string; name?: string };
+  Field.displayName = `ProFormField(${componentMeta.displayName || componentMeta.name || 'Unknown'})`;
 
   return Field;
 }

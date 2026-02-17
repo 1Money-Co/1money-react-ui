@@ -2,11 +2,12 @@ import { memo, useEffect, useRef } from 'react';
 import { Modal } from '../../Modal';
 import ProForm from '../ProForm';
 import { useOverlayForm } from './useOverlayForm';
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
+import type { FieldValues } from 'react-hook-form';
 import type { ModalHandlers } from '../../Modal';
 import type { ModalFormProps } from '../interface';
 
-export const ModalForm: FC<ModalFormProps<any>> = memo((props) => {
+export const ModalForm: FC<ModalFormProps<FieldValues>> = memo((props) => {
   const {
     open,
     onOpenChange,
@@ -23,7 +24,7 @@ export const ModalForm: FC<ModalFormProps<any>> = memo((props) => {
   } = props;
 
   const modalRef = useRef<ModalHandlers>(null);
-  const modalPropsObj = (modalProps ?? {}) as Record<string, any>;
+  const modalPropsObj = (modalProps ?? {}) as Record<string, unknown>;
 
   const {
     mergedOpen,
@@ -32,7 +33,7 @@ export const ModalForm: FC<ModalFormProps<any>> = memo((props) => {
     handleFinish,
     handleHide,
     mergedStyle,
-  } = useOverlayForm({
+  } = useOverlayForm<FieldValues>({
     open,
     onOpenChange,
     trigger,
@@ -61,7 +62,7 @@ export const ModalForm: FC<ModalFormProps<any>> = memo((props) => {
         <Modal
           ref={modalRef}
           {...modalProps}
-          header={modalPropsObj.header ?? title}
+          header={(modalPropsObj.header as ReactNode | undefined) ?? title}
           style={mergedStyle}
           onHide={handleHide}
         >

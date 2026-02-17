@@ -7,16 +7,16 @@ import {
   useState,
 } from 'react';
 import ProForm from '../ProForm';
-import type { CSSProperties, FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, StepFormProps, StepsFormProps } from '../interface';
 
-export const StepForm: FC<StepFormProps<any>> = (props) => {
+export const StepForm: FC<StepFormProps<FieldValues>> = (props) => {
   return <>{props.children}</>;
 };
 
-type StepsFormComponent = FC<StepsFormProps<any>> & {
-  StepForm: FC<StepFormProps<any>>;
+type StepsFormComponent = FC<StepsFormProps<FieldValues>> & {
+  StepForm: FC<StepFormProps<FieldValues>>;
 };
 
 const pickHtmlDivProps = (props: Record<string, unknown>): Record<string, unknown> => {
@@ -29,7 +29,7 @@ const pickHtmlDivProps = (props: Record<string, unknown>): Record<string, unknow
   return result;
 };
 
-const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
+const StepsFormBase: FC<StepsFormProps<FieldValues>> = memo((props) => {
   const {
     current,
     onCurrentChange,
@@ -41,10 +41,10 @@ const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
   } = props;
 
   const [innerCurrent, setInnerCurrent] = useState(0);
-  const [allValues, setAllValues] = useState<Record<string, any>>({});
+  const [allValues, setAllValues] = useState<Record<string, unknown>>({});
 
   const steps = useMemo(() => {
-    return Children.toArray(children).filter(isValidElement) as ReactElement<StepFormProps<any>>[];
+    return Children.toArray(children).filter(isValidElement) as ReactElement<StepFormProps<FieldValues>>[];
   }, [children]);
 
   const mergedCurrent = typeof current === 'number' ? current : innerCurrent;
@@ -57,9 +57,9 @@ const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
     onCurrentChange?.(nextCurrent);
   }, [current, onCurrentChange]);
 
-  const handleStepFinish = useCallback(async (values: Record<string, any>) => {
+  const handleStepFinish = useCallback(async (values: Record<string, unknown>) => {
     const currentStep = steps[mergedCurrent];
-    const stepResult = await currentStep?.props?.onFinish?.(values as any);
+    const stepResult = await currentStep?.props?.onFinish?.(values as FieldValues);
     if (stepResult === false) return;
 
     const merged = { ...allValues, ...values };
@@ -67,7 +67,7 @@ const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
 
     const isLast = mergedCurrent >= steps.length - 1;
     if (isLast) {
-      await onFinish?.(merged);
+      await onFinish?.(merged as FieldValues);
       return;
     }
 

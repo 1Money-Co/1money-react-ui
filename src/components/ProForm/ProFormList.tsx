@@ -1,9 +1,10 @@
 import { DndContext } from '@dnd-kit/core';
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import type { DragEndEvent } from '@dnd-kit/core';
-import type { FC, MouseEvent, ReactNode } from 'react';
+import type { CSSProperties, FC, MouseEvent, ReactNode } from 'react';
+import type { FieldValues } from 'react-hook-form';
 import type { ButtonProps } from '../Button';
 import type { ProFormListAction, ProFormListProps } from './interface';
 
@@ -42,7 +43,7 @@ interface ProFormListRowProps {
   itemRender?: ProFormListProps['itemRender'];
 }
 
-const ProFormListRow: FC<ProFormListRowProps> = ({
+const ProFormListRowBody: FC<ProFormListRowProps> = ({
   fieldId,
   index,
   copyIconProps,
@@ -55,21 +56,30 @@ const ProFormListRow: FC<ProFormListRowProps> = ({
   actionRender,
   itemRender,
 }) => {
-  const copyBtnProps = (copyIconProps && typeof copyIconProps === 'object') ? copyIconProps : {};
+  const copyBtnProps = (copyIconProps && typeof copyIconProps === 'object')
+    ? copyIconProps
+    : {};
   const {
     onClick: copyButtonOnClick,
     disabled: copyButtonDisabled,
     children: copyButtonChildren,
     ...copyButtonDomProps
-  } = copyBtnProps as Record<string, any>;
+  } = copyBtnProps as Record<string, unknown>;
 
-  const deleteBtnProps = (deleteIconProps && typeof deleteIconProps === 'object') ? deleteIconProps : {};
+  const deleteBtnProps = (deleteIconProps && typeof deleteIconProps === 'object')
+    ? deleteIconProps
+    : {};
   const {
     onClick: deleteButtonOnClick,
     disabled: deleteButtonDisabled,
     children: deleteButtonChildren,
     ...deleteButtonDomProps
-  } = deleteBtnProps as Record<string, any>;
+  } = deleteBtnProps as Record<string, unknown>;
+
+  const copyButtonClick = copyButtonOnClick as ((event: MouseEvent<HTMLButtonElement>) => void) | undefined;
+  const deleteButtonClick = deleteButtonOnClick as ((event: MouseEvent<HTMLButtonElement>) => void) | undefined;
+  const copyButtonNode = copyButtonChildren as ReactNode;
+  const deleteButtonNode = deleteButtonChildren as ReactNode;
 
   const defaultDom = {
     delete: deleteIconProps === false
@@ -81,11 +91,11 @@ const ProFormListRow: FC<ProFormListRowProps> = ({
           type='button'
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
             removeAt(index);
-            deleteButtonOnClick?.(event);
+            deleteButtonClick?.(event);
           }}
           disabled={!canRemove || !!deleteButtonDisabled}
         >
-          {deleteButtonChildren ?? 'Delete'}
+          {deleteButtonNode ?? 'Delete'}
         </button>
       ),
     copy: copyIconProps === false
@@ -97,11 +107,11 @@ const ProFormListRow: FC<ProFormListRowProps> = ({
           type='button'
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
             copy(index);
-            copyButtonOnClick?.(event);
+            copyButtonClick?.(event);
           }}
           disabled={!canAdd || !!copyButtonDisabled}
         >
-          {copyButtonChildren ?? 'Copy'}
+          {copyButtonNode ?? 'Copy'}
         </button>
       ),
   };
@@ -121,9 +131,42 @@ const ProFormListRow: FC<ProFormListRowProps> = ({
   return <>{itemRender({ listDom: rowNode, action })}</>;
 };
 
+const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
+  const { fieldId } = props;
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: fieldId });
+
+  const style: CSSProperties = {
+    transform: transform
+      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+      : undefined,
+    transition: transition || undefined,
+    cursor: 'grab',
+    opacity: isDragging ? 0.8 : 1,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      data-sortable='true'
+      {...attributes}
+      {...listeners}
+    >
+      <ProFormListRowBody {...props} />
+    </div>
+  );
+};
+
 type CreatorConfig = ButtonProps & { text?: ReactNode; position?: 'top' | 'bottom' };
 
-export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
+export const ProFormList: FC<ProFormListProps<FieldValues>> = memo((props) => {
   const {
     name,
     label,
@@ -142,7 +185,7 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
   } = props;
 
   const initialApplied = useRef(false);
-  const { control, getValues } = useFormContext();
+  const { control, getValues } = useFormContext<FieldValues>();
   const { fields, append, remove, move, insert, replace } = useFieldArray({
     control,
     name: name as string,
@@ -183,7 +226,7 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
   const copy = useCallback((index: number) => {
     if (!canAdd) return;
 
-    const list = getValues(name as string) ?? [];
+    const list = (getValues(name as string) as Record<string, unknown>[] | undefined) ?? [];
     const value = list[index] ?? {};
     add(value, index + 1);
   }, [add, canAdd, getValues, name]);
@@ -193,7 +236,7 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
     remove: removeAt,
     move,
     copy,
-    getList: () => getValues(name as string) ?? [],
+    getList: () => ((getValues(name as string) as Record<string, unknown>[] | undefined) ?? []),
   }), [add, copy, getValues, move, name, removeAt]);
 
   const mappedFields = useMemo(() => {
@@ -222,34 +265,34 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
     ...creatorButtonDomProps
   } = creatorConfig ?? {} as CreatorConfig;
 
-  const actionRows = fields.map((field, index) => (
-    <ProFormListRow
-      key={field.id}
-      fieldId={field.id}
-      index={index}
-      copyIconProps={copyIconProps}
-      deleteIconProps={deleteIconProps}
-      canAdd={canAdd}
-      canRemove={canRemove}
-      copy={copy}
-      removeAt={removeAt}
-      action={action}
-      actionRender={actionRender}
-      itemRender={itemRender}
-    />
-  ));
+  const actionRows = fields.map((field, index) => {
+    const rowProps: ProFormListRowProps = {
+      fieldId: field.id,
+      index,
+      copyIconProps,
+      deleteIconProps,
+      canAdd,
+      canRemove,
+      copy,
+      removeAt,
+      action,
+      actionRender,
+      itemRender,
+    };
+
+    if (sortable) {
+      return <SortableProFormListRow key={field.id} {...rowProps} />;
+    }
+
+    return <ProFormListRowBody key={field.id} {...rowProps} />;
+  });
 
   const actionsNode = sortable
     ? (
       <DndContext onDragEnd={buildOnDragEnd({ move, fields: fields as Array<{ id: string }> })}>
-        {(() => {
-          const SortableContextAny = SortableContext as any;
-          return (
-            <SortableContextAny items={fields.map(item => item.id)} strategy={verticalListSortingStrategy}>
-              {actionRows}
-            </SortableContextAny>
-          );
-        })()}
+        <SortableContext items={fields.map(item => item.id)} strategy={verticalListSortingStrategy}>
+          {actionRows}
+        </SortableContext>
       </DndContext>
     )
     : actionRows;

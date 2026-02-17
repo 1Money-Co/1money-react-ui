@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from 'react';
-import type { FieldPath, FieldValues } from 'react-hook-form';
+import type { FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import type { FormProps, FormItemRules } from '../Form';
 import type { ButtonProps } from '../Button';
 import type { ModalProps } from '../Modal';
@@ -23,7 +23,6 @@ export interface ProFormFieldProps<
 
   readonly?: boolean;
   hidden?: boolean;
-  tooltip?: ReactNode;
   colProps?: { span?: number };
 
   fieldProps?: Partial<FieldProps>;
@@ -32,17 +31,21 @@ export interface ProFormFieldProps<
   width?: 'sm' | 'md' | 'lg' | 'xl' | number;
 }
 
-export interface SubmitterRenderProps {
-  form?: any;
+export interface SubmitterRenderProps<
+  TFieldValues extends FieldValues = FieldValues,
+> {
+  form?: UseFormReturn<TFieldValues>;
   submit: () => void;
   reset: () => void;
 }
 
-export interface SubmitterProps {
+export interface SubmitterProps<
+  TFieldValues extends FieldValues = FieldValues,
+> {
   submitText?: ReactNode;
   resetText?: ReactNode;
   render?: (
-    props: SubmitterRenderProps,
+    props: SubmitterRenderProps<TFieldValues>,
     dom: ReactElement[],
   ) => ReactNode;
   onSubmit?: () => void;
@@ -59,14 +62,14 @@ export interface ProFormProps<
   TFieldValues extends FieldValues = FieldValues,
 > extends Omit<FormProps<TFieldValues>, 'onFinish'> {
   onFinish?: (values: TFieldValues) => void | boolean | Promise<void | boolean>;
-  submitter?: false | SubmitterProps;
+  submitter?: false | SubmitterProps<TFieldValues>;
   readonly?: boolean;
   grid?: boolean;
   colProps?: { span?: number };
   rowProps?: { gutter?: number };
   loading?: boolean;
-  request?: (params?: Record<string, any>) => Promise<TFieldValues>;
-  params?: Record<string, any>;
+  request?: (params?: Record<string, unknown>) => Promise<TFieldValues>;
+  params?: Record<string, unknown>;
 }
 
 export interface ModalFormProps<
@@ -102,10 +105,12 @@ export interface StepFormProps<
 > extends ProFormProps<TFieldValues> {
   title?: ReactNode;
   description?: ReactNode;
-  stepProps?: Record<string, any>;
+  stepProps?: Record<string, unknown>;
 }
 
-export interface StepsSubmitterProps extends SubmitterProps {
+export interface StepsSubmitterProps<
+  TFieldValues extends FieldValues = FieldValues,
+> extends SubmitterProps<TFieldValues> {
   prevText?: ReactNode;
   nextText?: ReactNode;
 }
@@ -116,9 +121,9 @@ export interface StepsFormProps<
   current?: number;
   onCurrentChange?: (current: number) => void;
   onFinish?: (values: TFieldValues) => void | Promise<void>;
-  stepsProps?: Record<string, any>;
-  formProps?: Partial<ProFormProps<any>>;
-  submitter?: false | StepsSubmitterProps;
+  stepsProps?: Record<string, unknown>;
+  formProps?: Partial<ProFormProps<FieldValues>>;
+  submitter?: false | StepsSubmitterProps<TFieldValues>;
   children: ReactElement<StepFormProps> | ReactElement<StepFormProps>[];
 }
 
@@ -135,11 +140,11 @@ export interface QueryFilterProps<
 }
 
 export interface ProFormListAction {
-  add: (defaultValue?: any, index?: number) => void;
+  add: (defaultValue?: Record<string, unknown>, index?: number) => void;
   remove: (index: number) => void;
   move: (from: number, to: number) => void;
   copy: (index: number) => void;
-  getList: () => any[];
+  getList: () => Record<string, unknown>[];
 }
 
 export interface ProFormListProps<
@@ -149,9 +154,9 @@ export interface ProFormListProps<
   label?: ReactNode;
   min?: number;
   max?: number;
-  initialValue?: Record<string, any>[];
-  copyIconProps?: false | Record<string, any>;
-  deleteIconProps?: false | Record<string, any>;
+  initialValue?: Record<string, unknown>[];
+  copyIconProps?: false | Record<string, unknown>;
+  deleteIconProps?: false | Record<string, unknown>;
   creatorButtonProps?: false | (ButtonProps & {
     text?: ReactNode;
     position?: 'top' | 'bottom';
@@ -162,7 +167,7 @@ export interface ProFormListProps<
     action: ProFormListAction;
   }) => ReactNode;
   actionRender?: (
-    row: { index: number; record: any },
+    row: { index: number; record: unknown },
     action: ProFormListAction,
     defaultDom: { delete: ReactNode; copy: ReactNode },
   ) => ReactNode[];
@@ -170,6 +175,6 @@ export interface ProFormListProps<
     fields: { name: string; key: string }[],
     action: ProFormListAction,
   ) => ReactNode);
-  onAfterAdd?: (defaultValue: any, insertIndex: number) => void;
+  onAfterAdd?: (defaultValue: Record<string, unknown>, insertIndex: number) => void;
   onAfterRemove?: (index: number) => void;
 }

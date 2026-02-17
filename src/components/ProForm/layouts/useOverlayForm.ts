@@ -1,7 +1,7 @@
 import { cloneElement, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { MouseEvent, ReactElement, ReactNode } from 'react';
 
-interface UseOverlayFormOptions {
+interface UseOverlayFormOptions<TValues> {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   trigger?: ReactElement;
@@ -9,12 +9,12 @@ interface UseOverlayFormOptions {
   autoClose?: boolean;
   destroyOnClose?: boolean;
   width?: string | number;
-  onFinish?: (values: any) => void | boolean | Promise<void | boolean>;
+  onFinish?: (values: TValues) => void | boolean | Promise<void | boolean>;
   overlayStyle?: Record<string, unknown>;
   onOverlayHide?: (...args: unknown[]) => void;
 }
 
-export function useOverlayForm({
+export function useOverlayForm<TValues>({
   open,
   onOpenChange,
   trigger,
@@ -25,7 +25,7 @@ export function useOverlayForm({
   onFinish,
   overlayStyle,
   onOverlayHide,
-}: UseOverlayFormOptions) {
+}: UseOverlayFormOptions<TValues>) {
   const [innerOpen, setInnerOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mergedOpen = open ?? innerOpen;
@@ -43,7 +43,7 @@ export function useOverlayForm({
     closeTimerRef.current = null;
   }, []);
 
-  const handleFinish = useCallback(async (values: any) => {
+  const handleFinish = useCallback(async (values: TValues) => {
     const result = await onFinish?.(values);
     if (autoClose && result !== false) {
       clearCloseTimer();
