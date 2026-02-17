@@ -7,8 +7,17 @@ import type { ComponentType, ReactNode } from 'react';
 import type { ProFormFieldProps } from '../interface';
 import type { UnknownRecord } from '../utils';
 
+/** Input types that default to an empty string when no value is present. */
 const TEXT_LIKE_INPUT_TYPES = new Set(['text', 'password', 'textarea', 'mask', 'otp', 'autocomplete']);
 
+/**
+ * Extracts the underlying value from a change event or raw value,
+ * handling both synthetic React events and plain values.
+ *
+ * @param valuePropName - The prop name used for the field value (e.g. `'value'` or `'checked'`).
+ * @param event - The raw event or value from the `onChange` handler.
+ * @returns The extracted value.
+ */
 const getEventValue = (valuePropName: string, event: unknown) => {
   if (valuePropName === 'checked') {
     if (typeof event === 'boolean') return event;
@@ -36,6 +45,16 @@ const getEventValue = (valuePropName: string, event: unknown) => {
   return event;
 };
 
+/**
+ * Returns a sensible default when the field value is `undefined`,
+ * based on the value prop name, input type, and multi-select mode.
+ *
+ * @param value - The current field value.
+ * @param valuePropName - `'value'` or `'checked'`.
+ * @param inputType - The input element type (e.g. `'text'`, `'number'`).
+ * @param isMultiple - Whether the field supports multiple selections.
+ * @returns The normalized value.
+ */
 const normalizeFieldValue = (
   value: unknown,
   valuePropName: string,
@@ -50,15 +69,43 @@ const normalizeFieldValue = (
   return null;
 };
 
+/**
+ * Configuration for {@link createProFormField}.
+ *
+ * @typeParam FieldProps - The props interface of the underlying input component.
+ */
 interface CreateProFormFieldConfig<FieldProps> {
+  /** The underlying input component to wrap. */
   component: ComponentType<FieldProps>;
+  /** The prop name used to bind the controlled value. @default 'value' */
   valuePropName?: string;
+  /** Maps extra rest-props into component-specific props. */
   mapProps?: (props: UnknownRecord) => UnknownRecord;
+  /** Renders the field value as plain text when `readonly` is `true`. */
   renderReadonly?: (value: unknown, props: Partial<FieldProps> | undefined) => unknown;
 }
 
 type ProFormFieldComponentProps<FieldProps> = ProFormFieldProps<FieldProps> & UnknownRecord;
 
+/**
+ * Factory that wraps an input component into a ProForm-compatible field.
+ *
+ * The returned component integrates with `react-hook-form` via `<FormItem>`,
+ * supports grid layout, readonly rendering, and width presets.
+ *
+ * @typeParam FieldProps - The props interface of the underlying input component.
+ * @param config - The field configuration.
+ * @returns A React component accepting {@link ProFormFieldProps} plus the underlying field props.
+ *
+ * @example
+ * ```tsx
+ * const ProFormText = createProFormField({
+ *   component: Input,
+ *   mapProps: () => ({ type: 'text' }),
+ *   renderReadonly: renderTextReadonly,
+ * });
+ * ```
+ */
 export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<FieldProps>) {
   const { component: Component, valuePropName = 'value', mapProps, renderReadonly } = config;
   const FieldComponent = Component as ComponentType<UnknownRecord>;

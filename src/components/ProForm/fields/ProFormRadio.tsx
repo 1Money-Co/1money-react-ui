@@ -8,6 +8,7 @@ interface RadioItemLike {
   label?: unknown;
 }
 
+/** ProForm field for single-choice radio buttons. Wraps {@link RadioGroup}. */
 export const ProFormRadio = createProFormField({
   component: RadioGroup,
   renderReadonly: (value, props) => {

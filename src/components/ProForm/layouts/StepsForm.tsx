@@ -13,6 +13,10 @@ import type { FC, ReactElement } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, StepFormProps, StepsFormProps } from '../interface';
 
+/**
+ * Wrapper component representing an individual step inside {@link StepsForm}.
+ * Does not render its own form — its children are rendered by the parent `StepsForm`.
+ */
 export const StepForm: FC<StepFormProps<FieldValues>> = (props) => {
   return <>{props.children}</>;
 };
@@ -21,6 +25,10 @@ type StepsFormComponent = FC<StepsFormProps<FieldValues>> & {
   StepForm: FC<StepFormProps<FieldValues>>;
 };
 
+/**
+ * Picks only safe HTML div attributes (`className`, `style`, `id`, `data-*`, `aria-*`)
+ * from a props object, filtering out component-specific props.
+ */
 const pickHtmlDivProps = (props: Record<string, unknown>): Record<string, unknown> => {
   const result: Record<string, unknown> = {};
   for (const key of Object.keys(props)) {
@@ -31,6 +39,22 @@ const pickHtmlDivProps = (props: Record<string, unknown>): Record<string, unknow
   return result;
 };
 
+/**
+ * Multi-step wizard form that renders one step at a time, merging values
+ * from all steps and calling `onFinish` with the combined result on the final step.
+ *
+ * @example
+ * ```tsx
+ * <StepsForm onFinish={handleSubmit}>
+ *   <StepsForm.StepForm title="Basic Info">
+ *     <ProFormText name="name" label="Name" />
+ *   </StepsForm.StepForm>
+ *   <StepsForm.StepForm title="Details">
+ *     <ProFormTextArea name="bio" label="Bio" />
+ *   </StepsForm.StepForm>
+ * </StepsForm>
+ * ```
+ */
 const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
   const {
     current,

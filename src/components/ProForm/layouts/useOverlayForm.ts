@@ -1,19 +1,40 @@
 import { cloneElement, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { MouseEvent, ReactElement, ReactNode } from 'react';
 
+/** Configuration options for the {@link useOverlayForm} hook. */
 interface UseOverlayFormOptions<TValues> {
+  /** Controlled open state. */
   open?: boolean;
+  /** Callback when the open state changes. */
   onOpenChange?: (open: boolean) => void;
+  /** Element that opens the overlay when clicked. */
   trigger?: ReactElement;
+  /** Delay (ms) before auto-closing after submit. */
   submitTimeout?: number;
+  /** Whether to auto-close after a successful submit. @default true */
   autoClose?: boolean;
+  /** Whether to unmount overlay content when closed. @default true */
   destroyOnClose?: boolean;
+  /** Overlay width. */
   width?: string | number;
+  /** Form finish handler. Return `false` to prevent auto-close. */
   onFinish?: (values: TValues) => void | boolean | Promise<void | boolean>;
+  /** Inline styles from the overlay component. */
   overlayStyle?: Record<string, unknown>;
+  /** The overlay's own `onHide` callback. */
   onOverlayHide?: (...args: unknown[]) => void;
 }
 
+/**
+ * Shared hook that powers both {@link ModalForm} and {@link DrawerForm}.
+ *
+ * Manages open/close state, trigger element cloning, auto-close with optional
+ * timeout after submit, and overlay visibility lifecycle.
+ *
+ * @typeParam TValues - The form values type.
+ * @param options - Configuration options.
+ * @returns An object with `mergedOpen`, `triggerNode`, `handleFinish`, `handleHide`, and more.
+ */
 export function useOverlayForm<TValues>({
   open,
   onOpenChange,

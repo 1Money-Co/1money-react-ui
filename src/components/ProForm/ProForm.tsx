@@ -14,18 +14,39 @@ import type { FieldValues } from 'react-hook-form';
 import type { FormProps } from '../Form';
 import type { ProFormProps } from './interface';
 
+/** Context value providing ProForm-level configuration to descendant field components. */
 export interface ProFormContextValue {
+  /** Whether all fields should render in readonly mode. */
   readonly?: boolean;
+  /** Whether grid layout is enabled. */
   grid?: boolean;
+  /** Default column props for grid fields. */
   colProps?: { span?: number };
 }
 
+/**
+ * React context that propagates ProForm configuration (readonly, grid, colProps)
+ * to nested field components created via {@link createProFormField}.
+ */
 export const ProFormContext = createContext<ProFormContextValue>({
   readonly: false,
   grid: false,
   colProps: { span: DEFAULT_COL_SPAN },
 });
 
+/**
+ * Enhanced form component with built-in submit/reset buttons, grid layout,
+ * readonly mode, and async remote data loading via `request`.
+ *
+ * @typeParam TFieldValues - The form values type.
+ *
+ * @example
+ * ```tsx
+ * <ProForm onFinish={async (values) => { await save(values); }}>
+ *   <ProFormText name="username" label="Username" />
+ * </ProForm>
+ * ```
+ */
 export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: ProFormProps<TFieldValues>) {
   const {
     submitter,

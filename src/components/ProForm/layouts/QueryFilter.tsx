@@ -6,6 +6,22 @@ import type { CSSProperties, FC } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
 
+/**
+ * Horizontal search/filter form with collapsible fields and a
+ * search/reset/expand button bar.
+ *
+ * Fields beyond {@link QueryFilterProps.defaultColsNumber} are hidden
+ * when the filter is collapsed.
+ *
+ * @example
+ * ```tsx
+ * <QueryFilter onFinish={handleSearch} defaultColsNumber={2}>
+ *   <ProFormText name="keyword" label="Keyword" />
+ *   <ProFormSelect name="status" label="Status" fieldProps={{ options }} />
+ *   <ProFormText name="author" label="Author" />
+ * </QueryFilter>
+ * ```
+ */
 const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
   const {
     defaultCollapsed = true,

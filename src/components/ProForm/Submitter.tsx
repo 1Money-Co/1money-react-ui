@@ -6,11 +6,20 @@ import type { MouseEvent, ReactElement } from 'react';
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import type { SubmitterProps } from './interface';
 
+/** @internal Props used by the Submitter component, extending public {@link SubmitterProps} with internal callbacks. */
 type InnerSubmitterProps<TFieldValues extends FieldValues = FieldValues> = SubmitterProps<TFieldValues> & {
+  /** The `react-hook-form` instance (used for custom render functions). */
   form?: UseFormReturn<TFieldValues>;
+  /** Internal callback to trigger form submission from a custom render. */
   onSubmitForm?: () => void;
 };
 
+/**
+ * Renders the submit and reset buttons for a {@link ProForm}.
+ * Supports custom rendering via the `render` prop.
+ *
+ * @typeParam TFieldValues - The form values type.
+ */
 function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: InnerSubmitterProps<TFieldValues>) {
   const {
     submitText = DEFAULT_TEXT.submit,

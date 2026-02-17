@@ -8,6 +8,14 @@ import type { FieldValues } from 'react-hook-form';
 import type { ModalHandlers } from '../../Modal';
 import type { ModalFormProps } from '../interface';
 
+/**
+ * A {@link ProForm} displayed inside a modal dialog.
+ *
+ * Supports controlled/uncontrolled open state, a trigger element, auto-close
+ * on submit, and optional close timeout.
+ *
+ * @typeParam TFieldValues - The form values type.
+ */
 function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
   props: ModalFormProps<TFieldValues>,
 ) {

@@ -6,6 +6,7 @@ interface OptionLike {
   value?: unknown;
 }
 
+/** ProForm field for multi-value dropdown selection. Wraps {@link Select} with `multiple` enabled. */
 export const ProFormMultiSelect = createProFormField({
   component: Select,
   mapProps: () => ({ multiple: true }),

@@ -7,6 +7,14 @@ import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { DrawerFormProps } from '../interface';
 
+/**
+ * A {@link ProForm} displayed inside a side drawer panel.
+ *
+ * Supports controlled/uncontrolled open state, a trigger element, auto-close
+ * on submit, and optional close timeout.
+ *
+ * @typeParam TFieldValues - The form values type.
+ */
 function DrawerFormBase<TFieldValues extends FieldValues = FieldValues>(
   props: DrawerFormProps<TFieldValues>,
 ) {

@@ -12,6 +12,14 @@ import type { FieldValues } from 'react-hook-form';
 import type { ButtonProps } from '../Button';
 import type { ProFormListAction, ProFormListProps } from './interface';
 
+/**
+ * Creates a `DndContext` `onDragEnd` handler that translates drag events
+ * into field array `move` calls.
+ *
+ * @param options.move - The `move` function from `useFieldArray`.
+ * @param options.fields - The current field array entries.
+ * @returns A drag-end event handler.
+ */
 export const buildOnDragEnd = ({
   move,
   fields,
@@ -33,6 +41,7 @@ export const buildOnDragEnd = ({
 
 type IconProps = false | Record<string, unknown>;
 
+/** @internal Props for an individual row inside {@link ProFormList}. */
 interface ProFormListRowProps {
   fieldId: string;
   index: number;
@@ -47,6 +56,7 @@ interface ProFormListRowProps {
   itemRender?: ProFormListProps['itemRender'];
 }
 
+/** @internal Renders copy/delete action buttons for a single list row. */
 const ProFormListRowBody: FC<ProFormListRowProps> = ({
   fieldId,
   index,
@@ -115,6 +125,7 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
   return <>{itemRender({ listDom: rowNode, action })}</>;
 };
 
+/** @internal Drag-and-drop wrapper for a sortable list row. */
 const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
   const { fieldId } = props;
   const {
@@ -150,12 +161,14 @@ const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
 
 type CreatorConfig = ButtonProps & { text?: ReactNode; position?: 'top' | 'bottom' };
 
+/** @internal Props for the "add row" button rendered by {@link ProFormList}. */
 interface CreatorButtonProps {
   config: CreatorConfig | undefined;
   canAdd: boolean;
   onAdd: () => void;
 }
 
+/** @internal Renders the "add row" button for {@link ProFormList}. */
 const CreatorButton: FC<CreatorButtonProps> = ({ config, canAdd, onAdd }) => {
   if (!config) return null;
 
@@ -176,6 +189,19 @@ const CreatorButton: FC<CreatorButtonProps> = ({ config, canAdd, onAdd }) => {
   );
 };
 
+/**
+ * Dynamic, repeatable form field list with add, remove, copy, and
+ * drag-and-drop reordering capabilities.
+ *
+ * @example
+ * ```tsx
+ * <ProFormList name="items" min={1} max={5} sortable>
+ *   {(fields) => fields.map(({ name, key }) => (
+ *     <ProFormText key={key} name={`${name}.title`} label="Title" />
+ *   ))}
+ * </ProFormList>
+ * ```
+ */
 const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   const {
     name,

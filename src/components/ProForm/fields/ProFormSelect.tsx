@@ -7,6 +7,7 @@ interface OptionLike {
   value?: unknown;
 }
 
+/** ProForm field for single-value dropdown selection. Wraps {@link Select}. */
 export const ProFormSelect = createProFormField({
   component: Select,
   renderReadonly: (value, props) => {
