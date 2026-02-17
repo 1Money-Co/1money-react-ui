@@ -87,7 +87,7 @@ module.exports = [
       '.eslintrc.js',
       '*.config.js',
       '*.conf.js',
-      'setupTests.js'
+      'setupTests.js',
     ]
   }
 ];

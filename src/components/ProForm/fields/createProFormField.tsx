@@ -150,6 +150,8 @@ export function createProFormField<FieldProps>(config: {
     return node;
   };
 
+  Field.displayName = `ProFormField(${(Component as any).displayName || (Component as any).name || 'Unknown'})`;
+
   return Field;
 }
 

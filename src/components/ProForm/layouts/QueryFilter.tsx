@@ -2,7 +2,8 @@ import { Children, memo, useCallback, useMemo, useState } from 'react';
 import { Button } from '../../Button';
 import ProForm from '../ProForm';
 import type { CSSProperties, FC } from 'react';
-import type { QueryFilterProps } from '../interface';
+import type { FieldValues } from 'react-hook-form';
+import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
 
 export const QueryFilter: FC<QueryFilterProps<any>> = memo((props) => {
   const {
@@ -66,9 +67,9 @@ export const QueryFilter: FC<QueryFilterProps<any>> = memo((props) => {
         submitter?.onReset?.();
         onReset?.();
       },
-      render: (renderProps: any) => {
+      render: (renderProps: SubmitterRenderProps) => {
         const customDom = [
-          <Button key='search' type='submit' onClick={() => renderProps.submit()}>
+          <Button key='search' type='submit'>
             {submitter?.submitText ?? 'Search'}
           </Button>,
           <Button key='reset' type='button' severity='secondary' onClick={() => renderProps.reset()}>
@@ -80,12 +81,14 @@ export const QueryFilter: FC<QueryFilterProps<any>> = memo((props) => {
         ];
 
         if (submitter?.render) {
-          return submitter.render(renderProps, customDom as any);
+          return submitter.render(renderProps, customDom);
         }
 
         return customDom;
       },
     };
+
+  const queryFormProps = formProps as Omit<ProFormProps<FieldValues>, 'layout' | 'submitter'>;
 
   return (
     <div
@@ -93,9 +96,9 @@ export const QueryFilter: FC<QueryFilterProps<any>> = memo((props) => {
       style={filterStyle}
     >
       <ProForm
-        {...formProps as any}
-        layout={(formProps as any)?.layout ?? 'inline'}
-        submitter={submitterConfig as any}
+        {...queryFormProps}
+        layout={formProps.layout ?? 'inline'}
+        submitter={submitterConfig}
       >
         {visibleChildren}
       </ProForm>

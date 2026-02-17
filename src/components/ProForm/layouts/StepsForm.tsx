@@ -7,8 +7,9 @@ import {
   useState,
 } from 'react';
 import ProForm from '../ProForm';
-import type { FC, ReactElement } from 'react';
-import type { StepFormProps, StepsFormProps } from '../interface';
+import type { CSSProperties, FC, ReactElement } from 'react';
+import type { FieldValues } from 'react-hook-form';
+import type { ProFormProps, StepFormProps, StepsFormProps } from '../interface';
 
 export const StepForm: FC<StepFormProps<any>> = (props) => {
   return <>{props.children}</>;
@@ -16,6 +17,16 @@ export const StepForm: FC<StepFormProps<any>> = (props) => {
 
 type StepsFormComponent = FC<StepsFormProps<any>> & {
   StepForm: FC<StepFormProps<any>>;
+};
+
+const pickHtmlDivProps = (props: Record<string, unknown>): Record<string, unknown> => {
+  const result: Record<string, unknown> = {};
+  for (const key of Object.keys(props)) {
+    if (key === 'className' || key === 'style' || key === 'id' || key.startsWith('data-') || key.startsWith('aria-')) {
+      result[key] = props[key];
+    }
+  }
+  return result;
 };
 
 const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
@@ -73,18 +84,12 @@ const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
     ...stepFormProps
   } = activeStep.props;
 
-  const {
-    className: stepsClassName,
-    ...restStepsProps
-  } = (stepsProps || {}) as Record<string, any>;
-  const {
-    className: stepClassName,
-    ...restStepProps
-  } = (stepProps || {}) as Record<string, any>;
+  const stepsHtmlProps = pickHtmlDivProps((stepsProps || {}) as Record<string, unknown>);
+  const stepHtmlProps = pickHtmlDivProps((stepProps || {}) as Record<string, unknown>);
 
   const mergedDefaultValues = useMemo(() => ({
-    ...(formProps as any)?.defaultValues,
-    ...(stepFormProps as any)?.defaultValues,
+    ...(formProps as Partial<ProFormProps<FieldValues>> | undefined)?.defaultValues,
+    ...(stepFormProps as Partial<ProFormProps<FieldValues>> | undefined)?.defaultValues,
     ...allValues,
   }), [allValues, formProps, stepFormProps]);
 
@@ -95,22 +100,25 @@ const StepsFormBase: FC<StepsFormProps<any>> = memo((props) => {
     ? submitter.nextText
     : 'Next';
 
+  const { className: stepsClassName, ...stepsRestHtml } = stepsHtmlProps;
+  const { className: stepClassName, ...stepRestHtml } = stepHtmlProps;
+
   return (
     <div
+      {...stepsRestHtml}
       className={`om-react-ui-proform-steps-form${stepsClassName ? ` ${stepsClassName}` : ''}`}
-      {...restStepsProps}
     >
       <div
+        {...stepRestHtml}
         className={`om-react-ui-proform-steps-form-step${stepClassName ? ` ${stepClassName}` : ''}`}
-        {...restStepProps}
       >
         {title && <div className='om-react-ui-proform-steps-form-title'>{title}</div>}
         {description && <div className='om-react-ui-proform-steps-form-description'>{description}</div>}
         <ProForm
           key={`step-${mergedCurrent}`}
-          {...formProps as any}
-          {...stepFormProps as any}
-          defaultValues={mergedDefaultValues as any}
+          {...formProps as Partial<ProFormProps<FieldValues>>}
+          {...stepFormProps as Partial<ProFormProps<FieldValues>>}
+          defaultValues={mergedDefaultValues}
           submitter={false}
           onFinish={handleStepFinish}
         >

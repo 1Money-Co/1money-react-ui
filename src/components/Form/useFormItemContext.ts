@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import { FormContext } from './Form';
@@ -8,8 +8,9 @@ import { FormContext } from './Form';
  * context-provided methods.  Otherwise falls back to a local `useForm()`
  * instance to keep `useWatch` and other RHF internals functional.
  *
- * `useForm()` is always called to maintain stable hook ordering across
- * renders — when a context is present the local instance is unused.
+ * NOTE: `useForm()` is always called to maintain stable hook ordering across
+ * renders — when a context is present the local instance is unused.  This is
+ * a deliberate trade-off to avoid conditional hook calls.
  */
 export function useFormItemContext<TFieldValues extends FieldValues = FieldValues>(name?: string) {
   const ctx = useContext(FormContext);
@@ -18,7 +19,9 @@ export function useFormItemContext<TFieldValues extends FieldValues = FieldValue
   const control = methods.control;
   const trigger = methods.trigger;
 
-  if (name && !ctx?.methods) {
+  const warnedRef = useRef(false);
+  if (name && !ctx?.methods && !warnedRef.current) {
+    warnedRef.current = true;
     console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
   }
 

@@ -1,62 +1,64 @@
-.om-react-ui-proform-submitter {
+@use '../../../variable.scss' as *;
+
+.#{$prefix}-proform-submitter {
   display: flex;
   gap: 12px;
   margin-top: 16px;
 }
 
-.om-react-ui-proform-modal-form,
-.om-react-ui-proform-drawer-form {
+.#{$prefix}-proform-modal-form,
+.#{$prefix}-proform-drawer-form {
   padding: 16px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
+  background: $color-white;
+  border: 1px solid $color-grey-deep;
   border-radius: 12px;
 }
 
-.om-react-ui-proform-modal-form-title,
-.om-react-ui-proform-drawer-form-title,
-.om-react-ui-proform-steps-form-title {
+.#{$prefix}-proform-modal-form-title,
+.#{$prefix}-proform-drawer-form-title,
+.#{$prefix}-proform-steps-form-title {
   margin-bottom: 12px;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
 }
 
-.om-react-ui-proform-steps-form-description {
+.#{$prefix}-proform-steps-form-description {
   margin-bottom: 12px;
-  color: #6b7280;
+  color: $color-grey-midnight;
   font-size: 14px;
 }
 
-.om-react-ui-proform-steps-form-actions,
-.om-react-ui-proform-query-filter-actions {
+.#{$prefix}-proform-steps-form-actions,
+.#{$prefix}-proform-query-filter-actions {
   display: flex;
   gap: 8px;
   margin-top: 16px;
 }
 
-.om-react-ui-proform-query-filter {
-  .om-react-ui-form-item-root {
+.#{$prefix}-proform-query-filter {
+  .#{$prefix}-form-item-root {
     margin-bottom: 0;
   }
 }
 
-.om-react-ui-proform-query-filter-split {
+.#{$prefix}-proform-query-filter-split {
   padding-top: 16px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid $color-grey-deep;
 }
 
-.om-react-ui-proform-list {
+.#{$prefix}-proform-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.om-react-ui-proform-list-label {
+.#{$prefix}-proform-list-label {
   font-weight: 600;
   font-size: 14px;
 }
 
-.om-react-ui-proform-list-row-actions {
+.#{$prefix}-proform-list-row-actions {
   display: flex;
   gap: 8px;
 }

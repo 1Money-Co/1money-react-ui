@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { Button } from '../Button';
 import type { FC, ReactElement } from 'react';
 import type { SubmitterProps } from './interface';
@@ -52,7 +52,7 @@ export const Submitter: FC<InnerSubmitterProps> = memo(props => {
     </Button>
   );
 
-  const dom = useMemo(() => [submitDom, resetDom], [resetDom, submitDom]);
+  const dom = [submitDom, resetDom];
   const renderedDom = render
     ? render({ form, submit: () => onSubmit?.(), reset: () => onReset?.() }, dom as ReactElement[])
     : dom;

@@ -11,6 +11,9 @@ import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
 import { Form, FormItem } from './components/Form';
 import { ProForm } from './components/ProForm';
+import { ProFormList } from './components/ProForm';
+import { ProFormDependency } from './components/ProForm';
+import { Submitter } from './components/ProForm';
 import { Grid, Row, Col } from './components/Grid';
 import { Input } from './components/Input';
 import { InputAmount } from './components/InputAmount';
@@ -57,7 +60,33 @@ export { Message } from './components/Message';
 export { Dropdown } from './components/Dropdown';
 export { Flex } from './components/Flex';
 export { Form, FormItem } from './components/Form';
-export * from './components/ProForm';
+export { ProForm, Submitter, ProFormList, ProFormDependency } from './components/ProForm';
+export { ModalForm, DrawerForm, StepsForm, QueryFilter } from './components/ProForm';
+export {
+  ProFormText,
+  ProFormPassword,
+  ProFormTextArea,
+  ProFormDigit,
+  ProFormMoney,
+  ProFormSelect,
+  ProFormMultiSelect,
+  ProFormCheckbox,
+  ProFormCheckboxGroup,
+  ProFormRadio,
+  ProFormSwitch,
+} from './components/ProForm';
+export type {
+  ProFormProps,
+  ProFormFieldProps,
+  SubmitterProps,
+  ModalFormProps,
+  DrawerFormProps,
+  StepsFormProps,
+  StepFormProps,
+  QueryFilterProps,
+  ProFormListProps,
+  ProFormListAction,
+} from './components/ProForm';
 export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
 export { Popup } from './components/Popup';

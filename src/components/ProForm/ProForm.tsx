@@ -1,6 +1,5 @@
-import React, {
+import {
   createContext,
-  memo,
   useCallback,
   useEffect,
   useMemo,
@@ -9,21 +8,14 @@ import { useForm } from 'react-hook-form';
 import { Row } from '../Grid';
 import { Form } from '../Form';
 import Submitter from './Submitter';
-import type { FC } from 'react';
 import type { FieldValues } from 'react-hook-form';
+import type { FormProps } from '../Form';
 import type { ProFormProps } from './interface';
 
 const stableSerialize = (value: unknown): string => {
-  const seen = new WeakSet<object>();
-
   try {
     return JSON.stringify(value, (_, current: unknown) => {
-      if (!current || typeof current !== 'object') return current;
-      if (seen.has(current as object)) return '[Circular]';
-      seen.add(current as object);
-
-      if (Array.isArray(current)) return current;
-
+      if (!current || typeof current !== 'object' || Array.isArray(current)) return current;
       return Object.keys(current as Record<string, unknown>)
         .sort()
         .reduce<Record<string, unknown>>((acc, key) => {
@@ -48,7 +40,7 @@ export const ProFormContext = createContext<ProFormContextValue>({
   colProps: { span: 24 },
 });
 
-export const ProForm: FC<ProFormProps<any>> = memo((props) => {
+export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: ProFormProps<TFieldValues>) {
   const {
     submitter,
     readonly = false,
@@ -65,7 +57,7 @@ export const ProForm: FC<ProFormProps<any>> = memo((props) => {
     ...rest
   } = props;
 
-  const internalForm = useForm({ defaultValues });
+  const internalForm = useForm<TFieldValues>({ defaultValues });
   const form = externalForm ?? internalForm;
   const paramsKey = useMemo(() => stableSerialize(params), [params]);
   const stableParams = useMemo(() => params, [paramsKey]);
@@ -79,7 +71,11 @@ export const ProForm: FC<ProFormProps<any>> = memo((props) => {
         if (cancelled || !values) return;
         form.reset(values);
       })
-      .catch(() => undefined);
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          console.error('[ProForm] request() failed:', error);
+        }
+      });
 
     return () => {
       cancelled = true;
@@ -92,8 +88,8 @@ export const ProForm: FC<ProFormProps<any>> = memo((props) => {
     colProps,
   }), [readonly, grid, colProps]);
 
-  const handleFinish = useCallback(async (values: FieldValues) => {
-    return onFinish?.(values as any);
+  const handleFinish = useCallback(async (values: TFieldValues) => {
+    await onFinish?.(values);
   }, [onFinish]);
 
   const handleReset = useCallback(() => {
@@ -109,7 +105,7 @@ export const ProForm: FC<ProFormProps<any>> = memo((props) => {
     }
   }, [submitter]);
 
-  const mergedDisabled = (rest as any).disabled ?? loading;
+  const mergedDisabled = rest.disabled ?? loading;
 
   const content = useMemo(() => {
     if (!grid) return children;
@@ -121,14 +117,16 @@ export const ProForm: FC<ProFormProps<any>> = memo((props) => {
     );
   }, [children, grid, rowProps?.gutter]);
 
+  const formRest = rest as Omit<FormProps<TFieldValues>, 'onFinish' | 'form' | 'disabled' | 'defaultValues'>;
+
   return (
     <ProFormContext.Provider value={ctx}>
-      <Form
-        {...rest as any}
-        form={form as any}
+      <Form<TFieldValues>
+        {...formRest}
+        form={form}
         disabled={mergedDisabled}
-        defaultValues={defaultValues as any}
-        onFinish={handleFinish as any}
+        defaultValues={defaultValues}
+        onFinish={handleFinish}
       >
         {content}
         {submitter !== false && (
@@ -151,6 +149,6 @@ export const ProForm: FC<ProFormProps<any>> = memo((props) => {
       </Form>
     </ProFormContext.Provider>
   );
-});
+}
 
 export default ProForm;

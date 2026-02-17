@@ -4,13 +4,12 @@ import { default as classnames, joinCls } from '@/utils/classnames';
 import { STATUS_ERROR, TRIGGER_BLUR, TRIGGER_CHANGE } from './constants';
 import { getStatusProps, resolveStatus } from './helper';
 import type {
-  ControllerFieldState,
   ControllerRenderProps,
   FieldPath,
   FieldValues,
   UseFormReturn,
 } from 'react-hook-form';
-import type { FormContextValue, FormItemProps, FormItemRenderFn, FormItemRenderProps, FormItemRules, FormValidateStatus } from './interface';
+import type { FormContextValue, FormItemProps, FormItemRenderFn, FormItemRules, FormValidateStatus } from './interface';
 
 interface FormItemContentProps<TFieldValues extends FieldValues> {
   name?: FieldPath<TFieldValues>;
@@ -66,7 +65,7 @@ function cloneChildElement<TFieldValues extends FieldValues>(
     },
     disabled: ctx?.disabled || (childElement.props?.disabled as boolean),
     'aria-invalid': status === STATUS_ERROR || undefined,
-    ref: childElement.props?.ref ?? field.ref,
+    ref: field.ref,
     ...(isDomElement ? {} : statusProps),
   });
 }
