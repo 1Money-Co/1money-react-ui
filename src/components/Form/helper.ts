@@ -25,19 +25,40 @@ import {
   VALIDATE_PARALLEL
 } from './constants';
 
-// Convert a grid column count to a CSS percentage width.
+/**
+ * Converts a 12-column grid span to a CSS percentage width string.
+ *
+ * @param col - Grid column count (0–12). Values are clamped to the valid range.
+ * @returns A CSS percentage string (e.g. `"25%"`), or `undefined` when `col` is `null`/`undefined`.
+ */
 export const toPercent = (col?: number) => {
   if (col == null) return undefined;
   return `${(Math.max(GRID_MIN, Math.min(GRID_COLUMNS, col)) / GRID_COLUMNS) * PERCENT}%`;
 };
 
-// Narrow unknown error values from react-hook-form into FieldError-like objects.
+/**
+ * Type guard that narrows an unknown value to a `FieldError`-like object.
+ *
+ * Checks for the presence of `type`, `message`, or `ref` properties which
+ * are characteristic of `react-hook-form` field errors.
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is a `FieldError`-like object.
+ */
 export const isFieldError = (value: unknown): value is FieldError => {
   if (!value || typeof value !== 'object') return false;
   return 'type' in value || 'message' in value || 'ref' in value;
 };
 
-// Walk a nested FieldErrors tree and return the first path (depth-first).
+/**
+ * Walks a nested `FieldErrors` tree (depth-first) and returns the dot-path
+ * of the first error encountered.
+ *
+ * Handles plain objects, arrays (e.g. field arrays), and deeply nested structures.
+ *
+ * @param errors - The `FieldErrors` object from `react-hook-form`.
+ * @returns The dot-separated path (e.g. `"items.0.name"`) or `null` if no error is found.
+ */
 export const getFirstErrorPath = (errors: FieldErrors): string | null => {
   for (const key of Object.keys(errors)) {
     const value = (errors as Record<string, unknown>)[key];
@@ -61,15 +82,30 @@ export const getFirstErrorPath = (errors: FieldErrors): string | null => {
   return null;
 };
 
-// Escape attribute values for querySelector.
-// Fallback handles CSS selector special characters for SSR or environments
-// without CSS.escape (e.g. nested field names like "address.city").
+/**
+ * Escapes a string for safe use inside a CSS attribute selector.
+ *
+ * Uses `CSS.escape` when available, with a regex fallback for SSR or
+ * environments without native support (e.g. nested field names like `"address.city"`).
+ *
+ * @param value - The raw attribute value to escape.
+ * @returns The escaped string safe for `querySelector`.
+ */
 export const escapeAttr = (value: string) =>
   typeof CSS !== 'undefined' && CSS.escape
     ? CSS.escape(value)
     : value.replace(/([^\w-])/g, '\\$1');
 
-// Scroll to the first invalid field by name or data attribute.
+/**
+ * Scrolls the viewport to the first invalid field identified by `name`.
+ *
+ * Looks up the element using either the standard `name` attribute or the
+ * `data-form-item-name` data attribute. Supports custom scroll behavior
+ * via the `options` parameter.
+ *
+ * @param name - The field name (path) to scroll to.
+ * @param options - Scroll configuration from `FormProps['scrollToFirstError']`.
+ */
 export const scrollToField = (name: string, options?: FormProps['scrollToFirstError']) => {
   if (typeof document === 'undefined') return;
   const config = typeof options === 'object' ? options : {};
@@ -94,7 +130,16 @@ export const scrollToField = (name: string, options?: FormProps['scrollToFirstEr
   });
 };
 
-// Resolve validation status with explicit override.
+/**
+ * Resolves the effective validation status for a form field.
+ *
+ * An explicit `validateStatus` prop takes priority. Otherwise the status is
+ * derived from the `fieldState` provided by `react-hook-form`'s Controller.
+ *
+ * @param explicit - An explicit status override from props.
+ * @param fieldState - The Controller field state containing `error` and `isValidating`.
+ * @returns The resolved `FormValidateStatus`, or `undefined` if no status applies.
+ */
 export const resolveStatus = (explicit?: FormValidateStatus, fieldState?: Pick<ControllerFieldState, 'error' | 'isValidating'>): FormValidateStatus | undefined => {
   if (explicit) return explicit;
   if (fieldState?.isValidating) return STATUS_VALIDATING;
@@ -102,13 +147,23 @@ export const resolveStatus = (explicit?: FormValidateStatus, fieldState?: Pick<C
   return undefined;
 };
 
-// Normalize trigger option to array.
+/**
+ * Normalizes a `validateTrigger` prop into a consistent array form.
+ *
+ * @param value - A single trigger string, an array, or `undefined`.
+ * @returns An array of trigger modes (e.g. `['onChange', 'onBlur']`), or an empty array.
+ */
 export const normalizeValidateTrigger = (value?: FormItemProps<FieldValues>['validateTrigger']) => {
   if (!value) return [];
   return Array.isArray(value) ? value : [value];
 };
 
-// Map validation status to Input props.
+/**
+ * Maps a `FormValidateStatus` to boolean props suitable for Input-like components.
+ *
+ * @param status - The current validation status.
+ * @returns An object with `invalid: true`, `success: true`, or an empty object.
+ */
 export const getStatusProps = (status?: FormValidateStatus) => (
   status === STATUS_ERROR
     ? { invalid: true }
@@ -117,14 +172,39 @@ export const getStatusProps = (status?: FormValidateStatus) => (
       : {}
 );
 
-// Shallow compare two arrays by reference equality (Object.is).
+/**
+ * Performs a shallow comparison of two arrays using `Object.is` for each element.
+ *
+ * @param a - First array.
+ * @param b - Second array.
+ * @returns `true` if both arrays have the same length and identical elements by reference.
+ */
 export const shallowEqualArray = (a: unknown[], b: unknown[]) =>
   a.length === b.length && a.every((v, i) => Object.is(v, b[i]));
 
-// Align custom validation with RHF's ValidateResult.
+/**
+ * Normalizes a custom `ValidateResult` to be compatible with `react-hook-form`.
+ *
+ * RHF treats `null` as a truthy error value, so this converts `null` to `true` (valid).
+ *
+ * @param result - The raw validation result.
+ * @returns The normalized result (`true` for valid, or an error string/boolean).
+ */
 export const normalizeValidateResult = (result: ValidateResult) => (result === null ? true : result);
 
-// Wrap multi-validator object to honor validateFirst sequencing.
+/**
+ * Wraps a multi-validator record to honor `validateFirst` sequencing.
+ *
+ * When `mode` is `true`, validators run **sequentially** and stop at the first error.
+ * When `mode` is `'parallel'`, all validators run concurrently and the first error found is returned.
+ * When `mode` is falsy or `validate` is a single function, the original value is returned unchanged.
+ *
+ * @template TValues - The shape of the form values.
+ * @template TName - The field path type.
+ * @param validate - The validator or record of validators from `RegisterOptions`.
+ * @param mode - The `validateFirst` mode.
+ * @returns A wrapped validator function, or the original value when no wrapping is needed.
+ */
 export const wrapValidate = <TValues extends FieldValues, TName extends FieldPath<TValues>>(
   validate: NonNullable<RegisterOptions<TValues, TName>['validate']>,
   mode?: FormItemProps<TValues>['validateFirst']

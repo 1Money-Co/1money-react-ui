@@ -14,8 +14,31 @@ import {
 import { getFirstErrorPath, scrollToField } from './helper';
 import type { FormContextValue, FormProps } from './interface';
 
+/** React context that distributes form layout and state to descendant `<FormItem>` components. */
 export const FormContext = createContext<FormContextValue | null>(null);
 
+/**
+ * Form component that wraps `react-hook-form` with layout, context distribution,
+ * value-change subscriptions, and scroll-to-error behavior.
+ *
+ * Renders a `<FormProvider>` and native `<form>` element. All `<FormItem>` children
+ * receive form methods and layout configuration via {@link FormContext}.
+ *
+ * Supports both controlled mode (pass an external `form` instance) and uncontrolled
+ * mode (internal `useForm` is created automatically).
+ *
+ * @template TFieldValues - The shape of the form values.
+ * @param props - {@link FormProps}
+ *
+ * @example
+ * ```tsx
+ * <Form defaultValues={{ name: '' }} onFinish={(values) => save(values)}>
+ *   <FormItem name="name" label="Name" rules={{ required: true }}>
+ *     <Input />
+ *   </FormItem>
+ * </Form>
+ * ```
+ */
 export function Form<TFieldValues extends FieldValues = FieldValues>(props: FormProps<TFieldValues>) {
   // Form is a thin wrapper over react-hook-form with layout + UX helpers.
   const {

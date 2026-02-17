@@ -9,8 +9,20 @@ import type { FormContextValue, FormItemContentProps, FormValidateStatus } from 
 const classes = classnames('form-item');
 
 /**
- * Stateless element-cloning helper — injects RHF bindings while
- * preserving user handlers.
+ * Clones a React element and injects `react-hook-form` Controller bindings
+ * (`value`, `onChange`, `onBlur`, `ref`) while preserving any existing handlers
+ * on the child element.
+ *
+ * For non-DOM (custom) components, status props (`invalid`/`success`) are also spread.
+ *
+ * @template TFieldValues - The shape of the form values.
+ * @param children - The child React node to clone.
+ * @param field - Controller field bindings from `react-hook-form`.
+ * @param status - The resolved validation status.
+ * @param statusProps - Boolean props derived from the status.
+ * @param valuePropName - The prop name used to bind the controlled value.
+ * @param ctx - Form context value for reading the `disabled` state.
+ * @returns The cloned element with injected bindings, or the original node if not a valid element.
  */
 function cloneChildElement<TFieldValues extends FieldValues>(
   children: React.ReactNode,
@@ -44,7 +56,10 @@ function cloneChildElement<TFieldValues extends FieldValues>(
 }
 
 /**
- * Wraps field content with help/error/extra metadata region.
+ * Wraps field content with help text, error messages, and extra content regions.
+ *
+ * Applies status-based CSS classes to the wrapper and renders the appropriate
+ * feedback messages below the field.
  */
 function MetaWrapper({
   content,
@@ -81,8 +96,19 @@ function MetaWrapper({
 }
 
 /**
- * Renders the content portion of a FormItem: either a Controller-bound
- * field or free (uncontrolled) children.
+ * Renders the inner content of a `<FormItem>`.
+ *
+ * Handles two branches:
+ * - **Free branch** (no `name`): renders children directly or via a render-prop,
+ *   optionally gated by `shouldUpdate`.
+ * - **Controlled branch** (has `name`): wraps children in a `react-hook-form`
+ *   `Controller`, injecting field bindings and validation-trigger wrappers.
+ *
+ * Both branches render their output inside a {@link MetaWrapper} for consistent
+ * help/error/extra display.
+ *
+ * @template TFieldValues - The shape of the form values.
+ * @param props - {@link FormItemContentProps}
  */
 export function FormItemContent<TFieldValues extends FieldValues = FieldValues>({
   name,

@@ -3,17 +3,29 @@ import { useForm } from 'react-hook-form';
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import { FormContext } from './Form';
 
-// Development-only warning flag (module-level to fire once per FormItem usage).
+/**
+ * Module-level set tracking field names that have already triggered a
+ * "no form control found" warning. Ensures each name only warns once.
+ */
 const warnedNames = new Set<string>();
 
 /**
- * Resolves form context for FormItem.  When inside `<Form>`, uses the
- * context-provided methods.  Otherwise falls back to a local `useForm()`
- * instance to keep `useWatch` and other RHF internals functional.
+ * Resolves form context for a `<FormItem>`.
  *
- * NOTE: `useForm()` is always called to maintain stable hook ordering across
- * renders — when a context is present the local instance is unused.  This is
- * a deliberate trade-off to avoid conditional hook calls.
+ * When rendered inside a `<Form>`, this hook uses the context-provided
+ * `react-hook-form` methods. Otherwise it falls back to a local `useForm()`
+ * instance so that `useWatch` and other RHF internals remain functional.
+ *
+ * A development-only console warning is emitted (once per field name) when
+ * a `name` prop is set but no parent `<Form>` context is found.
+ *
+ * **Note:** `useForm()` is always called to maintain stable hook ordering
+ * across renders — when a context is present the local instance is unused.
+ * This is a deliberate trade-off to avoid conditional hook calls.
+ *
+ * @template TFieldValues - The shape of the form values.
+ * @param name - The field name, used for the missing-context warning check.
+ * @returns An object with `ctx` (form context or `null`), `methods`, `control`, and `trigger`.
  */
 export function useFormItemContext<TFieldValues extends FieldValues = FieldValues>(name?: string) {
   const ctx = useContext(FormContext);

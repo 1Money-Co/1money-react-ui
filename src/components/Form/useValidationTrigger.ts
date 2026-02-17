@@ -5,18 +5,40 @@ import { DEBOUNCE_MIN, TRIGGER_BLUR, TRIGGER_CHANGE } from './constants';
 import { normalizeValidateTrigger, shallowEqualArray } from './helper';
 import type { FormItemProps } from './interface';
 
+/**
+ * Arguments for {@link useValidationTrigger}.
+ *
+ * @template TFieldValues - The shape of the form values.
+ */
 interface UseValidationTriggerArgs<TFieldValues extends FieldValues> {
+  /** The field path to validate. When `undefined`, validation is skipped. */
   name?: FieldPath<TFieldValues>;
+  /** The `trigger` function from `react-hook-form` for imperative validation. */
   trigger: (name: FieldPath<TFieldValues>) => Promise<boolean>;
+  /** Event(s) that should trigger validation (`'onChange'`, `'onBlur'`, or both). */
   validateTrigger?: FormItemProps<TFieldValues>['validateTrigger'];
+  /** Debounce delay in milliseconds for triggered validation. */
   validateDebounce?: number;
+  /** Field paths whose changes should re-trigger this field's validation. */
   dependencies?: FormItemProps<TFieldValues>['dependencies'];
+  /** Current watched dependency values used to detect changes. */
   depValues: unknown;
 }
 
 /**
- * Encapsulates validation trigger logic: debounce, dependency-change
- * re-validation, and the `withTrigger` wrapper for onChange/onBlur.
+ * Encapsulates validation trigger logic for a single form field.
+ *
+ * Responsibilities:
+ * - Normalizes the `validateTrigger` prop into an array of trigger modes.
+ * - Provides a `withTrigger` wrapper that composes event handlers (onChange/onBlur)
+ *   with conditional validation calls.
+ * - Applies optional debounce to validation triggers.
+ * - Re-validates the field when dependency values change (cross-field validation).
+ * - Cleans up debounce timers on unmount.
+ *
+ * @template TFieldValues - The shape of the form values.
+ * @param args - {@link UseValidationTriggerArgs}
+ * @returns An object containing the `withTrigger` function.
  */
 export function useValidationTrigger<TFieldValues extends FieldValues = FieldValues>({
   name,

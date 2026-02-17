@@ -18,7 +18,32 @@ const isRenderFnChild = <TFieldValues extends FieldValues>(
 ): child is FormItemRenderFn<TFieldValues> => typeof child === 'function';
 
 /**
- * Bridges RHF Controller with Form layout, status, and validation trigger behavior.
+ * Form field wrapper that bridges `react-hook-form`'s Controller with the Form
+ * layout system, validation status display, and configurable trigger behavior.
+ *
+ * When a `name` is provided, the field is registered with `react-hook-form` via
+ * a `Controller` and supports validation rules, dependencies, and status feedback.
+ * Without a `name`, it renders as a free wrapper for uncontrolled content.
+ *
+ * Supports two child patterns:
+ * - **React element**: automatically bound via `React.cloneElement` with value/onChange/onBlur.
+ * - **Render-prop function**: receives `{ field, fieldState, form, values }` for full control.
+ *
+ * @template TFieldValues - The shape of the form values.
+ * @param props - {@link FormItemProps}
+ *
+ * @example
+ * ```tsx
+ * // Element child (auto-bound)
+ * <FormItem name="email" label="Email" rules={{ required: true }}>
+ *   <Input placeholder="Enter email" />
+ * </FormItem>
+ *
+ * // Render-prop child
+ * <FormItem name="agree">
+ *   {({ field }) => <Checkbox {...field} />}
+ * </FormItem>
+ * ```
  */
 export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: FormItemProps<TFieldValues>) {
   const {
