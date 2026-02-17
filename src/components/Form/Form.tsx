@@ -1,6 +1,8 @@
-import React, { createContext, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { createContext, useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
+import useLatest from '../useLatest';
+import useMemoizedFn from '../useMemoizedFn';
 import type { FieldErrors, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import {
   DEFAULT_LABEL_ALIGN,
@@ -44,8 +46,10 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
   const internalMethods = useForm<TFieldValues>({ defaultValues, ...useFormProps });
   // Use provided form methods when controlled; otherwise use internal form state.
   const methods = form ?? internalMethods;
-  const valuesChangeRef = useRef<FormProps<TFieldValues>['onValuesChange']>(onValuesChange);
-  const watchNamesRef = useRef<Set<FieldPath<TFieldValues>> | null>(null);
+  const valuesChangeRef = useLatest(onValuesChange);
+  const watchNamesRef = useLatest(
+    watchNames?.length ? new Set(watchNames as Array<FieldPath<TFieldValues>>) : null
+  );
 
   // Provide layout + disabled state + form methods to FormItem via context.
   const ctx = useMemo<FormContextValue>(() => ({
@@ -59,17 +63,6 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
     requiredMark,
     methods: methods as UseFormReturn<FieldValues>,
   }), [layout, labelAlign, labelCol, wrapperCol, size, disabled, colon, requiredMark, methods]);
-
-  // Keep onValuesChange callback current without resubscribing.
-  useEffect(() => {
-    valuesChangeRef.current = onValuesChange;
-  }, [onValuesChange]);
-
-  useEffect(() => {
-    watchNamesRef.current = watchNames?.length
-      ? new Set(watchNames as Array<FieldPath<TFieldValues>>)
-      : null;
-  }, [watchNames]);
 
   // Subscribe to all value changes when handler provided.
   useEffect(() => {
@@ -89,12 +82,12 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
   }, [methods, onValuesChange]);
 
   // Submit success handler.
-  const handleFinish = useCallback(async (values: TFieldValues) => {
+  const handleFinish = useMemoizedFn(async (values: TFieldValues) => {
     await onFinish?.(values);
-  }, [onFinish]);
+  });
 
   // Submit failure handler with optional scroll-to-error.
-  const handleFinishFailed = useCallback((errors: FieldErrors<TFieldValues>) => {
+  const handleFinishFailed = useMemoizedFn((errors: FieldErrors<TFieldValues>) => {
     if (scrollToFirstError) {
       const first = getFirstErrorPath(errors);
       if (first) {
@@ -103,7 +96,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
       }
     }
     onFinishFailed?.(errors);
-  }, [scrollToFirstError, methods, onFinishFailed]);
+  });
 
   const classes = classnames('form');
 

@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
+import usePrevious from '../usePrevious';
 import type { Control, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import type { FormItemProps } from './interface';
 
@@ -54,17 +55,12 @@ export function useFormItemWatch<TFieldValues extends FieldValues = FieldValues>
     return getValues();
   }, [methods, shouldWatchAllValues, watchedAllValues, watchedNamesValues]);
 
-  const prevValuesRef = useRef<TFieldValues>(allValues);
+  const prevValues = usePrevious(allValues);
 
   const shouldRender = useMemo(() => {
     if (!shouldUpdate || shouldUpdate === true) return true;
-    return shouldUpdate(prevValuesRef.current, allValues);
-  }, [allValues, shouldUpdate]);
-
-  useEffect(() => {
-    if (!shouldUpdate) return;
-    prevValuesRef.current = allValues;
-  }, [allValues, shouldUpdate]);
+    return shouldUpdate(prevValues ?? allValues, allValues);
+  }, [allValues, prevValues, shouldUpdate]);
 
   return { allValues, depValues, shouldRender };
 }

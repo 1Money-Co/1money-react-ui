@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+import useMemoizedFn from '../useMemoizedFn';
 import type { FieldPath, FieldValues } from 'react-hook-form';
 import { DEBOUNCE_MIN, TRIGGER_BLUR, TRIGGER_CHANGE } from './constants';
 import { normalizeValidateTrigger, shallowEqualArray } from './helper';
@@ -33,7 +34,7 @@ export function useValidationTrigger<TFieldValues extends FieldValues = FieldVal
     [validateTrigger]
   );
 
-  const triggerValidation = useCallback(() => {
+  const triggerValidation = useMemoizedFn(() => {
     if (!name) return;
     const run = () => {
       void trigger(name);
@@ -44,7 +45,7 @@ export function useValidationTrigger<TFieldValues extends FieldValues = FieldVal
       return;
     }
     run();
-  }, [name, trigger, validateDebounce]);
+  });
 
   useEffect(() => {
     if (!name || !dependencies?.length) return;
@@ -63,18 +64,16 @@ export function useValidationTrigger<TFieldValues extends FieldValues = FieldVal
     if (triggerTimerRef.current) clearTimeout(triggerTimerRef.current);
   }, []);
 
-  const shouldTrigger = useCallback(
-    (mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR) => triggerModes.includes(mode),
-    [triggerModes]
+  const shouldTrigger = useMemoizedFn(
+    (mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR) => triggerModes.includes(mode)
   );
 
-  const withTrigger = useCallback(
+  const withTrigger = useMemoizedFn(
     (mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR, fn?: (...args: unknown[]) => void) =>
       (...args: unknown[]) => {
         fn?.(...args);
         if (name && shouldTrigger(mode)) triggerValidation();
-      },
-    [name, shouldTrigger, triggerValidation]
+      }
   );
 
   return { withTrigger };
