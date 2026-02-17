@@ -40,6 +40,7 @@ import { Toast } from './components/Toast';
 import { Tooltip } from './components/Tooltip';
 import { Typography } from './components/Typography';
 import { Upload, UploadFileBar } from './components/Upload';
+import { useEventCallback, useLatest, useMemoizedFn, usePrevious, useUpdateEffect } from './hooks';
 
 export { Cell } from './components/Cell';
 export { Badge } from './components/Badge';
@@ -106,6 +107,9 @@ export { Toast } from './components/Toast';
 export { Tooltip } from './components/Tooltip';
 export { Typography } from './components/Typography';
 export { Upload, UploadFileBar } from './components/Upload';
+
+// Hooks
+export { useEventCallback, useLatest, useMemoizedFn, usePrevious, useUpdateEffect } from './hooks';
 
 export default {
   Cell,
