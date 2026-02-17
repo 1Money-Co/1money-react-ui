@@ -1,6 +1,7 @@
 import { Children, memo, useCallback, useMemo, useState } from 'react';
 import { Button } from '../../Button';
 import ProForm from '../ProForm';
+import { CSS_PREFIX, DEFAULT_COLS_NUMBER, DEFAULT_TEXT } from '../constants';
 import type { CSSProperties, FC } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
@@ -10,7 +11,7 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
     defaultCollapsed = true,
     collapsed,
     onCollapse,
-    defaultColsNumber = 3,
+    defaultColsNumber = DEFAULT_COLS_NUMBER,
     labelWidth,
     split,
     submitter,
@@ -53,11 +54,11 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
   }, [labelWidth]);
 
   const collapseText = submitter !== false
-    ? submitter?.searchConfig?.collapseText ?? 'Collapse'
-    : 'Collapse';
+    ? submitter?.searchConfig?.collapseText ?? DEFAULT_TEXT.collapse
+    : DEFAULT_TEXT.collapse;
   const expandText = submitter !== false
-    ? submitter?.searchConfig?.expandText ?? 'Expand'
-    : 'Expand';
+    ? submitter?.searchConfig?.expandText ?? DEFAULT_TEXT.expand
+    : DEFAULT_TEXT.expand;
 
   const submitterConfig = submitter === false
     ? false
@@ -70,10 +71,10 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
       render: (renderProps: SubmitterRenderProps<FieldValues>) => {
         const customDom = [
           <Button key='search' type='submit'>
-            {submitter?.submitText ?? 'Search'}
+            {submitter?.submitText ?? DEFAULT_TEXT.search}
           </Button>,
           <Button key='reset' type='button' severity='secondary' onClick={() => renderProps.reset()}>
-            {submitter?.resetText ?? 'Reset'}
+            {submitter?.resetText ?? DEFAULT_TEXT.reset}
           </Button>,
           <Button key='collapse' type='button' severity='secondary' onClick={toggleCollapsed}>
             {mergedCollapsed ? expandText : collapseText}
@@ -92,7 +93,7 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
 
   return (
     <div
-      className={`om-react-ui-proform-query-filter${split ? ' om-react-ui-proform-query-filter-split' : ''}`}
+      className={`${CSS_PREFIX}-query-filter${split ? ` ${CSS_PREFIX}-query-filter-split` : ''}`}
       style={filterStyle}
     >
       <ProForm

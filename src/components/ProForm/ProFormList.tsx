@@ -3,8 +3,10 @@ import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-
 import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import { Button } from '../Button';
+import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
+import { extractButtonProps } from './utils';
 import type { DragEndEvent } from '@dnd-kit/core';
-import type { CSSProperties, FC, MouseEvent, ReactNode } from 'react';
+import type { CSSProperties, FC, ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ButtonProps } from '../Button';
 import type { ProFormListAction, ProFormListProps } from './interface';
@@ -57,30 +59,8 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
   actionRender,
   itemRender,
 }) => {
-  const copyBtnProps = (copyIconProps && typeof copyIconProps === 'object')
-    ? copyIconProps
-    : {};
-  const {
-    onClick: copyButtonOnClick,
-    disabled: copyButtonDisabled,
-    children: copyButtonChildren,
-    ...copyButtonDomProps
-  } = copyBtnProps as Record<string, unknown>;
-
-  const deleteBtnProps = (deleteIconProps && typeof deleteIconProps === 'object')
-    ? deleteIconProps
-    : {};
-  const {
-    onClick: deleteButtonOnClick,
-    disabled: deleteButtonDisabled,
-    children: deleteButtonChildren,
-    ...deleteButtonDomProps
-  } = deleteBtnProps as Record<string, unknown>;
-
-  const copyButtonClick = copyButtonOnClick as ((event: MouseEvent<HTMLButtonElement>) => void) | undefined;
-  const deleteButtonClick = deleteButtonOnClick as ((event: MouseEvent<HTMLButtonElement>) => void) | undefined;
-  const copyButtonNode = copyButtonChildren as ReactNode;
-  const deleteButtonNode = deleteButtonChildren as ReactNode;
+  const copyBtn = extractButtonProps(copyIconProps);
+  const deleteBtn = extractButtonProps(deleteIconProps);
 
   const defaultDom = {
     delete: deleteIconProps === false
@@ -88,16 +68,16 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
       : (
         <Button
           key={`delete-${fieldId}`}
-          {...deleteButtonDomProps}
+          {...deleteBtn.domProps}
           type='button'
           severity='secondary'
-          onClick={(event: MouseEvent<HTMLButtonElement>) => {
+          onClick={(event) => {
             removeAt(index);
-            deleteButtonClick?.(event);
+            deleteBtn.onClick?.(event);
           }}
-          disabled={!canRemove || !!deleteButtonDisabled}
+          disabled={!canRemove || deleteBtn.disabled}
         >
-          {deleteButtonNode ?? 'Delete'}
+          {deleteBtn.children ?? DEFAULT_TEXT.delete}
         </Button>
       ),
     copy: copyIconProps === false
@@ -105,16 +85,16 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
       : (
         <Button
           key={`copy-${fieldId}`}
-          {...copyButtonDomProps}
+          {...copyBtn.domProps}
           type='button'
           severity='secondary'
-          onClick={(event: MouseEvent<HTMLButtonElement>) => {
+          onClick={(event) => {
             copy(index);
-            copyButtonClick?.(event);
+            copyBtn.onClick?.(event);
           }}
-          disabled={!canAdd || !!copyButtonDisabled}
+          disabled={!canAdd || copyBtn.disabled}
         >
-          {copyButtonNode ?? 'Copy'}
+          {copyBtn.children ?? DEFAULT_TEXT.copy}
         </Button>
       ),
   };
@@ -124,7 +104,7 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
     : [defaultDom.copy, defaultDom.delete].filter(Boolean);
 
   const rowNode = (
-    <div className='om-react-ui-proform-list-row-actions'>
+    <div className={`${CSS_PREFIX}-list-row-actions`}>
       {renderedActions as ReactNode}
     </div>
   );
@@ -257,7 +237,7 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   const creatorConfig: CreatorConfig | undefined = hasCreator && creatorButtonProps
     ? creatorButtonProps as CreatorConfig
     : hasCreator ? {} as CreatorConfig : undefined;
-  const creatorText = creatorConfig?.text ?? 'Add';
+  const creatorText = creatorConfig?.text ?? DEFAULT_TEXT.add;
   const creatorPosition = creatorConfig?.position ?? 'bottom';
 
   const {
@@ -301,14 +281,14 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     : actionRows;
 
   return (
-    <div className='om-react-ui-proform-list'>
-      {label && <div className='om-react-ui-proform-list-label'>{label}</div>}
+    <div className={`${CSS_PREFIX}-list`}>
+      {label && <div className={`${CSS_PREFIX}-list-label`}>{label}</div>}
 
       {hasCreator && creatorPosition === 'top' && (
         <Button
           {...creatorButtonDomProps}
           type='button'
-          onClick={(event: MouseEvent<HTMLButtonElement>) => {
+          onClick={(event) => {
             add({}, fields.length);
             creatorButtonOnClick?.(event);
           }}
@@ -318,14 +298,14 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
         </Button>
       )}
 
-      <div className='om-react-ui-proform-list-content'>{listDom}</div>
-      <div className='om-react-ui-proform-list-actions'>{actionsNode}</div>
+      <div className={`${CSS_PREFIX}-list-content`}>{listDom}</div>
+      <div className={`${CSS_PREFIX}-list-actions`}>{actionsNode}</div>
 
       {hasCreator && creatorPosition === 'bottom' && (
         <Button
           {...creatorButtonDomProps}
           type='button'
-          onClick={(event: MouseEvent<HTMLButtonElement>) => {
+          onClick={(event) => {
             add();
             creatorButtonOnClick?.(event);
           }}

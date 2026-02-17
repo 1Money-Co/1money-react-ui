@@ -2,15 +2,10 @@ import { useContext } from 'react';
 import { FormItem } from '../../Form';
 import { Col } from '../../Grid';
 import { ProFormContext } from '../ProForm';
+import { DEFAULT_COL_SPAN, WIDTH_SIZE_MAP } from '../constants';
 import type { ComponentType, ReactNode } from 'react';
 import type { ProFormFieldProps } from '../interface';
 
-const WIDTH_MAP: Record<string, number> = {
-  sm: 160,
-  md: 240,
-  lg: 320,
-  xl: 420,
-};
 const TEXT_LIKE_INPUT_TYPES = new Set(['text', 'password', 'textarea', 'mask', 'otp', 'autocomplete']);
 type UnknownRecord = Record<string, unknown>;
 
@@ -132,7 +127,7 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
               ? {
                 style: {
                   ...((currentFieldProps.style as UnknownRecord | undefined) || {}),
-                  width: typeof width === 'number' ? width : WIDTH_MAP[width] ?? width,
+                  width: typeof width === 'number' ? width : WIDTH_SIZE_MAP[width] ?? width,
                 },
               }
               : {}),
@@ -157,7 +152,7 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
     );
 
     if (ctx?.grid) {
-      return <Col span={colProps?.span ?? ctx?.colProps?.span ?? 24}>{node}</Col>;
+      return <Col span={colProps?.span ?? ctx?.colProps?.span ?? DEFAULT_COL_SPAN}>{node}</Col>;
     }
 
     return node;

@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Button } from '../Button';
+import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
 import type { MouseEvent, ReactElement } from 'react';
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import type { SubmitterProps } from './interface';
@@ -11,8 +12,8 @@ type InnerSubmitterProps<TFieldValues extends FieldValues = FieldValues> = Submi
 
 function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: InnerSubmitterProps<TFieldValues>) {
   const {
-    submitText = 'Submit',
-    resetText = 'Reset',
+    submitText = DEFAULT_TEXT.submit,
+    resetText = DEFAULT_TEXT.reset,
     render,
     onSubmit,
     onReset,
@@ -70,7 +71,7 @@ function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: In
     : dom;
 
   return (
-    <div className='om-react-ui-proform-submitter'>
+    <div className={`${CSS_PREFIX}-submitter`}>
       {renderedDom}
     </div>
   );

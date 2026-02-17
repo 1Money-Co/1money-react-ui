@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 import { Row } from '../Grid';
 import { Form } from '../Form';
 import Submitter from './Submitter';
+import { DEFAULT_COL_SPAN } from './constants';
+import { isSubmitterEnabled } from './utils';
 import type { FieldValues } from 'react-hook-form';
 import type { FormProps } from '../Form';
 import type { ProFormProps } from './interface';
@@ -37,7 +39,7 @@ export interface ProFormContextValue {
 export const ProFormContext = createContext<ProFormContextValue>({
   readonly: false,
   grid: false,
-  colProps: { span: 24 },
+  colProps: { span: DEFAULT_COL_SPAN },
 });
 
 export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: ProFormProps<TFieldValues>) {
@@ -45,7 +47,7 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     submitter,
     readonly = false,
     grid = false,
-    colProps = { span: 24 },
+    colProps = { span: DEFAULT_COL_SPAN },
     rowProps,
     form: externalForm,
     request,
@@ -96,19 +98,19 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
 
   const handleReset = useCallback(() => {
     form.reset(defaultValues);
-    if (submitter !== false && submitter != null) {
+    if (isSubmitterEnabled(submitter)) {
       submitter.onReset?.();
     }
   }, [form, defaultValues, submitter]);
 
   const handleSubmitClick = useCallback(() => {
-    if (submitter !== false && submitter != null) {
+    if (isSubmitterEnabled(submitter)) {
       submitter.onSubmit?.();
     }
   }, [submitter]);
 
   const handleSubmitFromRender = useCallback(() => {
-    if (submitter !== false && submitter != null) {
+    if (isSubmitterEnabled(submitter)) {
       submitter.onSubmit?.();
     }
     void form.handleSubmit(handleFinish, onFinishFailed)(undefined);

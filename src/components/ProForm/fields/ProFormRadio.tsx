@@ -1,4 +1,5 @@
 import { RadioGroup } from '../../RadioGroup';
+import { findOptionLabel } from '../utils';
 import createProFormField from './createProFormField';
 
 interface RadioItemLike {
@@ -10,11 +11,8 @@ interface RadioItemLike {
 export const ProFormRadio = createProFormField({
   component: RadioGroup,
   renderReadonly: (value, props) => {
-    const items = Array.isArray((props as { items?: RadioItemLike[] } | undefined)?.items)
-      ? (props as { items?: RadioItemLike[] }).items || []
-      : [];
-    const matched = items.find((item) => item?.key === value || item?.value === value);
-    return matched?.label ?? value ?? '-';
+    const items = (props as { items?: RadioItemLike[] } | undefined)?.items;
+    return findOptionLabel(value, items, 'both');
   },
 });
 

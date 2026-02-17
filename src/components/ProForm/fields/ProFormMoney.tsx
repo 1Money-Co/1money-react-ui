@@ -1,9 +1,10 @@
 import { InputAmount } from '../../InputAmount';
+import { renderNumericReadonly } from '../utils';
 import createProFormField from './createProFormField';
 
 export const ProFormMoney = createProFormField({
   component: InputAmount,
-  renderReadonly: (value) => (value == null || value === '' ? '-' : String(value)),
+  renderReadonly: renderNumericReadonly,
 });
 
 export default ProFormMoney;

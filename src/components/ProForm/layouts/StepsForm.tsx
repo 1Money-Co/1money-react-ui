@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { Button } from '../../Button';
 import ProForm from '../ProForm';
+import { CSS_PREFIX, DEFAULT_TEXT } from '../constants';
 import type { FC, ReactElement } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, StepFormProps, StepsFormProps } from '../interface';
@@ -96,10 +97,10 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
 
   const prevText = submitter !== false && submitter?.prevText
     ? submitter.prevText
-    : 'Previous';
+    : DEFAULT_TEXT.previous;
   const nextText = submitter !== false && submitter?.nextText
     ? submitter.nextText
-    : 'Next';
+    : DEFAULT_TEXT.next;
 
   const { className: stepsClassName, ...stepsRestHtml } = stepsHtmlProps;
   const { className: stepClassName, ...stepRestHtml } = stepHtmlProps;
@@ -107,14 +108,14 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
   return (
     <div
       {...stepsRestHtml}
-      className={`om-react-ui-proform-steps-form${stepsClassName ? ` ${stepsClassName}` : ''}`}
+      className={`${CSS_PREFIX}-steps-form${stepsClassName ? ` ${stepsClassName}` : ''}`}
     >
       <div
         {...stepRestHtml}
-        className={`om-react-ui-proform-steps-form-step${stepClassName ? ` ${stepClassName}` : ''}`}
+        className={`${CSS_PREFIX}-steps-form-step${stepClassName ? ` ${stepClassName}` : ''}`}
       >
-        {title && <div className='om-react-ui-proform-steps-form-title'>{title}</div>}
-        {description && <div className='om-react-ui-proform-steps-form-description'>{description}</div>}
+        {title && <div className={`${CSS_PREFIX}-steps-form-title`}>{title}</div>}
+        {description && <div className={`${CSS_PREFIX}-steps-form-description`}>{description}</div>}
         <ProForm
           key={`step-${mergedCurrent}`}
           {...formProps as Partial<ProFormProps<FieldValues>>}
@@ -124,14 +125,14 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
           onFinish={handleStepFinish}
         >
           {stepChildren}
-          <div className='om-react-ui-proform-steps-form-actions'>
+          <div className={`${CSS_PREFIX}-steps-form-actions`}>
             {mergedCurrent > 0 && (
               <Button type='button' severity='secondary' onClick={() => setCurrent(mergedCurrent - 1)}>
                 {prevText}
               </Button>
             )}
             <Button type='submit'>
-              {mergedCurrent >= steps.length - 1 ? 'Submit' : nextText}
+              {mergedCurrent >= steps.length - 1 ? DEFAULT_TEXT.submit : nextText}
             </Button>
           </div>
         </ProForm>

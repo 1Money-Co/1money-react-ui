@@ -1,10 +1,11 @@
 import { Input } from '../../Input';
+import { renderNumericReadonly } from '../utils';
 import createProFormField from './createProFormField';
 
 export const ProFormDigit = createProFormField({
   component: Input,
   mapProps: () => ({ type: 'number' }),
-  renderReadonly: (value) => (value == null || value === '' ? '-' : String(value)),
+  renderReadonly: renderNumericReadonly,
 });
 
 export default ProFormDigit;

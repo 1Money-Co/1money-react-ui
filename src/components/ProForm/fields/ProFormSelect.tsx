@@ -1,4 +1,5 @@
 import { Select } from '../../Select';
+import { findOptionLabel } from '../utils';
 import createProFormField from './createProFormField';
 
 interface OptionLike {
@@ -9,11 +10,8 @@ interface OptionLike {
 export const ProFormSelect = createProFormField({
   component: Select,
   renderReadonly: (value, props) => {
-    const options = Array.isArray((props as { options?: OptionLike[] } | undefined)?.options)
-      ? (props as { options?: OptionLike[] }).options || []
-      : [];
-    const matched = options.find((item) => item?.value === value);
-    return matched?.label ?? value ?? '-';
+    const options = (props as { options?: OptionLike[] } | undefined)?.options;
+    return findOptionLabel(value, options, 'value');
   },
 });
 
