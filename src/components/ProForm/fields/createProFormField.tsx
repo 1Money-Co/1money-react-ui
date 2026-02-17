@@ -3,7 +3,7 @@ import { FormItem } from '../../Form';
 import { Col } from '../../Grid';
 import { ProFormContext } from '../ProForm';
 import { DEFAULT_COL_SPAN, WIDTH_SIZE_MAP } from '../constants';
-import type { ComponentType, ReactNode } from 'react';
+import type { ComponentType, CSSProperties, ReactNode } from 'react';
 import type { ProFormFieldProps } from '../interface';
 import type { UnknownRecord } from '../utils';
 
@@ -11,62 +11,64 @@ import type { UnknownRecord } from '../utils';
 const TEXT_LIKE_INPUT_TYPES = new Set(['text', 'password', 'textarea', 'mask', 'otp', 'autocomplete']);
 
 /**
+ * Safely reads a named property from an unknown object or its nested `target`.
+ * Returns `undefined` when the property is not found at either level.
+ */
+const readProp = (obj: unknown, prop: string): unknown => {
+  if (!obj || typeof obj !== 'object') return undefined;
+  const record = obj as UnknownRecord;
+  if (prop in record) return record[prop];
+  if (record.target && typeof record.target === 'object' && prop in (record.target as UnknownRecord)) {
+    return (record.target as UnknownRecord)[prop];
+  }
+  return undefined;
+};
+
+/**
  * Extracts the underlying value from a change event or raw value,
  * handling both synthetic React events and plain values.
- *
- * @param valuePropName - The prop name used for the field value (e.g. `'value'` or `'checked'`).
- * @param event - The raw event or value from the `onChange` handler.
- * @returns The extracted value.
  */
-const getEventValue = (valuePropName: string, event: unknown) => {
+const getEventValue = (valuePropName: string, event: unknown): unknown => {
   if (valuePropName === 'checked') {
     if (typeof event === 'boolean') return event;
-    if (event && typeof event === 'object') {
-      const eventRecord = event as UnknownRecord;
-      if ('checked' in eventRecord) return eventRecord.checked;
-      if ('value' in eventRecord) return eventRecord.value;
-      if (eventRecord.target && typeof eventRecord.target === 'object') {
-        const targetRecord = eventRecord.target as UnknownRecord;
-        if ('checked' in targetRecord) return targetRecord.checked;
-        if ('value' in targetRecord) return targetRecord.value;
-      }
-    }
-    return event;
+    return readProp(event, 'checked') ?? readProp(event, 'value') ?? event;
   }
-
-  if (event && typeof event === 'object') {
-    const eventRecord = event as UnknownRecord;
-    if ('value' in eventRecord) return eventRecord.value;
-    if (eventRecord.target && typeof eventRecord.target === 'object' && 'value' in (eventRecord.target as UnknownRecord)) {
-      return (eventRecord.target as UnknownRecord).value;
-    }
-  }
-
-  return event;
+  return readProp(event, 'value') ?? event;
 };
 
 /**
  * Returns a sensible default when the field value is `undefined`,
  * based on the value prop name, input type, and multi-select mode.
- *
- * @param value - The current field value.
- * @param valuePropName - `'value'` or `'checked'`.
- * @param inputType - The input element type (e.g. `'text'`, `'number'`).
- * @param isMultiple - Whether the field supports multiple selections.
- * @returns The normalized value.
  */
 const normalizeFieldValue = (
   value: unknown,
   valuePropName: string,
   inputType: unknown,
   isMultiple: boolean,
-) => {
+): unknown => {
   if (value !== undefined) return value;
   if (valuePropName === 'checked') return false;
   if (isMultiple) return [];
   if (inputType === 'number') return null;
   if (typeof inputType === 'string' && TEXT_LIKE_INPUT_TYPES.has(inputType)) return '';
   return null;
+};
+
+/** Resolves a width preset name or number into a CSS-compatible pixel value. */
+const resolveWidth = (width: string | number): string | number =>
+  typeof width === 'number' ? width : WIDTH_SIZE_MAP[width] ?? width;
+
+/** Returns an object containing only the entries whose values are not `undefined`. */
+const pickDefined = <T extends UnknownRecord>(obj: T): Partial<T> =>
+  Object.fromEntries(Object.entries(obj).filter(([, v]) => v !== undefined)) as Partial<T>;
+
+/** Composes two optional callbacks so both are invoked in order. */
+const chainFn = (
+  first: ((...args: unknown[]) => void) | undefined,
+  second: ((...args: unknown[]) => void) | undefined,
+) => (...args: unknown[]) => {
+  first?.(...args);
+  second?.(...args);
 };
 
 /**
@@ -138,67 +140,49 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
 
     if (hidden) return null;
 
-    const node = (
-      <FormItem
-        name={name}
-        label={label}
-        rules={rules}
-        required={required}
-        help={help}
-        extra={extra}
-        dependencies={dependencies}
-        validateTrigger={validateTrigger}
-        labelCol={labelCol}
-        wrapperCol={wrapperCol}
-        noStyle={noStyle}
-        valuePropName={valuePropName}
-      >
-        {({ field }) => {
-          const currentFieldProps = (fieldProps ?? {}) as Partial<FieldProps> & UnknownRecord;
-          if (mergedReadonly) {
-            const readonlyValue = renderReadonly
-              ? renderReadonly(field?.value, fieldProps as Partial<FieldProps> | undefined)
-              : (field?.value ?? '-');
-            return <span>{readonlyValue as ReactNode}</span>;
-          }
+    const formItemProps = {
+      name, label, rules, required, help, extra,
+      dependencies, validateTrigger, labelCol, wrapperCol, noStyle, valuePropName,
+    };
 
-          const mapped = mapProps ? mapProps(rest as UnknownRecord) : {};
-          const inputType = mapped.type ?? currentFieldProps.type;
-          const isMultiple = Boolean(mapped.multiple);
-          const nextProps: UnknownRecord = {
-            ...mapped,
-            ...currentFieldProps,
-            ...(placeholder !== undefined ? { placeholder } : {}),
-            ...(disabled !== undefined ? { disabled } : {}),
-            ...(width !== undefined
-              ? {
-                style: {
-                  ...((currentFieldProps.style as UnknownRecord | undefined) || {}),
-                  width: typeof width === 'number' ? width : WIDTH_SIZE_MAP[width] ?? width,
-                },
-              }
-              : {}),
-          };
+    const renderField = ({ field }: { field?: UnknownRecord }): ReactNode => {
+      const currentFieldProps = (fieldProps ?? {}) as Partial<FieldProps> & UnknownRecord;
 
-          if (field?.name) nextProps.name = field.name;
-          if ((field as UnknownRecord)?.invalid !== undefined) nextProps.invalid = (field as UnknownRecord).invalid;
-          if ((field as UnknownRecord)?.success !== undefined) nextProps.success = (field as UnknownRecord).success;
-          nextProps.onBlur = (...args: unknown[]) => {
-            field?.onBlur?.();
-            (currentFieldProps.onBlur as ((...eventArgs: unknown[]) => void) | undefined)?.(...args);
-          };
+      if (mergedReadonly) {
+        const readonlyValue = renderReadonly
+          ? renderReadonly(field?.value, fieldProps as Partial<FieldProps> | undefined)
+          : (field?.value ?? '-');
+        return <span>{readonlyValue as ReactNode}</span>;
+      }
 
-          nextProps[valuePropName] = normalizeFieldValue(field?.value, valuePropName, inputType, isMultiple);
-          nextProps.onChange = (...args: unknown[]) => {
-            const value = getEventValue(valuePropName, args[0]);
-            field?.onChange?.(value);
-            (currentFieldProps.onChange as ((...eventArgs: unknown[]) => void) | undefined)?.(...args);
-          };
+      const mapped = mapProps ? mapProps(rest as UnknownRecord) : {};
+      const inputType = mapped.type ?? currentFieldProps.type;
+      const isMultiple = Boolean(mapped.multiple);
 
-          return <FieldComponent {...nextProps} />;
-        }}
-      </FormItem>
-    );
+      const widthStyle: CSSProperties | undefined = width !== undefined
+        ? { ...(currentFieldProps.style as CSSProperties | undefined), width: resolveWidth(width) }
+        : undefined;
+
+      const nextProps: UnknownRecord = {
+        ...mapped,
+        ...currentFieldProps,
+        ...pickDefined({ placeholder, disabled, name: field?.name, invalid: field?.invalid, success: field?.success }),
+        ...(widthStyle ? { style: widthStyle } : {}),
+        [valuePropName]: normalizeFieldValue(field?.value, valuePropName, inputType, isMultiple),
+        onBlur: chainFn(
+          () => (field?.onBlur as (() => void) | undefined)?.(),
+          currentFieldProps.onBlur as ((...args: unknown[]) => void) | undefined,
+        ),
+        onChange: (...args: unknown[]) => {
+          (field?.onChange as ((v: unknown) => void) | undefined)?.(getEventValue(valuePropName, args[0]));
+          (currentFieldProps.onChange as ((...args: unknown[]) => void) | undefined)?.(...args);
+        },
+      };
+
+      return <FieldComponent {...nextProps} />;
+    };
+
+    const node = <FormItem {...formItemProps}>{renderField}</FormItem>;
 
     if (ctx?.grid) {
       return <Col span={colProps?.span ?? ctx?.colProps?.span ?? DEFAULT_COL_SPAN}>{node}</Col>;
