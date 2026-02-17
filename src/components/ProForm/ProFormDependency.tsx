@@ -7,7 +7,7 @@ export interface ProFormDependencyProps {
   children: (values: Record<string, unknown>) => ReactNode;
 }
 
-export const ProFormDependency: FC<ProFormDependencyProps> = memo((props) => {
+const ProFormDependencyBase: FC<ProFormDependencyProps> = (props) => {
   const { name, children } = props;
   const form = useFormContext();
   const watchedValues = useWatch({ control: form.control, name });
@@ -23,6 +23,10 @@ export const ProFormDependency: FC<ProFormDependencyProps> = memo((props) => {
   }, [name, watchedValues]);
 
   return <>{children(values)}</>;
-});
+};
+
+ProFormDependencyBase.displayName = 'ProFormDependency';
+
+export const ProFormDependency = memo(ProFormDependencyBase);
 
 export default ProFormDependency;

@@ -5,7 +5,7 @@ import type { CSSProperties, FC } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
 
-export const QueryFilter: FC<QueryFilterProps<FieldValues>> = memo((props) => {
+const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
   const {
     defaultCollapsed = true,
     collapsed,
@@ -104,6 +104,10 @@ export const QueryFilter: FC<QueryFilterProps<FieldValues>> = memo((props) => {
       </ProForm>
     </div>
   );
-});
+};
+
+QueryFilterBase.displayName = 'QueryFilter';
+
+export const QueryFilter = memo(QueryFilterBase);
 
 export default QueryFilter;

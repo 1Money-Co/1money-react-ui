@@ -2,11 +2,13 @@ import { memo } from 'react';
 import { Drawer } from '../../Drawer';
 import ProForm from '../ProForm';
 import { useOverlayForm } from './useOverlayForm';
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { DrawerFormProps } from '../interface';
 
-export const DrawerForm: FC<DrawerFormProps<FieldValues>> = memo((props) => {
+function DrawerFormBase<TFieldValues extends FieldValues = FieldValues>(
+  props: DrawerFormProps<TFieldValues>,
+) {
   const {
     open,
     onOpenChange,
@@ -31,7 +33,7 @@ export const DrawerForm: FC<DrawerFormProps<FieldValues>> = memo((props) => {
     handleFinish,
     handleHide,
     mergedStyle,
-  } = useOverlayForm<FieldValues>({
+  } = useOverlayForm<TFieldValues>({
     open,
     onOpenChange,
     trigger,
@@ -56,7 +58,7 @@ export const DrawerForm: FC<DrawerFormProps<FieldValues>> = memo((props) => {
           onHide={handleHide}
         >
           <div className='om-react-ui-proform-drawer-form'>
-            <ProForm
+            <ProForm<TFieldValues>
               {...formProps}
               onFinish={handleFinish}
             >
@@ -67,6 +69,10 @@ export const DrawerForm: FC<DrawerFormProps<FieldValues>> = memo((props) => {
       )}
     </>
   );
-});
+}
+
+DrawerFormBase.displayName = 'DrawerForm';
+
+export const DrawerForm = memo(DrawerFormBase) as typeof DrawerFormBase;
 
 export default DrawerForm;

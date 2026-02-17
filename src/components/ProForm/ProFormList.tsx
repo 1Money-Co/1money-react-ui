@@ -2,6 +2,7 @@ import { DndContext } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import { Button } from '../Button';
 import type { DragEndEvent } from '@dnd-kit/core';
 import type { CSSProperties, FC, MouseEvent, ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
@@ -85,10 +86,11 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
     delete: deleteIconProps === false
       ? null
       : (
-        <button
+        <Button
           key={`delete-${fieldId}`}
           {...deleteButtonDomProps}
           type='button'
+          severity='secondary'
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
             removeAt(index);
             deleteButtonClick?.(event);
@@ -96,15 +98,16 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
           disabled={!canRemove || !!deleteButtonDisabled}
         >
           {deleteButtonNode ?? 'Delete'}
-        </button>
+        </Button>
       ),
     copy: copyIconProps === false
       ? null
       : (
-        <button
+        <Button
           key={`copy-${fieldId}`}
           {...copyButtonDomProps}
           type='button'
+          severity='secondary'
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
             copy(index);
             copyButtonClick?.(event);
@@ -112,7 +115,7 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
           disabled={!canAdd || !!copyButtonDisabled}
         >
           {copyButtonNode ?? 'Copy'}
-        </button>
+        </Button>
       ),
   };
 
@@ -166,7 +169,7 @@ const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
 
 type CreatorConfig = ButtonProps & { text?: ReactNode; position?: 'top' | 'bottom' };
 
-export const ProFormList: FC<ProFormListProps<FieldValues>> = memo((props) => {
+const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   const {
     name,
     label,
@@ -302,37 +305,41 @@ export const ProFormList: FC<ProFormListProps<FieldValues>> = memo((props) => {
       {label && <div className='om-react-ui-proform-list-label'>{label}</div>}
 
       {hasCreator && creatorPosition === 'top' && (
-        <button
+        <Button
           {...creatorButtonDomProps}
           type='button'
-          onClick={(event) => {
+          onClick={(event: MouseEvent<HTMLButtonElement>) => {
             add({}, fields.length);
-            creatorButtonOnClick?.(event as unknown as MouseEvent<HTMLButtonElement>);
+            creatorButtonOnClick?.(event);
           }}
           disabled={!canAdd || !!creatorButtonDisabled}
         >
           {creatorText}
-        </button>
+        </Button>
       )}
 
       <div className='om-react-ui-proform-list-content'>{listDom}</div>
       <div className='om-react-ui-proform-list-actions'>{actionsNode}</div>
 
       {hasCreator && creatorPosition === 'bottom' && (
-        <button
+        <Button
           {...creatorButtonDomProps}
           type='button'
-          onClick={(event) => {
+          onClick={(event: MouseEvent<HTMLButtonElement>) => {
             add();
-            creatorButtonOnClick?.(event as unknown as MouseEvent<HTMLButtonElement>);
+            creatorButtonOnClick?.(event);
           }}
           disabled={!canAdd || !!creatorButtonDisabled}
         >
           {creatorText}
-        </button>
+        </Button>
       )}
     </div>
   );
-});
+};
+
+ProFormListBase.displayName = 'ProFormList';
+
+export const ProFormList = memo(ProFormListBase);
 
 export default ProFormList;

@@ -63,7 +63,8 @@ function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: In
     </Button>
   );
 
-  const dom = [submitDom, resetDom];
+  // Button order: Reset first, Submit last (standard form UX pattern)
+  const dom = [resetDom, submitDom];
   const renderedDom = render
     ? render({ form, submit: handleRenderSubmit, reset: () => onReset?.() }, dom as ReactElement[])
     : dom;
@@ -74,6 +75,8 @@ function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: In
     </div>
   );
 }
+
+SubmitterBase.displayName = 'Submitter';
 
 export const Submitter = memo(SubmitterBase) as typeof SubmitterBase;
 

@@ -6,6 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react';
+import { Button } from '../../Button';
 import ProForm from '../ProForm';
 import type { FC, ReactElement } from 'react';
 import type { FieldValues } from 'react-hook-form';
@@ -29,7 +30,7 @@ const pickHtmlDivProps = (props: Record<string, unknown>): Record<string, unknow
   return result;
 };
 
-const StepsFormBase: FC<StepsFormProps<FieldValues>> = memo((props) => {
+const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
   const {
     current,
     onCurrentChange,
@@ -125,19 +126,27 @@ const StepsFormBase: FC<StepsFormProps<FieldValues>> = memo((props) => {
           {stepChildren}
           <div className='om-react-ui-proform-steps-form-actions'>
             {mergedCurrent > 0 && (
-              <button type='button' onClick={() => setCurrent(mergedCurrent - 1)}>{prevText}</button>
+              <Button type='button' severity='secondary' onClick={() => setCurrent(mergedCurrent - 1)}>
+                {prevText}
+              </Button>
             )}
-            <button type='submit'>
+            <Button type='submit'>
               {mergedCurrent >= steps.length - 1 ? 'Submit' : nextText}
-            </button>
+            </Button>
           </div>
         </ProForm>
-        </div>
+      </div>
     </div>
   );
-});
+};
 
-export const StepsForm = StepsFormBase as StepsFormComponent;
+StepsFormInner.displayName = 'StepsForm';
+
+const StepsFormBase = memo(StepsFormInner);
+
+// Type assertion required because memo() loses the static StepForm property type.
+// We attach StepForm as a static property below, making this a compound component pattern.
+export const StepsForm = StepsFormBase as unknown as StepsFormComponent;
 StepsForm.StepForm = StepForm;
 
 export default StepsForm;

@@ -2,12 +2,14 @@ import { memo, useEffect, useRef } from 'react';
 import { Modal } from '../../Modal';
 import ProForm from '../ProForm';
 import { useOverlayForm } from './useOverlayForm';
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ModalHandlers } from '../../Modal';
 import type { ModalFormProps } from '../interface';
 
-export const ModalForm: FC<ModalFormProps<FieldValues>> = memo((props) => {
+function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
+  props: ModalFormProps<TFieldValues>,
+) {
   const {
     open,
     onOpenChange,
@@ -33,7 +35,7 @@ export const ModalForm: FC<ModalFormProps<FieldValues>> = memo((props) => {
     handleFinish,
     handleHide,
     mergedStyle,
-  } = useOverlayForm<FieldValues>({
+  } = useOverlayForm<TFieldValues>({
     open,
     onOpenChange,
     trigger,
@@ -67,7 +69,7 @@ export const ModalForm: FC<ModalFormProps<FieldValues>> = memo((props) => {
           onHide={handleHide}
         >
           <div className='om-react-ui-proform-modal-form'>
-            <ProForm
+            <ProForm<TFieldValues>
               {...formProps}
               onFinish={handleFinish}
             >
@@ -78,6 +80,10 @@ export const ModalForm: FC<ModalFormProps<FieldValues>> = memo((props) => {
       )}
     </>
   );
-});
+}
+
+ModalFormBase.displayName = 'ModalForm';
+
+export const ModalForm = memo(ModalFormBase) as typeof ModalFormBase;
 
 export default ModalForm;
