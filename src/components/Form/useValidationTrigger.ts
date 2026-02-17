@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import type { FieldPath, FieldValues } from 'react-hook-form';
 import { DEBOUNCE_MIN, TRIGGER_BLUR, TRIGGER_CHANGE } from './constants';
-import { normalizeValidateTrigger } from './helper';
+import { normalizeValidateTrigger, shallowEqualArray } from './helper';
 import type { FormItemProps } from './interface';
 
 interface UseValidationTriggerArgs<TFieldValues extends FieldValues> {
@@ -54,10 +54,7 @@ export function useValidationTrigger<TFieldValues extends FieldValues = FieldVal
       prevDepValuesRef.current = nextDeps;
       return;
     }
-    const isSame = !!prevDeps
-      && prevDeps.length === nextDeps.length
-      && nextDeps.every((value, index) => Object.is(value, prevDeps[index]));
-    if (isSame) return;
+    if (shallowEqualArray(prevDeps, nextDeps)) return;
     prevDepValuesRef.current = nextDeps;
     triggerValidation();
   }, [depValues, dependencies?.length, name, triggerValidation]);

@@ -1,5 +1,6 @@
-import type { CSSProperties, ReactElement, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import type {
+  Control,
   DefaultValues,
   FieldErrors,
   FieldPath,
@@ -11,6 +12,7 @@ import type {
   ControllerRenderProps,
   ControllerFieldState,
 } from 'react-hook-form';
+import type { TRIGGER_BLUR, TRIGGER_CHANGE } from './constants';
 
 export type FormItemRules<TFieldValues extends FieldValues = FieldValues> = Pick<
   RegisterOptions<TFieldValues>,
@@ -100,4 +102,26 @@ export interface FormItemProps<TFieldValues extends FieldValues = FieldValues> {
   labelCol?: number;
   wrapperCol?: number;
   children?: ReactNode | ((props: FormItemRenderProps<TFieldValues>) => ReactNode);
+}
+
+export interface FormItemContentProps<TFieldValues extends FieldValues = FieldValues> {
+  name?: FieldPath<TFieldValues>;
+  control: Control<TFieldValues>;
+  methods: UseFormReturn<TFieldValues>;
+  rules?: FormItemRules<TFieldValues>;
+  defaultValue?: FormItemProps<TFieldValues>['defaultValue'];
+  validateStatus?: FormValidateStatus;
+  valuePropName: string;
+  help?: ReactNode;
+  extra?: ReactNode;
+  ctx: FormContextValue | null;
+  children: FormItemProps<TFieldValues>['children'];
+  renderFn: FormItemRenderFn<TFieldValues> | null;
+  allValues: TFieldValues;
+  shouldUpdate?: FormItemProps<TFieldValues>['shouldUpdate'];
+  shouldRender: boolean;
+  withTrigger: (
+    mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR,
+    fn?: (...args: unknown[]) => void
+  ) => (...args: unknown[]) => void;
 }

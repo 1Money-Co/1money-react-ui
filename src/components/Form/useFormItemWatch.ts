@@ -18,6 +18,9 @@ interface UseFormItemWatchArgs<TFieldValues extends FieldValues> {
   name?: FieldPath<TFieldValues>;
 }
 
+// Module-level constant to avoid recreating empty array on each render.
+const EMPTY_NAMES: never[] = [];
+
 /**
  * Consolidates the three `useWatch` subscriptions + allValues derivation +
  * shouldRender gating into a single hook.
@@ -31,28 +34,25 @@ export function useFormItemWatch<TFieldValues extends FieldValues = FieldValues>
   name,
 }: UseFormItemWatchArgs<TFieldValues>): UseFormItemWatchResult<TFieldValues> {
   const shouldWatchAllValues = shouldUpdate === true || typeof shouldUpdate === 'function';
-  const depNames = (dependencies?.length ? dependencies : []) as FieldPath<TFieldValues>[];
+  const depNames = (dependencies?.length ? dependencies : EMPTY_NAMES) as FieldPath<TFieldValues>[];
   const shouldWatchDeps = !!(name && depNames.length);
-  const watchNamesList = (watchNames?.length ? watchNames : undefined) as FieldPath<TFieldValues>[] | undefined;
-  const shouldWatchNames = !!watchNamesList?.length;
-  const emptyNames = useMemo(() => [] as FieldPath<TFieldValues>[], []);
+  const watchNamesList = (watchNames?.length ? watchNames : EMPTY_NAMES) as FieldPath<TFieldValues>[];
+  const shouldWatchNames = !!watchNames?.length;
 
   const depValues = useWatch({ control, name: depNames, disabled: !shouldWatchDeps });
   const watchedAllValues = useWatch({ control, disabled: !shouldWatchAllValues });
   const watchedNamesValues = useWatch({
     control,
-    name: shouldWatchNames ? watchNamesList : emptyNames,
+    name: watchNamesList,
     disabled: !shouldWatchNames,
   });
-
-  const watchedMarker = shouldWatchAllValues ? watchedAllValues : watchedNamesValues;
 
   const allValues = useMemo(() => {
     const getValues = methods.getValues;
     if (!getValues) return {} as TFieldValues;
     if (shouldWatchAllValues) return (watchedAllValues ?? getValues()) as TFieldValues;
     return getValues();
-  }, [methods, shouldWatchAllValues, watchedAllValues, watchedMarker]);
+  }, [methods, shouldWatchAllValues, watchedAllValues, watchedNamesValues]);
 
   const prevValuesRef = useRef<TFieldValues>(allValues);
 

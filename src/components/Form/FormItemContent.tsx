@@ -3,35 +3,8 @@ import { Controller } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import { STATUS_ERROR, TRIGGER_BLUR, TRIGGER_CHANGE } from './constants';
 import { getStatusProps, resolveStatus } from './helper';
-import type {
-  ControllerRenderProps,
-  FieldPath,
-  FieldValues,
-  UseFormReturn,
-} from 'react-hook-form';
-import type { FormContextValue, FormItemProps, FormItemRenderFn, FormItemRules, FormValidateStatus } from './interface';
-
-interface FormItemContentProps<TFieldValues extends FieldValues> {
-  name?: FieldPath<TFieldValues>;
-  control: UseFormReturn<TFieldValues>['control'];
-  methods: UseFormReturn<TFieldValues>;
-  rules?: FormItemRules<TFieldValues>;
-  defaultValue?: FormItemProps<TFieldValues>['defaultValue'];
-  validateStatus?: FormValidateStatus;
-  valuePropName: string;
-  help?: React.ReactNode;
-  extra?: React.ReactNode;
-  ctx: FormContextValue | null;
-  children: FormItemProps<TFieldValues>['children'];
-  renderFn: FormItemRenderFn<TFieldValues> | null;
-  allValues: TFieldValues;
-  shouldUpdate?: FormItemProps<TFieldValues>['shouldUpdate'];
-  shouldRender: boolean;
-  withTrigger: (
-    mode: typeof TRIGGER_CHANGE | typeof TRIGGER_BLUR,
-    fn?: (...args: unknown[]) => void
-  ) => (...args: unknown[]) => void;
-}
+import type { ControllerRenderProps, FieldPath, FieldValues } from 'react-hook-form';
+import type { FormContextValue, FormItemContentProps, FormValidateStatus } from './interface';
 
 const classes = classnames('form-item');
 

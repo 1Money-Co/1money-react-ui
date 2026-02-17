@@ -8,7 +8,7 @@ import { FormItemContent } from './FormItemContent';
 import { useFormItemContext } from './useFormItemContext';
 import { useFormItemWatch } from './useFormItemWatch';
 import { useValidationTrigger } from './useValidationTrigger';
-import type { FormItemProps, FormItemRenderFn, FormItemStyle } from './interface';
+import type { FormItemContentProps, FormItemProps, FormItemRenderFn, FormItemStyle } from './interface';
 
 /**
  * Runtime type guard for render-prop children.
@@ -78,7 +78,7 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     return { ...rules, validate };
   }, [rules, validateFirst]);
 
-  const contentProps = {
+  const contentProps = useMemo<FormItemContentProps<TFieldValues>>(() => ({
     name,
     control,
     methods,
@@ -95,7 +95,11 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
     shouldUpdate,
     shouldRender,
     withTrigger,
-  };
+  }), [
+    name, control, methods, mergedRules, defaultValue, validateStatus,
+    valuePropName, help, extra, ctx, children, renderFn, allValues,
+    shouldUpdate, shouldRender, withTrigger,
+  ]);
 
   if (noStyle) {
     return <FormItemContent {...contentProps} />;

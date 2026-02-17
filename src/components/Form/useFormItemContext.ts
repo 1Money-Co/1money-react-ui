@@ -1,7 +1,10 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import { FormContext } from './Form';
+
+// Development-only warning flag (module-level to fire once per FormItem usage).
+const warnedNames = new Set<string>();
 
 /**
  * Resolves form context for FormItem.  When inside `<Form>`, uses the
@@ -19,11 +22,12 @@ export function useFormItemContext<TFieldValues extends FieldValues = FieldValue
   const control = methods.control;
   const trigger = methods.trigger;
 
-  const warnedRef = useRef(false);
-  if (name && !ctx?.methods && !warnedRef.current) {
-    warnedRef.current = true;
-    console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
-  }
+  useEffect(() => {
+    if (name && !ctx?.methods && !warnedNames.has(name)) {
+      warnedNames.add(name);
+      console.warn('[FormItem] `name` prop is set but no form control found. Wrap FormItem inside a <Form> component.');
+    }
+  }, [name, ctx?.methods]);
 
   return { ctx, methods, control, trigger };
 }

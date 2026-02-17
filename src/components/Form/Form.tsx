@@ -46,7 +46,6 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
   const methods = form ?? internalMethods;
   const valuesChangeRef = useRef<FormProps<TFieldValues>['onValuesChange']>(onValuesChange);
   const watchNamesRef = useRef<Set<FieldPath<TFieldValues>> | null>(null);
-  const hasValuesChange = !!onValuesChange;
 
   // Provide layout + disabled state + form methods to FormItem via context.
   const ctx = useMemo<FormContextValue>(() => ({
@@ -74,7 +73,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
 
   // Subscribe to all value changes when handler provided.
   useEffect(() => {
-    if (!hasValuesChange) return;
+    if (!onValuesChange) return;
     const subscription = methods.watch((values, info) => {
       const watchSet = watchNamesRef.current;
       if (watchSet) {
@@ -87,7 +86,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
       );
     });
     return () => subscription.unsubscribe();
-  }, [methods, hasValuesChange]);
+  }, [methods, onValuesChange]);
 
   // Submit success handler.
   const handleFinish = useCallback(async (values: TFieldValues) => {

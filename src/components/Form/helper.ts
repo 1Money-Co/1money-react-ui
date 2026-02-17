@@ -117,6 +117,10 @@ export const getStatusProps = (status?: FormValidateStatus) => (
       : {}
 );
 
+// Shallow compare two arrays by reference equality (Object.is).
+export const shallowEqualArray = (a: unknown[], b: unknown[]) =>
+  a.length === b.length && a.every((v, i) => Object.is(v, b[i]));
+
 // Align custom validation with RHF's ValidateResult.
 export const normalizeValidateResult = (result: ValidateResult) => (result === null ? true : result);
 
