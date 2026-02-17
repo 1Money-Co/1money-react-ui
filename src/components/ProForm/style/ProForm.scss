@@ -1,0 +1,62 @@
+.om-react-ui-proform-submitter {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.om-react-ui-proform-modal-form,
+.om-react-ui-proform-drawer-form {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.om-react-ui-proform-modal-form-title,
+.om-react-ui-proform-drawer-form-title,
+.om-react-ui-proform-steps-form-title {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.om-react-ui-proform-steps-form-description {
+  margin-bottom: 12px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.om-react-ui-proform-steps-form-actions,
+.om-react-ui-proform-query-filter-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.om-react-ui-proform-query-filter {
+  .om-react-ui-form-item-root {
+    margin-bottom: 0;
+  }
+}
+
+.om-react-ui-proform-query-filter-split {
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.om-react-ui-proform-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.om-react-ui-proform-list-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.om-react-ui-proform-list-row-actions {
+  display: flex;
+  gap: 8px;
+}

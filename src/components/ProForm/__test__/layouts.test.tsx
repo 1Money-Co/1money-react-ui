@@ -1,0 +1,213 @@
+import 'jsdom-global/register';
+import * as React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
+import { ProFormText } from '../fields';
+import { DrawerForm, ModalForm, QueryFilter, StepsForm } from '../layouts';
+
+describe('ProForm layouts', () => {
+  let consoleErrorSpy: jest.SpyInstance;
+  let consoleWarnSpy: jest.SpyInstance;
+
+  beforeAll(() => {
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
+      if (
+        typeof message === 'string' && (
+          message.includes('Could not parse CSS stylesheet') ||
+          message.includes('findDOMNode is deprecated and will be removed') ||
+          message.includes('should not be null')
+        )
+      ) {
+        return;
+      }
+      // eslint-disable-next-line no-console
+      console.log(message, ...optionalParams);
+    });
+
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
+      if (typeof message === 'string' && message.includes('[FormItem]')) return;
+      // eslint-disable-next-line no-console
+      console.log(message, ...optionalParams);
+    });
+  });
+
+  afterAll(() => {
+    consoleErrorSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
+  });
+
+  it('auto closes ModalForm when onFinish resolves truthy', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ModalForm
+        title='Create User'
+        trigger={<button type='button'>Open</button>}
+        onFinish={async () => true}
+      >
+        <ProFormText name='email' label='Email' />
+      </ModalForm>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    expect(screen.getByText('Create User')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(screen.queryByText('Create User')).not.toBeInTheDocument();
+    });
+  });
+
+  it('opens DrawerForm with trigger', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <DrawerForm title='Drawer Title' trigger={<button type='button'>Open Drawer</button>}>
+        <ProFormText name='email' label='Email' />
+      </DrawerForm>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Open Drawer' }));
+    expect(screen.getByText('Drawer Title')).toBeInTheDocument();
+  });
+
+  it('validates each step and submits merged values on last step', async () => {
+    const user = userEvent.setup();
+    const onFinish = jest.fn();
+
+    render(
+      <StepsForm onFinish={onFinish}>
+        <StepsForm.StepForm title='Step A'>
+          <ProFormText name='firstName' label='First Name' rules={{ required: 'Required' }} />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='Step B'>
+          <ProFormText name='lastName' label='Last Name' rules={{ required: 'Required' }} />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Next' }));
+    expect(await screen.findByText('Required')).toBeInTheDocument();
+
+    await user.type(screen.getByRole('textbox'), 'Ada');
+    await user.click(screen.getByRole('button', { name: 'Next' }));
+
+    expect(screen.getByText('Last Name')).toBeInTheDocument();
+
+    await user.type(screen.getByRole('textbox'), 'Lovelace');
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalledWith({ firstName: 'Ada', lastName: 'Lovelace' });
+    });
+  });
+
+  it('applies stepsProps and stepProps to current step container', () => {
+    render(
+      <StepsForm stepsProps={{ 'data-testid': 'steps-root' }}>
+        <StepsForm.StepForm title='A' stepProps={{ 'data-testid': 'step-root' }}>
+          <ProFormText name='firstName' label='First Name' />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='B'>
+          <ProFormText name='lastName' label='Last Name' />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    expect(screen.getByTestId('steps-root')).toBeInTheDocument();
+    expect(screen.getByTestId('step-root')).toBeInTheDocument();
+  });
+
+  it('shows limited fields when collapsed and all fields when expanded', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <QueryFilter defaultCollapsed defaultColsNumber={2}>
+        <ProFormText name='a' label='A' />
+        <ProFormText name='b' label='B' />
+        <ProFormText name='c' label='C' />
+      </QueryFilter>
+    );
+
+    expect(screen.queryByText('C')).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Expand' }));
+
+    expect(screen.getByText('C')).toBeInTheDocument();
+  });
+
+  it('uses searchConfig text and labelWidth/split styles in QueryFilter', async () => {
+    const user = userEvent.setup();
+    const onReset = jest.fn();
+
+    render(
+      <QueryFilter
+        defaultCollapsed
+        defaultColsNumber={1}
+        split
+        labelWidth={120}
+        onReset={onReset}
+        submitter={{
+          searchConfig: {
+            expandText: 'More',
+            collapseText: 'Less',
+          },
+        }}
+      >
+        <ProFormText name='a' label='A' />
+        <ProFormText name='b' label='B' />
+      </QueryFilter>
+    );
+
+    const root = document.querySelector('.om-react-ui-proform-query-filter');
+    expect(root).not.toBeNull();
+    expect(root).toHaveClass('om-react-ui-proform-query-filter-split');
+    expect(root).toHaveStyle('--om-form-label-width: 120px');
+
+    await user.click(screen.getByRole('button', { name: 'More' }));
+    expect(screen.getByRole('button', { name: 'Less' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Reset' }));
+    expect(onReset).toHaveBeenCalledTimes(1);
+  });
+
+  it('runs submitter.onReset before QueryFilter onReset', async () => {
+    const user = userEvent.setup();
+    const order: string[] = [];
+
+    render(
+      <QueryFilter
+        onReset={() => order.push('query')}
+        submitter={{
+          onReset: () => order.push('submitter'),
+        }}
+      >
+        <ProFormText name='a' label='A' />
+      </QueryFilter>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Reset' }));
+    expect(order).toEqual(['submitter', 'query']);
+  });
+
+  it('passes composed actions to QueryFilter submitter.render', () => {
+    const renderSpy = jest.fn((_props, dom) => <div data-testid='custom-query-actions'>{dom}</div>);
+
+    render(
+      <QueryFilter
+        submitter={{
+          render: renderSpy,
+        }}
+      >
+        <ProFormText name='a' label='A' />
+      </QueryFilter>
+    );
+
+    expect(renderSpy).toHaveBeenCalled();
+    const [, dom] = renderSpy.mock.calls[0];
+    expect(dom).toHaveLength(3);
+    expect(screen.getByTestId('custom-query-actions')).toBeInTheDocument();
+  });
+});

@@ -69,6 +69,11 @@
       "import": "./es/components/Form/index.js",
       "require": "./lib/components/Form/index.js"
     },
+    "./ProForm": {
+      "types": "./es/components/ProForm/index.d.ts",
+      "import": "./es/components/ProForm/index.js",
+      "require": "./lib/components/ProForm/index.js"
+    },
     "./Grid": {
       "types": "./es/components/Grid/index.d.ts",
       "import": "./es/components/Grid/index.js",
@@ -242,11 +247,13 @@
     "primereact": ">=10.9.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "tailwindcss": ">=3.0.0",
-    "react-hook-form": ">=7.0.0"
+    "react-hook-form": ">=7.0.0",
+    "tailwindcss": ">=3.0.0"
   },
   "license": "MIT",
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
     "bignumber.js": "^9.3.0",
     "classnames": "~2.2.6",
     "lodash.debounce": "^4.0.8",

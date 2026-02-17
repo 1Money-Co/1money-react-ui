@@ -10,6 +10,7 @@ import { Copy } from './components/Copy';
 import { Dropdown } from './components/Dropdown';
 import { Drawer } from './components/Drawer';
 import { Form, FormItem } from './components/Form';
+import { ProForm } from './components/ProForm';
 import { Grid, Row, Col } from './components/Grid';
 import { Input } from './components/Input';
 import { InputAmount } from './components/InputAmount';
@@ -56,6 +57,7 @@ export { Message } from './components/Message';
 export { Dropdown } from './components/Dropdown';
 export { Flex } from './components/Flex';
 export { Form, FormItem } from './components/Form';
+export * from './components/ProForm';
 export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
 export { Popup } from './components/Popup';
@@ -90,6 +92,7 @@ export default {
   Drawer,
   Form,
   FormItem,
+  ProForm,
   Grid,
   Row,
   Col,
