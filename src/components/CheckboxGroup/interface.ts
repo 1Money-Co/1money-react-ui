@@ -14,6 +14,7 @@ interface CheckboxGroupBaseProps {
 
 interface CheckboxGroupNormalProps extends CheckboxGroupBaseProps {
   tristate?: false;
+  value?: string[];
   onChange?: (checkedList: string[]) => any;
   items: ({
     key: string;

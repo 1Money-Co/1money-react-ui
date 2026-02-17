@@ -1,4 +1,4 @@
-import { memo, useState, useMemo, useCallback } from 'react';
+import { memo, useState, useMemo, useCallback, useEffect } from 'react';
 import { Checkbox as PrimeCheckbox, type CheckboxChangeEvent } from 'primereact/checkbox';
 import { TriStateCheckbox } from 'primereact/tristatecheckbox';
 import { default as classnames, joinCls } from '@/utils/classnames';
@@ -8,13 +8,21 @@ import type { CheckboxGroupProps } from './interface';
 
 export const CheckboxGroup: FC<PropsWithChildren<CheckboxGroupProps>> = props => {
   const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxGroupCls, labelCls,prefixCls = 'checkboxgroup', size = 'md' } = props;
+  const value = 'value' in props ? (props as { value?: string[] }).value : undefined;
   const classes = classnames(prefixCls);
   const sizeClass = `ckbg-${size}`;
 
   const CheckBoxComponent = useMemo(() => tristate ? TriStateCheckbox as new() => TriStateCheckbox : PrimeCheckbox as new() => PrimeCheckbox, [tristate]);
   const defaultChecked = useMemo(() => items.filter(item => !!item.autoFocus).map(v => v.key), [items]);
 
-  const [checkedItems, setCheckedItems] = useState<string[]>(defaultChecked);
+  const [checkedItems, setCheckedItems] = useState<string[]>(value ?? defaultChecked);
+
+  // Sync internal state with controlled value prop
+  useEffect(() => {
+    if (!tristate && value !== undefined) {
+      setCheckedItems(value);
+    }
+  }, [tristate, value]);
   const [itemsState, setItemsState] = useState<Record<string, boolean | null>>(Object.assign({}, ...items.map(v => ({[v.key]: v.defaultValue ?? null}))));
 
   const handleOnChange = useCallback((e: CheckboxChangeEvent) => {

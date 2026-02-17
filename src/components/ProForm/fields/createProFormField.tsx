@@ -134,6 +134,8 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
           };
 
           if (field?.name) nextProps.name = field.name;
+          if ((field as UnknownRecord)?.invalid !== undefined) nextProps.invalid = (field as UnknownRecord).invalid;
+          if ((field as UnknownRecord)?.success !== undefined) nextProps.success = (field as UnknownRecord).success;
           nextProps.onBlur = (...args: unknown[]) => {
             field?.onBlur?.();
             (currentFieldProps.onBlur as ((...eventArgs: unknown[]) => void) | undefined)?.(...args);
