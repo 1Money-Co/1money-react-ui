@@ -53,12 +53,9 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
     } as CSSProperties;
   }, [labelWidth]);
 
-  const collapseText = submitter !== false
-    ? submitter?.searchConfig?.collapseText ?? DEFAULT_TEXT.collapse
-    : DEFAULT_TEXT.collapse;
-  const expandText = submitter !== false
-    ? submitter?.searchConfig?.expandText ?? DEFAULT_TEXT.expand
-    : DEFAULT_TEXT.expand;
+  const searchConfig = submitter !== false ? submitter?.searchConfig : undefined;
+  const collapseText = searchConfig?.collapseText ?? DEFAULT_TEXT.collapse;
+  const expandText = searchConfig?.expandText ?? DEFAULT_TEXT.expand;
 
   const submitterConfig = submitter === false
     ? false

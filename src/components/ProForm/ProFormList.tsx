@@ -149,6 +149,32 @@ const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
 
 type CreatorConfig = ButtonProps & { text?: ReactNode; position?: 'top' | 'bottom' };
 
+interface CreatorButtonProps {
+  config: CreatorConfig | undefined;
+  canAdd: boolean;
+  onAdd: () => void;
+}
+
+const CreatorButton: FC<CreatorButtonProps> = ({ config, canAdd, onAdd }) => {
+  if (!config) return null;
+
+  const { text, position: _, onClick, disabled, ...domProps } = config;
+
+  return (
+    <Button
+      {...domProps}
+      type='button'
+      onClick={(event) => {
+        onAdd();
+        onClick?.(event);
+      }}
+      disabled={!canAdd || !!disabled}
+    >
+      {text ?? DEFAULT_TEXT.add}
+    </Button>
+  );
+};
+
 const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   const {
     name,
@@ -234,19 +260,10 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     : children;
 
   const hasCreator = creatorButtonProps !== false;
-  const creatorConfig: CreatorConfig | undefined = hasCreator && creatorButtonProps
-    ? creatorButtonProps as CreatorConfig
-    : hasCreator ? {} as CreatorConfig : undefined;
-  const creatorText = creatorConfig?.text ?? DEFAULT_TEXT.add;
+  const creatorConfig: CreatorConfig | undefined = hasCreator
+    ? { ...({} as CreatorConfig), ...(creatorButtonProps || {}) }
+    : undefined;
   const creatorPosition = creatorConfig?.position ?? 'bottom';
-
-  const {
-    text: _text,
-    position: _position,
-    onClick: creatorButtonOnClick,
-    disabled: creatorButtonDisabled,
-    ...creatorButtonDomProps
-  } = creatorConfig ?? {} as CreatorConfig;
 
   const actionRows = fields.map((field, index) => {
     const rowProps: ProFormListRowProps = {
@@ -284,35 +301,15 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     <div className={`${CSS_PREFIX}-list`}>
       {label && <div className={`${CSS_PREFIX}-list-label`}>{label}</div>}
 
-      {hasCreator && creatorPosition === 'top' && (
-        <Button
-          {...creatorButtonDomProps}
-          type='button'
-          onClick={(event) => {
-            add({}, fields.length);
-            creatorButtonOnClick?.(event);
-          }}
-          disabled={!canAdd || !!creatorButtonDisabled}
-        >
-          {creatorText}
-        </Button>
+      {creatorPosition === 'top' && (
+        <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={() => add({}, fields.length)} />
       )}
 
       <div className={`${CSS_PREFIX}-list-content`}>{listDom}</div>
       <div className={`${CSS_PREFIX}-list-actions`}>{actionsNode}</div>
 
-      {hasCreator && creatorPosition === 'bottom' && (
-        <Button
-          {...creatorButtonDomProps}
-          type='button'
-          onClick={(event) => {
-            add();
-            creatorButtonOnClick?.(event);
-          }}
-          disabled={!canAdd || !!creatorButtonDisabled}
-        >
-          {creatorText}
-        </Button>
+      {creatorPosition === 'bottom' && (
+        <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={() => add()} />
       )}
     </div>
   );

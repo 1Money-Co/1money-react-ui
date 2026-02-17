@@ -9,26 +9,10 @@ import { Row } from '../Grid';
 import { Form } from '../Form';
 import Submitter from './Submitter';
 import { DEFAULT_COL_SPAN } from './constants';
-import { isSubmitterEnabled } from './utils';
+import { isSubmitterEnabled, stableSerialize } from './utils';
 import type { FieldValues } from 'react-hook-form';
 import type { FormProps } from '../Form';
 import type { ProFormProps } from './interface';
-
-const stableSerialize = (value: unknown): string => {
-  try {
-    return JSON.stringify(value, (_, current: unknown) => {
-      if (!current || typeof current !== 'object' || Array.isArray(current)) return current;
-      return Object.keys(current as Record<string, unknown>)
-        .sort()
-        .reduce<Record<string, unknown>>((acc, key) => {
-          acc[key] = (current as Record<string, unknown>)[key];
-          return acc;
-        }, {});
-    }) || '';
-  } catch {
-    return '';
-  }
-};
 
 export interface ProFormContextValue {
   readonly?: boolean;
@@ -103,18 +87,16 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     }
   }, [form, defaultValues, submitter]);
 
-  const handleSubmitClick = useCallback(() => {
+  const triggerSubmitterOnSubmit = useCallback(() => {
     if (isSubmitterEnabled(submitter)) {
       submitter.onSubmit?.();
     }
   }, [submitter]);
 
   const handleSubmitFromRender = useCallback(() => {
-    if (isSubmitterEnabled(submitter)) {
-      submitter.onSubmit?.();
-    }
+    triggerSubmitterOnSubmit();
     void form.handleSubmit(handleFinish, onFinishFailed)(undefined);
-  }, [form, handleFinish, onFinishFailed, submitter]);
+  }, [form, handleFinish, onFinishFailed, triggerSubmitterOnSubmit]);
 
   const mergedDisabled = rest.disabled ?? loading;
 
@@ -152,7 +134,7 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
               ...(submitter?.resetButtonProps || {}),
               disabled: submitter?.resetButtonProps?.disabled ?? loading,
             }}
-            onSubmit={handleSubmitClick}
+            onSubmit={triggerSubmitterOnSubmit}
             onSubmitForm={handleSubmitFromRender}
             onReset={handleReset}
           />

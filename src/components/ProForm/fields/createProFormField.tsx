@@ -5,9 +5,9 @@ import { ProFormContext } from '../ProForm';
 import { DEFAULT_COL_SPAN, WIDTH_SIZE_MAP } from '../constants';
 import type { ComponentType, ReactNode } from 'react';
 import type { ProFormFieldProps } from '../interface';
+import type { UnknownRecord } from '../utils';
 
 const TEXT_LIKE_INPUT_TYPES = new Set(['text', 'password', 'textarea', 'mask', 'otp', 'autocomplete']);
-type UnknownRecord = Record<string, unknown>;
 
 const getEventValue = (valuePropName: string, event: unknown) => {
   if (valuePropName === 'checked') {
