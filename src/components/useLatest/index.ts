@@ -8,7 +8,7 @@ import { useRef } from 'react';
  * @param value The value to keep up-to-date
  * @returns A ref object containing the latest value
  */
-export function useLatest<T>(value: T) {
+export default function useLatest<T>(value: T) {
   const ref = useRef(value);
   ref.current = value;
   return ref;

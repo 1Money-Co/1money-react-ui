@@ -3,6 +3,8 @@ import type { ToggleButtonProps } from 'primereact/togglebutton';
 
 interface SwitchBaseProps {
   prefixCls?: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
 }
 
 interface NormalSwitchProps extends Omit<InputSwitchProps, 'checked'>, SwitchBaseProps {

@@ -10,6 +10,8 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   const {
     ref,
     items = [],
+    value,
+    defaultValue,
     onChange,
     wrapperCls,
     innerCls,
@@ -27,26 +29,46 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     required,
   } = props;
   const classes = classnames(prefixCls);
+  const isControlled = 'value' in props;
 
-  const defaultSelected = useMemo(() => items.find(item => !!item.autoFocus), [items]);
-  const [selected, setSelected] = useState<(typeof items)[number] | undefined>(defaultSelected);
+  const getItemValue = useCallback((item: RadioItemProps) => item.value ?? item.key, []);
+  const defaultSelected = useMemo(() => {
+    if (defaultValue !== undefined) return defaultValue;
+    const autoFocusedItem = items.find(item => !!item.autoFocus);
+    return autoFocusedItem ? getItemValue(autoFocusedItem) : undefined;
+  }, [defaultValue, getItemValue, items]);
+  const [uncontrolledValue, setUncontrolledValue] = useState<RadioItemProps['value'] | undefined>(defaultSelected);
+  const selectedValue = isControlled ? value : uncontrolledValue;
 
-  const isSelected = useCallback((item: RadioItemProps) => selected?.key === item.key, [selected]);
+  const isSelected = useCallback((item: RadioItemProps) => selectedValue === getItemValue(item), [getItemValue, selectedValue]);
+
+  const handleSelect = useCallback((item: RadioItemProps) => {
+    const selectedItemValue = getItemValue(item);
+    const payload = item.value === selectedItemValue ? item : { ...item, value: selectedItemValue };
+
+    if (!isControlled) {
+      setUncontrolledValue(selectedItemValue);
+    }
+
+    onChange?.(payload);
+  }, [getItemValue, isControlled, onChange]);
 
   const renderDefaultRadio = (item: RadioItemProps) => {
-    const { key, label, required, children, ...rest } = item;
+    const { key, label, required, children, disabled, ...rest } = item;
+    const itemValue = getItemValue(item);
     return (
       <div key={key} className={classes('default-inner')}>
         <Radio
           {...rest}
           required={required}
           id={key}
-          value={key}
+          value={itemValue}
+          disabled={disabled}
           size={size}
           radioCls={classes('inner-radio', radioCls)}
-          onChange={e => {
-            onChange?.(item);
-            setSelected(item);
+          onChange={() => {
+            if (disabled) return;
+            handleSelect(item);
           }}
           checked={isSelected(item)}
         />
@@ -66,9 +88,8 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
         cardCls
       )}
         onClick={() => {
-          if (disabled || selected?.key === item.key) return;
-          onChange?.(item);
-          setSelected(item);
+          if (disabled || isSelected(item)) return;
+          handleSelect(item);
         }}
       >
         {typeof children === 'function' ? children(isSelected(item)) : children}
@@ -77,8 +98,12 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
   };
 
   useImperativeHandle(ref, () => ({
-    reset: () => setSelected(void 0),
-  }), []);
+    reset: () => {
+      if (!isControlled) {
+        setUncontrolledValue(void 0);
+      }
+    },
+  }), [isControlled]);
 
   return <div className={classes('wrapper', wrapperCls)}>
     {label && <label className={classes('label', joinCls(required && 'label-required', labelCls))}>{label}</label>}

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useLatest } from './useLatest';
+import useLatest from '../useLatest';
 
 type Fn<T extends unknown[], R> = (...args: T) => R;
 
@@ -11,7 +11,7 @@ type Fn<T extends unknown[], R> = (...args: T) => R;
  * @param fn The function to wrap
  * @returns A stable callback that always calls the latest fn
  */
-export function useEventCallback<T extends unknown[], R>(fn: Fn<T, R>): Fn<T, R> {
+export default function useEventCallback<T extends unknown[], R>(fn: Fn<T, R>): Fn<T, R> {
   const fnRef = useLatest(fn);
 
   return useCallback((...args: T) => {

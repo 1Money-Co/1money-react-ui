@@ -11,7 +11,7 @@ type Fn<T extends unknown[], R> = (...args: T) => R;
  * @param fn The function to memoize
  * @returns A memoized function with stable reference
  */
-export function useMemoizedFn<T extends unknown[], R>(fn: Fn<T, R>): Fn<T, R> {
+export default function useMemoizedFn<T extends unknown[], R>(fn: Fn<T, R>): Fn<T, R> {
   const fnRef = useRef(fn);
   fnRef.current = useMemo(() => fn, [fn]);
 

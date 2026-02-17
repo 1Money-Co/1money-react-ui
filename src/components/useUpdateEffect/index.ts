@@ -7,7 +7,7 @@ import { useEffect, useRef, type DependencyList, type EffectCallback } from 'rea
  * @param effect The effect callback to run on updates
  * @param deps The dependency array
  */
-export function useUpdateEffect(effect: EffectCallback, deps?: DependencyList) {
+export default function useUpdateEffect(effect: EffectCallback, deps?: DependencyList) {
   const isMounted = useRef(false);
 
   useEffect(() => {
