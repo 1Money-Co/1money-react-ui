@@ -1,6 +1,7 @@
 import { DndContext } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import { memo, useEffect, useMemo, useRef } from 'react';
+import useMemoizedFn from '../useMemoizedFn';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import { Button } from '../Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
@@ -211,7 +212,7 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   const canAdd = max == null || fields.length < max;
   const canRemove = min == null || fields.length > min;
 
-  const add = useCallback((defaultValue?: Record<string, unknown>, index?: number) => {
+  const add = useMemoizedFn((defaultValue?: Record<string, unknown>, index?: number) => {
     if (!canAdd) return;
 
     const value = defaultValue ?? {};
@@ -224,21 +225,21 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
 
     append(value);
     onAfterAdd?.(value, fields.length);
-  }, [append, canAdd, fields.length, insert, onAfterAdd]);
+  });
 
-  const removeAt = useCallback((index: number) => {
+  const removeAt = useMemoizedFn((index: number) => {
     if (!canRemove) return;
     remove(index);
     onAfterRemove?.(index);
-  }, [canRemove, onAfterRemove, remove]);
+  });
 
-  const copy = useCallback((index: number) => {
+  const copy = useMemoizedFn((index: number) => {
     if (!canAdd) return;
 
     const list = (getValues(name as string) as Record<string, unknown>[] | undefined) ?? [];
     const value = list[index] ?? {};
     add(value, index + 1);
-  }, [add, canAdd, getValues, name]);
+  });
 
   const action = useMemo<ProFormListAction>(() => ({
     add,

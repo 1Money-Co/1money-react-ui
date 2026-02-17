@@ -1,9 +1,9 @@
 import {
   createContext,
-  useCallback,
   useEffect,
   useMemo,
 } from 'react';
+import useMemoizedFn from '../useMemoizedFn';
 import { useForm } from 'react-hook-form';
 import { Row } from '../Grid';
 import { Form } from '../Form';
@@ -76,27 +76,27 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     colProps,
   }), [readonly, grid, colProps]);
 
-  const handleFinish = useCallback(async (values: TFieldValues) => {
+  const handleFinish = useMemoizedFn(async (values: TFieldValues) => {
     await onFinish?.(values);
-  }, [onFinish]);
+  });
 
-  const handleReset = useCallback(() => {
+  const handleReset = useMemoizedFn(() => {
     form.reset(defaultValues);
     if (isSubmitterEnabled(submitter)) {
       submitter.onReset?.();
     }
-  }, [form, defaultValues, submitter]);
+  });
 
-  const triggerSubmitterOnSubmit = useCallback(() => {
+  const triggerSubmitterOnSubmit = useMemoizedFn(() => {
     if (isSubmitterEnabled(submitter)) {
       submitter.onSubmit?.();
     }
-  }, [submitter]);
+  });
 
-  const handleSubmitFromRender = useCallback(() => {
+  const handleSubmitFromRender = useMemoizedFn(() => {
     triggerSubmitterOnSubmit();
     void form.handleSubmit(handleFinish, onFinishFailed)(undefined);
-  }, [form, handleFinish, onFinishFailed, triggerSubmitterOnSubmit]);
+  });
 
   const mergedDisabled = rest.disabled ?? loading;
 

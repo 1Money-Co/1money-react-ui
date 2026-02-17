@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import useMemoizedFn from '../useMemoizedFn';
 import { Button } from '../Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
 import type { MouseEvent, ReactElement } from 'react';
@@ -23,23 +24,23 @@ function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: In
     onSubmitForm,
   } = props;
 
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = useMemoizedFn((event: MouseEvent<HTMLButtonElement>) => {
     submitButtonProps?.onClick?.(event);
     onSubmit?.();
-  };
+  });
 
-  const handleReset = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleReset = useMemoizedFn((event: MouseEvent<HTMLButtonElement>) => {
     resetButtonProps?.onClick?.(event);
     onReset?.();
-  };
+  });
 
-  const handleRenderSubmit = () => {
+  const handleRenderSubmit = useMemoizedFn(() => {
     if (onSubmitForm) {
       onSubmitForm();
       return;
     }
     onSubmit?.();
-  };
+  });
 
   const submitDom = (
     <Button
