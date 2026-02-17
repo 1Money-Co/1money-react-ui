@@ -61,6 +61,65 @@ describe('ProForm list', () => {
     expect(screen.getAllByRole('textbox').length).toBe(2);
   });
 
+  it('composes creatorButtonProps.onClick with internal add behavior', async () => {
+    const user = userEvent.setup();
+    const onCreatorClick = jest.fn();
+
+    render(
+      <ProForm defaultValues={{ users: [] }}>
+        <ProFormList
+          name='users'
+          creatorButtonProps={{ onClick: onCreatorClick }}
+        >
+          {(fields) => fields.map((field, index) => (
+            <ProFormText key={field.key} name={`users.${index}.name`} label={`Name ${index}`} />
+          ))}
+        </ProFormList>
+      </ProForm>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Add' }));
+
+    expect(onCreatorClick).toHaveBeenCalledTimes(1);
+    expect(screen.getAllByRole('textbox')).toHaveLength(1);
+  });
+
+  it('applies copyIconProps/deleteIconProps object configs and composed callbacks', async () => {
+    const user = userEvent.setup();
+    const onCopyClick = jest.fn();
+    const onDeleteClick = jest.fn();
+
+    render(
+      <ProForm defaultValues={{ users: [{ name: 'Ada' }] }}>
+        <ProFormList
+          name='users'
+          copyIconProps={{
+            onClick: onCopyClick,
+            children: 'Duplicate',
+            'data-testid': 'copy-action',
+          }}
+          deleteIconProps={{
+            onClick: onDeleteClick,
+            children: 'Remove',
+            'data-testid': 'delete-action',
+          }}
+        >
+          {(fields) => fields.map((field, index) => (
+            <ProFormText key={field.key} name={`users.${index}.name`} label={`Name ${index}`} />
+          ))}
+        </ProFormList>
+      </ProForm>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Duplicate' }));
+    expect(onCopyClick).toHaveBeenCalledTimes(1);
+    expect(screen.getAllByRole('textbox')).toHaveLength(2);
+
+    await user.click(screen.getAllByRole('button', { name: 'Remove' })[0]);
+    expect(onDeleteClick).toHaveBeenCalledTimes(1);
+    expect(screen.getAllByRole('textbox')).toHaveLength(1);
+  });
+
   it('calls move when sortable drag ends with a different index', () => {
     const move = jest.fn();
     const onDragEnd = buildOnDragEnd({

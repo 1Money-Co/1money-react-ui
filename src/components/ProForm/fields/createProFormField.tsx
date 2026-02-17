@@ -10,6 +10,7 @@ const WIDTH_MAP: Record<string, number> = {
   lg: 320,
   xl: 420,
 };
+const TEXT_LIKE_INPUT_TYPES = new Set(['text', 'password', 'textarea', 'mask', 'otp', 'autocomplete']);
 
 const getEventValue = (valuePropName: string, event: any) => {
   if (valuePropName === 'checked') {
@@ -33,6 +34,20 @@ const getEventValue = (valuePropName: string, event: any) => {
   }
 
   return event;
+};
+
+const normalizeFieldValue = (
+  value: unknown,
+  valuePropName: string,
+  inputType: unknown,
+  isMultiple: boolean,
+) => {
+  if (value !== undefined) return value;
+  if (valuePropName === 'checked') return false;
+  if (isMultiple) return [];
+  if (inputType === 'number') return null;
+  if (typeof inputType === 'string' && TEXT_LIKE_INPUT_TYPES.has(inputType)) return '';
+  return null;
 };
 
 export function createProFormField<FieldProps>(config: {
@@ -95,6 +110,8 @@ export function createProFormField<FieldProps>(config: {
           }
 
           const mapped = mapProps ? mapProps(rest) : {};
+          const inputType = (mapped as any)?.type ?? (fieldProps as any)?.type;
+          const isMultiple = !!(mapped as any)?.multiple;
           const nextProps: any = {
             ...mapped,
             ...(fieldProps || {}),
@@ -113,13 +130,7 @@ export function createProFormField<FieldProps>(config: {
           if (field?.name) nextProps.name = field.name;
           if (field?.onBlur) nextProps.onBlur = field.onBlur;
 
-          if (field?.value === undefined && valuePropName === 'checked') {
-            nextProps[valuePropName] = false;
-          } else if (field?.value === undefined && (mapped as any)?.multiple) {
-            nextProps[valuePropName] = [];
-          } else {
-            nextProps[valuePropName] = field?.value;
-          }
+          nextProps[valuePropName] = normalizeFieldValue(field?.value, valuePropName, inputType, isMultiple);
           nextProps.onChange = (...args: any[]) => {
             const value = getEventValue(valuePropName, args[0]);
             field?.onChange?.(value);

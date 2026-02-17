@@ -1,9 +1,9 @@
 import { DndContext } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
-import { Fragment, memo, useCallback, useMemo, useRef } from 'react';
+import { Fragment, memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import type { DragEndEvent } from '@dnd-kit/core';
-import type { FC, ReactNode } from 'react';
+import type { FC, MouseEvent, ReactNode } from 'react';
 import type { ProFormListAction, ProFormListProps } from './interface';
 
 export const buildOnDragEnd = ({
@@ -50,10 +50,13 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
     name: name as any,
   });
 
-  if (!initialApplied.current && fields.length === 0 && Array.isArray(initialValue) && initialValue.length) {
+  useEffect(() => {
+    if (initialApplied.current) return;
+    if (fields.length !== 0) return;
+    if (!Array.isArray(initialValue) || initialValue.length === 0) return;
     initialApplied.current = true;
     replace(initialValue as any);
-  }
+  }, [fields.length, initialValue, replace]);
 
   const canAdd = max == null || fields.length < max;
   const canRemove = min == null || fields.length > min;
@@ -112,24 +115,53 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
   const creatorPosition = creatorConfig?.position ?? 'bottom';
   const creatorButtonDomProps = creatorConfig
     ? (() => {
-      const { text, position, ...restProps } = creatorConfig;
+      const { text, position, onClick, disabled, ...restProps } = creatorConfig as Record<string, any>;
       return restProps;
     })()
     : {};
+  const creatorButtonOnClick = creatorConfig && typeof creatorConfig === 'object'
+    ? (creatorConfig as Record<string, any>).onClick as ((event: MouseEvent<HTMLButtonElement>) => void) | undefined
+    : undefined;
+  const creatorButtonDisabled = !!(creatorConfig && typeof creatorConfig === 'object'
+    ? (creatorConfig as Record<string, any>).disabled
+    : false);
 
   const defaultActionRows = useMemo(() => {
     return fields.map((field, index) => {
+      const copyButtonProps = copyIconProps && typeof copyIconProps === 'object'
+        ? copyIconProps as Record<string, any>
+        : {};
+      const {
+        onClick: copyButtonOnClick,
+        disabled: copyButtonDisabled,
+        children: copyButtonChildren,
+        ...copyButtonDomProps
+      } = copyButtonProps;
+      const deleteButtonProps = deleteIconProps && typeof deleteIconProps === 'object'
+        ? deleteIconProps as Record<string, any>
+        : {};
+      const {
+        onClick: deleteButtonOnClick,
+        disabled: deleteButtonDisabled,
+        children: deleteButtonChildren,
+        ...deleteButtonDomProps
+      } = deleteButtonProps;
+
       const defaultDom = {
         delete: deleteIconProps === false
           ? null
           : (
             <button
               key={`delete-${field.id}`}
+              {...deleteButtonDomProps}
               type='button'
-              onClick={() => removeAt(index)}
-              disabled={!canRemove}
+              onClick={(event) => {
+                removeAt(index);
+                deleteButtonOnClick?.(event);
+              }}
+              disabled={!canRemove || !!deleteButtonDisabled}
             >
-              Delete
+              {deleteButtonChildren ?? 'Delete'}
             </button>
           ),
         copy: copyIconProps === false
@@ -137,11 +169,15 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
           : (
             <button
               key={`copy-${field.id}`}
+              {...copyButtonDomProps}
               type='button'
-              onClick={() => copy(index)}
-              disabled={!canAdd}
+              onClick={(event) => {
+                copy(index);
+                copyButtonOnClick?.(event);
+              }}
+              disabled={!canAdd || !!copyButtonDisabled}
             >
-              Copy
+              {copyButtonChildren ?? 'Copy'}
             </button>
           ),
       };
@@ -187,10 +223,13 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
 
       {hasCreator && creatorPosition === 'top' && (
         <button
-          type='button'
-          onClick={() => add({}, fields.length)}
-          disabled={!canAdd}
           {...creatorButtonDomProps}
+          type='button'
+          onClick={(event) => {
+            add({}, fields.length);
+            creatorButtonOnClick?.(event);
+          }}
+          disabled={!canAdd || creatorButtonDisabled}
         >
           {creatorText}
         </button>
@@ -201,10 +240,13 @@ export const ProFormList: FC<ProFormListProps<any>> = memo((props) => {
 
       {hasCreator && creatorPosition === 'bottom' && (
         <button
-          type='button'
-          onClick={() => add()}
-          disabled={!canAdd}
           {...creatorButtonDomProps}
+          type='button'
+          onClick={(event) => {
+            add();
+            creatorButtonOnClick?.(event);
+          }}
+          disabled={!canAdd || creatorButtonDisabled}
         >
           {creatorText}
         </button>

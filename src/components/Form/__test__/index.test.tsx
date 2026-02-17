@@ -89,6 +89,33 @@ describe('Form', () => {
     expect(await screen.findByText('Emails do not match')).toBeInTheDocument();
   });
 
+  it('does not validate dependency rules on initial mount', async () => {
+    const user = userEvent.setup();
+    render(
+      <Form defaultValues={{ email: '', confirmEmail: '' }}>
+        <FormItem name='email' label='Email'>
+          {({ field }) => <Input type='text' {...field} />}
+        </FormItem>
+        <FormItem
+          name='confirmEmail'
+          label='Confirm Email'
+          dependencies={['email']}
+          rules={{
+            validate: () => 'Emails do not match'
+          }}
+        >
+          {({ field }) => <Input type='text' {...field} />}
+        </FormItem>
+      </Form>
+    );
+
+    expect(screen.queryByText('Emails do not match')).not.toBeInTheDocument();
+
+    const [emailInput] = screen.getAllByRole('textbox');
+    await user.type(emailInput, 'a');
+    expect(await screen.findByText('Emails do not match')).toBeInTheDocument();
+  });
+
   it('validates on blur when validateTrigger is onBlur', async () => {
     const user = userEvent.setup();
     render(

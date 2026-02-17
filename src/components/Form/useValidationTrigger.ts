@@ -50,6 +50,10 @@ export function useValidationTrigger<TFieldValues extends FieldValues = FieldVal
     if (!name || !dependencies?.length) return;
     const nextDeps = Array.isArray(depValues) ? depValues : [depValues];
     const prevDeps = prevDepValuesRef.current;
+    if (!prevDeps) {
+      prevDepValuesRef.current = nextDeps;
+      return;
+    }
     const isSame = !!prevDeps
       && prevDeps.length === nextDeps.length
       && nextDeps.every((value, index) => Object.is(value, prevDeps[index]));
