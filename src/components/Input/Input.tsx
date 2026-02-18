@@ -17,6 +17,10 @@ import useEventCallback from '../useEventCallback';
 import type { FC, PropsWithChildren, Ref } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps, InputNumberClass, InputMaskClass, PasswordClass, AutoCompleteClass } from './interface';
 
+const COLOR_PRIMARY_BLACK = '#131313';
+const COLOR_BLACK = '#000';
+const COLOR_ERROR = '#AE0000';
+
 const OtpWrapper: FC<InputOtpProps> = ({ className: _className, ..._rest }) => (
   <div className={_className}>
     <InputOtp {..._rest as any} />
@@ -26,8 +30,8 @@ const OtpWrapper: FC<InputOtpProps> = ({ className: _className, ..._rest }) => (
 const PasswordWrapper: FC<Omit<InputPwdProps, 'size' | 'prefix' | 'suffix'> & { suffixLoading?: boolean }> = ({ suffixLoading, ..._props }) => (
   <Password
     feedback={false}
-    showIcon={({ iconProps }) => suffixLoading ? null : <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
-    hideIcon={({ iconProps }) => suffixLoading ? null : <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
+    showIcon={({ iconProps }) => suffixLoading ? null : <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color={COLOR_PRIMARY_BLACK} />}
+    hideIcon={({ iconProps }) => suffixLoading ? null : <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color={COLOR_PRIMARY_BLACK} />}
     {..._props}
   />
 );
@@ -64,7 +68,6 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     suffixEleCls,
     maxLength,
     showMessageIcon = false,
-    // @ts-expect-error
     showCount,
     value,
     defaultValue,
@@ -130,7 +133,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           maxLength={maxLength}
           readOnly={readOnly}
           suffixLoading={type === 'password' ? suffixLoading : undefined}
-          className={classes(void 0, joinCls(
+          className={classes(undefined, joinCls(
             classes(size),
             classes(type),
             classes(`${type}-${size}`),
@@ -140,7 +143,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           ))}
         />
         {suffixLoading ? <Spinner className={classes('loading')} strokeWidth='4' /> : suffixEle ? <div onClick={e => e.stopPropagation()} className={classes('suffix', suffixEleCls)}>{suffixEle}</div> : null}
-        {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${valStr.length}/${maxLength}`}</div>}
+        {(showCount && maxLength !== undefined) && <div className={classes(`${type}-count`)}>{`${valStr.length}/${maxLength}`}</div>}
       </div>
       {
         message && <span
@@ -153,9 +156,9 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           {
             showMessageIcon && (
               success ? (
-                <Icons name='securityCheck' size={16} color='#000' />
+                <Icons name='securityCheck' size={16} color={COLOR_BLACK} />
               ) : (
-                <Icons name='error' size={16} color='#AE0000' />
+                <Icons name='error' size={16} color={COLOR_ERROR} />
               )
             )
           }

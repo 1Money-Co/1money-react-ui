@@ -26,6 +26,7 @@ export interface InputBaseProps {
   suffixEleCls?: string;
   loading?: boolean;
   showMessageIcon?: boolean;
+  showCount?: boolean;
 }
 
 export interface InputTextProps extends Omit<PrimeInputTextProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
@@ -46,7 +47,6 @@ export interface InputMaskProps extends Omit<PrimeInputMaskProps, 'size' | 'pref
 export interface InputTextareaProps extends Omit<PrimeInputTextareaProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'textarea';
   maxLength?: number;
-  showCount?: boolean;
   ref?: Ref<HTMLTextAreaElement | null>;
 }
 
