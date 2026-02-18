@@ -6,7 +6,7 @@ import useControlledState from '../useControlledState';
 import useMemoizedFn from '../useMemoizedFn';
 /* import types */
 import type { FC } from 'react';
-import type { CheckboxGroupProps } from './interface';
+import type { CheckboxGroupProps, CheckboxGroupItem } from './interface';
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
   const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxGroupCls, labelCls, prefixCls = 'checkboxgroup', size = 'md' } = props;
@@ -14,90 +14,77 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
   const sizeClass = `ckbg-${size}`;
 
   // Normal mode: controlled/uncontrolled string[] state
-  const defaultChecked = useMemo(() => items.filter(item => !!item.autoFocus).map(v => v.key), [items]);
+  const defaultChecked = useMemo(() => items.filter(item => item.autoFocus).map(v => v.key), [items]);
   const normalValue = tristate ? undefined : props.value;
   const [checkedItems, setCheckedItems] = useControlledState<string[]>(normalValue ?? defaultChecked, normalValue);
 
   // Tristate mode: controlled/uncontrolled Record<string, boolean | null> state
-  const defaultItemsState = useMemo(
-    () => Object.assign({}, ...items.map(v => ({ [v.key]: ('defaultValue' in v ? v.defaultValue : null) ?? null }))),
+  const defaultItemsState = useMemo<Record<string, boolean | null>>(
+    () => Object.fromEntries(items.map(v => [v.key, ('defaultValue' in v ? (v.defaultValue as boolean | null) : null) ?? null])),
     [items],
   );
   const tristateValue = tristate ? props.value : undefined;
   const [itemsState, setItemsState] = useControlledState<Record<string, boolean | null>>(tristateValue ?? defaultItemsState, tristateValue);
 
-  const handleOnChange = useMemoizedFn((e: CheckboxChangeEvent) => {
-    if (tristate) {
-      const _state = { ...itemsState, [e.target.id]: e.value };
-      setItemsState(_state);
-      onChange?.(_state);
-    } else {
-      const _state = [...checkedItems];
-      if (e.checked) {
-        _state.push(e.value);
-      } else {
-        _state.splice(_state.indexOf(e.value), 1);
-      }
-      setCheckedItems(_state);
-      (onChange as CheckboxGroupProps['onChange'])?.(_state as any);
-    }
+  const handleNormalChange = useMemoizedFn((e: CheckboxChangeEvent, itemOnChange?: (checked: boolean) => any) => {
+    itemOnChange?.(!!e.checked);
+    const next = e.checked
+      ? [...checkedItems, e.value]
+      : checkedItems.filter(k => k !== e.value);
+    setCheckedItems(next);
+    (onChange as ((checkedList: string[]) => void) | undefined)?.(next);
   });
 
-  const renderNormalItem = (item: (typeof items)[number]) => {
-    const { key, required, disabled, defaultValue: _dv, label, onChange: itemOnChange, ...rest } = item;
+  const handleTristateChange = useMemoizedFn((e: CheckboxChangeEvent, itemOnChange?: (state: boolean | null) => any) => {
+    itemOnChange?.(e.value);
+    const next = { ...itemsState, [e.target.id]: e.value as boolean | null };
+    setItemsState(next);
+    (onChange as ((state: Record<string, boolean | null>) => void) | undefined)?.(next);
+  });
 
-    const checkboxEl = <PrimeCheckbox
-      {...rest}
-      value={key}
-      required={required}
-      disabled={disabled}
-      checked={checkedItems.includes(key)}
-      className={classes('inner-checkbox', checkboxGroupCls)}
-      icon={<i className="pi pi-check" />}
-      onChange={(e: CheckboxChangeEvent) => {
-        if (disabled) return;
-        itemOnChange?.(!!e.checked);
-        handleOnChange(e);
-      }}
-    />;
+  const renderItem = (item: CheckboxGroupItem) => {
+    const { key, required, disabled, label, onChange: itemOnChange, ...rest } = item;
+    // Strip defaultValue from rest to avoid passing it to DOM
+    const { defaultValue: _, ...checkboxRest } = rest as Record<string, any>;
+    const innerClassName = classes('inner-checkbox', checkboxGroupCls);
 
-    return <div key={key} className={joinCls(classes('inner', innerCls), sizeClass)}>
-      {label
-        ? <label className={labelCls}>{checkboxEl}{label}</label>
-        : checkboxEl}
-    </div>;
+    const checkboxEl = tristate
+      ? <TriStateCheckbox
+          {...checkboxRest}
+          id={key}
+          value={itemsState[key] ?? null}
+          required={required}
+          disabled={disabled}
+          className={innerClassName}
+          uncheckIcon={<i className="pi pi-minus" />}
+          checkIcon={<i className="pi pi-check" />}
+          onChange={(e: CheckboxChangeEvent) => { if (!disabled) handleTristateChange(e, itemOnChange as (state: boolean | null) => any); }}
+        />
+      : <PrimeCheckbox
+          {...checkboxRest}
+          value={key}
+          required={required}
+          disabled={disabled}
+          checked={checkedItems.includes(key)}
+          className={innerClassName}
+          icon={<i className="pi pi-check" />}
+          onChange={(e: CheckboxChangeEvent) => { if (!disabled) handleNormalChange(e, itemOnChange as (checked: boolean) => any); }}
+        />;
+
+    return (
+      <div key={key} className={joinCls(classes('inner', innerCls), sizeClass)}>
+        {label
+          ? <label className={labelCls}>{checkboxEl}{tristate ? <span>{label}</span> : label}</label>
+          : checkboxEl}
+      </div>
+    );
   };
 
-  const renderTristateItem = (item: (typeof items)[number]) => {
-    const { key, required, disabled, defaultValue: _defaultValue, label, onChange: itemOnChange, ...rest } = item;
-    const trivalue = itemsState[key] ?? null;
-
-    const checkboxEl = <TriStateCheckbox
-      {...rest}
-      id={key}
-      value={trivalue}
-      required={required}
-      disabled={disabled}
-      className={classes('inner-checkbox', checkboxGroupCls)}
-      uncheckIcon={<i className="pi pi-minus" />}
-      checkIcon={<i className="pi pi-check" />}
-      onChange={(e: CheckboxChangeEvent) => {
-        if (disabled) return;
-        itemOnChange?.(e.value);
-        handleOnChange(e);
-      }}
-    />;
-
-    return <div key={key} className={joinCls(classes('inner', innerCls), sizeClass)}>
-      {label
-        ? <label className={labelCls}>{checkboxEl}<span>{label}</span></label>
-        : checkboxEl}
-    </div>;
-  };
-
-  return <div className={classes('wrapper', wrapperCls)}>
-    {items.map(item => tristate ? renderTristateItem(item) : renderNormalItem(item))}
-  </div>;
+  return (
+    <div className={classes('wrapper', wrapperCls)}>
+      {items.map(renderItem)}
+    </div>
+  );
 };
 
 export default memo(CheckboxGroup);

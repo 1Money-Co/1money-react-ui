@@ -75,13 +75,6 @@ $component: 'checkboxgroup';
           border: 2px solid $color-primary;
           box-shadow: none;
         }
-
-        // &:has(.p-checkbox-input:checked) {
-        //   .p-checkbox-box {
-        //     // background-color: $color-primary-active;
-        //     // border-color: $color-primary-active;
-        //   }
-        // }
       }
 
       // 选中状态

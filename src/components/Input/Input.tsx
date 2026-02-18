@@ -1,4 +1,4 @@
-import { memo, useRef, useMemo, useState, useCallback, useEffect, useImperativeHandle } from 'react';
+import { memo, useRef, useImperativeHandle } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
@@ -10,10 +10,37 @@ import { Skeleton } from 'primereact/skeleton';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import { Icons } from '../Icons';
 import Spinner from '../Spinner';
+import useControlledState from '../useControlledState';
+import useEventCallback from '../useEventCallback';
 
 /* import types */
-import type { FC, PropsWithChildren, ChangeEvent } from 'react';
+import type { FC, PropsWithChildren, Ref } from 'react';
 import type { InputProps, InputOtpProps, InputPwdProps, InputNumberClass, InputMaskClass, PasswordClass, AutoCompleteClass } from './interface';
+
+const OtpWrapper: FC<InputOtpProps> = ({ className: _className, ..._rest }) => (
+  <div className={_className}>
+    <InputOtp {..._rest as any} />
+  </div>
+);
+
+const PasswordWrapper: FC<Omit<InputPwdProps, 'size' | 'prefix' | 'suffix'> & { suffixLoading?: boolean }> = ({ suffixLoading, ..._props }) => (
+  <Password
+    feedback={false}
+    showIcon={({ iconProps }) => suffixLoading ? null : <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
+    hideIcon={({ iconProps }) => suffixLoading ? null : <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
+    {..._props}
+  />
+);
+
+const INPUT_COMPONENT_MAP = {
+  text: InputText,
+  number: InputNumber as new () => InputNumber,
+  mask: InputMask as new () => InputMask,
+  textarea: InputTextarea,
+  otp: OtpWrapper,
+  password: PasswordWrapper,
+  autocomplete: AutoComplete as new () => AutoComplete,
+} as const;
 
 export const Input: FC<PropsWithChildren<InputProps>> = props => {
   const {
@@ -48,58 +75,24 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
   } = props;
   const classes = classnames(prefixCls);
 
-  const [val, setVal] = useState(value || defaultValue || '');
+  const [val, setVal] = useControlledState(defaultValue ?? '', value);
 
-  const handleChange = useCallback((e: Parameters<Exclude<InputProps['onChange'], undefined>>[0]) => {
+  const handleChange = useEventCallback((e: Parameters<Exclude<InputProps['onChange'], undefined>>[0]) => {
     if (loading || disabled) return;
     const _val = 'target' in e ? e.target.value : e.value;
-    setVal((type === 'textarea' ? _val?.slice(0, maxLength) : _val) || '');
+    setVal((type === 'textarea' ? _val?.slice(0, maxLength) : _val) ?? '');
     onChange?.(e as any);
-  }, [onChange, maxLength, type, loading, disabled]);
+  });
 
   const inputRef = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
-  const _ref = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
 
-  const suffixLoading = useMemo(() => loading && type !== 'otp', [loading, type]);
+  const suffixLoading = loading && type !== 'otp';
 
-  const InputComponent = useMemo(() => {
-    switch (type) {
-      case 'text':
-        return InputText;
-      case 'number':
-        return InputNumber as new () => InputNumber;
-      case 'mask':
-        return InputMask as new () => InputMask;
-      case 'textarea':
-        return InputTextarea;
-      case 'otp':
-        return (_props: InputOtpProps) => {
-          const { className: _className, ..._rest } = _props;
-          return <div className={_className}>
-            <InputOtp {..._rest as any} />
-          </div>;
-        };
-      case 'password':
-        return (_props: Omit<InputPwdProps, 'size' | 'prefix' | 'suffix'>) => <Password
-          feedback={false}
-          showIcon={({ iconProps }) => suffixLoading ? null : <Icons name='hideBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
-          hideIcon={({ iconProps }) => suffixLoading ? null : <Icons name='viewBalance' onClick={iconProps.onClick} size={20} color='#131313' />}
-          {..._props}
-        />;
-      case 'autocomplete':
-        return AutoComplete as new () => AutoComplete;
-      default:
-        return InputText;
-    }
-  }, [type, suffixLoading]);
+  const InputComponent = INPUT_COMPONENT_MAP[type] ?? InputText;
 
-  useImperativeHandle(ref ?? _ref, () => inputRef.current!);
+  useImperativeHandle(ref as Ref<typeof inputRef.current>, () => inputRef.current!);
 
-  useEffect(() => {
-    if (type === 'textarea' && val !== value && value !== undefined) {
-      setVal(value);
-    }
-  }, [type, val, value]);
+  const valStr = String(val ?? '');
 
   return (
     <div className={classes('wrapper', wrapperCls)}>
@@ -136,6 +129,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           required={required}
           maxLength={maxLength}
           readOnly={readOnly}
+          suffixLoading={type === 'password' ? suffixLoading : undefined}
           className={classes(void 0, joinCls(
             classes(size),
             classes(type),
@@ -146,7 +140,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           ))}
         />
         {suffixLoading ? <Spinner className={classes('loading')} strokeWidth='4' /> : suffixEle ? <div onClick={e => e.stopPropagation()} className={classes('suffix', suffixEleCls)}>{suffixEle}</div> : null}
-        {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${val.length}/${maxLength}`}</div>}
+        {(showCount && maxLength != undefined) && <div className={classes(`${type}-count`)}>{`${valStr.length}/${maxLength}`}</div>}
       </div>
       {
         message && <span
