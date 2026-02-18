@@ -117,6 +117,8 @@ export { default as usePrevious } from './components/usePrevious';
 export { default as useSafeState } from './components/useSafeState';
 export { default as useSyncState } from './components/useSyncState';
 export { default as useUpdateEffect } from './components/useUpdateEffect';
+export { default as useLayoutState, useTimeoutLock } from './components/useLayoutState';
+export type { Updater } from './components/useLayoutState';
 
 export default {
   Cell,

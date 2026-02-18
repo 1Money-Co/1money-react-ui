@@ -192,7 +192,7 @@ if (status === 'success') { ... }
 
 ## Custom Hooks Usage Guide
 
-This library provides 9 custom hooks for common React patterns. Use these hooks to improve code quality and consistency.
+This library provides 11 custom hooks for common React patterns. Use these hooks to improve code quality and consistency.
 
 ### useControlledState
 
@@ -350,6 +350,41 @@ function SearchInput({ query, onSearch }: Props) {
 }
 ```
 
+### useLayoutState
+
+**When to use**: When you need to batch multiple synchronous state updates into a single microtask to reduce unnecessary re-renders. Updates are collected and applied together via `Promise.resolve`, triggering only one render.
+
+```tsx
+// ✅ Use when multiple state updates happen synchronously and should be batched
+function VirtualTable({ columns }: Props) {
+  const [colWidths, setColWidths] = useLayoutState<Map<string, number>>(new Map());
+
+  const handleResize = (key: string, width: number) => {
+    // Multiple columns may resize at once; updates are batched into one render
+    setColWidths(prev => new Map(prev).set(key, width));
+  };
+
+  return <ResizableColumns widths={colWidths} onResize={handleResize} />;
+}
+```
+
+### useTimeoutLock
+
+**When to use**: When you need a short-lived lock that auto-resets after a timeout (100ms). Useful for preventing duplicate actions or debouncing rapid state changes.
+
+```tsx
+// ✅ Use to prevent rapid duplicate submissions
+function SubmitButton() {
+  const [setLock, getLock] = useTimeoutLock<string>();
+
+  const handleClick = () => {
+    if (getLock()) return; // Already locked
+    setLock('submitting');
+    submitForm();
+  };
+}
+```
+
 ### Hook Selection Guide
 
 | Scenario | Recommended Hook |
@@ -362,3 +397,5 @@ function SearchInput({ query, onSearch }: Props) {
 | Async state updates after unmount | `useSafeState` |
 | Read latest state synchronously | `useSyncState` |
 | Skip effect on initial mount | `useUpdateEffect` |
+| Batch synchronous state updates | `useLayoutState` |
+| Short-lived lock with auto-reset | `useTimeoutLock` |
