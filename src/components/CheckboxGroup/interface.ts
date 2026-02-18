@@ -26,6 +26,7 @@ interface CheckboxGroupNormalProps extends CheckboxGroupBaseProps {
 
 interface CheckboxGroupTriStateProps extends CheckboxGroupBaseProps {
   tristate: true;
+  value?: Record<string, boolean | null>;
   onChange?: (itemsState: Record<string, boolean | null>) => any;
   items: ({
     key: string;
