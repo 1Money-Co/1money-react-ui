@@ -45,7 +45,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
   const renderItem = (item: CheckboxGroupItem) => {
     const { key, required, disabled, label, onChange: itemOnChange, ...rest } = item;
     // Strip defaultValue from rest to avoid passing it to DOM
-    const { defaultValue: _, ...checkboxRest } = rest as Record<string, any>;
+    const { defaultValue: _, ...checkboxRest } = rest as Record<string, unknown>;
     const innerClassName = classes('inner-checkbox', checkboxGroupCls);
 
     const checkboxEl = tristate

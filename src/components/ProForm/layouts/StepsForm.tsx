@@ -98,7 +98,7 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
     }
 
     setCurrent(mergedCurrent + 1);
-  }, [allValues, mergedCurrent, onFinish, setCurrent, steps.length]);
+  }, [allValues, mergedCurrent, onFinish, setCurrent, steps]);
 
   if (!activeStep) return null;
 

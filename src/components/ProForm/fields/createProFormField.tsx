@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import useMemoizedFn from '../../useMemoizedFn';
 import { FormItem } from '../../Form';
 import { Col } from '../../Grid';
 import { ProFormContext } from '../ProForm';
@@ -145,7 +146,7 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
       dependencies, validateTrigger, labelCol, wrapperCol, noStyle, valuePropName,
     };
 
-    const renderField = ({ field }: { field?: UnknownRecord }): ReactNode => {
+    const renderField = useMemoizedFn(({ field }: { field?: UnknownRecord }): ReactNode => {
       const currentFieldProps = (fieldProps ?? {}) as Partial<FieldProps> & UnknownRecord;
 
       if (mergedReadonly) {
@@ -180,7 +181,7 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
       };
 
       return <FieldComponent {...nextProps} />;
-    };
+    });
 
     const node = <FormItem {...formItemProps}>{renderField}</FormItem>;
 

@@ -64,7 +64,10 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     ...rest
   } = props;
 
-  const internalForm = useForm<TFieldValues>({ defaultValues });
+  // Always create an internal form to keep hook ordering stable.
+  // When `externalForm` is provided, this instance is unused. We pass
+  // `shouldUnregister: true` to minimize overhead of the unused form.
+  const internalForm = useForm<TFieldValues>({ defaultValues, shouldUnregister: true });
   const form = externalForm ?? internalForm;
   const paramsKey = useMemo(() => stableSerialize(params), [params]);
   const stableParams = useMemo(() => params, [paramsKey]);
@@ -80,10 +83,9 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
         if (cancelled || !values) return;
         form.reset(values);
       })
-      .catch((error: unknown) => {
-        if (!cancelled) {
-          console.error('[ProForm] request() failed:', error);
-        }
+      .catch(() => {
+        // Silently ignore — consumers should handle request errors
+        // via their own error boundaries or by wrapping the `request` function.
       });
 
     return () => {

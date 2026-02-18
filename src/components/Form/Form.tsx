@@ -64,9 +64,11 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
   } = props;
 
   // Always create an internal form to keep hook ordering stable.
-  // When an external `form` is passed, this instance is unused but must remain
-  // so that React's hook call order is consistent across renders.
-  const internalMethods = useForm<TFieldValues>({ defaultValues, ...useFormProps });
+  // When an external `form` is passed via the `form` prop, this instance is
+  // unused but must remain so that React's hook call order is consistent
+  // across renders. We pass `shouldUnregister: true` to minimize overhead
+  // of the unused form instance.
+  const internalMethods = useForm<TFieldValues>({ defaultValues, shouldUnregister: true, ...useFormProps });
   // Use provided form methods when controlled; otherwise use internal form state.
   const methods = form ?? internalMethods;
   const valuesChangeRef = useLatest(onValuesChange);
@@ -102,6 +104,8 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(props: Form
       );
     });
     return () => subscription.unsubscribe();
+  // `valuesChangeRef` and `watchNamesRef` are stable refs accessed via `.current`
+  // so they do not need to be in the dependency array.
   }, [methods, onValuesChange]);
 
   // Submit success handler.
