@@ -1,9 +1,13 @@
-import { memo, useState, useCallback } from 'react';
+import { memo } from 'react';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
+import SidebarLogo from './SidebarLogo';
+import { STATUS_SUCCESS_COLOR } from './constants';
 /* import types */
 import type { FC } from 'react';
 import type { StepperProps } from './interface';
+
+const DONE_STATUSES = ['done', 'done-active'] as const;
 
 export const Stepper: FC<StepperProps> = props => {
   const { id, steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, betaLogo, onLogoClick, footer } = props;
@@ -15,19 +19,9 @@ export const Stepper: FC<StepperProps> = props => {
       className={classes(void 0, className)}
     >
       <div className={classes('header', headerCls)}>
-        <Icons
-          name={betaLogo ? 'logoWithBeta' : 'logoWithWords'}
-          // @ts-ignore
-          logoColor='#073387'
-          // @ts-ignore
-          wordColor='#131313'
-          // @ts-ignore
-          betaColor='#073387'
-          width={betaLogo ? 152 : 131}
-          height={betaLogo ? 22 : 24}
-          onClick={onLogoClick}
-          wrapperCls={classes('header-logo', logoCls)}
-        />
+        <span className={classes('header-logo', logoCls)} onClick={onLogoClick}>
+          <SidebarLogo betaLogo={betaLogo} />
+        </span>
       </div>
       <ul className={classes('steps', bodyCls)}>
         {
@@ -40,7 +34,7 @@ export const Stepper: FC<StepperProps> = props => {
             >
               <span className={classes('step-label')}>{label}</span>
               {
-                (step.status === 'done' || step.status === 'done-active') && <Icons name='statusSuccess' size={20} color='#1F580033' />
+                DONE_STATUSES.includes(status as typeof DONE_STATUSES[number]) && <Icons name='statusSuccess' size={20} color={STATUS_SUCCESS_COLOR} />
               }
             </li>;
           })

@@ -1,5 +1,5 @@
 'use client';
-import { memo, forwardRef } from 'react';
+import { memo } from 'react';
 import {
   Sidebar as ProSidebar,
   Menu as ProMenu,
@@ -8,11 +8,13 @@ import {
 } from 'react-pro-sidebar';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
+import SidebarLogo from './SidebarLogo';
+import { EXPAND_ICON_COLOR } from './constants';
 /* import types */
-import type { PropsWithChildren, ReactElement } from 'react';
+import type { FC, PropsWithChildren, ReactElement } from 'react';
 import type { SidebarProps, MenuItem, SimpleMenuItem } from './interface';
 
-export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<SidebarProps>>((props, ref) => {
+export const SimplySidebar: FC<PropsWithChildren<SidebarProps>> = (props) => {
   const { id, children, menus, className, prefixCls = 'simply-sidebar', headerCls, bodyCls, betaLogo, onLogoClick } = props;
   const classes = classnames(prefixCls);
 
@@ -93,29 +95,18 @@ export const SimplySidebar = forwardRef<HTMLDivElement, PropsWithChildren<Sideba
           className={classes('logo')}
           onClick={onLogoClick}
         >
-          <Icons
-            name={betaLogo ? 'logoWithBeta' : 'logoWithWords'}
-            // @ts-ignore
-            logoColor='#073387'
-            // @ts-ignore
-            wordColor='#131313'
-            // @ts-ignore
-            betaColor='#073387'
-            color='#073387'
-            width={betaLogo ? 152 : 131}
-            height={betaLogo ? 22 : 24}
-          />
+          <SidebarLogo betaLogo={betaLogo} />
         </span>
       </div>
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => <Icons name='chevronDown' size={16} color='#646465' wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />}
+        renderExpandIcon={({ open }) => <Icons name='chevronDown' size={16} color={EXPAND_ICON_COLOR} wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />}
       >
         {menus.map((menu, index) => renderTopLevelMenu(menu, index))}
       </ProMenu>
       {children}
     </ProSidebar>
   );
-});
+};
 
 export default memo(SimplySidebar);
