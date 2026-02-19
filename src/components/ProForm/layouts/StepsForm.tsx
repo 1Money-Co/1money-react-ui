@@ -4,6 +4,7 @@ import {
   memo,
   useCallback,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { Button } from '../../Button';
@@ -68,6 +69,8 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
 
   const [innerCurrent, setInnerCurrent] = useState(0);
   const [allValues, setAllValues] = useState<Record<string, unknown>>({});
+  /** Tracks which step index each key was last submitted from. */
+  const keyStepMapRef = useRef<Map<string, number>>(new Map());
 
   const steps = useMemo(() => {
     return Children.toArray(children).filter(isValidElement) as ReactElement<StepFormProps<FieldValues>>[];
@@ -77,16 +80,35 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
   const activeStep = steps[mergedCurrent];
 
   const setCurrent = useCallback((nextCurrent: number) => {
+    // When navigating backward, clear accumulated values from steps after
+    // the target so stale data doesn't persist when the user changes answers.
+    if (nextCurrent < mergedCurrent) {
+      setAllValues(prev => {
+        const cleaned = { ...prev };
+        keyStepMapRef.current.forEach((stepIndex, key) => {
+          if (stepIndex > nextCurrent) {
+            delete cleaned[key];
+          }
+        });
+        return cleaned;
+      });
+    }
     if (current === undefined) {
       setInnerCurrent(nextCurrent);
     }
     onCurrentChange?.(nextCurrent);
-  }, [current, onCurrentChange]);
+  }, [current, mergedCurrent, onCurrentChange]);
 
   const handleStepFinish = useCallback(async (values: Record<string, unknown>) => {
     const currentStep = steps[mergedCurrent];
     const stepResult = await currentStep?.props?.onFinish?.(values as FieldValues);
     if (stepResult === false) return;
+
+    // Track which step each key was submitted from so backward navigation
+    // can selectively clear downstream step data.
+    for (const key of Object.keys(values)) {
+      keyStepMapRef.current.set(key, mergedCurrent);
+    }
 
     const merged = { ...allValues, ...values };
     setAllValues(merged);

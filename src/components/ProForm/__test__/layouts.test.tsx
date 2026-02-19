@@ -104,6 +104,47 @@ describe('ProForm layouts', () => {
     });
   });
 
+  it('clears downstream step values when navigating backward', async () => {
+    const user = userEvent.setup();
+    const onFinish = jest.fn();
+
+    render(
+      <StepsForm onFinish={onFinish}>
+        <StepsForm.StepForm title='Step A'>
+          <ProFormText name='firstName' label='First Name' />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='Step B'>
+          <ProFormText name='lastName' label='Last Name' />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    // Fill step A and advance
+    await user.type(screen.getByRole('textbox'), 'Ada');
+    await user.click(screen.getByRole('button', { name: 'Next' }));
+
+    // Fill step B
+    await user.type(screen.getByRole('textbox'), 'Lovelace');
+
+    // Navigate backward — should clear step B values
+    await user.click(screen.getByRole('button', { name: 'Previous' }));
+
+    // Change step A value and advance again
+    const textbox = screen.getByRole('textbox');
+    await user.clear(textbox);
+    await user.type(textbox, 'Grace');
+    await user.click(screen.getByRole('button', { name: 'Next' }));
+
+    // Step B should NOT have stale "Lovelace" value pre-filled
+    // Fill fresh value and submit
+    await user.type(screen.getByRole('textbox'), 'Hopper');
+    await user.click(screen.getByRole('button', { name: 'Submit' }));
+
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalledWith({ firstName: 'Grace', lastName: 'Hopper' });
+    });
+  });
+
   it('applies stepsProps and stepProps to current step container', () => {
     render(
       <StepsForm stepsProps={{ 'data-testid': 'steps-root' }}>

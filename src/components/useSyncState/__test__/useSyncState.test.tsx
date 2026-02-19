@@ -192,6 +192,26 @@ describe('useSyncState', () => {
     expect(renderCount).toBe(2);
   });
 
+  it('supports null as a valid initial state', () => {
+    function Component() {
+      const [getValue, setValue] = useSyncState<string | null>(null);
+      return (
+        <div>
+          <span data-testid='value'>{getValue() === null ? 'null' : getValue()}</span>
+          <button data-testid='set' onClick={() => setValue('hello')}>
+            Set
+          </button>
+        </div>
+      );
+    }
+
+    render(<Component />);
+    expect(screen.getByTestId('value')).toHaveTextContent('null');
+
+    fireEvent.click(screen.getByTestId('set'));
+    expect(screen.getByTestId('value')).toHaveTextContent('hello');
+  });
+
   it('works with object state', () => {
     function Component() {
       const [getUser, setUser] = useSyncState({ name: 'John', age: 25 });

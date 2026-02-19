@@ -4,6 +4,9 @@ import useEventCallback from '../useEventCallback';
 type GetState<T> = () => T;
 type SetState<T> = (value: SetStateAction<T>) => void;
 
+/** Sentinel value distinguishing "not yet initialized" from any valid state, including `null`. */
+const UNINITIALIZED = Symbol('useSyncState.uninitialized');
+
 /**
  * Same as `React.useState` but will always get the latest state.
  * This is useful when React merges multiple state updates into one.
@@ -14,10 +17,10 @@ type SetState<T> = (value: SetStateAction<T>) => void;
  * @returns A tuple of [getState, setState] where getState always returns the latest value
  */
 export default function useSyncState<T>(initialState: T | (() => T)): [GetState<T>, SetState<T>] {
-  const stateRef = useRef<T | null>(null);
+  const stateRef = useRef<T | typeof UNINITIALIZED>(UNINITIALIZED);
 
   // Initialize ref on first render
-  if (stateRef.current === null) {
+  if (stateRef.current === UNINITIALIZED) {
     stateRef.current =
       typeof initialState === 'function' ? (initialState as () => T)() : initialState;
   }
