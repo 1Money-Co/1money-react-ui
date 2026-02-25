@@ -1,5 +1,5 @@
 'use client';
-import { memo } from 'react';
+import { forwardRef, memo } from 'react';
 import {
   Sidebar as ProSidebar,
   Menu as ProMenu,
@@ -11,10 +11,12 @@ import Icons from '../Icons';
 import SidebarLogo from './SidebarLogo';
 import { EXPAND_ICON_COLOR } from './constants';
 /* import types */
-import type { FC, PropsWithChildren, ReactElement } from 'react';
+import type { ComponentRef, PropsWithChildren, ReactElement } from 'react';
 import type { SidebarProps, MenuItem, SimpleMenuItem } from './interface';
 
-export const SimplySidebar: FC<PropsWithChildren<SidebarProps>> = (props) => {
+type ProSidebarRef = ComponentRef<typeof ProSidebar>;
+
+export const SimplySidebar = forwardRef<ProSidebarRef, PropsWithChildren<SidebarProps>>((props, ref) => {
   const { id, children, menus, className, prefixCls = 'simply-sidebar', headerCls, bodyCls, betaLogo, onLogoClick } = props;
   const classes = classnames(prefixCls);
 
@@ -86,6 +88,7 @@ export const SimplySidebar: FC<PropsWithChildren<SidebarProps>> = (props) => {
 
   return (
     <ProSidebar
+      ref={ref}
       id={id}
       className={classes(void 0, className)}
       width='280px'
@@ -107,6 +110,6 @@ export const SimplySidebar: FC<PropsWithChildren<SidebarProps>> = (props) => {
       {children}
     </ProSidebar>
   );
-};
+});
 
 export default memo(SimplySidebar);
