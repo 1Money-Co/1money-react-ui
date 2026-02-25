@@ -7,10 +7,11 @@ import { CheckboxGroup } from '../index';
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
   if (
-    message.includes('Could not parse CSS stylesheet') ||
-    message.includes('findDOMNode is deprecated and will be removed') ||
-    message.includes('React does not recognize')
+    errorMessage.includes('Could not parse CSS stylesheet') ||
+    errorMessage.includes('findDOMNode is deprecated and will be removed') ||
+    errorMessage.includes('React does not recognize')
   ) {
       return;
   }
@@ -45,7 +46,7 @@ describe('CheckboxGroup', () => {
       const multiple = render(
         <CheckboxGroup items={[
           { name: 'C', key: 'Cheese', label: 'Cheese' },
-          { name: 'M', key: 'Mushroom', label: 'Mushroom', autoFocus: true },
+          { name: 'M', key: 'Mushroom', label: 'Mushroom', defaultChecked: true },
           { name: 'P', key: 'Pepper', label: 'Pepper' },
           { name: 'O', key: 'Onion', label: 'Onion' },
         ]} />
@@ -323,7 +324,7 @@ describe('CheckboxGroup', () => {
       render(
         <CheckboxGroup
           items={[
-            { key: 'item1', label: 'Item 1', autoFocus: true },
+            { key: 'item1', label: 'Item 1', defaultChecked: true },
             { key: 'item2', label: 'Item 2' },
           ]}
           onChange={handleChange}
@@ -333,7 +334,7 @@ describe('CheckboxGroup', () => {
       const user = userEvent.setup();
       const checkboxes = screen.getAllByRole('checkbox');
 
-      // item1 is auto-focused (pre-checked), uncheck it
+      // item1 is default-checked (pre-checked), uncheck it
       await user.click(checkboxes[0]);
       expect(handleChange).toHaveBeenCalledWith([]);
     });
@@ -358,13 +359,13 @@ describe('CheckboxGroup', () => {
       expect(handleItemChange).toHaveBeenCalledWith(true);
     });
 
-    it('autoFocus items are pre-checked', () => {
+    it('defaultChecked items are pre-checked', () => {
       render(
         <CheckboxGroup
           items={[
             { key: 'item1', label: 'Item 1' },
-            { key: 'item2', label: 'Item 2', autoFocus: true },
-            { key: 'item3', label: 'Item 3', autoFocus: true },
+            { key: 'item2', label: 'Item 2', defaultChecked: true },
+            { key: 'item3', label: 'Item 3', defaultChecked: true },
           ]}
         />
       );

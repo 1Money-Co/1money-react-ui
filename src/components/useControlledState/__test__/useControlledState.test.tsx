@@ -1,6 +1,6 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import useControlledState from '..';
 
@@ -126,6 +126,19 @@ describe('useControlledState', () => {
       rerender(<Component />);
       expect(screen.getByTestId('state')).toHaveTextContent('default');
     });
+
+    it('switches from controlled to uncontrolled after value changes', () => {
+      function Component({ value }: { value?: string }) {
+        const [state] = useControlledState('default', value);
+        return <div data-testid='state'>{state}</div>;
+      }
+
+      const { rerender } = render(<Component value='first' />);
+      rerender(<Component value='updated' />);
+
+      rerender(<Component />);
+      expect(screen.getByTestId('state')).toHaveTextContent('updated');
+    });
   });
 
   describe('edge cases', () => {
@@ -145,11 +158,21 @@ describe('useControlledState', () => {
     it('handles empty string as controlled value', () => {
       function Component({ value }: { value?: string }) {
         const [state] = useControlledState('default', value);
-        return <div data-testid='state'>{state || '(empty)'}</div>;
+        return <div data-testid='state'>{state}</div>;
       }
 
       render(<Component value='' />);
-      expect(screen.getByTestId('state')).toHaveTextContent('(empty)');
+      expect(screen.getByTestId('state').textContent).toBe('');
+    });
+
+    it('treats null as a controlled value', () => {
+      function Component({ value }: { value?: string | null }) {
+        const [state] = useControlledState('default', value);
+        return <div data-testid='state'>{state ?? '(null)'}</div>;
+      }
+
+      render(<Component value={null} />);
+      expect(screen.getByTestId('state')).toHaveTextContent('(null)');
     });
   });
 });

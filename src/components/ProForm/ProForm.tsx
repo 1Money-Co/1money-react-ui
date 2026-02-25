@@ -132,7 +132,20 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
 
   const handleSubmitFromRender = useMemoizedFn(() => {
     triggerSubmitterOnSubmit();
-    void form.handleSubmit(handleFinish, onFinishFailed)(undefined);
+    try {
+      const submitPromise = form.handleSubmit(handleFinish, onFinishFailed)(undefined);
+      submitPromise.catch((error: unknown) => {
+        console.error(
+          '[ProForm] handleSubmitFromRender rejected after triggerSubmitterOnSubmit via form.handleSubmit(handleFinish, onFinishFailed).',
+          error
+        );
+      });
+    } catch (error) {
+      console.error(
+        '[ProForm] handleSubmitFromRender threw after triggerSubmitterOnSubmit via form.handleSubmit(handleFinish, onFinishFailed).',
+        error
+      );
+    }
   });
 
   const mergedDisabled = rest.disabled ?? loading;

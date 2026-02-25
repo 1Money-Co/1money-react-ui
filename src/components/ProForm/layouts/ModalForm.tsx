@@ -5,7 +5,6 @@ import ProForm from '../ProForm';
 import { CSS_PREFIX } from '../constants';
 import styles from '../style/ProForm.module.scss';
 import { useOverlayForm } from './useOverlayForm';
-import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ModalHandlers } from '../../Modal';
 import type { ModalFormProps } from '../interface';
@@ -37,7 +36,6 @@ function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
   } = props;
 
   const modalRef = useRef<ModalHandlers>(null);
-  const modalPropsObj = (modalProps ?? {}) as Record<string, unknown>;
 
   const {
     mergedOpen,
@@ -55,8 +53,8 @@ function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
     destroyOnClose,
     width,
     onFinish,
-    overlayStyle: modalPropsObj.style as Record<string, unknown> | undefined,
-    onOverlayHide: modalPropsObj.onHide as ((...args: unknown[]) => void) | undefined,
+    overlayStyle: modalProps?.style,
+    onOverlayHide: modalProps?.onHide,
   });
 
   useEffect(() => {
@@ -75,7 +73,7 @@ function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
         <Modal
           ref={modalRef}
           {...modalProps}
-          header={(modalPropsObj.header as ReactNode | undefined) ?? title}
+          header={modalProps?.header ?? title}
           style={mergedStyle}
           onHide={handleHide}
         >

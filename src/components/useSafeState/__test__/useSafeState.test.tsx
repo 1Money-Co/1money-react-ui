@@ -63,7 +63,7 @@ describe('useSafeState', () => {
 
   it('ignores setState calls after unmount', async () => {
     const setStateAfterUnmount = jest.fn();
-    let externalSetState: React.Dispatch<React.SetStateAction<number>>;
+    let externalSetState: React.Dispatch<React.SetStateAction<number>> | null = null;
 
     function Component() {
       const [count, setCount] = useSafeState(0);
@@ -76,7 +76,7 @@ describe('useSafeState', () => {
 
     // Update state while mounted - should work
     act(() => {
-      externalSetState(1);
+      if (externalSetState) externalSetState(1);
     });
     expect(screen.getByTestId('count')).toHaveTextContent('1');
 
@@ -86,7 +86,7 @@ describe('useSafeState', () => {
     // Try to update state after unmount - should be silently ignored
     // This should not throw or cause any issues
     act(() => {
-      externalSetState(2);
+      if (externalSetState) externalSetState(2);
       setStateAfterUnmount();
     });
 

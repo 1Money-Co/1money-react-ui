@@ -15,6 +15,7 @@ interface CheckboxGroupBaseProps {
 interface CheckboxGroupNormalItem {
   key: string;
   label?: ReactNode;
+  defaultChecked?: boolean;
   onChange?: (checked: boolean) => any;
 }
 

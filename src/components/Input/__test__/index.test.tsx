@@ -7,10 +7,11 @@ import { Input } from '../index';
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
   if (
-    message.includes('Could not parse CSS stylesheet') ||
-    message.includes('findDOMNode is deprecated and will be removed') ||
-    message.includes('should not be null')
+    errorMessage.includes('Could not parse CSS stylesheet') ||
+    errorMessage.includes('findDOMNode is deprecated and will be removed') ||
+    errorMessage.includes('should not be null')
   ) {
       return;
   }

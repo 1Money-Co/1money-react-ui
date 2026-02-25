@@ -8,6 +8,7 @@ import {
 } from 'react-pro-sidebar';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
+import useMemoizedFn from '../useMemoizedFn';
 import SidebarLogo from './SidebarLogo';
 import { EXPAND_ICON_COLOR } from './constants';
 /* import types */
@@ -86,14 +87,14 @@ export const SimplySidebar = forwardRef<ProSidebarRef, PropsWithChildren<Sidebar
     );
   };
 
-  const renderExpandIcon = ({ open }: { open: boolean }) => (
+  const renderExpandIcon = useMemoizedFn(({ open }: { open: boolean }) => (
     <Icons
       name='chevronDown'
       size={16}
       color={EXPAND_ICON_COLOR}
       wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))}
     />
-  );
+  ));
 
   return (
     <ProSidebar

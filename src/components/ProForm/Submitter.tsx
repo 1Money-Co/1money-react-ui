@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { joinCls } from '@/utils/classnames';
-import useMemoizedFn from '../useMemoizedFn';
-import { Button } from '../Button';
+import useMemoizedFn from '@/components/useMemoizedFn';
+import { Button } from '@/components/Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
 import styles from './style/ProForm.module.scss';
 import type { MouseEvent, ReactElement } from 'react';

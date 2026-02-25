@@ -1,17 +1,18 @@
 import { DndContext } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { memo, useEffect, useMemo, useRef } from 'react';
 import { joinCls } from '@/utils/classnames';
-import useMemoizedFn from '../useMemoizedFn';
+import useMemoizedFn from '@/components/useMemoizedFn';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
-import { Button } from '../Button';
+import { Button } from '@/components/Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
 import styles from './style/ProForm.module.scss';
 import { extractButtonProps } from './utils';
 import type { DragEndEvent } from '@dnd-kit/core';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
-import type { ButtonProps } from '../Button';
+import type { ButtonProps } from '@/components/Button';
 import type { ProFormListAction, ProFormListProps } from './interface';
 
 /**
@@ -144,9 +145,7 @@ const SortableProFormListRowBase: FC<ProFormListRowProps> = (props) => {
   } = useSortable({ id: fieldId });
 
   const style: CSSProperties = {
-    transform: transform
-      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
-      : undefined,
+    transform: transform ? CSS.Transform.toString(transform) : undefined,
     transition: transition || undefined,
     cursor: 'grab',
     opacity: isDragging ? 0.8 : 1,
@@ -239,6 +238,11 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     return Array.isArray(watchedList) ? watchedList as Record<string, unknown>[] : [];
   }, [watchedList]);
 
+  // Apply `initialValue` only once: `initialApplied.current` prevents re-entry,
+  // so even if future renders pass a new `initialValue` array reference, this
+  // effect will not call `replace` again once initialization has happened.
+  // If re-application on `initialValue` changes is desired, reset
+  // `initialApplied.current` intentionally (or remove this guard and diff values).
   useEffect(() => {
     if (initialApplied.current) return;
     if (fields.length !== 0) return;
@@ -278,15 +282,16 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     add(value, index + 1);
   });
 
+  const memoizedMove = useMemoizedFn(move);
   const getList = useMemoizedFn(() => listSnapshot);
 
   const action = useMemo<ProFormListAction>(() => ({
     add,
     remove: removeAt,
-    move,
+    move: memoizedMove,
     copy,
     getList,
-  }), [add, copy, getList, move, removeAt]);
+  }), [add, copy, getList, memoizedMove, removeAt]);
 
   const mappedFields = useMemo(() => {
     return fields.map((field, index) => ({
@@ -304,7 +309,7 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     ? { ...(creatorButtonProps || {}) }
     : undefined;
   const creatorPosition = creatorConfig?.position ?? 'bottom';
-  const addFromTopCreator = useMemoizedFn(() => add({}, fields.length));
+  const addFromTopCreator = useMemoizedFn(() => add({}, 0));
   const addFromBottomCreator = useMemoizedFn(() => add());
 
   const actionRows = useMemo(() => {

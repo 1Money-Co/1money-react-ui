@@ -1,8 +1,8 @@
 import { memo, useMemo, useState, useRef, useLayoutEffect } from 'react';
 import { Skeleton } from 'primereact/skeleton';
-import Spinner from '../Spinner';
-import useLatest from '../useLatest';
-import useEventCallback from '../useEventCallback';
+import Spinner from '@/components/Spinner';
+import useLatest from '@/components/useLatest';
+import useEventCallback from '@/components/useEventCallback';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import {
   MIN_INPUT_WIDTH,
@@ -149,9 +149,6 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
       setInnerValue(val === '' ? null : val);
       calcCaretPos(val, hasDecimalPoint ? DECIMAL_POINT_OFFSET : 0, Math.max(caretPosRef.current, 0));
       ignoreSelectRef.current = true;
-    } else if (e) {
-      e.preventDefault();
-      e.stopPropagation();
     }
     if (e) onChangeRef.current?.(e, val);
   });
@@ -230,7 +227,7 @@ export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
     setInputWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
     setIsMaxWidth(fakeWidth >= maxWidth);
     if (isFocusRef.current) scrollToEnd(true);
-  }, [innerValue, prefix, suffix, currency]);
+  }, [innerValue, prefix, suffix, currency, loading]);
 
   useLayoutEffect(() => {
     let val = isUncontrolled ? innerValue : value;

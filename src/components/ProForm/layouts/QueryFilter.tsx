@@ -4,7 +4,7 @@ import { Button } from '../../Button';
 import ProForm from '../ProForm';
 import { CSS_PREFIX, DEFAULT_COLS_NUMBER, DEFAULT_TEXT } from '../constants';
 import styles from '../style/ProForm.module.scss';
-import type { CSSProperties, FC } from 'react';
+import type { CSSProperties } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
 
@@ -24,7 +24,9 @@ import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../in
  * </QueryFilter>
  * ```
  */
-const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
+const QueryFilterBase = <TFieldValues extends FieldValues = FieldValues>(
+  props: QueryFilterProps<TFieldValues>
+) => {
   const {
     defaultCollapsed = true,
     collapsed,
@@ -71,40 +73,51 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
     } as CSSProperties;
   }, [labelWidth]);
 
-  const searchConfig = submitter !== false ? submitter?.searchConfig : undefined;
+  const submitterOptions = submitter === false ? undefined : submitter;
+  const searchConfig = submitterOptions?.searchConfig;
   const collapseText = searchConfig?.collapseText ?? DEFAULT_TEXT.collapse;
   const expandText = searchConfig?.expandText ?? DEFAULT_TEXT.expand;
 
-  const submitterConfig = submitter === false
+  const submitterRender = useCallback((renderProps: SubmitterRenderProps<TFieldValues>) => {
+    const customDom = [
+      <Button key='search' type='button' onClick={() => renderProps.submit()}>
+        {submitterOptions?.submitText ?? DEFAULT_TEXT.search}
+      </Button>,
+      <Button key='reset' type='button' severity='secondary' onClick={() => renderProps.reset()}>
+        {submitterOptions?.resetText ?? DEFAULT_TEXT.reset}
+      </Button>,
+      <Button key='collapse' type='button' severity='secondary' onClick={toggleCollapsed}>
+        {mergedCollapsed ? expandText : collapseText}
+      </Button>,
+    ];
+
+    if (submitterOptions?.render) {
+      return submitterOptions.render(renderProps, customDom);
+    }
+
+    return customDom;
+  }, [
+    mergedCollapsed,
+    expandText,
+    collapseText,
+    submitterOptions?.submitText,
+    submitterOptions?.resetText,
+    submitterOptions?.render,
+    toggleCollapsed,
+  ]);
+
+  const submitterConfig = submitterOptions === undefined
     ? false
     : {
-      ...submitter,
+      ...submitterOptions,
       onReset: () => {
-        submitter?.onReset?.();
+        submitterOptions.onReset?.();
         onReset?.();
       },
-      render: (renderProps: SubmitterRenderProps<FieldValues>) => {
-        const customDom = [
-          <Button key='search' type='button' onClick={() => renderProps.submit()}>
-            {submitter?.submitText ?? DEFAULT_TEXT.search}
-          </Button>,
-          <Button key='reset' type='button' severity='secondary' onClick={() => renderProps.reset()}>
-            {submitter?.resetText ?? DEFAULT_TEXT.reset}
-          </Button>,
-          <Button key='collapse' type='button' severity='secondary' onClick={toggleCollapsed}>
-            {mergedCollapsed ? expandText : collapseText}
-          </Button>,
-        ];
-
-        if (submitter?.render) {
-          return submitter.render(renderProps, customDom);
-        }
-
-        return customDom;
-      },
+      render: submitterRender,
     };
 
-  const queryFormProps = formProps as Omit<ProFormProps<FieldValues>, 'layout' | 'submitter'>;
+  const queryFormProps = formProps as Omit<ProFormProps<TFieldValues>, 'layout' | 'submitter'>;
 
   return (
     <div
@@ -116,7 +129,7 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
       )}
       style={filterStyle}
     >
-      <ProForm
+      <ProForm<TFieldValues>
         {...queryFormProps}
         layout={formProps.layout ?? 'inline'}
         submitter={submitterConfig}
@@ -127,8 +140,9 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
   );
 };
 
-QueryFilterBase.displayName = 'QueryFilter';
+const MemoizedQueryFilter = memo(QueryFilterBase);
+MemoizedQueryFilter.displayName = 'QueryFilter';
 
-export const QueryFilter = memo(QueryFilterBase);
+export const QueryFilter = MemoizedQueryFilter as typeof QueryFilterBase;
 
 export default QueryFilter;

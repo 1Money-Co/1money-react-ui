@@ -1,8 +1,8 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import useLayoutEffect from '@/components/useLayoutEffect';
+import useLayoutEffect from '..';
 
 describe('useLayoutEffect', () => {
   it('passes true for mount parameter on initial render', () => {

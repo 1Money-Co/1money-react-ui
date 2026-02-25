@@ -12,12 +12,11 @@ describe('ProForm layouts', () => {
 
   beforeAll(() => {
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
       if (
-        typeof message === 'string' && (
-          message.includes('Could not parse CSS stylesheet') ||
-          message.includes('findDOMNode is deprecated and will be removed') ||
-          message.includes('should not be null')
-        )
+        errorMessage.includes('Could not parse CSS stylesheet') ||
+        errorMessage.includes('findDOMNode is deprecated and will be removed') ||
+        errorMessage.includes('should not be null')
       ) {
         return;
       }
@@ -26,7 +25,8 @@ describe('ProForm layouts', () => {
     });
 
     consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
-      if (typeof message === 'string' && message.includes('[FormItem]')) return;
+      const errorMessage = typeof message === 'string' ? message : String(message);
+      if (typeof message === 'string' && errorMessage.includes('[FormItem]')) return;
       // eslint-disable-next-line no-console
       console.log(message, ...optionalParams);
     });
@@ -316,7 +316,7 @@ describe('ProForm layouts', () => {
     const user = userEvent.setup();
 
     render(
-      <QueryFilter defaultCollapsed defaultColsNumber={2}>
+      <QueryFilter defaultCollapsed defaultColsNumber={2} submitter={{}}>
         <ProFormText name='a' label='A' />
         <ProFormText name='b' label='B' />
         <ProFormText name='c' label='C' />
@@ -333,7 +333,7 @@ describe('ProForm layouts', () => {
   it('matches snapshot for QueryFilter collapsed and expanded states', async () => {
     const user = userEvent.setup();
     const { container } = render(
-      <QueryFilter defaultCollapsed defaultColsNumber={2}>
+      <QueryFilter defaultCollapsed defaultColsNumber={2} submitter={{}}>
         <ProFormText name='a' label='A' />
         <ProFormText name='b' label='B' />
         <ProFormText name='c' label='C' />

@@ -57,9 +57,15 @@ export { Message } from './components/Message';
 export { Dropdown } from './components/Dropdown';
 export { Flex } from './components/Flex';
 export { Form, FormItem } from './components/Form';
-export { ProForm, Submitter, ProFormList, ProFormDependency } from './components/ProForm';
-export { ModalForm, DrawerForm, StepsForm, QueryFilter } from './components/ProForm';
 export {
+  ProForm,
+  Submitter,
+  ProFormList,
+  ProFormDependency,
+  ModalForm,
+  DrawerForm,
+  StepsForm,
+  QueryFilter,
   ProFormText,
   ProFormPassword,
   ProFormTextArea,
@@ -80,10 +86,11 @@ export type {
   DrawerFormProps,
   StepsFormProps,
   StepFormProps,
+  StepsSubmitterProps,
   QueryFilterProps,
   ProFormListProps,
   ProFormListAction,
-} from './components/ProForm';
+} from './components/ProForm/interface';
 export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
 export { Popup } from './components/Popup';

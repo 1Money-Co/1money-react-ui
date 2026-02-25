@@ -96,11 +96,6 @@ export interface SubmitterProps<
   submitButtonProps?: ButtonProps;
   /** Additional props forwarded to the reset `<Button>`. */
   resetButtonProps?: ButtonProps;
-  /** Text overrides for the collapse/expand toggle in {@link QueryFilter}. */
-  searchConfig?: {
-    collapseText?: ReactNode;
-    expandText?: ReactNode;
-  };
 }
 
 /**
@@ -209,6 +204,22 @@ export interface StepsSubmitterProps<
 }
 
 /**
+ * Submitter configuration specific to {@link QueryFilter}, adding
+ * collapse/expand button text overrides.
+ *
+ * @typeParam TFieldValues - The form values type.
+ */
+export interface QueryFilterSubmitterProps<
+  TFieldValues extends FieldValues = FieldValues,
+> extends SubmitterProps<TFieldValues> {
+  /** Text overrides for the collapse/expand toggle in {@link QueryFilter}. */
+  searchConfig?: {
+    collapseText?: ReactNode;
+    expandText?: ReactNode;
+  };
+}
+
+/**
  * Props for {@link StepsForm} — a multi-step wizard form that collects
  * values across steps and submits them together on the final step.
  *
@@ -241,7 +252,7 @@ export interface StepsFormProps<
  */
 export interface QueryFilterProps<
   TFieldValues extends FieldValues = FieldValues,
-> extends ProFormProps<TFieldValues> {
+> extends Omit<ProFormProps<TFieldValues>, 'submitter'> {
   /** Whether the filter is collapsed by default. @default true */
   defaultCollapsed?: boolean;
   /** Controlled collapsed state. */
@@ -256,6 +267,8 @@ export interface QueryFilterProps<
   split?: boolean;
   /** Callback fired when the reset button is clicked. */
   onReset?: () => void;
+  /** Submitter configuration for search/reset/collapse actions. Pass `false` to hide. */
+  submitter?: false | QueryFilterSubmitterProps<TFieldValues>;
 }
 
 /**

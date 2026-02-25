@@ -73,7 +73,7 @@ describe('useEventCallback', () => {
       );
     }
 
-    render(<Counter />);
+    const { asFragment } = render(<Counter />);
     const button = screen.getByTestId('button');
 
     fireEvent.click(button);
@@ -82,5 +82,6 @@ describe('useEventCallback', () => {
 
     expect(clicks).toEqual([0, 1, 2]);
     expect(button).toHaveTextContent('Count: 3');
+    expect(asFragment()).toMatchSnapshot();
   });
 });

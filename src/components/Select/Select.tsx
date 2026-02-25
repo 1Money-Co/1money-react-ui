@@ -1,16 +1,16 @@
 import { memo, useRef, useMemo, useState, useEffect, useCallback, useImperativeHandle } from 'react';
 import debounce from 'lodash.debounce';
-import { Dropdown, type DropdownProps } from 'primereact/dropdown';
-import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
+import { Dropdown, type DropdownProps, type DropdownChangeEvent } from 'primereact/dropdown';
+import { MultiSelect, type MultiSelectProps, type MultiSelectChangeEvent } from 'primereact/multiselect';
 import { Skeleton } from 'primereact/skeleton';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import useControlledState from '../useControlledState';
-import useEventCallback from '../useEventCallback';
-import { Icons } from '../Icons';
-import { Spinner } from '../Spinner';
+import useControlledState from '@/components/useControlledState';
+import useEventCallback from '@/components/useEventCallback';
+import { Icons } from '@/components/Icons';
+import { Spinner } from '@/components/Spinner';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { SelectProps, CustomDropdownProps } from './interface';
+import type { SelectProps, CustomDropdownProps } from '@/components/Select/interface';
 import {
   DEFAULT_PREFIX_CLS,
   DEFAULT_SIZE,
@@ -30,7 +30,7 @@ import {
   ICON_SIZE_XS,
   ICON_SIZE_SM,
   ICON_SIZE_MD,
-} from './constants';
+} from '@/components/Select/constants';
 
 const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' | 'required' | 'prefixCls' | 'wrapperCls' | 'labelCls' | 'messageCls' | 'success' | 'invalid' | 'disabled' | 'loading'>>> = memo(props => {
   const {
@@ -214,6 +214,9 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
   </SelectWrapper>;
 };
 
+type SelectChangeEvent = DropdownChangeEvent | MultiSelectChangeEvent;
+type SelectChangeHandler = (event: SelectChangeEvent) => void;
+
 export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: typeof CustomDropdown } = props => {
   const {
     id,
@@ -368,9 +371,11 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     getVirtualScroller: () => (selectRef.current as Dropdown)?.getVirtualScroller?.(),
   }), [multiple]);
 
-  const handleChange = useEventCallback((e: any) => {
+  const handleChange = useEventCallback<[SelectChangeEvent], void>((e) => {
+    const emitChange = onChange as SelectChangeHandler | undefined;
+
     setSelected(e.value);
-    onChange?.(e);
+    emitChange?.(e);
   });
 
   const handleHide = useEventCallback(() => {

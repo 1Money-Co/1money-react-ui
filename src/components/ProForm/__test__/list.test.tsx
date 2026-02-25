@@ -1,11 +1,10 @@
-import 'jsdom-global/register';
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { ProForm } from '@/components/ProForm';
-import { ProFormText } from '@/components/ProForm/fields';
-import { ProFormList, buildOnDragEnd } from '@/components/ProForm/ProFormList';
+import { ProForm } from '../ProForm';
+import { ProFormText } from '../fields';
+import { ProFormList, buildOnDragEnd } from '../ProFormList';
 
 describe('ProForm list', () => {
   let consoleErrorSpy: jest.SpyInstance;
@@ -13,12 +12,11 @@ describe('ProForm list', () => {
 
   beforeAll(() => {
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
       if (
-        typeof message === 'string' && (
-          message.includes('Could not parse CSS stylesheet') ||
-          message.includes('findDOMNode is deprecated and will be removed') ||
-          message.includes('should not be null')
-        )
+        errorMessage.includes('Could not parse CSS stylesheet') ||
+        errorMessage.includes('findDOMNode is deprecated and will be removed') ||
+        errorMessage.includes('should not be null')
       ) {
         return;
       }
@@ -27,7 +25,8 @@ describe('ProForm list', () => {
     });
 
     consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
-      if (typeof message === 'string' && message.includes('[FormItem]')) return;
+      const errorMessage = typeof message === 'string' ? message : String(message);
+      if (typeof message === 'string' && errorMessage.includes('[FormItem]')) return;
       // eslint-disable-next-line no-console
       console.log(message, ...optionalParams);
     });

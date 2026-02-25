@@ -4,7 +4,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ProForm } from '../ProForm';
-import { ProFormRadio, ProFormSwitch, ProFormText } from '../fields';
+import { ProFormCheckboxGroup, ProFormRadio, ProFormSwitch, ProFormText } from '../fields';
 
 describe('ProForm fields', () => {
   let consoleErrorSpy: jest.SpyInstance;
@@ -18,12 +18,11 @@ describe('ProForm fields', () => {
 
   beforeAll(() => {
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
       if (
-        typeof message === 'string' && (
-          message.includes('Could not parse CSS stylesheet') ||
-          message.includes('findDOMNode is deprecated and will be removed') ||
-          message.includes('should not be null')
-        )
+        errorMessage.includes('Could not parse CSS stylesheet') ||
+        errorMessage.includes('findDOMNode is deprecated and will be removed') ||
+        errorMessage.includes('should not be null')
       ) {
         return;
       }
@@ -31,7 +30,8 @@ describe('ProForm fields', () => {
     });
 
     consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
-      if (typeof message === 'string' && message.includes('[FormItem]')) return;
+      const errorMessage = typeof message === 'string' ? message : String(message);
+      if (typeof message === 'string' && errorMessage.includes('[FormItem]')) return;
       throw new Error(getUnexpectedConsoleError('warn', message, optionalParams));
     });
   });
@@ -72,6 +72,56 @@ describe('ProForm fields', () => {
 
     expect(screen.getByText('Ada')).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('renders checkbox group readonly labels using field items', () => {
+    render(
+      <ProForm
+        readonly
+        defaultValues={{
+          permissions: ['read', 'custom'],
+          flags: { alpha: true, beta: false, gamma: null },
+          emptyFlags: { alpha: false, beta: null },
+        }}
+      >
+        <ProFormCheckboxGroup
+          name='permissions'
+          label='Permissions'
+          fieldProps={{
+            items: [
+              { key: 'read', label: 'Read' },
+              { key: 'write', label: 'Write' },
+            ],
+          }}
+        />
+        <ProFormCheckboxGroup
+          name='flags'
+          label='Flags'
+          fieldProps={{
+            tristate: true,
+            items: [
+              { key: 'alpha', label: 'Alpha' },
+              { key: 'beta', label: 'Beta' },
+            ],
+          }}
+        />
+        <ProFormCheckboxGroup
+          name='emptyFlags'
+          label='Empty Flags'
+          fieldProps={{
+            tristate: true,
+            items: [
+              { key: 'alpha', label: 'Alpha' },
+              { key: 'beta', label: 'Beta' },
+            ],
+          }}
+        />
+      </ProForm>
+    );
+
+    expect(screen.getByText('Read, custom')).toBeInTheDocument();
+    expect(screen.getByText('Alpha')).toBeInTheDocument();
+    expect(screen.getByText('-')).toBeInTheDocument();
   });
 
   it('composes fieldProps onBlur with form blur handling', async () => {

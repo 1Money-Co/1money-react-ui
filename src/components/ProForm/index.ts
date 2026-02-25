@@ -5,4 +5,7 @@ export { ProFormDependency } from './ProFormDependency';
 
 export * from './fields';
 export * from './layouts';
-export * from './interface';
+export type {
+  StepsSubmitterProps,
+  ProFormListAction,
+} from './interface';

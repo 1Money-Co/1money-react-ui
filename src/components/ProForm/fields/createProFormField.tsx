@@ -67,9 +67,15 @@ const pickDefined = <T extends UnknownRecord>(obj: T): Partial<T> =>
 const chainFn = (
   first: ((...args: unknown[]) => void) | undefined,
   second: ((...args: unknown[]) => void) | undefined,
-) => (...args: unknown[]) => {
-  first?.(...args);
-  second?.(...args);
+): ((...args: unknown[]) => void) | undefined => {
+  if (!first && !second) return undefined;
+  if (!first) return second;
+  if (!second) return first;
+
+  return (...args: unknown[]) => {
+    first(...args);
+    second(...args);
+  };
 };
 
 /**
@@ -158,6 +164,7 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
       const inputType = mapped.type ?? currentFieldProps.type;
       const multiple = mapped.multiple ?? currentFieldProps.multiple ?? (fieldProps as UnknownRecord | undefined)?.multiple;
       const isMultiple = Boolean(multiple);
+      const formOnBlur = field?.onBlur as (() => void) | undefined;
 
       const widthStyle: CSSProperties | undefined = width !== undefined
         ? { ...(currentFieldProps.style as CSSProperties | undefined), width: resolveWidth(width) }
@@ -170,7 +177,7 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
         ...(widthStyle ? { style: widthStyle } : {}),
         [valuePropName]: normalizeFieldValue(field?.value, valuePropName, inputType, isMultiple),
         onBlur: chainFn(
-          () => (field?.onBlur as (() => void) | undefined)?.(),
+          formOnBlur ? () => formOnBlur() : undefined,
           currentFieldProps.onBlur as ((...args: unknown[]) => void) | undefined,
         ),
         onChange: (...args: unknown[]) => {

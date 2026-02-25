@@ -37,12 +37,6 @@
   margin-top: 16px;
 }
 
-.proform__query-filter {
-  :global(.om-react-ui-form-item-root) {
-    margin-bottom: 0;
-  }
-}
-
 .proform__query-filter-split {
   padding-top: 16px;
   border-top: 1px solid $color-grey-deep;

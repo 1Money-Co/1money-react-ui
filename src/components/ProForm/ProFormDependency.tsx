@@ -2,8 +2,14 @@ import { memo, useContext, useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
 import type { FC, ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
-import { FormContext } from '../Form/Form';
-import { FallbackFormProvider, useFormItemContext } from '../Form/useFormItemContext';
+import { FormContext } from '@/components/Form/Form';
+import { FallbackFormProvider, useFormItemContext } from '@/components/Form/useFormItemContext';
+
+const __DEV__ = (() => {
+  const maybeProcess = globalThis as { process?: { env?: { NODE_ENV?: string } } };
+  return maybeProcess.process?.env?.NODE_ENV !== 'production';
+})();
+let hasWarnedIsolatedDependency = false;
 
 /**
  * Props for {@link ProFormDependency}.
@@ -49,6 +55,15 @@ const ProFormDependencyBase: FC<ProFormDependencyProps> = (props) => {
   const ctx = useContext(FormContext);
 
   if (!ctx?.methods) {
+    if (__DEV__ && !hasWarnedIsolatedDependency) {
+      hasWarnedIsolatedDependency = true;
+      console.warn(
+        '[ProFormDependencyBase] Missing FormContext methods. Rendering with FallbackFormProvider. ' +
+        'ProFormDependencyInner will use an isolated form instance, and useWatch may return undefined ' +
+        'for watched fields when ProFormDependency is used outside a Form.',
+      );
+    }
+
     return (
       <FallbackFormProvider>
         <ProFormDependencyInner {...props} />

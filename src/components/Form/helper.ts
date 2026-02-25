@@ -39,6 +39,11 @@ export const toPercent = (col?: number) => {
 /**
  * Type guard that narrows an unknown value to a `FieldError`-like object.
  *
+ * `isFieldError` assumes `react-hook-form` places `type` on leaf errors,
+ * and `getFirstErrorPath` relies on that to stop descending once a leaf is found.
+ * If RHF changes this contract, tighten this predicate (e.g. require `message`/`ref`
+ * or another stricter leaf-shape check) to avoid false positives on nested containers.
+ *
  * Checks for the presence of `type`, `message`, or `ref` properties which
  * are characteristic of `react-hook-form` field errors.
  *

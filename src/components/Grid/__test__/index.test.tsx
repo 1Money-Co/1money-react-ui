@@ -8,11 +8,12 @@ import { GRID_CSS_VARS, GRID_ROW_PREFIX, GRID_ALIGN, GRID_JUSTIFY } from '../con
 const originalConsoleError = console.error;
 beforeAll(() => {
   console.error = (message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
     if (
       typeof message === 'string' &&
       (
-        message.includes('Could not parse CSS stylesheet') ||
-        message.includes('findDOMNode is deprecated and will be removed')
+        errorMessage.includes('Could not parse CSS stylesheet') ||
+        errorMessage.includes('findDOMNode is deprecated and will be removed')
       )
     ) {
       return;

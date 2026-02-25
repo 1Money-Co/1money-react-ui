@@ -1,13 +1,15 @@
 import { memo } from 'react';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import Icons from '../Icons';
-import SidebarLogo from './SidebarLogo';
-import { STATUS_SUCCESS_COLOR } from './constants';
+import Icons from '@/components/Icons';
+import SidebarLogo from '@/components/Sidebar/SidebarLogo';
+import { STATUS_SUCCESS_COLOR } from '@/components/Sidebar/constants';
 /* import types */
 import type { FC } from 'react';
 import type { StepperProps } from './interface';
 
-const DONE_STATUSES = ['done', 'done-active'] as const;
+type StepStatus = StepperProps['steps'][number]['status'];
+
+const DONE_STATUSES: ReadonlyArray<StepStatus> = ['done', 'done-active'];
 const LOGO_BUTTON_ARIA_LABEL = 'Sidebar logo';
 
 export const Stepper: FC<StepperProps> = props => {
@@ -40,7 +42,7 @@ export const Stepper: FC<StepperProps> = props => {
             >
               <span className={classes('step-label')}>{label}</span>
               {
-                DONE_STATUSES.includes(status as typeof DONE_STATUSES[number]) && <Icons name='statusSuccess' size={20} color={STATUS_SUCCESS_COLOR} />
+                DONE_STATUSES.includes(status) && <Icons name='statusSuccess' size={20} color={STATUS_SUCCESS_COLOR} />
               }
             </li>;
           })

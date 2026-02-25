@@ -17,7 +17,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
   const sizeClass = `ckbg-${size}`;
 
   // Normal mode: controlled/uncontrolled string[] state
-  const defaultChecked = useMemo(() => items.filter(item => item.autoFocus).map(v => v.key), [items]);
+  const defaultChecked = useMemo(() => items.filter(item => item.defaultChecked).map(v => v.key), [items]);
   const normalValue = tristate ? undefined : props.value;
   const [checkedItems, setCheckedItems] = useControlledState<string[]>(normalValue ?? defaultChecked, normalValue);
 
@@ -48,7 +48,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
   const renderItem = (item: CheckboxGroupItem) => {
     const { key, required, disabled, label, onChange: itemOnChange, ...rest } = item;
     // Strip defaultValue from rest to avoid passing it to DOM
-    const { defaultValue: _, ...checkboxRest } = rest as Record<string, unknown>;
+    const { defaultValue: _, defaultChecked: __, ...checkboxRest } = rest as Record<string, unknown>;
     const innerClassName = classes('inner-checkbox', checkboxGroupCls);
 
     const checkboxEl = tristate
