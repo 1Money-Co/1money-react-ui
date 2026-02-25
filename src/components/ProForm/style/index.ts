@@ -1,1 +1,1 @@
-import './ProForm.scss';
+import './ProForm.module.scss';

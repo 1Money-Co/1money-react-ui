@@ -31,23 +31,39 @@ import {
 } from './helper';
 /* import types */
 import type { FC, PropsWithChildren, CSSProperties, ChangeEvent, FocusEvent, MouseEvent } from 'react';
-import type { InputAmountProps } from './interface';
+import type { InputAmountBaseProps, InputAmountNormalProps, InputAmountPrimaryProps, InputAmountProps } from './interface';
 
 export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
+  const type = props.type ?? DEFAULT_TYPE;
+  const size = type === 'normal'
+    ? (props as InputAmountNormalProps).size ?? DEFAULT_SIZE
+    : DEFAULT_SIZE;
+  const footnote = type === 'normal' ? undefined : (props as InputAmountPrimaryProps).footnote;
+  const footnoteCls = type === 'normal' ? undefined : (props as InputAmountPrimaryProps).footnoteCls;
+
+  const rawBaseProps = { ...props } as InputAmountBaseProps & {
+    type?: InputAmountProps['type'];
+    size?: InputAmountNormalProps['size'];
+    footnote?: InputAmountPrimaryProps['footnote'];
+    footnoteCls?: InputAmountPrimaryProps['footnoteCls'];
+  };
+  delete rawBaseProps.type;
+  delete rawBaseProps.size;
+  delete rawBaseProps.footnote;
+  delete rawBaseProps.footnoteCls;
+  const baseProps = rawBaseProps as InputAmountBaseProps;
+
   const {
     value,
-    type = DEFAULT_TYPE,
     maxFractionDigits,
     placeholder = DEFAULT_PLACEHOLDER,
     min, max,
-    // @ts-expect-error
-    size = DEFAULT_SIZE, footnote, footnoteCls,
     className, wrapperCls, labelCls, prefixCls = DEFAULT_PREFIX_CLS, messageCls, prefixEleCls, suffixEleCls,
     invalid, negative, required, loading, success, disabled, readOnly,
     label, prefix, suffix, currency, message,
     onChange, onBlur, onFocus,
     ...rest
-  } = props;
+  } = baseProps;
 
   const cls = classnames(`${prefixCls}-${type}`);
 

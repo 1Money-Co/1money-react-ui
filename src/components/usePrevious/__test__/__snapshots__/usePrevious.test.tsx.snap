@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`usePrevious preserves previous-value sequence in StrictMode 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    undefined
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious preserves previous-value sequence in StrictMode 2`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    10
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious preserves previous-value sequence in StrictMode 3`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    20
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious returns latest committed value on same-value rerender 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    undefined
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious returns latest committed value on same-value rerender 2`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    5
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious returns undefined on first render and previous value on updates 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    undefined
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious returns undefined on first render and previous value on updates 2`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    1
+  </div>
+</DocumentFragment>
+`;
+
+exports[`usePrevious returns undefined on first render and previous value on updates 3`] = `
+<DocumentFragment>
+  <div
+    data-testid="previous"
+  >
+    2
+  </div>
+</DocumentFragment>
+`;

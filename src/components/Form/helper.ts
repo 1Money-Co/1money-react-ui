@@ -118,7 +118,7 @@ export const scrollToField = (name: string, options?: FormProps['scrollToFirstEr
   if (typeof config.offset === 'number') {
     const rect = el.getBoundingClientRect();
     window.scrollTo({
-      top: rect.top + window.pageYOffset - config.offset,
+      top: rect.top + window.scrollY - config.offset,
       behavior,
     });
     return;
@@ -214,14 +214,18 @@ export const wrapValidate = <TValues extends FieldValues, TName extends FieldPat
   return async (value: FieldPathValue<TValues, TName>, values: TValues) => {
     if (mode === VALIDATE_PARALLEL) {
       const results = await Promise.all(
-        validators.map(fn => Promise.resolve((fn as Validate<FieldPathValue<TValues, TName>, TValues>)(value, values)))
+        validators.map(async fn => normalizeValidateResult(
+          await Promise.resolve((fn as Validate<FieldPathValue<TValues, TName>, TValues>)(value, values))
+        ))
       );
       const hit = results.find(result => result !== true && result !== undefined);
-      return normalizeValidateResult(hit ?? true);
+      return hit ?? true;
     }
     for (const fn of validators) {
-      const result = await (fn as Validate<FieldPathValue<TValues, TName>, TValues>)(value, values);
-      if (result !== true && result !== undefined) return normalizeValidateResult(result);
+      const result = normalizeValidateResult(
+        await (fn as Validate<FieldPathValue<TValues, TName>, TValues>)(value, values)
+      );
+      if (result !== true && result !== undefined) return result;
     }
     return true;
   };

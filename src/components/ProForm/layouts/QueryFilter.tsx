@@ -1,7 +1,9 @@
 import { Children, memo, useCallback, useMemo, useState } from 'react';
+import { joinCls } from '@/utils/classnames';
 import { Button } from '../../Button';
 import ProForm from '../ProForm';
 import { CSS_PREFIX, DEFAULT_COLS_NUMBER, DEFAULT_TEXT } from '../constants';
+import styles from '../style/ProForm.module.scss';
 import type { CSSProperties, FC } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, QueryFilterProps, SubmitterRenderProps } from '../interface';
@@ -37,7 +39,7 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
   } = props;
 
   const [innerCollapsed, setInnerCollapsed] = useState(defaultCollapsed);
-  const mergedCollapsed = collapsed ?? innerCollapsed;
+  const mergedCollapsed = submitter === false ? false : (collapsed ?? innerCollapsed);
 
   const childrenArray = useMemo(() => Children.toArray(children), [children]);
 
@@ -106,7 +108,12 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
 
   return (
     <div
-      className={`${CSS_PREFIX}-query-filter${split ? ` ${CSS_PREFIX}-query-filter-split` : ''}`}
+      className={joinCls(
+        styles['proform__query-filter'],
+        `${CSS_PREFIX}-query-filter`,
+        split && styles['proform__query-filter-split'],
+        split && `${CSS_PREFIX}-query-filter-split`,
+      )}
       style={filterStyle}
     >
       <ProForm

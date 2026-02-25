@@ -139,8 +139,6 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
     const ctx = useContext(ProFormContext);
     const mergedReadonly = readonly ?? ctx?.readonly;
 
-    if (hidden) return null;
-
     const formItemProps = {
       name, label, rules, required, help, extra,
       dependencies, validateTrigger, labelCol, wrapperCol, noStyle, valuePropName,
@@ -158,7 +156,8 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
 
       const mapped = mapProps ? mapProps(rest as UnknownRecord) : {};
       const inputType = mapped.type ?? currentFieldProps.type;
-      const isMultiple = Boolean(mapped.multiple);
+      const multiple = mapped.multiple ?? currentFieldProps.multiple ?? (fieldProps as UnknownRecord | undefined)?.multiple;
+      const isMultiple = Boolean(multiple);
 
       const widthStyle: CSSProperties | undefined = width !== undefined
         ? { ...(currentFieldProps.style as CSSProperties | undefined), width: resolveWidth(width) }
@@ -182,6 +181,8 @@ export function createProFormField<FieldProps>(config: CreateProFormFieldConfig<
 
       return <FieldComponent {...nextProps} />;
     });
+
+    if (hidden) return null;
 
     const node = <FormItem {...formItemProps}>{renderField}</FormItem>;
 

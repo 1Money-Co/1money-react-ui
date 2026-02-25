@@ -2,7 +2,7 @@ import 'jsdom-global/register';
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import useEventCallback from '..';
+import useEventCallback from '@/components/useEventCallback';
 
 describe('useEventCallback', () => {
   it('returns a stable callback reference across renders', () => {
@@ -67,7 +67,7 @@ describe('useEventCallback', () => {
       });
 
       return (
-        <button data-testid='button' onClick={handleClick}>
+        <button type='button' data-testid='button' onClick={handleClick}>
           Count: {count}
         </button>
       );

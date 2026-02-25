@@ -5,8 +5,11 @@ import { default as classnames, joinCls } from '@/utils/classnames';
 import useControlledState from '../useControlledState';
 import useMemoizedFn from '../useMemoizedFn';
 /* import types */
-import type { FC } from 'react';
+import type { ComponentProps, FC } from 'react';
 import type { CheckboxGroupProps, CheckboxGroupItem } from './interface';
+
+type TriStateCheckboxWithInputIdProps = ComponentProps<typeof TriStateCheckbox> & { inputId?: string };
+const TriStateCheckboxWithInputId = TriStateCheckbox as unknown as FC<TriStateCheckboxWithInputIdProps>;
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
   const { tristate, items = [], onChange, wrapperCls, innerCls, checkboxGroupCls, labelCls, prefixCls = 'checkboxgroup', size = 'md' } = props;
@@ -49,9 +52,10 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
     const innerClassName = classes('inner-checkbox', checkboxGroupCls);
 
     const checkboxEl = tristate
-      ? <TriStateCheckbox
+      ? <TriStateCheckboxWithInputId
           {...checkboxRest}
           id={key}
+          inputId={key}
           value={itemsState[key] ?? null}
           required={required}
           disabled={disabled}
@@ -62,6 +66,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
         />
       : <PrimeCheckbox
           {...checkboxRest}
+          inputId={key}
           value={key}
           required={required}
           disabled={disabled}
@@ -74,7 +79,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
     return (
       <div key={key} className={joinCls(classes('inner', innerCls), sizeClass)}>
         {label
-          ? <label className={labelCls}>{checkboxEl}{tristate ? <span>{label}</span> : label}</label>
+          ? <label htmlFor={key} className={labelCls}>{checkboxEl}{tristate ? <span>{label}</span> : label}</label>
           : checkboxEl}
       </div>
     );

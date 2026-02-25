@@ -8,11 +8,15 @@ import { useState, useCallback, useRef, useEffect, type Dispatch, type SetStateA
  * @param initialState The initial state value or initializer function
  * @returns A tuple of [state, setSafeState] similar to useState
  */
-export default function useSafeState<S = undefined>(
+function useSafeState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
+// eslint-disable-next-line no-redeclare
+function useSafeState<S = undefined>(): [S | undefined, Dispatch<SetStateAction<S | undefined>>];
+// eslint-disable-next-line no-redeclare
+function useSafeState<S = undefined>(
   initialState?: S | (() => S),
 ): [S | undefined, Dispatch<SetStateAction<S | undefined>>] {
   const isMountedRef = useRef(true);
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState<S | undefined>(initialState as S | (() => S) | undefined);
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -29,3 +33,5 @@ export default function useSafeState<S = undefined>(
 
   return [state, setSafeState];
 }
+
+export default useSafeState;

@@ -1,7 +1,9 @@
 import { memo, useEffect, useRef } from 'react';
+import { joinCls } from '@/utils/classnames';
 import { Modal } from '../../Modal';
 import ProForm from '../ProForm';
 import { CSS_PREFIX } from '../constants';
+import styles from '../style/ProForm.module.scss';
 import { useOverlayForm } from './useOverlayForm';
 import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
@@ -77,7 +79,7 @@ function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
           style={mergedStyle}
           onHide={handleHide}
         >
-          <div className={`${CSS_PREFIX}-modal-form`}>
+          <div className={joinCls(styles['proform__modal-form'], `${CSS_PREFIX}-modal-form`)}>
             <ProForm<TFieldValues>
               {...formProps}
               onFinish={handleFinish}

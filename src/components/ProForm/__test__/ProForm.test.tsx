@@ -57,11 +57,6 @@ describe('ProForm', () => {
     consoleWarnSpy.mockRestore();
   });
 
-  test('ProForm types are exported', () => {
-    const ok: boolean = true;
-    expect(ok).toBe(true);
-  });
-
   it('renders submit and reset buttons', async () => {
     const user = userEvent.setup();
     const onSubmit = jest.fn();
@@ -259,6 +254,16 @@ describe('ProForm', () => {
     );
 
     expect(screen.getByText('Current: basic')).toBeInTheDocument();
+  });
+
+  it('matches snapshot', () => {
+    const { container } = render(
+      <PublicProForm defaultValues={{ firstName: 'Ada' }} onFinish={jest.fn()}>
+        <PublicProFormText name='firstName' label='First Name' />
+      </PublicProForm>
+    );
+
+    expect(container).toMatchSnapshot();
   });
 
   test('public exports include ProForm suite', () => {

@@ -10,8 +10,8 @@ import { Skeleton } from 'primereact/skeleton';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import { Icons } from '../Icons';
 import Spinner from '../Spinner';
-import useControlledState from '../useControlledState';
-import useEventCallback from '../useEventCallback';
+import useControlledState from '@/components/useControlledState';
+import useEventCallback from '@/components/useEventCallback';
 
 /* import types */
 import type { FC, PropsWithChildren, Ref } from 'react';
@@ -20,6 +20,14 @@ import type { InputProps, InputOtpProps, InputPwdProps, InputNumberClass, InputM
 const COLOR_PRIMARY_BLACK = '#131313';
 const COLOR_BLACK = '#000';
 const COLOR_ERROR = '#AE0000';
+
+type InputRefInstance =
+  | HTMLInputElement
+  | InputNumberClass
+  | InputMaskClass
+  | HTMLTextAreaElement
+  | PasswordClass
+  | AutoCompleteClass;
 
 const OtpWrapper: FC<InputOtpProps> = ({ className: _className, ..._rest }) => (
   <div className={_className}>
@@ -87,13 +95,17 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
     onChange?.(e as any);
   });
 
-  const inputRef = useRef<HTMLInputElement | InputNumberClass | InputMaskClass | HTMLTextAreaElement | PasswordClass | AutoCompleteClass | null>(null);
+  const inputRef = useRef<InputRefInstance | null>(null);
 
   const suffixLoading = loading && type !== 'otp';
 
   const InputComponent = INPUT_COMPONENT_MAP[type] ?? InputText;
+  const passwordProps = type === 'password' ? { suffixLoading } : {};
 
-  useImperativeHandle(ref as Ref<typeof inputRef.current>, () => inputRef.current!);
+  useImperativeHandle<InputRefInstance | null, InputRefInstance | null>(
+    ref as Ref<InputRefInstance | null>,
+    () => inputRef.current
+  );
 
   const valStr = String(val ?? '');
 
@@ -132,7 +144,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = props => {
           required={required}
           maxLength={maxLength}
           readOnly={readOnly}
-          suffixLoading={type === 'password' ? suffixLoading : undefined}
+          {...passwordProps}
           className={classes(undefined, joinCls(
             classes(size),
             classes(type),

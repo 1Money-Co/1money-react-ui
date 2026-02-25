@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProForm list matches snapshot 1`] = `
+<form
+  class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+  novalidate=""
+>
+  <div
+    class="om-react-ui-proform-list"
+  >
+    <div
+      class="om-react-ui-proform-list-content"
+    >
+      <div
+        class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+        data-form-item-name="users.0.name"
+        style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+      >
+        <div
+          class="om-react-ui-form-item-label"
+        >
+          <strong
+            class="om-react-ui-typography-label om-react-ui-typography-label-s"
+          >
+            Name 0
+          </strong>
+          <span
+            class="om-react-ui-form-item-colon"
+          >
+            :
+          </span>
+        </div>
+        <div
+          class="om-react-ui-form-item-control"
+        >
+          <div
+            class="om-react-ui-form-item-content"
+          >
+            <div
+              class="om-react-ui-input-wrapper"
+            >
+              <div
+                class="om-react-ui-input-inner om-react-ui-input-inner-large om-react-ui-input-inner-filled"
+              >
+                <input
+                  class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component p-filled"
+                  data-pc-name="inputtext"
+                  data-pc-section="root"
+                  name="users.0.name"
+                  value="Ada"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-list-actions"
+    >
+      <div
+        class="om-react-ui-proform-list-row-actions"
+      >
+        <button
+          class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+          data-pc-name="button"
+          data-pc-section="root"
+          type="button"
+        >
+          Copy
+        </button>
+        <button
+          class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+          data-pc-name="button"
+          data-pc-section="root"
+          type="button"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <button
+      class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+      data-pc-name="button"
+      data-pc-section="root"
+      type="button"
+    >
+      Add
+    </button>
+  </div>
+  <div
+    class="om-react-ui-proform-submitter"
+  >
+    <button
+      class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+      data-pc-name="button"
+      data-pc-section="root"
+      type="button"
+    >
+      Reset
+    </button>
+    <button
+      class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+      data-pc-name="button"
+      data-pc-section="root"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+`;

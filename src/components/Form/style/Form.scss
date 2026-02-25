@@ -1,9 +1,22 @@
 @use '../../../variable.scss' as *;
 
+// Intentionally token-level SCSS (no global tag selectors): spacing/typography/
+// opacity values are centralized as component CSS variables for predictable BEM output.
 $component: 'form';
 $cls: #{$prefix}-#{$component};
 
 .#{$cls} {
+  --om-form-spacing-xs: 4px;
+  --om-form-spacing-sm: 8px;
+  --om-form-spacing-md: 12px;
+  --om-form-spacing-lg: 16px;
+  --om-form-control-height: 44px;
+  --om-form-font-size-base: 14px;
+  --om-form-line-height-base: 20px;
+  --om-form-font-size-help: 12px;
+  --om-form-line-height-help: 18px;
+  --om-form-opacity-disabled: 0.6;
+
   &-root {
     width: 100%;
   }
@@ -21,7 +34,7 @@ $cls: #{$prefix}-#{$component};
   &-layout-inline {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: var(--om-form-spacing-lg);
   }
 
   &-label-left .#{$prefix}-form-item-label {
@@ -33,9 +46,20 @@ $item: 'form-item';
 $item-cls: #{$prefix}-#{$item};
 
 .#{$item-cls} {
+  --om-form-spacing-xs: 4px;
+  --om-form-spacing-sm: 8px;
+  --om-form-spacing-md: 12px;
+  --om-form-spacing-lg: 16px;
+  --om-form-control-height: 44px;
+  --om-form-font-size-base: 14px;
+  --om-form-line-height-base: 20px;
+  --om-form-font-size-help: 12px;
+  --om-form-line-height-help: 18px;
+  --om-form-opacity-disabled: 0.6;
+
   &-root {
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: var(--om-form-spacing-lg);
   }
 
   &-label {
@@ -44,23 +68,23 @@ $item-cls: #{$prefix}-#{$item};
     align-items: center;
     justify-content: flex-end;
     min-width: fit-content;
-    min-height: 44px;
-    padding-right: 12px;
+    min-height: var(--om-form-control-height);
+    padding-right: var(--om-form-spacing-md);
     color: $color-primary-black;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: var(--om-form-font-size-base);
+    line-height: var(--om-form-line-height-base);
     white-space: nowrap;
     text-align: right;
   }
 
   &-label-required::before {
-    margin-right: 4px;
+    margin-right: var(--om-form-spacing-xs);
     color: $color-negative;
     content: '*';
   }
 
   &-colon {
-    margin-left: 4px;
+    margin-left: var(--om-form-spacing-xs);
   }
 
   &-control {
@@ -71,17 +95,17 @@ $item-cls: #{$prefix}-#{$item};
   &-content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--om-form-spacing-sm);
   }
 
   &-content-disabled {
-    opacity: 0.6;
+    opacity: var(--om-form-opacity-disabled);
   }
 
   &-help {
     color: $color-grey-midnight;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: var(--om-form-font-size-help);
+    line-height: var(--om-form-line-height-help);
   }
 
   &-help-error {
@@ -114,8 +138,8 @@ $item-cls: #{$prefix}-#{$item};
 
   &-extra {
     color: $color-grey-dark;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: var(--om-form-font-size-help);
+    line-height: var(--om-form-line-height-help);
   }
 }
 
@@ -125,7 +149,7 @@ $item-cls: #{$prefix}-#{$item};
     justify-content: flex-start;
     min-width: 0;
     min-height: auto;
-    margin-bottom: 8px;
+    margin-bottom: var(--om-form-spacing-sm);
     padding-right: 0;
     white-space: normal;
     text-align: left;

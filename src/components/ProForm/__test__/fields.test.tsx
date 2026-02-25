@@ -9,6 +9,12 @@ import { ProFormRadio, ProFormSwitch, ProFormText } from '../fields';
 describe('ProForm fields', () => {
   let consoleErrorSpy: jest.SpyInstance;
   let consoleWarnSpy: jest.SpyInstance;
+  const getUnexpectedConsoleError = (type: 'error' | 'warn', message: unknown, optionalParams: unknown[]) => {
+    const detail = optionalParams.map((item) => String(item)).join(' ');
+    return detail
+      ? `[unexpected console.${type}] ${String(message)} ${detail}`
+      : `[unexpected console.${type}] ${String(message)}`;
+  };
 
   beforeAll(() => {
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
@@ -21,14 +27,12 @@ describe('ProForm fields', () => {
       ) {
         return;
       }
-      // eslint-disable-next-line no-console
-      console.log(message, ...optionalParams);
+      throw new Error(getUnexpectedConsoleError('error', message, optionalParams));
     });
 
     consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
       if (typeof message === 'string' && message.includes('[FormItem]')) return;
-      // eslint-disable-next-line no-console
-      console.log(message, ...optionalParams);
+      throw new Error(getUnexpectedConsoleError('warn', message, optionalParams));
     });
   });
 
@@ -38,33 +42,36 @@ describe('ProForm fields', () => {
   });
 
   it('binds ProFormText to FormItem + Input', async () => {
-    render(
+    const { asFragment } = render(
       <ProForm>
         <ProFormText name='email' label='Email' />
       </ProForm>
     );
 
     expect(screen.getByText('Email')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('uses checked prop for ProFormSwitch', () => {
-    render(
+    const { asFragment } = render(
       <ProForm>
         <ProFormSwitch name='enabled' label='Enabled' />
       </ProForm>
     );
 
     expect(screen.getByText('Enabled')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('renders plain text in readonly mode', async () => {
-    render(
+    const { asFragment } = render(
       <ProForm readonly defaultValues={{ firstName: 'Ada' }}>
         <ProFormText name='firstName' label='First Name' />
       </ProForm>
     );
 
     expect(screen.getByText('Ada')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('composes fieldProps onBlur with form blur handling', async () => {
@@ -88,7 +95,7 @@ describe('ProForm fields', () => {
     const user = userEvent.setup();
     const onFinish = jest.fn();
 
-    render(
+    const { asFragment } = render(
       <ProForm
         defaultValues={{ newsletter: true, status: 'active' }}
         onFinish={onFinish}
@@ -119,6 +126,7 @@ describe('ProForm fields', () => {
       newsletter: false,
       status: 'inactive',
     });
+    expect(asFragment()).toMatchSnapshot();
 
     await user.click(screen.getByRole('button', { name: 'Reset' }));
     await user.click(screen.getByRole('button', { name: 'Submit' }));
@@ -131,5 +139,6 @@ describe('ProForm fields', () => {
       newsletter: true,
       status: 'active',
     });
+    expect(asFragment()).toMatchSnapshot();
   });
 });

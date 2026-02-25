@@ -83,13 +83,22 @@ export function useFormItemWatch<TFieldValues extends FieldValues = FieldValues>
     if (!getValues) return {} as TFieldValues;
     if (shouldWatchAllValues) return (watchedAllValues ?? getValues()) as TFieldValues;
     return getValues();
-  }, [methods, shouldWatchAllValues, watchedAllValues, watchedNamesValues]);
+  }, [
+    methods,
+    shouldWatchAllValues,
+    watchedAllValues,
+    // Intentionally unused in useMemo body: this dependency forces `allValues`
+    // to recompute via methods.getValues() when watched names change while
+    // `shouldWatchAllValues` is false.
+    watchedNamesValues,
+  ]);
 
   const prevValues = usePrevious(allValues);
 
   const shouldRender = useMemo(() => {
     if (!shouldUpdate || shouldUpdate === true) return true;
-    return shouldUpdate(prevValues ?? allValues, allValues);
+    if (prevValues === undefined) return true;
+    return shouldUpdate(prevValues, allValues);
   }, [allValues, prevValues, shouldUpdate]);
 
   return { allValues, depValues, shouldRender };

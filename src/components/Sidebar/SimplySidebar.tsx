@@ -86,6 +86,15 @@ export const SimplySidebar = forwardRef<ProSidebarRef, PropsWithChildren<Sidebar
     );
   };
 
+  const renderExpandIcon = ({ open }: { open: boolean }) => (
+    <Icons
+      name='chevronDown'
+      size={16}
+      color={EXPAND_ICON_COLOR}
+      wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))}
+    />
+  );
+
   return (
     <ProSidebar
       ref={ref}
@@ -103,7 +112,7 @@ export const SimplySidebar = forwardRef<ProSidebarRef, PropsWithChildren<Sidebar
       </div>
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => <Icons name='chevronDown' size={16} color={EXPAND_ICON_COLOR} wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />}
+        renderExpandIcon={renderExpandIcon}
       >
         {menus.map((menu, index) => renderTopLevelMenu(menu, index))}
       </ProMenu>

@@ -9,6 +9,8 @@ import { Input } from '../../Input';
 describe('Form', () => {
   let consoleErrorSpy: jest.SpyInstance;
   let consoleWarnSpy: jest.SpyInstance;
+  const originalConsoleError = console.error.bind(console);
+  const originalConsoleWarn = console.warn.bind(console);
 
   beforeAll(() => {
     consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
@@ -21,14 +23,12 @@ describe('Form', () => {
       ) {
         return;
       }
-      // eslint-disable-next-line no-console
-      console.log(message, ...optionalParams);
+      originalConsoleError(message, ...optionalParams);
     });
     // Only suppress known FormItem warnings; let unexpected warns surface.
     consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation((message, ...optionalParams) => {
       if (typeof message === 'string' && message.includes('[FormItem]')) return;
-      // eslint-disable-next-line no-console
-      console.log(message, ...optionalParams);
+      originalConsoleWarn(message, ...optionalParams);
     });
   });
 
@@ -69,7 +69,7 @@ describe('Form', () => {
     render(
       <Form defaultValues={{ email: '', confirmEmail: '' }}>
         <FormItem name='email' label='Email'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Email' {...field} />}
         </FormItem>
         <FormItem
           name='confirmEmail'
@@ -79,12 +79,12 @@ describe('Form', () => {
             validate: (value, values) => value === values.email || 'Emails do not match'
           }}
         >
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Confirm Email' {...field} />}
         </FormItem>
       </Form>
     );
 
-    const [emailInput] = screen.getAllByRole('textbox');
+    const emailInput = screen.getByRole('textbox', { name: /^email$/i });
     await user.type(emailInput, 'test@1money.com');
     expect(await screen.findByText('Emails do not match')).toBeInTheDocument();
   });
@@ -94,7 +94,7 @@ describe('Form', () => {
     render(
       <Form defaultValues={{ email: '', confirmEmail: '' }}>
         <FormItem name='email' label='Email'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Email' {...field} />}
         </FormItem>
         <FormItem
           name='confirmEmail'
@@ -104,14 +104,14 @@ describe('Form', () => {
             validate: () => 'Emails do not match'
           }}
         >
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Confirm Email' {...field} />}
         </FormItem>
       </Form>
     );
 
     expect(screen.queryByText('Emails do not match')).not.toBeInTheDocument();
 
-    const [emailInput] = screen.getAllByRole('textbox');
+    const emailInput = screen.getByRole('textbox', { name: /^email$/i });
     await user.type(emailInput, 'a');
     expect(await screen.findByText('Emails do not match')).toBeInTheDocument();
   });
@@ -121,13 +121,13 @@ describe('Form', () => {
     render(
       <Form defaultValues={{ email: '' }}>
         <FormItem name='email' label='Email' rules={{ required: 'Email is required' }} validateTrigger='onBlur'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Email' {...field} />}
         </FormItem>
         <button type='button'>Outside</button>
       </Form>
     );
 
-    const [emailInput] = screen.getAllByRole('textbox');
+    const emailInput = screen.getByRole('textbox', { name: /email/i });
     await user.click(emailInput);
     await user.click(screen.getByText('Outside'));
     expect(await screen.findByText('Email is required')).toBeInTheDocument();
@@ -138,7 +138,7 @@ describe('Form', () => {
     render(
       <Form defaultValues={{ first: '' }}>
         <FormItem name='first' label='First'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='First' {...field} />}
         </FormItem>
         <FormItem shouldUpdate watchNames={['first']}>
           {({ values }) => <div>Preview: {values.first}</div>}
@@ -146,7 +146,7 @@ describe('Form', () => {
       </Form>
     );
 
-    const [firstInput] = screen.getAllByRole('textbox');
+    const firstInput = screen.getByRole('textbox', { name: /first/i });
     await user.type(firstInput, 'Ada');
     expect(screen.getByText('Preview: Ada')).toBeInTheDocument();
   });
@@ -156,7 +156,7 @@ describe('Form', () => {
     render(
       <Form defaultValues={{ first: '' }}>
         <FormItem name='first' label='First'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='First' {...field} />}
         </FormItem>
         <FormItem shouldUpdate>
           {({ values }) => <div>Mirror: {values.first}</div>}
@@ -164,7 +164,7 @@ describe('Form', () => {
       </Form>
     );
 
-    const [firstInput] = screen.getAllByRole('textbox');
+    const firstInput = screen.getByRole('textbox', { name: /first/i });
     await user.type(firstInput, 'Ada');
     expect(screen.getByText('Mirror: Ada')).toBeInTheDocument();
   });
@@ -192,19 +192,21 @@ describe('Form', () => {
         watchNames={['email']}
       >
         <FormItem name='email' label='Email'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Email' {...field} />}
         </FormItem>
         <FormItem name='name' label='Name'>
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Name' {...field} />}
         </FormItem>
       </Form>
     );
 
-    const inputs = screen.getAllByRole('textbox');
-    await user.type(inputs[1], 'Ada');
+    const nameInput = screen.getByRole('textbox', { name: /name/i });
+    const emailInput = screen.getByRole('textbox', { name: /email/i });
+
+    await user.type(nameInput, 'Ada');
     expect(onValuesChange).not.toHaveBeenCalled();
 
-    await user.type(inputs[0], 'a');
+    await user.type(emailInput, 'a');
     expect(onValuesChange).toHaveBeenCalled();
   });
 
@@ -266,12 +268,12 @@ describe('Form', () => {
           validateDebounce={300}
           rules={{ validate: (value) => (value?.length ?? 0) >= 3 || 'Too short' }}
         >
-          {({ field }) => <Input type='text' {...field} />}
+          {({ field }) => <Input type='text' aria-label='Email' {...field} />}
         </FormItem>
       </Form>
     );
 
-    const [emailInput] = screen.getAllByRole('textbox');
+    const emailInput = screen.getByRole('textbox', { name: /email/i });
     await user.type(emailInput, 'ab');
     expect(screen.queryByText('Too short')).not.toBeInTheDocument();
 
@@ -287,13 +289,13 @@ describe('Form', () => {
     render(
       <Form defaultValues={{ email: '' }}>
         <FormItem name='email' label='Email'>
-          <Input type='text' onChange={onChange} onBlur={onBlur} />
+          <Input type='text' aria-label='Email' onChange={onChange} onBlur={onBlur} />
         </FormItem>
         <button type='button'>Outside</button>
       </Form>
     );
 
-    const [emailInput] = screen.getAllByRole('textbox');
+    const emailInput = screen.getByRole('textbox', { name: /email/i });
     await user.type(emailInput, 'a');
     expect(onChange).toHaveBeenCalled();
 
@@ -305,11 +307,11 @@ describe('Form', () => {
     render(
       <Form disabled={false} defaultValues={{ email: '' }}>
         <FormItem name='email' label='Email'>
-          <Input type='text' disabled />
+          <Input type='text' aria-label='Email' disabled />
         </FormItem>
       </Form>
     );
 
-    expect(screen.getByRole('textbox')).toBeDisabled();
+    expect(screen.getByRole('textbox', { name: /email/i })).toBeDisabled();
   });
 });

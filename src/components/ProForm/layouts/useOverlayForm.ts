@@ -88,6 +88,7 @@ export function useOverlayForm<TValues>({
         const triggerOnClick = (trigger.props as Record<string, unknown>)?.onClick as
           ((e: MouseEvent<HTMLElement>) => void) | undefined;
         triggerOnClick?.(event);
+        if (event.defaultPrevented) return;
         changeOpen(true);
       },
     });

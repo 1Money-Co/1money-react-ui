@@ -133,31 +133,37 @@ export interface ProFormProps<
 }
 
 /**
+ * Shared props for overlay-based ProForm containers (e.g., modal and drawer).
+ */
+export interface OverlayFormProps {
+  /** Controlled open state of the overlay. */
+  open?: boolean;
+  /** Callback fired when the overlay open state changes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Element that opens the overlay when clicked. */
+  trigger?: ReactElement;
+  /** Delay (ms) before the overlay closes after a successful submit. */
+  submitTimeout?: number;
+  /** Whether the overlay closes automatically after a successful submit. @default true */
+  autoClose?: boolean;
+  /** Whether the overlay content is destroyed when closed. @default true */
+  destroyOnClose?: boolean;
+  /** Width of the overlay container. */
+  width?: string | number;
+  /** Title shown in the overlay header. */
+  title?: ReactNode;
+}
+
+/**
  * Props for {@link ModalForm} — a ProForm rendered inside a modal dialog.
  *
  * @typeParam TFieldValues - The form values type.
  */
 export interface ModalFormProps<
   TFieldValues extends FieldValues = FieldValues,
-> extends ProFormProps<TFieldValues> {
-  /** Controlled open state of the modal. */
-  open?: boolean;
-  /** Callback fired when the modal open state changes. */
-  onOpenChange?: (open: boolean) => void;
-  /** Element that opens the modal when clicked. */
-  trigger?: ReactElement;
+> extends ProFormProps<TFieldValues>, OverlayFormProps {
   /** Props forwarded to the underlying `<Modal>` component. */
   modalProps?: ModalProps;
-  /** Delay (ms) before the modal closes after a successful submit. */
-  submitTimeout?: number;
-  /** Whether the modal closes automatically after a successful submit. @default true */
-  autoClose?: boolean;
-  /** Whether the modal content is destroyed when closed. @default true */
-  destroyOnClose?: boolean;
-  /** Width of the modal. */
-  width?: string | number;
-  /** Title shown in the modal header. */
-  title?: ReactNode;
 }
 
 /**
@@ -167,25 +173,9 @@ export interface ModalFormProps<
  */
 export interface DrawerFormProps<
   TFieldValues extends FieldValues = FieldValues,
-> extends ProFormProps<TFieldValues> {
-  /** Controlled open state of the drawer. */
-  open?: boolean;
-  /** Callback fired when the drawer open state changes. */
-  onOpenChange?: (open: boolean) => void;
-  /** Element that opens the drawer when clicked. */
-  trigger?: ReactElement;
+> extends ProFormProps<TFieldValues>, OverlayFormProps {
   /** Props forwarded to the underlying `<Drawer>` component. */
   drawerProps?: DrawerProps;
-  /** Delay (ms) before the drawer closes after a successful submit. */
-  submitTimeout?: number;
-  /** Whether the drawer closes automatically after a successful submit. @default true */
-  autoClose?: boolean;
-  /** Whether the drawer content is destroyed when closed. @default true */
-  destroyOnClose?: boolean;
-  /** Width of the drawer panel. */
-  width?: string | number;
-  /** Title shown in the drawer header. */
-  title?: ReactNode;
 }
 
 /**
@@ -236,11 +226,11 @@ export interface StepsFormProps<
   /** Additional HTML/aria props for the steps wrapper. */
   stepsProps?: Record<string, unknown>;
   /** Shared form props applied to every step's `<ProForm>`. */
-  formProps?: Partial<ProFormProps<FieldValues>>;
+  formProps?: Partial<ProFormProps<TFieldValues>>;
   /** Submitter configuration with step navigation. Pass `false` to hide. */
   submitter?: false | StepsSubmitterProps<TFieldValues>;
   /** One or more `<StepForm>` elements representing each wizard step. */
-  children: ReactElement<StepFormProps> | ReactElement<StepFormProps>[];
+  children: ReactElement<StepFormProps<TFieldValues>> | ReactElement<StepFormProps<TFieldValues>>[];
 }
 
 /**

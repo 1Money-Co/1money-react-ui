@@ -32,7 +32,7 @@ describe('useControlledState', () => {
         return (
           <div>
             <span data-testid='state'>{state}</span>
-            <button data-testid='increment' onClick={() => setState(s => s + 1)}>
+            <button type='button' data-testid='increment' onClick={() => setState(s => s + 1)}>
               Increment
             </button>
           </div>
@@ -83,7 +83,7 @@ describe('useControlledState', () => {
         return (
           <div>
             <span data-testid='state'>{state}</span>
-            <button data-testid='increment' onClick={() => setState(s => s + 1)}>
+            <button type='button' data-testid='increment' onClick={() => setState(s => s + 1)}>
               Increment
             </button>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
+import { useForm } from 'react-hook-form';
 import { Button } from '../Button';
 import {
   ProForm,
@@ -686,24 +687,30 @@ export const FieldWidths: Story = {
 
 export const WithoutSubmitter: Story = {
   name: 'Without Submitter (External Control)',
-  render: () => (
-    <div>
-      <ProForm
-        defaultValues={{ name: '' }}
-        submitter={false}
-        onFinish={action('onFinish')}
-      >
-        <ProFormText name='name' label='Name' />
-        <ProFormText name='email' label='Email' />
-      </ProForm>
-      <div style={{ marginTop: 16, display: 'flex', gap: 8 }}>
-        <Button type='button' onClick={() => action('externalSubmit')('Triggered')}>
-          External Submit
-        </Button>
-        <Button type='button' severity='secondary' onClick={() => action('externalReset')('Triggered')}>
-          External Reset
-        </Button>
+  render: () => {
+    const form = useForm<{ name: string; email: string }>({ defaultValues: { name: '', email: '' } });
+    const onFinish = action('onFinish');
+
+    return (
+      <div>
+        <ProForm
+          form={form}
+          defaultValues={{ name: '' }}
+          submitter={false}
+          onFinish={onFinish}
+        >
+          <ProFormText name='name' label='Name' />
+          <ProFormText name='email' label='Email' />
+        </ProForm>
+        <div style={{ marginTop: 16, display: 'flex', gap: 8 }}>
+          <Button type='button' onClick={() => void form.handleSubmit(onFinish)()}>
+            External Submit
+          </Button>
+          <Button type='button' severity='secondary' onClick={() => form.reset()}>
+            External Reset
+          </Button>
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
 };

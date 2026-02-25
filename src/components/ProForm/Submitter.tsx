@@ -1,18 +1,20 @@
 import { memo } from 'react';
+import { joinCls } from '@/utils/classnames';
 import useMemoizedFn from '../useMemoizedFn';
 import { Button } from '../Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
+import styles from './style/ProForm.module.scss';
 import type { MouseEvent, ReactElement } from 'react';
 import type { FieldValues, UseFormReturn } from 'react-hook-form';
 import type { SubmitterProps } from './interface';
 
 /** @internal Props used by the Submitter component, extending public {@link SubmitterProps} with internal callbacks. */
-type InnerSubmitterProps<TFieldValues extends FieldValues = FieldValues> = SubmitterProps<TFieldValues> & {
+interface InnerSubmitterProps<TFieldValues extends FieldValues = FieldValues> extends SubmitterProps<TFieldValues> {
   /** The `react-hook-form` instance (used for custom render functions). */
   form?: UseFormReturn<TFieldValues>;
   /** Internal callback to trigger form submission from a custom render. */
   onSubmitForm?: () => void;
-};
+}
 
 /**
  * Renders the submit and reset buttons for a {@link ProForm}.
@@ -38,8 +40,12 @@ function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: In
     onSubmit?.();
   });
 
-  const handleReset = useMemoizedFn((event: MouseEvent<HTMLButtonElement>) => {
-    resetButtonProps?.onClick?.(event);
+  const handleReset = useMemoizedFn((event?: MouseEvent<HTMLButtonElement>) => {
+    if (event) {
+      resetButtonProps?.onClick?.(event);
+    } else {
+      (resetButtonProps?.onClick as ((event?: MouseEvent<HTMLButtonElement>) => void) | undefined)?.();
+    }
     onReset?.();
   });
 
@@ -77,11 +83,11 @@ function SubmitterBase<TFieldValues extends FieldValues = FieldValues>(props: In
   // Button order: Reset first, Submit last (standard form UX pattern)
   const dom = [resetDom, submitDom];
   const renderedDom = render
-    ? render({ form, submit: handleRenderSubmit, reset: () => onReset?.() }, dom as ReactElement[])
+    ? render({ form, submit: handleRenderSubmit, reset: () => handleReset() }, dom as ReactElement[])
     : dom;
 
   return (
-    <div className={`${CSS_PREFIX}-submitter`}>
+    <div className={joinCls(styles['proform__submitter'], `${CSS_PREFIX}-submitter`)}>
       {renderedDom}
     </div>
   );

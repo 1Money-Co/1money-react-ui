@@ -73,6 +73,32 @@ describe('ProForm layouts', () => {
     expect(screen.getByText('Drawer Title')).toBeInTheDocument();
   });
 
+  it('matches snapshot for opened ModalForm and DrawerForm', async () => {
+    const { unmount } = render(
+      <ModalForm open title='Snapshot Modal'>
+        <ProFormText name='email' label='Email' />
+      </ModalForm>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText('Snapshot Modal')).toBeInTheDocument();
+    });
+    expect(document.querySelector('.p-dialog')).toMatchSnapshot('modal-opened');
+
+    unmount();
+
+    render(
+      <DrawerForm open title='Snapshot Drawer'>
+        <ProFormText name='email' label='Email' />
+      </DrawerForm>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText('Snapshot Drawer')).toBeInTheDocument();
+    });
+    expect(document.querySelector('.p-sidebar')).toMatchSnapshot('drawer-opened');
+  });
+
   it('validates each step and submits merged values on last step', async () => {
     const user = userEvent.setup();
     const onFinish = jest.fn();
@@ -264,6 +290,28 @@ describe('ProForm layouts', () => {
     expect(screen.getByTestId('step-root')).toBeInTheDocument();
   });
 
+  it('matches snapshot for StepsForm first and last steps', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <StepsForm stepsProps={{ 'data-testid': 'steps-snapshot' }}>
+        <StepsForm.StepForm title='A' stepProps={{ 'data-testid': 'step-snapshot-a' }}>
+          <ProFormText name='firstName' label='First Name' />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='B' stepProps={{ 'data-testid': 'step-snapshot-b' }}>
+          <ProFormText name='lastName' label='Last Name' />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    expect(screen.getByTestId('steps-snapshot')).toBeInTheDocument();
+    expect(screen.getByTestId('step-snapshot-a')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot('steps-first');
+
+    await user.click(screen.getByRole('button', { name: 'Next' }));
+    expect(screen.getByTestId('step-snapshot-b')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot('steps-last');
+  });
+
   it('shows limited fields when collapsed and all fields when expanded', async () => {
     const user = userEvent.setup();
 
@@ -280,6 +328,22 @@ describe('ProForm layouts', () => {
     await user.click(screen.getByRole('button', { name: 'Expand' }));
 
     expect(screen.getByText('C')).toBeInTheDocument();
+  });
+
+  it('matches snapshot for QueryFilter collapsed and expanded states', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <QueryFilter defaultCollapsed defaultColsNumber={2}>
+        <ProFormText name='a' label='A' />
+        <ProFormText name='b' label='B' />
+        <ProFormText name='c' label='C' />
+      </QueryFilter>
+    );
+
+    expect(container.firstChild).toMatchSnapshot('query-collapsed');
+
+    await user.click(screen.getByRole('button', { name: 'Expand' }));
+    expect(container.firstChild).toMatchSnapshot('query-expanded');
   });
 
   it('uses searchConfig text and labelWidth/split styles in QueryFilter', async () => {

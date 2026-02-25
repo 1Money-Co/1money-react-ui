@@ -1,64 +1,65 @@
 @use '../../../variable.scss' as *;
+/* stylelint-disable selector-pseudo-class-no-unknown */
 
-.#{$prefix}-proform-submitter {
+.proform__submitter {
   display: flex;
   gap: 12px;
   margin-top: 16px;
 }
 
-.#{$prefix}-proform-modal-form,
-.#{$prefix}-proform-drawer-form {
+.proform__modal-form,
+.proform__drawer-form {
   padding: 16px;
   background: $color-white;
   border: 1px solid $color-grey-deep;
   border-radius: 12px;
 }
 
-.#{$prefix}-proform-modal-form-title,
-.#{$prefix}-proform-drawer-form-title,
-.#{$prefix}-proform-steps-form-title {
+.proform__modal-form-title,
+.proform__drawer-form-title,
+.proform__steps-form-title {
   margin-bottom: 12px;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
 }
 
-.#{$prefix}-proform-steps-form-description {
+.proform__steps-form-description {
   margin-bottom: 12px;
   color: $color-grey-midnight;
   font-size: 14px;
 }
 
-.#{$prefix}-proform-steps-form-actions,
-.#{$prefix}-proform-query-filter-actions {
+.proform__steps-form-actions,
+.proform__query-filter-actions {
   display: flex;
   gap: 8px;
   margin-top: 16px;
 }
 
-.#{$prefix}-proform-query-filter {
-  .#{$prefix}-form-item-root {
+.proform__query-filter {
+  :global(.om-react-ui-form-item-root) {
     margin-bottom: 0;
   }
 }
 
-.#{$prefix}-proform-query-filter-split {
+.proform__query-filter-split {
   padding-top: 16px;
   border-top: 1px solid $color-grey-deep;
 }
 
-.#{$prefix}-proform-list {
+.proform__list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.#{$prefix}-proform-list-label {
+.proform__list-label {
   font-weight: 600;
   font-size: 14px;
 }
 
-.#{$prefix}-proform-list-row-actions {
+.proform__list-row-actions {
   display: flex;
   gap: 8px;
 }

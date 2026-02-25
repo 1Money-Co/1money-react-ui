@@ -1,11 +1,12 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Typography from '../Typography';
 import type { FieldPath, FieldValues } from 'react-hook-form';
+import { FormContext } from './Form';
 import { CSS_VAR_LABEL_WIDTH, CSS_VAR_WRAPPER_WIDTH, DEFAULT_VALUE_PROP } from './constants';
 import { toPercent, wrapValidate } from './helper';
 import { FormItemContent } from './FormItemContent';
-import { useFormItemContext } from './useFormItemContext';
+import { FallbackFormProvider, useFormItemContext } from './useFormItemContext';
 import { useFormItemWatch } from './useFormItemWatch';
 import { useValidationTrigger } from './useValidationTrigger';
 import type { FormItemContentProps, FormItemProps, FormItemRenderFn, FormItemStyle } from './interface';
@@ -45,7 +46,7 @@ const isRenderFnChild = <TFieldValues extends FieldValues>(
  * </FormItem>
  * ```
  */
-export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: FormItemProps<TFieldValues>) {
+function FormItemInner<TFieldValues extends FieldValues = FieldValues>(props: FormItemProps<TFieldValues>) {
   const {
     name,
     label,
@@ -151,6 +152,20 @@ export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: 
         <FormItemContent {...contentProps} />
       </div>
     </div>
+  );
+}
+
+export function FormItem<TFieldValues extends FieldValues = FieldValues>(props: FormItemProps<TFieldValues>) {
+  const ctx = useContext(FormContext);
+
+  if (ctx?.methods) {
+    return <FormItemInner {...props} />;
+  }
+
+  return (
+    <FallbackFormProvider>
+      <FormItemInner {...props} />
+    </FallbackFormProvider>
   );
 }
 

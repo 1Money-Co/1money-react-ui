@@ -7,11 +7,11 @@ import {
   SubMenu as ProSubMenu
 } from 'react-pro-sidebar';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import useLatest from '../useLatest';
-import useMemoizedFn from '../useMemoizedFn';
-import Icons from '../Icons';
-import SidebarLogo from './SidebarLogo';
-import { EXPAND_ICON_COLOR } from './constants';
+import useLatest from '@/components/useLatest';
+import useMemoizedFn from '@/components/useMemoizedFn';
+import Icons from '@/components/Icons';
+import SidebarLogo from '@/components/Sidebar/SidebarLogo';
+import { EXPAND_ICON_COLOR } from '@/components/Sidebar/constants';
 /* import types */
 import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';

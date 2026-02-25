@@ -290,7 +290,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     const { filterIcon, filter, ...others } = rest as any;
     const extraProps = filter ? { filterIcon: filterIcon ?? <Icons name='search' size={ICON_SIZE_MD} color={COLOR_PRIMARY_BLACK} wrapperCls={classes('filter-icon')} /> } : null;
     return { ...others, filter, ...(extraProps || {}) };
-  }, [rest]);
+  }, [rest.filter, rest.filterIcon]);
 
   const SelectComponent = useCallback(
     (props: MultiSelectProps & DropdownProps) => multiple

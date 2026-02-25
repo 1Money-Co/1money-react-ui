@@ -1,6 +1,9 @@
-import { memo, useMemo } from 'react';
-import { useFormContext, useWatch } from 'react-hook-form';
+import { memo, useContext, useMemo } from 'react';
+import { useWatch } from 'react-hook-form';
 import type { FC, ReactNode } from 'react';
+import type { FieldValues } from 'react-hook-form';
+import { FormContext } from '../Form/Form';
+import { FallbackFormProvider, useFormItemContext } from '../Form/useFormItemContext';
 
 /**
  * Props for {@link ProFormDependency}.
@@ -24,14 +27,14 @@ export interface ProFormDependencyProps {
  * </ProFormDependency>
  * ```
  */
-const ProFormDependencyBase: FC<ProFormDependencyProps> = (props) => {
+const ProFormDependencyInner: FC<ProFormDependencyProps> = (props) => {
   const { name, children } = props;
-  const form = useFormContext();
-  const watchedValues = useWatch({ control: form.control, name });
+  const { methods } = useFormItemContext<FieldValues>();
+  const watchedValues = useWatch({ control: methods.control, name });
 
   const values = useMemo(() => {
-    const names = Array.isArray(name) ? name : [];
-    const list = Array.isArray(watchedValues) ? watchedValues : [watchedValues];
+    const names = name;
+    const list = watchedValues as unknown[];
 
     return names.reduce<Record<string, unknown>>((acc, key, index) => {
       acc[key] = list[index];
@@ -40,6 +43,20 @@ const ProFormDependencyBase: FC<ProFormDependencyProps> = (props) => {
   }, [name, watchedValues]);
 
   return <>{children(values)}</>;
+};
+
+const ProFormDependencyBase: FC<ProFormDependencyProps> = (props) => {
+  const ctx = useContext(FormContext);
+
+  if (!ctx?.methods) {
+    return (
+      <FallbackFormProvider>
+        <ProFormDependencyInner {...props} />
+      </FallbackFormProvider>
+    );
+  }
+
+  return <ProFormDependencyInner {...props} />;
 };
 
 ProFormDependencyBase.displayName = 'ProFormDependency';

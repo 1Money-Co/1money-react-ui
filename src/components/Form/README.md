@@ -66,11 +66,13 @@ export default function AdvancedExample() {
 ## Props
 
 ### Render Props
+
 - `FormItem` render function receives `{ field, fieldState, form, values }`.
 - `values` updates when `shouldUpdate` is a function or when `watchNames` is provided.
   - For full re-render on any change, use `shouldUpdate={() => true}`.
 
 ### Form
+
 - `layout?: 'horizontal' | 'vertical' | 'inline'`
 - `labelAlign?: 'left' | 'right'`
 - `labelCol?: number` (0-12)
@@ -238,7 +240,7 @@ import { Typography } from '@1money/react-ui';
     rules={{
       validate: {
         notEmpty: (value) => !!value || 'Required',
-        match: (value) => value.includes('@') || 'Must include @',
+        match: (value) => (typeof value === 'string' ? value.includes('@') : false) || 'Must include @',
       }
     }}
   >

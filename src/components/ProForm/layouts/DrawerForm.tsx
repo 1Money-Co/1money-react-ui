@@ -1,7 +1,9 @@
 import { memo } from 'react';
+import { joinCls } from '@/utils/classnames';
 import { Drawer } from '../../Drawer';
 import ProForm from '../ProForm';
 import { CSS_PREFIX } from '../constants';
+import styles from '../style/ProForm.module.scss';
 import { useOverlayForm } from './useOverlayForm';
 import type { ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
@@ -66,7 +68,7 @@ function DrawerFormBase<TFieldValues extends FieldValues = FieldValues>(
           style={mergedStyle}
           onHide={handleHide}
         >
-          <div className={`${CSS_PREFIX}-drawer-form`}>
+          <div className={joinCls(styles['proform__drawer-form'], `${CSS_PREFIX}-drawer-form`)}>
             <ProForm<TFieldValues>
               {...formProps}
               onFinish={handleFinish}

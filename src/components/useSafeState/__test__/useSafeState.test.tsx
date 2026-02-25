@@ -2,7 +2,7 @@ import 'jsdom-global/register';
 import * as React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import useSafeState from '..';
+import useSafeState from '@/components/useSafeState';
 
 describe('useSafeState', () => {
   it('works like useState for basic usage', () => {
@@ -11,7 +11,7 @@ describe('useSafeState', () => {
       return (
         <div>
           <span data-testid='count'>{count}</span>
-          <button data-testid='increment' onClick={() => setCount(c => (c ?? 0) + 1)}>
+          <button type='button' data-testid='increment' onClick={() => setCount(c => (c ?? 0) + 1)}>
             Increment
           </button>
         </div>
@@ -47,7 +47,7 @@ describe('useSafeState', () => {
       return (
         <div>
           <span data-testid='value'>{value ?? 'undefined'}</span>
-          <button data-testid='set' onClick={() => setValue('hello')}>
+          <button type='button' data-testid='set' onClick={() => setValue('hello')}>
             Set
           </button>
         </div>
@@ -63,7 +63,7 @@ describe('useSafeState', () => {
 
   it('ignores setState calls after unmount', async () => {
     const setStateAfterUnmount = jest.fn();
-    let externalSetState: React.Dispatch<React.SetStateAction<number | undefined>>;
+    let externalSetState: React.Dispatch<React.SetStateAction<number>>;
 
     function Component() {
       const [count, setCount] = useSafeState(0);
@@ -97,7 +97,7 @@ describe('useSafeState', () => {
 
   it('handles async operations gracefully after unmount', async () => {
     jest.useFakeTimers();
-    let asyncSetState: React.Dispatch<React.SetStateAction<string | undefined>>;
+    let asyncSetState: React.Dispatch<React.SetStateAction<string>>;
 
     function Component() {
       const [status, setStatus] = useSafeState('idle');
@@ -113,7 +113,7 @@ describe('useSafeState', () => {
       return (
         <div>
           <span data-testid='status'>{status}</span>
-          <button data-testid='start' onClick={startAsync}>
+          <button type='button' data-testid='start' onClick={startAsync}>
             Start
           </button>
         </div>
@@ -140,7 +140,7 @@ describe('useSafeState', () => {
   });
 
   it('maintains referential equality of setState', () => {
-    const setters: React.Dispatch<React.SetStateAction<number | undefined>>[] = [];
+    const setters: React.Dispatch<React.SetStateAction<number>>[] = [];
 
     function Component({ value }: { value: number }) {
       const [, setCount] = useSafeState(0);
@@ -165,6 +165,7 @@ describe('useSafeState', () => {
           <span data-testid='name'>{user?.name}</span>
           <span data-testid='age'>{user?.age}</span>
           <button
+            type='button'
             data-testid='birthday'
             onClick={() => setUser(u => (u ? { ...u, age: u.age + 1 } : u))}
           >

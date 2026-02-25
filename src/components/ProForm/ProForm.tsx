@@ -4,6 +4,7 @@ import {
   useMemo,
   useRef,
 } from 'react';
+import useLatest from '../useLatest';
 import useMemoizedFn from '../useMemoizedFn';
 import { useForm } from 'react-hook-form';
 import { Row } from '../Grid';
@@ -53,7 +54,7 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     submitter,
     readonly = false,
     grid = false,
-    colProps = { span: DEFAULT_COL_SPAN },
+    colProps,
     rowProps,
     form: externalForm,
     request,
@@ -72,6 +73,11 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
   const form = externalForm ?? internalForm;
   const paramsKey = useMemo(() => stableSerialize(params), [params]);
   const stableParams = useMemo(() => params, [paramsKey]);
+  const stableColProps = useMemo(
+    () => colProps ?? { span: DEFAULT_COL_SPAN },
+    [colProps?.span]
+  );
+  const latestRequestRef = useLatest(request);
   const latestResetValuesRef = useRef<TFieldValues | undefined>(defaultValues as TFieldValues | undefined);
   const formRest = rest as Omit<FormProps<TFieldValues>, 'onFinish' | 'form' | 'disabled' | 'defaultValues'>;
   const { onFinishFailed, ...forwardedFormProps } = formRest;
@@ -82,9 +88,10 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
 
   useEffect(() => {
     let cancelled = false;
-    if (!request) return;
+    const currentRequest = latestRequestRef.current;
+    if (!currentRequest) return;
 
-    request(stableParams)
+    currentRequest(stableParams)
       .then(values => {
         if (cancelled || !values) return;
         form.reset(values);
@@ -98,13 +105,13 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
     return () => {
       cancelled = true;
     };
-  }, [request, stableParams, form]);
+  }, [stableParams, form]);
 
   const ctx = useMemo<ProFormContextValue>(() => ({
     readonly,
     grid,
-    colProps,
-  }), [readonly, grid, colProps]);
+    colProps: stableColProps,
+  }), [readonly, grid, stableColProps]);
 
   const handleFinish = useMemoizedFn(async (values: TFieldValues) => {
     await onFinish?.(values);
@@ -130,15 +137,13 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
 
   const mergedDisabled = rest.disabled ?? loading;
 
-  const content = useMemo(() => {
-    if (!grid) return children;
-
-    return (
+  const content = !grid
+    ? children
+    : (
       <Row gutter={rowProps?.gutter}>
         {children}
       </Row>
     );
-  }, [children, grid, rowProps?.gutter]);
 
   return (
     <ProFormContext.Provider value={ctx}>

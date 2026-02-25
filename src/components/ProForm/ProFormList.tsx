@@ -1,10 +1,12 @@
 import { DndContext } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { memo, useEffect, useMemo, useRef } from 'react';
+import { joinCls } from '@/utils/classnames';
 import useMemoizedFn from '../useMemoizedFn';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { Button } from '../Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
+import styles from './style/ProForm.module.scss';
 import { extractButtonProps } from './utils';
 import type { DragEndEvent } from '@dnd-kit/core';
 import type { CSSProperties, FC, ReactNode } from 'react';
@@ -117,7 +119,7 @@ const ProFormListRowBodyBase: FC<ProFormListRowProps> = ({
     : [defaultDom.copy, defaultDom.delete].filter(Boolean);
 
   const rowNode = (
-    <div className={`${CSS_PREFIX}-list-row-actions`}>
+    <div className={joinCls(styles['proform__list-row-actions'], `${CSS_PREFIX}-list-row-actions`)}>
       {renderedActions as ReactNode}
     </div>
   );
@@ -378,8 +380,8 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
     : actionRows;
 
   return (
-    <div className={`${CSS_PREFIX}-list`}>
-      {label && <div className={`${CSS_PREFIX}-list-label`}>{label}</div>}
+    <div className={joinCls(styles['proform__list'], `${CSS_PREFIX}-list`)}>
+      {label && <div className={joinCls(styles['proform__list-label'], `${CSS_PREFIX}-list-label`)}>{label}</div>}
 
       {creatorPosition === 'top' && (
         <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={addFromTopCreator} />

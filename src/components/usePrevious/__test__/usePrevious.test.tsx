@@ -16,24 +16,29 @@ function Probe({ value }: { value: number }) {
 
 describe('usePrevious', () => {
   it('returns undefined on first render and previous value on updates', () => {
-    const { rerender } = render(<Probe value={1} />);
+    const { rerender, asFragment } = render(<Probe value={1} />);
 
     expect(screen.getByTestId('previous')).toHaveTextContent('undefined');
+    expect(asFragment()).toMatchSnapshot();
 
     rerender(<Probe value={2} />);
     expect(screen.getByTestId('previous')).toHaveTextContent('1');
+    expect(asFragment()).toMatchSnapshot();
 
     rerender(<Probe value={3} />);
     expect(screen.getByTestId('previous')).toHaveTextContent('2');
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('returns latest committed value on same-value rerender', () => {
-    const { rerender } = render(<Probe value={5} />);
+    const { rerender, asFragment } = render(<Probe value={5} />);
 
     expect(screen.getByTestId('previous')).toHaveTextContent('undefined');
+    expect(asFragment()).toMatchSnapshot();
 
     rerender(<Probe value={5} />);
     expect(screen.getByTestId('previous')).toHaveTextContent('5');
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('preserves previous-value sequence in StrictMode', () => {
@@ -43,14 +48,17 @@ describe('usePrevious', () => {
       </React.StrictMode>
     );
 
-    const { rerender } = render(<StrictProbe value={10} />);
+    const { rerender, asFragment } = render(<StrictProbe value={10} />);
 
     expect(screen.getByTestId('previous')).toHaveTextContent('undefined');
+    expect(asFragment()).toMatchSnapshot();
 
     rerender(<StrictProbe value={20} />);
     expect(screen.getByTestId('previous')).toHaveTextContent('10');
+    expect(asFragment()).toMatchSnapshot();
 
     rerender(<StrictProbe value={20} />);
     expect(screen.getByTestId('previous')).toHaveTextContent('20');
+    expect(asFragment()).toMatchSnapshot();
   });
 });

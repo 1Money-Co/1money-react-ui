@@ -15,14 +15,12 @@ interface CheckboxGroupBaseProps {
 interface CheckboxGroupNormalItem {
   key: string;
   label?: ReactNode;
-  checked?: boolean;
   onChange?: (checked: boolean) => any;
 }
 
 interface CheckboxGroupTriStateItem {
   key: string;
   label?: ReactNode;
-  checked?: boolean;
   defaultValue?: boolean | null;
   onChange?: (state: boolean | null) => any;
 }

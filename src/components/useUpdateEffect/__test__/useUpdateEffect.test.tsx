@@ -2,7 +2,7 @@ import 'jsdom-global/register';
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import useUpdateEffect from '..';
+import useUpdateEffect from '@/components/useUpdateEffect';
 
 describe('useUpdateEffect', () => {
   it('does not run on initial mount', () => {

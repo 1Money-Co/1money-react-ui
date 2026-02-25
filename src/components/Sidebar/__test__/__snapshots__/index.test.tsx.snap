@@ -302,8 +302,10 @@ exports[`Sidebar renders correctly 1`] = `
         <div
           class="om-react-ui-stepper-header"
         >
-          <span
+          <button
+            aria-label="Sidebar logo"
             class="om-react-ui-stepper-header-logo"
+            type="button"
           >
             <i
               class="om-react-ui-icons-logo-with-words"
@@ -371,7 +373,7 @@ exports[`Sidebar renders correctly 1`] = `
                 </svg>
               </i>
             </i>
-          </span>
+          </button>
         </div>
         <ul
           class="om-react-ui-stepper-steps"
@@ -1131,8 +1133,10 @@ exports[`Sidebar renders correctly 2`] = `
         <div
           class="om-react-ui-stepper-header"
         >
-          <span
+          <button
+            aria-label="Sidebar logo"
             class="om-react-ui-stepper-header-logo"
+            type="button"
           >
             <i
               class="om-react-ui-icons-logo-with-words"
@@ -1200,7 +1204,7 @@ exports[`Sidebar renders correctly 2`] = `
                 </svg>
               </i>
             </i>
-          </span>
+          </button>
         </div>
         <ul
           class="om-react-ui-stepper-steps"
@@ -1320,8 +1324,10 @@ exports[`Sidebar renders correctly 2`] = `
       <div
         class="om-react-ui-stepper-header"
       >
-        <span
+        <button
+          aria-label="Sidebar logo"
           class="om-react-ui-stepper-header-logo"
+          type="button"
         >
           <i
             class="om-react-ui-icons-logo-with-words"
@@ -1389,7 +1395,7 @@ exports[`Sidebar renders correctly 2`] = `
               </svg>
             </i>
           </i>
-        </span>
+        </button>
       </div>
       <ul
         class="om-react-ui-stepper-steps"

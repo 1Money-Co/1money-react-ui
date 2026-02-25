@@ -5,7 +5,7 @@ import createProFormField from './createProFormField';
 export const ProFormPassword = createProFormField({
   component: Input,
   mapProps: () => ({ type: 'password' }),
-  renderReadonly: () => '••••••••',
+  renderReadonly: (value) => (value != null && value !== '' ? '••••••••' : ''),
 });
 
 export default ProFormPassword;

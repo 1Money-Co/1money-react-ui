@@ -75,6 +75,6 @@ export default function Example() {
 
 ## Notes
 
-- `readonly` can be set at `ProForm` level or per field.
+- The `readonly` option can be set at the `ProForm` level or per field.
 - `submitter={false}` disables the default submit/reset buttons.
 - `ProFormList` is powered by `react-hook-form` `useFieldArray` and supports sorting via `@dnd-kit`.

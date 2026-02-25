@@ -1,3 +1,4 @@
+import isEqual from 'lodash.isequal';
 import { Select } from '../../Select';
 import createProFormField from './createProFormField';
 
@@ -12,11 +13,10 @@ export const ProFormMultiSelect = createProFormField({
   mapProps: () => ({ multiple: true }),
   renderReadonly: (value, props) => {
     const values = Array.isArray(value) ? value : [];
-    const options = Array.isArray((props as { options?: OptionLike[] } | undefined)?.options)
-      ? (props as { options?: OptionLike[] }).options || []
-      : [];
+    const optionsProp = (props as { options?: OptionLike[] } | undefined)?.options;
+    const options = Array.isArray(optionsProp) ? optionsProp : [];
     const labels = values.map((val) => {
-      const matched = options.find((item) => item?.value === val);
+      const matched = options.find((item) => isEqual(item?.value, val));
       return String(matched?.label ?? val);
     });
     return labels.length ? labels.join(', ') : '-';

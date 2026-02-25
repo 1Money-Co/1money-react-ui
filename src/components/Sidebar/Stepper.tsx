@@ -8,6 +8,7 @@ import type { FC } from 'react';
 import type { StepperProps } from './interface';
 
 const DONE_STATUSES = ['done', 'done-active'] as const;
+const LOGO_BUTTON_ARIA_LABEL = 'Sidebar logo';
 
 export const Stepper: FC<StepperProps> = props => {
   const { id, steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, betaLogo, onLogoClick, footer } = props;
@@ -19,9 +20,14 @@ export const Stepper: FC<StepperProps> = props => {
       className={classes(void 0, className)}
     >
       <div className={classes('header', headerCls)}>
-        <span className={classes('header-logo', logoCls)} onClick={onLogoClick}>
+        <button
+          type='button'
+          className={classes('header-logo', logoCls)}
+          onClick={onLogoClick}
+          aria-label={LOGO_BUTTON_ARIA_LABEL}
+        >
           <SidebarLogo betaLogo={betaLogo} />
-        </span>
+        </button>
       </div>
       <ul className={classes('steps', bodyCls)}>
         {

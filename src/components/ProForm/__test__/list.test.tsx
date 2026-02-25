@@ -3,9 +3,9 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { ProForm } from '../ProForm';
-import { ProFormText } from '../fields';
-import { ProFormList, buildOnDragEnd } from '../ProFormList';
+import { ProForm } from '@/components/ProForm';
+import { ProFormText } from '@/components/ProForm/fields';
+import { ProFormList, buildOnDragEnd } from '@/components/ProForm/ProFormList';
 
 describe('ProForm list', () => {
   let consoleErrorSpy: jest.SpyInstance;
@@ -178,5 +178,19 @@ describe('ProForm list', () => {
     );
 
     expect(document.querySelectorAll('[data-sortable=\"true\"]').length).toBeGreaterThan(0);
+  });
+
+  it('matches snapshot', () => {
+    const { container } = render(
+      <ProForm defaultValues={{ users: [{ name: 'Ada' }] }}>
+        <ProFormList name='users'>
+          {(fields) => fields.map((field, index) => (
+            <ProFormText key={field.key} name={`users.${index}.name`} label={`Name ${index}`} />
+          ))}
+        </ProFormList>
+      </ProForm>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

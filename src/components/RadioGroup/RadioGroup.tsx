@@ -1,4 +1,4 @@
-import { memo, useMemo, useState, useCallback, useImperativeHandle } from 'react';
+import { memo, useState, useCallback, useImperativeHandle } from 'react';
 // import { RadioButton } from 'primereact/radiobutton';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import { Radio } from '../Radio';
@@ -29,15 +29,14 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = props => {
     required,
   } = props;
   const classes = classnames(prefixCls);
-  const isControlled = 'value' in props;
+  const isControlled = value !== undefined;
 
   const getItemValue = useCallback((item: RadioItemProps) => item.value ?? item.key, []);
-  const defaultSelected = useMemo(() => {
+  const [uncontrolledValue, setUncontrolledValue] = useState<RadioItemProps['value'] | undefined>(() => {
     if (defaultValue !== undefined) return defaultValue;
     const autoFocusedItem = items.find(item => !!item.autoFocus);
     return autoFocusedItem ? getItemValue(autoFocusedItem) : undefined;
-  }, [defaultValue, getItemValue, items]);
-  const [uncontrolledValue, setUncontrolledValue] = useState<RadioItemProps['value'] | undefined>(defaultSelected);
+  });
   const selectedValue = isControlled ? value : uncontrolledValue;
 
   const isSelected = useCallback((item: RadioItemProps) => selectedValue === getItemValue(item), [getItemValue, selectedValue]);

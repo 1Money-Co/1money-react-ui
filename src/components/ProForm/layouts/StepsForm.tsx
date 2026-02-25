@@ -7,9 +7,12 @@ import {
   useRef,
   useState,
 } from 'react';
+import { joinCls } from '@/utils/classnames';
 import { Button } from '../../Button';
+import useLatest from '../../useLatest';
 import ProForm from '../ProForm';
 import { CSS_PREFIX, DEFAULT_TEXT } from '../constants';
+import styles from '../style/ProForm.module.scss';
 import type { FC, ReactElement, ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, StepFormProps, StepsFormProps } from '../interface';
@@ -79,12 +82,13 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
   }, [children]);
 
   const mergedCurrent = typeof current === 'number' ? current : innerCurrent;
+  const mergedCurrentRef = useLatest(mergedCurrent);
   const activeStep = steps[mergedCurrent];
 
   const setCurrent = useCallback((nextCurrent: number) => {
     // When navigating backward, clear accumulated values from steps after
     // the target so stale data doesn't persist when the user changes answers.
-    if (nextCurrent < mergedCurrent) {
+    if (nextCurrent < mergedCurrentRef.current) {
       setAllValues(prev => {
         const cleaned = { ...prev };
         keyStepMapRef.current.forEach((stepIndex, key) => {
@@ -100,7 +104,7 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
       setInnerCurrent(nextCurrent);
     }
     onCurrentChange?.(nextCurrent);
-  }, [current, mergedCurrent, onCurrentChange]);
+  }, [current, onCurrentChange]);
 
   const handleStepFinish = useCallback(async (values: Record<string, unknown>) => {
     const currentStep = steps[mergedCurrent];
@@ -126,18 +130,17 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
     setCurrent(mergedCurrent + 1);
   }, [mergedCurrent, onFinish, setCurrent, steps]);
 
-  if (!activeStep) return null;
-
+  const parentFormProps = formProps as Partial<ProFormProps<FieldValues>> | undefined;
   const {
     title,
     description,
     stepProps,
     children: stepChildren,
     ...stepFormProps
-  } = activeStep.props;
-
-  const parentFormProps = formProps as Partial<ProFormProps<FieldValues>> | undefined;
-  const activeStepFormProps = stepFormProps as Partial<ProFormProps<FieldValues>> | undefined;
+  } = (activeStep?.props ?? {}) as StepFormProps<FieldValues>;
+  const activeStepFormProps = activeStep
+    ? (stepFormProps as Partial<ProFormProps<FieldValues>>)
+    : undefined;
 
   const stepsHtmlProps = pickHtmlDivProps((stepsProps || {}) as Record<string, unknown>);
   const stepHtmlProps = pickHtmlDivProps((stepProps || {}) as Record<string, unknown>);
@@ -190,8 +193,10 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
     : DEFAULT_TEXT.submit;
   const isLastStep = mergedCurrent >= steps.length - 1;
 
-  const { className: stepsClassName, ...stepsRestHtml } = stepsHtmlProps;
-  const { className: stepClassName, ...stepRestHtml } = stepHtmlProps;
+  const { className: stepsClassNameRaw, ...stepsRestHtml } = stepsHtmlProps;
+  const { className: stepClassNameRaw, ...stepRestHtml } = stepHtmlProps;
+  const stepsClassName = typeof stepsClassNameRaw === 'string' ? stepsClassNameRaw : undefined;
+  const stepClassName = typeof stepClassNameRaw === 'string' ? stepClassNameRaw : undefined;
 
   const renderedActions = useMemo<ReactNode>(() => {
     if (submitterConfig === false) return null;
@@ -252,18 +257,28 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
     triggerStepSubmit,
   ]);
 
+  if (!activeStep) return null;
+
   return (
     <div
       {...stepsRestHtml}
-      className={`${CSS_PREFIX}-steps-form${stepsClassName ? ` ${stepsClassName}` : ''}`}
+      className={joinCls(`${CSS_PREFIX}-steps-form`, stepsClassName)}
     >
       <div
         {...stepRestHtml}
         ref={stepPanelRef}
-        className={`${CSS_PREFIX}-steps-form-step${stepClassName ? ` ${stepClassName}` : ''}`}
+        className={joinCls(`${CSS_PREFIX}-steps-form-step`, stepClassName)}
       >
-        {title && <div className={`${CSS_PREFIX}-steps-form-title`}>{title}</div>}
-        {description && <div className={`${CSS_PREFIX}-steps-form-description`}>{description}</div>}
+        {title && (
+          <div className={joinCls(styles['proform__steps-form-title'], `${CSS_PREFIX}-steps-form-title`)}>
+            {title}
+          </div>
+        )}
+        {description && (
+          <div className={joinCls(styles['proform__steps-form-description'], `${CSS_PREFIX}-steps-form-description`)}>
+            {description}
+          </div>
+        )}
         <ProForm
           key={`step-${mergedCurrent}`}
           {...parentFormProps}
@@ -274,7 +289,7 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
         >
           {stepChildren}
           {renderedActions && (
-            <div className={`${CSS_PREFIX}-steps-form-actions`}>
+            <div className={joinCls(styles['proform__steps-form-actions'], `${CSS_PREFIX}-steps-form-actions`)}>
               {renderedActions}
             </div>
           )}

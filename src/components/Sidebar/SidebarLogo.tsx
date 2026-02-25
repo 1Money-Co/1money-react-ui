@@ -1,5 +1,4 @@
-import { LogoWithWords, LogoWithBeta } from '../Icons/Logo';
-import { Logo } from '../Icons/Logo';
+import { LogoWithWords, LogoWithBeta, Logo } from '@/components/Icons/Logo';
 import {
   LOGO_COLOR,
   WORD_COLOR,
@@ -8,7 +7,7 @@ import {
   LOGO_BETA_HEIGHT,
   LOGO_DEFAULT_WIDTH,
   LOGO_DEFAULT_HEIGHT,
-} from './constants';
+} from '@/components/Sidebar/constants';
 /* import types */
 import type { FC } from 'react';
 

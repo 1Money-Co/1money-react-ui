@@ -1,5 +1,5 @@
-import { CheckboxGroup } from '../../CheckboxGroup';
-import createProFormField from './createProFormField';
+import { CheckboxGroup } from '@/components/CheckboxGroup';
+import createProFormField from '@/components/ProForm/fields/createProFormField';
 
 /** ProForm field for multi-choice checkbox group. Wraps {@link CheckboxGroup}. */
 export const ProFormCheckboxGroup = createProFormField({
