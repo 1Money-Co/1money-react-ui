@@ -4,26 +4,129 @@ import { DEFAULT_TEXT } from './constants';
 /** Shorthand for a generic key/value record. */
 export type UnknownRecord = Record<string, unknown>;
 
+interface StableSerializeContext {
+  seen: WeakMap<object, number>;
+  nextId: number;
+}
+
+const getNextSeenId = (ctx: StableSerializeContext): number => {
+  const current = ctx.nextId;
+  ctx.nextId += 1;
+  return current;
+};
+
+interface SerializableKeyEntry {
+  rawKey: PropertyKey;
+  serializedKey: string;
+}
+
+const sortObjectKeys = (value: object): SerializableKeyEntry[] => {
+  return Reflect.ownKeys(value)
+    .map((rawKey) => ({
+      rawKey,
+      serializedKey: typeof rawKey === 'symbol'
+        ? `@@symbol:${String(rawKey.description ?? rawKey)}`
+        : String(rawKey),
+    }))
+    .sort((a, b) => a.serializedKey.localeCompare(b.serializedKey));
+};
+
+const serializeNumber = (value: number): string => {
+  if (Number.isNaN(value)) return 'number:NaN';
+  if (!Number.isFinite(value)) return `number:${value > 0 ? 'Infinity' : '-Infinity'}`;
+  return `number:${String(value)}`;
+};
+
+const serializeObject = (value: object, ctx: StableSerializeContext): string => {
+  if (ctx.seen.has(value)) {
+    return `ref:${ctx.seen.get(value)}`;
+  }
+
+  const id = getNextSeenId(ctx);
+  ctx.seen.set(value, id);
+
+  if (Array.isArray(value)) {
+    return `array:[${value.map(item => serializeStableValue(item, ctx)).join(',')}]`;
+  }
+
+  if (value instanceof Date) {
+    return `date:${Number.isNaN(value.getTime()) ? 'Invalid Date' : value.toISOString()}`;
+  }
+
+  if (value instanceof RegExp) {
+    return `regexp:${value.toString()}`;
+  }
+
+  if (value instanceof Set) {
+    const values = Array.from(value.values())
+      .map(item => serializeStableValue(item, ctx))
+      .sort();
+    return `set:{${values.join(',')}}`;
+  }
+
+  if (value instanceof Map) {
+    const entries = Array.from(value.entries())
+      .map(([key, item]) => ({
+        key: serializeStableValue(key, ctx),
+        value: serializeStableValue(item, ctx),
+      }))
+      .sort((a, b) => {
+        if (a.key === b.key) return a.value.localeCompare(b.value);
+        return a.key.localeCompare(b.key);
+      });
+    return `map:{${entries.map(entry => `${entry.key}->${entry.value}`).join(',')}}`;
+  }
+
+  const constructorName = (value as { constructor?: { name?: string } }).constructor?.name ?? 'Object';
+  const keys = sortObjectKeys(value);
+  const serializedPairs = keys.map(({ rawKey, serializedKey }) => {
+    const nextValue = (value as Record<PropertyKey, unknown>)[rawKey];
+    return `${serializedKey}:${serializeStableValue(nextValue, ctx)}`;
+  });
+
+  return `object:${constructorName}:{${serializedPairs.join(',')}}`;
+};
+
+const serializeStableValue = (value: unknown, ctx: StableSerializeContext): string => {
+  if (value === null) return 'null';
+
+  switch (typeof value) {
+    case 'undefined':
+      return 'undefined';
+    case 'string':
+      return `string:${JSON.stringify(value)}`;
+    case 'number':
+      return serializeNumber(value as number);
+    case 'boolean':
+      return `boolean:${value ? '1' : '0'}`;
+    case 'bigint':
+      return `bigint:${String(value as bigint)}`;
+    case 'symbol':
+      return `symbol:${String((value as symbol).description ?? value)}`;
+    case 'function': {
+      const fn = value as (...args: unknown[]) => unknown;
+      return `function:${fn.name || 'anonymous'}:${fn.length}:${String(fn)}`;
+    }
+    case 'object':
+      return serializeObject(value as object, ctx);
+    default:
+      return `unknown:${String(value)}`;
+  }
+};
+
 /**
- * Produces a deterministic JSON string with sorted object keys.
- * Used for deep-comparison of `params` passed to {@link ProForm.request}.
+ * Produces a deterministic, type-aware string key for deep comparison.
+ * Handles non-JSON-safe values (e.g. `undefined`, `symbol`, `function`) and circular references.
  *
  * @param value - The value to serialize.
- * @returns A stable JSON string, or an empty string on failure.
+ * @returns A stable serialization key.
  */
 export const stableSerialize = (value: unknown): string => {
   try {
-    return JSON.stringify(value, (_, current: unknown) => {
-      if (!current || typeof current !== 'object' || Array.isArray(current)) return current;
-      return Object.keys(current as UnknownRecord)
-        .sort()
-        .reduce<UnknownRecord>((acc, key) => {
-          acc[key] = (current as UnknownRecord)[key];
-          return acc;
-        }, {});
-    }) || '';
-  } catch {
-    return '';
+    return serializeStableValue(value, { seen: new WeakMap<object, number>(), nextId: 0 });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return `serialization-error:${message}`;
   }
 };
 

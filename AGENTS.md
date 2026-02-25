@@ -103,6 +103,102 @@ import '@1money/react-ui/index.css';
 - Lottie animations are used in Loading component
 - Pre-commit hooks enforce code quality via husky and lint-staged
 
+## Commit Convention
+
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+### Commit Message Format
+
+```
+<type>(<scope>): <subject>
+
+[optional body]
+
+[optional footer]
+```
+
+### Types
+
+| Type | Description |
+|------|-------------|
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `docs` | Documentation changes only |
+| `style` | Code style changes (formatting, missing semicolons, etc.) — no logic change |
+| `refactor` | Code refactoring — no feature addition or bug fix |
+| `perf` | Performance improvements |
+| `test` | Adding or updating tests |
+| `chore` | Build process, tooling, or dependency changes |
+| `revert` | Revert a previous commit |
+| `ci` | CI/CD configuration changes |
+
+### Scope
+
+The scope should be the name of the component or module affected:
+
+```
+feat(Button): add loading state support
+fix(Input): correct placeholder color in dark mode
+docs(ProForm): update usage examples
+refactor(utils): simplify classnames helper
+```
+
+Omit scope when the change is global or cross-cutting:
+
+```
+chore: upgrade PrimeReact to v11
+ci: add lint check to PR workflow
+```
+
+### Subject Rules
+
+- ✅ Use imperative mood: "add feature" not "added feature" or "adds feature"
+- ✅ Start with a lowercase letter
+- ✅ No period at the end
+- ✅ Keep under 72 characters
+- ❌ Do not use vague messages like "fix bug", "update code", "WIP"
+
+### Examples
+
+```bash
+# ✅ Good
+feat(ProForm): add StepsForm component with validation support
+fix(Select): prevent dropdown from closing on internal scroll
+refactor(Button): extract size constants to avoid magic strings
+test(Input): add snapshot tests for controlled mode
+docs(README): add installation and usage guide
+chore: update pnpm lockfile after dependency upgrade
+
+# ❌ Bad
+fix bug
+update
+WIP
+feat: add stuff
+```
+
+### Breaking Changes
+
+Breaking changes must be noted in the footer with `BREAKING CHANGE:`:
+
+```
+feat(ProForm): change onSubmit callback signature
+
+BREAKING CHANGE: onSubmit now receives (values, form) instead of (values).
+Consumers must update their onSubmit handlers accordingly.
+```
+
+### Multi-line Body
+
+Use the body to explain *why* a change was made, not *what* was changed (the diff shows that):
+
+```
+fix(StepsForm): clear downstream step values on backward navigation
+
+When a user navigates backward in a multi-step form, previously entered
+values in later steps should be cleared to prevent stale data from
+being submitted. This matches the expected UX behavior.
+```
+
 ## TypeScript Standards
 
 ### Core Principles

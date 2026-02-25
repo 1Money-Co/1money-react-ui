@@ -87,6 +87,34 @@ describe('ProForm', () => {
     expect(await screen.findByDisplayValue('Ada')).toBeInTheDocument();
   });
 
+  it('resets to latest request-hydrated values', async () => {
+    const user = userEvent.setup();
+    const request = jest.fn().mockResolvedValue({ firstName: 'Ada' });
+
+    render(
+      <ProForm
+        request={request}
+        params={{ id: 'u_1' }}
+        defaultValues={{ firstName: 'Grace' }}
+      >
+        <ProFormText name='firstName' label='First Name' />
+      </ProForm>
+    );
+
+    expect(await screen.findByDisplayValue('Ada')).toBeInTheDocument();
+
+    const input = screen.getByRole('textbox');
+    await user.clear(input);
+    await user.type(input, 'Marie');
+    expect(screen.getByDisplayValue('Marie')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Reset' }));
+
+    await waitFor(() => {
+      expect(screen.getByDisplayValue('Ada')).toBeInTheDocument();
+    });
+  });
+
   it('hides submitter when submitter=false', () => {
     render(
       <ProForm submitter={false}>
@@ -185,6 +213,27 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       expect(request).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('reruns request when non-JSON params values change', async () => {
+    const request = jest.fn().mockResolvedValue({ firstName: 'Ada' });
+
+    const View = ({ tokenLabel }: { tokenLabel: string }) => {
+      return (
+        <ProForm request={request} params={{ token: Symbol(tokenLabel) }} submitter={false}>
+          <ProFormText name='firstName' label='First Name' />
+        </ProForm>
+      );
+    };
+
+    const { rerender } = render(<View tokenLabel='alpha' />);
+    expect(await screen.findByDisplayValue('Ada')).toBeInTheDocument();
+
+    rerender(<View tokenLabel='beta' />);
+
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(2);
     });
   });
 

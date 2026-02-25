@@ -2,6 +2,7 @@ import {
   createContext,
   useEffect,
   useMemo,
+  useRef,
 } from 'react';
 import useMemoizedFn from '../useMemoizedFn';
 import { useForm } from 'react-hook-form';
@@ -71,8 +72,13 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
   const form = externalForm ?? internalForm;
   const paramsKey = useMemo(() => stableSerialize(params), [params]);
   const stableParams = useMemo(() => params, [paramsKey]);
+  const latestResetValuesRef = useRef<TFieldValues | undefined>(defaultValues as TFieldValues | undefined);
   const formRest = rest as Omit<FormProps<TFieldValues>, 'onFinish' | 'form' | 'disabled' | 'defaultValues'>;
   const { onFinishFailed, ...forwardedFormProps } = formRest;
+
+  useEffect(() => {
+    latestResetValuesRef.current = defaultValues as TFieldValues | undefined;
+  }, [defaultValues]);
 
   useEffect(() => {
     let cancelled = false;
@@ -82,6 +88,7 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
       .then(values => {
         if (cancelled || !values) return;
         form.reset(values);
+        latestResetValuesRef.current = values;
       })
       .catch(() => {
         // Silently ignore — consumers should handle request errors
@@ -104,7 +111,7 @@ export function ProForm<TFieldValues extends FieldValues = FieldValues>(props: P
   });
 
   const handleReset = useMemoizedFn(() => {
-    form.reset(defaultValues);
+    form.reset(latestResetValuesRef.current);
     if (isSubmitterEnabled(submitter)) {
       submitter.onReset?.();
     }

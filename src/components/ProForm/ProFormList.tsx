@@ -2,7 +2,7 @@ import { DndContext } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { memo, useEffect, useMemo, useRef } from 'react';
 import useMemoizedFn from '../useMemoizedFn';
-import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { Button } from '../Button';
 import { CSS_PREFIX, DEFAULT_TEXT } from './constants';
 import { extractButtonProps } from './utils';
@@ -45,6 +45,7 @@ type IconProps = false | Record<string, unknown>;
 interface ProFormListRowProps {
   fieldId: string;
   index: number;
+  record: unknown;
   copyIconProps: IconProps | undefined;
   deleteIconProps: IconProps | undefined;
   canAdd: boolean;
@@ -57,9 +58,10 @@ interface ProFormListRowProps {
 }
 
 /** @internal Renders copy/delete action buttons for a single list row. */
-const ProFormListRowBody: FC<ProFormListRowProps> = ({
+const ProFormListRowBodyBase: FC<ProFormListRowProps> = ({
   fieldId,
   index,
+  record,
   copyIconProps,
   deleteIconProps,
   canAdd,
@@ -111,7 +113,7 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
   };
 
   const renderedActions = actionRender
-    ? actionRender({ index, record: action.getList()[index] }, action, defaultDom)
+    ? actionRender({ index, record }, action, defaultDom)
     : [defaultDom.copy, defaultDom.delete].filter(Boolean);
 
   const rowNode = (
@@ -125,8 +127,10 @@ const ProFormListRowBody: FC<ProFormListRowProps> = ({
   return <>{itemRender({ listDom: rowNode, action })}</>;
 };
 
+const ProFormListRowBody = memo(ProFormListRowBodyBase);
+
 /** @internal Drag-and-drop wrapper for a sortable list row. */
-const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
+const SortableProFormListRowBase: FC<ProFormListRowProps> = (props) => {
   const { fieldId } = props;
   const {
     attributes,
@@ -158,6 +162,8 @@ const SortableProFormListRow: FC<ProFormListRowProps> = (props) => {
     </div>
   );
 };
+
+const SortableProFormListRow = memo(SortableProFormListRowBase);
 
 type CreatorConfig = ButtonProps & { text?: ReactNode; position?: 'top' | 'bottom' };
 
@@ -221,11 +227,15 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   } = props;
 
   const initialApplied = useRef(false);
-  const { control, getValues } = useFormContext<FieldValues>();
+  const { control } = useFormContext<FieldValues>();
   const { fields, append, remove, move, insert, replace } = useFieldArray({
     control,
     name: name as string,
   });
+  const watchedList = useWatch({ control, name: name as string });
+  const listSnapshot = useMemo(() => {
+    return Array.isArray(watchedList) ? watchedList as Record<string, unknown>[] : [];
+  }, [watchedList]);
 
   useEffect(() => {
     if (initialApplied.current) return;
@@ -262,18 +272,19 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
   const copy = useMemoizedFn((index: number) => {
     if (!canAdd) return;
 
-    const list = (getValues(name as string) as Record<string, unknown>[] | undefined) ?? [];
-    const value = list[index] ?? {};
+    const value = listSnapshot[index] ?? {};
     add(value, index + 1);
   });
+
+  const getList = useMemoizedFn(() => listSnapshot);
 
   const action = useMemo<ProFormListAction>(() => ({
     add,
     remove: removeAt,
     move,
     copy,
-    getList: () => ((getValues(name as string) as Record<string, unknown>[] | undefined) ?? []),
-  }), [add, copy, getValues, move, name, removeAt]);
+    getList,
+  }), [add, copy, getList, move, removeAt]);
 
   const mappedFields = useMemo(() => {
     return fields.map((field, index) => ({
@@ -288,36 +299,78 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
 
   const hasCreator = creatorButtonProps !== false;
   const creatorConfig: CreatorConfig | undefined = hasCreator
-    ? { ...({} as CreatorConfig), ...(creatorButtonProps || {}) }
+    ? { ...(creatorButtonProps || {}) }
     : undefined;
   const creatorPosition = creatorConfig?.position ?? 'bottom';
+  const addFromTopCreator = useMemoizedFn(() => add({}, fields.length));
+  const addFromBottomCreator = useMemoizedFn(() => add());
 
-  const actionRows = fields.map((field, index) => {
-    const rowProps: ProFormListRowProps = {
-      fieldId: field.id,
-      index,
-      copyIconProps,
-      deleteIconProps,
-      canAdd,
-      canRemove,
-      copy,
-      removeAt,
-      action,
-      actionRender,
-      itemRender,
-    };
+  const actionRows = useMemo(() => {
+    return fields.map((field, index) => {
+      const rowRecord = listSnapshot[index];
+      if (sortable) {
+        return (
+          <SortableProFormListRow
+            key={field.id}
+            fieldId={field.id}
+            index={index}
+            record={rowRecord}
+            copyIconProps={copyIconProps}
+            deleteIconProps={deleteIconProps}
+            canAdd={canAdd}
+            canRemove={canRemove}
+            copy={copy}
+            removeAt={removeAt}
+            action={action}
+            actionRender={actionRender}
+            itemRender={itemRender}
+          />
+        );
+      }
 
-    if (sortable) {
-      return <SortableProFormListRow key={field.id} {...rowProps} />;
-    }
+      return (
+        <ProFormListRowBody
+          key={field.id}
+          fieldId={field.id}
+          index={index}
+          record={rowRecord}
+          copyIconProps={copyIconProps}
+          deleteIconProps={deleteIconProps}
+          canAdd={canAdd}
+          canRemove={canRemove}
+          copy={copy}
+          removeAt={removeAt}
+          action={action}
+          actionRender={actionRender}
+          itemRender={itemRender}
+        />
+      );
+    });
+  }, [
+    action,
+    actionRender,
+    canAdd,
+    canRemove,
+    copy,
+    copyIconProps,
+    deleteIconProps,
+    fields,
+    itemRender,
+    listSnapshot,
+    removeAt,
+    sortable,
+  ]);
 
-    return <ProFormListRowBody key={field.id} {...rowProps} />;
-  });
+  const sortableIds = useMemo(() => fields.map(item => item.id), [fields]);
+  const dragEndHandler = useMemo(
+    () => buildOnDragEnd({ move, fields: fields as Array<{ id: string }> }),
+    [fields, move]
+  );
 
   const actionsNode = sortable
     ? (
-      <DndContext onDragEnd={buildOnDragEnd({ move, fields: fields as Array<{ id: string }> })}>
-        <SortableContext items={fields.map(item => item.id)} strategy={verticalListSortingStrategy}>
+      <DndContext onDragEnd={dragEndHandler}>
+        <SortableContext items={sortableIds} strategy={verticalListSortingStrategy}>
           {actionRows}
         </SortableContext>
       </DndContext>
@@ -329,14 +382,14 @@ const ProFormListBase: FC<ProFormListProps<FieldValues>> = (props) => {
       {label && <div className={`${CSS_PREFIX}-list-label`}>{label}</div>}
 
       {creatorPosition === 'top' && (
-        <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={() => add({}, fields.length)} />
+        <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={addFromTopCreator} />
       )}
 
       <div className={`${CSS_PREFIX}-list-content`}>{listDom}</div>
       <div className={`${CSS_PREFIX}-list-actions`}>{actionsNode}</div>
 
       {creatorPosition === 'bottom' && (
-        <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={() => add()} />
+        <CreatorButton config={creatorConfig} canAdd={canAdd} onAdd={addFromBottomCreator} />
       )}
     </div>
   );

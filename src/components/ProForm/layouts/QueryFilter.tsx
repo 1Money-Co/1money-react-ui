@@ -83,7 +83,7 @@ const QueryFilterBase: FC<QueryFilterProps<FieldValues>> = (props) => {
       },
       render: (renderProps: SubmitterRenderProps<FieldValues>) => {
         const customDom = [
-          <Button key='search' type='submit'>
+          <Button key='search' type='button' onClick={() => renderProps.submit()}>
             {submitter?.submitText ?? DEFAULT_TEXT.search}
           </Button>,
           <Button key='reset' type='button' severity='secondary' onClick={() => renderProps.reset()}>

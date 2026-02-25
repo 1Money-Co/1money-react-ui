@@ -10,7 +10,7 @@ import {
 import { Button } from '../../Button';
 import ProForm from '../ProForm';
 import { CSS_PREFIX, DEFAULT_TEXT } from '../constants';
-import type { FC, ReactElement } from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
 import type { FieldValues } from 'react-hook-form';
 import type { ProFormProps, StepFormProps, StepsFormProps } from '../interface';
 
@@ -69,8 +69,10 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
 
   const [innerCurrent, setInnerCurrent] = useState(0);
   const [allValues, setAllValues] = useState<Record<string, unknown>>({});
+  const allValuesRef = useRef<Record<string, unknown>>({});
   /** Tracks which step index each key was last submitted from. */
   const keyStepMapRef = useRef<Map<string, number>>(new Map());
+  const stepPanelRef = useRef<HTMLDivElement>(null);
 
   const steps = useMemo(() => {
     return Children.toArray(children).filter(isValidElement) as ReactElement<StepFormProps<FieldValues>>[];
@@ -90,6 +92,7 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
             delete cleaned[key];
           }
         });
+        allValuesRef.current = cleaned;
         return cleaned;
       });
     }
@@ -110,17 +113,18 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
       keyStepMapRef.current.set(key, mergedCurrent);
     }
 
-    const merged = { ...allValues, ...values };
-    setAllValues(merged);
+    const mergedValues = { ...allValuesRef.current, ...values };
+    allValuesRef.current = mergedValues;
+    setAllValues(mergedValues);
 
     const isLast = mergedCurrent >= steps.length - 1;
     if (isLast) {
-      await onFinish?.(merged as FieldValues);
+      await onFinish?.(mergedValues as FieldValues);
       return;
     }
 
     setCurrent(mergedCurrent + 1);
-  }, [allValues, mergedCurrent, onFinish, setCurrent, steps]);
+  }, [mergedCurrent, onFinish, setCurrent, steps]);
 
   if (!activeStep) return null;
 
@@ -132,24 +136,121 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
     ...stepFormProps
   } = activeStep.props;
 
+  const parentFormProps = formProps as Partial<ProFormProps<FieldValues>> | undefined;
+  const activeStepFormProps = stepFormProps as Partial<ProFormProps<FieldValues>> | undefined;
+
   const stepsHtmlProps = pickHtmlDivProps((stepsProps || {}) as Record<string, unknown>);
   const stepHtmlProps = pickHtmlDivProps((stepProps || {}) as Record<string, unknown>);
 
   const mergedDefaultValues = useMemo(() => ({
-    ...(formProps as Partial<ProFormProps<FieldValues>> | undefined)?.defaultValues,
-    ...(stepFormProps as Partial<ProFormProps<FieldValues>> | undefined)?.defaultValues,
+    ...parentFormProps?.defaultValues,
+    ...activeStepFormProps?.defaultValues,
     ...allValues,
-  }), [allValues, formProps, stepFormProps]);
+  }), [activeStepFormProps?.defaultValues, allValues, parentFormProps?.defaultValues]);
+  const submitterConfig = submitter === false ? false : (submitter || {});
 
-  const prevText = submitter !== false && submitter?.prevText
-    ? submitter.prevText
+  const handlePrev = useCallback(() => {
+    if (submitterConfig !== false) {
+      submitterConfig.onReset?.();
+    }
+    if (mergedCurrent > 0) {
+      setCurrent(mergedCurrent - 1);
+    }
+  }, [mergedCurrent, setCurrent, submitterConfig]);
+
+  const handleSubmitClick = useCallback(() => {
+    if (submitterConfig !== false) {
+      submitterConfig.onSubmit?.();
+    }
+  }, [submitterConfig]);
+
+  const triggerStepSubmit = useCallback(() => {
+    if (submitterConfig !== false) {
+      submitterConfig.onSubmit?.();
+    }
+    const formNode = stepPanelRef.current?.querySelector('form');
+    if (!formNode) return;
+
+    if (typeof formNode.requestSubmit === 'function') {
+      formNode.requestSubmit();
+      return;
+    }
+
+    formNode.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  }, [submitterConfig]);
+
+  const prevText = submitterConfig !== false && submitterConfig.prevText
+    ? submitterConfig.prevText
     : DEFAULT_TEXT.previous;
-  const nextText = submitter !== false && submitter?.nextText
-    ? submitter.nextText
+  const nextText = submitterConfig !== false && submitterConfig.nextText
+    ? submitterConfig.nextText
     : DEFAULT_TEXT.next;
+  const submitText = submitterConfig !== false && submitterConfig.submitText
+    ? submitterConfig.submitText
+    : DEFAULT_TEXT.submit;
+  const isLastStep = mergedCurrent >= steps.length - 1;
 
   const { className: stepsClassName, ...stepsRestHtml } = stepsHtmlProps;
   const { className: stepClassName, ...stepRestHtml } = stepHtmlProps;
+
+  const renderedActions = useMemo<ReactNode>(() => {
+    if (submitterConfig === false) return null;
+
+    const resetButtonProps = submitterConfig.resetButtonProps;
+    const submitButtonProps = submitterConfig.submitButtonProps;
+
+    const prevButton = mergedCurrent > 0
+      ? (
+        <Button
+          key='prev'
+          {...resetButtonProps}
+          type={resetButtonProps?.type ?? 'button'}
+          severity={resetButtonProps?.severity ?? 'secondary'}
+          onClick={(event) => {
+            resetButtonProps?.onClick?.(event);
+            handlePrev();
+          }}
+        >
+          {prevText}
+        </Button>
+      )
+      : null;
+
+    const nextButton = (
+      <Button
+        key='submit'
+        {...submitButtonProps}
+        type={submitButtonProps?.type ?? 'submit'}
+        onClick={(event) => {
+          submitButtonProps?.onClick?.(event);
+          handleSubmitClick();
+        }}
+      >
+        {isLastStep ? submitText : nextText}
+      </Button>
+    );
+
+    const defaultDom = [prevButton, nextButton].filter(Boolean) as ReactElement[];
+    if (!submitterConfig.render) return defaultDom;
+
+    return submitterConfig.render({
+      form: activeStepFormProps?.form ?? parentFormProps?.form,
+      submit: triggerStepSubmit,
+      reset: handlePrev,
+    }, defaultDom);
+  }, [
+    activeStepFormProps?.form,
+    handlePrev,
+    handleSubmitClick,
+    isLastStep,
+    mergedCurrent,
+    nextText,
+    parentFormProps?.form,
+    prevText,
+    submitText,
+    submitterConfig,
+    triggerStepSubmit,
+  ]);
 
   return (
     <div
@@ -158,29 +259,25 @@ const StepsFormInner: FC<StepsFormProps<FieldValues>> = (props) => {
     >
       <div
         {...stepRestHtml}
+        ref={stepPanelRef}
         className={`${CSS_PREFIX}-steps-form-step${stepClassName ? ` ${stepClassName}` : ''}`}
       >
         {title && <div className={`${CSS_PREFIX}-steps-form-title`}>{title}</div>}
         {description && <div className={`${CSS_PREFIX}-steps-form-description`}>{description}</div>}
         <ProForm
           key={`step-${mergedCurrent}`}
-          {...formProps as Partial<ProFormProps<FieldValues>>}
-          {...stepFormProps as Partial<ProFormProps<FieldValues>>}
+          {...parentFormProps}
+          {...activeStepFormProps}
           defaultValues={mergedDefaultValues}
           submitter={false}
           onFinish={handleStepFinish}
         >
           {stepChildren}
-          <div className={`${CSS_PREFIX}-steps-form-actions`}>
-            {mergedCurrent > 0 && (
-              <Button type='button' severity='secondary' onClick={() => setCurrent(mergedCurrent - 1)}>
-                {prevText}
-              </Button>
-            )}
-            <Button type='submit'>
-              {mergedCurrent >= steps.length - 1 ? DEFAULT_TEXT.submit : nextText}
-            </Button>
-          </div>
+          {renderedActions && (
+            <div className={`${CSS_PREFIX}-steps-form-actions`}>
+              {renderedActions}
+            </div>
+          )}
         </ProForm>
       </div>
     </div>

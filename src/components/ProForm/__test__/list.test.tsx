@@ -120,6 +120,40 @@ describe('ProForm list', () => {
     expect(screen.getAllByRole('textbox')).toHaveLength(1);
   });
 
+  it('does not repeatedly call action.getList during actionRender list rows', () => {
+    const users = Array.from({ length: 20 }, (_, index) => ({ name: `User ${index}` }));
+    let patchedGetListSpy: jest.Mock | null = null;
+    const actionRender = jest.fn((
+      _row: { index: number; record: unknown },
+      action: { getList: () => Record<string, unknown>[] },
+      defaultDom: { copy: React.ReactNode; delete: React.ReactNode },
+    ) => {
+      if (patchedGetListSpy === null) {
+        const originalGetList = action.getList;
+        patchedGetListSpy = jest.fn(() => originalGetList());
+        action.getList = patchedGetListSpy;
+      }
+      return [defaultDom.copy, defaultDom.delete];
+    });
+
+    render(
+      <ProForm defaultValues={{ users }}>
+        <ProFormList
+          name='users'
+          actionRender={actionRender}
+        >
+          {(fields) => fields.map((field, index) => (
+            <ProFormText key={field.key} name={`users.${index}.name`} label={`Name ${index}`} />
+          ))}
+        </ProFormList>
+      </ProForm>
+    );
+
+    expect(actionRender).toHaveBeenCalled();
+    expect(patchedGetListSpy).toBeTruthy();
+    expect(patchedGetListSpy).toHaveBeenCalledTimes(0);
+  });
+
   it('calls move when sortable drag ends with a different index', () => {
     const move = jest.fn();
     const onDragEnd = buildOnDragEnd({

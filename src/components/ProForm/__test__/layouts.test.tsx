@@ -104,6 +104,109 @@ describe('ProForm layouts', () => {
     });
   });
 
+  it('hides steps actions when submitter=false', () => {
+    render(
+      <StepsForm submitter={false}>
+        <StepsForm.StepForm title='Step A'>
+          <ProFormText name='firstName' label='First Name' />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='Step B'>
+          <ProFormText name='lastName' label='Last Name' />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    expect(screen.queryByRole('button', { name: 'Next' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Submit' })).not.toBeInTheDocument();
+  });
+
+  it('supports StepsForm submitter texts, button props, and callbacks', async () => {
+    const user = userEvent.setup();
+    const onSubmit = jest.fn();
+    const onReset = jest.fn();
+
+    render(
+      <StepsForm
+        submitter={{
+          prevText: 'Back',
+          nextText: 'Continue',
+          submitText: 'Finish',
+          submitButtonProps: { className: 'steps-submit-btn' },
+          resetButtonProps: { className: 'steps-prev-btn' },
+          onSubmit,
+          onReset,
+        }}
+      >
+        <StepsForm.StepForm title='Step A'>
+          <ProFormText name='firstName' label='First Name' />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='Step B'>
+          <ProFormText name='lastName' label='Last Name' />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    expect(screen.getByRole('button', { name: 'Continue' })).toBeInTheDocument();
+    expect(document.querySelector('.steps-submit-btn')).toBeInTheDocument();
+
+    await user.type(screen.getByRole('textbox'), 'Ada');
+    await user.click(screen.getByRole('button', { name: 'Continue' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: 'Back' })).toBeInTheDocument();
+    expect(document.querySelector('.steps-prev-btn')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Finish' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Back' }));
+    expect(onReset).toHaveBeenCalledTimes(1);
+  });
+
+  it('passes working submit/reset actions to StepsForm submitter.render', async () => {
+    const user = userEvent.setup();
+    const onFinish = jest.fn();
+    const renderSpy = jest.fn(({ submit, reset }) => (
+      <div>
+        <button type='button' onClick={reset}>Custom Previous</button>
+        <button type='button' onClick={submit}>Custom Submit</button>
+      </div>
+    ));
+
+    render(
+      <StepsForm
+        onFinish={onFinish}
+        submitter={{ render: renderSpy }}
+      >
+        <StepsForm.StepForm title='Step A'>
+          <ProFormText name='firstName' label='First Name' />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm title='Step B'>
+          <ProFormText name='lastName' label='Last Name' />
+        </StepsForm.StepForm>
+      </StepsForm>
+    );
+
+    expect(renderSpy).toHaveBeenCalled();
+
+    await user.type(screen.getByRole('textbox'), 'Ada');
+    await user.click(screen.getByRole('button', { name: 'Custom Submit' }));
+    expect(screen.getByText('Last Name')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Custom Previous' }));
+    expect(screen.getByText('First Name')).toBeInTheDocument();
+
+    const firstNameInput = screen.getByRole('textbox');
+    await user.clear(firstNameInput);
+    await user.type(firstNameInput, 'Grace');
+    await user.click(screen.getByRole('button', { name: 'Custom Submit' }));
+
+    await user.type(screen.getByRole('textbox'), 'Hopper');
+    await user.click(screen.getByRole('button', { name: 'Custom Submit' }));
+
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalledWith({ firstName: 'Grace', lastName: 'Hopper' });
+    });
+  });
+
   it('clears downstream step values when navigating backward', async () => {
     const user = userEvent.setup();
     const onFinish = jest.fn();
@@ -231,6 +334,24 @@ describe('ProForm layouts', () => {
 
     await user.click(screen.getByRole('button', { name: 'Reset' }));
     expect(order).toEqual(['submitter', 'query']);
+  });
+
+  it('calls QueryFilter submitter.onSubmit when clicking search', async () => {
+    const user = userEvent.setup();
+    const onSubmit = jest.fn();
+
+    render(
+      <QueryFilter
+        submitter={{
+          onSubmit,
+        }}
+      >
+        <ProFormText name='a' label='A' />
+      </QueryFilter>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Search' }));
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
   it('passes composed actions to QueryFilter submitter.render', () => {
