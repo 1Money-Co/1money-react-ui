@@ -25,6 +25,24 @@ interface UseOverlayFormOptions<TValues> {
   onOverlayHide?: (...args: unknown[]) => void;
 }
 
+/** Return shape of {@link useOverlayForm}. */
+export interface UseOverlayFormResult<TValues> {
+  /** Effective open state (controlled or uncontrolled). */
+  mergedOpen: boolean;
+  /** Whether overlay container should stay mounted. */
+  shouldRenderPanel: boolean;
+  /** Optional trigger element that opens the overlay. */
+  triggerNode: ReactNode;
+  /** Wrapped finish handler with optional auto-close behavior. */
+  handleFinish: (values: TValues) => Promise<void | boolean | undefined>;
+  /** Wrapped overlay hide handler. */
+  handleHide: (...args: unknown[]) => void;
+  /** Merged overlay style (base style + width override). */
+  mergedStyle: CSSProperties;
+  /** Imperative open-state setter honoring controlled mode. */
+  changeOpen: (nextOpen: boolean) => void;
+}
+
 /**
  * Shared hook that powers both {@link ModalForm} and {@link DrawerForm}.
  *
@@ -46,7 +64,7 @@ export function useOverlayForm<TValues>({
   onFinish,
   overlayStyle,
   onOverlayHide,
-}: UseOverlayFormOptions<TValues>) {
+}: UseOverlayFormOptions<TValues>): UseOverlayFormResult<TValues> {
   const [innerOpen, setInnerOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const onFinishRef = useRef(onFinish);
@@ -107,7 +125,7 @@ export function useOverlayForm<TValues>({
 
   const shouldRenderPanel = mergedOpen || !destroyOnClose;
 
-  const mergedStyle = useMemo(() => ({
+  const mergedStyle = useMemo<CSSProperties>(() => ({
     ...(overlayStyle || {}),
     ...(width !== undefined ? { width } : {}),
   }), [overlayStyle, width]);

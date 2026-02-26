@@ -8,7 +8,39 @@ const eslintPrettier = require('eslint-plugin-prettier');
 const eslintStorybook = require('eslint-plugin-storybook');
 
 module.exports = [
+  {
+    ignores: [
+      'build/**',
+      'configs/**',
+      'coverage/**',
+      'dist/**',
+      'dist-story/**',
+      'es/**',
+      'lib/**',
+      'node_modules/**',
+      '.storybook/**'
+    ]
+  },
   js.configs.recommended,
+  {
+    files: [
+      '**/*.d.ts'
+    ],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: false
+        },
+        project: false
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module'
+    },
+    rules: {
+      'no-unused-vars': ['off']
+    }
+  },
   // eslintTypescript.configs.recommended,
   // eslintPrettier.configs.recommended,
   // eslintStorybook.configs.recommended,
@@ -82,6 +114,7 @@ module.exports = [
       '**/__test__/*',
       '**/stories/*',
       '**/*.stories.*',
+      '**/*.d.ts',
       'doczrc.js',
       'gulpfile.js',
       '.eslintrc.js',

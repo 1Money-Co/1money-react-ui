@@ -77,5 +77,11 @@
     "demo/",
     ".storybook/",
     "*.js"
+  ],
+  "include": [
+    "src/**/*",
+    "@types/**/*",
+    "jest.setup.d.ts",
+    "test/**/*.d.ts"
   ]
 }
