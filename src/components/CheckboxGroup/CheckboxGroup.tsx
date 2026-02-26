@@ -47,8 +47,8 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
 
   const renderItem = (item: CheckboxGroupItem) => {
     const { key, required, disabled, label, onChange: itemOnChange, ...rest } = item;
-    // Strip defaultValue from rest to avoid passing it to DOM
-    const { defaultValue: _, defaultChecked: __, ...checkboxRest } = rest as Record<string, unknown>;
+    // Strip defaultValue, defaultChecked, and checked from rest to avoid passing them to DOM
+    const { defaultValue: _, defaultChecked: __, checked: perItemChecked, ...checkboxRest } = rest as Record<string, unknown>;
     const innerClassName = classes('inner-checkbox', checkboxGroupCls);
 
     const checkboxEl = tristate
@@ -70,7 +70,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = props => {
           value={key}
           required={required}
           disabled={disabled}
-          checked={checkedItems.includes(key)}
+          checked={(perItemChecked as boolean | undefined) ?? checkedItems.includes(key)}
           className={innerClassName}
           icon={<i className="pi pi-check" />}
           onChange={(e: CheckboxChangeEvent) => { if (!disabled) handleNormalChange(e, itemOnChange as (checked: boolean) => any); }}
