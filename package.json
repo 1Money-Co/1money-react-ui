@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.17.1-alpha.0",
+  "version": "1.17.1-alpha.1",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -261,7 +261,8 @@
     "lottie-web": "^5.12.2",
     "react-number-format": "^5.4.4",
     "react-pro-sidebar": "^1.1.0",
-    "react-tooltip": "^5.28.1"
+    "react-tooltip": "^5.28.1",
+    "react-hook-form": "^7.54.0"
   },
   "resolutions": {
     "@types/react": "~19.1.2",
@@ -354,7 +355,6 @@
     "primereact": "^10.9.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-hook-form": "^7.54.0",
     "sass": "~1.84.0",
     "sass-loader": "~10.2.1",
     "sinon": "^18.0.1",
