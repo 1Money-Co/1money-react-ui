@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
 import usePrevious from '../usePrevious';

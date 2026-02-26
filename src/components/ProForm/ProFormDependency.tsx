@@ -1,3 +1,4 @@
+'use client';
 import { memo, useContext, useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
 import type { FC, ReactNode } from 'react';

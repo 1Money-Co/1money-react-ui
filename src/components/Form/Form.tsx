@@ -1,3 +1,4 @@
+'use client';
 import React, { createContext, useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';

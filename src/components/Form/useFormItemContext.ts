@@ -1,3 +1,4 @@
+'use client';
 import { createContext, createElement, useContext, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import type { ReactNode } from 'react';
