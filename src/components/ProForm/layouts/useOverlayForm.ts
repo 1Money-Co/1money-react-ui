@@ -1,5 +1,6 @@
-import { cloneElement, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { cloneElement, isValidElement, useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, MouseEvent, ReactElement, ReactNode } from 'react';
+import useMemoizedFn from '@/components/useMemoizedFn';
 
 /** Configuration options for the {@link useOverlayForm} hook. */
 interface UseOverlayFormOptions<TValues> {
@@ -67,28 +68,23 @@ export function useOverlayForm<TValues>({
 }: UseOverlayFormOptions<TValues>): UseOverlayFormResult<TValues> {
   const [innerOpen, setInnerOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const onFinishRef = useRef(onFinish);
   const mergedOpen = open ?? innerOpen;
 
-  useEffect(() => {
-    onFinishRef.current = onFinish;
-  }, [onFinish]);
-
-  const changeOpen = useCallback((nextOpen: boolean) => {
+  const changeOpen = useMemoizedFn((nextOpen: boolean) => {
     if (open === undefined) {
       setInnerOpen(nextOpen);
     }
     onOpenChange?.(nextOpen);
-  }, [open, onOpenChange]);
+  });
 
-  const clearCloseTimer = useCallback(() => {
+  const clearCloseTimer = useMemoizedFn(() => {
     if (!closeTimerRef.current) return;
     clearTimeout(closeTimerRef.current);
     closeTimerRef.current = null;
-  }, []);
+  });
 
-  const handleFinish = useCallback(async (values: TValues) => {
-    const result = await onFinishRef.current?.(values);
+  const handleFinish = useMemoizedFn(async (values: TValues) => {
+    const result = await onFinish?.(values);
     if (autoClose && result !== false) {
       clearCloseTimer();
       if (typeof submitTimeout === 'number' && submitTimeout > 0) {
@@ -101,7 +97,7 @@ export function useOverlayForm<TValues>({
       }
     }
     return result;
-  }, [autoClose, changeOpen, clearCloseTimer, submitTimeout]);
+  });
 
   const triggerNode = useMemo<ReactNode>(() => {
     if (!trigger || !isValidElement(trigger)) return null;
@@ -117,11 +113,11 @@ export function useOverlayForm<TValues>({
     });
   }, [changeOpen, trigger]);
 
-  const handleHide = useCallback((...args: unknown[]) => {
+  const handleHide = useMemoizedFn((...args: unknown[]) => {
     clearCloseTimer();
     onOverlayHide?.(...args);
     changeOpen(false);
-  }, [changeOpen, clearCloseTimer, onOverlayHide]);
+  });
 
   const shouldRenderPanel = mergedOpen || !destroyOnClose;
 

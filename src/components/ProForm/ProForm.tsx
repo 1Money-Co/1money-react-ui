@@ -4,8 +4,8 @@ import {
   useMemo,
   useRef,
 } from 'react';
-import useLatest from '../useLatest';
-import useMemoizedFn from '../useMemoizedFn';
+import useLatest from '@/components/useLatest';
+import useMemoizedFn from '@/components/useMemoizedFn';
 import { useForm } from 'react-hook-form';
 import { Row } from '../Grid';
 import { Form } from '../Form';

@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import useLatest from '../useLatest';
-import useMemoizedFn from '../useMemoizedFn';
+import useLatest from '@/components/useLatest';
+import useMemoizedFn from '@/components/useMemoizedFn';
 import type { FieldErrors, FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import {
   DEFAULT_LABEL_ALIGN,

@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { joinCls } from '@/utils/classnames';
 import { Button } from '../../Button';
-import useLatest from '../../useLatest';
+import useLatest from '@/components/useLatest';
 import ProForm from '../ProForm';
 import { CSS_PREFIX, DEFAULT_TEXT } from '../constants';
 import styles from '../style/ProForm.module.scss';

@@ -8,7 +8,7 @@ import {
 } from 'react-pro-sidebar';
 import { default as classnames, joinCls } from '@/utils/classnames';
 import Icons from '../Icons';
-import useMemoizedFn from '../useMemoizedFn';
+import useMemoizedFn from '@/components/useMemoizedFn';
 import SidebarLogo from './SidebarLogo';
 import { EXPAND_ICON_COLOR } from './constants';
 /* import types */
