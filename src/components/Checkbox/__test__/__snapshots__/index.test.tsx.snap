@@ -1,320 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox Basic Rendering basic renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-              data-p-highlight="false"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-highlight="false"
-                data-pc-section="box"
-              />
-            </div>
-            I am over 18 years old and I have read, understand and agree to the
-            <a
-              href="https://github.com/1Money-Co"
-            >
-              1Money Terms of Use
-            </a>
-            , 
-            <a
-              href="https://github.com/1Money-Co"
-            >
-              Privacy Policy
-            </a>
-            .
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
       <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <div
-              class="p-checkbox-box"
-              data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          I am over 18 years old and I have read, understand and agree to the
-          <a
-            href="https://github.com/1Money-Co"
-          >
-            1Money Terms of Use
-          </a>
-          , 
-          <a
-            href="https://github.com/1Money-Co"
-          >
-            Privacy Policy
-          </a>
-          .
-        </label>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`Checkbox Basic Rendering checked renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-              data-p-highlight="true"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                checked=""
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-highlight="true"
-                data-pc-section="box"
-              >
-                <i
-                  class="pi pi-check"
-                />
-              </div>
-            </div>
-            Checked
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-checkbox-wrapper"
-    >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
-            data-p-highlight="true"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              checked=""
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <div
-              class="p-checkbox-box"
-              data-p-highlight="true"
-              data-pc-section="box"
-            >
-              <i
-                class="pi pi-check"
-              />
-            </div>
-          </div>
-          Checked
-        </label>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`Checkbox Basic Rendering no label renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-            data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <div
-              class="p-checkbox-box"
-              data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="om-react-ui-checkbox-wrapper"
-    >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
+        class="om-react-ui-checkbox-label-wrap"
       >
         <div
           class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
@@ -334,1203 +29,387 @@ exports[`Checkbox Basic Rendering no label renders correctly 1`] = `
             data-pc-section="box"
           />
         </div>
+        I am over 18 years old and I have read, understand and agree to the
+        <a
+          href="https://github.com/1Money-Co"
+        >
+          1Money Terms of Use
+        </a>
+        , 
+        <a
+          href="https://github.com/1Money-Co"
+        >
+          Privacy Policy
+        </a>
+        .
       </div>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Checkbox Basic Rendering checked renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
+    <div
+      class="om-react-ui-checkbox-inner ckb-md"
+    >
+      <label>
+        <div
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
+          data-p-highlight="true"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-invalid="false"
+            checked=""
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
+          <div
+            class="p-checkbox-box"
+            data-p-highlight="true"
+            data-pc-section="box"
+          >
+            <i
+              class="pi pi-check"
+            />
+          </div>
+        </div>
+        Checked
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Checkbox Basic Rendering no label renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
+    <div
+      class="om-react-ui-checkbox-inner ckb-md"
+    >
+      <div
+        class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
+        data-p-highlight="false"
+        data-pc-name="checkbox"
+        data-pc-section="root"
+      >
+        <input
+          aria-invalid="false"
+          class="p-checkbox-input"
+          data-pc-section="input"
+          type="checkbox"
+        />
+        <div
+          class="p-checkbox-box"
+          data-p-highlight="false"
+          data-pc-section="box"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox Disabled State disabled checked renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight p-disabled"
-              data-p-disabled="true"
-              data-p-highlight="true"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                checked=""
-                class="p-checkbox-input"
-                data-pc-section="input"
-                disabled=""
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-disabled="true"
-                data-p-highlight="true"
-                data-pc-section="box"
-              >
-                <i
-                  class="pi pi-check"
-                />
-              </div>
-            </div>
-            Disabled & Checked
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
+      <label>
+        <div
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight p-disabled"
+          data-p-disabled="true"
+          data-p-highlight="true"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-invalid="false"
+            checked=""
+            class="p-checkbox-input"
+            data-pc-section="input"
+            disabled=""
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight p-disabled"
+            class="p-checkbox-box"
             data-p-disabled="true"
             data-p-highlight="true"
-            data-pc-name="checkbox"
-            data-pc-section="root"
+            data-pc-section="box"
           >
-            <input
-              aria-invalid="false"
-              checked=""
-              class="p-checkbox-input"
-              data-pc-section="input"
-              disabled=""
-              type="checkbox"
+            <i
+              class="pi pi-check"
             />
-            <div
-              class="p-checkbox-box"
-              data-p-disabled="true"
-              data-p-highlight="true"
-              data-pc-section="box"
-            >
-              <i
-                class="pi pi-check"
-              />
-            </div>
           </div>
-          Disabled & Checked
-        </label>
-      </div>
+        </div>
+        Disabled & Checked
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox Disabled State disabled renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-disabled"
-              data-p-disabled="true"
-              data-p-highlight="false"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                disabled=""
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-disabled="true"
-                data-p-highlight="false"
-                data-pc-section="box"
-              />
-            </div>
-            Disabled
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
+      <label>
+        <div
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-disabled"
+          data-p-disabled="true"
+          data-p-highlight="false"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-invalid="false"
+            class="p-checkbox-input"
+            data-pc-section="input"
+            disabled=""
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-disabled"
+            class="p-checkbox-box"
             data-p-disabled="true"
             data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              disabled=""
-              type="checkbox"
-            />
-            <div
-              class="p-checkbox-box"
-              data-p-disabled="true"
-              data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          Disabled
-        </label>
-      </div>
+            data-pc-section="box"
+          />
+        </div>
+        Disabled
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox Invalid State invalid renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
-              data-pc-name="tristatecheckbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="true"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <span
-                aria-live="polite"
-                class="p-hidden-accessible"
-                data-pc-section="sronlyaria"
-              >
-                Not Selected
-              </span>
-              <div
-                aria-checked="false"
-                class="p-checkbox-box"
-                data-pc-section="box"
-                id="null_box"
-                role="checkbox"
-                tabindex="0"
-              />
-            </div>
-            Invalid
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
+      <label>
+        <div
+          aria-checked="mixed"
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-invalid"
+          data-p-highlight="false"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-checked="mixed"
+            aria-invalid="true"
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-invalid"
-            data-pc-name="tristatecheckbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="true"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <span
-              aria-live="polite"
-              class="p-hidden-accessible"
-              data-pc-section="sronlyaria"
-            >
-              Not Selected
-            </span>
-            <div
-              aria-checked="false"
-              class="p-checkbox-box"
-              data-pc-section="box"
-              id="null_box"
-              role="checkbox"
-              tabindex="0"
-            />
-          </div>
-          Invalid
-        </label>
-      </div>
+            class="p-checkbox-box"
+            data-p-highlight="false"
+            data-pc-section="box"
+          />
+        </div>
+        Invalid
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox Size Variants size large renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-lg"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-              data-p-highlight="false"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-highlight="false"
-                data-pc-section="box"
-              />
-            </div>
-            Large size
-          </label>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-lg"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-              data-p-highlight="false"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-highlight="false"
-                data-pc-section="box"
-              />
-            </div>
-            Large size
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-lg"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-lg"
-      >
-        <label>
+      <label>
+        <div
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
+          data-p-highlight="false"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-invalid="false"
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
+            class="p-checkbox-box"
             data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <div
-              class="p-checkbox-box"
-              data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          Large size
-        </label>
-      </div>
+            data-pc-section="box"
+          />
+        </div>
+        Large size
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox Size Variants size small renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-sm"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-              data-p-highlight="false"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-highlight="false"
-                data-pc-section="box"
-              />
-            </div>
-            Small size
-          </label>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-sm"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
-              data-p-highlight="false"
-              data-pc-name="checkbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <div
-                class="p-checkbox-box"
-                data-p-highlight="false"
-                data-pc-section="box"
-              />
-            </div>
-            Small size
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-sm"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-sm"
-      >
-        <label>
+      <label>
+        <div
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
+          data-p-highlight="false"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-invalid="false"
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
+            class="p-checkbox-box"
             data-p-highlight="false"
-            data-pc-name="checkbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <div
-              class="p-checkbox-box"
-              data-p-highlight="false"
-              data-pc-section="box"
-            />
-          </div>
-          Small size
-        </label>
-      </div>
+            data-pc-section="box"
+          />
+        </div>
+        Small size
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox TriState Mode tristate renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-              data-pc-name="tristatecheckbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-              />
-              <span
-                aria-live="polite"
-                class="p-hidden-accessible"
-                data-pc-section="sronlyaria"
-              >
-                Not Selected
-              </span>
-              <div
-                aria-checked="false"
-                class="p-checkbox-box"
-                data-pc-section="box"
-                id="null_box"
-                role="checkbox"
-                tabindex="0"
-              />
-            </div>
-            Change State
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
+      <label>
+        <div
+          aria-checked="mixed"
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component"
+          data-p-highlight="false"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-checked="mixed"
+            aria-invalid="false"
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component"
-            data-pc-name="tristatecheckbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-            />
-            <span
-              aria-live="polite"
-              class="p-hidden-accessible"
-              data-pc-section="sronlyaria"
-            >
-              Not Selected
-            </span>
-            <div
-              aria-checked="false"
-              class="p-checkbox-box"
-              data-pc-section="box"
-              id="null_box"
-              role="checkbox"
-              tabindex="0"
-            />
-          </div>
-          Change State
-        </label>
-      </div>
+            class="p-checkbox-box"
+            data-p-highlight="false"
+            data-pc-section="box"
+          />
+        </div>
+        Change State
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox TriState Mode tristate with false value renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-              data-pc-name="tristatecheckbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-                value="false"
-              />
-              <span
-                aria-live="polite"
-                class="p-hidden-accessible"
-                data-pc-section="sronlyaria"
-              >
-                False
-              </span>
-              <div
-                aria-checked="false"
-                class="p-checkbox-box"
-                data-pc-section="box"
-                id="null_box"
-                role="checkbox"
-                tabindex="0"
-              >
-                <i
-                  class="pi pi-minus"
-                />
-              </div>
-            </div>
-            Tristate False
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
+      <label>
+        <div
+          aria-checked="false"
+          class="om-react-ui-checkbox-inner-checkbox om-react-ui-checkbox-inner-checkbox-false p-checkbox p-component"
+          data-p-highlight="false"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-checked="false"
+            aria-invalid="false"
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-            data-pc-name="tristatecheckbox"
-            data-pc-section="root"
-          >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-              value="false"
-            />
-            <span
-              aria-live="polite"
-              class="p-hidden-accessible"
-              data-pc-section="sronlyaria"
-            >
-              False
-            </span>
-            <div
-              aria-checked="false"
-              class="p-checkbox-box"
-              data-pc-section="box"
-              id="null_box"
-              role="checkbox"
-              tabindex="0"
-            >
-              <i
-                class="pi pi-minus"
-              />
-            </div>
-          </div>
-          Tristate False
-        </label>
-      </div>
+            class="p-checkbox-box"
+            data-p-highlight="false"
+            data-pc-section="box"
+          />
+        </div>
+        Tristate False
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Checkbox TriState Mode tristate with true value renders correctly 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="om-react-ui-checkbox-wrapper"
-      >
-        <div
-          class="om-react-ui-checkbox-inner ckb-md"
-        >
-          <label>
-            <div
-              class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-              data-pc-name="tristatecheckbox"
-              data-pc-section="root"
-            >
-              <input
-                aria-invalid="false"
-                class="p-checkbox-input"
-                data-pc-section="input"
-                type="checkbox"
-                value="true"
-              />
-              <span
-                aria-live="polite"
-                class="p-hidden-accessible"
-                data-pc-section="sronlyaria"
-              >
-                True
-              </span>
-              <div
-                aria-checked="true"
-                class="p-checkbox-box"
-                data-pc-section="box"
-                id="null_box"
-                role="checkbox"
-                tabindex="0"
-              >
-                <i
-                  class="pi pi-check"
-                />
-              </div>
-            </div>
-            Tristate True
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="om-react-ui-checkbox-wrapper"
+  >
     <div
-      class="om-react-ui-checkbox-wrapper"
+      class="om-react-ui-checkbox-inner ckb-md"
     >
-      <div
-        class="om-react-ui-checkbox-inner ckb-md"
-      >
-        <label>
+      <label>
+        <div
+          aria-checked="true"
+          class="om-react-ui-checkbox-inner-checkbox p-checkbox p-component p-highlight"
+          data-p-highlight="true"
+          data-pc-name="checkbox"
+          data-pc-section="root"
+        >
+          <input
+            aria-checked="true"
+            aria-invalid="false"
+            checked=""
+            class="p-checkbox-input"
+            data-pc-section="input"
+            type="checkbox"
+          />
           <div
-            class="om-react-ui-checkbox-inner-checkbox p-tristatecheckbox p-checkbox p-component p-highlight"
-            data-pc-name="tristatecheckbox"
-            data-pc-section="root"
+            class="p-checkbox-box"
+            data-p-highlight="true"
+            data-pc-section="box"
           >
-            <input
-              aria-invalid="false"
-              class="p-checkbox-input"
-              data-pc-section="input"
-              type="checkbox"
-              value="true"
+            <i
+              class="pi pi-check"
             />
-            <span
-              aria-live="polite"
-              class="p-hidden-accessible"
-              data-pc-section="sronlyaria"
-            >
-              True
-            </span>
-            <div
-              aria-checked="true"
-              class="p-checkbox-box"
-              data-pc-section="box"
-              id="null_box"
-              role="checkbox"
-              tabindex="0"
-            >
-              <i
-                class="pi pi-check"
-              />
-            </div>
           </div>
-          Tristate True
-        </label>
-      </div>
+        </div>
+        Tristate True
+      </label>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;

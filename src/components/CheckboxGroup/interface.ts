@@ -12,38 +12,47 @@ interface CheckboxGroupBaseProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-interface CheckboxGroupNormalItem {
+export type CheckboxGroupTriStateValue = boolean | null;
+
+export interface CheckboxGroupTriStateState {
+  [key: string]: CheckboxGroupTriStateValue;
+}
+
+export interface CheckboxGroupNormalItem extends Omit<
+  PrimeCheckboxProps,
+  'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange'
+> {
   key: string;
   label?: ReactNode;
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (checked: boolean) => any;
+  onChange?: (checked: boolean) => void;
 }
 
-interface CheckboxGroupTriStateItem {
+export interface CheckboxGroupTriStateItem extends Omit<
+  TriStateCheckboxProps,
+  'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange' | 'defaultValue'
+> {
   key: string;
   label?: ReactNode;
-  defaultValue?: boolean | null;
-  onChange?: (state: boolean | null) => any;
+  defaultValue?: CheckboxGroupTriStateValue;
+  onChange?: (state: CheckboxGroupTriStateValue) => void;
 }
 
-type NormalItem = CheckboxGroupNormalItem & Omit<PrimeCheckboxProps, 'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange'>;
-type TriStateItem = CheckboxGroupTriStateItem & Omit<TriStateCheckboxProps, 'key' | 'className' | 'checked' | 'value' | 'inputId' | 'onChange' | 'defaultValue'>;
+export type CheckboxGroupItem = CheckboxGroupNormalItem | CheckboxGroupTriStateItem;
 
-export type CheckboxGroupItem = NormalItem | TriStateItem;
-
-interface CheckboxGroupNormalProps extends CheckboxGroupBaseProps {
+export interface CheckboxGroupNormalProps extends CheckboxGroupBaseProps {
   tristate?: false;
   value?: string[];
   onChange?: (checkedList: string[]) => void;
-  items: NormalItem[];
+  items: CheckboxGroupNormalItem[];
 }
 
-interface CheckboxGroupTriStateProps extends CheckboxGroupBaseProps {
+export interface CheckboxGroupTriStateProps extends CheckboxGroupBaseProps {
   tristate: true;
-  value?: Record<string, boolean | null>;
-  onChange?: (itemsState: Record<string, boolean | null>) => void;
-  items: TriStateItem[];
+  value?: CheckboxGroupTriStateState;
+  onChange?: (itemsState: CheckboxGroupTriStateState) => void;
+  items: CheckboxGroupTriStateItem[];
 }
 
 export type CheckboxGroupProps = CheckboxGroupNormalProps | CheckboxGroupTriStateProps;

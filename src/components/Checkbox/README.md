@@ -4,216 +4,112 @@ A customizable checkbox component built on top of PrimeReact's Checkbox with enh
 
 ## Features
 
-- Single checkbox and checkbox group support
-- Indeterminate state for partial selections
-- Custom styling with SCSS modules
-- Disabled state support
-- Form integration with validation
-- Accessible keyboard navigation
-- Full PrimeReact Checkbox compatibility
+- Normal (boolean) and tristate (true/false/null) modes
+- Three sizes: `sm`, `md`, `lg`
+- Controlled and uncontrolled usage
+- Custom styling via className props
+- Disabled and invalid states
+- Label support with built-in layout
 
 ## Basic Usage
 
 ```tsx
 import { Checkbox } from '@1money/react-ui';
 
-// Basic checkbox
-<Checkbox />
+// Uncontrolled checkbox
+<Checkbox defaultChecked={false} label="Accept terms" />
 
 // Controlled checkbox
 const [checked, setChecked] = useState(false);
-<Checkbox 
-  checked={checked} 
-  onChange={(e) => setChecked(e.checked)} 
-/>
+<Checkbox checked={checked} onChange={setChecked} label="Accept terms" />
 
-// With label
-<Checkbox 
-  inputId="terms" 
-  checked={accepted}
-  onChange={(e) => setAccepted(e.checked)}
-/>
-<label htmlFor="terms">I accept the terms and conditions</label>
+// Tristate checkbox
+const [value, setValue] = useState<boolean | null>(null);
+<Checkbox tristate value={value} onChange={setValue} label="Select all" />
 
 // Disabled state
-<Checkbox disabled checked />
+<Checkbox disabled checked label="Disabled" />
 
-// Indeterminate state
-<Checkbox 
-  checked={false}
-  indeterminate={true}
-  onChange={handleParentChange}
-/>
+// With size
+<Checkbox size="lg" label="Large checkbox" />
 ```
 
 ## Props
 
+### Base Props (shared)
+
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefixCls | The classname prefix for component styling | string | "checkbox" |
-| checked | Whether the checkbox is checked | boolean | false |
-| indeterminate | Whether the checkbox is in indeterminate state | boolean | false |
-| disabled | Whether the checkbox is disabled | boolean | false |
-| value | Value of the checkbox | any | - |
-| name | Name attribute for the input | string | - |
-| inputId | Identifier for the input element | string | - |
-| required | Whether the checkbox is required | boolean | false |
-| readOnly | Whether the checkbox is read-only | boolean | false |
-| tabIndex | Tab index for keyboard navigation | number | - |
-| className | Additional CSS classes | string | - |
-| style | Inline styles | CSSProperties | - |
-| onChange | Callback when checkbox state changes | (e: CheckboxChangeEvent) => void | - |
-| onFocus | Callback when checkbox receives focus | (e: FocusEvent) => void | - |
-| onBlur | Callback when checkbox loses focus | (e: FocusEvent) => void | - |
+| prefixCls | Classname prefix for component styling | `string` | `"checkbox"` |
+| size | Checkbox size variant | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| label | Label content rendered next to checkbox | `ReactNode` | - |
+| disabled | Whether the checkbox is disabled | `boolean` | - |
+| required | Whether the checkbox is required | `boolean` | - |
+| invalid | Whether the checkbox is in invalid state | `boolean` | - |
+| id | HTML id attribute | `string` | - |
+| name | HTML name attribute | `string` | - |
+| wrapperCls | Additional class for wrapper div | `string` | - |
+| innerCls | Additional class for inner div | `string` | - |
+| checkboxCls | Additional class for checkbox element | `string` | - |
+| labelCls | Additional class for label element | `string` | - |
 
-## Events
+### Normal Mode Props (`tristate` omitted or `false`)
 
-### CheckboxChangeEvent
-```tsx
-{
-  originalEvent: Event;
-  value: any;
-  checked: boolean;
-  stopPropagation(): void;
-  preventDefault(): void;
-  target: {
-    name: string;
-    id: string;
-    value: any;
-    checked: boolean;
-  };
-}
-```
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| tristate | Must be `false` or omitted | `false` | - |
+| checked | Controlled checked state | `boolean` | - |
+| defaultChecked | Initial checked state (uncontrolled) | `boolean` | `false` |
+| onChange | Callback when checked state changes | `(checked: boolean) => void` | - |
 
-## Styling
+### Tristate Mode Props (`tristate={true}`)
 
-The Checkbox component uses SCSS modules with BEM-like naming conventions. Customize through:
-
-1. `className` prop for additional styles
-2. `prefixCls` override for complete style control
-3. CSS custom properties for theme customization
-
-## Accessibility
-
-- Proper ARIA attributes for screen readers
-- Keyboard navigation (Space to toggle)
-- Focus management
-- Support for form labels
-- High contrast mode compatibility
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| tristate | Must be `true` | `true` | - |
+| value | Controlled tristate value | `boolean \| null` | - |
+| defaultValue | Initial tristate value (uncontrolled) | `boolean \| null` | `null` |
+| onChange | Callback when value changes | `(state: boolean \| null) => void` | - |
 
 ## Examples
 
-### Basic Form
-```tsx
-const FormExample = () => {
-  const [formData, setFormData] = useState({
-    newsletter: false,
-    terms: false,
-    marketing: false
-  });
+### Controlled Checkbox
 
-  const handleChange = (field) => (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: e.checked
-    }));
-  };
+```tsx
+const ControlledExample = () => {
+  const [checked, setChecked] = useState(false);
 
   return (
-    <form>
-      <div className="field">
-        <Checkbox 
-          inputId="newsletter"
-          checked={formData.newsletter}
-          onChange={handleChange('newsletter')}
-        />
-        <label htmlFor="newsletter">Subscribe to newsletter</label>
-      </div>
-      
-      <div className="field">
-        <Checkbox 
-          inputId="terms"
-          checked={formData.terms}
-          onChange={handleChange('terms')}
-          required
-        />
-        <label htmlFor="terms">I agree to the terms *</label>
-      </div>
-      
-      <div className="field">
-        <Checkbox 
-          inputId="marketing"
-          checked={formData.marketing}
-          onChange={handleChange('marketing')}
-        />
-        <label htmlFor="marketing">Receive marketing emails</label>
-      </div>
-    </form>
+    <Checkbox
+      checked={checked}
+      onChange={setChecked}
+      label="Subscribe to newsletter"
+    />
   );
 };
 ```
 
-### Checkbox Group with Select All
+### Tristate Checkbox
+
 ```tsx
-const CheckboxGroup = () => {
-  const [selectedItems, setSelectedItems] = useState([]);
-  const items = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
-  
-  const allSelected = selectedItems.length === items.length;
-  const partialSelected = selectedItems.length > 0 && selectedItems.length < items.length;
-
-  const handleSelectAll = (e) => {
-    setSelectedItems(e.checked ? [...items] : []);
-  };
-
-  const handleItemChange = (item) => (e) => {
-    if (e.checked) {
-      setSelectedItems(prev => [...prev, item]);
-    } else {
-      setSelectedItems(prev => prev.filter(i => i !== item));
-    }
-  };
+const TristateExample = () => {
+  const [value, setValue] = useState<boolean | null>(null);
 
   return (
-    <div>
-      <div className="select-all">
-        <Checkbox
-          checked={allSelected}
-          indeterminate={partialSelected}
-          onChange={handleSelectAll}
-          inputId="selectAll"
-        />
-        <label htmlFor="selectAll">Select All</label>
-      </div>
-      
-      <div className="options">
-        {items.map(item => (
-          <div key={item} className="option">
-            <Checkbox
-              inputId={item}
-              checked={selectedItems.includes(item)}
-              onChange={handleItemChange(item)}
-            />
-            <label htmlFor={item}>{item}</label>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Checkbox
+      tristate
+      value={value}
+      onChange={setValue}
+      label="Select all items"
+    />
   );
 };
 ```
 
-### Custom Styled Checkbox
+### Size Variants
+
 ```tsx
-<Checkbox
-  inputId="custom"
-  checked={customValue}
-  onChange={(e) => setCustomValue(e.checked)}
-  className="custom-checkbox"
-  style={{ 
-    '--checkbox-size': '24px',
-    '--checkbox-border-color': '#e0e0e0',
-    '--checkbox-checked-bg': '#007bff'
-  }}
-/>
+<Checkbox size="sm" label="Small" />
+<Checkbox size="md" label="Medium" />
+<Checkbox size="lg" label="Large" />
 ```

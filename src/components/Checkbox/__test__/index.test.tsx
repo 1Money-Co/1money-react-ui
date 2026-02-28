@@ -5,20 +5,35 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Checkbox } from '../index';
 
+const IGNORED_CONSOLE_ERRORS = [
+  'Could not parse CSS stylesheet',
+  'findDOMNode is deprecated and will be removed',
+  'React does not recognize',
+];
+const CONTROLLED_INPUT_WARNINGS = [
+  '`value` prop on `input` should not be null',
+  'A component is changing an uncontrolled input to be controlled.',
+];
 const originalConsoleError = console.error;
-console.error = (message, ...optionalParams) => {
-      const errorMessage = typeof message === 'string' ? message : String(message);
-  if (
-    errorMessage.includes('Could not parse CSS stylesheet') ||
-    errorMessage.includes('findDOMNode is deprecated and will be removed') ||
-    errorMessage.includes('React does not recognize')
-  ) {
-      return;
-  }
-  originalConsoleError(message, ...optionalParams);
-};
+let consoleErrorSpy: jest.SpyInstance;
 
 describe('Checkbox', () => {
+  beforeEach(() => {
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation((message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
+
+      if (IGNORED_CONSOLE_ERRORS.some(pattern => errorMessage.includes(pattern))) {
+        return;
+      }
+
+      originalConsoleError(message, ...optionalParams);
+    });
+  });
+
+  afterEach(() => {
+    consoleErrorSpy.mockRestore();
+  });
+
   describe('Basic Rendering', () => {
     it('basic renders correctly', async () => {
       const onCheckboxChange = jest.fn();
@@ -37,7 +52,7 @@ describe('Checkbox', () => {
       const checkbox = screen.getByRole('checkbox');
       await user.click(checkbox);
       expect(onCheckboxChange).toHaveBeenCalled();
-      expect(basic).toMatchSnapshot();
+      expect(basic.asFragment()).toMatchSnapshot();
     });
 
     it('checked renders correctly', async () => {
@@ -49,14 +64,14 @@ describe('Checkbox', () => {
       );
       const checkbox = screen.getByRole('checkbox');
       expect(checkbox).toBeChecked();
-      expect(checked).toMatchSnapshot();
+      expect(checked.asFragment()).toMatchSnapshot();
     });
 
     it('no label renders correctly', async () => {
       const noLabel = render(
         <Checkbox checked={false} />
       );
-      expect(noLabel).toMatchSnapshot();
+      expect(noLabel.asFragment()).toMatchSnapshot();
     });
 
     it('renders with custom wrapper class', () => {
@@ -94,6 +109,22 @@ describe('Checkbox', () => {
       // Custom prefix class is applied with the classnames utility
       expect(container.querySelector('[class*="custom-prefix"]')).toBeInTheDocument();
     });
+
+    it('does not toggle checkbox when clicking interactive label content', async () => {
+      const handleChange = jest.fn();
+      render(
+        <Checkbox
+          checked={false}
+          onChange={handleChange}
+          label={<a href='https://github.com/1Money-Co' onClick={(e) => e.preventDefault()}>Terms</a>}
+        />
+      );
+
+      const user = userEvent.setup();
+      const termsLink = screen.getByRole('link', { name: 'Terms' });
+      await user.click(termsLink);
+      expect(handleChange).not.toHaveBeenCalled();
+    });
   });
 
   describe('Size Variants', () => {
@@ -106,9 +137,10 @@ describe('Checkbox', () => {
         />
       );
       expect(container.querySelector('.ckb-sm')).toBeInTheDocument();
-      expect(render(
+      const small = render(
         <Checkbox size='sm' label='Small size' checked={false} />
-      )).toMatchSnapshot();
+      );
+      expect(small.asFragment()).toMatchSnapshot();
     });
 
     it('size medium (default) renders correctly', async () => {
@@ -130,9 +162,10 @@ describe('Checkbox', () => {
         />
       );
       expect(container.querySelector('.ckb-lg')).toBeInTheDocument();
-      expect(render(
+      const large = render(
         <Checkbox size='lg' label='Large size' checked={false} />
-      )).toMatchSnapshot();
+      );
+      expect(large.asFragment()).toMatchSnapshot();
     });
   });
 
@@ -145,7 +178,7 @@ describe('Checkbox', () => {
           checked={false}
         />
       );
-      expect(disabled).toMatchSnapshot();
+      expect(disabled.asFragment()).toMatchSnapshot();
     });
 
     it('disabled checked renders correctly', async () => {
@@ -158,7 +191,7 @@ describe('Checkbox', () => {
       );
       const checkbox = screen.getByRole('checkbox');
       expect(checkbox).toBeChecked();
-      expect(disabledChecked).toMatchSnapshot();
+      expect(disabledChecked.asFragment()).toMatchSnapshot();
     });
 
     it('does not call onChange when disabled', async () => {
@@ -190,7 +223,7 @@ describe('Checkbox', () => {
           value={null}
         />
       );
-      expect(invalid).toMatchSnapshot();
+      expect(invalid.asFragment()).toMatchSnapshot();
     });
 
     it('invalid normal checkbox renders correctly', () => {
@@ -228,7 +261,25 @@ describe('Checkbox', () => {
           value={null}
         />
       );
-      expect(tristate).toMatchSnapshot();
+      expect(tristate.asFragment()).toMatchSnapshot();
+    });
+
+    it('does not emit controlled input warnings in tristate mode', () => {
+      render(
+        <Checkbox
+          tristate={true}
+          label='Tristate'
+          value={null}
+        />
+      );
+
+      const errorMessages = consoleErrorSpy.mock.calls.map(([message]) => {
+        return typeof message === 'string' ? message : String(message);
+      });
+
+      CONTROLLED_INPUT_WARNINGS.forEach(pattern => {
+        expect(errorMessages.some(message => message.includes(pattern))).toBe(false);
+      });
     });
 
     it('tristate with true value renders correctly', async () => {
@@ -239,7 +290,7 @@ describe('Checkbox', () => {
           value={true}
         />
       );
-      expect(tristateTrue).toMatchSnapshot();
+      expect(tristateTrue.asFragment()).toMatchSnapshot();
     });
 
     it('tristate with false value renders correctly', async () => {
@@ -250,7 +301,29 @@ describe('Checkbox', () => {
           value={false}
         />
       );
-      expect(tristateFalse).toMatchSnapshot();
+      expect(tristateFalse.asFragment()).toMatchSnapshot();
+    });
+
+    it('tristate cycles value in order for uncontrolled usage', async () => {
+      const handleChange = jest.fn();
+      render(
+        <Checkbox
+          tristate={true}
+          label='Tristate cycle'
+          defaultValue={null}
+          onChange={handleChange}
+        />
+      );
+
+      const user = userEvent.setup();
+      const checkbox = screen.getByRole('checkbox');
+      await user.click(checkbox);
+      await user.click(checkbox);
+      await user.click(checkbox);
+
+      expect(handleChange).toHaveBeenNthCalledWith(1, true);
+      expect(handleChange).toHaveBeenNthCalledWith(2, false);
+      expect(handleChange).toHaveBeenNthCalledWith(3, null);
     });
 
     it('tristate onChange returns correct value type', async () => {
@@ -265,16 +338,15 @@ describe('Checkbox', () => {
       );
 
       const user = userEvent.setup();
-      // TriStateCheckbox renders two elements with role="checkbox", use getAllByRole
-      const checkboxes = screen.getAllByRole('checkbox');
-      await user.click(checkboxes[0]);
+      const checkbox = screen.getByRole('checkbox');
+      await user.click(checkbox);
 
       expect(handleChange).toHaveBeenCalled();
     });
 
     it('tristate disabled does not trigger onChange', async () => {
       const handleChange = jest.fn();
-      const { container } = render(
+      render(
         <Checkbox
           tristate={true}
           label='Tristate Disabled'
@@ -285,9 +357,8 @@ describe('Checkbox', () => {
       );
 
       const user = userEvent.setup();
-      // TriStateCheckbox renders two elements with role="checkbox"
-      const checkboxes = screen.getAllByRole('checkbox');
-      await user.click(checkboxes[0]);
+      const checkbox = screen.getByRole('checkbox');
+      await user.click(checkbox);
 
       expect(handleChange).not.toHaveBeenCalled();
     });

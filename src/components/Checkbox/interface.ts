@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
 import type { CheckboxProps as PrimeCheckboxProps } from 'primereact/checkbox';
-import type { TriStateCheckboxProps } from 'primereact/tristatecheckbox';
 
-interface CheckboxBaseProps {
-  id?: string;
+export interface CheckboxBaseProps extends Omit<
+  PrimeCheckboxProps,
+  'checked' | 'onChange' | 'className' | 'icon' | 'size' | 'value' | 'defaultValue'
+> {
   wrapperCls?: string;
   innerCls?: string;
   checkboxCls?: string;
@@ -11,22 +12,20 @@ interface CheckboxBaseProps {
   labelCls?: string;
   size?: 'sm' | 'md' | 'lg';
   label?: ReactNode;
-  disabled?: boolean;
-  required?: boolean;
-  name?: string;
-  invalid?: boolean;
 }
 
-interface CheckboxNormalProps extends CheckboxBaseProps {
+export interface CheckboxNormalProps extends CheckboxBaseProps {
   tristate?: false;
   checked?: boolean;
-  onChange?: (checked: boolean) => any;
+  defaultChecked?: boolean;
+  onChange?: (checked: boolean) => void;
 }
 
-interface CheckboxTriStateProps extends CheckboxBaseProps {
+export interface CheckboxTriStateProps extends CheckboxBaseProps {
   tristate: true;
   value?: boolean | null;
-  onChange?: (state: boolean | null) => any;
+  defaultValue?: boolean | null;
+  onChange?: (state: boolean | null) => void;
 }
 
 export type CheckboxProps = CheckboxNormalProps | CheckboxTriStateProps;

@@ -1,14 +1,62 @@
 @use "sass:map";
-@use '../../../variable.scss'as *;
+@use '../../../variable.scss' as *;
 
-$checkbox-border-color: $color-grey-dark;
-$checkbox-border-radius: (sm: 4px,
-  md: 4px,
-  lg: 6px);
-$checkbox-size: (sm: 16px,
-  md: 20px,
-  lg: 24px);
 $component: 'checkboxgroup';
+$size-class-prefix: 'ckbg';
+$checkbox-border-color: $color-grey-dark;
+$checkbox-border-radius: (
+  sm: 4px,
+  md: 4px,
+  lg: 6px,
+);
+$checkbox-size: (
+  sm: 16px,
+  md: 20px,
+  lg: 24px,
+);
+$checkbox-icon-size: (
+  sm: 10px,
+  md: 14px,
+  lg: 14px,
+);
+$checkbox-label-size: (
+  sm: 12px,
+  md: 14px,
+  lg: 14px,
+);
+
+@mixin set-checkbox-box-colors($background-color, $border-color) {
+  .p-checkbox-box {
+    background-color: $background-color;
+    border-color: $border-color;
+  }
+}
+
+@mixin apply-checkbox-size($size-key, $dimension) {
+  &.#{$size-class-prefix}-#{$size-key} {
+    .p-checkbox {
+      width: $dimension;
+      height: $dimension;
+
+      .p-checkbox-box {
+        width: $dimension;
+        height: $dimension;
+        border: 1px solid $checkbox-border-color;
+        border-radius: map.get($checkbox-border-radius, $size-key);
+
+        i {
+          color: $color-white;
+          font-size: map.get($checkbox-icon-size, $size-key);
+        }
+      }
+    }
+
+    label {
+      font-size: map.get($checkbox-label-size, $size-key);
+      line-height: $dimension;
+    }
+  }
+}
 
 .#{$prefix}-#{$component} {
   &-wrapper {
@@ -33,43 +81,15 @@ $component: 'checkboxgroup';
       user-select: none;
     }
 
-    @each $size,
-    $dimension in $checkbox-size {
-      &.ckbg-#{$size} {
-        .p-checkbox {
-          width: $dimension;
-          height: $dimension;
-
-          .p-checkbox-box {
-            width: $dimension;
-            height: $dimension;
-            border: 1px solid $checkbox-border-color;
-            border-radius: map.get($checkbox-border-radius, $size);
-
-            i {
-              color: #fff;
-              font-size: if($size=='sm', 10px, 14px);
-            }
-          }
-        }
-
-        label {
-          font-size: if($size=='sm', 12px, 14px);
-          line-height: $dimension;
-        }
-      }
+    @each $size-key, $dimension in $checkbox-size {
+      @include apply-checkbox-size($size-key, $dimension);
     }
 
     .p-checkbox {
-      // 悬停状态
       &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
-        .p-checkbox-box {
-          background-color: $color-grey;
-          border-color: $color-primary-black;
-        }
+        @include set-checkbox-box-colors($color-grey, $color-primary-black);
       }
 
-      // 聚焦状态
       &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:focus) {
         .p-checkbox-box {
           border: 2px solid $color-primary;
@@ -77,37 +97,22 @@ $component: 'checkboxgroup';
         }
       }
 
-      // 选中状态
-      // 无效状态
       &.p-invalid {
         .p-checkbox-box {
-          border: 1px solid $color-negative ;
+          border: 1px solid $color-negative;
         }
       }
 
-      // 高亮状态
       &.p-highlight {
-        .p-checkbox-box {
-          background-color: $color-primary;
-          border-color: $color-primary;
-        }
+        @include set-checkbox-box-colors($color-primary, $color-primary);
 
-        // hover
         &:not(.p-disabled, .p-invalid):has(.p-checkbox-input:hover) {
-          .p-checkbox-box {
-            background-color: $color-primary-black;
-            border-color: $color-primary-black;
-          }
+          @include set-checkbox-box-colors($color-primary-black, $color-primary-black);
         }
 
-        // 高亮无效状态
         &.p-invalid {
-          .p-checkbox-box {
-            background-color: $color-negative;
-            border-color: $color-negative;
-          }
+          @include set-checkbox-box-colors($color-negative, $color-negative);
         }
-
       }
 
       &.p-disabled {
@@ -115,7 +120,7 @@ $component: 'checkboxgroup';
           background-color: $color-grey;
           border-color: $color-grey-bold;
 
-          &>i {
+          > i {
             color: $color-grey-dark;
           }
         }
@@ -123,12 +128,14 @@ $component: 'checkboxgroup';
         &:has(.p-checkbox-input:checked),
         &:has(.p-checkbox-input[value="false"]),
         &:has(.p-checkbox-input:indeterminate) {
-          .p-checkbox-box {
-            background-color: $color-grey-deep;
-            border-color: $color-grey-deep;
-          }
+          @include set-checkbox-box-colors($color-grey-deep, $color-grey-deep);
         }
       }
+    }
+
+    label:has(.p-checkbox.p-disabled) {
+      color: $color-grey-dark;
+      cursor: not-allowed;
     }
   }
 }
