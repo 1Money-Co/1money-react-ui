@@ -1,0 +1,1 @@
+import{r as o}from"./index-CP2yOfOm.js";function c(r,t){const e=o.useRef(!1);o.useLayoutEffect(()=>{const n=!e.current;return e.current=!0,r(n)},t)}function i(r,t){const[e,n]=o.useState(r),u=t!==void 0?t:e;return c(s=>{!s&&t!==void 0&&n(t)},[t]),[u,n]}export{i as u};
