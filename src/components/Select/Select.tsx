@@ -1,15 +1,36 @@
 import { memo, useRef, useMemo, useState, useEffect, useCallback, useImperativeHandle } from 'react';
-import isEqual from 'lodash.isequal';
 import debounce from 'lodash.debounce';
-import { Dropdown, type DropdownProps } from 'primereact/dropdown';
-import { MultiSelect, type MultiSelectProps } from 'primereact/multiselect';
+import { Dropdown, type DropdownProps, type DropdownChangeEvent } from 'primereact/dropdown';
+import { MultiSelect, type MultiSelectProps, type MultiSelectChangeEvent } from 'primereact/multiselect';
 import { Skeleton } from 'primereact/skeleton';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import { Icons } from '../Icons';
-import { Spinner } from '../Spinner';
+import useControlledState from '@/components/useControlledState';
+import useEventCallback from '@/components/useEventCallback';
+import { Icons } from '@/components/Icons';
+import { Spinner } from '@/components/Spinner';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { SelectProps, CustomDropdownProps } from './interface';
+import type { SelectProps, CustomDropdownProps } from '@/components/Select/interface';
+import {
+  DEFAULT_PREFIX_CLS,
+  DEFAULT_SIZE,
+  DEFAULT_PLACEHOLDER,
+  DEFAULT_CLASSNAME,
+  FILTER_PLACEHOLDER,
+  DEBOUNCE_SCROLL_DELAY,
+  SPINNER_STROKE_WIDTH,
+  SKELETON_LABEL_WIDTH,
+  SKELETON_LABEL_HEIGHT,
+  UNSELECTABLE_ON,
+  DATA_ATTR_SELECTOR,
+  COLOR_PRIMARY_BLACK,
+  COLOR_PRIMARY_BLUE,
+  COLOR_NEGATIVE,
+  COLOR_WHITE,
+  ICON_SIZE_XS,
+  ICON_SIZE_SM,
+  ICON_SIZE_MD,
+} from '@/components/Select/constants';
 
 const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' | 'required' | 'prefixCls' | 'wrapperCls' | 'labelCls' | 'messageCls' | 'success' | 'invalid' | 'disabled' | 'loading'>>> = memo(props => {
   const {
@@ -32,7 +53,7 @@ const SelectWrapper: FC<PropsWithChildren<Pick<SelectProps, 'message' | 'label' 
     {
       label ?
         loading
-          ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
+          ? <Skeleton width={SKELETON_LABEL_WIDTH} height={SKELETON_LABEL_HEIGHT} className={classes('label-loading')} />
           : <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>
         : null
     }
@@ -58,17 +79,17 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     label,
     message,
     required,
-    prefixCls = 'select',
+    prefixCls = DEFAULT_PREFIX_CLS,
     wrapperCls,
     labelCls,
     messageCls,
-    size = 'large',
+    size = DEFAULT_SIZE,
     success,
     invalid,
     disabled,
     editable,
-    placeholder = '',
-    className = '',
+    placeholder = DEFAULT_PLACEHOLDER,
+    className = DEFAULT_CLASSNAME,
     selectedTemplate,
     tailTemplate,
     onClick,
@@ -100,32 +121,27 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
     focus: () => setIsFocus(true),
     blur: () => setIsFocus(false),
     getDOMNode: () => selectRef.current
-  }), [ref]);
+  }), []);
 
   useEffect(() => {
     dataIdRef.current = dataId;
   }, [dataId]);
 
+  const handleFocus = useEventCallback(() => onFocus?.());
+  const handleBlur = useEventCallback(() => onBlur?.());
+
   useEffect(() => {
     if (isFocus !== lastFocusRef.current) {
       lastFocusRef.current = isFocus;
       if (isFocus) {
-        onFocus?.();
+        handleFocus();
       } else {
-        onBlur?.();
+        handleBlur();
       }
     }
-  }, [isFocus, onFocus, onBlur]);
+  }, [isFocus]);
 
   useEffect(() => {
-    const findCustomDropdownDataId = (target: EventTarget | null) => {
-      if (!dataIdRef.current) return false;
-      if ((target as HTMLElement)?.dataset?.selectCustomDropdownId === dataIdRef.current) return true;
-      if (target === document.body || target === document) return false;
-      const parent = (target as Node).parentNode || (target as Element).parentElement;
-      if (!parent) return false;
-      return findCustomDropdownDataId(parent);
-    };
     const removeFocus = (e: MouseEvent) => {
       if (isClickInside.current) {
         isClickInside.current = false;
@@ -133,7 +149,9 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
       }
       setIsFocus(prev => {
         if (!prev) return false;
-        return findCustomDropdownDataId(e.target);
+        if (!dataIdRef.current) return false;
+        const target = e.target as Element | null;
+        return !!target?.closest?.(`[${DATA_ATTR_SELECTOR}="${dataIdRef.current}"]`);
       });
     };
     document.addEventListener('click', removeFocus);
@@ -190,11 +208,14 @@ const CustomDropdown: FC<PropsWithChildren<CustomDropdownProps>> = props => {
           ? null
           : typeof tailTemplate === 'function'
             ? tailTemplate(isFocus)
-            : <Icons name='chevronDown' color='#131313' size={20} wrapperCls={classes('custom-tail', isFocus ? classes('custom-tail-focus') : '')} />
+            : <Icons name='chevronDown' color={COLOR_PRIMARY_BLACK} size={ICON_SIZE_MD} wrapperCls={classes('custom-tail', isFocus ? classes('custom-tail-focus') : '')} />
       }
     </div>
   </SelectWrapper>;
 };
+
+type SelectChangeEvent = DropdownChangeEvent | MultiSelectChangeEvent;
+type SelectChangeHandler = (event: SelectChangeEvent) => void;
 
 export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: typeof CustomDropdown } = props => {
   const {
@@ -204,18 +225,18 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     label,
     message,
     required,
-    prefixCls = 'select',
+    prefixCls = DEFAULT_PREFIX_CLS,
     wrapperCls,
     labelCls,
     messageCls,
     value,
-    size = 'large',
+    size = DEFAULT_SIZE,
     success,
     refreshAfterShow = true,
     invalid,
     disabled,
     placeholder,
-    className = '',
+    className = DEFAULT_CLASSNAME,
     multiple,
     options,
     panelClassName,
@@ -229,13 +250,12 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     ...rest
   } = props;
   const classes = classnames(prefixCls);
-  const [selected, setSelected] = useState<string | number | readonly string[] | null>(value ?? defaultValue ?? null);
+  const [selected, setSelected] = useControlledState<string | number | readonly string[] | null>(defaultValue ?? null, value);
   const [isOpen, setIsOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
   const selectRef = useRef<Dropdown | MultiSelect | null>(null);
-  const _ref = useRef<Dropdown | MultiSelect | null>(null);
 
   const selectCls = useMemo(() => classes(void 0, joinCls(
     classes(size),
@@ -248,7 +268,14 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     className
   )), [size, isOpen, success, selected, invalid, disabled, loading, className]);
 
-  const debouncedHandleScroll = debounce(() => setIsScrolling(false), 500);
+  const debouncedHandleScroll = useMemo(
+    () => debounce(() => setIsScrolling(false), DEBOUNCE_SCROLL_DELAY),
+    []
+  );
+
+  useEffect(() => {
+    return () => debouncedHandleScroll.cancel();
+  }, [debouncedHandleScroll]);
 
   const refreshDOM = useCallback(() => {
     const ele = selectRef.current?.getOverlay?.();
@@ -262,18 +289,24 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     }
   }, []);
 
+  const filterIconProps = useMemo(() => {
+    const { filterIcon, filter, ...others } = rest as any;
+    const extraProps = filter ? { filterIcon: filterIcon ?? <Icons name='search' size={ICON_SIZE_MD} color={COLOR_PRIMARY_BLACK} wrapperCls={classes('filter-icon')} /> } : null;
+    return { ...others, filter, ...(extraProps || {}) };
+  }, [rest.filter, rest.filterIcon]);
+
   const SelectComponent = useCallback(
     (props: MultiSelectProps & DropdownProps) => multiple
       ? <MultiSelect
         unselectable={unselectable}
         showSelectAll={false}
-        checkboxIcon={<Icons name='check' size={12} color='#FEFEFE' />}
+        checkboxIcon={<Icons name='check' size={ICON_SIZE_XS} color={COLOR_WHITE} />}
         removeIcon={props => {
           const { onClick, onKeyDown, tabIndex } = props.iconProps;
           return <Icons
             name='close'
-            size={16}
-            color='#131313'
+            size={ICON_SIZE_SM}
+            color={COLOR_PRIMARY_BLACK}
             tabIndex={tabIndex}
             wrapperCls={classes('token-remove-icon')}
             onClick={onClick}
@@ -300,7 +333,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
                   );
                 }}
               >
-                <Icons name='close' size={16} color='#AE0000' wrapperCls={classes('panel-header-info-clear-icon')} />
+                <Icons name='close' size={ICON_SIZE_SM} color={COLOR_NEGATIVE} wrapperCls={classes('panel-header-info-clear-icon')} />
                 Clear all
               </span>
             </div>
@@ -310,20 +343,14 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         {...(props as MultiSelectProps)}
       />
       : <Dropdown
-        collapseIcon={multiple ? void 0 : () => <Icons name='chevronUp' color='#131313' size={20} />}
+        collapseIcon={multiple ? void 0 : () => <Icons name='chevronUp' color={COLOR_PRIMARY_BLACK} size={ICON_SIZE_MD} />}
         {...(props as DropdownProps)}
       />
     , [multiple]
   );
 
-  useEffect(() => {
-    if (value !== undefined && !isEqual(selected, value)) {
-      setSelected(value);
-    }
-  }, [value]);
-
   // @ts-expect-error
-  useImperativeHandle(ref ?? _ref, () => (multiple ? {
+  useImperativeHandle(ref, () => (multiple ? {
     props: selectRef.current?.props!,
     focus: () => selectRef.current?.focus?.(),
     hide: () => selectRef.current?.hide?.(),
@@ -344,6 +371,31 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
     getVirtualScroller: () => (selectRef.current as Dropdown)?.getVirtualScroller?.(),
   }), [multiple]);
 
+  const handleChange = useEventCallback<[SelectChangeEvent], void>((e) => {
+    const emitChange = onChange as SelectChangeHandler | undefined;
+
+    setSelected(e.value);
+    emitChange?.(e);
+  });
+
+  const handleHide = useEventCallback(() => {
+    setIsOpen(false);
+    onHide?.();
+  });
+
+  const handleShow = useEventCallback(() => {
+    setIsOpen(true);
+    onShow?.();
+    if (!refreshAfterShow) return;
+    setTimeout(() => refreshDOM(), 0);
+  });
+
+  const handleScroll = useCallback(() => {
+    debouncedHandleScroll.cancel();
+    setIsScrolling(true);
+    debouncedHandleScroll();
+  }, [debouncedHandleScroll]);
+
   return (
     <SelectWrapper
       label={label}
@@ -359,16 +411,12 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
       loading={loading}
     >
       <SelectComponent
-        {...(() => {
-          const { filterIcon, filter, ...others } = rest as any;
-          const extraProps = filter ? { filterIcon: filterIcon ?? <Icons name='search' size={20} color='#131313' wrapperCls={classes('filter-icon')} /> } : null;
-          return { ...others, filter, ...(extraProps || {}) };
-        })()}
+        {...filterIconProps}
         id={id}
         ref={selectRef}
         name={name}
         loading={loading}
-        filterPlaceholder='Search'
+        filterPlaceholder={FILTER_PLACEHOLDER}
         required={required}
         disabled={disabled}
         invalid={invalid}
@@ -379,7 +427,7 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
         itemTemplate={(option) => {
           return <div className={classes('panel-item')}
             onClick={() => {
-              if (!multiple && unselectable === 'on' && option.value === selected) {
+              if (!multiple && unselectable === UNSELECTABLE_ON && option.value === selected) {
                 (selectRef.current as Dropdown)?.clear();
               }
             }}
@@ -387,39 +435,23 @@ export const Select: FC<PropsWithChildren<SelectProps>> & { CustomDropdown: type
             <div className={classes('panel-item-label')}>
               {itemTemplate ? itemTemplate(option) : option.label}
             </div>
-            <Icons name='check' size={16} color='#073387' />
+            <Icons name='check' size={ICON_SIZE_SM} color={COLOR_PRIMARY_BLUE} />
           </div>;
         }}
-        loadingIcon={<Spinner className={classes('loading-icon')} strokeWidth='4' />}
+        loadingIcon={<Spinner className={classes('loading-icon')} strokeWidth={SPINNER_STROKE_WIDTH} />}
         panelClassName={classes('panel', joinCls(
           panelClassName,
           isHover && classes('panel-hover'),
           isScrolling && classes('panel-scrolling'),
           rest.appendTo === 'self' && classes('panel-append-self'),
         ))}
-        onChange={(e) => {
-          setSelected(e.value);
-          // @ts-expect-error
-          onChange?.(e);
-        }}
-        onHide={() => {
-          setIsOpen(false);
-          onHide?.();
-        }}
-        onShow={() => {
-          setIsOpen(true);
-          onShow?.();
-          if (!refreshAfterShow) return;
-          setTimeout(() => refreshDOM(), 0);
-        }}
-        dropdownIcon={() => <Icons name='chevronDown' color='#131313' size={20} />}
+        onChange={handleChange}
+        onHide={handleHide}
+        onShow={handleShow}
+        dropdownIcon={() => <Icons name='chevronDown' color={COLOR_PRIMARY_BLACK} size={ICON_SIZE_MD} />}
         pt={{
           wrapper: {
-            onScroll: () => {
-              debouncedHandleScroll.cancel();
-              setIsScrolling(true);
-              debouncedHandleScroll();
-            }
+            onScroll: handleScroll
           },
           panel: {
             onMouseEnter: () => setIsHover(true),

@@ -1,9 +1,16 @@
-import { memo, useState, useCallback } from 'react';
+import { memo } from 'react';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import Icons from '../Icons';
+import Icons from '@/components/Icons';
+import SidebarLogo from '@/components/Sidebar/SidebarLogo';
+import { STATUS_SUCCESS_COLOR } from '@/components/Sidebar/constants';
 /* import types */
 import type { FC } from 'react';
 import type { StepperProps } from './interface';
+
+type StepStatus = StepperProps['steps'][number]['status'];
+
+const DONE_STATUSES: ReadonlyArray<StepStatus> = ['done', 'done-active'];
+const LOGO_BUTTON_ARIA_LABEL = 'Sidebar logo';
 
 export const Stepper: FC<StepperProps> = props => {
   const { id, steps, className, prefixCls = 'stepper', headerCls, bodyCls, footerCls, logoCls, betaLogo, onLogoClick, footer } = props;
@@ -15,19 +22,14 @@ export const Stepper: FC<StepperProps> = props => {
       className={classes(void 0, className)}
     >
       <div className={classes('header', headerCls)}>
-        <Icons
-          name={betaLogo ? 'logoWithBeta' : 'logoWithWords'}
-          // @ts-ignore
-          logoColor='#073387'
-          // @ts-ignore
-          wordColor='#131313'
-          // @ts-ignore
-          betaColor='#073387'
-          width={betaLogo ? 152 : 131}
-          height={betaLogo ? 22 : 24}
+        <button
+          type='button'
+          className={classes('header-logo', logoCls)}
           onClick={onLogoClick}
-          wrapperCls={classes('header-logo', logoCls)}
-        />
+          aria-label={LOGO_BUTTON_ARIA_LABEL}
+        >
+          <SidebarLogo betaLogo={betaLogo} />
+        </button>
       </div>
       <ul className={classes('steps', bodyCls)}>
         {
@@ -40,7 +42,7 @@ export const Stepper: FC<StepperProps> = props => {
             >
               <span className={classes('step-label')}>{label}</span>
               {
-                (step.status === 'done' || step.status === 'done-active') && <Icons name='statusSuccess' size={20} color='#1F580033' />
+                DONE_STATUSES.includes(status) && <Icons name='statusSuccess' size={20} color={STATUS_SUCCESS_COLOR} />
               }
             </li>;
           })

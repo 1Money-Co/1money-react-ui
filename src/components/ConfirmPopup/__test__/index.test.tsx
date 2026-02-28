@@ -6,9 +6,10 @@ import { ConfirmPopup } from '../index';
 
 const originalConsoleError = console.error;
 console.error = (message, ...optionalParams) => {
+      const errorMessage = typeof message === 'string' ? message : String(message);
   if (
-    message.includes('Could not parse CSS stylesheet') ||
-    message.includes('findDOMNode is deprecated and will be removed')
+    errorMessage.includes('Could not parse CSS stylesheet') ||
+    errorMessage.includes('findDOMNode is deprecated and will be removed')
   ) {
       return;
   }

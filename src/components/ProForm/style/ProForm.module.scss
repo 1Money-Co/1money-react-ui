@@ -1,0 +1,59 @@
+@use '../../../variable.scss' as *;
+/* stylelint-disable selector-pseudo-class-no-unknown */
+
+.proform__submitter {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.proform__modal-form,
+.proform__drawer-form {
+  padding: 16px;
+  background: $color-white;
+  border: 1px solid $color-grey-deep;
+  border-radius: 12px;
+}
+
+.proform__modal-form-title,
+.proform__drawer-form-title,
+.proform__steps-form-title {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.proform__steps-form-description {
+  margin-bottom: 12px;
+  color: $color-grey-midnight;
+  font-size: 14px;
+}
+
+.proform__steps-form-actions,
+.proform__query-filter-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.proform__query-filter-split {
+  padding-top: 16px;
+  border-top: 1px solid $color-grey-deep;
+}
+
+.proform__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.proform__list-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.proform__list-row-actions {
+  display: flex;
+  gap: 8px;
+}

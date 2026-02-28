@@ -95,7 +95,7 @@ export const Multiple: Story = {
   args: {
     items: [
       { name: 'C', key: 'Cheese', label: 'Cheese' },
-      { name: 'M', key: 'Mushroom', label: 'Mushroom',  autoFocus: true },
+      { name: 'M', key: 'Mushroom', label: 'Mushroom', defaultChecked: true },
       { name: 'P', key: 'Pepper', label: 'Pepper' },
       { name: 'O', key: 'Onion', label: 'Onion' },
     ],

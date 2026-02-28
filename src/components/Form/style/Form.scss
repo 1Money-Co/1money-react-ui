@@ -1,0 +1,167 @@
+@use '../../../variable.scss' as *;
+
+// Intentionally token-level SCSS (no global tag selectors): spacing/typography/
+// opacity values are centralized as component CSS variables for predictable BEM output.
+$component: 'form';
+$cls: #{$prefix}-#{$component};
+
+@mixin om-form-token-vars {
+  --om-form-spacing-xs: 4px;
+  --om-form-spacing-sm: 8px;
+  --om-form-spacing-md: 12px;
+  --om-form-spacing-lg: 16px;
+  --om-form-control-height: 44px;
+  --om-form-font-size-base: 14px;
+  --om-form-line-height-base: 20px;
+  --om-form-font-size-help: 12px;
+  --om-form-line-height-help: 18px;
+  --om-form-opacity-disabled: 0.6;
+}
+
+.#{$cls} {
+  @include om-form-token-vars;
+
+  &-root {
+    width: 100%;
+
+    @include om-form-token-vars;
+  }
+
+  &-layout-horizontal .#{$prefix}-form-item-root {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &-layout-vertical .#{$prefix}-form-item-root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-layout-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--om-form-spacing-lg);
+  }
+
+  &-label-left .#{$prefix}-form-item-label {
+    text-align: left;
+  }
+}
+
+$item: 'form-item';
+$item-cls: #{$prefix}-#{$item};
+
+.#{$item-cls} {
+  @include om-form-token-vars;
+
+  &-root {
+    width: 100%;
+    margin-bottom: var(--om-form-spacing-lg);
+
+    @include om-form-token-vars;
+  }
+
+  &-label {
+    display: flex;
+    flex: 0 0 var(--om-form-label-width, 25%);
+    align-items: center;
+    justify-content: flex-end;
+    min-width: fit-content;
+    min-height: var(--om-form-control-height);
+    padding-right: var(--om-form-spacing-md);
+    color: $color-primary-black;
+    font-size: var(--om-form-font-size-base);
+    line-height: var(--om-form-line-height-base);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  &-label-required::before {
+    margin-right: var(--om-form-spacing-xs);
+    color: $color-negative;
+    content: '*';
+  }
+
+  &-colon {
+    margin-left: var(--om-form-spacing-xs);
+  }
+
+  &-control {
+    flex: 1 1 auto;
+    max-width: var(--om-form-wrapper-width, 75%);
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--om-form-spacing-sm);
+  }
+
+  &-content-disabled {
+    opacity: var(--om-form-opacity-disabled);
+  }
+
+  &-help {
+    color: $color-grey-midnight;
+    font-size: var(--om-form-font-size-help);
+    line-height: var(--om-form-line-height-help);
+  }
+
+  &-help-error {
+    color: $color-negative;
+  }
+
+  &-help-warning {
+    color: $color-warning-dark;
+  }
+
+  &-help-success {
+    color: $color-success;
+  }
+
+  &-content-error {
+    --om-form-item-status-color: #{$color-negative};
+  }
+
+  &-content-warning {
+    --om-form-item-status-color: #{$color-warning-dark};
+  }
+
+  &-content-success {
+    --om-form-item-status-color: #{$color-success};
+  }
+
+  &-content-validating {
+    --om-form-item-status-color: #{$color-info};
+  }
+
+  &-extra {
+    color: $color-grey-dark;
+    font-size: var(--om-form-font-size-help);
+    line-height: var(--om-form-line-height-help);
+  }
+}
+
+.#{$prefix}-form-layout-vertical {
+  .#{$item-cls}-label {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    min-height: auto;
+    margin-bottom: var(--om-form-spacing-sm);
+    padding-right: 0;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .#{$item-cls}-control {
+    max-width: 100%;
+  }
+}
+
+.#{$prefix}-form-layout-inline {
+  .#{$item-cls}-root {
+    width: auto;
+    margin-bottom: 0;
+  }
+}

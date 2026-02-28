@@ -7,7 +7,11 @@ import {
   SubMenu as ProSubMenu
 } from 'react-pro-sidebar';
 import { default as classnames, joinCls } from '@/utils/classnames';
-import Icons from '../Icons';
+import useLatest from '@/components/useLatest';
+import useMemoizedFn from '@/components/useMemoizedFn';
+import Icons from '@/components/Icons';
+import SidebarLogo from '@/components/Sidebar/SidebarLogo';
+import { EXPAND_ICON_COLOR } from '@/components/Sidebar/constants';
 /* import types */
 import type { PropsWithChildren } from 'react';
 import type { SidebarProps, SidebarHandlers } from './interface';
@@ -16,6 +20,7 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
   const { id, children, collapsible, menus, className, prefixCls = 'sidebar', headerCls, bodyCls, collapseCls, defaultCollapsed, betaLogo, onCollapse, onLogoClick, menuPrefixCls, menuPrefix } = props;
   const [collapsed, setCollapsed] = useState(defaultCollapsed ?? false);
   const classes = classnames(prefixCls);
+  const collapsedRef = useLatest(collapsed);
 
   const handleCollapse = useCallback((_collapsed: boolean) => {
     setCollapsed(_collapsed);
@@ -23,9 +28,13 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
   }, [onCollapse]);
 
   useImperativeHandle(ref, () => ({
-    toggle: () => handleCollapse(!collapsed),
+    toggle: () => handleCollapse(!collapsedRef.current),
     collapse: handleCollapse
-  }), [collapsed, handleCollapse]);
+  }), [handleCollapse]);
+
+  const renderExpandIcon = useMemoizedFn(({ open }: { open: boolean }) =>
+    collapsed ? null : <Icons name='chevronDown' size={16} color={EXPAND_ICON_COLOR} wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />
+  );
 
   return (
     <ProSidebar
@@ -41,24 +50,7 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
           className={classes('logo')}
           onClick={onLogoClick}
         >
-          <Icons
-            name={
-              collapsed
-                ? 'logo'
-                : betaLogo
-                  ? 'logoWithBeta'
-                  : 'logoWithWords'
-            }
-            // @ts-ignore
-            logoColor='#073387'
-            // @ts-ignore
-            wordColor='#131313'
-            // @ts-ignore
-            betaColor='#073387'
-            color='#073387'
-            width={collapsed ? 24 : betaLogo ? 152 : 131}
-            height={collapsed ? 24 : betaLogo ? 22 : 24}
-          />
+          <SidebarLogo collapsed={collapsed} betaLogo={betaLogo} />
         </span>
       </div>
       {menuPrefix && (
@@ -68,7 +60,7 @@ export const Sidebar = forwardRef<SidebarHandlers, PropsWithChildren<SidebarProp
       )}
       <ProMenu
         className={classes('menu', bodyCls)}
-        renderExpandIcon={({ open }) => collapsed ? null : <Icons name='chevronDown' size={16} color='#646465' wrapperCls={joinCls(classes('expand-icon'), open && classes('expand-icon-open'))} />}
+        renderExpandIcon={renderExpandIcon}
       >
         {
           menus.map((menu, ind) => {

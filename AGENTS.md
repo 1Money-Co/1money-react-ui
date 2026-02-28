@@ -102,3 +102,396 @@ import '@1money/react-ui/index.css';
 - Font assets (Aeonik, Inter, Outfit) are included in `public/fonts/`
 - Lottie animations are used in Loading component
 - Pre-commit hooks enforce code quality via husky and lint-staged
+
+## Commit Convention
+
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+### Commit Message Format
+
+```
+<type>(<scope>): <subject>
+
+[optional body]
+
+[optional footer]
+```
+
+### Types
+
+| Type | Description |
+|------|-------------|
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `docs` | Documentation changes only |
+| `style` | Code style changes (formatting, missing semicolons, etc.) — no logic change |
+| `refactor` | Code refactoring — no feature addition or bug fix |
+| `perf` | Performance improvements |
+| `test` | Adding or updating tests |
+| `chore` | Build process, tooling, or dependency changes |
+| `revert` | Revert a previous commit |
+| `ci` | CI/CD configuration changes |
+
+### Scope
+
+The scope should be the name of the component or module affected:
+
+```
+feat(Button): add loading state support
+fix(Input): correct placeholder color in dark mode
+docs(ProForm): update usage examples
+refactor(utils): simplify classnames helper
+```
+
+Omit scope when the change is global or cross-cutting:
+
+```
+chore: upgrade PrimeReact to v11
+ci: add lint check to PR workflow
+```
+
+### Subject Rules
+
+- ✅ Use imperative mood: "add feature" not "added feature" or "adds feature"
+- ✅ Start with a lowercase letter
+- ✅ No period at the end
+- ✅ Keep under 72 characters
+- ❌ Do not use vague messages like "fix bug", "update code", "WIP"
+
+### Examples
+
+```bash
+# ✅ Good
+feat(ProForm): add StepsForm component with validation support
+fix(Select): prevent dropdown from closing on internal scroll
+refactor(Button): extract size constants to avoid magic strings
+test(Input): add snapshot tests for controlled mode
+docs(README): add installation and usage guide
+chore: update pnpm lockfile after dependency upgrade
+
+# ❌ Bad
+fix bug
+update
+WIP
+feat: add stuff
+```
+
+### Breaking Changes
+
+Breaking changes must be noted in the footer with `BREAKING CHANGE:`:
+
+```
+feat(ProForm): change onSubmit callback signature
+
+BREAKING CHANGE: onSubmit now receives (values, form) instead of (values).
+Consumers must update their onSubmit handlers accordingly.
+```
+
+### Multi-line Body
+
+Use the body to explain *why* a change was made, not *what* was changed (the diff shows that):
+
+```
+fix(StepsForm): clear downstream step values on backward navigation
+
+When a user navigates backward in a multi-step form, previously entered
+values in later steps should be cleared to prevent stale data from
+being submitted. This matches the expected UX behavior.
+```
+
+## TypeScript Standards
+
+### Core Principles
+
+- ✅ All components and functions must provide accurate type definitions
+- ✅ Avoid using `any`; define types as precisely as possible
+- ✅ Use interfaces (`interface`) instead of type aliases (`type`) for object structures
+- ✅ Export all public interface types for easier consumer usage
+- ✅ Follow TypeScript type design principles strictly to ensure type safety
+- ✅ Ensure compilation has no type errors or warnings
+
+### Component Type Definitions
+
+```tsx
+// ✅ Correct: use interface to define Props
+interface ButtonProps {
+  type?: 'primary' | 'secondary' | 'warning';
+  onClick?: (e: React.MouseEvent) => void;
+}
+
+// ❌ Incorrect: avoid using type to define object structures
+type ButtonProps = {
+  type?: 'primary' | 'secondary';
+};
+
+// ✅ Correct: component Props interface naming
+interface ComponentNameProps {
+  // ...
+}
+
+// ✅ Correct: component state interface naming
+interface ComponentNameState {
+  // ...
+}
+
+// ✅ Correct: use ForwardRefRenderFunction to define ref
+const Component = React.forwardRef<ComponentRef, ComponentProps>((props, ref) => {
+  // ...
+});
+```
+
+### Type Usage Best Practices
+
+- ✅ Use generics where appropriate to improve type flexibility
+- ✅ Use intersection types (`&`) to combine multiple types
+- ✅ Use literal union types to define a limited set of options
+- ✅ Avoid `enum`; prefer union types and `as const`
+- ✅ Rely on TypeScript type inference as much as possible
+- ✅ Use type assertions (`as`) only when necessary
+
+```tsx
+// ✅ Recommended: use union types and as const
+const ButtonTypes = ['primary', 'secondary', 'warning'] as const;
+type ButtonType = (typeof ButtonTypes)[number];
+
+// ❌ Not recommended: use enum
+enum ButtonType {
+  Primary = 'primary',
+  Default = 'secondary',
+}
+```
+
+### Avoid Magic Strings
+
+- ✅ Define string constants or use `as const` arrays for repeated string values
+- ✅ Use constants for event names, action types, storage keys, and API endpoints
+- ✅ Extract hardcoded strings into named constants with descriptive names
+- ✅ Keep constants close to their usage or in a dedicated constants file
+
+```tsx
+// ✅ Correct: define constants
+const STORAGE_KEY = 'user_preferences';
+const EVENT_SUBMIT = 'submit';
+
+localStorage.setItem(STORAGE_KEY, value);
+element.addEventListener(EVENT_SUBMIT, handler);
+
+// ✅ Correct: use as const for related values
+const ToastTypes = ['success', 'error', 'warning', 'info'] as const;
+type ToastType = (typeof ToastTypes)[number];
+
+// ❌ Incorrect: magic strings scattered in code
+localStorage.setItem('user_preferences', value);
+element.addEventListener('submit', handler);
+if (status === 'success') { ... }
+```
+
+## Custom Hooks Usage Guide
+
+This library provides 11 custom hooks for common React patterns. Use these hooks to improve code quality and consistency.
+
+### useControlledState
+
+**When to use**: Building components that support both controlled and uncontrolled modes.
+
+```tsx
+// ✅ Use for form components that can be controlled or uncontrolled
+function Input({ value, defaultValue, onChange }: InputProps) {
+  const [innerValue, setInnerValue] = useControlledState(defaultValue ?? '', value);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInnerValue(e.target.value);
+    onChange?.(e);
+  };
+
+  return <input value={innerValue} onChange={handleChange} />;
+}
+```
+
+### useEventCallback
+
+**When to use**: When you need a stable callback reference that always invokes the latest function version. Similar to React's `useEvent` RFC.
+
+```tsx
+// ✅ Use when passing callbacks to optimized child components
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  // Stable reference, always calls latest function
+  const handleClick = useEventCallback(() => {
+    console.log('Current count:', count); // Always gets latest count
+  });
+
+  return <MemoizedChild onClick={handleClick} />;
+}
+```
+
+### useLatest
+
+**When to use**: When you need to access the latest value in callbacks without causing re-renders or stale closures.
+
+```tsx
+// ✅ Use to avoid stale closures in timers or event handlers
+function Timer({ delay, callback }: TimerProps) {
+  const callbackRef = useLatest(callback);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      callbackRef.current(); // Always calls the latest callback
+    }, delay);
+    return () => clearInterval(id);
+  }, [delay]); // No need to include callback in deps
+}
+```
+
+### useLayoutEffect
+
+**When to use**: When you need to know if the effect is running on initial mount or subsequent updates.
+
+```tsx
+// ✅ Use when behavior differs between mount and update
+function AnimatedComponent({ value }: Props) {
+  useLayoutEffect((mount) => {
+    if (mount) {
+      // Initial mount - setup without animation
+      element.style.opacity = '1';
+    } else {
+      // Update - animate the change
+      animateOpacity(element);
+    }
+  }, [value]);
+}
+```
+
+### useMemoizedFn
+
+**When to use**: When you need a stable function reference without managing a dependency array, while always calling the latest version.
+
+```tsx
+// ✅ Use for event handlers passed to child components
+function Form({ onSubmit }: FormProps) {
+  const [data, setData] = useState({});
+
+  // Stable reference, no deps needed, always uses latest data
+  const handleSubmit = useMemoizedFn(() => {
+    onSubmit(data);
+  });
+
+  return <ExpensiveChild onSubmit={handleSubmit} />;
+}
+```
+
+### usePrevious
+
+**When to use**: When you need to compare current value with the previous render's value.
+
+```tsx
+// ✅ Use for detecting value changes
+function Counter({ count }: Props) {
+  const prevCount = usePrevious(count);
+
+  useEffect(() => {
+    if (prevCount !== undefined && count > prevCount) {
+      console.log('Count increased!');
+    }
+  }, [count, prevCount]);
+}
+```
+
+### useSafeState
+
+**When to use**: When setting state in async callbacks where the component might unmount before completion.
+
+```tsx
+// ✅ Use for async operations to prevent memory leaks
+function AsyncComponent() {
+  const [data, setData] = useSafeState<Data | null>(null);
+
+  useEffect(() => {
+    fetchData().then((result) => {
+      setData(result); // Safe: won't update if unmounted
+    });
+  }, []);
+}
+```
+
+### useSyncState
+
+**When to use**: When React batches multiple state updates but you need to read the latest value synchronously.
+
+```tsx
+// ✅ Use when multiple events fire simultaneously (e.g., onTransitionEnd)
+function AnimatedList() {
+  const [getCompletedCount, setCompletedCount] = useSyncState(0);
+
+  const handleTransitionEnd = () => {
+    // Multiple transitions may end at once, React batches them
+    // getCompletedCount() always returns the latest value
+    setCompletedCount(getCompletedCount() + 1);
+  };
+}
+```
+
+### useUpdateEffect
+
+**When to use**: When you want an effect to run only on updates, skipping the initial mount.
+
+```tsx
+// ✅ Use when initial render shouldn't trigger the effect
+function SearchInput({ query, onSearch }: Props) {
+  useUpdateEffect(() => {
+    // Only runs when query changes, not on initial mount
+    onSearch(query);
+  }, [query]);
+}
+```
+
+### useLayoutState
+
+**When to use**: When you need to batch multiple synchronous state updates into a single microtask to reduce unnecessary re-renders. Updates are collected and applied together via `Promise.resolve`, triggering only one render.
+
+```tsx
+// ✅ Use when multiple state updates happen synchronously and should be batched
+function VirtualTable({ columns }: Props) {
+  const [colWidths, setColWidths] = useLayoutState<Map<string, number>>(new Map());
+
+  const handleResize = (key: string, width: number) => {
+    // Multiple columns may resize at once; updates are batched into one render
+    setColWidths(prev => new Map(prev).set(key, width));
+  };
+
+  return <ResizableColumns widths={colWidths} onResize={handleResize} />;
+}
+```
+
+### useTimeoutLock
+
+**When to use**: When you need a short-lived lock that auto-resets after a timeout (100ms). Useful for preventing duplicate actions or debouncing rapid state changes.
+
+```tsx
+// ✅ Use to prevent rapid duplicate submissions
+function SubmitButton() {
+  const [setLock, getLock] = useTimeoutLock<string>();
+
+  const handleClick = () => {
+    if (getLock()) return; // Already locked
+    setLock('submitting');
+    submitForm();
+  };
+}
+```
+
+### Hook Selection Guide
+
+| Scenario | Recommended Hook |
+|----------|------------------|
+| Controlled/uncontrolled component | `useControlledState` |
+| Stable callback for memoized children | `useEventCallback` or `useMemoizedFn` |
+| Access latest value without re-render | `useLatest` |
+| Different logic for mount vs update | `useLayoutEffect` |
+| Compare with previous value | `usePrevious` |
+| Async state updates after unmount | `useSafeState` |
+| Read latest state synchronously | `useSyncState` |
+| Skip effect on initial mount | `useUpdateEffect` |
+| Batch synchronous state updates | `useLayoutState` |
+| Short-lived lock with auto-reset | `useTimeoutLock` |

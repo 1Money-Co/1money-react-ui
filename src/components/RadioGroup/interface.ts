@@ -1,7 +1,7 @@
 import type { RadioButtonProps } from 'primereact/radiobutton';
 import type { ReactNode, RefObject } from 'react';
 
-export interface RadioItemProps extends Omit<RadioButtonProps, 'children' | 'inputId' | 'value' | 'onChange' | 'checked' | 'className'> {
+export interface RadioItemProps extends Omit<RadioButtonProps, 'children' | 'inputId' | 'onChange' | 'checked' | 'className'> {
   key: string;
   label?: string;
   children?: ReactNode | ((selected: boolean) => ReactNode);
@@ -27,6 +27,8 @@ export interface RadioGroupProps {
   labelCls?: string;
   label?: ReactNode;
   required?: boolean;
+  value?: RadioItemProps['value'];
+  defaultValue?: RadioItemProps['value'];
   onChange?: (selected: RadioItemProps) => any;
   items: RadioItemProps[];
 }

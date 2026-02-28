@@ -1,397 +1,373 @@
-import { memo, useMemo, useState, useCallback, useRef, useEffect, useLayoutEffect } from 'react';
-import BigNumber from 'bignumber.js';
-import { numericFormatter } from 'react-number-format';
+import { memo, useMemo, useState, useRef, useLayoutEffect } from 'react';
 import { Skeleton } from 'primereact/skeleton';
-import Spinner from '../Spinner';
+import Spinner from '@/components/Spinner';
+import useLatest from '@/components/useLatest';
+import useEventCallback from '@/components/useEventCallback';
 import { default as classnames, joinCls } from '@/utils/classnames';
+import {
+  MIN_INPUT_WIDTH,
+  DECIMAL_POINT_OFFSET,
+  SKELETON_LABEL_WIDTH,
+  SKELETON_LABEL_HEIGHT,
+  SPINNER_STROKE_WIDTH,
+  CSS_VAR_INPUT_WIDTH,
+  DEFAULT_TYPE,
+  DEFAULT_SIZE,
+  DEFAULT_PLACEHOLDER,
+  DEFAULT_PREFIX_CLS,
+  CHAR_MINUS,
+  CHAR_COMMA,
+  CHAR_DOT,
+  isNumericType,
+  stripCommas,
+  stripMinus,
+  formatThousands,
+  calcValueInRange,
+  normalizeValue,
+  truncateFractionDigits,
+  calcGapWidth,
+  parseRawInput,
+  absValue,
+} from './helper';
 /* import types */
-import type { FC, PropsWithChildren, CSSProperties, ChangeEvent } from 'react';
-import type { InputAmountProps } from './interface';
-
-const MIN_INPUT_WIDTH = 33;
-
-const normalizeNumberInput = (val: string) =>
-  val
-    .replace(/[\u3002\uff0e\uff61]/g, '.')
-    .replace(/[\uFF0C]/g, ',');
-
-const calcValueInRange = (
-  val: string,
-  min?: boolean | number | bigint,
-  max?: boolean | number | bigint,
-) => {
-  if (val === '' || val === '-' || isNaN(+val)) return val;
-
-  let calcVal = val;
-  const bnVal = BigNumber(val);
-
-  if (typeof min === 'number' || typeof min === 'bigint') {
-    const minBn = BigNumber(min);
-    if (bnVal.lt(minBn)) {
-      calcVal = '' + min;
-    }
-  }
-
-  if (typeof max === 'number' || typeof max === 'bigint') {
-    const maxBn = BigNumber(max);
-    if (bnVal.gt(maxBn)) {
-      calcVal = '' + max;
-    }
-  }
-
-  return calcVal;
-};
+import type { FC, PropsWithChildren, CSSProperties, ChangeEvent, FocusEvent, MouseEvent } from 'react';
+import type { InputAmountBaseProps, InputAmountNormalProps, InputAmountPrimaryProps, InputAmountProps } from './interface';
 
 export const InputAmount: FC<PropsWithChildren<InputAmountProps>> = props => {
+  const type = props.type ?? DEFAULT_TYPE;
+  const size = type === 'normal'
+    ? (props as InputAmountNormalProps).size ?? DEFAULT_SIZE
+    : DEFAULT_SIZE;
+  const footnote = type === 'normal' ? undefined : (props as InputAmountPrimaryProps).footnote;
+  const footnoteCls = type === 'normal' ? undefined : (props as InputAmountPrimaryProps).footnoteCls;
+
+  const rawBaseProps = { ...props } as InputAmountBaseProps & {
+    type?: InputAmountProps['type'];
+    size?: InputAmountNormalProps['size'];
+    footnote?: InputAmountPrimaryProps['footnote'];
+    footnoteCls?: InputAmountPrimaryProps['footnoteCls'];
+  };
+  delete rawBaseProps.type;
+  delete rawBaseProps.size;
+  delete rawBaseProps.footnote;
+  delete rawBaseProps.footnoteCls;
+  const baseProps = rawBaseProps as InputAmountBaseProps;
+
   const {
     value,
-    type = 'primary',
     maxFractionDigits,
-    children,
-    placeholder = '0',
+    placeholder = DEFAULT_PLACEHOLDER,
     min, max,
-    // @ts-expect-error
-    size = 'large', footnote, footnoteCls,
-    className, wrapperCls, labelCls, prefixCls = 'input-amount', messageCls, prefixEleCls, suffixEleCls,
+    className, wrapperCls, labelCls, prefixCls = DEFAULT_PREFIX_CLS, messageCls, prefixEleCls, suffixEleCls,
     invalid, negative, required, loading, success, disabled, readOnly,
     label, prefix, suffix, currency, message,
     onChange, onBlur, onFocus,
     ...rest
-  } = props;
-  const classes = classnames(`${prefixCls}-${type}`);
+  } = baseProps;
 
+  const cls = classnames(`${prefixCls}-${type}`);
+
+  // ── Refs ──
   const inputRef = useRef<HTMLInputElement>(null);
   const fakeEleRef = useRef<HTMLSpanElement>(null);
   const prefixRef = useRef<HTMLSpanElement>(null);
   const suffixRef = useRef<HTMLSpanElement>(null);
   const currencyRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const inputCaretPositionRef = useRef<number>(0);
-  const ignoreSelectRef = useRef<boolean>(false);
-  const onChangeRef = useRef<InputAmountProps['onChange']>(onChange);
+  const caretPosRef = useRef(0);
+  const ignoreSelectRef = useRef(false);
+  const onChangeRef = useLatest(onChange);
 
-  const [_value, setValue] = useState<string | null>(null);
-  const [_width, setWidth] = useState<number>(MIN_INPUT_WIDTH);
-  const [isMaxWidth, setIsMaxWidth] = useState<boolean>(false);
-  const [isFocus, setIsFocus] = useState<boolean>(false);
-  const isFocusRef = useRef(isFocus);
+  // ── State ──
+  const [innerValue, setInnerValue] = useState<string | null>(null);
+  const [inputWidth, setInputWidth] = useState(MIN_INPUT_WIDTH);
+  const [isMaxWidth, setIsMaxWidth] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
+  const isFocusRef = useLatest(isFocus);
 
-  const formattedValue = useMemo(() => {
-    return numericFormatter('' + (_value == null ? '' : _value), {
-      thousandSeparator: true,
-      allowNegative: negative,
-    });
-  }, [_value, negative]);
+  const isUncontrolled = typeof value === 'undefined';
 
-  const valueRef = useRef({
-    value,
-    _value,
-    formattedValue,
-    min,
-    max,
-    negative,
-    maxFractionDigits,
+  const formattedValue = useMemo(
+    () => formatThousands(innerValue ?? '', negative),
+    [innerValue, negative],
+  );
+
+  const stateRef = useLatest({
+    innerValue, formattedValue,
+    min, max, negative, maxFractionDigits,
   });
 
-  const changeFocus = useCallback((focus: boolean) => {
-    setIsFocus(focus);
-    isFocusRef.current = focus;
-  }, []);
-
-  const scrollToEnd = useCallback((sticky: boolean = false) => {
+  // ── Helpers ──
+  const scrollToEnd = useEventCallback((sticky = false) => {
     const input = inputRef.current;
     if (!input) return;
-    const len = input.value?.length;
-    const position = input.scrollLeft;
-    const shouldToEnd = !sticky;
-    const start = shouldToEnd ? len : inputCaretPositionRef.current;
-    input.setSelectionRange(start, start);
-    input.scrollLeft = shouldToEnd ? input.scrollWidth : position;
-    input.focus();
-  }, []);
 
-  const calcCaretPos = useCallback((
+    if (sticky) {
+      input.setSelectionRange(caretPosRef.current, caretPosRef.current);
+    } else {
+      const len = input.value?.length;
+      input.setSelectionRange(len, len);
+      input.scrollLeft = input.scrollWidth;
+    }
+    input.focus();
+  });
+
+  const calcCaretPos = useEventCallback((
     val: string,
-    offset = 0,
+    offset: number = 0,
     currPos?: number,
   ) => {
-    if (inputRef.current) {
-      const { _value, negative, formattedValue } = valueRef.current;
-      const formattedNewVal = numericFormatter(val, {
-        thousandSeparator: true,
-        allowNegative: negative,
-      });
+    const input = inputRef.current;
+    if (!input) return;
 
-      const originOffset = val.length - (_value?.length ?? 0);
-      let position = currPos ?? inputRef.current.selectionEnd ?? 0;
-      
-      const oldPosVal = formattedValue.slice(0, Math.max(position, 0));
-      position = oldPosVal.split(',').join('').length;
+    const { innerValue: prev, negative, formattedValue } = stateRef.current;
+    const formattedNewVal = formatThousands(val, negative);
+    const originOffset = val.length - (prev?.length ?? 0);
+    let position = currPos ?? input.selectionEnd ?? 0;
 
-      const posVal = val.slice(0, (position + originOffset));
-      formattedNewVal.split('').reduce<string[]>((acc, char, ind) => {
-        if (char === ',') return acc;
-        else acc.push(char);
-        if (acc.join('') === posVal) {
-          position = ind + 1;
-          return acc;
-        }
-        return acc;
-      }, []);
-      inputCaretPositionRef.current = position + offset;
+    // Map formatted position back to raw position
+    position = stripCommas(formattedValue.slice(0, Math.max(position, 0))).length;
+
+    // Map raw position forward to formatted position
+    const posVal = val.slice(0, position + originOffset);
+    formattedNewVal.split('').reduce<string[]>((acc, char, ind) => {
+      if (char === CHAR_COMMA) return acc;
+      acc.push(char);
+      if (acc.join('') === posVal) position = ind + 1;
+      return acc;
+    }, []);
+
+    caretPosRef.current = position + offset;
+  });
+
+  const commitValue = useEventCallback((
+    val: string,
+    hasDecimalPoint: boolean,
+    e?: ChangeEvent<HTMLInputElement>,
+  ) => {
+    if (isUncontrolled) {
+      setInnerValue(val === '' ? null : val);
+      calcCaretPos(val, hasDecimalPoint ? DECIMAL_POINT_OFFSET : 0, Math.max(caretPosRef.current, 0));
+      ignoreSelectRef.current = true;
     }
-  }, []);
+    if (e) onChangeRef.current?.(e, val);
+  });
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+  // ── Event Handlers ──
+  const handleChange = useEventCallback((e: ChangeEvent<HTMLInputElement>) => {
     if (disabled || readOnly) return;
 
-    const { value, _value, formattedValue, min, max, negative, maxFractionDigits } = valueRef.current;
-    let val = e.target.value;
-    if (val != null) val = normalizeNumberInput(val).split(',').join('');
-    const hasDecimalPoint = !!val && val.endsWith('.');
-    if (hasDecimalPoint) val = val.slice(0, -1);
-    if (!negative && val?.includes('-')) return;
-    const isStandaloneMinus = negative && val === '-';
-    if (!isStandaloneMinus && isNaN(+val)) return;
-    if (val === _value && !hasDecimalPoint) return;
+    const { innerValue, formattedValue, min, max, negative, maxFractionDigits } = stateRef.current;
+    const parsed = parseRawInput(e.target.value ?? '', negative);
+    if (!parsed) return;
 
-    if (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint') {
-      const [int, decimal] = val.split('.');
-      const maxDecimals = Number(maxFractionDigits);
-      if (decimal != null && decimal.length > maxDecimals) {
-        const truncatedDecimals = decimal.slice(0, maxDecimals);
-        const [oldInt,] = formattedValue.split('.');
-        if (oldInt.split(',').join('') == int) return;
-        val = `${int}.${truncatedDecimals}`;
+    let { val } = parsed;
+    const { hasDecimalPoint, isStandaloneMinus } = parsed;
+
+    if (val === innerValue && !hasDecimalPoint) return;
+
+    // Enforce fraction digit limit
+    if (isNumericType(maxFractionDigits)) {
+      const { int, truncated, overflow } = truncateFractionDigits(val, Number(maxFractionDigits));
+      if (overflow) {
+        const [oldInt] = formattedValue.split(CHAR_DOT);
+        if (stripCommas(oldInt) === int) return;
+        val = truncated;
       }
     }
 
-    if ((typeof min === 'number' || typeof min === 'bigint') || (typeof max === 'number' || typeof max === 'bigint')) {
+    // Clamp to min/max range
+    if (isNumericType(min) || isNumericType(max)) {
       val = calcValueInRange(val, min, max);
     }
 
+    // Normalize the final value
     if (val !== '') {
-      if (isStandaloneMinus) {
-        val = '-';
-      } else {
-        const decimals = val.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-        const bn = BigNumber(val);
-        let normalized = bn.toFixed(decimals);
-        if (negative && val.trim().startsWith('-') && bn.isZero()) {
-          normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
-        }
-        val = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
-      }
+      val = isStandaloneMinus ? CHAR_MINUS : normalizeValue(val, hasDecimalPoint, negative);
     }
 
-    if (typeof value === 'undefined') {
-      setValue(val === '' ? null : val);
-      calcCaretPos(val, hasDecimalPoint ? 2 : 0, Math.max(inputCaretPositionRef.current, 0));
-      ignoreSelectRef.current = true;
-    } else {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    onChangeRef.current?.(e, val);
-  }, [disabled, readOnly]);
+    commitValue(val, hasDecimalPoint, e);
+  });
 
-  const handleSelect = useCallback(() => {
+  const handleSelect = useEventCallback(() => {
     if (ignoreSelectRef.current) {
       ignoreSelectRef.current = false;
       return;
     }
     const currPos = inputRef.current?.selectionEnd;
-    if (typeof currPos === 'number') inputCaretPositionRef.current = currPos;
-  }, []);
+    if (typeof currPos === 'number') caretPosRef.current = currPos;
+  });
 
+  const handleFocus = useEventCallback((e: FocusEvent<HTMLInputElement>) => {
+    setIsFocus(true);
+    onFocus?.(e);
+  });
+
+  const handleBlur = useEventCallback((e: FocusEvent<HTMLInputElement>) => {
+    setIsFocus(false);
+    onBlur?.(e);
+  });
+
+  const handleContainerClick = useEventCallback((e: MouseEvent<HTMLDivElement>) => {
+    if (e.target instanceof HTMLInputElement) return;
+    inputRef.current?.focus();
+    if (isMaxWidth) scrollToEnd();
+  });
+
+  // ── Layout Effects ──
   useLayoutEffect(() => {
     const containerWidth = containerRef.current?.offsetWidth ?? MIN_INPUT_WIDTH;
     const prefixWidth = prefixRef.current?.offsetWidth ?? 0;
     const suffixWidth = suffixRef.current?.offsetWidth ?? 0;
     const currencyWidth = currencyRef.current?.offsetWidth ?? 0;
     const fakeWidth = fakeEleRef.current?.offsetWidth ?? 0;
-    const gapWidth = prefixWidth && suffixWidth && currencyWidth
-      ? 24
-      : (prefixWidth && suffixWidth) || (prefixWidth && currencyWidth) || (suffixWidth && currencyWidth)
-        ? 16
-        : prefixWidth || suffixWidth || currencyWidth
-          ? 8
-          : 0;
+    const gapWidth = calcGapWidth(!!prefixWidth, !!suffixWidth, !!currencyWidth);
 
     const maxWidth = containerWidth - prefixWidth - suffixWidth - currencyWidth - gapWidth;
-    const isMax = fakeWidth >= maxWidth;
-    setWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
-    setIsMaxWidth(isMax);
+    setInputWidth(Math.min(maxWidth, Math.max(fakeWidth, MIN_INPUT_WIDTH)));
+    setIsMaxWidth(fakeWidth >= maxWidth);
     if (isFocusRef.current) scrollToEnd(true);
-  }, [_value, prefix, suffix, currency]);
+  }, [innerValue, prefix, suffix, currency, loading]);
 
   useLayoutEffect(() => {
-    let val = typeof value === 'undefined' ? _value : value;
+    let val = isUncontrolled ? innerValue : value;
     let hasDecimalPoint = false;
     let isStandaloneMinus = false;
+
     if (typeof val === 'string') {
       if (val === '') {
         val = null;
       } else {
-        val = normalizeNumberInput(val).split(',').join('');
-        hasDecimalPoint = !!val && val.endsWith('.');
-        if (hasDecimalPoint) val = val.slice(0, -1);
-        if (!negative) val = val.replace(/-/g, '');
-        isStandaloneMinus = !!negative && val === '-';
-        if (!isStandaloneMinus && isNaN(+val)) return;
+        const parsed = parseRawInput(val, negative);
+        if (!parsed) return;
+        val = parsed.val;
+        hasDecimalPoint = parsed.hasDecimalPoint;
+        isStandaloneMinus = parsed.isStandaloneMinus;
+        if (!negative) val = stripMinus(val);
       }
-    } else if (val !== null && typeof val !== 'number' && typeof val !== 'bigint') return;
+    } else if (val !== null && !isNumericType(val)) return;
 
-    if (!negative) {
-      if (typeof val === 'number') {
-        val = Math.abs(val);
-      } else if (typeof val === 'bigint') {
-        const zero = BigInt(0);
-        val = val < zero ? -val : val;
-      }
+    // Ensure non-negative when negative is not allowed
+    if (!negative && isNumericType(val)) {
+      val = absValue(val);
     }
 
+    // Enforce fraction digit limit
     if (
       (typeof val === 'string' || typeof val === 'number') &&
-      (typeof maxFractionDigits === 'number' || typeof maxFractionDigits === 'bigint')
+      isNumericType(maxFractionDigits)
     ) {
-      const [int, decimal] = ('' + val).split('.');
-      const maxDecimals = Number(maxFractionDigits);
-      if (decimal != null && decimal.length > maxDecimals) {
-        const truncatedDecimals = decimal.slice(0, maxDecimals);
-        val = `${int}.${truncatedDecimals}`;
-        if (typeof value === 'undefined') {
-          setValue(val);
+      const { truncated, overflow } = truncateFractionDigits(`${val}`, Number(maxFractionDigits));
+      if (overflow) {
+        if (isUncontrolled) {
+          setInnerValue(truncated);
         } else {
-          const syntheticEvent = {
-            target: inputRef.current,
-          } as unknown as ChangeEvent<HTMLInputElement>;
-          onChangeRef.current?.(syntheticEvent, val ?? '');
+          onChangeRef.current?.(
+            { target: inputRef.current } as unknown as ChangeEvent<HTMLInputElement>,
+            truncated ?? '',
+          );
         }
         return;
       }
     }
 
-    if (typeof val === 'string' || typeof val === 'number' || typeof val === 'bigint') {
-      val = calcValueInRange('' + val, min, max);
+    // Clamp to min/max range
+    if (isNumericType(val) || typeof val === 'string') {
+      val = calcValueInRange(`${val}`, min, max);
     }
 
     if (val === '' || val == null) {
-      setValue(null);
+      setInnerValue(null);
     } else {
-      if (isStandaloneMinus) {
-        val = '-';
-      } else {
-        const strVal = '' + val;
-        const decimals = strVal.match(/\.(\d+)$/)?.[1]?.length ?? 0;
-        const bn = BigNumber(strVal);
-        let normalized = bn.toFixed(decimals);
-        if (negative && strVal.trim().startsWith('-') && bn.isZero()) {
-          normalized = normalized.startsWith('-') ? normalized : `-${normalized}`;
-        }
-        val = `${normalized}${hasDecimalPoint ? '.' : ''}`.trim();
-      }
-      setValue(val);
+      val = isStandaloneMinus ? CHAR_MINUS : normalizeValue(`${val}`, hasDecimalPoint, negative);
+      setInnerValue(val);
     }
-    calcCaretPos(val ?? '', hasDecimalPoint ? 2 : 0, Math.max(inputCaretPositionRef.current, 0));
+
+    calcCaretPos(val ?? '', hasDecimalPoint ? DECIMAL_POINT_OFFSET : 0, Math.max(caretPosRef.current, 0));
     ignoreSelectRef.current = true;
   }, [value, maxFractionDigits, min, max, negative]);
 
-  useEffect(() => {
-    onChangeRef.current = onChange;
-    valueRef.current = {
-      value,
-      _value,
-      formattedValue,
-      min,
-      max,
-      negative,
-      maxFractionDigits
-    };
-  }, [_value, value, formattedValue, min, max, negative, maxFractionDigits, onChange]);
+  // ── Render ──
+  const wrapperClassName = cls('wrapper', joinCls(
+    wrapperCls,
+    cls(size),
+    invalid && cls('invalid'),
+    success && cls('success'),
+    disabled && cls('disabled'),
+    readOnly && cls('readonly'),
+    innerValue && cls('filled'),
+  ));
 
-  return <div
-    className={classes('wrapper', joinCls(
-      wrapperCls,
-      classes(size),
-      invalid && classes('invalid'),
-      success && classes('success'),
-      disabled && classes('disabled'),
-      readOnly && classes('readonly'),
-      _value && classes('filled'),
-    ))}
-  >
-    {
-      label
-        ? loading
-          ? <Skeleton width='72px' height='18px' className={classes('label-loading')} />
-          : <span className={classes('label', joinCls(required && classes('label-required'), labelCls))}>{label}</span>
-        : null
+  const renderLabel = () => {
+    if (!label) return null;
+    if (loading) {
+      return <Skeleton width={SKELETON_LABEL_WIDTH} height={SKELETON_LABEL_HEIGHT} className={cls('label-loading')} />;
     }
-    <div
-      ref={containerRef}
-      className={classes(void 0, joinCls(className, isFocus && classes('focus')))}
-      onClick={(e) => {
-        if (e.target instanceof HTMLInputElement) return;
-        inputRef.current?.focus();
-        if (isMaxWidth) scrollToEnd();
-      }}
-    >
-      {
-        prefix && <span
-          ref={prefixRef}
-          className={classes('prefix', prefixEleCls)}
-        >
-          {prefix}
-        </span>
-      }
+    return <span className={cls('label', joinCls(required && cls('label-required'), labelCls))}>{label}</span>;
+  };
+
+  const renderSuffix = () => {
+    if (loading) return <Spinner className={cls('suffix-loading')} strokeWidth={SPINNER_STROKE_WIDTH} />;
+    if (suffix) return <span ref={suffixRef} className={cls('suffix', suffixEleCls)}>{suffix}</span>;
+    return null;
+  };
+
+  return (
+    <div className={wrapperClassName}>
+      {renderLabel()}
+
       <div
-        className={classes('element', (!isFocus && isMaxWidth) ? classes('element-max') : '')}
+        ref={containerRef}
+        className={cls(void 0, joinCls(className, isFocus && cls('focus')))}
+        onClick={handleContainerClick}
       >
-        <input
-          {...rest}
-          ref={inputRef}
-          value={formattedValue}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          disabled={disabled}
-          style={{ '--input-width': `${_width}px` } as CSSProperties}
-          onChange={handleChange}
-          onSelect={handleSelect}
-          onFocus={e => {
-            changeFocus(true);
-            onFocus?.(e);
-          }}
-          onBlur={e => {
-            changeFocus(false);
-            onBlur?.(e);
-          }}
-        />
-      </div>
-      {
-        currency && <span
-          ref={currencyRef}
-          className={classes('currency')}
+        {prefix && (
+          <span ref={prefixRef} className={cls('prefix', prefixEleCls)}>
+            {prefix}
+          </span>
+        )}
+
+        <div className={cls('element', (!isFocus && isMaxWidth) ? cls('element-max') : '')}>
+          <input
+            {...rest}
+            ref={inputRef}
+            value={formattedValue}
+            placeholder={placeholder}
+            readOnly={readOnly}
+            disabled={disabled}
+            style={{ [CSS_VAR_INPUT_WIDTH]: `${inputWidth}px` } as CSSProperties}
+            onChange={handleChange}
+            onSelect={handleSelect}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+        </div>
+
+        {currency && (
+          <span ref={currencyRef} className={cls('currency')}>
+            {currency}
+          </span>
+        )}
+
+        {renderSuffix()}
+
+        <span
+          ref={fakeEleRef}
+          className={cls('fake')}
+          onClick={e => e.stopPropagation()}
         >
-          {currency}
+          {formattedValue}
         </span>
-      }
-      {loading ? <Spinner className={classes('suffix-loading')} strokeWidth='4' /> : suffix ? <span ref={suffixRef} className={classes('suffix', suffixEleCls)}>{suffix}</span> : null}
-      <span
-        ref={fakeEleRef}
-        className={classes('fake')}
-        onClick={e => e.stopPropagation()}
-      >
-        {formattedValue}
-      </span>
-    </div>
-    {
-      (message || footnote) && <div className={classes('extra')}>
-        {message && <div className={classes('message', messageCls)}>{message}</div>}
-        {footnote && <div className={classes('footnote', footnoteCls)}>{footnote}</div>}
       </div>
-    }
-  </div>;
+
+      {(message || footnote) && (
+        <div className={cls('extra')}>
+          {message && <div className={cls('message', messageCls)}>{message}</div>}
+          {footnote && <div className={cls('footnote', footnoteCls)}>{footnote}</div>}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default memo(InputAmount);

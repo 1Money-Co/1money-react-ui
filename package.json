@@ -1,6 +1,6 @@
 {
   "name": "@1money/react-ui",
-  "version": "1.16.0",
+  "version": "1.17.1",
   "description": "React Components based on primereact for 1money front-end projects",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -63,6 +63,16 @@
       "types": "./es/components/Drawer/index.d.ts",
       "import": "./es/components/Drawer/index.js",
       "require": "./lib/components/Drawer/index.js"
+    },
+    "./Form": {
+      "types": "./es/components/Form/index.d.ts",
+      "import": "./es/components/Form/index.js",
+      "require": "./lib/components/Form/index.js"
+    },
+    "./ProForm": {
+      "types": "./es/components/ProForm/index.d.ts",
+      "import": "./es/components/ProForm/index.js",
+      "require": "./lib/components/ProForm/index.js"
     },
     "./Grid": {
       "types": "./es/components/Grid/index.d.ts",
@@ -241,6 +251,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "bignumber.js": "^9.3.0",
     "classnames": "~2.2.6",
     "lodash.debounce": "^4.0.8",
@@ -248,7 +261,8 @@
     "lottie-web": "^5.12.2",
     "react-number-format": "^5.4.4",
     "react-pro-sidebar": "^1.1.0",
-    "react-tooltip": "^5.28.1"
+    "react-tooltip": "^5.28.1",
+    "react-hook-form": "^7.54.0"
   },
   "resolutions": {
     "@types/react": "~19.1.2",

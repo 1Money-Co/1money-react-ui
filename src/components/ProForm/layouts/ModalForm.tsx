@@ -1,0 +1,98 @@
+import { memo, useEffect, useRef } from 'react';
+import { joinCls } from '@/utils/classnames';
+import { Modal } from '../../Modal';
+import ProForm from '../ProForm';
+import { CSS_PREFIX } from '../constants';
+import styles from '../style/ProForm.module.scss';
+import { useOverlayForm } from './useOverlayForm';
+import type { FieldValues } from 'react-hook-form';
+import type { ModalHandlers } from '../../Modal';
+import type { ModalFormProps } from '../interface';
+
+/**
+ * A {@link ProForm} displayed inside a modal dialog.
+ *
+ * Supports controlled/uncontrolled open state, a trigger element, auto-close
+ * on submit, and optional close timeout.
+ *
+ * @typeParam TFieldValues - The form values type.
+ */
+function ModalFormBase<TFieldValues extends FieldValues = FieldValues>(
+  props: ModalFormProps<TFieldValues>,
+) {
+  const {
+    open,
+    onOpenChange,
+    trigger,
+    modalProps,
+    submitTimeout,
+    autoClose = true,
+    destroyOnClose = true,
+    width,
+    title,
+    onFinish,
+    children,
+    ...formProps
+  } = props;
+
+  const modalRef = useRef<ModalHandlers>(null);
+
+  const {
+    mergedOpen,
+    shouldRenderPanel,
+    triggerNode,
+    handleFinish,
+    handleHide,
+    mergedStyle,
+  } = useOverlayForm<TFieldValues>({
+    open,
+    onOpenChange,
+    trigger,
+    submitTimeout,
+    autoClose,
+    destroyOnClose,
+    width,
+    onFinish,
+    overlayStyle: modalProps?.style,
+    onOverlayHide: modalProps?.onHide,
+  });
+
+  useEffect(() => {
+    if (!shouldRenderPanel) return;
+    if (mergedOpen) {
+      modalRef.current?.show();
+      return;
+    }
+    modalRef.current?.hide();
+  }, [mergedOpen, shouldRenderPanel]);
+
+  return (
+    <>
+      {triggerNode}
+      {shouldRenderPanel && (
+        <Modal
+          ref={modalRef}
+          {...modalProps}
+          header={modalProps?.header ?? title}
+          style={mergedStyle}
+          onHide={handleHide}
+        >
+          <div className={joinCls(styles['proform__modal-form'], `${CSS_PREFIX}-modal-form`)}>
+            <ProForm<TFieldValues>
+              {...formProps}
+              onFinish={handleFinish}
+            >
+              {children}
+            </ProForm>
+          </div>
+        </Modal>
+      )}
+    </>
+  );
+}
+
+ModalFormBase.displayName = 'ModalForm';
+
+export const ModalForm = memo(ModalFormBase) as typeof ModalFormBase;
+
+export default ModalForm;

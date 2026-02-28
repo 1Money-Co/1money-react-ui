@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form renders labels and help text 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="om-react-ui-form-root om-react-ui-form-layout-vertical om-react-ui-form-size-middle"
+        novalidate=""
+      >
+        <div
+          class="om-react-ui-form-item-root om-react-ui-form-item-layout-vertical"
+          style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+        >
+          <div
+            class="om-react-ui-form-item-label"
+          >
+            <strong
+              class="om-react-ui-typography-label om-react-ui-typography-label-s"
+            >
+              Email
+            </strong>
+            <span
+              class="om-react-ui-form-item-colon"
+            >
+              :
+            </span>
+          </div>
+          <div
+            class="om-react-ui-form-item-control"
+          >
+            <div
+              class="om-react-ui-form-item-content"
+            >
+              <div
+                class="om-react-ui-input-wrapper"
+              >
+                <div
+                  class="om-react-ui-input-inner om-react-ui-input-inner-large"
+                >
+                  <input
+                    class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                    data-pc-name="inputtext"
+                    data-pc-section="root"
+                  />
+                </div>
+              </div>
+              <div
+                class="om-react-ui-form-item-help"
+              >
+                We never share it.
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="om-react-ui-form-root om-react-ui-form-layout-vertical om-react-ui-form-size-middle"
+      novalidate=""
+    >
+      <div
+        class="om-react-ui-form-item-root om-react-ui-form-item-layout-vertical"
+        style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+      >
+        <div
+          class="om-react-ui-form-item-label"
+        >
+          <strong
+            class="om-react-ui-typography-label om-react-ui-typography-label-s"
+          >
+            Email
+          </strong>
+          <span
+            class="om-react-ui-form-item-colon"
+          >
+            :
+          </span>
+        </div>
+        <div
+          class="om-react-ui-form-item-control"
+        >
+          <div
+            class="om-react-ui-form-item-content"
+          >
+            <div
+              class="om-react-ui-input-wrapper"
+            >
+              <div
+                class="om-react-ui-input-inner om-react-ui-input-inner-large"
+              >
+                <input
+                  class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                  data-pc-name="inputtext"
+                  data-pc-section="root"
+                />
+              </div>
+            </div>
+            <div
+              class="om-react-ui-form-item-help"
+            >
+              We never share it.
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,607 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProForm fields binds ProFormText to FormItem + Input 1`] = `
+<DocumentFragment>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="email"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          Email
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-input-wrapper"
+          >
+            <div
+              class="om-react-ui-input-inner om-react-ui-input-inner-large"
+            >
+              <input
+                class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                data-pc-name="inputtext"
+                data-pc-section="root"
+                name="email"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`ProForm fields renders plain text in readonly mode 1`] = `
+<DocumentFragment>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="firstName"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          First Name
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <span>
+            Ada
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`ProForm fields reset restores ProFormSwitch and ProFormRadio values 1`] = `
+<DocumentFragment>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="newsletter"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          Newsletter
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            aria-checked="false"
+            class="om-react-ui-switch om-react-ui-switch p-inputswitch p-component"
+            data-p-disabled="false"
+            data-p-highlight="false"
+            data-pc-name="inputswitch"
+            data-pc-section="root"
+            role="checkbox"
+          >
+            <input
+              aria-checked="false"
+              checked=""
+              class="p-inputswitch-input"
+              data-pc-section="input"
+              name="newsletter"
+              role="switch"
+              type="checkbox"
+            />
+            <span
+              class="p-inputswitch-slider"
+              data-pc-section="slider"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="status"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          Status
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-radiogroup-wrapper"
+          >
+            <div
+              class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+            >
+              <div
+                class="om-react-ui-radiogroup-default-inner"
+              >
+                <div
+                  class="om-react-ui-radio-wrapper"
+                >
+                  <div
+                    class="om-react-ui-radio-inner rd-md"
+                  >
+                    <div
+                      class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                      data-p-checked="false"
+                      data-pc-name="radiobutton"
+                      data-pc-section="root"
+                    >
+                      <input
+                        class="p-radiobutton-input"
+                        data-pc-section="input"
+                        id="active"
+                        type="radio"
+                      />
+                      <div
+                        class="p-radiobutton-box"
+                        data-pc-section="box"
+                      >
+                        <div
+                          class="p-radiobutton-icon"
+                          data-pc-section="icon"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label
+                  for="active"
+                >
+                  Active
+                </label>
+              </div>
+              <div
+                class="om-react-ui-radiogroup-default-inner"
+              >
+                <div
+                  class="om-react-ui-radio-wrapper"
+                >
+                  <div
+                    class="om-react-ui-radio-inner rd-md"
+                  >
+                    <div
+                      class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                      data-p-checked="true"
+                      data-pc-name="radiobutton"
+                      data-pc-section="root"
+                    >
+                      <input
+                        checked=""
+                        class="p-radiobutton-input"
+                        data-pc-section="input"
+                        id="inactive"
+                        type="radio"
+                      />
+                      <div
+                        class="p-radiobutton-box"
+                        data-pc-section="box"
+                      >
+                        <div
+                          class="p-radiobutton-icon"
+                          data-pc-section="icon"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label
+                  for="inactive"
+                >
+                  Inactive
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`ProForm fields reset restores ProFormSwitch and ProFormRadio values 2`] = `
+<DocumentFragment>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="newsletter"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          Newsletter
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            aria-checked="true"
+            class="om-react-ui-switch om-react-ui-switch p-inputswitch p-component p-highlight"
+            data-p-disabled="false"
+            data-p-highlight="true"
+            data-pc-name="inputswitch"
+            data-pc-section="root"
+            role="checkbox"
+          >
+            <input
+              aria-checked="true"
+              checked=""
+              class="p-inputswitch-input"
+              data-pc-section="input"
+              name="newsletter"
+              role="switch"
+              type="checkbox"
+            />
+            <span
+              class="p-inputswitch-slider"
+              data-pc-section="slider"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="status"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          Status
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-radiogroup-wrapper"
+          >
+            <div
+              class="om-react-ui-radiogroup-inner om-react-ui-radiogroup-default horizontal"
+            >
+              <div
+                class="om-react-ui-radiogroup-default-inner"
+              >
+                <div
+                  class="om-react-ui-radio-wrapper"
+                >
+                  <div
+                    class="om-react-ui-radio-inner rd-md"
+                  >
+                    <div
+                      class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component p-highlight"
+                      data-p-checked="true"
+                      data-pc-name="radiobutton"
+                      data-pc-section="root"
+                    >
+                      <input
+                        checked=""
+                        class="p-radiobutton-input"
+                        data-pc-section="input"
+                        id="active"
+                        type="radio"
+                      />
+                      <div
+                        class="p-radiobutton-box"
+                        data-pc-section="box"
+                      >
+                        <div
+                          class="p-radiobutton-icon"
+                          data-pc-section="icon"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label
+                  for="active"
+                >
+                  Active
+                </label>
+              </div>
+              <div
+                class="om-react-ui-radiogroup-default-inner"
+              >
+                <div
+                  class="om-react-ui-radio-wrapper"
+                >
+                  <div
+                    class="om-react-ui-radio-inner rd-md"
+                  >
+                    <div
+                      class="om-react-ui-radio-radio om-react-ui-radiogroup-inner-radio p-radiobutton p-component"
+                      data-p-checked="false"
+                      data-pc-name="radiobutton"
+                      data-pc-section="root"
+                    >
+                      <input
+                        class="p-radiobutton-input"
+                        data-pc-section="input"
+                        id="inactive"
+                        type="radio"
+                      />
+                      <div
+                        class="p-radiobutton-box"
+                        data-pc-section="box"
+                      >
+                        <div
+                          class="p-radiobutton-icon"
+                          data-pc-section="icon"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label
+                  for="inactive"
+                >
+                  Inactive
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`ProForm fields uses checked prop for ProFormSwitch 1`] = `
+<DocumentFragment>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+      data-form-item-name="enabled"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          Enabled
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            aria-checked="false"
+            class="om-react-ui-switch om-react-ui-switch p-inputswitch p-component"
+            data-p-disabled="false"
+            data-p-highlight="false"
+            data-pc-name="inputswitch"
+            data-pc-section="root"
+            role="checkbox"
+          >
+            <input
+              aria-checked="false"
+              class="p-inputswitch-input"
+              data-pc-section="input"
+              name="enabled"
+              role="switch"
+              type="checkbox"
+            />
+            <span
+              class="p-inputswitch-slider"
+              data-pc-section="slider"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;

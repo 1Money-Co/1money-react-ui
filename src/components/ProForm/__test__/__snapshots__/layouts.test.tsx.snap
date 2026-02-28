@@ -1,0 +1,805 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProForm layouts matches snapshot for QueryFilter collapsed and expanded states: query-collapsed 1`] = `
+<div
+  class="om-react-ui-proform-query-filter"
+>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-inline om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-inline"
+      data-form-item-name="a"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          A
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-input-wrapper"
+          >
+            <div
+              class="om-react-ui-input-inner om-react-ui-input-inner-large"
+            >
+              <input
+                class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                data-pc-name="inputtext"
+                data-pc-section="root"
+                name="a"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-inline"
+      data-form-item-name="b"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          B
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-input-wrapper"
+          >
+            <div
+              class="om-react-ui-input-inner om-react-ui-input-inner-large"
+            >
+              <input
+                class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                data-pc-name="inputtext"
+                data-pc-section="root"
+                name="b"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Search
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Expand
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`ProForm layouts matches snapshot for QueryFilter collapsed and expanded states: query-expanded 1`] = `
+<div
+  class="om-react-ui-proform-query-filter"
+>
+  <form
+    class="om-react-ui-form-root om-react-ui-form-layout-inline om-react-ui-form-size-middle"
+    novalidate=""
+  >
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-inline"
+      data-form-item-name="a"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          A
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-input-wrapper"
+          >
+            <div
+              class="om-react-ui-input-inner om-react-ui-input-inner-large"
+            >
+              <input
+                class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                data-pc-name="inputtext"
+                data-pc-section="root"
+                name="a"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-inline"
+      data-form-item-name="b"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          B
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-input-wrapper"
+          >
+            <div
+              class="om-react-ui-input-inner om-react-ui-input-inner-large"
+            >
+              <input
+                class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                data-pc-name="inputtext"
+                data-pc-section="root"
+                name="b"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-form-item-root om-react-ui-form-item-layout-inline"
+      data-form-item-name="c"
+      style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+    >
+      <div
+        class="om-react-ui-form-item-label"
+      >
+        <strong
+          class="om-react-ui-typography-label om-react-ui-typography-label-s"
+        >
+          C
+        </strong>
+        <span
+          class="om-react-ui-form-item-colon"
+        >
+          :
+        </span>
+      </div>
+      <div
+        class="om-react-ui-form-item-control"
+      >
+        <div
+          class="om-react-ui-form-item-content"
+        >
+          <div
+            class="om-react-ui-input-wrapper"
+          >
+            <div
+              class="om-react-ui-input-inner om-react-ui-input-inner-large"
+            >
+              <input
+                class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                data-pc-name="inputtext"
+                data-pc-section="root"
+                name="c"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="om-react-ui-proform-submitter"
+    >
+      <button
+        class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Search
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+        data-pc-name="button"
+        data-pc-section="root"
+        type="button"
+      >
+        Collapse
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`ProForm layouts matches snapshot for StepsForm first and last steps: steps-first 1`] = `
+<div
+  class="om-react-ui-proform-steps-form"
+  data-testid="steps-snapshot"
+>
+  <div
+    class="om-react-ui-proform-steps-form-step"
+    data-testid="step-snapshot-a"
+  >
+    <div
+      class="om-react-ui-proform-steps-form-title"
+    >
+      A
+    </div>
+    <form
+      class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+      novalidate=""
+    >
+      <div
+        class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+        data-form-item-name="firstName"
+        style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+      >
+        <div
+          class="om-react-ui-form-item-label"
+        >
+          <strong
+            class="om-react-ui-typography-label om-react-ui-typography-label-s"
+          >
+            First Name
+          </strong>
+          <span
+            class="om-react-ui-form-item-colon"
+          >
+            :
+          </span>
+        </div>
+        <div
+          class="om-react-ui-form-item-control"
+        >
+          <div
+            class="om-react-ui-form-item-content"
+          >
+            <div
+              class="om-react-ui-input-wrapper"
+            >
+              <div
+                class="om-react-ui-input-inner om-react-ui-input-inner-large"
+              >
+                <input
+                  class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                  data-pc-name="inputtext"
+                  data-pc-section="root"
+                  name="firstName"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="om-react-ui-proform-steps-form-actions"
+      >
+        <button
+          class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+          data-pc-name="button"
+          data-pc-section="root"
+          type="submit"
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`ProForm layouts matches snapshot for StepsForm first and last steps: steps-last 1`] = `
+<div
+  class="om-react-ui-proform-steps-form"
+  data-testid="steps-snapshot"
+>
+  <div
+    class="om-react-ui-proform-steps-form-step"
+    data-testid="step-snapshot-b"
+  >
+    <div
+      class="om-react-ui-proform-steps-form-title"
+    >
+      B
+    </div>
+    <form
+      class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+      novalidate=""
+    >
+      <div
+        class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+        data-form-item-name="lastName"
+        style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+      >
+        <div
+          class="om-react-ui-form-item-label"
+        >
+          <strong
+            class="om-react-ui-typography-label om-react-ui-typography-label-s"
+          >
+            Last Name
+          </strong>
+          <span
+            class="om-react-ui-form-item-colon"
+          >
+            :
+          </span>
+        </div>
+        <div
+          class="om-react-ui-form-item-control"
+        >
+          <div
+            class="om-react-ui-form-item-content"
+          >
+            <div
+              class="om-react-ui-input-wrapper"
+            >
+              <div
+                class="om-react-ui-input-inner om-react-ui-input-inner-large"
+              >
+                <input
+                  class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                  data-pc-name="inputtext"
+                  data-pc-section="root"
+                  name="lastName"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="om-react-ui-proform-steps-form-actions"
+      >
+        <button
+          class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+          data-pc-name="button"
+          data-pc-section="root"
+          type="button"
+        >
+          Previous
+        </button>
+        <button
+          class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+          data-pc-name="button"
+          data-pc-section="root"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`ProForm layouts matches snapshot for opened ModalForm and DrawerForm: drawer-opened 1`] = `
+<div
+  class="om-react-ui-drawer p-sidebar p-component p-ripple-disabled p-sidebar-enter p-sidebar-enter-active"
+  data-pc-name="sidebar"
+  data-pc-section="root"
+  role="complementary"
+>
+  <div
+    class="p-sidebar-header p-sidebar-custom-header"
+    data-pc-section="header"
+  >
+    Snapshot Drawer
+    <div
+      class="p-sidebar-icons"
+      data-pc-section="icons"
+    >
+      <i
+        class="om-react-ui-icons-logo-with-words"
+      >
+        <i
+          class="om-react-ui-icons-wrapper"
+          style="color: rgb(7, 51, 135); width: 24px; height: 24px;"
+        >
+          <svg
+            class="om-react-ui-icons"
+            fill="none"
+            height="24"
+            stroke="none"
+            viewBox="0 0 248 248"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M157.276 114.325C174.548 103.32 186.004 83.9979 186.004 62C186.004 27.7583 158.246 0 124.004 0C95.6448 0 71.7327 19.0401 64.3538 45.0343C88.5333 45.7406 109.988 57.3119 124.004 75.0356C125.875 77.4013 127.613 79.8767 129.208 82.4504C134.087 90.3248 137.62 99.1203 139.487 108.516C145.711 109.752 151.672 111.72 157.276 114.325Z"
+            />
+            <path
+              d="M108.52 108.517C109.757 102.295 111.724 96.336 114.329 90.7333C103.324 73.4586 84.0001 62 62 62C27.7583 62 0 89.7583 0 124C0 152.362 19.0439 176.276 45.042 183.652C45.7477 159.472 57.3192 138.017 75.0435 124C75.4946 123.643 75.9496 123.291 76.4086 122.944C85.7205 115.904 96.6406 110.879 108.52 108.517Z"
+            />
+            <path
+              d="M90.7354 133.672C73.4617 144.677 62.0039 164.001 62.0039 186C62.0039 220.242 89.7623 248 124.004 248C152.363 248 176.275 228.96 183.654 202.966C159.474 202.259 138.02 190.688 124.004 172.964C116.837 163.902 111.615 153.231 108.968 141.582C108.809 140.886 108.66 140.186 108.52 139.483C102.298 138.246 96.3383 136.278 90.7354 133.672Z"
+            />
+            <path
+              d="M133.676 157.274C144.681 174.544 164.003 186 186 186C220.242 186 248 158.242 248 124C248 95.6437 228.964 71.7336 202.973 64.3521C202.266 88.5307 190.695 109.984 172.972 124C163.908 131.168 153.235 136.391 141.584 139.038C140.888 139.196 140.189 139.345 139.487 139.484C138.25 145.708 136.282 151.669 133.676 157.274Z"
+            />
+          </svg>
+        </i>
+        <i
+          class="om-react-ui-icons-wrapper"
+          style="color: rgb(19, 19, 19); width: 107px; height: 24px;"
+        >
+          <svg
+            class="om-react-ui-icons"
+            fill="none"
+            height="24"
+            stroke="none"
+            viewBox="0 0 469 86"
+            width="107"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M234.51 43C234.51 66.5843 215.392 85.7033 191.807 85.7033C168.223 85.7033 149.104 66.5843 149.104 43C149.104 19.4156 168.223 0.296631 191.807 0.296631C215.392 0.296631 234.51 19.4156 234.51 43ZM215.828 43C215.828 56.2662 205.073 67.0206 191.807 67.0206C178.541 67.0206 167.787 56.2662 167.787 43C167.787 29.7337 178.541 18.9793 191.807 18.9793C205.073 18.9793 215.828 29.7337 215.828 43Z"
+              fill-rule="evenodd"
+            />
+            <path
+              d="M0 32.5969V19.5572C10.8241 17.9943 19.7942 10.7 23.7345 0.850114H38.2035V84.8134H17.3327V32.5969H0Z"
+            />
+            <path
+              d="M342.278 18.3625L383.562 18.362V0.849666L321.407 0.850114V84.8134H383.562V67.3011H342.278V50.3885L374.044 50.3884V34.0756L342.278 34.0756V18.3625Z"
+            />
+            <path
+              d="M46.681 84.8134H67.5519V36.7144L85.9038 84.8134H102.936L121.288 36.7144V84.8134H142.159V0.850114H117.45L94.4201 57.8252L71.3902 0.850114H46.681V84.8134Z"
+            />
+            <path
+              d="M314.349 0.850114V84.8134H293.358L262.052 33.9556V84.8134H241.181V0.850114H262.172L293.478 52.0677V0.850114H314.349Z"
+            />
+            <path
+              d="M448.361 0.850114H472.231L440.445 57.2255V84.8134H419.574V57.2255L387.668 0.850114H411.537L430.009 35.515L448.361 0.850114Z"
+            />
+          </svg>
+        </i>
+      </i>
+      <button
+        aria-label="Close"
+        class="p-sidebar-close p-sidebar-icon p-link"
+        data-pc-section="closebutton"
+        type="button"
+      >
+        <i
+          class="om-react-ui-icons-wrapper om-react-ui-drawer-close"
+          style="color: rgb(19, 19, 19); width: 24px; height: 24px;"
+        >
+          <svg
+            class="om-react-ui-icons"
+            fill="none"
+            height="24"
+            stroke="none"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.5859 12L4.79308 6.20718L6.20729 4.79297L12.0001 10.5858L17.793 4.79297L19.2072 6.20718L13.4143 12L19.2073 17.793L17.7931 19.2072L12.0001 13.4142L6.20718 19.2072L4.79297 17.793L10.5859 12Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </button>
+    </div>
+  </div>
+  <div
+    class="p-sidebar-content"
+    data-pc-section="content"
+  >
+    <div
+      class="om-react-ui-proform-drawer-form"
+    >
+      <form
+        class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+        novalidate=""
+      >
+        <div
+          class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+          data-form-item-name="email"
+          style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+        >
+          <div
+            class="om-react-ui-form-item-label"
+          >
+            <strong
+              class="om-react-ui-typography-label om-react-ui-typography-label-s"
+            >
+              Email
+            </strong>
+            <span
+              class="om-react-ui-form-item-colon"
+            >
+              :
+            </span>
+          </div>
+          <div
+            class="om-react-ui-form-item-control"
+          >
+            <div
+              class="om-react-ui-form-item-content"
+            >
+              <div
+                class="om-react-ui-input-wrapper"
+              >
+                <div
+                  class="om-react-ui-input-inner om-react-ui-input-inner-large"
+                >
+                  <input
+                    class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                    data-pc-name="inputtext"
+                    data-pc-section="root"
+                    name="email"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="om-react-ui-proform-submitter"
+        >
+          <button
+            class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+            data-pc-name="button"
+            data-pc-section="root"
+            type="button"
+          >
+            Reset
+          </button>
+          <button
+            class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+            data-pc-name="button"
+            data-pc-section="root"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProForm layouts matches snapshot for opened ModalForm and DrawerForm: modal-opened 1`] = `
+<div
+  aria-describedby="pr_id_17_content"
+  aria-labelledby="pr_id_17_header"
+  aria-modal="true"
+  class="om-react-ui-modal p-dialog p-component p-dialog-default p-ripple-disabled p-dialog-enter p-dialog-enter-active"
+  data-pc-name="dialog"
+  data-pc-section="root"
+  id="pr_id_17"
+  pr_id_17=""
+  role="dialog"
+>
+  <span
+    aria-hidden="true"
+    class="p-hidden-accessible p-hidden-focusable"
+    data-p-hidden-accessible="true"
+    data-p-hidden-focusable="true"
+    data-pc-section="firstfocusableelement"
+    role="presentation"
+    tabindex="0"
+  />
+  <div
+    class="p-dialog-header"
+    data-pc-section="header"
+  >
+    <div
+      class="p-dialog-title"
+      data-pc-section="headertitle"
+      id="pr_id_17_header"
+    >
+      Snapshot Modal
+    </div>
+    <div
+      class="p-dialog-header-icons"
+      data-pc-section="headericons"
+    >
+      <button
+        aria-label="Close"
+        class="p-dialog-header-icon p-dialog-header-close p-link"
+        data-pc-section="closebutton"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="p-icon p-dialog-header-close-icon"
+          data-pc-section="closebuttonicon"
+          fill="none"
+          height="14"
+          viewBox="0 0 14 14"
+          width="14"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.01186 7.00933L12.27 2.75116C12.341 2.68501 12.398 2.60524 12.4375 2.51661C12.4769 2.42798 12.4982 2.3323 12.4999 2.23529C12.5016 2.13827 12.4838 2.0419 12.4474 1.95194C12.4111 1.86197 12.357 1.78024 12.2884 1.71163C12.2198 1.64302 12.138 1.58893 12.0481 1.55259C11.9581 1.51625 11.8617 1.4984 11.7647 1.50011C11.6677 1.50182 11.572 1.52306 11.4834 1.56255C11.3948 1.60204 11.315 1.65898 11.2488 1.72997L6.99067 5.98814L2.7325 1.72997C2.59553 1.60234 2.41437 1.53286 2.22718 1.53616C2.03999 1.53946 1.8614 1.61529 1.72901 1.74767C1.59663 1.88006 1.5208 2.05865 1.5175 2.24584C1.5142 2.43303 1.58368 2.61419 1.71131 2.75116L5.96948 7.00933L1.71131 11.2675C1.576 11.403 1.5 11.5866 1.5 11.7781C1.5 11.9696 1.576 12.1532 1.71131 12.2887C1.84679 12.424 2.03043 12.5 2.2219 12.5C2.41338 12.5 2.59702 12.424 2.7325 12.2887L6.99067 8.03052L11.2488 12.2887C11.3843 12.424 11.568 12.5 11.7594 12.5C11.9509 12.5 12.1346 12.424 12.27 12.2887C12.4053 12.1532 12.4813 11.9696 12.4813 11.7781C12.4813 11.5866 12.4053 11.403 12.27 11.2675L8.01186 7.00933Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    class="p-dialog-content"
+    data-pc-section="content"
+    id="pr_id_17_content"
+  >
+    <div
+      class="om-react-ui-proform-modal-form"
+    >
+      <form
+        class="om-react-ui-form-root om-react-ui-form-layout-horizontal om-react-ui-form-size-middle"
+        novalidate=""
+      >
+        <div
+          class="om-react-ui-form-item-root om-react-ui-form-item-layout-horizontal"
+          data-form-item-name="email"
+          style="--om-form-label-width: 25%; --om-form-wrapper-width: 75%;"
+        >
+          <div
+            class="om-react-ui-form-item-label"
+          >
+            <strong
+              class="om-react-ui-typography-label om-react-ui-typography-label-s"
+            >
+              Email
+            </strong>
+            <span
+              class="om-react-ui-form-item-colon"
+            >
+              :
+            </span>
+          </div>
+          <div
+            class="om-react-ui-form-item-control"
+          >
+            <div
+              class="om-react-ui-form-item-content"
+            >
+              <div
+                class="om-react-ui-input-wrapper"
+              >
+                <div
+                  class="om-react-ui-input-inner om-react-ui-input-inner-large"
+                >
+                  <input
+                    class="om-react-ui-input om-react-ui-input-large om-react-ui-input-text om-react-ui-input-text-large p-inputtext p-component"
+                    data-pc-name="inputtext"
+                    data-pc-section="root"
+                    name="email"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="om-react-ui-proform-submitter"
+        >
+          <button
+            class="om-react-ui-button om-react-ui-button-secondary om-react-ui-button-large p-button p-component p-button-secondary"
+            data-pc-name="button"
+            data-pc-section="root"
+            type="button"
+          >
+            Reset
+          </button>
+          <button
+            class="om-react-ui-button om-react-ui-button-primary om-react-ui-button-large p-button p-component p-button-primary"
+            data-pc-name="button"
+            data-pc-section="root"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <span
+    class="p-resizable-handle"
+    style="z-index: 90;"
+  />
+  <span
+    aria-hidden="true"
+    class="p-hidden-accessible p-hidden-focusable"
+    data-p-hidden-accessible="true"
+    data-p-hidden-focusable="true"
+    data-pc-section="lastfocusableelement"
+    role="presentation"
+    tabindex="0"
+  />
+</div>
+`;

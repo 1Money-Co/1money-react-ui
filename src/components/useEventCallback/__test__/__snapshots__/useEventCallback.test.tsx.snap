@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useEventCallback works with event handlers 1`] = `
+<DocumentFragment>
+  <button
+    data-testid="button"
+    type="button"
+  >
+    Count: 3
+  </button>
+</DocumentFragment>
+`;

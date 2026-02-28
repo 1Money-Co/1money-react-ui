@@ -1,37 +1,30 @@
-import { memo, useMemo, useState, useCallback } from 'react';
+import { memo } from 'react';
 import { InputSwitch } from 'primereact/inputswitch';
 import { ToggleButton } from 'primereact/togglebutton';
 import { default as classnames, joinCls } from '@/utils/classnames';
+import useControlledState from '../useControlledState';
+import useEventCallback from '../useEventCallback';
 /* import types */
 import type { FC, PropsWithChildren } from 'react';
-import type { SwitchProps } from './interface';
+import type { SwitchChangeEvent, SwitchProps } from './interface';
 
 export const Switch: FC<PropsWithChildren<SwitchProps>> = props => {
-  const { type, defaultChecked, className, onChange, prefixCls = 'switch', ...rest } = props;
+  const { type, checked: checkedProp, defaultChecked = false, className, onChange, prefixCls = 'switch', ...rest } = props;
   const classes = classnames(prefixCls);
-  const [ checked, setChecked ] = useState<boolean>(defaultChecked || false);
+  const [checked, setChecked] = useControlledState(defaultChecked, checkedProp);
 
-  const SwitchComponent = useMemo(() => {
-    switch (type) {
-      case 'normal':
-        return InputSwitch as new () => InputSwitch;
-      case 'button':
-        return ToggleButton as new () => ToggleButton;
-      default:
-        return InputSwitch as new () => InputSwitch;
-    }
-  }, [type]);
-  return (
-    <SwitchComponent
-      {...rest as any}
-      className={classes(void 0, joinCls(classes(type), className))}
-      checked={checked}
-      onChange={e => {
-        setChecked(e.value);
-        onChange?.(e as any);
-      }}
-    />
-  );
+  const handleChange = useEventCallback((e: SwitchChangeEvent) => {
+    setChecked(e.value);
+    onChange?.(e);
+  });
+
+  const cls = classes(undefined, joinCls(classes(type), className));
+
+  if (type === 'button') {
+    return <ToggleButton {...rest} className={cls} checked={checked} onChange={handleChange} />;
+  }
+
+  return <InputSwitch {...rest} className={cls} checked={checked} onChange={handleChange} />;
 };
 
 export default memo(Switch);

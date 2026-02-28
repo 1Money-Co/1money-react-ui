@@ -1,4 +1,4 @@
-import type { ReactNode, RefObject } from 'react';
+import type { ReactNode, Ref } from 'react';
 import type { InputTextProps as PrimeInputTextProps } from 'primereact/inputtext';
 import type { InputNumberProps as PrimeInputNumberProps, InputNumber as InputNumberClass } from 'primereact/inputnumber';
 import type { InputMaskProps as PrimeInputMaskProps, InputMask as InputMaskClass } from 'primereact/inputmask';
@@ -26,43 +26,43 @@ export interface InputBaseProps {
   suffixEleCls?: string;
   loading?: boolean;
   showMessageIcon?: boolean;
+  showCount?: boolean;
 }
 
 export interface InputTextProps extends Omit<PrimeInputTextProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type?: 'text';
-  ref?: RefObject<HTMLInputElement | null>;
+  ref?: Ref<HTMLInputElement | null>;
 }
 
 export interface InputNumberProps extends Omit<PrimeInputNumberProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'number';
-  ref?: RefObject<InputNumberClass | null>;
+  ref?: Ref<InputNumberClass | null>;
 }
 
 export interface InputMaskProps extends Omit<PrimeInputMaskProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'mask';
-  ref?: RefObject<InputMaskClass | null>;
+  ref?: Ref<InputMaskClass | null>;
 }
 
 export interface InputTextareaProps extends Omit<PrimeInputTextareaProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'textarea';
   maxLength?: number;
-  showCount?: boolean;
-  ref?: RefObject<HTMLTextAreaElement | null>;
+  ref?: Ref<HTMLTextAreaElement | null>;
 }
 
 export interface InputOtpProps extends Omit<PrimeInputOtpProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'otp';
-  ref?: RefObject<HTMLInputElement | null>;
+  ref?: Ref<HTMLInputElement | null>;
 }
 
 export interface InputPwdProps extends Omit<PasswordProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'password';
-  ref?: RefObject<PasswordClass | null>;
+  ref?: Ref<PasswordClass | null>;
 }
 
 export interface InputAutoCompleteProps extends Omit<AutoCompleteProps, 'size' | 'prefix' | 'suffix'>, InputBaseProps{
   type: 'autocomplete';
-  ref?: RefObject<AutoCompleteClass | null>;
+  ref?: Ref<AutoCompleteClass | null>;
 }
 
 export type InputProps = InputTextProps | InputNumberProps | InputMaskProps | InputTextareaProps | InputOtpProps | InputPwdProps | InputAutoCompleteProps;
