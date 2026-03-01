@@ -31,7 +31,8 @@ export default meta;
 
 type Story = StoryObj<typeof Checkbox>;
 
-// Wrapper component for controlled checkbox
+// Storybook wrappers: manage local state so the checkbox visually toggles when clicked
+// in stories, and sync from Storybook arg controls via useEffect.
 const ControlledCheckbox = (props: CheckboxNormalProps) => {
   const [checked, setChecked] = useState(props.checked ?? false);
 
@@ -47,7 +48,6 @@ const ControlledCheckbox = (props: CheckboxNormalProps) => {
   }} />;
 };
 
-// Wrapper component for controlled tristate checkbox
 const ControlledTristateCheckbox = (props: CheckboxTriStateProps) => {
   const [value, setValue] = useState<boolean | null>(props.value ?? null);
 

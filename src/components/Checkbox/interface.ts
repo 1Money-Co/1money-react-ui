@@ -1,6 +1,10 @@
 import type { ReactNode } from 'react';
 import type { CheckboxProps as PrimeCheckboxProps } from 'primereact/checkbox';
 
+/**
+ * Intentionally overrides PrimeCheckboxProps: replaces 'checked', 'onChange', 'icon',
+ * 'value', 'defaultValue' with custom signatures, and narrows 'size' to 'sm' | 'md' | 'lg'.
+ */
 export interface CheckboxBaseProps extends Omit<
   PrimeCheckboxProps,
   'checked' | 'onChange' | 'className' | 'icon' | 'size' | 'value' | 'defaultValue'

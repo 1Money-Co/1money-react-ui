@@ -36,7 +36,6 @@ export const Single: Story = {
         </>,
       },
     ],
-    prefixCls: 'checkboxgroup',
   },
   tags: ['!autodocs', 'dev'],
 };
@@ -46,7 +45,6 @@ export const NoLabel: Story = {
     items: [
       { key: 'NoLabel' },
     ],
-    prefixCls: 'checkboxgroup',
   },
 };
 
@@ -58,7 +56,6 @@ export const Invalid: Story = {
       { key: 'checked', invalid: true, label: 'checked', defaultValue: true },
       { key: 'notChecked', invalid: true, label: 'Not checked', defaultValue: false },
     ],
-    prefixCls: 'checkboxgroup',
   },
 };
 
@@ -68,7 +65,6 @@ export const Size: Story = {
     items: [
       { key: 'small', label: 'small' },
     ],
-    prefixCls: 'checkboxgroup',
   },
 };
 
@@ -80,7 +76,6 @@ export const Disabled: Story = {
       { key: 'Achecked', label: 'Checked', disabled: true, defaultValue: true },
       { key: 'BnotChecked', label: 'Not checked', disabled: true, defaultValue: false },
     ],
-    prefixCls: 'checkboxgroup',
   },
 };
 
@@ -90,7 +85,6 @@ export const SingleTristate: Story = {
     items: [
       { key: 'Status', label: 'Change State' },
     ],
-    prefixCls: 'checkboxgroup',
   },
 };
 
@@ -102,7 +96,6 @@ export const Multiple: Story = {
       { key: 'Pepper', label: 'Pepper' },
       { key: 'Onion', label: 'Onion' },
     ],
-    prefixCls: 'checkboxgroup',
   },
 };
 
@@ -119,6 +112,5 @@ export const MultipleTristate: Story = {
     onChange(itemsState) {
       console.info('itemsState', itemsState);
     },
-    prefixCls: 'checkboxgroup',
   },
 };
