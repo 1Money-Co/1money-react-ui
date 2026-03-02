@@ -38,9 +38,9 @@ $cls: #{$prefix}-#{$component};
           height: 36px;
           padding: 8px 16px;
           color: $color-grey-midnight;
-          font-weight: 500;
-          font-size: 14px;
-          border-radius: 12px;
+          font-weight: $font-weight-medium;
+          font-size: $font-size-md;
+          border-radius: $radius-md;
 
 
           &:hover {
@@ -135,7 +135,7 @@ $cls: #{$prefix}-#{$component};
     margin: 32px auto 0;
     padding: 8px 12px;
     background-color: $color-grey;
-    border-radius: 12px;
+    border-radius: $radius-md;
     cursor: pointer;
 
     &-collapsed {
@@ -149,8 +149,8 @@ $cls: #{$prefix}-#{$component};
 
     &-text {
       color: $color-grey-midnight;
-      font-weight: 500;
-      font-size: 14px;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-md;
     }
   }
 
@@ -180,7 +180,7 @@ $cls: #{$prefix}-#{$component};
             gap: 4px;
             height: auto;
             padding: 8px;
-            font-size: 10px;
+            font-size: $font-size-xs;
 
             .ps-menu-label {
               line-height: 108%;
@@ -195,8 +195,8 @@ $cls: #{$prefix}-#{$component};
             margin-left: 2px !important;
             padding: 0;
             background-color: $color-grey-light;
-            border-radius: 12px;
-            box-shadow: 0 255px 71px 0 rgba(0, 0, 0, 0%), 0 10px 22px 0 rgba(0, 0, 0, 10%);
+            border-radius: $radius-md;
+            box-shadow: $shadow-popup;
 
             >ul {
               gap: 0;
@@ -229,7 +229,7 @@ $cls: #{$prefix}-#{$component};
               .ps-menu-button {
                 height: 40px;
                 padding: 12px 0;
-                font-size: 14px;
+                font-size: $font-size-md;
                 border: none;
                 border-bottom: 1px solid $color-grey-deep;
                 border-radius: 0;

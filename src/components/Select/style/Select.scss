@@ -1,4 +1,5 @@
 @use '../../../variable'as *;
+@use '../../../mixins'as *;
 
 $border-width-active: 2px;
 $component: 'select';
@@ -15,7 +16,7 @@ $cls: #{$prefix}-#{$component};
   border-color: $color-grey-bold;
   border-style: solid;
   border-width: 1px;
-  border-radius: 12px;
+  border-radius: $radius-md;
   transition: none;
 
   &.p-multiselect {
@@ -30,7 +31,7 @@ $cls: #{$prefix}-#{$component};
 
     .p-dropdown-label,
     .p-multiselect-label {
-      font-size: 14px !important;
+      font-size: $font-size-md !important;
     }
 
     .p-dropdown-label {
@@ -82,8 +83,8 @@ $cls: #{$prefix}-#{$component};
     padding: 8px 8px 8px 0;
     overflow: hidden;
     color: $color-primary-black;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
     font-family: inherit;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -97,8 +98,8 @@ $cls: #{$prefix}-#{$component};
     align-items: center;
     padding: 0 8px 0 0;
     color: $color-primary-black;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
     font-family: inherit;
     line-height: 140%;
     transition: none;
@@ -108,14 +109,14 @@ $cls: #{$prefix}-#{$component};
       margin-right: 0;
       padding: 4px 8px;
       background-color: $color-grey-deep;
-      border-radius: 12px;
+      border-radius: $radius-md;
 
       .p-multiselect-token-label {
         display: inline-block;
         overflow: hidden;
         color: $color-primary-black;
-        font-weight: 500;
-        font-size: 12px;
+        font-weight: $font-weight-medium;
+        font-size: $font-size-sm;
         line-height: 13px;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -132,8 +133,8 @@ $cls: #{$prefix}-#{$component};
   .p-multiselect-label,
   >.p-placeholder {
     color: $color-grey-dark;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
     font-style: normal;
     line-height: inherit;
   }
@@ -174,8 +175,8 @@ $cls: #{$prefix}-#{$component};
     padding: 8px;
     font-family: inherit;
     background-color: $color-primary-white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(65, 91, 130, 12%);
+    border-radius: $radius-sm;
+    box-shadow: $shadow-md;
 
     // Fix position and width when appendTo="self"
     // PrimeReact sets min-width: 100% based on clientWidth (excludes border)
@@ -193,17 +194,8 @@ $cls: #{$prefix}-#{$component};
       }
     }
 
-    ::-webkit-scrollbar {
-      width: 2px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: transparent;
-      border-radius: 2px;
-    }
-
-    ::-webkit-scrollbar-track {
-      margin: 2px 0;
+    * {
+      @include scrollbar;
     }
 
     &.p-dropdown-panel .p-dropdown-items {
@@ -228,11 +220,11 @@ $cls: #{$prefix}-#{$component};
     &.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
       padding: 8px;
       color: $color-primary-black;
-      font-weight: 400;
-      font-size: 16px;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-lg;
       font-style: normal;
       line-height: 22px;
-      border-radius: 8px
+      border-radius: $radius-sm
     }
 
     &.p-multiselect-panel {
@@ -251,8 +243,8 @@ $cls: #{$prefix}-#{$component};
           padding: 4px;
 
           &-count {
-            font-weight: 500;
-            font-size: 14px;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-md;
             line-height: 15px;
           }
 
@@ -261,8 +253,8 @@ $cls: #{$prefix}-#{$component};
             gap: 4px;
             align-items: center;
             color: $color-negative;
-            font-weight: 500;
-            font-size: 12px;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-sm;
             line-height: 13px;
             cursor: pointer;
 
@@ -281,13 +273,13 @@ $cls: #{$prefix}-#{$component};
             height: 44px;
             padding: 12px 16px 12px 44px;
             color: $color-primary-black;
-            font-size: 14px;
+            font-size: $font-size-md;
             line-height: 22px;
             background-color: $color-grey-light;
             border-color: $color-grey-bold;
             border-style: solid;
             border-width: 1px;
-            border-radius: 12px;
+            border-radius: $radius-md;
 
             &:hover {
               border-color: $color-primary-black;
@@ -312,7 +304,7 @@ $cls: #{$prefix}-#{$component};
 
         .p-multiselect-item {
           color: $color-primary-black;
-          font-weight: 400;
+          font-weight: $font-weight-regular;
 
           &.p-highlight {
             background-color: $color-grey-light;
@@ -346,7 +338,7 @@ $cls: #{$prefix}-#{$component};
                 border-color: $color-grey-dark;
                 border-style: solid;
                 border-width: 1px;
-                border-radius: 4px;
+                border-radius: $radius-xs;
                 box-shadow: none;
               }
             }
@@ -365,12 +357,12 @@ $cls: #{$prefix}-#{$component};
       height: 44px;
       padding: 12px 16px 12px 44px;
       color: $color-primary-black;
-      font-size: 14px;
+      font-size: $font-size-md;
       background-color: $color-grey-light;
       border-color: $color-grey-bold;
       border-style: solid;
       border-width: 1px;
-      border-radius: 12px;
+      border-radius: $radius-md;
 
       &:enabled:focus:not(.p-invalid) {
         padding: 11px 15px 11px 43px;
@@ -405,7 +397,7 @@ $cls: #{$prefix}-#{$component};
       &-label {
         width: 100%;
         font-weight: inherit;
-        font-size: 16px;
+        font-size: $font-size-lg;
         font-family: inherit;
         line-height: 22px;
       }
@@ -413,7 +405,7 @@ $cls: #{$prefix}-#{$component};
       svg {
         display: none;
         color: $color-primary;
-        font-size: 16px;
+        font-size: $font-size-lg;
       }
     }
   }
@@ -436,6 +428,7 @@ $cls: #{$prefix}-#{$component};
     cursor: text;
 
     .p-dropdown-label.p-inputtext {
+      -webkit-user-select: text;
       user-select: text;
     }
   }
@@ -443,23 +436,12 @@ $cls: #{$prefix}-#{$component};
 
 
 .#{$cls}-label {
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  font-style: normal;
+  @include form-label-base;
+
   line-height: 108%;
   cursor: text;
 
-  &-required {
-    &::after {
-      margin-left: 4px;
-      color: $color-negative;
-      font-size: 16px;
-      font-style: normal;
-      line-height: 120%;
-      content: '*';
-    }
-  }
+  @include form-label-required;
 
   &-loading {
     margin-bottom: 8px;
@@ -467,24 +449,12 @@ $cls: #{$prefix}-#{$component};
 }
 
 .#{$cls}-message {
+  @include form-message-base;
+
   display: inline-block;
-  margin-top: 4px;
-  color: $color-grey-midnight;
-  font-weight: 400;
-  font-size: 12px;
-  font-style: normal;
-  line-height: 17px;
-  word-wrap: break-word;
-  word-break: keep-all;
   cursor: text;
 
-  &-success {
-    color: $color-success;
-  }
-
-  &-error {
-    color: $color-negative;
-  }
+  @include form-message-variants;
 }
 
 .#{$cls}-filter {
@@ -503,8 +473,8 @@ $cls: #{$prefix}-#{$component};
 
   &-placeholder {
     color: $color-grey-dark;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
     font-style: normal;
     line-height: inherit;
   }
@@ -523,8 +493,8 @@ $cls: #{$prefix}-#{$component};
     display: inline-flex;
     align-items: center;
     color: $color-primary-black;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
     line-height: 220%;
     outline-color: $color-primary;
     cursor: text;
@@ -533,8 +503,8 @@ $cls: #{$prefix}-#{$component};
     &[contenteditable='true'][data-value='']::before {
       display: block;
       color: $color-grey-dark;
-      font-weight: 400;
-      font-size: 16px;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-lg;
       font-style: normal;
       line-height: inherit;
       content: attr(data-placeholder);

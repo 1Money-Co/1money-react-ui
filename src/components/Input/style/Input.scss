@@ -1,4 +1,5 @@
 @use '../../../variable.scss'as *;
+@use '../../../mixins'as *;
 
 $component: 'input';
 $cls: #{$prefix}-#{$component};
@@ -9,7 +10,7 @@ $opt-width: 54px;
   width: 100%;
 
   &-small {
-    font-size: 14px;
+    font-size: $font-size-md;
     line-height: 20px;
   }
 
@@ -22,8 +23,8 @@ $opt-width: 54px;
     height: 52px;
     padding: 0;
     color: $color-primary-black;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-lg;
     font-family: inherit;
     font-style: normal;
     line-height: 22px;
@@ -34,7 +35,7 @@ $opt-width: 54px;
 
     &-small {
       height: 40px;
-      font-size: 14px;
+      font-size: $font-size-md;
       line-height: 20px;
     }
 
@@ -45,7 +46,7 @@ $opt-width: 54px;
 
     &::placeholder {
       color: $color-grey-dark;
-      font-weight: 400;
+      font-weight: $font-weight-regular;
     }
   }
 
@@ -85,7 +86,7 @@ $opt-width: 54px;
       width: 42px !important;
       height: 44px !important;
       padding: 8px 12px !important;
-      font-size: 14px !important;
+      font-size: $font-size-md !important;
     }
 
     input {
@@ -93,13 +94,13 @@ $opt-width: 54px;
       height: 56px;
       padding: 12px 16px;
       color: inherit;
-      font-weight: 600;
-      font-size: 16px;
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-lg;
       background-color: $color-grey-light;
       border-color: $color-grey-bold;
       border-style: solid;
       border-width: 0.5px;
-      border-radius: 8px;
+      border-radius: $radius-sm;
 
       &.p-invalid {
         color: $color-negative;
@@ -197,6 +198,7 @@ $opt-width: 54px;
 
       input {
         cursor: text;
+        -webkit-user-select: text;
         user-select: text;
         pointer-events: auto;
       }
@@ -209,7 +211,7 @@ $opt-width: 54px;
       border-color: $color-grey-bold;
       border-style: solid;
       border-width: 1px;
-      border-radius: 12px;
+      border-radius: $radius-md;
 
       &:hover:not(:has(.p-invalid), :has(.p-disabled)) {
         border-color: $color-primary-black;
@@ -243,8 +245,8 @@ $opt-width: 54px;
         right: 16px;
         bottom: 12px;
         color: $color-grey-dark;
-        font-weight: 400;
-        font-size: 12px;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-sm;
         line-height: 15px;
       }
     }
@@ -273,25 +275,14 @@ $opt-width: 54px;
 
   // label
   &-label {
+    @include form-label-base;
+
     display: inline-block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    font-style: normal;
     line-height: 18px;
     word-wrap: break-word;
     word-break: break-all;
 
-    &-required {
-      &::after {
-        margin-left: 4px;
-        color: $color-negative;
-        font-size: 16px;
-        font-style: normal;
-        line-height: 120%;
-        content: '*';
-      }
-    }
+    @include form-label-required;
 
     &-loading {
       margin-bottom: 8px;
@@ -300,26 +291,14 @@ $opt-width: 54px;
 
   // message
   &-message {
+    @include form-message-base;
+
     display: flex;
     gap: 4px;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 4px;
-    color: $color-grey-midnight;
-    font-weight: 400;
-    font-size: 12px;
-    font-style: normal;
-    line-height: 17px;
-    word-wrap: break-word;
-    word-break: keep-all;
 
-    &-success {
-      color: $color-success;
-    }
-
-    &-error {
-      color: $color-negative;
-    }
+    @include form-message-variants;
   }
 
   &-prefix {

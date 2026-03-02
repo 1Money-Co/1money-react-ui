@@ -1,0 +1,75 @@
+@use 'variable' as *;
+
+/// Custom webkit scrollbar
+/// @param {Number} $width - scrollbar width (2px | 4px)
+/// @param {String} $hover-color - thumb color on hover
+/// @param {List} $track-margin - track top/bottom margin
+/// @param {String|null} $transition - thumb transition
+@mixin scrollbar(
+  $width: 2px,
+  $hover-color: $color-grey-dark,
+  $track-margin: 2px 0,
+  $transition: null
+) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: $width;
+
+    @if $transition {
+      transition: $transition;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    margin: $track-margin;
+  }
+}
+
+/// Form label base styles
+@mixin form-label-base {
+  margin-bottom: 8px;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+  font-style: normal;
+}
+
+/// Form label required asterisk
+@mixin form-label-required {
+  &-required {
+    &::after {
+      margin-left: 4px;
+      color: $color-negative;
+      font-size: $font-size-lg;
+      font-style: normal;
+      line-height: 120%;
+      content: '*';
+    }
+  }
+}
+
+/// Form message base styles
+@mixin form-message-base {
+  margin-top: 4px;
+  color: $color-grey-midnight;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-sm;
+  font-style: normal;
+  line-height: 17px;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+/// Form message success/error variants
+@mixin form-message-variants {
+  &-success {
+    color: $color-success;
+  }
+
+  &-error {
+    color: $color-negative;
+  }
+}

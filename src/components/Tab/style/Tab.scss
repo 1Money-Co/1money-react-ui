@@ -30,8 +30,8 @@ $component: 'tab';
         .p-menuitem-link {
           padding: 7px 16px;
           color: $color-grey-midnight;
-          font-weight: 700;
-          font-size: 16px;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-lg;
           background-color: transparent;
           border-color: $color-grey-deep;
           border-bottom-width: 2px;
@@ -58,13 +58,13 @@ $component: 'tab';
     display: inline-flex;
     gap: 4px;
     align-items: center;
-    font-family: var(--font-inter), Inter;
+    font-family: $font-family-primary;
     cursor: pointer;
 
     &-label {
       color: inherit;
-      font-weight: 700;
-      font-size: 16px;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-lg;
     }
 
     &-count {
@@ -73,10 +73,10 @@ $component: 'tab';
       height: 24px;
       padding: 4px 8px;
       color: $color-primary-black;
-      font-weight: 500;
-      font-size: 12px;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-sm;
       background-color: $color-grey;
-      border-radius: 12px;
+      border-radius: $radius-md;
     }
   }
 
@@ -112,7 +112,7 @@ $component: 'tab';
             border-radius: 40px;
 
             .p-menuitem-text {
-              font-weight: 500;
+              font-weight: $font-weight-medium;
             }
 
             &:hover {

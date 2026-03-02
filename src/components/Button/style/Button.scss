@@ -8,26 +8,26 @@ $component: 'button';
   justify-content: center;
   max-height: 52px;
   padding: 16px;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-lg;
   line-height: 20px;
-  border-radius: 12px;
+  border-radius: $radius-md;
   box-shadow: none;
 
   &-medium {
     max-height: 40px;
     padding: 12px;
-    font-size: 14px;
+    font-size: $font-size-md;
     line-height: 16px;
-    border-radius: 12px;
+    border-radius: $radius-md;
   }
 
   &-small {
     max-height: 32px;
     padding: 12px;
-    font-size: 12px;
+    font-size: $font-size-sm;
     line-height: 8px;
-    border-radius: 8px;
+    border-radius: $radius-sm;
   }
 
   &.p-disabled {
@@ -35,7 +35,7 @@ $component: 'button';
   }
 
   &.p-button-rounded {
-    border-radius: 36px;
+    border-radius: $radius-round;
   }
 
   &-loading-icon {
@@ -219,25 +219,25 @@ $component: 'button';
 
   &-primary-landing {
     padding: 10px 16px;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-lg;
     line-height: 26px;
     background-color: #073387;
     border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10%);
+    border-radius: $radius-sm;
+    box-shadow: $shadow-lg;
   }
 
   &-secondary-landing {
     padding: 10px 16px;
     color: #000;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-lg;
     line-height: 26px;
     background-color: #FFF;
     border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 10%);
+    border-radius: $radius-sm;
+    box-shadow: $shadow-lg;
   }
 
   &-danger {

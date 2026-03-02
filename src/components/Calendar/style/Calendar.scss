@@ -1,4 +1,5 @@
 @use '../../../variable.scss'as *;
+@use '../../../mixins'as *;
 
 $component: 'calendar';
 $cls: #{$prefix}-#{$component};
@@ -51,13 +52,13 @@ $size: 36px;
     height: 56px;
     padding: 8px 16px;
     color: $color-primary-black;
-    font-size: 16px;
+    font-size: $font-size-lg;
     line-height: 22px;
     background-color: $color-grey-light;
     border-color: $color-grey-bold;
     border-style: solid;
     border-width: 1px;
-    border-radius: 12px;
+    border-radius: $radius-md;
 
     &:hover {
       border-color: $color-primary;
@@ -65,8 +66,8 @@ $size: 36px;
 
     &::placeholder {
       color: $color-grey-dark;
-      font-weight: 400;
-      font-size: 14px;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-md;
     }
   }
 
@@ -89,8 +90,8 @@ $size: 36px;
     .p-button {
       padding: 0 16px;
       color: $color-primary-black;
-      font-size: 16px;
-      font-family: var(--font-inter), Inter;
+      font-size: $font-size-lg;
+      font-family: $font-family-primary;
       line-height: 18px;
 
       &:hover {
@@ -99,7 +100,7 @@ $size: 36px;
       }
 
       span {
-        font-weight: 500;
+        font-weight: $font-weight-medium;
       }
     }
   }
@@ -124,9 +125,9 @@ $size: 36px;
           align-items: center;
 
           >* {
-            font-weight: 500;
-            font-size: 18px;
-            font-family: var(--font-inter), Inter;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-xl;
+            font-family: $font-family-primary;
             line-height: 20px;
 
             &:hover {
@@ -159,9 +160,9 @@ $size: 36px;
         .p-datepicker-calendar {
           thead tr th span {
             color: $color-primary-black;
-            font-weight: 700;
-            font-size: 16px;
-            font-family: var(--font-inter), Inter;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+            font-family: $font-family-primary;
             line-height: 18px;
           }
 
@@ -183,9 +184,9 @@ $size: 36px;
             width: $size;
             height: $size;
             color: $color-primary-black;
-            font-weight: 500;
-            font-size: 16px;
-            font-family: var(--font-inter), Inter;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-lg;
+            font-family: $font-family-primary;
             line-height: 18px;
             border: none;
             box-shadow: none;
@@ -231,9 +232,9 @@ $size: 36px;
 
     .p-yearpicker-year {
       width: auto;
-      font-weight: 500;
-      font-size: 18px;
-      font-family: var(--font-inter), Inter;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-xl;
+      font-family: $font-family-primary;
       line-height: 20px;
       border: none;
       box-shadow: none;
@@ -265,9 +266,9 @@ $size: 36px;
     .p-monthpicker-month {
       width: auto;
       padding: 4px 16px;
-      font-weight: 500;
-      font-size: 18px;
-      font-family: var(--font-inter), Inter;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-xl;
+      font-family: $font-family-primary;
       line-height: 20px;
       border: none;
       box-shadow: none;
@@ -296,45 +297,22 @@ $size: 36px;
 }
 
 .#{$cls}-label {
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  font-style: normal;
+  @include form-label-base;
+
   line-height: 108%;
 
-  &-required {
-    &::after {
-      margin-left: 4px;
-      color: $color-negative;
-      font-size: 16px;
-      font-style: normal;
-      line-height: 120%;
-      content: '*';
-    }
-  }
+  @include form-label-required;
 }
 
 .#{$cls}-message {
+  @include form-message-base;
+
   display: flex;
   gap: 4px;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 4px;
-  color: $color-grey-midnight;
-  font-weight: 400;
-  font-size: 12px;
-  font-style: normal;
-  line-height: 17px;
-  word-wrap: break-word;
-  word-break: keep-all;
 
-  &-success {
-    color: $color-success;
-  }
-
-  &-error {
-    color: $color-negative;
-  }
+  @include form-message-variants;
 }
 
 .#{$cls}-p-start {

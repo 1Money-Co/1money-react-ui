@@ -22,8 +22,9 @@ $component: 'radio';
 
   &-label {
     margin-left: 8px;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     cursor: pointer;
+    -webkit-user-select: none;
     user-select: none;
   }
 

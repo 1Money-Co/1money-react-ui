@@ -6,8 +6,8 @@ $component: 'upload';
   &-btn {
     padding: 12px;
     color: $color-primary-white;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-md;
     line-height: 16px;
     background-color: $color-primary;
     border: none;
@@ -24,13 +24,13 @@ $component: 'upload';
 
     &-large {
       padding: 16px;
-      font-size: 16px;
+      font-size: $font-size-lg;
       line-height: 20px;
     }
 
     &-small {
       height: 32px;
-      font-size: 12px;
+      font-size: $font-size-sm;
       line-height: 12px;
     }
 

@@ -1,4 +1,5 @@
 @use '../../../variable.scss'as *;
+@use '../../../mixins'as *;
 
 $component: 'input-amount';
 $cls: #{$prefix}-#{$component};
@@ -6,9 +7,9 @@ $cls-primary: #{$cls}-primary;
 
 @mixin input-amount-font($color: $color-primary) {
   color: $color;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   font-size: 52px;
-  font-family: var(--font-aeonik), Aeonik;
+  font-family: $font-family-display;
   line-height: 56px;
   letter-spacing: -0.25px;
 }
@@ -91,6 +92,7 @@ $cls-primary: #{$cls}-primary;
     white-space: pre;
     visibility: hidden;
     opacity: 0;
+    -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
     inset-block-start: 0;
@@ -98,25 +100,14 @@ $cls-primary: #{$cls}-primary;
   }
 
   &-label {
+    @include form-label-base;
+
     display: inline-block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    font-style: normal;
     line-height: 18px;
     word-wrap: break-word;
     word-break: break-all;
 
-    &-required {
-      &::after {
-        margin-left: 4px;
-        color: $color-negative;
-        font-size: 16px;
-        font-style: normal;
-        line-height: 120%;
-        content: '*';
-      }
-    }
+    @include form-label-required;
 
     &-loading {
       margin-bottom: 8px;
@@ -163,9 +154,9 @@ $cls-primary: #{$cls}-primary;
 
   &-message {
     color: $color-primary-black;
-    font-weight: 400;
-    font-size: 12px;
-    font-family: var(--font-inter), Inter;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-sm;
+    font-family: $font-family-primary;
     line-height: 140%;
   }
 

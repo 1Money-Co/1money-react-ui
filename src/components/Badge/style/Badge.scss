@@ -8,10 +8,10 @@ $component: 'badge';
   justify-content: center;
   height: 24px;
   padding: 0 8px;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
   line-height: 108%;
-  border-radius: 12px;
+  border-radius: $radius-md;
 
   &-neutral {
     color: $color-grey-midnight;

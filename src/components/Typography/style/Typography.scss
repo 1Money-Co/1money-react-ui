@@ -6,11 +6,11 @@ $component: 'typography';
   &-display {
     margin: 0;
     color: $color-primary-black;
-    font-weight: 500;
-    font-family: var(--font-aeonik), Aeonik;
+    font-weight: $font-weight-medium;
+    font-family: $font-family-display;
 
     &-bold {
-      font-weight: 700;
+      font-weight: $font-weight-bold;
     }
 
     &-xl {
@@ -35,11 +35,11 @@ $component: 'typography';
   &-headline {
     margin: 0;
     color: $color-primary-black;
-    font-weight: 500;
-    font-family: var(--font-aeonik), Aeonik;
+    font-weight: $font-weight-medium;
+    font-family: $font-family-display;
 
     &-bold {
-      font-weight: 700;
+      font-weight: $font-weight-bold;
     }
 
     &-l {
@@ -55,61 +55,61 @@ $component: 'typography';
     }
 
     &-xs {
-      font-size: 18px;
+      font-size: $font-size-xl;
     }
   }
 
   &-title {
     margin: 0;
     color: $color-primary-black;
-    font-weight: 500;
-    font-family: var(--font-inter), Inter;
+    font-weight: $font-weight-medium;
+    font-family: $font-family-primary;
 
     &-bold {
-      font-weight: 700;
+      font-weight: $font-weight-bold;
     }
 
     &-l {
-      font-size: 18px;
+      font-size: $font-size-xl;
     }
 
     &-m {
-      font-size: 16px;
+      font-size: $font-size-lg;
     }
 
     &-s {
-      font-size: 14px;
+      font-size: $font-size-md;
     }
   }
 
   &-body {
     margin: 0;
     color: $color-primary-black;
-    font-weight: 400;
-    font-family: var(--font-inter), Inter;
+    font-weight: $font-weight-regular;
+    font-family: $font-family-primary;
 
     &-bold {
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
 
     &-l {
-      font-size: 16px;
+      font-size: $font-size-lg;
     }
 
     &-m {
-      font-size: 14px;
+      font-size: $font-size-md;
     }
 
     &-s {
-      font-size: 12px;
+      font-size: $font-size-sm;
     }
   }
 
   &-link {
     display: inline-block;
     color: $color-primary-black;
-    font-weight: 500;
-    font-family: var(--font-inter), Inter;
+    font-weight: $font-weight-medium;
+    font-family: $font-family-primary;
     cursor: pointer;
     text-decoration-line: underline;
     text-decoration-style: solid;
@@ -119,42 +119,42 @@ $component: 'typography';
     text-underline-position: from-font;
 
     &-m {
-      font-size: 14px;
+      font-size: $font-size-md;
     }
 
     &-s {
-      font-size: 12px;
+      font-size: $font-size-sm;
     }
   }
 
   &-label {
     display: inline-block;
     color: $color-primary-black;
-    font-weight: 500;
-    font-family: var(--font-inter), Inter;
+    font-weight: $font-weight-medium;
+    font-family: $font-family-primary;
 
     &-bold {
-      font-weight: 600;
+      font-weight: $font-weight-semibold;
     }
 
     &-xl {
-      font-size: 18px;
+      font-size: $font-size-xl;
     }
 
     &-l {
-      font-size: 16px;
+      font-size: $font-size-lg;
     }
 
     &-m {
-      font-size: 14px;
+      font-size: $font-size-md;
     }
 
     &-s {
-      font-size: 12px;
+      font-size: $font-size-sm;
     }
 
     &-xs {
-      font-size: 10px;
+      font-size: $font-size-xs;
     }
   }
 }

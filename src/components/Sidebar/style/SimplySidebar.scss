@@ -38,8 +38,8 @@ $cls: #{$prefix}-#{$component};
 
   &-group-label-text {
     color: $color-grey-night;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-md;
     font-style: normal;
     line-height: 108%;
   }
@@ -73,8 +73,8 @@ $cls: #{$prefix}-#{$component};
           height: 40px;
           padding: 8px 12px 8px 40px;
           color: $color-grey-night;
-          font-weight: 500;
-          font-size: 14px;
+          font-weight: $font-weight-medium;
+          font-size: $font-size-md;
           font-family: Inter;
           font-style: normal;
           line-height: 108%;
@@ -183,8 +183,8 @@ $cls: #{$prefix}-#{$component};
 
     &-text {
       color: $color-grey-midnight;
-      font-weight: 500;
-      font-size: 14px;
+      font-weight: $font-weight-medium;
+      font-size: $font-size-md;
     }
   }
 
@@ -215,7 +215,7 @@ $cls: #{$prefix}-#{$component};
             height: auto;
             padding: 8px;
             color: red;
-            font-size: 10px;
+            font-size: $font-size-xs;
 
             .ps-menu-label {
               line-height: 108%;
@@ -264,7 +264,7 @@ $cls: #{$prefix}-#{$component};
                 height: 40px;
                 padding: 12px 0;
                 color: green;
-                font-size: 14px;
+                font-size: $font-size-md;
                 border: none;
                 border-bottom: 1px solid $color-grey-deep;
                 border-radius: 0;

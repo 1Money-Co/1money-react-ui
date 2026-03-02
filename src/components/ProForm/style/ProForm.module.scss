@@ -19,15 +19,15 @@
 .proform__drawer-form-title,
 .proform__steps-form-title {
   margin-bottom: 12px;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
   line-height: 24px;
 }
 
 .proform__steps-form-description {
   margin-bottom: 12px;
   color: $color-grey-midnight;
-  font-size: 14px;
+  font-size: $font-size-md;
 }
 
 .proform__steps-form-actions,
@@ -49,8 +49,8 @@
 }
 
 .proform__list-label {
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-md;
 }
 
 .proform__list-row-actions {

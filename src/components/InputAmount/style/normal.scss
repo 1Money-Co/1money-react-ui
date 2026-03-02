@@ -1,4 +1,5 @@
 @use '../../../variable.scss'as *;
+@use '../../../mixins'as *;
 
 $component: 'input-amount';
 $cls: #{$prefix}-#{$component};
@@ -45,8 +46,8 @@ $cls-normal: #{$cls}-normal;
       height: 52px;
       padding: 0;
       color: $color-primary-black;
-      font-weight: 400;
-      font-size: 16px;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-lg;
       font-family: inherit;
       font-style: normal;
       line-height: 22px;
@@ -58,7 +59,7 @@ $cls-normal: #{$cls}-normal;
 
       &::placeholder {
         color: $color-grey-dark;
-        font-weight: 400;
+        font-weight: $font-weight-regular;
       }
     }
   }
@@ -72,6 +73,7 @@ $cls-normal: #{$cls}-normal;
     white-space: pre;
     visibility: hidden;
     opacity: 0;
+    -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
     inset-block-start: 0;
@@ -79,25 +81,14 @@ $cls-normal: #{$cls}-normal;
   }
 
   &-label {
+    @include form-label-base;
+
     display: inline-block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    font-style: normal;
     line-height: 18px;
     word-wrap: break-word;
     word-break: break-all;
 
-    &-required {
-      &::after {
-        margin-left: 4px;
-        color: $color-negative;
-        font-size: 16px;
-        font-style: normal;
-        line-height: 120%;
-        content: '*';
-      }
-    }
+    @include form-label-required;
 
     &-loading {
       margin-bottom: 8px;
@@ -129,26 +120,14 @@ $cls-normal: #{$cls}-normal;
   }
 
   &-message {
+    @include form-message-base;
+
     display: flex;
     gap: 4px;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 4px;
-    color: $color-grey-midnight;
-    font-weight: 400;
-    font-size: 12px;
-    font-style: normal;
-    line-height: 17px;
-    word-wrap: break-word;
-    word-break: keep-all;
 
-    &-success {
-      color: $color-success;
-    }
-
-    &-error {
-      color: $color-negative;
-    }
+    @include form-message-variants;
   }
 
   &-footnote {
@@ -194,6 +173,7 @@ $cls-normal: #{$cls}-normal;
     .#{$cls-normal}-element {
       input {
         cursor: text;
+        -webkit-user-select: text;
         user-select: text;
         pointer-events: auto;
       }
@@ -247,7 +227,7 @@ $cls-normal: #{$cls}-normal;
     &-element {
       input {
         height: 40px;
-        font-size: 14px;
+        font-size: $font-size-md;
         line-height: 20px;
       }
     }

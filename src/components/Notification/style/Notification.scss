@@ -10,11 +10,11 @@ $cls: #{$prefix}-#{$component};
   justify-content: space-between;
   padding: 12px;
   color: $color-grey-night;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-md;
   line-height: 140%;
   background-color: $color-grey-light;
-  border-radius: 12px;
+  border-radius: $radius-md;
 
   &-left {
     display: flex;

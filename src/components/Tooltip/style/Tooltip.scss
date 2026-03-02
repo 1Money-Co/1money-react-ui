@@ -6,12 +6,12 @@ $cls: #{$prefix}-#{$component};
 .#{$cls}[role='tooltip'] {
   padding: 10px;
   color: $color-primary-white;
-  font-weight: 500;
-  font-size: 12px;
-  font-family: var(--font-inter), Inter;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  font-family: $font-family-primary;
   line-height: 140%;
   background-color: $color-primary-black;
-  border-radius: 4px;
+  border-radius: $radius-xs;
 
   .#{$cls}-arrow {
     background-color: transparent;

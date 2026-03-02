@@ -1,4 +1,5 @@
 @use '../../../variable.scss'as *;
+@use '../../../mixins'as *;
 
 $component: 'table';
 
@@ -93,36 +94,15 @@ $component: 'table';
     overflow: hidden auto !important;
     overflow-y: auto !important;
 
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: transparent;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
+    @include scrollbar(4px, $color-grey-bold, 36px 0 4px, background-color 0.3s ease);
 
     &::-webkit-scrollbar-track {
-      margin: 36px 0 4px;
       background-color: transparent;
     }
   }
 
   .p-virtualscroller {
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: transparent;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    &::-webkit-scrollbar-track {
-      margin: 36px 0 4px;
-    }
+    @include scrollbar(4px, $color-grey-bold, 36px 0 4px, background-color 0.3s ease);
   }
 
   .p-datatable-header,
@@ -131,7 +111,7 @@ $component: 'table';
     z-index: 2;
     padding: 0;
     color: $color-primary-black;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     background-color: transparent;
     border: none;
   }
@@ -180,9 +160,9 @@ $component: 'table';
 
           .p-column-title {
             color: $color-primary-black;
-            font-weight: 700;
-            font-size: 14px;
-            font-family: var(--font-inter), Inter;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-md;
+            font-family: $font-family-primary;
             font-style: normal;
             line-height: 15px;
           }
@@ -226,9 +206,9 @@ $component: 'table';
         td {
           padding: 16px 0;
           color: $color-primary-black;
-          font-weight: 500;
-          font-size: 14px;
-          font-family: var(--font-inter), Inter;
+          font-weight: $font-weight-medium;
+          font-size: $font-size-md;
+          font-family: $font-family-primary;
           font-style: normal;
           line-height: 20px;
           border-bottom: none;
@@ -336,8 +316,8 @@ $component: 'table';
     display: flex;
     align-items: center;
     max-height: 20px;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-md;
     line-height: 20px;
 
     &-clamp {
