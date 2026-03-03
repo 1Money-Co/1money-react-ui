@@ -36,6 +36,12 @@ module.exports = {
 		'font-family-no-missing-generic-family-keyword': null,
 		'declaration-property-value-no-unknown': null,
 		'scss/selector-no-redundant-nesting-selector': null,
-		'scss/operator-no-unspaced': null
+		'scss/operator-no-unspaced': null,
+		'scss/function-no-unknown': [
+			true,
+			{
+				'ignoreFunctions': ['space', 'su', 'resolve-shorthand']
+			}
+		]
 	}
 };

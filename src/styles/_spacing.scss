@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use 'sass:list';
+
+$space-unit: 4px;
+$space-1: $space-unit;
+$space-2: $space-unit * 2;
+$space-3: $space-unit * 3;
+$space-4: $space-unit * 4;
+$space-6: $space-unit * 6;
+$space-16: $space-unit * 16;
+$space-map: (
+  1: $space-1,
+  2: $space-2,
+  3: $space-3,
+  4: $space-4,
+  6: $space-6,
+  16: $space-16,
+);
+
+@function space($key) {
+  @if not map.has-key($space-map, $key) {
+    @error "Unknown spacing token `#{$key}`. Available: #{map.keys($space-map)}";
+  }
+
+  @return map.get($space-map, $key);
+}
+
+@function su($n) {
+  @return $space-unit * $n;
+}
+
+@function resolve-shorthand($tokens...) {
+  $result: ();
+
+  @each $t in $tokens {
+    $result: list.append($result, space($t));
+  }
+
+  @return $result;
+}
+
+@mixin padding($tokens...) {
+  padding: resolve-shorthand($tokens...);
+}
+
+@mixin margin($tokens...) {
+  margin: resolve-shorthand($tokens...);
+}
+
+@mixin gap($token) {
+  gap: space($token);
+}
