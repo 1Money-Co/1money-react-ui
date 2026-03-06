@@ -1,4 +1,4 @@
-// Token resolvers — CSS variable emission and scale lookups live beside theme config.
+// Theme token resolvers — generate CSS variable references and fall back to raw scale values.
 @use 'sass:map';
 @use 'sass:meta';
 @use 'sass:string';

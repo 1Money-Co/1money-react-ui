@@ -1,4 +1,4 @@
-// Utility class generation engine — reads from theme + registry.
+// Utility generator — emits atomic utility classes from the theme scales and system registry.
 @use 'sass:map';
 @use 'sass:meta';
 @use '../theme' as theme;

@@ -1,5 +1,4 @@
-// Consumer API — components and app styles should @use this file.
-// Usage: @use '@/styles/functions' as *;
+// Styles helper entrypoint — exposes theme lookups and system shorthands for component SCSS via `@use '@/styles/functions' as *`.
 @use '../system' as system;
 @use '../theme' as theme;
 

@@ -1,5 +1,7 @@
 /** @jest-environment node */
 
+// Verifies that the styles entrypoints compile and emit the expected theme-aware CSS.
+
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import sass from 'sass';

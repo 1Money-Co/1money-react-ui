@@ -1,4 +1,4 @@
-// Runtime utility entrypoint.
+// Utility entrypoint — emits root theme variables and responsive utility classes.
 @use './generator' as generator;
 @use '../theme' as theme;
 @include theme.om-emit-theme-vars;

@@ -1,4 +1,4 @@
-// Canonical theme entrypoint.
+// Theme entrypoint — re-exports palette, config, breakpoint helpers, and token resolvers.
 @forward './palette';
 @forward './config';
 @forward './breakpoints';

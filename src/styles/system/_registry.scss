@@ -1,4 +1,4 @@
-// System registry — grouped separately from the sx compiler, similar to MUI's style function catalogs.
+// System prop registry — maps shorthand/system keys to CSS properties, scales, and enum aliases.
 $om-spacing-props: (
   'p': (padding,),
   'pt': (padding-top,),

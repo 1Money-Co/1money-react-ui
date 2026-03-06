@@ -1,4 +1,4 @@
-// Theme configuration — source of truth for token aggregation and system feature flags.
+// Theme config aggregator — combines token scales and system feature flags into one source of truth.
 @forward './spacing';
 @forward './radius';
 @forward './shadow';
@@ -12,12 +12,6 @@ $om-sys-enable-layout: true !default;
 $om-sys-enable-sizing: true !default;
 $om-sys-enable-visual: true !default;
 $om-sys-enable-color: true !default;
-$om-breakpoints: (
-  lg: 1280px,
-  md: 1024px,
-  sm: 768px,
-) !default;
-$om-breakpoint-step: 1px !default;
 $om-color-scale: (
   'primary': palette.$color-primary,
   'primary-active': palette.$color-primary-active,

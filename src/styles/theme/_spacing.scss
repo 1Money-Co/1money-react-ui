@@ -1,8 +1,8 @@
+// Spacing scale tokens and helpers — define spacing units, spacing enablement, and spacing value resolution.
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:meta';
 
-// Theme spacing tokens and spacing-specific system flags.
 $om-sys-spacing-unit: 8px !default;
 $om-sys-enable-spacing: true !default;
 $om-spacing-scale: (

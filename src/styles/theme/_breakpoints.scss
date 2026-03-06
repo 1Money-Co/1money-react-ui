@@ -1,20 +1,26 @@
-// Breakpoint helpers — organized separately to mirror MUI's breakpoint module boundary.
+// Breakpoint config and helpers — owns breakpoint values plus the responsive mixins built from them.
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:meta';
-@use './config' as config;
+
+$om-breakpoints: (
+  lg: 1280px,
+  md: 1024px,
+  sm: 768px,
+) !default;
+$om-breakpoint-step: 1px !default;
 
 @function om-breakpoint($bp-name) {
-  @return map.get(config.$om-breakpoints, $bp-name);
+  @return map.get($om-breakpoints, $bp-name);
 }
 
 @function om-max-width($value) {
-  @return $value - math.div(config.$om-breakpoint-step, 50);
+  @return $value - math.div($om-breakpoint-step, 50);
 }
 
 @function om-next-breakpoint($bp-name) {
-  $keys: map.keys(config.$om-breakpoints);
+  $keys: map.keys($om-breakpoints);
   $index: list.index($keys, $bp-name);
 
   @if not $index or $index == list.length($keys) {

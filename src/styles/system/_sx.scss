@@ -1,4 +1,4 @@
-// SX compiler — resolves registry props into concrete CSS declarations.
+// System style compiler — resolves `om-sx` config objects into concrete CSS declarations.
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
