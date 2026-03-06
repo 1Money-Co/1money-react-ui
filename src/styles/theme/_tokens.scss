@@ -1,9 +1,9 @@
 // Token resolvers — CSS variable emission and scale lookups live beside theme config.
 @use 'sass:map';
-@use 'sass:math';
 @use 'sass:meta';
 @use 'sass:string';
 @use './config' as config;
+@use './spacing' as spacing;
 
 @function om-scale-map($scale-name) {
   @return map.get(config.$om-theme-scales, $scale-name);
@@ -15,19 +15,13 @@
   @return meta.type-of($scale) != 'null' and map.has-key($scale, '#{$key}');
 }
 
-@function om-spacing-token($key) {
-  $multiplier: map.get(config.$om-spacing-scale, '#{$key}');
-
-  @if meta.type-of($multiplier) == 'null' {
-    @return null;
-  }
-
-  @return $multiplier * config.$om-sys-spacing-unit;
+@function -om-spacing-token($key) {
+  @return spacing.om-spacing-token($key);
 }
 
 @function om-scale-value($scale-name, $key) {
   @if $scale-name == spacing {
-    @return om-spacing-token($key);
+    @return -om-spacing-token($key);
   }
 
   $scale: om-scale-map($scale-name);
@@ -60,11 +54,7 @@
     @return $token;
   }
 
-  @if meta.type-of($value) == 'number' and math.is-unitless($value) {
-    @return $value * config.$om-sys-spacing-unit;
-  }
-
-  @return $value;
+  @return spacing.om-spacing-value($value);
 }
 
 @function om-radius($key) {
