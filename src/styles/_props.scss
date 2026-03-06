@@ -1,0 +1,53 @@
+// Prop registry — mirrors src/system/props.ts.
+// 加新 system prop → 来这里
+@use 'sass:map';
+@use 'tokens' as *;
+
+// ── Spacing: prefix → CSS property list ──
+
+$om-spacing-props: (
+  'p':   (padding,),
+  'pt':  (padding-top,),
+  'pr':  (padding-right,),
+  'pb':  (padding-bottom,),
+  'pl':  (padding-left,),
+  'px':  (padding-left, padding-right),
+  'py':  (padding-top, padding-bottom),
+  'm':   (margin,),
+  'mt':  (margin-top,),
+  'mr':  (margin-right,),
+  'mb':  (margin-bottom,),
+  'ml':  (margin-left,),
+  'mx':  (margin-left, margin-right),
+  'my':  (margin-top, margin-bottom),
+  'gap': (gap,),
+) !default;
+
+// ── Enum: prefix → (css, values) ──
+
+$om-enum-props: (
+  'd':    (css: display,         values: (flex, grid, block, inline, inline-flex, inline-block, none)),
+  'flex': (css: flex-direction,  values: (row, column, row-reverse, column-reverse)),
+  'jc':   (css: justify-content, values: (start, end, center, space-between, space-around, space-evenly)),
+  'ai':   (css: align-items,     values: (start, end, center, baseline, stretch)),
+  'fw':   (css: flex-wrap,       values: (wrap, nowrap, wrap-reverse)),
+) !default;
+$om-value-aliases: (
+  justify-content: (start: flex-start, end: flex-end),
+  align-items:     (start: flex-start, end: flex-end),
+) !default;
+
+// ── Sizing: prefix → css-property ──
+
+$om-sizing-props: (
+  'w': width,
+  'h': height,
+) !default;
+$om-sizing-pct-scale: (25, 33, 50, 66, 75, 100) !default;
+
+// ── Scale: prefix → (css, scale-map) ──
+
+$om-scale-props: (
+  'radius': (css: border-radius, scale: $om-radius-scale),
+  'shadow': (css: box-shadow,    scale: $om-shadow-scale),
+) !default;

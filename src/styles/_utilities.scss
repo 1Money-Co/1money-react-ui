@@ -1,0 +1,12 @@
+@use 'gen' as *;
+@use 'tokens' as *;
+
+// Base classes (no media query — applies at all widths)
+@include gen-classes;
+
+// Desktop-first responsive (max-width, same pattern as Grid)
+@each $bp-name, $bp-value in $om-breakpoints {
+  @include om-respond($bp-name) {
+    @include gen-classes($bp-name);
+  }
+}

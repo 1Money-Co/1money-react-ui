@@ -21,6 +21,7 @@ module.exports = {
 		'selector-class-pattern': null,
 		'property-no-vendor-prefix': null,
 		'color-function-notation': null,
+		'less/color-no-invalid-hex': null,
 		'no-descending-specificity': null,
 		'at-rule-no-unknown': null,
 		"scss/at-rule-no-unknown": [
@@ -35,6 +36,12 @@ module.exports = {
 		'selector-id-pattern': null,
 		'font-family-no-missing-generic-family-keyword': null,
 		'declaration-property-value-no-unknown': null,
+		'scss/function-no-unknown': [
+			true,
+			{
+				ignoreFunctions: ['om-spacing', 'om-radius', 'om-shadow', 'om-color', 'om-max-width']
+			}
+		],
 		'scss/selector-no-redundant-nesting-selector': null,
 		'scss/operator-no-unspaced': null
 	}
