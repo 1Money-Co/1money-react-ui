@@ -341,16 +341,15 @@ const AccountSettings = () => {
 }
 ```
 
-### SCSS 变量
+### SCSS 主题 Token
 
 ```scss
-@import '@1money/react-ui/variable.scss';
+@use '@/styles/theme' as theme;
 
-// 覆盖默认变量
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$border-radius: 8px;
-$font-size-base: 14px;
+.custom-surface {
+  color: theme.$color-primary;
+  background-color: theme.$color-primary-light;
+}
 ```
 
 ### 组件级自定义
@@ -415,8 +414,8 @@ src/
 │   │   ├── style/      # 组件样式
 │   │   └── README.md   # 组件文档
 │   └── ...
+├── styles/             # 共享主题 Token 与 Sass 样式系统
 ├── utils/              # 工具函数
-├── variable.scss       # 全局 SCSS 变量
 └── index.ts           # 主库导出
 ```
 

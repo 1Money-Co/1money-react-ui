@@ -1,0 +1,81 @@
+// System registry — grouped separately from the sx compiler, similar to MUI's style function catalogs.
+$om-spacing-props: (
+  'p': (padding,),
+  'pt': (padding-top,),
+  'pr': (padding-right,),
+  'pb': (padding-bottom,),
+  'pl': (padding-left,),
+  'px': (padding-left, padding-right),
+  'py': (padding-top, padding-bottom),
+  'm': (margin,),
+  'mt': (margin-top,),
+  'mr': (margin-right,),
+  'mb': (margin-bottom,),
+  'ml': (margin-left,),
+  'mx': (margin-left, margin-right),
+  'my': (margin-top, margin-bottom),
+  'gap': (gap,),
+) !default;
+$om-enum-props: (
+  'd': (css: display, values: (flex, grid, block, inline, inline-flex, inline-block, none)),
+  'flex': (css: flex-direction, values: (row, column, row-reverse, column-reverse)),
+  'jc': (css: justify-content, values: (start, end, center, space-between, space-around, space-evenly)),
+  'ai': (css: align-items, values: (start, end, center, baseline, stretch)),
+  'fw': (css: flex-wrap, values: (wrap, nowrap, wrap-reverse)),
+) !default;
+$om-value-aliases: (
+  justify-content: (start: flex-start, end: flex-end),
+  align-items: (start: flex-start, end: flex-end),
+) !default;
+$om-sizing-props: (
+  'w': width,
+  'h': height,
+) !default;
+$om-scale-props: (
+  'radius': (css: border-radius, scale: radius),
+  'shadow': (css: box-shadow, scale: shadow),
+) !default;
+$om-color-props: (
+  'color': color,
+  'bg': background-color,
+  'border': border-color,
+) !default;
+$om-system-props: (
+  p: (css: (padding,), kind: spacing),
+  pt: (css: (padding-top,), kind: spacing),
+  pr: (css: (padding-right,), kind: spacing),
+  pb: (css: (padding-bottom,), kind: spacing),
+  pl: (css: (padding-left,), kind: spacing),
+  px: (css: (padding-left, padding-right), kind: spacing),
+  py: (css: (padding-top, padding-bottom), kind: spacing),
+  m: (css: (margin,), kind: spacing),
+  mt: (css: (margin-top,), kind: spacing),
+  mr: (css: (margin-right,), kind: spacing),
+  mb: (css: (margin-bottom,), kind: spacing),
+  ml: (css: (margin-left,), kind: spacing),
+  mx: (css: (margin-left, margin-right), kind: spacing),
+  my: (css: (margin-top, margin-bottom), kind: spacing),
+  gap: (css: (gap,), kind: spacing),
+  display: (css: (display,), kind: enum),
+  d: (css: (display,), kind: enum),
+  'flexDirection': (css: (flex-direction,), kind: enum),
+  flex: (css: (flex-direction,), kind: enum),
+  'justifyContent': (css: (justify-content,), kind: enum),
+  jc: (css: (justify-content,), kind: enum),
+  'alignItems': (css: (align-items,), kind: enum),
+  ai: (css: (align-items,), kind: enum),
+  'flexWrap': (css: (flex-wrap,), kind: enum),
+  fw: (css: (flex-wrap,), kind: enum),
+  width: (css: (width,), kind: sizing),
+  w: (css: (width,), kind: sizing),
+  height: (css: (height,), kind: sizing),
+  h: (css: (height,), kind: sizing),
+  radius: (css: (border-radius,), kind: scale, scale: radius),
+  'borderRadius': (css: (border-radius,), kind: scale, scale: radius),
+  shadow: (css: (box-shadow,), kind: scale, scale: shadow),
+  'boxShadow': (css: (box-shadow,), kind: scale, scale: shadow),
+  color: (css: (color,), kind: scale, scale: color),
+  bgcolor: (css: (background-color,), kind: scale, scale: color),
+  'bgColor': (css: (background-color,), kind: scale, scale: color),
+  'borderColor': (css: (border-color,), kind: scale, scale: color),
+) !default;

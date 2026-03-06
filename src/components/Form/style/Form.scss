@@ -1,4 +1,4 @@
-@use '../../../variable.scss' as *;
+@use '@/styles/theme' as *;
 
 // Intentionally token-level SCSS (no global tag selectors): spacing/typography/
 // opacity values are centralized as component CSS variables for predictable BEM output.

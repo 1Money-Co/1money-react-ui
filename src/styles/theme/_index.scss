@@ -1,0 +1,5 @@
+// Canonical theme entrypoint.
+@forward './palette';
+@forward './config';
+@forward './breakpoints';
+@forward './tokens';

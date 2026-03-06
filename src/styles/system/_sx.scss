@@ -1,0 +1,97 @@
+// SX compiler — resolves registry props into concrete CSS declarations.
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use '../theme' as theme;
+@use './registry' as registry;
+
+@function om-alias-value($css-prop, $value) {
+  $aliases: map.get(registry.$om-value-aliases, $css-prop);
+
+  @if meta.type-of($aliases) != 'null' and map.has-key($aliases, $value) {
+    @return map.get($aliases, $value);
+  }
+
+  @return $value;
+}
+
+@function om-resolve-scale-value($scale-name, $value) {
+  @if $scale-name == spacing {
+    @return theme.om-spacing($value);
+  }
+
+  @if $scale-name == radius {
+    @return theme.om-radius($value);
+  }
+
+  @if $scale-name == shadow {
+    @return theme.om-shadow($value);
+  }
+
+  @if $scale-name == color {
+    @return theme.om-color($value);
+  }
+
+  @if $scale-name == sizing {
+    @return theme.om-sizing($value);
+  }
+
+  @return $value;
+}
+
+@function om-resolve-system-value($value, $config) {
+  $kind: map.get($config, kind);
+
+  @if meta.type-of($value) == 'null' {
+    @return null;
+  }
+
+  @if $kind == spacing {
+    @return theme.om-spacing($value);
+  }
+
+  @if $kind == enum {
+    $css-props: map.get($config, css);
+    $primary-prop: list.nth($css-props, 1);
+
+    @return om-alias-value($primary-prop, $value);
+  }
+
+  @if $kind == sizing {
+    @return theme.om-sizing($value);
+  }
+
+  @if $kind == scale {
+    @return om-resolve-scale-value(map.get($config, scale), $value);
+  }
+
+  @return $value;
+}
+
+@mixin om-apply-system-prop($prop, $value) {
+  @if meta.type-of($value) != 'null' {
+    $config: map.get(registry.$om-system-props, $prop);
+
+    @if meta.type-of($config) == 'null' {
+      #{$prop}: $value;
+    } @else {
+      $resolved: om-resolve-system-value($value, $config);
+
+      @each $css-prop in map.get($config, css) {
+        #{$css-prop}: $resolved;
+      }
+    }
+  }
+}
+
+@mixin om-sx($config) {
+  @each $prop, $value in $config {
+    @if map.has-key(theme.$om-breakpoints, $prop) and meta.type-of($value) == 'map' {
+      @include theme.om-down($prop) {
+        @include om-sx($value);
+      }
+    } @else {
+      @include om-apply-system-prop($prop, $value);
+    }
+  }
+}

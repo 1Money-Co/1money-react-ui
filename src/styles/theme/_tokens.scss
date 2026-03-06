@@ -1,0 +1,120 @@
+// Token resolvers — CSS variable emission and scale lookups live beside theme config.
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+@use './config' as config;
+
+@function om-scale-map($scale-name) {
+  @return map.get(config.$om-theme-scales, $scale-name);
+}
+
+@function om-scale-has($scale-name, $key) {
+  $scale: om-scale-map($scale-name);
+
+  @return meta.type-of($scale) != 'null' and map.has-key($scale, '#{$key}');
+}
+
+@function om-spacing-token($key) {
+  $multiplier: map.get(config.$om-spacing-scale, '#{$key}');
+
+  @if meta.type-of($multiplier) == 'null' {
+    @return null;
+  }
+
+  @return $multiplier * config.$om-sys-spacing-unit;
+}
+
+@function om-scale-value($scale-name, $key) {
+  @if $scale-name == spacing {
+    @return om-spacing-token($key);
+  }
+
+  $scale: om-scale-map($scale-name);
+
+  @if not $scale or not map.has-key($scale, '#{$key}') {
+    @return null;
+  }
+
+  @return map.get($scale, '#{$key}');
+}
+
+@function om-theme-var-name($scale-name, $key) {
+  @return string.unquote('--#{config.$om-sys-prefix}-#{$scale-name}-#{$key}');
+}
+
+@function om-theme-ref($scale-name, $key) {
+  $value: om-scale-value($scale-name, $key);
+
+  @if meta.type-of($value) == 'null' {
+    @return null;
+  }
+
+  @return var(#{om-theme-var-name($scale-name, $key)}, #{meta.inspect($value)});
+}
+
+@function om-spacing($value) {
+  $token: om-theme-ref(spacing, '#{$value}');
+
+  @if meta.type-of($token) != 'null' {
+    @return $token;
+  }
+
+  @if meta.type-of($value) == 'number' and math.is-unitless($value) {
+    @return $value * config.$om-sys-spacing-unit;
+  }
+
+  @return $value;
+}
+
+@function om-radius($key) {
+  $token: om-theme-ref(radius, '#{$key}');
+
+  @if meta.type-of($token) != 'null' {
+    @return $token;
+  }
+
+  @return $key;
+}
+
+@function om-shadow($key) {
+  $token: om-theme-ref(shadow, '#{$key}');
+
+  @if meta.type-of($token) != 'null' {
+    @return $token;
+  }
+
+  @return $key;
+}
+
+@function om-color($key) {
+  $token: om-theme-ref(color, '#{$key}');
+
+  @if meta.type-of($token) != 'null' {
+    @return $token;
+  }
+
+  @return $key;
+}
+
+@function om-sizing($value) {
+  $token: om-scale-value(sizing, '#{$value}');
+
+  @if meta.type-of($token) != 'null' {
+    @return $token;
+  }
+
+  @return $value;
+}
+
+@mixin om-emit-theme-vars($selector: ':root') {
+  #{$selector} {
+    @each $scale-name in config.$om-theme-css-var-scales {
+      $scale: om-scale-map($scale-name);
+
+      @each $key, $value in $scale {
+        #{om-theme-var-name($scale-name, $key)}: #{meta.inspect(om-scale-value($scale-name, $key))};
+      }
+    }
+  }
+}

@@ -62,7 +62,7 @@ src/
 │       ├── __test__/             # Jest tests with snapshots
 │       └── style/                # SCSS styles
 ├── utils/               # Utility functions (classnames, clipboard, uuid)
-├── variable.scss        # Global SCSS variables
+├── styles/              # Shared theme tokens and Sass style system
 └── index.ts            # Main library export
 ```
 

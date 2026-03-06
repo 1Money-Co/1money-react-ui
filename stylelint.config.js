@@ -39,7 +39,19 @@ module.exports = {
 		'scss/function-no-unknown': [
 			true,
 			{
-				ignoreFunctions: ['om-spacing', 'om-radius', 'om-shadow', 'om-color', 'om-max-width']
+				ignoreFunctions: [
+					'om-spacing',
+					'om-radius',
+					'om-shadow',
+					'om-color',
+					'om-max-width',
+					'om-breakpoint',
+					'om-next-breakpoint',
+					'om-scale-map',
+					'om-scale-value',
+					'om-theme-ref',
+					'om-resolve-system-value'
+				]
 			}
 		],
 		'scss/selector-no-redundant-nesting-selector': null,

@@ -1,0 +1,62 @@
+// Utility class generation engine — reads from theme + registry.
+@use 'sass:map';
+@use 'sass:meta';
+@use '../theme' as theme;
+@use '../system/registry' as registry;
+
+@mixin gen-classes($bp: '') {
+  $pre: if($bp != '', '#{$bp}-', '');
+
+  @if theme.$om-sys-enable-spacing {
+    @each $name, $css-props in registry.$om-spacing-props {
+      @each $key, $mult in theme.$om-spacing-scale {
+        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} {
+          @each $css in $css-props {
+            #{$css}: theme.om-spacing($key);
+          }
+        }
+      }
+    }
+  }
+
+  @if theme.$om-sys-enable-layout {
+    @each $name, $def in registry.$om-enum-props {
+      $css: map.get($def, css);
+      $vals: map.get($def, values);
+      $aliases: if(map.has-key(registry.$om-value-aliases, $css), map.get(registry.$om-value-aliases, $css), ());
+
+      @each $val in $vals {
+        $css-val: if(meta.type-of($aliases) == 'map' and map.has-key($aliases, $val), map.get($aliases, $val), $val);
+        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$val} { #{$css}: $css-val; }
+      }
+    }
+  }
+
+  @if theme.$om-sys-enable-sizing {
+    @each $name, $css in registry.$om-sizing-props {
+      @each $key, $value in theme.$om-sizing-scale {
+        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: $value; }
+      }
+    }
+  }
+
+  @if theme.$om-sys-enable-visual {
+    @each $name, $def in registry.$om-scale-props {
+      $css: map.get($def, css);
+      $scale-name: map.get($def, scale);
+      $scale: theme.om-scale-map($scale-name);
+
+      @each $key, $val in $scale {
+        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-theme-ref($scale-name, $key); }
+      }
+    }
+  }
+
+  @if theme.$om-sys-enable-color {
+    @each $name, $css in registry.$om-color-props {
+      @each $key, $value in theme.$om-color-scale {
+        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-color($key); }
+      }
+    }
+  }
+}

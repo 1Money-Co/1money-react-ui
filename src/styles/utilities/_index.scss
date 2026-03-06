@@ -1,0 +1,11 @@
+// Runtime utility entrypoint.
+@use './generator' as generator;
+@use '../theme' as theme;
+@include theme.om-emit-theme-vars;
+@include generator.gen-classes;
+
+@each $bp-name, $bp-value in theme.$om-breakpoints {
+  @include theme.om-down($bp-name) {
+    @include generator.gen-classes($bp-name);
+  }
+}

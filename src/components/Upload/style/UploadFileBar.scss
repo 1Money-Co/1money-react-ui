@@ -1,4 +1,4 @@
-@use '../../../variable.scss'as *;
+@use '@/styles/theme' as *;
 
 $component: 'upload-file-bar';
 $cls: #{$prefix}-#{$component};

@@ -341,16 +341,15 @@ const AccountSettings = () => {
 }
 ```
 
-### SCSS Variables
+### SCSS Theme Tokens
 
 ```scss
-@import '@1money/react-ui/variable.scss';
+@use '@/styles/theme' as theme;
 
-// Override default variables
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$border-radius: 8px;
-$font-size-base: 14px;
+.custom-surface {
+  color: theme.$color-primary;
+  background-color: theme.$color-primary-light;
+}
 ```
 
 ### Component-level Customization
@@ -429,8 +428,8 @@ src/
 │   │   ├── style/      # Component styles
 │   │   └── README.md   # Component documentation
 │   └── ...
+├── styles/             # Shared theme tokens and Sass style system
 ├── utils/              # Utility functions
-├── variable.scss       # Global SCSS variables
 └── index.ts           # Main library export
 ```
 
