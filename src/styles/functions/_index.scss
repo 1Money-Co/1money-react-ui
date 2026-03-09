@@ -2,120 +2,54 @@
 @use '../system' as system;
 @use '../theme' as theme;
 
-@mixin om-respond($bp-name) {
-  @include theme.om-respond($bp-name) {
-    @content;
-  }
-}
+@mixin om-respond($bp-name) { @include theme.om-respond($bp-name) { @content; } }
 
-@mixin om-up($bp-name) {
-  @include theme.om-up($bp-name) {
-    @content;
-  }
-}
+@mixin om-up($bp-name) { @include theme.om-up($bp-name) { @content; } }
 
-@mixin om-down($bp-name) {
-  @include theme.om-down($bp-name) {
-    @content;
-  }
-}
+@mixin om-down($bp-name) { @include theme.om-down($bp-name) { @content; } }
 
-@mixin om-between($lower, $upper) {
-  @include theme.om-between($lower, $upper) {
-    @content;
-  }
-}
+@mixin om-between($lower, $upper) { @include theme.om-between($lower, $upper) { @content; } }
 
-@mixin om-only($bp-name) {
-  @include theme.om-only($bp-name) {
-    @content;
-  }
-}
+@mixin om-only($bp-name) { @include theme.om-only($bp-name) { @content; } }
 
-@mixin om-emit-theme-vars($selector: ':root') {
-  @include theme.om-emit-theme-vars($selector);
-}
+@mixin om-emit-theme-vars($selector: ':root') { @include theme.om-emit-theme-vars($selector); }
 
-@function om-spacing($scale) {
-  @return theme.om-spacing($scale);
-}
+@function om-spacing($scale) { @return theme.om-spacing($scale); }
 
-@function om-radius($key) {
-  @return theme.om-radius($key);
-}
+@function om-radius($key) { @return theme.om-radius($key); }
 
-@function om-shadow($key) {
-  @return theme.om-shadow($key);
-}
+@function om-shadow($key) { @return theme.om-shadow($key); }
 
-@function om-color($key) {
-  @return theme.om-color($key);
-}
+@function om-color($key) { @return theme.om-color($key); }
 
-@function om-sizing($value) {
-  @return theme.om-sizing($value);
-}
+@function om-sizing($value) { @return theme.om-sizing($value); }
 
-@mixin om-p($s) {
-  @include system.om-sx((p: $s));
-}
+@mixin om-p($s) { @include system.om-sx((p: $s)); }
 
-@mixin om-pt($s) {
-  @include system.om-sx((pt: $s));
-}
+@mixin om-pt($s) { @include system.om-sx((pt: $s)); }
 
-@mixin om-pr($s) {
-  @include system.om-sx((pr: $s));
-}
+@mixin om-pr($s) { @include system.om-sx((pr: $s)); }
 
-@mixin om-pb($s) {
-  @include system.om-sx((pb: $s));
-}
+@mixin om-pb($s) { @include system.om-sx((pb: $s)); }
 
-@mixin om-pl($s) {
-  @include system.om-sx((pl: $s));
-}
+@mixin om-pl($s) { @include system.om-sx((pl: $s)); }
 
-@mixin om-px($s) {
-  @include system.om-sx((px: $s));
-}
+@mixin om-px($s) { @include system.om-sx((px: $s)); }
 
-@mixin om-py($s) {
-  @include system.om-sx((py: $s));
-}
+@mixin om-py($s) { @include system.om-sx((py: $s)); }
 
-@mixin om-m($s) {
-  @include system.om-sx((m: $s));
-}
+@mixin om-m($s) { @include system.om-sx((m: $s)); }
 
-@mixin om-mt($s) {
-  @include system.om-sx((mt: $s));
-}
+@mixin om-mt($s) { @include system.om-sx((mt: $s)); }
 
-@mixin om-mr($s) {
-  @include system.om-sx((mr: $s));
-}
+@mixin om-mr($s) { @include system.om-sx((mr: $s)); }
 
-@mixin om-mb($s) {
-  @include system.om-sx((mb: $s));
-}
+@mixin om-mb($s) { @include system.om-sx((mb: $s)); }
 
-@mixin om-ml($s) {
-  @include system.om-sx((ml: $s));
-}
+@mixin om-ml($s) { @include system.om-sx((ml: $s)); }
 
-@mixin om-mx($s) {
-  @include system.om-sx((mx: $s));
-}
+@mixin om-mx($s) { @include system.om-sx((mx: $s)); }
 
-@mixin om-my($s) {
-  @include system.om-sx((my: $s));
-}
+@mixin om-my($s) { @include system.om-sx((my: $s)); }
 
-@mixin om-sx($config) {
-  @include system.om-sx($config);
-}
-
-@mixin om-sys($config) {
-  @include system.om-sx($config);
-}
+@mixin om-sx($config) { @include system.om-sx($config); }

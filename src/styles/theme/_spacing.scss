@@ -26,7 +26,7 @@ $om-spacing-scale: (
 @function om-spacing-token($key) {
   $multiplier: map.get($om-spacing-scale, '#{$key}');
 
-  @if meta.type-of($multiplier) == 'null' {
+  @if not $multiplier {
     @return null;
   }
 
@@ -34,10 +34,10 @@ $om-spacing-scale: (
 }
 
 @function om-spacing-value($value) {
-  $token: map.get($om-spacing-scale, '#{$value}');
+  $result: om-spacing-token($value);
 
-  @if meta.type-of($token) != 'null' {
-    @return $token * $om-sys-spacing-unit;
+  @if $result {
+    @return $result;
   }
 
   @if meta.type-of($value) == 'number' and math.is-unitless($value) {

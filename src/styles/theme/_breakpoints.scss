@@ -2,7 +2,6 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use 'sass:meta';
 
 $om-breakpoints: (
   lg: 1280px,
@@ -11,10 +10,25 @@ $om-breakpoints: (
 ) !default;
 $om-breakpoint-step: 1px !default;
 
+@mixin om-assert-breakpoints-descending() {
+  $prev-value: null;
+
+  @each $bp-name, $bp-value in $om-breakpoints {
+    @if $prev-value and $bp-value >= $prev-value {
+      @error '$om-breakpoints must be ordered from large to small, e.g. lg -> md -> sm.';
+    }
+
+    $prev-value: $bp-value;
+  }
+}
+
+@include om-assert-breakpoints-descending;
+
 @function om-breakpoint($bp-name) {
   @return map.get($om-breakpoints, $bp-name);
 }
 
+// Subtract 0.02px (1px / 50) to avoid overlap with min-width queries at fractional browser zoom levels.
 @function om-max-width($value) {
   @return $value - math.div($om-breakpoint-step, 50);
 }
@@ -54,7 +68,7 @@ $om-breakpoint-step: 1px !default;
   $lower-value: om-breakpoint($lower);
   $upper-value: om-breakpoint($upper);
 
-  @if meta.type-of($lower-value) != 'null' and meta.type-of($upper-value) != 'null' {
+  @if $lower-value and $upper-value {
     @media (min-width: $lower-value) and (max-width: om-max-width($upper-value)) {
       @content;
     }
@@ -65,7 +79,7 @@ $om-breakpoint-step: 1px !default;
   $bp-value: om-breakpoint($bp-name);
   $next-bp-name: om-next-breakpoint($bp-name);
 
-  @if meta.type-of($bp-value) != 'null' {
+  @if $bp-value {
     @if not $next-bp-name {
       @include om-down($bp-name) {
         @content;

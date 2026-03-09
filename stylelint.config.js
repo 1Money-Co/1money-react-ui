@@ -24,13 +24,12 @@ module.exports = {
 		'less/color-no-invalid-hex': null,
 		'no-descending-specificity': null,
 		'at-rule-no-unknown': null,
-		"scss/at-rule-no-unknown": [
+		'scss/at-rule-no-unknown': [
 			true,
 			{
-				"ignoreAtRules": ["tailwind"]
+				ignoreAtRules: ['tailwind']
 			}
 		],
-		'scss/selector-no-redundant-nesting-selector': true,
 		'plugin/declaration-block-no-ignored-properties': true,
 		'number-max-precision': 10,
 		'selector-id-pattern': null,
@@ -40,17 +39,25 @@ module.exports = {
 			true,
 			{
 				ignoreFunctions: [
+					'om-token',
+					'-om-build-system-props',
 					'om-spacing',
 					'om-radius',
 					'om-shadow',
 					'om-color',
+					'om-sizing',
 					'om-max-width',
 					'om-breakpoint',
 					'om-next-breakpoint',
 					'om-scale-map',
 					'om-scale-value',
+					'om-scale-has',
 					'om-theme-ref',
-					'om-resolve-system-value'
+					'om-resolve-system-value',
+					'om-alias-value',
+					'om-spacing-token',
+					'om-spacing-value',
+					'-om-spacing-token'
 				]
 			}
 		],

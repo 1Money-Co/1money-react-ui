@@ -1,7 +1,7 @@
 // Theme token resolvers — generate CSS variable references and fall back to raw scale values.
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use 'sass:string';
 @use './config' as config;
 @use './spacing' as spacing;
 
@@ -12,16 +12,12 @@
 @function om-scale-has($scale-name, $key) {
   $scale: om-scale-map($scale-name);
 
-  @return meta.type-of($scale) != 'null' and map.has-key($scale, '#{$key}');
-}
-
-@function -om-spacing-token($key) {
-  @return spacing.om-spacing-token($key);
+  @return $scale != null and map.has-key($scale, '#{$key}');
 }
 
 @function om-scale-value($scale-name, $key) {
   @if $scale-name == spacing {
-    @return -om-spacing-token($key);
+    @return spacing.om-spacing-token($key);
   }
 
   $scale: om-scale-map($scale-name);
@@ -34,68 +30,50 @@
 }
 
 @function om-theme-var-name($scale-name, $key) {
-  @return string.unquote('--#{config.$om-sys-prefix}-#{$scale-name}-#{$key}');
+  @return --#{config.$om-sys-prefix}-#{$scale-name}-#{$key};
+}
+
+@function -om-css-fallback($value) {
+  @return if(meta.type-of($value) == 'list', meta.inspect($value), $value);
 }
 
 @function om-theme-ref($scale-name, $key) {
   $value: om-scale-value($scale-name, $key);
 
-  @if meta.type-of($value) == 'null' {
+  @if not $value {
     @return null;
   }
 
-  @return var(#{om-theme-var-name($scale-name, $key)}, #{meta.inspect($value)});
+  @return var(#{om-theme-var-name($scale-name, $key)}, #{-om-css-fallback($value)});
 }
 
-@function om-spacing($value) {
-  $token: om-theme-ref(spacing, '#{$value}');
+/// Generic token resolver — returns a CSS variable reference for scales listed in
+/// `$om-theme-css-var-scales`, or the raw scale value otherwise.
+@function om-token($scale-name, $key) {
+  @if not list.index(config.$om-theme-css-var-scales, $scale-name) {
+    $raw: om-scale-value($scale-name, '#{$key}');
 
-  @if meta.type-of($token) != 'null' {
-    @return $token;
+    @return if($raw != null, $raw, $key);
   }
 
-  @return spacing.om-spacing-value($value);
-}
+  $token: om-theme-ref($scale-name, '#{$key}');
 
-@function om-radius($key) {
-  $token: om-theme-ref(radius, '#{$key}');
+  @if $token { @return $token; }
 
-  @if meta.type-of($token) != 'null' {
-    @return $token;
-  }
+  @if $scale-name == spacing { @return spacing.om-spacing-value($key); }
 
   @return $key;
 }
 
-@function om-shadow($key) {
-  $token: om-theme-ref(shadow, '#{$key}');
+@function om-spacing($value) { @return om-token(spacing, $value); }
 
-  @if meta.type-of($token) != 'null' {
-    @return $token;
-  }
+@function om-radius($key) { @return om-token(radius, $key); }
 
-  @return $key;
-}
+@function om-shadow($key) { @return om-token(shadow, $key); }
 
-@function om-color($key) {
-  $token: om-theme-ref(color, '#{$key}');
+@function om-color($key) { @return om-token(color, $key); }
 
-  @if meta.type-of($token) != 'null' {
-    @return $token;
-  }
-
-  @return $key;
-}
-
-@function om-sizing($value) {
-  $token: om-scale-value(sizing, '#{$value}');
-
-  @if meta.type-of($token) != 'null' {
-    @return $token;
-  }
-
-  @return $value;
-}
+@function om-sizing($value) { @return om-token(sizing, $value); }
 
 @mixin om-emit-theme-vars($selector: ':root') {
   #{$selector} {
@@ -103,7 +81,7 @@
       $scale: om-scale-map($scale-name);
 
       @each $key, $value in $scale {
-        #{om-theme-var-name($scale-name, $key)}: #{meta.inspect(om-scale-value($scale-name, $key))};
+        #{om-theme-var-name($scale-name, $key)}: #{-om-css-fallback(om-scale-value($scale-name, $key))};
       }
     }
   }

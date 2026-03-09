@@ -8,32 +8,8 @@
 @function om-alias-value($css-prop, $value) {
   $aliases: map.get(registry.$om-value-aliases, $css-prop);
 
-  @if meta.type-of($aliases) != 'null' and map.has-key($aliases, $value) {
+  @if $aliases != null and map.has-key($aliases, $value) {
     @return map.get($aliases, $value);
-  }
-
-  @return $value;
-}
-
-@function om-resolve-scale-value($scale-name, $value) {
-  @if $scale-name == spacing {
-    @return theme.om-spacing($value);
-  }
-
-  @if $scale-name == radius {
-    @return theme.om-radius($value);
-  }
-
-  @if $scale-name == shadow {
-    @return theme.om-shadow($value);
-  }
-
-  @if $scale-name == color {
-    @return theme.om-color($value);
-  }
-
-  @if $scale-name == sizing {
-    @return theme.om-sizing($value);
   }
 
   @return $value;
@@ -42,37 +18,22 @@
 @function om-resolve-system-value($value, $config) {
   $kind: map.get($config, kind);
 
-  @if meta.type-of($value) == 'null' {
-    @return null;
-  }
-
-  @if $kind == spacing {
-    @return theme.om-spacing($value);
-  }
+  @if not $value { @return null; }
 
   @if $kind == enum {
-    $css-props: map.get($config, css);
-    $primary-prop: list.nth($css-props, 1);
-
-    @return om-alias-value($primary-prop, $value);
+    @return om-alias-value(list.nth(map.get($config, css), 1), $value);
   }
 
-  @if $kind == sizing {
-    @return theme.om-sizing($value);
-  }
+  $scale-name: if($kind == scale, map.get($config, scale), $kind);
 
-  @if $kind == scale {
-    @return om-resolve-scale-value(map.get($config, scale), $value);
-  }
-
-  @return $value;
+  @return theme.om-token($scale-name, $value);
 }
 
 @mixin om-apply-system-prop($prop, $value) {
-  @if meta.type-of($value) != 'null' {
+  @if $value {
     $config: map.get(registry.$om-system-props, $prop);
 
-    @if meta.type-of($config) == 'null' {
+    @if not $config {
       #{$prop}: $value;
     } @else {
       $resolved: om-resolve-system-value($value, $config);
@@ -86,12 +47,20 @@
 
 @mixin om-sx($config) {
   @each $prop, $value in $config {
-    @if map.has-key(theme.$om-breakpoints, $prop) and meta.type-of($value) == 'map' {
-      @include theme.om-down($prop) {
-        @include om-sx($value);
-      }
-    } @else {
+    @if not map.has-key(theme.$om-breakpoints, $prop) {
       @include om-apply-system-prop($prop, $value);
+    }
+  }
+
+  @each $bp-name, $_bp-value in theme.$om-breakpoints {
+    @if map.has-key($config, $bp-name) {
+      $responsive-value: map.get($config, $bp-name);
+
+      @if meta.type-of($responsive-value) == 'map' {
+        @include theme.om-down($bp-name) {
+          @include om-sx($responsive-value);
+        }
+      }
     }
   }
 }

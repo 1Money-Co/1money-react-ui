@@ -40,6 +40,14 @@
     }
   }
 
+  @if theme.$om-sys-enable-color {
+    @each $name, $css in registry.$om-color-props {
+      @each $key, $_value in theme.$om-color-scale {
+        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-color($key); }
+      }
+    }
+  }
+
   @if theme.$om-sys-enable-visual {
     @each $name, $def in registry.$om-scale-props {
       $css: map.get($def, css);
@@ -48,14 +56,6 @@
 
       @each $key, $val in $scale {
         .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-theme-ref($scale-name, $key); }
-      }
-    }
-  }
-
-  @if theme.$om-sys-enable-color {
-    @each $name, $css in registry.$om-color-props {
-      @each $key, $value in theme.$om-color-scale {
-        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-color($key); }
       }
     }
   }

@@ -28,8 +28,8 @@ module.exports = function (config) {
   const sassAliasImporter = url => (
     url.startsWith('@/') ? { file: path.resolve(srcDir, url.slice(2)) } : null
   );
-  const handleLess = file => less && file.path.match(/.less$/);
-  const handleSass = file => file.path.match(/.(scss|sass)$/);
+  const handleLess = file => less && file.path.match(/\.less$/);
+  const handleSass = file => file.path.match(/\.(scss|sass)$/);
   const trans2cssWithAlias = () =>
     gulp
       .src(params.styles)
