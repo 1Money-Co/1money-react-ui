@@ -144,17 +144,17 @@ export const SimplySidebar: StoryObj<typeof SimplySidebarComponent> = {
         children: [
           {
             key: 'terms-conditions',
-            label: 'Terms and Conditions',
+            label: 'Terms and Conditions Conditions Conditions',
             defaultOpen: true,
             children: [
               {
                 key: '1money-usa-customers',
-                label: '1Money USA, Inc Customers',
+                label: 'Commercial Agreement',
                 active: true,
               },
               {
                 key: '1money-bermuda-customers',
-                label: '1Money Bermuda Ltd Customers',
+                label: 'Retail Agreement',
               },
               {
                 key: 'customer-onboarding',
@@ -181,7 +181,7 @@ export const SimplySidebar: StoryObj<typeof SimplySidebarComponent> = {
           },
           {
             key: 'developer-terms',
-            label: 'Developer Terms of Service',
+            label: 'Developer Terms of Service Service Service',
           }
         ]
       }
