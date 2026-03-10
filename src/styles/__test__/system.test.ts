@@ -129,6 +129,95 @@ describe('styles system', () => {
     expect(css).toMatch(/\.om-w-33\s*{\s*width: 33\.333%;\s*}/);
   });
 
+  it('resolves arbitrary unitless spacing multiplier via om-spacing', () => {
+    const css = compileSass(
+      `
+      @use 'functions' as *;
+
+      .fixture { padding: om-spacing(7); }
+      `,
+      'src/styles/__test__/fixture.scss'
+    );
+
+    expect(css).toContain('padding: 56px;');
+  });
+
+  it('passes through unregistered props as raw CSS in om-sx', () => {
+    const css = compileSass(
+      `
+      @use 'functions' as *;
+
+      .fixture {
+        @include om-sx((opacity: 0.5));
+      }
+      `,
+      'src/styles/__test__/fixture.scss'
+    );
+
+    expect(css).toContain('opacity: 0.5;');
+  });
+
+  it('suppresses color utility classes when $om-sys-enable-color is false', () => {
+    const css = sass.compileString(
+      `
+      @use 'theme/config' with ($om-sys-enable-color: false);
+      @use 'utilities';
+      `,
+      {
+        loadPaths: [stylesDir],
+        style: 'expanded',
+      }
+    ).css;
+
+    expect(css).not.toContain('.om-bg-');
+    expect(css).not.toContain('.om-color-primary');
+    expect(css).toContain('.om-p-2');
+  });
+
+  it('resolves alias and canonical prop to identical CSS in om-sx', () => {
+    const aliased = compileSass(
+      `
+      @use 'functions' as *;
+
+      .fixture { @include om-sx((bgColor: primary)); }
+      `,
+      'src/styles/__test__/fixture.scss'
+    );
+
+    const canonical = compileSass(
+      `
+      @use 'functions' as *;
+
+      .fixture { @include om-sx((bg: primary)); }
+      `,
+      'src/styles/__test__/fixture.scss'
+    );
+
+    expect(aliased).toBe(canonical);
+  });
+
+  it('returns raw value for om-sizing(auto)', () => {
+    const css = compileSass(
+      `
+      @use 'functions' as *;
+
+      .fixture { width: om-sizing(auto); }
+      `,
+      'src/styles/__test__/fixture.scss'
+    );
+
+    expect(css).toContain('width: auto;');
+  });
+
+  it('matches full utility CSS output snapshot', () => {
+    const css = sass.compileString(`@use 'utilities';`, {
+      loadPaths: [stylesDir],
+      style: 'expanded',
+    }).css;
+
+    expect(css).toMatchSnapshot();
+  });
+
   it('exposes the new layered theme entrypoint for direct consumption', () => {
     const css = compileSass(
       `

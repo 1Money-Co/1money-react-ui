@@ -12,20 +12,56 @@ styles/
 │   ├── _spacing.scss       # Spacing scale (unit = 8px)
 │   ├── _radius.scss        # Border-radius scale
 │   ├── _shadow.scss        # Box-shadow scale
-│   ├── _config.scss        # Aggregates scales + feature flags
+│   ├── _config.scss        # Aggregates scales + feature flags + resolved spacing
 │   ├── _breakpoints.scss   # Breakpoint values + responsive mixins
 │   └── _tokens.scss        # Token resolver functions + CSS variable emission
 ├── system/                 # Layer 2: System-prop compiler
-│   ├── _registry.scss      # Prop → CSS mapping with aliases
+│   ├── _registry.scss      # Prop → CSS mapping with aliases and metadata
 │   └── _sx.scss            # om-sx mixin implementation
 ├── utilities/              # Layer 3: Atomic CSS class generator
-│   ├── _generator.scss     # Class generation logic
+│   ├── _generator.scss     # Single-loop class generation driven by $om-system-props
 │   └── _index.scss         # Emits classes for all breakpoints
 ├── functions/              # Layer 4: Convenience API for components
 │   └── _index.scss         # Re-exports theme + system as flat namespace
 └── __test__/
-    └── system.test.ts      # Compilation + output tests
+    └── system.test.ts      # Compilation + output + snapshot tests
 ```
+
+## Feature Flags
+
+All flags live in `theme/_config.scss` and default to `true`. Set to `false` to suppress that category of utility classes:
+
+| Flag | Controls |
+|------|----------|
+| `$om-sys-enable-spacing` | Spacing utilities (`om-p-*`, `om-m-*`, `om-gap-*`) |
+| `$om-sys-enable-layout` | Layout utilities (`om-d-*`, `om-flex-*`, `om-jc-*`, `om-ai-*`, `om-fw-*`) |
+| `$om-sys-enable-sizing` | Sizing utilities (`om-w-*`, `om-h-*`) |
+| `$om-sys-enable-color` | Color utilities (`om-color-*`, `om-bg-*`, `om-border-*`) |
+| `$om-sys-enable-visual` | Visual utilities (`om-radius-*`, `om-shadow-*`) |
+
+```scss
+@use '@1money/react-ui/styles/theme/config' with (
+  $om-sys-enable-color: false,
+);
+```
+
+## How to Add a System Property
+
+1. **Define the prop source map** in `system/_registry.scss` (e.g. `$om-spacing-props`, `$om-enum-props`, etc.)
+2. **Add entries** to the appropriate source map with the CSS property mapping
+3. **Add metadata** in `-om-build-system-props()` — each entry needs `css`, `kind`, `flag`, and optionally `scale`/`values`
+4. **Add aliases** (if any) to `$om-system-aliases` — they auto-inherit the canonical entry's config
+5. **The generator and `om-sx` will pick up the new prop automatically** — no changes needed in `_generator.scss` or `_sx.scss`
+
+### Prop Metadata Fields
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `css` | yes | List of CSS properties to emit (e.g. `(padding-left, padding-right)`) |
+| `kind` | yes | One of: `spacing`, `enum`, `sizing`, `scale` |
+| `flag` | yes | Feature flag group: `spacing`, `layout`, `sizing`, `color`, `visual` |
+| `scale` | for spacing/sizing/scale | Token scale name in `$om-theme-scales` |
+| `values` | for enum | List of allowed enum values |
 
 ## Usage
 

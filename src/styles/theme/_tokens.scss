@@ -16,10 +16,6 @@
 }
 
 @function om-scale-value($scale-name, $key) {
-  @if $scale-name == spacing {
-    @return spacing.om-spacing-token($key);
-  }
-
   $scale: om-scale-map($scale-name);
 
   @if not $scale or not map.has-key($scale, '#{$key}') {

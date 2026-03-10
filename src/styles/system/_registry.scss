@@ -25,13 +25,6 @@ $om-enum-props: (
   'ai': (css: align-items, values: (start, end, center, baseline, stretch)),
   'fw': (css: flex-wrap, values: (wrap, nowrap, wrap-reverse)),
 ) !default;
-$om-system-enum-aliases: (
-  'display': 'd',
-  'flexDirection': 'flex',
-  'justifyContent': 'jc',
-  'alignItems': 'ai',
-  'flexWrap': 'fw',
-) !default;
 $om-value-aliases: (
   justify-content: (start: flex-start, end: flex-end),
   align-items: (start: flex-start, end: flex-end),
@@ -40,24 +33,25 @@ $om-sizing-props: (
   'w': width,
   'h': height,
 ) !default;
-$om-system-sizing-aliases: (
-  'width': 'w',
-  'height': 'h',
-) !default;
 $om-scale-props: (
   'radius': (css: border-radius, scale: radius),
   'shadow': (css: box-shadow, scale: shadow),
-) !default;
-$om-system-scale-aliases: (
-  'borderRadius': 'radius',
-  'boxShadow': 'shadow',
 ) !default;
 $om-color-props: (
   'color': color,
   'bg': background-color,
   'border': border-color,
 ) !default;
-$om-system-color-aliases: (
+$om-system-aliases: (
+  'display': 'd',
+  'flexDirection': 'flex',
+  'justifyContent': 'jc',
+  'alignItems': 'ai',
+  'flexWrap': 'fw',
+  'width': 'w',
+  'height': 'h',
+  'borderRadius': 'radius',
+  'boxShadow': 'shadow',
   'bgcolor': 'bg',
   'bgColor': 'bg',
   'borderColor': 'border',
@@ -68,44 +62,32 @@ $om-system-color-aliases: (
 
   // 1. Spacing — css list is already provided, kind = spacing
   @each $name, $css-props in $om-spacing-props {
-    $result: map.merge($result, ('#{$name}': (css: $css-props, kind: spacing)));
+    $result: map.merge($result, ('#{$name}': (css: $css-props, kind: spacing, flag: spacing, scale: spacing)));
   }
 
-  // 2. Enum props + aliases — kind = enum
+  // 2. Enum props — kind = enum
   @each $name, $def in $om-enum-props {
-    $result: map.merge($result, ('#{$name}': (css: (map.get($def, css),), kind: enum)));
+    $result: map.merge($result, ('#{$name}': (css: (map.get($def, css),), kind: enum, flag: layout, values: map.get($def, values))));
   }
 
-  @each $alias, $name in $om-system-enum-aliases {
-    $def: map.get($om-enum-props, $name);
-    $result: map.merge($result, ('#{$alias}': (css: (map.get($def, css),), kind: enum)));
-  }
-
-  // 3. Simple props (sizing, color) — single css prop, kind = sizing/scale
+  // 3. Sizing props — kind = sizing
   @each $name, $css in $om-sizing-props {
-    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: sizing)));
+    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: sizing, flag: sizing, scale: sizing)));
   }
 
-  @each $alias, $name in $om-system-sizing-aliases {
-    $result: map.merge($result, ('#{$alias}': (css: (map.get($om-sizing-props, $name),), kind: sizing)));
-  }
-
+  // 4. Color props — kind = scale, scale = color
   @each $name, $css in $om-color-props {
-    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: scale, scale: color)));
+    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: scale, flag: color, scale: color)));
   }
 
-  @each $alias, $name in $om-system-color-aliases {
-    $result: map.merge($result, ('#{$alias}': (css: (map.get($om-color-props, $name),), kind: scale, scale: color)));
-  }
-
-  // 4. Scale props + aliases (radius, shadow) — kind = scale with named scale
+  // 5. Scale props (radius, shadow) — kind = scale with named scale
   @each $name, $def in $om-scale-props {
-    $result: map.merge($result, ('#{$name}': (css: (map.get($def, css),), kind: scale, scale: map.get($def, scale))));
+    $result: map.merge($result, ('#{$name}': (css: (map.get($def, css),), kind: scale, flag: visual, scale: map.get($def, scale))));
   }
 
-  @each $alias, $name in $om-system-scale-aliases {
-    $def: map.get($om-scale-props, $name);
-    $result: map.merge($result, ('#{$alias}': (css: (map.get($def, css),), kind: scale, scale: map.get($def, scale))));
+  // 6. Aliases — copy canonical entry under alias name
+  @each $alias, $canonical in $om-system-aliases {
+    $result: map.merge($result, ('#{$alias}': map.get($result, $canonical)));
   }
 
   @return $result;

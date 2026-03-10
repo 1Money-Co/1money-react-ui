@@ -1,61 +1,71 @@
 // Utility generator — emits atomic utility classes from the theme scales and system registry.
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
 @use '../theme' as theme;
 @use '../system/registry' as registry;
 
+$-flag-enabled: (
+  spacing: theme.$om-sys-enable-spacing,
+  layout: theme.$om-sys-enable-layout,
+  sizing: theme.$om-sys-enable-sizing,
+  color: theme.$om-sys-enable-color,
+  visual: theme.$om-sys-enable-visual,
+);
+
 @mixin gen-classes($bp: '') {
   $pre: if($bp != '', '#{$bp}-', '');
 
-  @if theme.$om-sys-enable-spacing {
-    @each $name, $css-props in registry.$om-spacing-props {
-      @each $key, $mult in theme.$om-spacing-scale {
-        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} {
-          @each $css in $css-props {
-            #{$css}: theme.om-spacing($key);
+  @each $name, $config in registry.$om-system-props {
+    // Skip alias entries — they share the same config as their canonical prop.
+    @if map.has-key(registry.$om-system-aliases, $name) {
+      // no-op
+    } @else {
+      $flag: map.get($config, flag);
+
+      @if map.get($-flag-enabled, $flag) {
+        $kind: map.get($config, kind);
+        $css-props: map.get($config, css);
+
+        @if $kind == spacing {
+          @each $key, $mult in theme.$om-spacing-scale {
+            .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} {
+              @each $css in $css-props {
+                #{$css}: theme.om-spacing($key);
+              }
+            }
+          }
+        } @else if $kind == enum {
+          $css: list.nth($css-props, 1);
+          $vals: map.get($config, values);
+          $aliases: if(map.has-key(registry.$om-value-aliases, $css), map.get(registry.$om-value-aliases, $css), ());
+
+          @each $val in $vals {
+            $css-val: if(meta.type-of($aliases) == 'map' and map.has-key($aliases, $val), map.get($aliases, $val), $val);
+            .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$val} { #{$css}: $css-val; }
+          }
+        } @else if $kind == sizing {
+          $css: list.nth($css-props, 1);
+
+          @each $key, $value in theme.$om-sizing-scale {
+            .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: $value; }
+          }
+        } @else if $kind == scale {
+          $css: list.nth($css-props, 1);
+          $scale-name: map.get($config, scale);
+
+          @if $scale-name == color {
+            @each $key, $_value in theme.$om-color-scale {
+              .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-color($key); }
+            }
+          } @else {
+            $scale: theme.om-scale-map($scale-name);
+
+            @each $key, $val in $scale {
+              .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-theme-ref($scale-name, $key); }
+            }
           }
         }
-      }
-    }
-  }
-
-  @if theme.$om-sys-enable-layout {
-    @each $name, $def in registry.$om-enum-props {
-      $css: map.get($def, css);
-      $vals: map.get($def, values);
-      $aliases: if(map.has-key(registry.$om-value-aliases, $css), map.get(registry.$om-value-aliases, $css), ());
-
-      @each $val in $vals {
-        $css-val: if(meta.type-of($aliases) == 'map' and map.has-key($aliases, $val), map.get($aliases, $val), $val);
-        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$val} { #{$css}: $css-val; }
-      }
-    }
-  }
-
-  @if theme.$om-sys-enable-sizing {
-    @each $name, $css in registry.$om-sizing-props {
-      @each $key, $value in theme.$om-sizing-scale {
-        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: $value; }
-      }
-    }
-  }
-
-  @if theme.$om-sys-enable-color {
-    @each $name, $css in registry.$om-color-props {
-      @each $key, $_value in theme.$om-color-scale {
-        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-color($key); }
-      }
-    }
-  }
-
-  @if theme.$om-sys-enable-visual {
-    @each $name, $def in registry.$om-scale-props {
-      $css: map.get($def, css);
-      $scale-name: map.get($def, scale);
-      $scale: theme.om-scale-map($scale-name);
-
-      @each $key, $val in $scale {
-        .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-theme-ref($scale-name, $key); }
       }
     }
   }

@@ -5,10 +5,6 @@ $component-row: 'grid-row';
 $component-col: 'grid-col';
 $grid-columns: 12;
 $grid-index-start: 1;
-$grid-breakpoint-sm: 768px;
-$grid-breakpoint-md: 1024px;
-$grid-breakpoint-lg: 1280px;
-$grid-breakpoint-step: 1px;
 $grid-col-min-height: 1px;
 $grid-col-max-width: 100%;
 $grid-gutter-divisor: 2;
@@ -30,15 +26,7 @@ $grid-var-col-flex: '--om-grid-col-flex';
 $grid-var-col-flex-sm: '--om-grid-col-flex-sm';
 $grid-var-col-flex-md: '--om-grid-col-flex-md';
 $grid-var-col-flex-lg: '--om-grid-col-flex-lg';
-$grid-justify-breakpoint-sm: $grid-breakpoint-sm;
-$grid-justify-breakpoint-md: $grid-breakpoint-md;
-$grid-justify-breakpoint-lg: $grid-breakpoint-lg;
 $grid-justify-fallback: flex-start;
-
-// Use a 0.02px offset to avoid overlapping max-width boundaries while reducing sub-pixel rounding inconsistencies.
-@function grid-max-width($value, $step: $grid-breakpoint-step) {
-  @return $value - math.div($step, 50);
-}
 
 .#{$prefix}-#{$component-row} {
   display: flex;
@@ -93,19 +81,19 @@ $grid-justify-fallback: flex-start;
   }
 }
 
-@media (max-width: grid-max-width($grid-justify-breakpoint-lg)) {
+@include om-down(lg) {
   .#{$prefix}-#{$component-row} {
     justify-content: var(#{$grid-var-justify-lg}, var(#{$grid-var-justify}, #{$grid-justify-fallback}));
   }
 }
 
-@media (max-width: grid-max-width($grid-justify-breakpoint-md)) {
+@include om-down(md) {
   .#{$prefix}-#{$component-row} {
     justify-content: var(#{$grid-var-justify-md}, var(#{$grid-var-justify}, #{$grid-justify-fallback}));
   }
 }
 
-@media (max-width: grid-max-width($grid-justify-breakpoint-sm)) {
+@include om-down(sm) {
   .#{$prefix}-#{$component-row} {
     justify-content: var(#{$grid-var-justify-sm}, var(#{$grid-var-justify}, #{$grid-justify-fallback}));
   }
@@ -147,7 +135,7 @@ $grid-justify-fallback: flex-start;
 
 @include make-col-classes('');
 
-@media (max-width: grid-max-width($grid-breakpoint-lg)) {
+@include om-down(lg) {
   .#{$prefix}-#{$component-col} {
     flex: var(#{$grid-var-col-flex-lg}, var(#{$grid-var-col-flex}, #{$grid-col-flex-fallback}));
     padding-right: calc(var(#{$grid-var-gutter-x-lg}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
@@ -163,7 +151,7 @@ $grid-justify-fallback: flex-start;
   @include make-col-classes('-lg');
 }
 
-@media (max-width: grid-max-width($grid-breakpoint-md)) {
+@include om-down(md) {
   .#{$prefix}-#{$component-col} {
     flex: var(#{$grid-var-col-flex-md}, var(#{$grid-var-col-flex}, #{$grid-col-flex-fallback}));
     padding-right: calc(var(#{$grid-var-gutter-x-md}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});
@@ -179,7 +167,7 @@ $grid-justify-fallback: flex-start;
   @include make-col-classes('-md');
 }
 
-@media (max-width: grid-max-width($grid-breakpoint-sm)) {
+@include om-down(sm) {
   .#{$prefix}-#{$component-col} {
     flex: var(#{$grid-var-col-flex-sm}, var(#{$grid-var-col-flex}, #{$grid-col-flex-fallback}));
     padding-right: calc(var(#{$grid-var-gutter-x-sm}, var(#{$grid-var-gutter-x}, #{$grid-gutter-fallback})) / #{$grid-gutter-divisor});

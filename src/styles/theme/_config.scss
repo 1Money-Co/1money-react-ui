@@ -1,4 +1,5 @@
 // Theme config aggregator — combines token scales and system feature flags into one source of truth.
+@use 'sass:map';
 @forward './spacing';
 @forward './radius';
 @forward './shadow';
@@ -8,6 +9,7 @@
 @use './shadow' as shadow;
 
 $om-sys-prefix: 'om' !default;
+$om-sys-enable-spacing: true !default;
 $om-sys-enable-layout: true !default;
 $om-sys-enable-sizing: true !default;
 $om-sys-enable-visual: true !default;
@@ -55,8 +57,14 @@ $om-sizing-scale: (
   '100': 100%,
   'auto': auto,
 ) !default;
+$om-spacing-resolved-scale: () !default;
+
+@each $key, $mult in spacing.$om-spacing-scale {
+  $om-spacing-resolved-scale: map.merge($om-spacing-resolved-scale, ($key: spacing.om-spacing-token($key)));
+}
+
 $om-theme-scales: (
-  spacing: spacing.$om-spacing-scale,
+  spacing: $om-spacing-resolved-scale,
   radius: radius.$om-radius-scale,
   shadow: shadow.$om-shadow-scale,
   color: $om-color-scale,
