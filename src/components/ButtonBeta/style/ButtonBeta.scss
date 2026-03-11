@@ -1,0 +1,204 @@
+@use '@/styles/api' as *;
+
+$component: 'button-beta';
+
+.#{$prefix}-#{$component} {
+  display: inline-flex;
+  gap: om-gap(200);
+  align-items: center;
+  justify-content: center;
+  height: om-component-height('2xl');
+  padding: om-component-padding(400);
+  border: none;
+  border-radius: om-radius(300);
+  box-shadow: none;
+  cursor: pointer;
+
+  @include om-typography(label, lg);
+
+  &.p-disabled {
+    cursor: not-allowed;
+  }
+
+  // ── Sizes ──
+  &-medium {
+    height: om-component-height('md');
+    padding: om-component-padding(300);
+    border-radius: om-radius(300);
+
+    @include om-typography(label, md);
+  }
+
+  &-small {
+    height: om-component-height('sm');
+    padding: om-component-padding(300);
+    border-radius: om-radius(200);
+
+    @include om-typography(label, sm);
+  }
+
+  // ── Icon slots ──
+  &-icon-start,
+  &-icon-end {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // ── Loading icon ──
+  &-loading-icon {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 8px;
+    margin-left: 0;
+
+    &-medium {
+      width: 16px !important;
+      height: 16px !important;
+    }
+
+    &-small {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    &-primary,
+    &-black {
+      svg circle {
+        stroke: om-text('on-neutral') !important;
+      }
+    }
+
+    &-secondary {
+      svg circle {
+        stroke: om-text('brand') !important;
+      }
+    }
+
+    &-grey,
+    &-white {
+      svg circle {
+        stroke: om-text('default') !important;
+      }
+    }
+
+    &-danger {
+      svg circle {
+        stroke: om-text('danger') !important;
+      }
+    }
+
+    &-warning {
+      svg circle {
+        stroke: om-text('default') !important;
+      }
+    }
+  }
+
+  // ── Color variants ──
+
+  // Primary
+  &-primary {
+    color: om-text('on-neutral');
+    background-color: om-bg('brand');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('brand-hover');
+    }
+  }
+
+  &-primary.p-disabled {
+    color: om-text('disabled-white');
+    background-color: om-bg('disabled-brand');
+  }
+
+  // Secondary
+  &-secondary {
+    color: om-text('brand');
+    background-color: om-bg('brand-secondary');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('brand-secondary-hover');
+    }
+  }
+
+  &-secondary.p-disabled {
+    color: om-text('brand-secondary');
+    background-color: om-bg('brand-tertiary');
+  }
+
+  // Grey
+  &-grey {
+    color: om-text('default');
+    background-color: om-bg('default-secondary');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('default-secondary');
+    }
+  }
+
+  &-grey.p-disabled {
+    color: om-text('disabled');
+    background-color: om-bg('disabled');
+  }
+
+  // Black
+  &-black {
+    color: om-text('on-neutral');
+    background-color: om-bg('neutral');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('neutral-hover');
+    }
+  }
+
+  &-black.p-disabled {
+    color: om-text('disabled-white');
+    background-color: om-bg('disabled-black');
+  }
+
+  // White
+  &-white {
+    color: om-text('default');
+    background-color: om-bg('default');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('default-hover');
+    }
+  }
+
+  &-white.p-disabled {
+    color: om-text('disabled');
+    background-color: om-bg('disabled');
+  }
+
+  // Danger
+  &-danger {
+    color: om-text('danger');
+    background-color: om-bg('danger-secondary');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('danger-secondary-hover');
+    }
+  }
+
+  &-danger.p-disabled {
+    color: om-text('danger-tertiary');
+    background-color: om-bg('danger-tertiary');
+  }
+
+  // Warning
+  &-warning {
+    color: om-text('default');
+    background-color: om-bg('warning');
+
+    &:hover:not(.p-disabled) {
+      background-color: om-bg('warning-hover');
+    }
+  }
+
+  &-warning.p-disabled {
+    color: om-text('disabled');
+    background-color: om-bg('warning-secondary');
+  }
+}

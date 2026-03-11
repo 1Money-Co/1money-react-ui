@@ -12,6 +12,8 @@ $om-bg-scale: (
   'default-tertiary': p.$grey-200,
   'default-tertiary-hover': p.$grey-300,
   'disabled': p.$grey-100,
+  'disabled-brand': p.$blue-300,
+  'disabled-black': rgba(p.$black, opacity.om-opacity('light')),
   'brand': p.$blue-700,
   'brand-hover': p.$blue-800,
   'brand-secondary': p.$blue-100,
@@ -53,6 +55,7 @@ $om-text-scale: (
   // Disabled
   'disabled': p.$grey-400,
   'disabled-black': p.$grey-400,
+  'disabled-white': p.$grey-50,
   // Brand
   'brand': p.$blue-700,
   'brand-secondary': p.$blue-300,

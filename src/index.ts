@@ -1,6 +1,7 @@
 import { Cell } from './components/Cell';
 import { Badge } from './components/Badge';
 import { Button } from './components/Button';
+import { ButtonBeta } from './components/ButtonBeta';
 import { Calendar } from './components/Calendar';
 import { Checkbox } from './components/Checkbox';
 import { CheckboxGroup } from './components/CheckboxGroup';
@@ -41,6 +42,8 @@ import { Upload, UploadFileBar } from './components/Upload';
 export { Cell } from './components/Cell';
 export { Badge } from './components/Badge';
 export { Button } from './components/Button';
+export { ButtonBeta } from './components/ButtonBeta';
+export type { ButtonBetaProps } from './components/ButtonBeta';
 export { Calendar } from './components/Calendar';
 export { Checkbox } from './components/Checkbox';
 export { CheckboxGroup } from './components/CheckboxGroup';
@@ -128,6 +131,7 @@ export default {
   Cell,
   Badge,
   Button,
+  ButtonBeta,
   Calendar,
   Checkbox,
   CheckboxGroup,

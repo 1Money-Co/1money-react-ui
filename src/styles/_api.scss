@@ -1,5 +1,7 @@
 // Styles API — single consumer entrypoint for component and business SCSS.
 // Usage: @use '@/styles/api' as *;
+$prefix: 'om-react-ui' !default;
+
 @forward './tokens';
 @forward './resolvers';
 @use './tokens' as tokens;

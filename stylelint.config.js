@@ -70,7 +70,10 @@ module.exports = {
 				'om-font-weight',
 				'om-font-family',
 				'om-letter-spacing',
-				'om-component-height'
+				'om-component-height',
+				'om-gap',
+				'om-component-padding',
+				'om-section-padding'
 				]
 			}
 		],
