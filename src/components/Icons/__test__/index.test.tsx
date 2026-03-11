@@ -1,6 +1,6 @@
 import 'jsdom-global/register';
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Icons, IconWrapper } from '../index';
 
@@ -26,5 +26,19 @@ describe('Icons', () => {
     );
     expect(Icon).toMatchSnapshot();
     expect(wrapperIcon).toMatchSnapshot();
+  });
+
+  it('renders figma alias names', () => {
+    const { container } = render(
+      <>
+        <Icons name='depositFiatCrypto' />
+        <Icons name='personalSettings' />
+        <Icons name='security2' />
+        <Icons name='iconPix' />
+        <Icons name='noApiKeys' />
+      </>
+    );
+
+    expect(container.querySelectorAll('svg')).toHaveLength(5);
   });
 });

@@ -306,6 +306,10 @@ export const PrimaryIcons: Story = {
         <Icons {...args} name='remove' />
         <span>Remove</span>
       </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='pix' />")}>
+        <Icons {...args} name='pix' />
+        <span>PIX</span>
+      </CopyIconBox>
       {/* System Icons */}
       <CopyIconBox onClick={() => handleCopy("<Icons name='info' />")}>
         <Icons {...args} name='info' />
@@ -546,6 +550,14 @@ export const PrimaryIcons: Story = {
       <CopyIconBox onClick={() => handleCopy("<Icons name='apple' />")}>
         <Icons {...args} name='apple' />
         <span>Apple</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='twitter' />")}>
+        <Icons {...args} name='twitter' />
+        <span>Twitter</span>
+      </CopyIconBox>
+      <CopyIconBox onClick={() => handleCopy("<Icons name='linkedIn' />")}>
+        <Icons {...args} name='linkedIn' />
+        <span>LinkedIn</span>
       </CopyIconBox>
       <CopyIconBox onClick={() => handleCopy("<Icons name='passkey' />")}>
         <Icons {...args} name='passkey' />
@@ -794,6 +806,5 @@ export const OldIcons: Story = {
     </div>;
   }
 };
-
 
 

@@ -101,6 +101,7 @@ import {
   SpinnerIcon,
   CheckIcon,
   RemoveIcon,
+  PixIcon,
   /* System Icons */
   InfoIcon,
   NotificationsIcon,
@@ -162,6 +163,8 @@ import {
   CNYIcon,
   GoogleIcon,
   AppleIcon,
+  TwitterIcon,
+  LinkedInIcon,
   PasskeyIcon,
   ACHIcon,
   BusinessAccountIcon,
@@ -276,6 +279,7 @@ const IconList = {
   spinner: SpinnerIcon,
   check: CheckIcon,
   remove: RemoveIcon,
+  pix: PixIcon,
 
   /* System Icons */
   info: InfoIcon,
@@ -348,8 +352,19 @@ const IconList = {
   /* Social Icons */
   google: GoogleIcon,
   apple: AppleIcon,
+  twitter: TwitterIcon,
+  linkedIn: LinkedInIcon,
   passkey: PasskeyIcon,
   pause: PauseIcon,
+
+  /* Figma Aliases */
+  depositFiatCrypto: DepositIcon,
+  withdrawFiatCrypto: WithdrawalIcon,
+  accountdLocked: AccountLockedIcon,
+  personalSettings: AccountIcon,
+  security2: SystemSecurityIcon,
+  iconPix: PixIcon,
+  noApiKeys: BrokenLinkIcon,
 } as const;
 
 export type IconName = keyof typeof IconList;
