@@ -1,0 +1,4 @@
+// Color entrypoint — re-exports palette (legacy), primitives, and semantic color tokens.
+@forward './palette';
+@forward './primitives';
+@forward './semantic-colors';

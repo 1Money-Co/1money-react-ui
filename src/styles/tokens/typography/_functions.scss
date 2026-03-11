@@ -1,0 +1,91 @@
+// Typography functions and mixin — programmatic access to the typography scale.
+// Imports from ./scale directly (no circular deps).
+// stylelint-disable order/properties-order -- Mixin emits properties in Figma spec order, not CSS sort order.
+@use 'sass:map';
+@use './scale' as scale;
+
+// ── Private helper ──
+
+/// Retrieves the property map for a given category and size.
+/// @param {string} $category - Typography category (display, headline, title, body, link, label).
+/// @param {string} $size - Size key (xs, sm, md, lg, xl).
+/// @return {map} The full property map for the given category/size.
+@function -om-resolve-typography($category, $size) {
+  $cat-map: map.get(scale.$om-typography-categories, $category);
+
+  @if not $cat-map {
+    @error 'Unknown typography category "#{$category}". Available: #{map.keys(scale.$om-typography-categories)}';
+  }
+
+  $entry: map.get($cat-map, $size);
+
+  @if not $entry {
+    @error 'Unknown typography size "#{$size}" for category "#{$category}". Available: #{map.keys($cat-map)}';
+  }
+
+  @return $entry;
+}
+
+// ── Public functions ──
+
+/// Returns the full property map for a typography category/size.
+/// @param {string} $category - Typography category.
+/// @param {string} $size - Size key.
+/// @return {map} Full property map (font-family, font-size, line-height, letter-spacing, font-weight, etc.).
+@function om-typography($category, $size) {
+  @return -om-resolve-typography($category, $size);
+}
+
+/// Returns only the font-size value.
+@function om-font-size($category, $size) {
+  @return map.get(-om-resolve-typography($category, $size), font-size);
+}
+
+/// Returns only the line-height value.
+@function om-line-height($category, $size) {
+  @return map.get(-om-resolve-typography($category, $size), line-height);
+}
+
+/// Returns only the font-weight value.
+@function om-font-weight($category, $size) {
+  @return map.get(-om-resolve-typography($category, $size), font-weight);
+}
+
+/// Returns only the font-family value.
+@function om-font-family($category, $size) {
+  @return map.get(-om-resolve-typography($category, $size), font-family);
+}
+
+/// Returns only the letter-spacing value.
+@function om-letter-spacing($category, $size) {
+  @return map.get(-om-resolve-typography($category, $size), letter-spacing);
+}
+
+// ── Public mixin ──
+
+/// Emits all typography CSS properties for a given category/size.
+/// @param {string} $category - Typography category.
+/// @param {string} $size - Size key.
+/// @param {bool} $strong [false] - If true, applies the strong font-weight override (if defined).
+@mixin om-typography($category, $size, $strong: false) {
+  $entry: -om-resolve-typography($category, $size);
+
+  font-size: map.get($entry, font-size);
+  font-family: map.get($entry, font-family);
+  line-height: map.get($entry, line-height);
+  letter-spacing: map.get($entry, letter-spacing);
+
+  @if $strong and map.has-key($entry, strong) {
+    font-weight: map.get(map.get($entry, strong), font-weight);
+  } @else {
+    font-weight: map.get($entry, font-weight);
+  }
+
+  @if map.has-key($entry, text-decoration) {
+    text-decoration: map.get($entry, text-decoration);
+  }
+
+  @if map.has-key($entry, text-decoration-skip-ink) {
+    text-decoration-skip-ink: map.get($entry, text-decoration-skip-ink);
+  }
+}

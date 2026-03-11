@@ -2,15 +2,15 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use '../theme' as theme;
-@use '../system/registry' as registry;
+@use '../resolvers' as resolvers;
+@use '../sx/registry' as registry;
 
 $-flag-enabled: (
-  spacing: theme.$om-sys-enable-spacing,
-  layout: theme.$om-sys-enable-layout,
-  sizing: theme.$om-sys-enable-sizing,
-  color: theme.$om-sys-enable-color,
-  visual: theme.$om-sys-enable-visual,
+  spacing: resolvers.$om-sys-enable-spacing,
+  layout: resolvers.$om-sys-enable-layout,
+  sizing: resolvers.$om-sys-enable-sizing,
+  color: resolvers.$om-sys-enable-color,
+  visual: resolvers.$om-sys-enable-visual,
 );
 
 @mixin gen-classes($bp: '') {
@@ -28,10 +28,10 @@ $-flag-enabled: (
         $css-props: map.get($config, css);
 
         @if $kind == spacing {
-          @each $key, $mult in theme.$om-spacing-scale {
-            .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} {
+          @each $key, $mult in resolvers.$om-spacing-scale {
+            .#{resolvers.$om-sys-prefix}-#{$pre}#{$name}-#{$key} {
               @each $css in $css-props {
-                #{$css}: theme.om-spacing($key);
+                #{$css}: resolvers.om-spacing($key);
               }
             }
           }
@@ -42,27 +42,27 @@ $-flag-enabled: (
 
           @each $val in $vals {
             $css-val: if(meta.type-of($aliases) == 'map' and map.has-key($aliases, $val), map.get($aliases, $val), $val);
-            .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$val} { #{$css}: $css-val; }
+            .#{resolvers.$om-sys-prefix}-#{$pre}#{$name}-#{$val} { #{$css}: $css-val; }
           }
         } @else if $kind == sizing {
           $css: list.nth($css-props, 1);
 
-          @each $key, $value in theme.$om-sizing-scale {
-            .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: $value; }
+          @each $key, $value in resolvers.$om-sizing-scale {
+            .#{resolvers.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: $value; }
           }
         } @else if $kind == scale {
           $css: list.nth($css-props, 1);
           $scale-name: map.get($config, scale);
 
           @if $scale-name == color {
-            @each $key, $_value in theme.$om-color-scale {
-              .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-color($key); }
+            @each $key, $_value in resolvers.$om-color-scale {
+              .#{resolvers.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: resolvers.om-color($key); }
             }
           } @else {
-            $scale: theme.om-scale-map($scale-name);
+            $scale: resolvers.om-scale-map($scale-name);
 
             @each $key, $val in $scale {
-              .#{theme.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: theme.om-theme-ref($scale-name, $key); }
+              .#{resolvers.$om-sys-prefix}-#{$pre}#{$name}-#{$key} { #{$css}: resolvers.om-theme-ref($scale-name, $key); }
             }
           }
         }

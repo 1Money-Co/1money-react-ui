@@ -1,0 +1,26 @@
+// Semantic color accessors — resolve bg/text/icon/border-s keys to CSS variable references.
+@use './vars' as vars;
+
+@function om-bg($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return vars.om-token(bg, $key);
+}
+
+@function om-text($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return vars.om-token(text, $key);
+}
+
+@function om-icon($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return vars.om-token(icon, $key);
+}
+
+@function om-border-s($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return vars.om-token(border-s, $key);
+}

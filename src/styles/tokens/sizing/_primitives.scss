@@ -1,0 +1,35 @@
+// Component height tokens — standardized heights for interactive elements.
+// Converted from loose variables to a scale map for consistency.
+@use 'sass:map';
+
+$om-component-height-scale: (
+  'xs': 24px,   // Badge, small chips
+  'sm': 32px,   // Small button, icon button
+  'md': 40px,   // Medium button, sidebar items
+  'lg': 44px,   // Small input/select
+  'xl': 48px,   // Cell, stepper step
+  '2xl': 52px,  // Default button
+  '3xl': 56px,  // Default input/select
+) !default;
+
+/// Retrieves the component height for a given size key.
+/// @param {string} $key - Size key (xs, sm, md, lg, xl, 2xl, 3xl).
+/// @return {length} The component height value.
+@function om-component-height($key) {
+  $value: map.get($om-component-height-scale, $key);
+
+  @if not $value {
+    @error 'Unknown component height key "#{$key}". Available: #{map.keys($om-component-height-scale)}';
+  }
+
+  @return $value;
+}
+
+// Backward-compatible aliases for existing consumers.
+$om-height-xs: map.get($om-component-height-scale, 'xs') !default;
+$om-height-sm: map.get($om-component-height-scale, 'sm') !default;
+$om-height-md: map.get($om-component-height-scale, 'md') !default;
+$om-height-lg: map.get($om-component-height-scale, 'lg') !default;
+$om-height-xl: map.get($om-component-height-scale, 'xl') !default;
+$om-height-2xl: map.get($om-component-height-scale, '2xl') !default;
+$om-height-3xl: map.get($om-component-height-scale, '3xl') !default;

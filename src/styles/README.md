@@ -6,30 +6,64 @@ A SCSS-based design system providing theme tokens, a system-prop compiler (`om-s
 
 ```text
 styles/
-├── index.scss              # Bundle entrypoint — emits utilities + root CSS vars
-├── theme/                  # Layer 1: Design tokens
-│   ├── _palette.scss       # Raw color constants
-│   ├── _spacing.scss       # Spacing scale (unit = 8px)
-│   ├── _radius.scss        # Border-radius scale
-│   ├── _shadow.scss        # Box-shadow scale
-│   ├── _config.scss        # Aggregates scales + feature flags + resolved spacing
-│   ├── _breakpoints.scss   # Breakpoint values + responsive mixins
-│   └── _tokens.scss        # Token resolver functions + CSS variable emission
-├── system/                 # Layer 2: System-prop compiler
-│   ├── _registry.scss      # Prop → CSS mapping with aliases and metadata
-│   └── _sx.scss            # om-sx mixin implementation
-├── utilities/              # Layer 3: Atomic CSS class generator
-│   ├── _generator.scss     # Single-loop class generation driven by $om-system-props
-│   └── _index.scss         # Emits classes for all breakpoints
-├── functions/              # Layer 4: Convenience API for components
-│   └── _index.scss         # Re-exports theme + system as flat namespace
+├── _api.scss               # Single consumer entrypoint for component / business SCSS
+├── index.scss              # CSS bundle entrypoint — emits utilities + root CSS vars
+├── tokens/                 # Pure data + pure query functions (no CSS vars)
+│   ├── color/
+│   │   ├── _primitives.scss       # Raw color primitives
+│   │   ├── _palette.scss          # Legacy flat color aliases
+│   │   ├── _semantic-colors.scss  # Semantic bg/text/icon/border scales
+│   │   └── _index.scss
+│   ├── spacing/
+│   │   ├── _primitives.scss       # Figma-aligned spacing scale (100 = 4px)
+│   │   └── _index.scss
+│   ├── radius/
+│   │   ├── _primitives.scss       # Figma-aligned radius scale
+│   │   └── _index.scss
+│   ├── shadow/
+│   │   ├── _primitives.scss       # Box-shadow scale
+│   │   └── _index.scss
+│   ├── opacity/
+│   │   ├── _primitives.scss       # Opacity tokens + om-opacity()
+│   │   └── _index.scss
+│   ├── sizing/
+│   │   ├── _primitives.scss       # Component height scale + om-component-height()
+│   │   └── _index.scss
+│   ├── typography/
+│   │   ├── _primitives.scss       # Font families, weights, line-heights, tracking
+│   │   ├── _scale.scss            # Full Figma typography spec as Sass maps
+│   │   ├── _functions.scss        # Typography accessor functions + mixin
+│   │   └── _index.scss
+│   └── _index.scss                # Re-exports all token subsystems
+├── resolvers/              # Aggregates tokens → CSS var references + responsive
+│   ├── _config.scss               # $om-theme-scales aggregation + feature flags
+│   ├── _vars.scss                 # om-token/spacing/color/radius/shadow → var()
+│   ├── _semantic-spacing.scss     # om-gap/component-padding/section-padding
+│   ├── _semantic-color.scss       # om-bg/text/icon/border-s
+│   ├── _breakpoints.scss          # om-up/down/between/only/respond
+│   └── _index.scss
+├── sx/                     # Short-hand prop compiler
+│   ├── _registry.scss             # Prop → CSS mapping with aliases and metadata
+│   ├── _sx.scss                   # om-sx mixin implementation
+│   └── _index.scss
+├── utilities/              # Atomic CSS class generator
+│   ├── _generator.scss            # Single-loop class generation
+│   └── _index.scss                # Emits classes for all breakpoints
 └── __test__/
-    └── system.test.ts      # Compilation + output + snapshot tests
+    └── system.test.ts
+```
+
+### Dependency flow (strict one-way)
+
+```text
+tokens → resolvers → sx → utilities
+              ↘
+            _api.scss
 ```
 
 ## Feature Flags
 
-All flags live in `theme/_config.scss` and default to `true`. Set to `false` to suppress that category of utility classes:
+All flags live in `resolvers/_config.scss` and default to `true`. Set to `false` to suppress that category of utility classes:
 
 | Flag | Controls |
 |------|----------|
@@ -40,14 +74,14 @@ All flags live in `theme/_config.scss` and default to `true`. Set to `false` to 
 | `$om-sys-enable-visual` | Visual utilities (`om-radius-*`, `om-shadow-*`) |
 
 ```scss
-@use '@1money/react-ui/styles/theme/config' with (
+@use '@1money/react-ui/styles/resolvers/config' with (
   $om-sys-enable-color: false,
 );
 ```
 
 ## How to Add a System Property
 
-1. **Define the prop source map** in `system/_registry.scss` (e.g. `$om-spacing-props`, `$om-enum-props`, etc.)
+1. **Define the prop source map** in `sx/_registry.scss` (e.g. `$om-spacing-props`, `$om-enum-props`, etc.)
 2. **Add entries** to the appropriate source map with the CSS property mapping
 3. **Add metadata** in `-om-build-system-props()` — each entry needs `css`, `kind`, `flag`, and optionally `scale`/`values`
 4. **Add aliases** (if any) to `$om-system-aliases` — they auto-inherit the canonical entry's config
@@ -67,32 +101,34 @@ All flags live in `theme/_config.scss` and default to `true`. Set to `false` to 
 
 ### Component Library SCSS
 
-Import the `functions` entrypoint to get all helpers in a flat namespace:
+Import the `api` entrypoint to get all helpers in a flat namespace:
 
 ```scss
-@use '@/styles/functions' as *;
+@use '@/styles/api' as *;
 ```
 
 #### `om-sx` — System-prop mixin
+
+Spacing and radius keys follow the Figma token names, so `100 = 4px`, `200 = 8px`, `400 = 16px`, `800 = 32px`, etc.
 
 Declare multiple styled properties with responsive overrides in a single call:
 
 ```scss
 .card {
   @include om-sx((
-    p: 3,                // padding: 24px
+    p: 600,              // padding: 24px
     d: flex,             // display: flex
     flex: column,        // flex-direction: column
-    gap: 2,              // gap: 16px
+    gap: 400,            // gap: 16px
     bg: white,           // background-color: var(--om-color-white)
-    radius: 2,           // border-radius: var(--om-radius-2, 8px)
+    radius: 300,         // border-radius: var(--om-radius-300, 12px)
     shadow: 1,           // box-shadow: var(--om-shadow-1, ...)
     md: (                // @media (max-width: 1023.98px)
-      p: 2,
-      gap: 1,
+      p: 400,
+      gap: 300,
     ),
     sm: (                // @media (max-width: 767.98px)
-      p: 1,
+      p: 200,
       flex: column,
     ),
   ));
@@ -133,13 +169,130 @@ Use token functions for individual CSS properties:
 
 ```scss
 .element {
-  padding: om-spacing(2);      // var(--om-spacing-2, 16px)
+  padding: om-spacing(400);    // var(--om-spacing-400, 16px)
   color: om-color(primary);    // var(--om-color-primary, #073387)
-  border-radius: om-radius(3); // var(--om-radius-3, 12px)
+  border-radius: om-radius(300); // var(--om-radius-300, 12px)
   box-shadow: om-shadow(1);    // var(--om-shadow-1, 0 1px 3px ...)
   width: om-sizing(50);        // 50%
 }
 ```
+
+#### Typography functions
+
+Access the Figma typography scale programmatically. Typography is not registered in `$om-theme-scales` because its values are multi-property maps, not single CSS values — no utility classes or CSS custom properties are generated.
+
+**Functions** return individual values:
+
+```scss
+.heading {
+  font-size: om-font-size(display, xl);     // 76px
+  line-height: om-line-height(display, xl);  // 82.08px
+  font-weight: om-font-weight(body, md);     // 400
+  font-family: om-font-family(headline, lg); // var(--font-aeonik), Aeonik, sans-serif
+  letter-spacing: om-letter-spacing(display, xl); // -0.25px
+}
+```
+
+**`om-typography()` function** returns the full property map:
+
+```scss
+@use 'sass:map';
+
+$body-md: om-typography(body, md);
+.element {
+  font-size: map.get($body-md, font-size);   // 14px
+}
+```
+
+**`@include om-typography()` mixin** emits all CSS properties at once:
+
+```scss
+.body-text {
+  @include om-typography(body, md);
+  // Emits: font-family, font-size, line-height, letter-spacing, font-weight
+}
+
+.body-strong {
+  @include om-typography(body, md, $strong: true);
+  // Same as above but font-weight: 500 (medium) instead of 400 (regular)
+}
+
+.link {
+  @include om-typography(link, md);
+  // Also emits: text-decoration: underline; text-decoration-skip-ink: none;
+}
+```
+
+**Categories and sizes:**
+
+| Category | Sizes | Font | Strong weight |
+|----------|-------|------|---------------|
+| `display` | `xl`, `lg`, `md`, `sm`, `xs` | Aeonik | — |
+| `headline` | `lg`, `md`, `sm`, `xs` | Aeonik | — |
+| `title` | `lg`, `md`, `sm` | Inter | 700 |
+| `body` | `lg`, `md`, `sm` | Inter | 500 |
+| `link` | `md`, `sm` | Inter | — |
+| `label` | `xl`, `lg`, `md`, `sm`, `xs` | Inter | 600–700 |
+
+#### Component heights
+
+Standardized heights for interactive elements via `om-component-height($key)`:
+
+```scss
+.button {
+  height: om-component-height(md); // 40px
+}
+```
+
+| Key | Value | Use case |
+|-----|-------|----------|
+| `xs` | 24px | Badge, small chips |
+| `sm` | 32px | Small button, icon button |
+| `md` | 40px | Medium button, sidebar items |
+| `lg` | 44px | Small input/select |
+| `xl` | 48px | Cell, stepper step |
+| `2xl` | 52px | Default button |
+| `3xl` | 56px | Default input/select |
+
+#### Opacity
+
+Standardized opacity values via `om-opacity($key)`:
+
+```scss
+.disabled {
+  opacity: om-opacity(disabled); // 0.5
+}
+```
+
+| Key | Value |
+|-----|-------|
+| `subtle` | 0.05 |
+| `light` | 0.1 |
+| `medium` | 0.2 |
+| `disabled-light` | 0.3 |
+| `overlay` | 0.4 |
+| `disabled` | 0.5 |
+| `disabled-heavy` | 0.6 |
+
+#### Semantic spacing helpers
+
+Use semantic helpers when you want code to reflect the Figma spacing groups directly. These helpers only accept the keys defined for that group and resolve back to primitive spacing vars.
+
+```scss
+.stack {
+  gap: om-gap(400); // var(--om-spacing-400, 16px)
+}
+
+.card {
+  padding: om-component-padding(600); // var(--om-spacing-600, 24px)
+}
+
+.page-section {
+  padding: om-section-padding(1600); // var(--om-spacing-1600, 64px)
+}
+```
+
+Semantic helpers are aliases only. Utility classes and CSS variable output remain based on the primitive `spacing` scale.
 
 #### Responsive mixins
 
@@ -167,11 +320,11 @@ import '@1money/react-ui/index.css';
 
 function Page() {
   return (
-    <div className="om-d-flex om-flex-column om-gap-3 om-p-4 om-bg-white">
-      <h1 className="om-color-primary-black om-mb-2">Title</h1>
-      <div className="om-d-flex om-gap-2 om-md-flex-column">
-        <div className="om-w-33 om-md-w-100 om-radius-2 om-shadow-1" />
-        <div className="om-w-33 om-md-w-100 om-radius-2 om-shadow-1" />
+    <div className="om-d-flex om-flex-column om-gap-600 om-p-800 om-bg-white">
+      <h1 className="om-color-primary-black om-mb-400">Title</h1>
+      <div className="om-d-flex om-gap-400 om-md-flex-column">
+        <div className="om-w-33 om-md-w-100 om-radius-300 om-shadow-1" />
+        <div className="om-w-33 om-md-w-100 om-radius-300 om-shadow-1" />
       </div>
     </div>
   );
@@ -185,28 +338,28 @@ Base:       .om-{prop}-{value}
 Responsive: .om-{breakpoint}-{prop}-{value}
 
 Examples:
-  .om-p-2          → padding: 16px
-  .om-mx-3         → margin-left: 24px; margin-right: 24px
+  .om-p-400        → padding: 16px
+  .om-mx-600       → margin-left: 24px; margin-right: 24px
   .om-d-flex       → display: flex
   .om-jc-center    → justify-content: center
   .om-bg-primary   → background-color: var(--om-color-primary)
   .om-w-50         → width: 50%
   .om-radius-full  → border-radius: 9999px
-  .om-md-p-1       → @media (max-width: 1023.98px) { padding: 8px }
+  .om-md-p-200     → @media (max-width: 1023.98px) { padding: 8px }
   .om-sm-d-none    → @media (max-width: 767.98px) { display: none }
 ```
 
 ### Business SCSS — Direct Theme Consumption
 
 ```scss
-@use '@1money/react-ui/styles/theme' as theme;
+@use '@1money/react-ui/styles/api' as om;
 
 .hero {
-  color: theme.om-color(primary);
-  padding: theme.om-spacing(6);
+  color: om.om-color(primary);
+  padding: om.om-spacing(800);
 
-  @include theme.om-down(md) {
-    padding: theme.om-spacing(3);
+  @include om.om-down(md) {
+    padding: om.om-spacing(400);
   }
 }
 ```
@@ -218,42 +371,60 @@ Override CSS variables to customize the theme:
 ```css
 :root {
   --om-color-primary: #1a73e8;
-  --om-spacing-2: 12px;
-  --om-radius-2: 6px;
+  --om-spacing-400: 20px;
+  --om-radius-300: 10px;
 }
 ```
 
 ## Token Scales
 
-### Spacing (unit = 8px)
+### Spacing (100 = 4px)
+
+Figma references currently showcased in the design system:
+
+- Gap: `100`, `200`, `300`, `400`, `600`, `1600`
+- Component padding: `100`, `200`, `300`, `400`, `600`, `800`
+- Section padding: `800`, `1600`, `2400`, `4000`
+
+The style system keeps the full monotonic 4px ladder between those anchors so utilities and `om-sx` stay predictable.
 
 | Key | Value |
 |-----|-------|
 | `0` | 0 |
-| `0x5` | 4px |
-| `1` | 8px |
-| `1x5` | 12px |
-| `2` | 16px |
-| `2x5` | 20px |
-| `3` | 24px |
-| `4` | 32px |
-| `5` | 40px |
-| `6` | 48px |
-| `8` | 64px |
-| `10` | 80px |
-| `12` | 96px |
-| `16` | 128px |
-| `20` | 160px |
+| `100` | 4px |
+| `200` | 8px |
+| `300` | 12px |
+| `400` | 16px |
+| `500` | 20px |
+| `600` | 24px |
+| `800` | 32px |
+| `1000` | 40px |
+| `1200` | 48px |
+| `1400` | 56px |
+| `1600` | 64px |
+| `2000` | 80px |
+| `2400` | 96px |
+| `3200` | 128px |
+| `4000` | 160px |
+
+### Semantic spacing groups
+
+| Group | Allowed keys |
+|-------|--------------|
+| `om-gap(...)` | `100`, `200`, `300`, `400`, `600`, `1600` |
+| `om-component-padding(...)` | `100`, `200`, `300`, `400`, `600`, `800` |
+| `om-section-padding(...)` | `800`, `1600`, `2400`, `4000` |
 
 ### Radius
 
 | Key | Value |
 |-----|-------|
 | `0` | 0 |
-| `1` | 4px |
-| `2` | 8px |
-| `3` | 12px |
-| `4` | 16px |
+| `100` | 4px |
+| `200` | 8px |
+| `300` | 12px |
+| `400` | 16px |
+| `600` | 24px |
 | `full` | 9999px |
 
 ### Shadow
@@ -283,8 +454,6 @@ Primary: `primary`, `primary-active`, `primary-hover`, `primary-black`, `primary
 Secondary: `secondary`, `secondary-active`, `secondary-hover`
 Grey: `grey-light`, `grey`, `grey-deep`, `grey-bold`, `grey-dark`, `grey-midnight`, `grey-night`
 Base: `black`, `white`
-Info: `info`, `info-light`
 Success: `success`, `success-bg`
 Warning: `warning`, `warning-hover`, `warning-active`, `warning-dark`, `warning-bg`
 Negative: `negative`, `negative-hover`, `negative-active`, `negative-bg`
-Other: `dimmer-dark`

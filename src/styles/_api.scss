@@ -1,0 +1,63 @@
+// Styles API — single consumer entrypoint for component and business SCSS.
+// Usage: @use '@/styles/api' as *;
+@forward './tokens';
+@forward './resolvers';
+@use './tokens' as tokens;
+@use './resolvers' as resolvers;
+@use './sx' as sx;
+
+@mixin om-respond($bp-name) { @include resolvers.om-respond($bp-name) { @content; } }
+
+@mixin om-up($bp-name) { @include resolvers.om-up($bp-name) { @content; } }
+
+@mixin om-down($bp-name) { @include resolvers.om-down($bp-name) { @content; } }
+
+@mixin om-between($lower, $upper) { @include resolvers.om-between($lower, $upper) { @content; } }
+
+@mixin om-only($bp-name) { @include resolvers.om-only($bp-name) { @content; } }
+
+@mixin om-emit-theme-vars($selector: ':root') { @include resolvers.om-emit-theme-vars($selector); }
+
+@function om-spacing($scale) { @return resolvers.om-spacing($scale); }
+
+@function om-radius($key) { @return resolvers.om-radius($key); }
+
+@function om-shadow($key) { @return resolvers.om-shadow($key); }
+
+@function om-color($key) { @return resolvers.om-color($key); }
+
+@function om-sizing($value) { @return resolvers.om-sizing($value); }
+
+@function om-gap($key) { @return resolvers.om-gap($key); }
+
+@function om-component-padding($key) { @return resolvers.om-component-padding($key); }
+
+@function om-section-padding($key) { @return resolvers.om-section-padding($key); }
+
+@function om-bg($group, $variant: null) { @return resolvers.om-bg($group, $variant); }
+
+@function om-text($group, $variant: null) { @return resolvers.om-text($group, $variant); }
+
+@function om-icon($group, $variant: null) { @return resolvers.om-icon($group, $variant); }
+
+@function om-border-s($group, $variant: null) { @return resolvers.om-border-s($group, $variant); }
+
+@function om-typography($category, $size) { @return tokens.om-typography($category, $size); }
+
+@function om-font-size($category, $size) { @return tokens.om-font-size($category, $size); }
+
+@function om-line-height($category, $size) { @return tokens.om-line-height($category, $size); }
+
+@function om-font-weight($category, $size) { @return tokens.om-font-weight($category, $size); }
+
+@function om-font-family($category, $size) { @return tokens.om-font-family($category, $size); }
+
+@function om-letter-spacing($category, $size) { @return tokens.om-letter-spacing($category, $size); }
+
+@function om-component-height($key) { @return tokens.om-component-height($key); }
+
+@mixin om-typography($category, $size, $strong: false) {
+  @include tokens.om-typography($category, $size, $strong: $strong);
+}
+
+@mixin om-sx($config) { @include sx.om-sx($config); }

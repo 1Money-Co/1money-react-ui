@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use '../theme' as theme;
+@use '../resolvers' as resolvers;
 @use './registry' as registry;
 
 @function om-alias-value($css-prop, $value) {
@@ -26,7 +26,7 @@
 
   $scale-name: if($kind == scale, map.get($config, scale), $kind);
 
-  @return theme.om-token($scale-name, $value);
+  @return resolvers.om-token($scale-name, $value);
 }
 
 @mixin om-apply-system-prop($prop, $value) {
@@ -47,17 +47,17 @@
 
 @mixin om-sx($config) {
   @each $prop, $value in $config {
-    @if not map.has-key(theme.$om-breakpoints, $prop) {
+    @if not map.has-key(resolvers.$om-breakpoints, $prop) {
       @include om-apply-system-prop($prop, $value);
     }
   }
 
-  @each $bp-name, $_bp-value in theme.$om-breakpoints {
+  @each $bp-name, $_bp-value in resolvers.$om-breakpoints {
     @if map.has-key($config, $bp-name) {
       $responsive-value: map.get($config, $bp-name);
 
       @if meta.type-of($responsive-value) == 'map' {
-        @include theme.om-down($bp-name) {
+        @include resolvers.om-down($bp-name) {
           @include om-sx($responsive-value);
         }
       }

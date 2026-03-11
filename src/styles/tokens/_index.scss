@@ -1,0 +1,8 @@
+// Tokens entrypoint — re-exports all design token subsystems.
+@forward './color';
+@forward './spacing/index';
+@forward './radius';
+@forward './shadow';
+@forward './opacity';
+@forward './sizing/index';
+@forward './typography/index';

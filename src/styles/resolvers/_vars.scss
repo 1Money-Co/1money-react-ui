@@ -3,7 +3,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use './config' as config;
-@use './spacing' as spacing;
+@use '../tokens/spacing/primitives' as spacing;
 
 @function om-scale-map($scale-name) {
   @return map.get(config.$om-theme-scales, $scale-name);

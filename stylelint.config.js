@@ -57,7 +57,20 @@ module.exports = {
 					'om-alias-value',
 					'om-spacing-token',
 					'om-spacing-value',
-					'-om-spacing-token'
+					'-om-spacing-token',
+				'om-opacity',
+				'om-bg',
+				'om-text',
+				'om-icon',
+				'om-border-s',
+				'-om-resolve-typography',
+				'om-typography',
+				'om-font-size',
+				'om-line-height',
+				'om-font-weight',
+				'om-font-family',
+				'om-letter-spacing',
+				'om-component-height'
 				]
 			}
 		],

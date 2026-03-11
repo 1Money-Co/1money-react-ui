@@ -1,5 +1,5 @@
 @use "sass:map";
-@use '@/styles/theme' as *;
+@use '@/styles/api' as *;
 
 $radio-border-radius: 50%;
 $radio-size: (sm: 16px,

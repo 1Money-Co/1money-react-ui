@@ -1,0 +1,6 @@
+// Resolvers entrypoint — re-exports config, var-wrapping functions, semantic accessors, and breakpoint mixins.
+@forward './config';
+@forward './vars';
+@forward './semantic-spacing';
+@forward './semantic-color';
+@forward './breakpoints';

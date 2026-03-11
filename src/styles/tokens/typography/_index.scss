@@ -1,0 +1,4 @@
+// Typography entrypoint — re-exports primitives, scale maps, and functions.
+@forward './primitives';
+@forward './scale';
+@forward './functions';
