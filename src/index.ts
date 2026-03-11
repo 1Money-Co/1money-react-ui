@@ -21,6 +21,7 @@ import { Message } from './components/Message';
 import { Flex } from './components/Flex';
 import { Modal } from './components/Modal';
 import { Notification } from './components/Notification';
+import { NotificationBeta } from './components/NotificationBeta';
 import { Popup } from './components/Popup';
 import { Progress } from './components/Progress';
 import { Radio } from './components/Radio';
@@ -96,6 +97,8 @@ export type {
 } from './components/ProForm/interface';
 export { Modal } from './components/Modal';
 export { Notification } from './components/Notification';
+export { NotificationBeta } from './components/NotificationBeta';
+export type { NotificationBetaProps } from './components/NotificationBeta';
 export { Popup } from './components/Popup';
 export { Progress } from './components/Progress';
 export { Radio } from './components/Radio';
@@ -154,6 +157,7 @@ export default {
   Flex,
   Modal,
   Notification,
+  NotificationBeta,
   Popup,
   Progress,
   Radio,

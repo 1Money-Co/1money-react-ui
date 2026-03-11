@@ -1,0 +1,88 @@
+import React from 'react';
+import { fn } from '@storybook/test';
+
+import type { Meta, StoryObj } from '@storybook/react';
+import { NotificationBeta } from './index';
+
+import './style';
+
+const STATUSES = ['info', 'success', 'warning', 'error'] as const;
+
+const meta: Meta<typeof NotificationBeta> = {
+  title: 'Components/NotificationBeta',
+  component: NotificationBeta,
+  argTypes: {
+    status: { control: 'radio', options: [...STATUSES] },
+    closable: { control: 'boolean' },
+    showIcon: { control: 'boolean' },
+    title: { control: 'text' },
+    body: { control: 'text' },
+  },
+  args: {
+    status: 'info',
+    closable: true,
+    showIcon: true,
+    title: 'Title',
+    body: 'You can now link multiple accounts to manage your finances all in one place.',
+    onClose: fn(),
+    onClick: fn(),
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof NotificationBeta>;
+
+export const AllVariants: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 400 }}>
+      {STATUSES.map(status => (
+        <NotificationBeta
+          {...args}
+          key={status}
+          status={status}
+          title={`${status.charAt(0).toUpperCase()}${status.slice(1)} Notification`}
+        />
+      ))}
+    </div>
+  ),
+  args: {
+    title: undefined,
+  },
+  tags: ['!autodocs', 'dev'],
+};
+
+export const WithLink: Story = {
+  args: {
+    status: 'info',
+    title: 'Account linked',
+    body: 'Your bank account has been successfully connected.',
+    link: { label: 'View details', onClick: fn() },
+  },
+};
+
+export const BodyOnly: Story = {
+  args: {
+    status: 'success',
+    title: undefined,
+    body: 'Settings saved successfully.',
+  },
+};
+
+export const NoIcon: Story = {
+  args: {
+    showIcon: false,
+    title: 'No icon notification',
+    body: 'This notification has no status icon.',
+  },
+};
+
+export const NotClosable: Story = {
+  args: {
+    closable: false,
+    status: 'warning',
+    title: 'Persistent notification',
+    body: 'This notification cannot be dismissed.',
+  },
+};
