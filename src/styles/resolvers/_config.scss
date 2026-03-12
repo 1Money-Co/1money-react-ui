@@ -7,7 +7,7 @@
 @forward '../tokens/radius';
 @forward '../tokens/shadow';
 @use '../tokens/color/scale' as color-scale;
-@use '../tokens/color/semantic-colors' as semantic;
+@use '../tokens/color/semantic-color' as semantic;
 @use '../tokens/sizing/scale' as sizing-scale;
 @use '../tokens/spacing' as spacing;
 @use '../tokens/radius' as radius;
