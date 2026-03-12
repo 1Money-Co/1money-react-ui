@@ -47,50 +47,50 @@ $component: 'button-beta';
 
   // ── Loading icon ──
   &-loading-icon {
-    width: 20px !important;
-    height: 20px !important;
+    width: 20px;
+    height: 20px;
     margin-right: 8px;
     margin-left: 0;
 
     &-medium {
-      width: 16px !important;
-      height: 16px !important;
+      width: 16px;
+      height: 16px;
     }
 
     &-small {
-      width: 14px !important;
-      height: 14px !important;
+      width: 14px;
+      height: 14px;
     }
 
     &-primary,
     &-black {
       svg circle {
-        stroke: om-text('on-neutral') !important;
+        stroke: om-text('on-neutral');
       }
     }
 
     &-secondary {
       svg circle {
-        stroke: om-text('brand') !important;
+        stroke: om-text('brand');
       }
     }
 
     &-grey,
     &-white {
       svg circle {
-        stroke: om-text('default') !important;
+        stroke: om-text('default');
       }
     }
 
     &-danger {
       svg circle {
-        stroke: om-text('danger') !important;
+        stroke: om-text('danger');
       }
     }
 
     &-warning {
       svg circle {
-        stroke: om-text('default') !important;
+        stroke: om-text('default');
       }
     }
   }
