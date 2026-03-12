@@ -27,17 +27,18 @@ styles/
 │   │   ├── _primitives.scss       # Opacity tokens + om-opacity()
 │   │   └── _index.scss
 │   ├── sizing/
-│   │   ├── _primitives.scss       # Component height scale + om-component-height()
+│   │   ├── _primitives.scss       # Component height scale
+│   │   ├── _functions.scss        # Pure component-height token query helpers
 │   │   └── _index.scss
 │   ├── typography/
 │   │   ├── _primitives.scss       # Font families, weights, line-heights, tracking
 │   │   ├── _scale.scss            # Full Figma typography spec as Sass maps
-│   │   ├── _functions.scss        # Typography accessor functions + mixin
+│   │   ├── _functions.scss        # Pure typography scale query helpers
 │   │   └── _index.scss
 │   └── _index.scss                # Re-exports all token subsystems
 ├── theme/                  # Transform — tokens → CSS var references
 │   ├── _scales.scss               # $om-theme-scales aggregation + feature flags
-│   ├── _functions.scss            # All theme functions (token, color, spacing)
+│   ├── _functions.scss            # Theme refs, typography var emission, themed accessors
 │   └── _index.scss                # 2 forwards: scales, functions
 ├── system/                 # Component API — sx compiler, responsive, variant DSL
 │   ├── _breakpoints.scss          # om-up/down/between/only/respond
@@ -369,7 +370,7 @@ Use token functions for individual CSS properties:
 
 #### Typography functions
 
-Access the Figma typography scale programmatically. Typography is not registered in `$om-theme-scales` because its values are multi-property maps, not single CSS values — no utility classes are generated.
+Access the Figma typography scale programmatically. The raw typography maps live in `tokens/typography`, while the CSS-variable accessors and mixins live in `theme`. Typography is not registered in `$om-theme-scales` because its values are multi-property maps, not single CSS values — no utility classes are generated.
 
 **CSS custom properties** are emitted under `:root` for every typography entry, enabling runtime theme overrides:
 
@@ -396,7 +397,7 @@ All accessor functions (`om-font-size`, `om-line-height`, etc.) and the `@includ
 }
 ```
 
-**`om-typography()` function** returns the full property map:
+**`om-typography()` function** returns the raw property map from the token layer:
 
 ```scss
 @use 'sass:map';
@@ -446,6 +447,8 @@ Standardized heights for interactive elements via `om-component-height($key)`:
   height: om-component-height(md); // 40px
 }
 ```
+
+If you need the raw token value inside the token layer itself, use `om-component-height-token($key)`.
 
 | Key | Value | Use case |
 |-----|-------|----------|

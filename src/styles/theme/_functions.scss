@@ -1,10 +1,12 @@
-// Theme functions — generate CSS variable references and fall back to raw scale values.
+// Theme functions — generate CSS variable references, themed accessors, and typography vars.
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
 @use './scales' as scales;
 @use '../tokens/spacing' as spacing;
 @use '../tokens/spacing/semantic-spacing' as semantic;
+@use '../tokens/sizing' as sizing;
+@use '../tokens/typography' as typography;
 
 @function om-scale-map($scale-name) {
   @return map.get(scales.$om-theme-scales, $scale-name);
@@ -81,6 +83,12 @@
 
 @function om-sizing($value) { @return om-token(sizing, $value); }
 
+@function om-component-height($key) {
+  $-value: sizing.om-component-height-token($key);
+
+  @return om-token(component-height, $key);
+}
+
 @mixin om-emit-theme-vars($selector: ':root') {
   #{$selector} {
     @each $scale-name in scales.$om-theme-css-var-scales {
@@ -90,6 +98,98 @@
         #{om-theme-var-name($scale-name, $key)}: #{-om-css-fallback(om-scale-value($scale-name, $key))};
       }
     }
+  }
+}
+
+@function -om-typography-var-name($category, $size, $suffix) {
+  @return --#{scales.$om-sys-prefix}-#{$category}-#{$size}-#{$suffix};
+}
+
+@mixin om-emit-typography-vars($selector: ':root') {
+  $standard-props: (font-size, font-family, line-height, letter-spacing, font-weight);
+
+  #{$selector} {
+    @each $category, $sizes in typography.$om-typography-categories {
+      @each $size, $entry in $sizes {
+        @each $prop in $standard-props {
+          $val: map.get($entry, $prop);
+
+          @if $val {
+            #{-om-typography-var-name($category, $size, $prop)}: #{$val};
+          }
+        }
+
+        @if map.has-key($entry, strong) {
+          $strong-weight: map.get(map.get($entry, strong), font-weight);
+
+          @if $strong-weight {
+            #{-om-typography-var-name($category, $size, strong-font-weight)}: #{$strong-weight};
+          }
+        }
+
+        @if map.has-key($entry, text-decoration) {
+          #{-om-typography-var-name($category, $size, text-decoration)}: #{map.get($entry, text-decoration)};
+        }
+
+        @if map.has-key($entry, text-decoration-skip-ink) {
+          #{-om-typography-var-name($category, $size, text-decoration-skip-ink)}: #{map.get($entry, text-decoration-skip-ink)};
+        }
+      }
+    }
+  }
+}
+
+@function om-font-size($category, $size) {
+  $-entry: typography.om-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, font-size)});
+}
+
+@function om-line-height($category, $size) {
+  $-entry: typography.om-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, line-height)});
+}
+
+@function om-font-weight($category, $size) {
+  $-entry: typography.om-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, font-weight)});
+}
+
+@function om-font-family($category, $size) {
+  $-entry: typography.om-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, font-family)});
+}
+
+@function om-letter-spacing($category, $size) {
+  $-entry: typography.om-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, letter-spacing)});
+}
+
+// stylelint-disable order/properties-order -- Mixin emits properties in Figma spec order, not CSS sort order.
+@mixin om-typography($category, $size, $strong: false) {
+  $entry: typography.om-typography($category, $size);
+
+  font-size: var(#{-om-typography-var-name($category, $size, font-size)});
+  font-family: var(#{-om-typography-var-name($category, $size, font-family)});
+  line-height: var(#{-om-typography-var-name($category, $size, line-height)});
+  letter-spacing: var(#{-om-typography-var-name($category, $size, letter-spacing)});
+
+  @if $strong and map.has-key($entry, strong) {
+    font-weight: var(#{-om-typography-var-name($category, $size, strong-font-weight)});
+  } @else {
+    font-weight: var(#{-om-typography-var-name($category, $size, font-weight)});
+  }
+
+  @if map.has-key($entry, text-decoration) {
+    text-decoration: var(#{-om-typography-var-name($category, $size, text-decoration)});
+  }
+
+  @if map.has-key($entry, text-decoration-skip-ink) {
+    text-decoration-skip-ink: var(#{-om-typography-var-name($category, $size, text-decoration-skip-ink)});
   }
 }
 
