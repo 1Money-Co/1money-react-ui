@@ -1,0 +1,26 @@
+// Semantic spacing aliases for Figma usage groups — validates allowed keys and resolves to primitive spacing tokens.
+@use 'sass:map';
+@use './vars' as vars;
+@use '../tokens/spacing/semantic-spacing' as semantic;
+
+@function -om-semantic-spacing-token($scale, $key, $scale-name) {
+  $normalized-key: '#{$key}';
+
+  @if not map.has-key($scale, $normalized-key) {
+    @error '#{$scale-name} does not define spacing token "#{$normalized-key}"';
+  }
+
+  @return map.get($scale, $normalized-key);
+}
+
+@function om-gap($key) {
+  @return vars.om-spacing(-om-semantic-spacing-token(semantic.$om-gap-scale, $key, '$om-gap-scale'));
+}
+
+@function om-component-padding($key) {
+  @return vars.om-spacing(-om-semantic-spacing-token(semantic.$om-component-padding-scale, $key, '$om-component-padding-scale'));
+}
+
+@function om-section-padding($key) {
+  @return vars.om-spacing(-om-semantic-spacing-token(semantic.$om-section-padding-scale, $key, '$om-section-padding-scale'));
+}
