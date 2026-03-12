@@ -1,5 +1,6 @@
 @use "sass:map";
 @use '@/styles/api' as *;
+@use '@/styles/legacy-color' as *;
 
 $checkbox-border-color: $color-grey-dark;
 $checkbox-border-radius: (sm: 4px,

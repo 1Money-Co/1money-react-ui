@@ -1,10 +1,11 @@
 // Sizing functions — programmatic access to the component height scale.
 @use 'sass:map';
 @use './primitives' as *;
+@use '../../theme/functions' as theme;
 
-/// Retrieves the component height for a given size key.
+/// Retrieves the component height for a given size key as a CSS variable reference.
 /// @param {string} $key - Size key (xs, sm, md, lg, xl, 2xl, 3xl).
-/// @return {length} The component height value.
+/// @return {string} CSS var() reference to the component height token.
 @function om-component-height($key) {
   $value: map.get($om-component-height-scale, $key);
 
@@ -12,5 +13,5 @@
     @error 'Unknown component height key "#{$key}". Available: #{map.keys($om-component-height-scale)}';
   }
 
-  @return $value;
+  @return theme.om-token(component-height, $key);
 }

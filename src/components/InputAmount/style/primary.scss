@@ -1,4 +1,5 @@
 @use '@/styles/api' as *;
+@use '@/styles/legacy-color' as *;
 
 $component: 'input-amount';
 $cls: #{$prefix}-#{$component};

@@ -38,9 +38,9 @@ $om-scale-props: (
   'shadow': (css: box-shadow, scale: shadow),
 ) !default;
 $om-color-props: (
-  'color': color,
-  'bg': background-color,
-  'border': border-color,
+  'color': (css: color, scale: color),
+  'bg': (css: background-color, scale: bg),
+  'border': (css: border-color, scale: border-s),
 ) !default;
 $om-system-aliases: (
   'display': 'd',
@@ -75,9 +75,9 @@ $om-system-aliases: (
     $result: map.merge($result, ('#{$name}': (css: ($css,), kind: scale, flag: sizing, scale: sizing)));
   }
 
-  // 4. Color props — kind = scale, scale = color
-  @each $name, $css in $om-color-props {
-    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: scale, flag: color, scale: color)));
+  // 4. Color props — kind = scale, with per-prop scale assignment
+  @each $name, $def in $om-color-props {
+    $result: map.merge($result, ('#{$name}': (css: (map.get($def, css),), kind: scale, flag: color, scale: map.get($def, scale))));
   }
 
   // 5. Scale props (radius, shadow) — kind = scale with named scale

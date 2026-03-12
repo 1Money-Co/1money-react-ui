@@ -4,6 +4,7 @@
 @use 'sass:map';
 @use 'sass:string';
 @use './scale' as scale;
+@use '../../settings' as settings;
 
 // ── Private helper ──
 
@@ -33,7 +34,7 @@
 /// @param {string} $suffix - Property suffix (e.g. font-size, font-weight).
 /// @return {string} CSS custom property name like --om-body-md-font-size.
 @function -om-typography-var-name($category, $size, $suffix) {
-  @return --om-#{$category}-#{$size}-#{$suffix};
+  @return --#{settings.$om-sys-prefix}-#{$category}-#{$size}-#{$suffix};
 }
 
 /// Emits all typography tokens as CSS custom properties under the given selector.

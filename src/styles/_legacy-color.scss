@@ -1,0 +1,5 @@
+// @deprecated — Legacy palette compatibility entrypoint.
+// New code should use semantic tokens (om-bg, om-text, om-icon, om-border-s) instead.
+// Import this only in component SCSS files that have not yet migrated:
+//   @use '@/styles/legacy-color' as *;
+@forward './tokens/color/palette';
