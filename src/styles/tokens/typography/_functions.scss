@@ -2,6 +2,7 @@
 // Imports from ./scale directly (no circular deps).
 // stylelint-disable order/properties-order -- Mixin emits properties in Figma spec order, not CSS sort order.
 @use 'sass:map';
+@use 'sass:string';
 @use './scale' as scale;
 
 // ── Private helper ──
@@ -26,6 +27,54 @@
   @return $entry;
 }
 
+/// Builds a CSS custom property name for a typography token.
+/// @param {string} $category - Typography category.
+/// @param {string} $size - Size key.
+/// @param {string} $suffix - Property suffix (e.g. font-size, font-weight).
+/// @return {string} CSS custom property name like --om-body-md-font-size.
+@function -om-typography-var-name($category, $size, $suffix) {
+  @return --om-#{$category}-#{$size}-#{$suffix};
+}
+
+/// Emits all typography tokens as CSS custom properties under the given selector.
+/// @param {string} $selector [':root'] - Selector to emit variables under.
+@mixin om-emit-typography-vars($selector: ':root') {
+  // Standard properties every entry has.
+  $standard-props: (font-size, font-family, line-height, letter-spacing, font-weight);
+
+  #{$selector} {
+    @each $category, $sizes in scale.$om-typography-categories {
+      @each $size, $entry in $sizes {
+        @each $prop in $standard-props {
+          $val: map.get($entry, $prop);
+
+          @if $val {
+            #{-om-typography-var-name($category, $size, $prop)}: #{$val};
+          }
+        }
+
+        // Strong variant → strong-font-weight
+        @if map.has-key($entry, strong) {
+          $strong-weight: map.get(map.get($entry, strong), font-weight);
+
+          @if $strong-weight {
+            #{-om-typography-var-name($category, $size, strong-font-weight)}: #{$strong-weight};
+          }
+        }
+
+        // Link-specific text-decoration props
+        @if map.has-key($entry, text-decoration) {
+          #{-om-typography-var-name($category, $size, text-decoration)}: #{map.get($entry, text-decoration)};
+        }
+
+        @if map.has-key($entry, text-decoration-skip-ink) {
+          #{-om-typography-var-name($category, $size, text-decoration-skip-ink)}: #{map.get($entry, text-decoration-skip-ink)};
+        }
+      }
+    }
+  }
+}
+
 // ── Public functions ──
 
 /// Returns the full property map for a typography category/size.
@@ -36,29 +85,40 @@
   @return -om-resolve-typography($category, $size);
 }
 
-/// Returns only the font-size value.
+/// Returns font-size as a CSS var() reference.
 @function om-font-size($category, $size) {
-  @return map.get(-om-resolve-typography($category, $size), font-size);
+  // Validate that the category/size exists.
+  $-entry: -om-resolve-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, font-size)});
 }
 
-/// Returns only the line-height value.
+/// Returns line-height as a CSS var() reference.
 @function om-line-height($category, $size) {
-  @return map.get(-om-resolve-typography($category, $size), line-height);
+  $-entry: -om-resolve-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, line-height)});
 }
 
-/// Returns only the font-weight value.
+/// Returns font-weight as a CSS var() reference.
 @function om-font-weight($category, $size) {
-  @return map.get(-om-resolve-typography($category, $size), font-weight);
+  $-entry: -om-resolve-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, font-weight)});
 }
 
-/// Returns only the font-family value.
+/// Returns font-family as a CSS var() reference.
 @function om-font-family($category, $size) {
-  @return map.get(-om-resolve-typography($category, $size), font-family);
+  $-entry: -om-resolve-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, font-family)});
 }
 
-/// Returns only the letter-spacing value.
+/// Returns letter-spacing as a CSS var() reference.
 @function om-letter-spacing($category, $size) {
-  @return map.get(-om-resolve-typography($category, $size), letter-spacing);
+  $-entry: -om-resolve-typography($category, $size);
+
+  @return var(#{-om-typography-var-name($category, $size, letter-spacing)});
 }
 
 // ── Public mixin ──
@@ -68,24 +128,25 @@
 /// @param {string} $size - Size key.
 /// @param {bool} $strong [false] - If true, applies the strong font-weight override (if defined).
 @mixin om-typography($category, $size, $strong: false) {
+  // Validate that the category/size exists.
   $entry: -om-resolve-typography($category, $size);
 
-  font-size: map.get($entry, font-size);
-  font-family: map.get($entry, font-family);
-  line-height: map.get($entry, line-height);
-  letter-spacing: map.get($entry, letter-spacing);
+  font-size: var(#{-om-typography-var-name($category, $size, font-size)});
+  font-family: var(#{-om-typography-var-name($category, $size, font-family)});
+  line-height: var(#{-om-typography-var-name($category, $size, line-height)});
+  letter-spacing: var(#{-om-typography-var-name($category, $size, letter-spacing)});
 
   @if $strong and map.has-key($entry, strong) {
-    font-weight: map.get(map.get($entry, strong), font-weight);
+    font-weight: var(#{-om-typography-var-name($category, $size, strong-font-weight)});
   } @else {
-    font-weight: map.get($entry, font-weight);
+    font-weight: var(#{-om-typography-var-name($category, $size, font-weight)});
   }
 
   @if map.has-key($entry, text-decoration) {
-    text-decoration: map.get($entry, text-decoration);
+    text-decoration: var(#{-om-typography-var-name($category, $size, text-decoration)});
   }
 
   @if map.has-key($entry, text-decoration-skip-ink) {
-    text-decoration-skip-ink: map.get($entry, text-decoration-skip-ink);
+    text-decoration-skip-ink: var(#{-om-typography-var-name($category, $size, text-decoration-skip-ink)});
   }
 }

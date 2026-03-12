@@ -1,15 +1,37 @@
 @use '@/styles/api' as *;
 
 $component: 'notification-beta';
+$notification-beta-variant-schema: om-variant-schema($component, icon-color, icon-bg);
+$notification-beta-info-variant: (
+  icon-color: om-icon('brand'),
+  icon-bg: om-bg('brand-tertiary-hover'),
+);
+$notification-beta-variants: (
+  'info': $notification-beta-info-variant,
+  'success': (
+    icon-color: om-icon('positive'),
+    icon-bg: om-bg('positive-tertiary-hover'),
+  ),
+  'warning': (
+    icon-color: om-icon('warning'),
+    icon-bg: om-bg('warning-secondary-hover'),
+  ),
+  'error': (
+    icon-color: om-icon('danger'),
+    icon-bg: om-bg('danger-tertiary-hover'),
+  ),
+);
 
 .#{$prefix}-#{$component} {
+  @include om-variant-default($notification-beta-variants, 'info', $notification-beta-variant-schema);
+
   display: flex;
   gap: om-gap(200);
   align-items: flex-start;
   padding: om-component-padding(300);
   background-color: om-bg('default-secondary');
   border-radius: om-radius(300);
-  box-shadow: om-shadow(2);
+  box-shadow: om-shadow(200);
 
   // ── Content wrapper (icon + text) ──
   &-content-wrapper {
@@ -35,6 +57,8 @@ $component: 'notification-beta';
     justify-content: center;
     width: om-component-height('sm');
     height: om-component-height('sm');
+    color: var(--om-notification-beta-icon-color);
+    background-color: var(--om-notification-beta-icon-bg);
     border-radius: om-radius('full');
 
     svg {
@@ -107,32 +131,5 @@ $component: 'notification-beta';
   }
 
   // ── Status variants — icon background + icon color ──
-
-  &-info {
-    .#{$prefix}-#{$component}-icon {
-      color: om-icon('brand');
-      background-color: om-bg('brand-tertiary-hover');
-    }
-  }
-
-  &-success {
-    .#{$prefix}-#{$component}-icon {
-      color: om-icon('positive');
-      background-color: om-bg('positive-tertiary-hover');
-    }
-  }
-
-  &-warning {
-    .#{$prefix}-#{$component}-icon {
-      color: om-icon('warning');
-      background-color: om-bg('warning-secondary-hover');
-    }
-  }
-
-  &-error {
-    .#{$prefix}-#{$component}-icon {
-      color: om-icon('danger');
-      background-color: om-bg('danger-tertiary-hover');
-    }
-  }
+  @include om-variant-classes($notification-beta-variants, $notification-beta-variant-schema, $default: 'info');
 }

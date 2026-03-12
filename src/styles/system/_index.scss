@@ -1,3 +1,4 @@
-// System entrypoint — re-exports the system prop registry and `om-sx` compiler.
-@forward './props';
-@forward './mixin';
+// System entrypoint — responsive, variant DSL, and style compiler.
+@forward './breakpoints';
+@forward './variants';
+@forward './mixin' show om-sx;

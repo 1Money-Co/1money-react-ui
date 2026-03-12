@@ -1,4 +1,3 @@
-// Theme entrypoint — re-exports scales, theme functions, and breakpoint mixins.
+// Theme entrypoint — re-exports scales and theme functions.
 @forward './scales';
 @forward './functions';
-@forward './breakpoints';

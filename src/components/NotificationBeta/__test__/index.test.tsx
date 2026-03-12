@@ -53,7 +53,7 @@ describe('NotificationBeta', () => {
     expect(onClose).toHaveBeenCalled();
   });
 
-  it('handles link click', async () => {
+  it('handles action link click', async () => {
     const onLink = jest.fn();
     render(
       <NotificationBeta
@@ -61,9 +61,24 @@ describe('NotificationBeta', () => {
         link={{ label: 'Click me', onClick: onLink }}
       />
     );
+    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument();
     const user = userEvent.setup();
     await user.click(screen.getByText('Click me'));
     expect(onLink).toHaveBeenCalled();
+  });
+
+  it('renders href links as anchors', () => {
+    render(
+      <NotificationBeta
+        title="With href"
+        link={{ label: 'Open docs', href: 'https://example.com/docs', target: '_blank' }}
+      />
+    );
+
+    expect(screen.getByRole('link', { name: 'Open docs' })).toHaveAttribute(
+      'href',
+      'https://example.com/docs'
+    );
   });
 
   it('hides icon when showIcon is false', () => {

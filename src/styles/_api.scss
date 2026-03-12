@@ -4,6 +4,4 @@ $prefix: 'om-react-ui' !default;
 
 @forward './tokens';
 @forward './theme';
-@use './system' as system;
-
-@mixin om-sx($config) { @include system.om-sx($config); }
+@forward './system';

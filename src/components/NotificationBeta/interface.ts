@@ -1,4 +1,10 @@
-import type { HTMLAttributes, MouseEventHandler, ReactNode, RefObject } from 'react';
+import type {
+  HTMLAttributes,
+  HTMLAttributeAnchorTarget,
+  MouseEventHandler,
+  ReactNode,
+  RefObject,
+} from 'react';
 
 /**
  * Status variants for NotificationBeta.
@@ -10,8 +16,14 @@ export type NotificationBetaStatus = (typeof NOTIFICATION_STATUSES)[number];
 export interface NotificationBetaLinkConfig {
   /** Display text for the link */
   label: string;
-  /** Click handler for the link */
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  /** Optional URL. When provided, the link renders as an anchor instead of a button. */
+  href?: string;
+  /** Anchor target. Only applies when href is provided. */
+  target?: HTMLAttributeAnchorTarget;
+  /** Anchor rel. Only applies when href is provided. */
+  rel?: string;
+  /** Click handler for the link or action button. */
+  onClick?: MouseEventHandler<HTMLElement>;
 }
 
 export interface NotificationBetaProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {

@@ -62,6 +62,15 @@
   @return $key;
 }
 
+/// Generic scale accessor — use for any registered scale without a dedicated function.
+/// Simple:   om(radius, 300)          → om-token(radius, 300)
+/// Semantic: om(bg, 'brand', 'hover') → om-token(bg, 'brand-hover')
+@function om($scale, $key, $variant: null) {
+  $resolved: if($variant, '#{$key}-#{$variant}', $key);
+
+  @return om-token($scale, $resolved);
+}
+
 @function om-spacing($value) { @return om-token(spacing, $value); }
 
 @function om-radius($key) { @return om-token(radius, $key); }

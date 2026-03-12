@@ -32,6 +32,21 @@ import { NotificationBeta } from '@1money/react-ui/NotificationBeta';
 />
 ```
 
+### With Href
+
+```tsx
+<NotificationBeta
+  status="info"
+  title="Help center"
+  body="Documentation has moved to a new location."
+  link={{
+    label: 'Open docs',
+    href: 'https://example.com/docs',
+    target: '_blank',
+  }}
+/>
+```
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -39,7 +54,7 @@ import { NotificationBeta } from '@1money/react-ui/NotificationBeta';
 | `status` | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Status variant controlling icon and icon-background color |
 | `title` | `ReactNode` | — | Title text displayed in bold |
 | `body` | `ReactNode` | — | Body text displayed below the title |
-| `link` | `{ label: string; onClick?: MouseEventHandler }` | — | Optional link rendered below the body |
+| `link` | `{ label: string; href?: string; target?: HTMLAttributeAnchorTarget; rel?: string; onClick?: MouseEventHandler<HTMLElement> }` | — | Optional action. Renders as an anchor when `href` is provided, otherwise as a button |
 | `icon` | `ReactNode` | — | Custom icon element (overrides default status icon) |
 | `showIcon` | `boolean` | `true` | Whether to show the status icon |
 | `closable` | `boolean` | `true` | Whether to show the close button |

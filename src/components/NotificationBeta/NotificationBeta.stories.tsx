@@ -2,17 +2,15 @@ import React from 'react';
 import { fn } from '@storybook/test';
 
 import type { Meta, StoryObj } from '@storybook/react';
-import { NotificationBeta } from './index';
+import { NotificationBeta, NOTIFICATION_STATUSES } from './index';
 
 import './style';
-
-const STATUSES = ['info', 'success', 'warning', 'error'] as const;
 
 const meta: Meta<typeof NotificationBeta> = {
   title: 'Components/NotificationBeta',
   component: NotificationBeta,
   argTypes: {
-    status: { control: 'radio', options: [...STATUSES] },
+    status: { control: 'radio', options: [...NOTIFICATION_STATUSES] },
     closable: { control: 'boolean' },
     showIcon: { control: 'boolean' },
     title: { control: 'text' },
@@ -37,7 +35,7 @@ type Story = StoryObj<typeof NotificationBeta>;
 export const AllVariants: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 400 }}>
-      {STATUSES.map(status => (
+      {NOTIFICATION_STATUSES.map(status => (
         <NotificationBeta
           {...args}
           key={status}
@@ -59,6 +57,19 @@ export const WithLink: Story = {
     title: 'Account linked',
     body: 'Your bank account has been successfully connected.',
     link: { label: 'View details', onClick: fn() },
+  },
+};
+
+export const WithHref: Story = {
+  args: {
+    status: 'info',
+    title: 'New feature',
+    body: 'You can now explore the updated help center.',
+    link: {
+      label: 'Open help center',
+      href: 'https://example.com/help-center',
+      target: '_blank',
+    },
   },
 };
 

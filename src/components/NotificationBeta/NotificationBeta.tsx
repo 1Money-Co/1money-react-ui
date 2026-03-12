@@ -3,6 +3,8 @@ import { default as classnames, joinCls } from '@/utils/classnames';
 import type { FC, ReactElement } from 'react';
 import type { NotificationBetaProps, NotificationBetaStatus } from './interface';
 
+const CLOSE_NOTIFICATION_ARIA_LABEL = 'Close notification';
+
 const INFO_ICON = (
   <svg width="16" height="16" viewBox="0 0 14.6667 14.6667" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -102,6 +104,35 @@ export const NotificationBeta: FC<NotificationBetaProps> = props => {
   const classes = classnames(prefixCls);
 
   const iconElement = icon ?? STATUS_ICON_MAP[status];
+  const linkRel = link?.target === '_blank' ? (link.rel ?? 'noreferrer') : link?.rel;
+
+  const renderLink = () => {
+    if (!link) return null;
+
+    if (link.href) {
+      return (
+        <a
+          className={classes('link')}
+          href={link.href}
+          target={link.target}
+          rel={linkRel}
+          onClick={link.onClick}
+        >
+          {link.label}
+        </a>
+      );
+    }
+
+    return (
+      <button
+        type="button"
+        className={classes('link')}
+        onClick={link.onClick}
+      >
+        {link.label}
+      </button>
+    );
+  };
 
   return (
     <div
@@ -123,16 +154,7 @@ export const NotificationBeta: FC<NotificationBetaProps> = props => {
         <div className={classes('content')}>
           {title && <div className={classes('title')}>{title}</div>}
           {body && <div className={classes('body')}>{body}</div>}
-          {link && (
-            <a
-              className={classes('link')}
-              role="button"
-              tabIndex={0}
-              onClick={link.onClick}
-            >
-              {link.label}
-            </a>
-          )}
+          {renderLink()}
         </div>
       </div>
       {closable && (
@@ -140,7 +162,7 @@ export const NotificationBeta: FC<NotificationBetaProps> = props => {
           type="button"
           className={classes('close')}
           onClick={onClose}
-          aria-label="Close notification"
+          aria-label={CLOSE_NOTIFICATION_ARIA_LABEL}
         >
           {CLOSE_ICON}
         </button>

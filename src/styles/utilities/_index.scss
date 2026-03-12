@@ -2,11 +2,14 @@
 @use './generator' as generator;
 @use '../tokens' as tokens;
 @use '../theme' as theme;
+@use '../tokens/typography/functions' as typography;
+@use '../system/breakpoints' as breakpoints;
 @include theme.om-emit-theme-vars;
+@include typography.om-emit-typography-vars;
 @include generator.gen-classes;
 
 @each $bp-name, $bp-value in tokens.$om-breakpoints {
-  @include theme.om-down($bp-name) {
+  @include breakpoints.om-down($bp-name) {
     @include generator.gen-classes($bp-name);
   }
 }

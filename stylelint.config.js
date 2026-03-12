@@ -39,7 +39,8 @@ module.exports = {
 			true,
 			{
 				ignoreFunctions: [
-					'om-token',
+					'om',
+				'om-token',
 					'-om-build-system-props',
 					'om-spacing',
 					'om-radius',
@@ -65,6 +66,8 @@ module.exports = {
 				'om-icon',
 				'om-border-s',
 				'-om-resolve-typography',
+				'-om-typography-var-name',
+				'-om-is-selector-key',
 				'om-typography',
 				'om-font-size',
 				'om-line-height',
@@ -74,7 +77,13 @@ module.exports = {
 				'om-component-height',
 				'om-gap',
 				'om-component-padding',
-				'om-section-padding'
+				'om-section-padding',
+				'om-variant',
+				'om-variant-value',
+				'om-variant-extend',
+				'om-variant-schema',
+				'-om-variant-validate',
+				'-om-variant-hint'
 				]
 			}
 		],

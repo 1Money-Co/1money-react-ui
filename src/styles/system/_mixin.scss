@@ -2,8 +2,10 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
+@use 'sass:string';
 @use '../tokens' as tokens;
 @use '../theme' as theme;
+@use './breakpoints' as breakpoints;
 @use './props' as props;
 
 @function om-alias-value($css-prop, $value) {
@@ -42,21 +44,37 @@
   }
 }
 
+/// Returns true if $key starts with `&`, indicating a selector nesting trigger.
+@function -om-is-selector-key($key) {
+  @return meta.type-of($key) == 'string' and string.slice($key, 1, 1) == '&';
+}
+
 @mixin om-sx($config) {
+  // Stage 1 — plain system props (skip breakpoints and selector keys).
   @each $prop, $value in $config {
-    @if not map.has-key(tokens.$om-breakpoints, $prop) {
+    @if not map.has-key(tokens.$om-breakpoints, $prop) and not -om-is-selector-key($prop) {
       @include om-apply-system-prop($prop, $value);
     }
   }
 
+  // Stage 2 — breakpoint nesting (unchanged).
   @each $bp-name, $_bp-value in tokens.$om-breakpoints {
     @if map.has-key($config, $bp-name) {
       $responsive-value: map.get($config, $bp-name);
 
       @if meta.type-of($responsive-value) == 'map' {
-        @include theme.om-down($bp-name) {
+        @include breakpoints.om-down($bp-name) {
           @include om-sx($responsive-value);
         }
+      }
+    }
+  }
+
+  // Stage 3 — selector nesting (&:hover, &:focus-visible, etc.).
+  @each $prop, $value in $config {
+    @if -om-is-selector-key($prop) and meta.type-of($value) == 'map' {
+      #{$prop} {
+        @include om-sx($value);
       }
     }
   }

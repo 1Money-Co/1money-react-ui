@@ -28,10 +28,7 @@ export const ButtonBeta: FC<PropsWithChildren<ButtonBetaProps>> = props => {
       loadingIcon={
         <Spinner
           strokeWidth={SPINNER_STROKE_WIDTH}
-          className={classes(
-            'loading-icon',
-            joinCls(classes(`loading-icon-${color}`), classes(`loading-icon-${size}`)),
-          )}
+          className={classes('loading-icon', classes(`loading-icon-${size}`))}
         />
       }
       className={classes(
