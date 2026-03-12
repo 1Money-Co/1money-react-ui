@@ -2,10 +2,13 @@
 @use 'sass:map';
 @forward '../tokens/spacing/primitives';
 @forward '../tokens/spacing/functions';
+@forward '../tokens/color/scale';
+@forward '../tokens/sizing/scale';
 @forward '../tokens/radius';
 @forward '../tokens/shadow';
-@use '../tokens/color/palette' as palette;
+@use '../tokens/color/scale' as color-scale;
 @use '../tokens/color/semantic-colors' as semantic;
+@use '../tokens/sizing/scale' as sizing-scale;
 @use '../tokens/spacing' as spacing;
 @use '../tokens/radius' as radius;
 @use '../tokens/shadow' as shadow;
@@ -16,49 +19,6 @@ $om-sys-enable-layout: true !default;
 $om-sys-enable-sizing: true !default;
 $om-sys-enable-visual: true !default;
 $om-sys-enable-color: true !default;
-$om-color-scale: (
-  'primary': palette.$color-primary,
-  'primary-active': palette.$color-primary-active,
-  'primary-hover': palette.$color-primary-hover,
-  'primary-black': palette.$color-primary-black,
-  'primary-white': palette.$color-primary-white,
-  'primary-light': palette.$color-primary-light,
-  'secondary': palette.$color-secondary,
-  'secondary-active': palette.$color-secondary-active,
-  'secondary-hover': palette.$color-secondary-hover,
-  'grey-light': palette.$color-grey-light,
-  'grey': palette.$color-grey,
-  'grey-deep': palette.$color-grey-deep,
-  'grey-bold': palette.$color-grey-bold,
-  'grey-dark': palette.$color-grey-dark,
-  'grey-midnight': palette.$color-grey-midnight,
-  'grey-night': palette.$color-grey-night,
-  'black': palette.$color-black,
-  'white': palette.$color-white,
-  'info': palette.$color-info,
-  'info-light': palette.$color-info-light,
-  'success': palette.$color-success,
-  'success-bg': palette.$color-success-background,
-  'warning': palette.$color-warning,
-  'warning-hover': palette.$color-warning-hover,
-  'warning-active': palette.$color-warning-active,
-  'warning-dark': palette.$color-warning-dark,
-  'warning-bg': palette.$color-warning-background,
-  'negative': palette.$color-negative,
-  'negative-hover': palette.$color-negative-hover,
-  'negative-active': palette.$color-negative-active,
-  'negative-bg': palette.$color-negative-background,
-  'dimmer-dark': palette.$color-dimmer-dark,
-) !default;
-$om-sizing-scale: (
-  '25': 25%,
-  '33': 33.333%,
-  '50': 50%,
-  '66': 66.667%,
-  '75': 75%,
-  '100': 100%,
-  'auto': auto,
-) !default;
 $om-spacing-resolved-scale: () !default;
 
 @each $key, $mult in spacing.$om-spacing-scale {
@@ -69,8 +29,8 @@ $om-theme-scales: (
   spacing: $om-spacing-resolved-scale,
   radius: radius.$om-radius-scale,
   shadow: shadow.$om-shadow-scale,
-  color: $om-color-scale,
-  sizing: $om-sizing-scale,
+  color: color-scale.$om-color-scale,
+  sizing: sizing-scale.$om-sizing-scale,
   bg: semantic.$om-bg-scale,
   text: semantic.$om-text-scale,
   icon: semantic.$om-icon-scale,

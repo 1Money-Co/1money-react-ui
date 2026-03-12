@@ -1,0 +1,39 @@
+// @deprecated — Legacy color scale map for CSS variable emission.
+// New code should use semantic tokens (om-bg, om-text, om-icon, om-border-s) instead.
+// This file will be removed once all legacy color utility consumers are migrated.
+@use './palette' as palette;
+
+$om-color-scale: (
+  'primary': palette.$color-primary,
+  'primary-active': palette.$color-primary-active,
+  'primary-hover': palette.$color-primary-hover,
+  'primary-black': palette.$color-primary-black,
+  'primary-white': palette.$color-primary-white,
+  'primary-light': palette.$color-primary-light,
+  'secondary': palette.$color-secondary,
+  'secondary-active': palette.$color-secondary-active,
+  'secondary-hover': palette.$color-secondary-hover,
+  'grey-light': palette.$color-grey-light,
+  'grey': palette.$color-grey,
+  'grey-deep': palette.$color-grey-deep,
+  'grey-bold': palette.$color-grey-bold,
+  'grey-dark': palette.$color-grey-dark,
+  'grey-midnight': palette.$color-grey-midnight,
+  'grey-night': palette.$color-grey-night,
+  'black': palette.$color-black,
+  'white': palette.$color-white,
+  'info': palette.$color-info,
+  'info-light': palette.$color-info-light,
+  'success': palette.$color-success,
+  'success-bg': palette.$color-success-background,
+  'warning': palette.$color-warning,
+  'warning-hover': palette.$color-warning-hover,
+  'warning-active': palette.$color-warning-active,
+  'warning-dark': palette.$color-warning-dark,
+  'warning-bg': palette.$color-warning-background,
+  'negative': palette.$color-negative,
+  'negative-hover': palette.$color-negative-hover,
+  'negative-active': palette.$color-negative-active,
+  'negative-bg': palette.$color-negative-background,
+  'dimmer-dark': palette.$color-dimmer-dark,
+) !default;
