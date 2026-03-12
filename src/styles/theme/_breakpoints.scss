@@ -2,7 +2,6 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@forward '../tokens/breakpoint';
 @use '../tokens/breakpoint' as bp;
 
 @mixin om-assert-breakpoints-descending() {

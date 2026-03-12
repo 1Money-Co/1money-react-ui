@@ -58,6 +58,7 @@ module.exports = {
 					'om-spacing-token',
 					'om-spacing-value',
 					'-om-spacing-token',
+				'-om-pick-spacing',
 				'om-opacity',
 				'om-bg',
 				'om-text',

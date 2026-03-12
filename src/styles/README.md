@@ -6,13 +6,13 @@ A SCSS-based design system providing theme tokens, a system-prop compiler (`om-s
 
 ```text
 styles/
-├── _api.scss               # Single consumer entrypoint for component / business SCSS
+├── _api.scss               # @forward tokens + theme, om-sx mixin (~10 lines)
 ├── index.scss              # CSS bundle entrypoint — emits utilities + root CSS vars
-├── tokens/                 # Pure data + pure query functions (no CSS vars)
+├── tokens/                 # Pure data — Sass maps + pure query functions
 │   ├── color/
 │   │   ├── _primitives.scss       # Raw color primitives
 │   │   ├── _palette.scss          # Legacy flat color aliases
-│   │   ├── _semantic-colors.scss  # Semantic bg/text/icon/border scales
+│   │   ├── _semantic-color.scss   # Semantic bg/text/icon/border scales
 │   │   └── _index.scss
 │   ├── spacing/
 │   │   ├── _primitives.scss       # Figma-aligned spacing scale (100 = 4px)
@@ -35,19 +35,17 @@ styles/
 │   │   ├── _functions.scss        # Typography accessor functions + mixin
 │   │   └── _index.scss
 │   └── _index.scss                # Re-exports all token subsystems
-├── resolvers/              # Aggregates tokens → CSS var references + responsive
-│   ├── _config.scss               # $om-theme-scales aggregation + feature flags
-│   ├── _vars.scss                 # om-token/spacing/color/radius/shadow → var()
-│   ├── _semantic-spacing.scss     # om-gap/component-padding/section-padding
-│   ├── _semantic-color.scss       # om-bg/text/icon/border-s
+├── theme/                  # Transform — tokens → CSS var references + responsive
+│   ├── _scales.scss               # $om-theme-scales aggregation + feature flags
+│   ├── _functions.scss            # All theme functions (token, color, spacing)
 │   ├── _breakpoints.scss          # om-up/down/between/only/respond
+│   └── _index.scss                # 3 forwards: scales, functions, breakpoints
+├── system/                 # Mapping — shorthand props → CSS declarations
+│   ├── _props.scss                # Prop registry (2 kinds: enum, scale)
+│   ├── _mixin.scss                # om-sx mixin implementation
 │   └── _index.scss
-├── sx/                     # Short-hand prop compiler
-│   ├── _registry.scss             # Prop → CSS mapping with aliases and metadata
-│   ├── _sx.scss                   # om-sx mixin implementation
-│   └── _index.scss
-├── utilities/              # Atomic CSS class generator
-│   ├── _generator.scss            # Single-loop class generation
+├── utilities/              # Output — atomic CSS class generator
+│   ├── _generator.scss            # 2 branches: enum, scale
 │   └── _index.scss                # Emits classes for all breakpoints
 └── __test__/
     └── system.test.ts
@@ -56,14 +54,14 @@ styles/
 ### Dependency flow (strict one-way)
 
 ```text
-tokens → resolvers → sx → utilities
-              ↘
-            _api.scss
+tokens → theme → system → utilities
+           ↘
+         _api.scss
 ```
 
 ## Feature Flags
 
-All flags live in `resolvers/_config.scss` and default to `true`. Set to `false` to suppress that category of utility classes:
+All flags live in `theme/_scales.scss` and default to `true`. Set to `false` to suppress that category of utility classes:
 
 | Flag | Controls |
 |------|----------|
@@ -74,27 +72,27 @@ All flags live in `resolvers/_config.scss` and default to `true`. Set to `false`
 | `$om-sys-enable-visual` | Visual utilities (`om-radius-*`, `om-shadow-*`) |
 
 ```scss
-@use '@1money/react-ui/styles/resolvers/config' with (
+@use '@1money/react-ui/styles/theme/scales' with (
   $om-sys-enable-color: false,
 );
 ```
 
 ## How to Add a System Property
 
-1. **Define the prop source map** in `sx/_registry.scss` (e.g. `$om-spacing-props`, `$om-enum-props`, etc.)
-2. **Add entries** to the appropriate source map with the CSS property mapping
-3. **Add metadata** in `-om-build-system-props()` — each entry needs `css`, `kind`, `flag`, and optionally `scale`/`values`
+1. **Add entries** to the appropriate source map in `system/_props.scss` (e.g. `$om-spacing-props`, `$om-enum-props`, `$om-scale-props`, etc.)
+2. If `kind: scale` — specify which `scale` name from `$om-theme-scales` (e.g. `spacing`, `sizing`, `color`, `radius`, `shadow`)
+3. If `kind: enum` — specify a `values` list of allowed enum values
 4. **Add aliases** (if any) to `$om-system-aliases` — they auto-inherit the canonical entry's config
-5. **The generator and `om-sx` will pick up the new prop automatically** — no changes needed in `_generator.scss` or `_sx.scss`
+5. **Generator and `om-sx` pick it up automatically** — no changes needed in `_generator.scss` or `_sx.scss`
 
 ### Prop Metadata Fields
 
 | Field | Required | Description |
 |-------|----------|-------------|
 | `css` | yes | List of CSS properties to emit (e.g. `(padding-left, padding-right)`) |
-| `kind` | yes | One of: `spacing`, `enum`, `sizing`, `scale` |
+| `kind` | yes | One of: `enum`, `scale` |
 | `flag` | yes | Feature flag group: `spacing`, `layout`, `sizing`, `color`, `visual` |
-| `scale` | for spacing/sizing/scale | Token scale name in `$om-theme-scales` |
+| `scale` | for scale | Token scale name in `$om-theme-scales` |
 | `values` | for enum | List of allowed enum values |
 
 ## Usage

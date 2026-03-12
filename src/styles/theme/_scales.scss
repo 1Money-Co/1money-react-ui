@@ -1,11 +1,5 @@
-// Resolvers config — aggregates token scales and defines system feature flags.
+// Theme scales — aggregates token scales and defines system feature flags.
 @use 'sass:map';
-@forward '../tokens/spacing/primitives';
-@forward '../tokens/spacing/functions';
-@forward '../tokens/color/scale';
-@forward '../tokens/sizing/scale';
-@forward '../tokens/radius';
-@forward '../tokens/shadow';
 @use '../tokens/color/scale' as color-scale;
 @use '../tokens/color/semantic-color' as semantic;
 @use '../tokens/sizing/scale' as sizing-scale;

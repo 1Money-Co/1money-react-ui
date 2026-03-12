@@ -1,12 +1,13 @@
-// Theme token resolvers — generate CSS variable references and fall back to raw scale values.
+// Theme functions — generate CSS variable references and fall back to raw scale values.
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use './config' as config;
+@use './scales' as scales;
 @use '../tokens/spacing' as spacing;
+@use '../tokens/spacing/semantic-spacing' as semantic;
 
 @function om-scale-map($scale-name) {
-  @return map.get(config.$om-theme-scales, $scale-name);
+  @return map.get(scales.$om-theme-scales, $scale-name);
 }
 
 @function om-scale-has($scale-name, $key) {
@@ -26,7 +27,7 @@
 }
 
 @function om-theme-var-name($scale-name, $key) {
-  @return --#{config.$om-sys-prefix}-#{$scale-name}-#{$key};
+  @return --#{scales.$om-sys-prefix}-#{$scale-name}-#{$key};
 }
 
 @function -om-css-fallback($value) {
@@ -46,7 +47,7 @@
 /// Generic token resolver — returns a CSS variable reference for scales listed in
 /// `$om-theme-css-var-scales`, or the raw scale value otherwise.
 @function om-token($scale-name, $key) {
-  @if not list.index(config.$om-theme-css-var-scales, $scale-name) {
+  @if not list.index(scales.$om-theme-css-var-scales, $scale-name) {
     $raw: om-scale-value($scale-name, '#{$key}');
 
     @return if($raw != null, $raw, $key);
@@ -73,7 +74,7 @@
 
 @mixin om-emit-theme-vars($selector: ':root') {
   #{$selector} {
-    @each $scale-name in config.$om-theme-css-var-scales {
+    @each $scale-name in scales.$om-theme-css-var-scales {
       $scale: om-scale-map($scale-name);
 
       @each $key, $value in $scale {
@@ -81,4 +82,52 @@
       }
     }
   }
+}
+
+// Semantic color accessors — resolve bg/text/icon/border-s keys to CSS variable references.
+@function om-bg($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return om-token(bg, $key);
+}
+
+@function om-text($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return om-token(text, $key);
+}
+
+@function om-icon($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return om-token(icon, $key);
+}
+
+@function om-border-s($group, $variant: null) {
+  $key: if($variant, '#{$group}-#{$variant}', $group);
+
+  @return om-token(border-s, $key);
+}
+
+// Semantic spacing aliases — validates allowed keys and resolves to primitive spacing tokens.
+@function -om-semantic-spacing-token($scale, $key, $scale-name) {
+  $normalized-key: '#{$key}';
+
+  @if not map.has-key($scale, $normalized-key) {
+    @error '#{$scale-name} does not define spacing token "#{$normalized-key}"';
+  }
+
+  @return map.get($scale, $normalized-key);
+}
+
+@function om-gap($key) {
+  @return om-spacing(-om-semantic-spacing-token(semantic.$om-gap-scale, $key, '$om-gap-scale'));
+}
+
+@function om-component-padding($key) {
+  @return om-spacing(-om-semantic-spacing-token(semantic.$om-component-padding-scale, $key, '$om-component-padding-scale'));
+}
+
+@function om-section-padding($key) {
+  @return om-spacing(-om-semantic-spacing-token(semantic.$om-section-padding-scale, $key, '$om-section-padding-scale'));
 }

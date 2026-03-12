@@ -1,0 +1,3 @@
+// System entrypoint — re-exports the system prop registry and `om-sx` compiler.
+@forward './props';
+@forward './mixin';

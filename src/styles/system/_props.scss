@@ -60,9 +60,9 @@ $om-system-aliases: (
 @function -om-build-system-props() {
   $result: ();
 
-  // 1. Spacing — css list is already provided, kind = spacing
+  // 1. Spacing — kind = scale, scale = spacing
   @each $name, $css-props in $om-spacing-props {
-    $result: map.merge($result, ('#{$name}': (css: $css-props, kind: spacing, flag: spacing, scale: spacing)));
+    $result: map.merge($result, ('#{$name}': (css: $css-props, kind: scale, flag: spacing, scale: spacing)));
   }
 
   // 2. Enum props — kind = enum
@@ -70,9 +70,9 @@ $om-system-aliases: (
     $result: map.merge($result, ('#{$name}': (css: (map.get($def, css),), kind: enum, flag: layout, values: map.get($def, values))));
   }
 
-  // 3. Sizing props — kind = sizing
+  // 3. Sizing props — kind = scale, scale = sizing
   @each $name, $css in $om-sizing-props {
-    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: sizing, flag: sizing, scale: sizing)));
+    $result: map.merge($result, ('#{$name}': (css: ($css,), kind: scale, flag: sizing, scale: sizing)));
   }
 
   // 4. Color props — kind = scale, scale = color

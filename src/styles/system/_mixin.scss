@@ -2,11 +2,12 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use '../resolvers' as resolvers;
-@use './registry' as registry;
+@use '../tokens' as tokens;
+@use '../theme' as theme;
+@use './props' as props;
 
 @function om-alias-value($css-prop, $value) {
-  $aliases: map.get(registry.$om-value-aliases, $css-prop);
+  $aliases: map.get(props.$om-value-aliases, $css-prop);
 
   @if $aliases != null and map.has-key($aliases, $value) {
     @return map.get($aliases, $value);
@@ -16,22 +17,18 @@
 }
 
 @function om-resolve-system-value($value, $config) {
-  $kind: map.get($config, kind);
-
   @if not $value { @return null; }
 
-  @if $kind == enum {
+  @if map.get($config, kind) == enum {
     @return om-alias-value(list.nth(map.get($config, css), 1), $value);
   }
 
-  $scale-name: if($kind == scale, map.get($config, scale), $kind);
-
-  @return resolvers.om-token($scale-name, $value);
+  @return theme.om-token(map.get($config, scale), $value);
 }
 
 @mixin om-apply-system-prop($prop, $value) {
   @if $value {
-    $config: map.get(registry.$om-system-props, $prop);
+    $config: map.get(props.$om-system-props, $prop);
 
     @if not $config {
       #{$prop}: $value;
@@ -47,17 +44,17 @@
 
 @mixin om-sx($config) {
   @each $prop, $value in $config {
-    @if not map.has-key(resolvers.$om-breakpoints, $prop) {
+    @if not map.has-key(tokens.$om-breakpoints, $prop) {
       @include om-apply-system-prop($prop, $value);
     }
   }
 
-  @each $bp-name, $_bp-value in resolvers.$om-breakpoints {
+  @each $bp-name, $_bp-value in tokens.$om-breakpoints {
     @if map.has-key($config, $bp-name) {
       $responsive-value: map.get($config, $bp-name);
 
       @if meta.type-of($responsive-value) == 'map' {
-        @include resolvers.om-down($bp-name) {
+        @include theme.om-down($bp-name) {
           @include om-sx($responsive-value);
         }
       }
