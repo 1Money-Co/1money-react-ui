@@ -1,4 +1,5 @@
 // Tokens entrypoint — re-exports all design token subsystems.
+@forward './breakpoint';
 @forward './color';
 @forward './spacing/index';
 @forward './radius';
