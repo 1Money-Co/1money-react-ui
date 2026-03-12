@@ -1,11 +1,12 @@
 // Resolvers config — aggregates token scales and defines system feature flags.
 @use 'sass:map';
 @forward '../tokens/spacing/primitives';
+@forward '../tokens/spacing/functions';
 @forward '../tokens/radius';
 @forward '../tokens/shadow';
 @use '../tokens/color/palette' as palette;
 @use '../tokens/color/semantic-colors' as semantic;
-@use '../tokens/spacing/primitives' as spacing;
+@use '../tokens/spacing' as spacing;
 @use '../tokens/radius' as radius;
 @use '../tokens/shadow' as shadow;
 

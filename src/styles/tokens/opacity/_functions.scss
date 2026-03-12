@@ -1,0 +1,7 @@
+// Opacity functions — programmatic access to the opacity scale.
+@use 'sass:map';
+@use './primitives' as *;
+
+@function om-opacity($key) {
+  @return map.get($om-opacity-scale, $key);
+}

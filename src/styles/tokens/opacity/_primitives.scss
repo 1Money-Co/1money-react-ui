@@ -1,5 +1,4 @@
 // Opacity scale tokens — standardized opacity values for disabled/overlay states.
-@use 'sass:map';
 
 $om-opacity-scale: (
   'subtle': 0.05,
@@ -10,7 +9,3 @@ $om-opacity-scale: (
   'disabled': 0.5,
   'disabled-heavy': 0.6,
 ) !default;
-
-@function om-opacity($key) {
-  @return map.get($om-opacity-scale, $key);
-}

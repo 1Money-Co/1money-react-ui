@@ -1,2 +1,3 @@
-// Sizing entrypoint — re-exports primitives.
+// Sizing entrypoint — re-exports primitives and functions.
 @forward './primitives';
+@forward './functions';
