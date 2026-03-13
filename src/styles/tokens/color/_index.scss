@@ -1,6 +1,3 @@
-// Color entrypoint — re-exports primitives, scale, and semantic color tokens.
-// Legacy palette is no longer part of the default export.
-// Components that still need it should: @use '@/styles/legacy-color' as *;
-@forward './primitives';
-@forward './scale';
+// Color entrypoint — only exposes semantic color scales.
+// Raw primitives are internal; legacy code should: @use '@/styles/legacy-color' as *;
 @forward './semantic-color';

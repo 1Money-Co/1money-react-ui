@@ -1,5 +1,5 @@
 // Semantic color tokens — contextual tokens organized by category, referencing primitives.
-// Categories: bg (background), text, icon, border-s (border semantic).
+// Categories: bg (background), text, icon, border (border color).
 @use './primitives' as p;
 @use '../opacity' as opacity;
 
@@ -140,7 +140,7 @@ $om-icon-scale: (
 ) !default;
 
 // ── Border (Semantic) ──
-$om-border-s-scale: (
+$om-border-scale: (
   // Base
   'default': p.$grey-300,
   'default-secondary': p.$grey-500,

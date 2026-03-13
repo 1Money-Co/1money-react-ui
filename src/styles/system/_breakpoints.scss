@@ -2,12 +2,12 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use '../tokens/breakpoint' as bp;
+@use '../tokens' as tokens;
 
 @mixin om-assert-breakpoints-descending() {
   $prev-value: null;
 
-  @each $bp-name, $bp-value in bp.$om-breakpoints {
+  @each $bp-name, $bp-value in tokens.$om-breakpoints {
     @if $prev-value and $bp-value >= $prev-value {
       @error '$om-breakpoints must be ordered from large to small, e.g. lg -> md -> sm.';
     }
@@ -19,16 +19,16 @@
 @include om-assert-breakpoints-descending;
 
 @function om-breakpoint($bp-name) {
-  @return map.get(bp.$om-breakpoints, $bp-name);
+  @return map.get(tokens.$om-breakpoints, $bp-name);
 }
 
 // Subtract 0.02px (1px / 50) to avoid overlap with min-width queries at fractional browser zoom levels.
 @function om-max-width($value) {
-  @return $value - math.div(bp.$om-breakpoint-step, 50);
+  @return $value - math.div(tokens.$om-breakpoint-step, 50);
 }
 
 @function om-next-breakpoint($bp-name) {
-  $keys: map.keys(bp.$om-breakpoints);
+  $keys: map.keys(tokens.$om-breakpoints);
   $index: list.index($keys, $bp-name);
 
   @if not $index or $index == list.length($keys) {

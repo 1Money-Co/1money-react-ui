@@ -10,8 +10,7 @@ styles/
 ├── index.scss              # CSS bundle entrypoint — emits utilities + root CSS vars
 ├── tokens/                 # Pure data — Sass maps + pure query functions
 │   ├── color/
-│   │   ├── _primitives.scss       # Raw color primitives
-│   │   ├── _palette.scss          # Legacy flat color aliases
+│   │   ├── _primitives.scss       # Raw color primitives (internal)
 │   │   ├── _semantic-color.scss   # Semantic bg/text/icon/border scales
 │   │   └── _index.scss
 │   ├── spacing/
@@ -28,14 +27,16 @@ styles/
 │   │   └── _index.scss
 │   ├── sizing/
 │   │   ├── _primitives.scss       # Component height scale
+│   │   ├── _semantic-sizing.scss  # Percentage-based width/height scale
 │   │   ├── _functions.scss        # Pure component-height token query helpers
 │   │   └── _index.scss
 │   ├── typography/
-│   │   ├── _primitives.scss       # Font families, weights, line-heights, tracking
-│   │   ├── _scale.scss            # Full Figma typography spec as Sass maps
+│   │   ├── _primitives.scss       # Font families, weights, line-heights, tracking (internal)
+│   │   ├── _semantic-typography.scss # Full Figma typography spec as Sass maps
 │   │   ├── _functions.scss        # Pure typography scale query helpers
 │   │   └── _index.scss
 │   └── _index.scss                # Re-exports all token subsystems
+├── _legacy-color.scss      # Deprecated legacy color variables (for unmigrated components)
 ├── theme/                  # Transform — tokens → CSS var references
 │   ├── _scales.scss               # $om-theme-scales aggregation + feature flags
 │   ├── _functions.scss            # Theme refs, typography var emission, themed accessors
@@ -49,8 +50,6 @@ styles/
 ├── utilities/              # Output — atomic CSS class generator
 │   ├── _generator.scss            # 2 branches: enum, scale
 │   └── _index.scss                # Emits classes for all breakpoints
-└── __test__/
-    └── system.test.ts
 ```
 
 ### Dependency flow (strict one-way)
@@ -70,7 +69,7 @@ All flags live in `theme/_scales.scss` and default to `true`. Set to `false` to 
 | `$om-sys-enable-spacing` | Spacing utilities (`om-p-*`, `om-m-*`, `om-gap-*`) |
 | `$om-sys-enable-layout` | Layout utilities (`om-d-*`, `om-flex-*`, `om-jc-*`, `om-ai-*`, `om-fw-*`) |
 | `$om-sys-enable-sizing` | Sizing utilities (`om-w-*`, `om-h-*`) |
-| `$om-sys-enable-color` | Color utilities (`om-color-*`, `om-bg-*`, `om-border-*`) |
+| `$om-sys-enable-color` | Color utilities (`om-bg-*`, `om-border-*`) |
 | `$om-sys-enable-visual` | Visual utilities (`om-radius-*`, `om-shadow-*`) |
 
 ```scss
@@ -82,10 +81,10 @@ All flags live in `theme/_scales.scss` and default to `true`. Set to `false` to 
 ## How to Add a System Property
 
 1. **Add entries** to the appropriate source map in `system/_props.scss` (e.g. `$om-spacing-props`, `$om-enum-props`, `$om-scale-props`, etc.)
-2. If `kind: scale` — specify which `scale` name from `$om-theme-scales` (e.g. `spacing`, `sizing`, `color`, `radius`, `shadow`)
+2. If `kind: scale` — specify which `scale` name from `$om-theme-scales` (e.g. `spacing`, `sizing`, `bg`, `radius`, `shadow`)
 3. If `kind: enum` — specify a `values` list of allowed enum values
 4. **Add aliases** (if any) to `$om-system-aliases` — they auto-inherit the canonical entry's config
-5. **Generator and `om-sx` pick it up automatically** — no changes needed in `_generator.scss` or `_sx.scss`
+5. **Generator and `om-sx` pick it up automatically** — no changes needed in `_generator.scss` or `_mixin.scss`
 
 ### Prop Metadata Fields
 
@@ -147,18 +146,18 @@ Then register the new token module in the tokens barrel:
 ### Step 2 — Register in theme (`theme/_scales.scss`)
 
 ```scss
-// At the top — add the @use import:
-@use '../tokens/{name}' as {name};
+// theme/_scales.scss already has `@use '../tokens' as tokens;`
+// The new scale is available as `tokens.$om-{name}-scale` after Step 1.
 
 // In $om-theme-scales — add the entry:
 $om-theme-scales: (
   // ... existing scales
-  {name}: {name}.$om-{name}-scale,      // ← add this
+  {name}: tokens.$om-{name}-scale,      // ← add this
 ) !default;
 
 // If you want CSS custom variables emitted (most scales do):
-$om-theme-css-var-scales: (spacing, radius, shadow, color, bg, text, icon, border-s, {name}) !default;
-//                                                                                    ^^^ add
+$om-theme-css-var-scales: (spacing, radius, shadow, bg, text, icon, border, component-height, {name}) !default;
+//                                                                                             ^^^ add
 ```
 
 ### Step 3 (optional) — Add `om-sx` shorthand (`system/_props.scss`)
@@ -237,11 +236,10 @@ $om-zindex-scale: (
 **`theme/_scales.scss`** additions:
 
 ```scss
-@use '../tokens/zindex' as zindex;
-// ...
+// theme/_scales.scss already has `@use '../tokens' as tokens;`
 $om-theme-scales: (
   // ... existing
-  zindex: zindex.$om-zindex-scale,
+  zindex: tokens.$om-zindex-scale,
 ) !default;
 // No need to add to $om-theme-css-var-scales — z-index rarely needs CSS vars.
 ```
@@ -278,7 +276,7 @@ Declare multiple styled properties with responsive overrides in a single call:
     d: flex,             // display: flex
     flex: column,        // flex-direction: column
     gap: 400,            // gap: 16px
-    bg: white,           // background-color: var(--om-color-white)
+    bg: default,         // background-color: var(--om-bg-default)
     radius: 300,         // border-radius: var(--om-radius-300, 12px)
     shadow: 100,          // box-shadow: var(--om-shadow-10000, ...)
     md: (                // @media (max-width: 1023.98px)
@@ -307,7 +305,6 @@ Declare multiple styled properties with responsive overrides in a single call:
 | Layout | `fw` | `flexWrap` | `flex-wrap` |
 | Sizing | `w` | `width` | `width` |
 | Sizing | `h` | `height` | `height` |
-| Color | `color` | — | `color` |
 | Color | `bg` | `bgcolor`, `bgColor` | `background-color` |
 | Color | `border` | `borderColor` | `border-color` |
 | Visual | `radius` | `borderRadius` | `border-radius` |
@@ -320,13 +317,13 @@ Nest a map under an `&`-prefixed key to generate pseudo-class selectors:
 ```scss
 .card {
   @include om-sx((
-    bg: white,
+    bg: default,
     p: 400,
-    '&:hover': (bg: grey-100),
-    '&:focus-visible': (border: blue-700),
+    '&:hover': (bg: default-hover),
+    '&:focus-visible': (border: brand),
     md: (
       p: 200,
-      '&:hover': (bg: grey-50),
+      '&:hover': (bg: default-secondary),
     ),
   ));
 }
@@ -335,12 +332,12 @@ Nest a map under an `&`-prefixed key to generate pseudo-class selectors:
 Compiles to:
 
 ```css
-.card { background-color: var(--om-color-white); padding: var(--om-spacing-400, 16px); }
-.card:hover { background-color: var(--om-color-grey-100); }
-.card:focus-visible { border-color: var(--om-color-blue-700); }
+.card { background-color: var(--om-bg-default); padding: var(--om-spacing-400, 16px); }
+.card:hover { background-color: var(--om-bg-default-hover); }
+.card:focus-visible { border-color: var(--om-border-brand); }
 @media (max-width: 1023.98px) {
   .card { padding: var(--om-spacing-200, 8px); }
-  .card:hover { background-color: var(--om-color-grey-50); }
+  .card:hover { background-color: var(--om-bg-default-secondary); }
 }
 ```
 
@@ -361,7 +358,7 @@ Use token functions for individual CSS properties:
 ```scss
 .element {
   padding: om-spacing(400);    // var(--om-spacing-400, 16px)
-  color: om-color(primary);    // var(--om-color-primary, #073387)
+  color: om-text(default);     // var(--om-text-default)
   border-radius: om-radius(300); // var(--om-radius-300, 12px)
   box-shadow: om-shadow(100);  // var(--om-shadow-10000, 0 4px 8px ...)
   width: om-sizing(50);        // 50%
@@ -440,11 +437,11 @@ $body-md: om-typography(body, md);
 
 #### Component heights
 
-Standardized heights for interactive elements via `om-component-height($key)`:
+Standardized heights for interactive elements via `om-component-height($key)`. Returns `var(--om-component-height-{key}, {fallback})`.
 
 ```scss
 .button {
-  height: om-component-height(md); // 40px
+  height: om-component-height(md); // var(--om-component-height-md, 40px)
 }
 ```
 
@@ -595,8 +592,8 @@ import '@1money/react-ui/index.css';
 
 function Page() {
   return (
-    <div className="om-d-flex om-flex-column om-gap-600 om-p-800 om-bg-white">
-      <h1 className="om-color-primary-black om-mb-400">Title</h1>
+    <div className="om-d-flex om-flex-column om-gap-600 om-p-800 om-bg-default">
+      <h1 className="om-mb-400">Title</h1>
       <div className="om-d-flex om-gap-400 om-md-flex-column">
         <div className="om-w-33 om-md-w-100 om-radius-300 om-shadow-100" />
         <div className="om-w-33 om-md-w-100 om-radius-300 om-shadow-100" />
@@ -617,7 +614,7 @@ Examples:
   .om-mx-600       → margin-left: 24px; margin-right: 24px
   .om-d-flex       → display: flex
   .om-jc-center    → justify-content: center
-  .om-bg-primary   → background-color: var(--om-color-primary)
+  .om-bg-default   → background-color: var(--om-bg-default)
   .om-w-50         → width: 50%
   .om-radius-full  → border-radius: 9999px
   .om-md-p-200     → @media (max-width: 1023.98px) { padding: 8px }
@@ -630,7 +627,7 @@ Examples:
 @use '@1money/react-ui/styles/api' as om;
 
 .hero {
-  color: om.om-color(primary);
+  color: om.om-text(brand);
   padding: om.om-spacing(800);
 
   @include om.om-down(md) {
@@ -645,7 +642,7 @@ Override CSS variables to customize the theme:
 
 ```css
 :root {
-  --om-color-primary: #1a73e8;
+  --om-bg-brand: #1a73e8;
   --om-spacing-400: 20px;
   --om-radius-300: 10px;
 
@@ -726,16 +723,6 @@ The style system keeps the full monotonic 4px ladder between those anchors so ut
 | `75` | 75% |
 | `100` | 100% |
 | `auto` | auto |
-
-### Colors
-
-Primary: `primary`, `primary-active`, `primary-hover`, `primary-black`, `primary-white`, `primary-light`
-Secondary: `secondary`, `secondary-active`, `secondary-hover`
-Grey: `grey-light`, `grey`, `grey-deep`, `grey-bold`, `grey-dark`, `grey-midnight`, `grey-night`
-Base: `black`, `white`
-Success: `success`, `success-bg`
-Warning: `warning`, `warning-hover`, `warning-active`, `warning-dark`, `warning-bg`
-Negative: `negative`, `negative-hover`, `negative-active`, `negative-bg`
 
 ### Semantic Color Token Reference
 

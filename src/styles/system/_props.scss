@@ -38,9 +38,8 @@ $om-scale-props: (
   'shadow': (css: box-shadow, scale: shadow),
 ) !default;
 $om-color-props: (
-  'color': (css: color, scale: color),
   'bg': (css: background-color, scale: bg),
-  'border': (css: border-color, scale: border-s),
+  'border': (css: border-color, scale: border),
 ) !default;
 $om-system-aliases: (
   'display': 'd',

@@ -3,10 +3,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use './scales' as scales;
-@use '../tokens/spacing' as spacing;
-@use '../tokens/spacing/semantic-spacing' as semantic;
-@use '../tokens/sizing' as sizing;
-@use '../tokens/typography' as typography;
+@use '../tokens' as tokens;
 
 @function om-scale-map($scale-name) {
   @return map.get(scales.$om-theme-scales, $scale-name);
@@ -52,16 +49,20 @@
   @if not list.index(scales.$om-theme-css-var-scales, $scale-name) {
     $raw: om-scale-value($scale-name, '#{$key}');
 
-    @return if($raw != null, $raw, $key);
+    @if $raw {
+      @return $raw;
+    }
+
+    @error 'om-token: "#{$key}" is not defined in non-CSS-var scale "#{$scale-name}".';
   }
 
   $token: om-theme-ref($scale-name, '#{$key}');
 
   @if $token { @return $token; }
 
-  @if $scale-name == spacing { @return spacing.om-spacing-value($key); }
+  @if $scale-name == spacing { @return tokens.om-spacing-value($key); }
 
-  @return $key;
+  @error 'om-token: "#{$key}" is not defined in scale "#{$scale-name}".';
 }
 
 /// Generic scale accessor — use for any registered scale without a dedicated function.
@@ -79,12 +80,12 @@
 
 @function om-shadow($key) { @return om-token(shadow, $key); }
 
-@function om-color($key) { @return om-token(color, $key); }
+@function om-color($key) { @error 'om-color() is removed. Use semantic accessors: om-bg(), om-text(), om-icon(), om-border().'; }
 
 @function om-sizing($value) { @return om-token(sizing, $value); }
 
 @function om-component-height($key) {
-  $-value: sizing.om-component-height-token($key);
+  $-value: tokens.om-component-height-token($key);
 
   @return om-token(component-height, $key);
 }
@@ -109,7 +110,7 @@
   $standard-props: (font-size, font-family, line-height, letter-spacing, font-weight);
 
   #{$selector} {
-    @each $category, $sizes in typography.$om-typography-categories {
+    @each $category, $sizes in tokens.$om-typography-categories {
       @each $size, $entry in $sizes {
         @each $prop in $standard-props {
           $val: map.get($entry, $prop);
@@ -140,38 +141,38 @@
 }
 
 @function om-font-size($category, $size) {
-  $-entry: typography.om-typography($category, $size);
+  $-entry: tokens.om-typography($category, $size);
 
   @return var(#{-om-typography-var-name($category, $size, font-size)});
 }
 
 @function om-line-height($category, $size) {
-  $-entry: typography.om-typography($category, $size);
+  $-entry: tokens.om-typography($category, $size);
 
   @return var(#{-om-typography-var-name($category, $size, line-height)});
 }
 
 @function om-font-weight($category, $size) {
-  $-entry: typography.om-typography($category, $size);
+  $-entry: tokens.om-typography($category, $size);
 
   @return var(#{-om-typography-var-name($category, $size, font-weight)});
 }
 
 @function om-font-family($category, $size) {
-  $-entry: typography.om-typography($category, $size);
+  $-entry: tokens.om-typography($category, $size);
 
   @return var(#{-om-typography-var-name($category, $size, font-family)});
 }
 
 @function om-letter-spacing($category, $size) {
-  $-entry: typography.om-typography($category, $size);
+  $-entry: tokens.om-typography($category, $size);
 
   @return var(#{-om-typography-var-name($category, $size, letter-spacing)});
 }
 
 // stylelint-disable order/properties-order -- Mixin emits properties in Figma spec order, not CSS sort order.
 @mixin om-typography($category, $size, $strong: false) {
-  $entry: typography.om-typography($category, $size);
+  $entry: tokens.om-typography($category, $size);
 
   font-size: var(#{-om-typography-var-name($category, $size, font-size)});
   font-family: var(#{-om-typography-var-name($category, $size, font-family)});
@@ -193,7 +194,7 @@
   }
 }
 
-// Semantic color accessors — resolve bg/text/icon/border-s keys to CSS variable references.
+// Semantic color accessors — resolve bg/text/icon/border keys to CSS variable references.
 @function om-bg($group, $variant: null) {
   $key: if($variant, '#{$group}-#{$variant}', $group);
 
@@ -212,10 +213,10 @@
   @return om-token(icon, $key);
 }
 
-@function om-border-s($group, $variant: null) {
+@function om-border($group, $variant: null) {
   $key: if($variant, '#{$group}-#{$variant}', $group);
 
-  @return om-token(border-s, $key);
+  @return om-token(border, $key);
 }
 
 // Semantic spacing aliases — validates allowed keys and resolves to primitive spacing tokens.
@@ -230,13 +231,13 @@
 }
 
 @function om-gap($key) {
-  @return om-spacing(-om-semantic-spacing-token(semantic.$om-gap-scale, $key, '$om-gap-scale'));
+  @return om-spacing(-om-semantic-spacing-token(tokens.$om-gap-scale, $key, '$om-gap-scale'));
 }
 
 @function om-component-padding($key) {
-  @return om-spacing(-om-semantic-spacing-token(semantic.$om-component-padding-scale, $key, '$om-component-padding-scale'));
+  @return om-spacing(-om-semantic-spacing-token(tokens.$om-component-padding-scale, $key, '$om-component-padding-scale'));
 }
 
 @function om-section-padding($key) {
-  @return om-spacing(-om-semantic-spacing-token(semantic.$om-section-padding-scale, $key, '$om-section-padding-scale'));
+  @return om-spacing(-om-semantic-spacing-token(tokens.$om-section-padding-scale, $key, '$om-section-padding-scale'));
 }

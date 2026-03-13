@@ -64,7 +64,7 @@ module.exports = {
 				'om-bg',
 				'om-text',
 				'om-icon',
-				'om-border-s',
+				'om-border',
 				'-om-resolve-typography',
 				'-om-typography-var-name',
 				'-om-is-selector-key',

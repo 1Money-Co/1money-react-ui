@@ -1,6 +1,6 @@
 // Typography token helpers — pure access to the typography scale.
 @use 'sass:map';
-@use './scale' as scale;
+@use './semantic-typography' as scale;
 
 /// Retrieves the property map for a given category and size.
 /// @param {string} $category - Typography category (display, headline, title, body, link, label).

@@ -1,13 +1,7 @@
 // Theme scales — aggregates token scales and defines system feature flags.
 @use 'sass:map';
 @use '../settings' as settings;
-@use '../tokens/color/scale' as color-scale;
-@use '../tokens/color/semantic-color' as semantic;
-@use '../tokens/sizing/scale' as sizing-scale;
-@use '../tokens/sizing/primitives' as sizing-primitives;
-@use '../tokens/spacing' as spacing;
-@use '../tokens/radius' as radius;
-@use '../tokens/shadow' as shadow;
+@use '../tokens' as tokens;
 
 $om-sys-prefix: settings.$om-sys-prefix !default;
 $om-sys-enable-spacing: true !default;
@@ -17,20 +11,19 @@ $om-sys-enable-visual: true !default;
 $om-sys-enable-color: true !default;
 $om-spacing-resolved-scale: () !default;
 
-@each $key, $mult in spacing.$om-spacing-scale {
-  $om-spacing-resolved-scale: map.merge($om-spacing-resolved-scale, ($key: spacing.om-spacing-token($key)));
+@each $key, $mult in tokens.$om-spacing-scale {
+  $om-spacing-resolved-scale: map.merge($om-spacing-resolved-scale, ($key: tokens.om-spacing-token($key)));
 }
 
 $om-theme-scales: (
   spacing: $om-spacing-resolved-scale,
-  radius: radius.$om-radius-scale,
-  shadow: shadow.$om-shadow-scale,
-  color: color-scale.$om-color-scale,
-  sizing: sizing-scale.$om-sizing-scale,
-  component-height: sizing-primitives.$om-component-height-scale,
-  bg: semantic.$om-bg-scale,
-  text: semantic.$om-text-scale,
-  icon: semantic.$om-icon-scale,
-  border-s: semantic.$om-border-s-scale,
+  radius: tokens.$om-radius-scale,
+  shadow: tokens.$om-shadow-scale,
+  sizing: tokens.$om-sizing-scale,
+  component-height: tokens.$om-component-height-scale,
+  bg: tokens.$om-bg-scale,
+  text: tokens.$om-text-scale,
+  icon: tokens.$om-icon-scale,
+  border: tokens.$om-border-scale,
 ) !default;
-$om-theme-css-var-scales: (spacing, radius, shadow, color, bg, text, icon, border-s, component-height) !default;
+$om-theme-css-var-scales: (spacing, radius, shadow, bg, text, icon, border, component-height) !default;
