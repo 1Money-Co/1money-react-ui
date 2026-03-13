@@ -3,5 +3,11 @@
 @use './primitives' as *;
 
 @function om-opacity($key) {
-  @return map.get($om-opacity-scale, $key);
+  $value: map.get($om-opacity-scale, $key);
+
+  @if not $value {
+    @error 'Unknown opacity key "#{$key}". Available: #{map.keys($om-opacity-scale)}';
+  }
+
+  @return $value;
 }
