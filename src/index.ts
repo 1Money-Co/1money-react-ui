@@ -33,6 +33,7 @@ import { Switch } from './components/Switch';
 import { Icons, IconWrapper, IconHover } from './components/Icons';
 import { Clipboard } from './components/Clipboard';
 import { Sidebar, SimplySidebar, Stepper } from './components/Sidebar';
+import { TagBeta } from './components/TagBeta';
 import { Tab } from './components/Tab';
 import { Table } from './components/Table';
 import { Toast } from './components/Toast';
@@ -110,6 +111,8 @@ export { Switch } from './components/Switch';
 export { Icons, IconWrapper, IconHover } from './components/Icons';
 export { Clipboard } from './components/Clipboard';
 export { Sidebar, SimplySidebar, Stepper } from './components/Sidebar';
+export { TagBeta } from './components/TagBeta';
+export type { TagBetaProps } from './components/TagBeta';
 export { Tab } from './components/Tab';
 export { Table } from './components/Table';
 export { Toast } from './components/Toast';
@@ -173,6 +176,7 @@ export default {
   Sidebar,
   SimplySidebar,
   Stepper,
+  TagBeta,
   Tab,
   Table,
   Toast,

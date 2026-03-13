@@ -77,7 +77,7 @@ metadata:
    - If the component accepts an icon, type it as `IconName` (imported from `@/components/Icons`) rather than `string` or `ReactNode`.
 
 8. **Identify Missing States**: Proactively identify states not shown in the design but required:
-   - `disabled` — cursor, opacity, color changes
+   - `disabled` — **must follow the Figma design exactly**. Extract disabled colors, opacity, and cursor styles from the Figma file. Do NOT invent or assume disabled styles (e.g., generic opacity or color dimming) — if the Figma design does not specify a disabled state, ask the user for guidance.
    - `loading` — spinner integration
    - `hover` / `focus` / `active` — interaction states
    - `error` / `warning` / `success` — validation states (if applicable)
@@ -140,7 +140,7 @@ metadata:
 - **Root selector**: `.#{$prefix}-#{$component}` where `$prefix` comes from the api module (`om-react-ui`).
 - **Color variants**: Use the Variant DSL (`om-variant-schema` + `om-variant-default` + `om-variant-classes` with `$default:` param) — see `references/StyleSystemAPI.md` Variant DSL section.
 - **Size variants**: Use `&-{size}` nesting (e.g., `&-medium`, `&-small`).
-- **Disabled state**: Target `.p-disabled` class (PrimeReact convention).
+- **Disabled state**: Target `.p-disabled` class (PrimeReact convention). Styles must match the Figma design — do not invent disabled styles. Extract exact colors, opacity, and cursor values from the design file.
 - **No raw values**: Every color, spacing, radius, shadow, font, and height must use a token function.
 - **No `om-color()`**: This function has been removed and triggers a compile-time error. Use semantic functions (`om-bg`, `om-text`, `om-icon`, `om-border`) for all colors.
 
