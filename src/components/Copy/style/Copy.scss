@@ -14,7 +14,7 @@ $cls: #{$prefix}-#{$component};
     background-color: $color-grey-deep;
   }
 
-  &-success {
-    background-color: $color-success-background;
-  }
+  &.#{$cls}-success {
+  background-color: $color-success-background;
+}
 }

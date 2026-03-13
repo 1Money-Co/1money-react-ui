@@ -5,6 +5,7 @@ export interface CopyProps {
   value: string;
   iconSize?: number;
   color?: string;
+  successColor?: string;
   className?: string;
   prefixCls?: string;
   onSuccess?: (val: string) => void;
