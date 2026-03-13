@@ -19,7 +19,7 @@ export const Clipboard: FC<ClipboardProps> = props => {
         <Typography.Body size='l' className={classes('content-text')}>{ content }</Typography.Body>
         <Copy
           value={content as string}
-          iconSize={20}
+          iconSize={32}
           onSuccess={onSuccess}
           onError={onError}
           className={classes('content-icon')}

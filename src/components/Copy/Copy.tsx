@@ -9,7 +9,7 @@ import type { FC } from 'react';
 import type { CopyProps } from './interface';
 
 export const Copy: FC<CopyProps> = props => {
-  const { value, iconSize = 32, color, className, prefixCls = 'copy', onSuccess, onError } = props;
+  const { value, iconSize = 32, color, successColor = '#1F5800', className, prefixCls = 'copy', onSuccess, onError } = props;
   const classes = classnames(prefixCls);
 
   const [copied, setCopied] = useState(false);
@@ -25,7 +25,7 @@ export const Copy: FC<CopyProps> = props => {
   return <Icons
     name={copied ? 'check' : 'copy'}
     size={iconSize}
-    color={color}
+    color={copied ? (successColor ?? color) : color}
     wrapperCls={classes(void 0, joinCls(
       copied && classes('success'),
       className,
