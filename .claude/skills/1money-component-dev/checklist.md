@@ -8,6 +8,8 @@ Use this checklist to validate every new `@1money/react-ui` component. Walk thro
 - [ ] PrimeReact base component identified (or confirmed "from scratch")
 - [ ] Figma design extracted (if URL provided) — see `references/FigmaExtractionChecklist.md`
 - [ ] All Figma tokens mapped to style system functions — see `references/StyleSystemAPI.md`
+- [ ] All icons matched to existing `Icons` component names (check `src/components/Icons/SVGs.tsx` first)
+- [ ] Missing icons flagged to user (if any icon in the design has no match in `Icons`)
 - [ ] Props interface designed with variant union types
 - [ ] All required states identified (disabled, loading, hover, focus, error, etc.)
 - [ ] Output mode confirmed: `Code` or `Plan`
@@ -48,6 +50,8 @@ Use this checklist to validate every new `@1money/react-ui` component. Walk thro
 - [ ] Spreads `{...rest}` onto PrimeReact base component
 - [ ] Named export: `export const {Name}: FC<...> = props => { ... }`
 - [ ] Default export: `export default memo({Name})`
+- [ ] Icons use `<Icons name="..." />` from `@/components/Icons` (no inline SVGs or external icon libs)
+- [ ] Icon props typed as `IconName` (from `@/components/Icons`) — not `string` or `ReactNode`
 - [ ] No direct DOM manipulation
 - [ ] Constants extracted (no magic strings)
 
@@ -142,4 +146,5 @@ Use this checklist to validate every new `@1money/react-ui` component. Walk thro
 - [ ] Self-review: every SCSS value cross-checked against `StyleSystemAPI.md` / `SemanticColors.md`
 - [ ] Self-review: file structure and code patterns cross-checked against `ComponentPatterns.md`
 - [ ] Self-review: no raw hex, px (for tokens), or font-family values in SCSS
+- [ ] Self-review: no inline SVGs or external icon libraries — all icons use `<Icons name="..." />`
 - [ ] Self-review: no anti-patterns present (see SKILL.md Anti-Patterns section)

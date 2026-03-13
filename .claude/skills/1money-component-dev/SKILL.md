@@ -50,7 +50,14 @@ metadata:
 
 4. **Identify PrimeReact Base**: Determine which `primereact/*` component to wrap. Check the [PrimeReact documentation](https://primereact.org/) for available components and their props. If no suitable PrimeReact base exists, build from scratch using native HTML elements.
 
-5. **Map Design Tokens**: Using `references/StyleSystemAPI.md` and `references/SemanticColors.md`, map every visual value from the Figma design to the internal style system:
+5. **Identify Icons**: When the design includes icons, **always check the existing `Icons` component first** (`src/components/Icons/`):
+   - Read `src/components/Icons/SVGs.tsx` to browse all available icon names and their visual descriptions.
+   - Match Figma icon assets to existing `IconName` entries by comparing shape/purpose (e.g., a chevron-right in Figma → `chevronRight`, a trash icon → `remove`, a copy icon → `copy`).
+   - Use `<Icons name="..." />` with appropriate `size` and `color` props — do not create inline SVGs or import external icon libraries.
+   - If no matching icon exists, flag it to the user and propose either: (a) adding the new icon to `SVGs.tsx` following the existing pattern, or (b) using the closest available alternative.
+   - Import icons as: `import { Icons } from '@/components/Icons';` and the type as `import type { IconName } from '@/components/Icons';`.
+
+6. **Map Design Tokens**: Using `references/StyleSystemAPI.md` and `references/SemanticColors.md`, map every visual value from the Figma design to the internal style system:
    - Colors -> `om-bg()`, `om-text()`, `om-icon()`, `om-border()` (semantic — preferred for all new components). When a component has multiple color variants, use the Variant DSL with `om-variant-schema($component, $keys...)` to auto-generate the schema, then define a variants map. See `references/StyleSystemAPI.md` for the full Variant DSL reference and `src/styles/README.md` for semantic color token quick-reference tables.
    - Spacing -> `om-spacing()`, `om-gap()`, `om-component-padding()`, `om-section-padding()`
    - Typography -> `@include om-typography(category, size)` (emits `var()` references to `--om-{cat}-{size}-*` CSS custom properties)
@@ -62,13 +69,14 @@ metadata:
    - **No raw hex, px, or font-family values in SCSS** (except `!important` overrides on third-party styles)
    - **Do NOT use `om-color()`** — it has been removed and triggers a compile-time error. Always use semantic color functions instead.
 
-6. **Define Props Interface**: Design the TypeScript interface following `references/ComponentPatterns.md`:
+7. **Define Props Interface**: Design the TypeScript interface following `references/ComponentPatterns.md`:
    - Extend PrimeReact props with `Omit<PrimeXProps, ...>` to remove conflicting props.
    - Add `prefixCls?: string` for class name customization.
    - Use union types for variant props (e.g., `color`, `size`, `variant`).
    - Add `ref` prop with correct element type.
+   - If the component accepts an icon, type it as `IconName` (imported from `@/components/Icons`) rather than `string` or `ReactNode`.
 
-7. **Identify Missing States**: Proactively identify states not shown in the design but required:
+8. **Identify Missing States**: Proactively identify states not shown in the design but required:
    - `disabled` — cursor, opacity, color changes
    - `loading` — spinner integration
    - `hover` / `focus` / `active` — interaction states
@@ -76,7 +84,7 @@ metadata:
 
 ### Phase 3 — Scaffold & Implement
 
-8. **Create All Component Files**: Generate the complete directory following `references/ComponentPatterns.md` and `checklist.md`. The 8 files are:
+9. **Create All Component Files**: Generate the complete directory following `references/ComponentPatterns.md` and `checklist.md`. The 8 files are:
 
    ```
    src/components/{Name}/
@@ -94,7 +102,7 @@ metadata:
 
 ### Phase 4 — Register Exports
 
-9. **Update Library Barrel** (`src/index.ts`):
+10. **Update Library Barrel** (`src/index.ts`):
    - Add `import { {Name} } from './components/{Name}';` to the import block.
    - Add `export { {Name} } from './components/{Name}';` to the named export block.
    - Add `export type { {Name}Props } from './components/{Name}';` for the props type.
@@ -102,7 +110,7 @@ metadata:
 
 ### Phase 5 — Generate Plan (Plan mode only)
 
-10. **Write Plan**: If output mode is `Plan`, invoke `spec-write-plan` to generate a comprehensive implementation plan:
+11. **Write Plan**: If output mode is `Plan`, invoke `spec-write-plan` to generate a comprehensive implementation plan:
     - Save to `docs/plans/YYYY-MM-DD-{name}-component.md`
     - Include one task per file to create
     - Include one task per state to implement
@@ -110,13 +118,13 @@ metadata:
 
 ### Phase 6 — Validate
 
-11. **Lint**: Run `pnpm lint` and fix all errors.
+12. **Lint**: Run `pnpm lint` and fix all errors.
 
-12. **Test**: Run `pnpm test` and ensure snapshot tests pass.
+13. **Test**: Run `pnpm test` and ensure snapshot tests pass.
 
-13. **Storybook**: Verify the component renders correctly in Storybook (`pnpm dev`).
+14. **Storybook**: Verify the component renders correctly in Storybook (`pnpm dev`).
 
-14. **Self-Review** *(mandatory)*: Walk through `checklist.md` item by item. For each section, verify the implementation against the corresponding reference document:
+15. **Self-Review** *(mandatory)*: Walk through `checklist.md` item by item. For each section, verify the implementation against the corresponding reference document:
     - SCSS values against `references/StyleSystemAPI.md` and `references/SemanticColors.md`
     - File structure and code patterns against `references/ComponentPatterns.md`
     - Token mapping completeness against `references/FigmaExtractionChecklist.md` (if Figma was used)
@@ -171,9 +179,19 @@ metadata:
 
 - **Do NOT invoke** the `1money-react-ui` or `figma-1money-codegen` skills during this workflow. This skill is self-contained and already includes all necessary Figma extraction steps and component implementation patterns.
 
+### Icon Rules
+
+- **Reuse first**: Always check existing `Icons` component (`src/components/Icons/SVGs.tsx`) before creating inline SVGs or importing external icon libraries.
+- **Import**: `import { Icons } from '@/components/Icons';` and `import type { IconName } from '@/components/Icons';`.
+- **Usage**: `<Icons name="iconName" size={24} />` — never embed raw `<svg>` elements for icons that already exist.
+- **Icon props**: When a component accepts an icon, type it as `IconName` (not `string` or `ReactNode`). Use `<Icons name={iconProp} />` to render.
+- **Missing icons**: If a needed icon doesn't exist, flag it to the user before adding to `SVGs.tsx`.
+- **Color**: Use the `color` prop on `<Icons>` and bind it to a semantic token via CSS `var()` or pass a style-system value.
+
 ## Anti-Patterns
 
 - Importing from `@1money/react-ui` inside the library itself
+- Using inline SVGs or external icon libraries (e.g., `react-icons`, `lucide-react`) when the icon already exists in the `Icons` component
 - Using `Foundation` tokens or consumer-facing SCSS imports
 - Using `om-sx` mixin in component SCSS (that's for business code layout, not component internals)
 - Using removed `om-color()` (compile-time error) — always use semantic functions (`om-bg`, `om-text`, `om-icon`, `om-border`)
